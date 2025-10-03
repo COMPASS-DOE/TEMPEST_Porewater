@@ -11,7 +11,7 @@
 
 <meta name="author" content="AMP" />
 
-<meta name="date" content="2025-03-20" />
+<meta name="date" content="2025-10-01" />
 
 <title>Porewater pH</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">Porewater pH</h1>
 <h4 class="author">AMP</h4>
-<h4 class="date">2025-03-20</h4>
+<h4 class="date">2025-10-01</h4>
 
 </div>
 
@@ -369,7 +369,10 @@ year2_start = lubridate::as_date(&quot;2023-01-01&quot;)
 year2_stop = lubridate::as_date(&quot;2023-12-31&quot;)
 
 year3_start = lubridate::as_date(&quot;2024-01-01&quot;)
-year3_stop = lubridate::as_date(&quot;2024-12-31&quot;)</code></pre>
+year3_stop = lubridate::as_date(&quot;2024-12-31&quot;)
+
+year4_start = lubridate::as_date(&quot;2025-01-01&quot;)
+year4_stop = lubridate::as_date(&quot;2025-12-31&quot;)</code></pre>
 </div>
 <div id="import-data" class="section level1">
 <h1>Import Data</h1>
@@ -464,16 +467,28 @@ left_join(sample_key_merging, by= c(&quot;plot&quot;,&quot;date&quot;), suffix =
     is.na(evacuation_date) &amp; str_detect(date, &quot;2023-06-17&quot;) ~ as.Date(&quot;2023-06-14&quot;),
     is.na(evacuation_date) &amp; str_detect(date, &quot;2023-07-10&quot;) ~ as.Date(&quot;2023-07-07&quot;),
     is.na(evacuation_date) &amp; str_detect(date, &quot;2023-10-05&quot;) ~ as.Date(&quot;2023-10-02&quot;),
-    TRUE ~ evacuation_date)) %&gt;%
-  filter(datetime &lt; year2_stop &amp; datetime &gt; year2_start) %&gt;%
+    TRUE ~ evacuation_date))
+
+
+porewater_pH_2023 &lt;- porewater_pH %&gt;% filter(datetime &lt; year2_stop &amp; datetime &gt; year2_start) %&gt;%
+  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+ 
+porewater_pH_2024 &lt;- porewater_pH %&gt;% filter(datetime &lt; year3_stop &amp; datetime &gt; year3_start) %&gt;%
   select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
 
-write_csv(porewater_pH, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv&quot;)</code></pre>
-<pre class="r"><code>source_pH &lt;- pH %&gt;%
+write_csv(porewater_pH_2023, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv&quot;)
+write_csv(porewater_pH_2024, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv&quot;)</code></pre>
+<pre class="r"><code>source_pH_2023 &lt;- pH %&gt;%
   filter(grid == &quot;SOURCE&quot;) %&gt;%
   filter(datetime &lt; year2_stop &amp; datetime &gt; year2_start)
 
-write_csv(source_pH, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv&quot;)</code></pre>
+source_pH_2024 &lt;- pH %&gt;%
+  filter(grid == &quot;SOURCE&quot;) %&gt;%
+  filter(datetime &lt; year3_stop &amp; datetime &gt; year3_start)
+
+write_csv(source_pH_2023, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv&quot;)
+
+write_csv(source_pH_2024, &quot;~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2024_L1.csv&quot;)</code></pre>
 </div>
 </div>
 

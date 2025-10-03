@@ -17,7 +17,7 @@ cat("Run Information")
   Date_Run = "07/03/25"
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
-  run_notes = "Has not been run just yet - test for july in june ."
+  run_notes = " "
   
   #file path and name for summary file 
     raw_file_name = "tmp_doc_raw_data_2025/TMP_202507.txt" 
@@ -27,8 +27,8 @@ cat("Run Information")
     processed_file_name = "tmp_doc_processed_data_2025/TMP_PW_DOC_Processed_202507.csv"
 
 #check standard concentrations - Update if running different checks: 
-   chk_std_c = 1
-   chk_std_n = 1
+   chk_std_c = 50
+   chk_std_n = 2
     
 #Log path 
     Log_path = "tmp_doc_raw_data_2025/COMPASS_TMP_TOCTN_QAQClog_2025.csv"
@@ -719,7 +719,7 @@ head(dat_florplot)
 dat_florplot <- dat_florplot %>% 
   mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
                                Plot == 'FW' ~ "Freshwater", 
-                               Plot == 'CTRL' ~ "Control"))
+                               Plot == 'C' ~ "Control"))
 
 
 #Plot data and change colors based on flags to check it: 

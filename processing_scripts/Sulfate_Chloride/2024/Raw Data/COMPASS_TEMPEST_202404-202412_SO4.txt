@@ -1,5 +1,5 @@
 Inj.	Injection Name	Type 	Ret.Time	Amount	Rel.Area 	Area	Height
-No.	Selected Peak:		min	µg/mL	%	µS*min	µS
+No.	Selected Peak:		min	Âµg/mL	%	ÂµS*min	ÂµS
 			CD	CD	CD	CD	CD
 			IC-SO4	IC-SO4	IC-SO4	IC-SO4	IC-SO4
 1	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.

@@ -39,6 +39,9 @@ year2_stop = lubridate::as_date("2023-12-31")
 
 year3_start = lubridate::as_date("2024-01-01")
 year3_stop = lubridate::as_date("2024-12-31")
+
+year4_start = lubridate::as_date("2025-01-01")
+year4_stop = lubridate::as_date("2025-12-31")
 ```
 
 # Import Data
@@ -144,21 +147,32 @@ left_join(sample_key_merging, by= c("plot","date"), suffix = c("", ".fill")) %>%
     is.na(evacuation_date) & str_detect(date, "2023-06-17") ~ as.Date("2023-06-14"),
     is.na(evacuation_date) & str_detect(date, "2023-07-10") ~ as.Date("2023-07-07"),
     is.na(evacuation_date) & str_detect(date, "2023-10-05") ~ as.Date("2023-10-02"),
-    TRUE ~ evacuation_date)) %>%
-  filter(datetime < year2_stop & datetime > year2_start) %>%
+    TRUE ~ evacuation_date))
+
+
+porewater_pH_2023 <- porewater_pH %>% filter(datetime < year2_stop & datetime > year2_start) %>%
+  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+ 
+porewater_pH_2024 <- porewater_pH %>% filter(datetime < year3_stop & datetime > year3_start) %>%
   select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
 
-write_csv(porewater_pH, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
+write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
+write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
 
 ```
 
 ```{r sourcewater pH}
 
-source_pH <- pH %>%
+source_pH_2023 <- pH %>%
   filter(grid == "SOURCE") %>%
   filter(datetime < year2_stop & datetime > year2_start)
 
-write_csv(source_pH, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv")
+source_pH_2024 <- pH %>%
+  filter(grid == "SOURCE") %>%
+  filter(datetime < year3_stop & datetime > year3_start)
 
+write_csv(source_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv")
+
+write_csv(source_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2024_L1.csv")
 ```
 

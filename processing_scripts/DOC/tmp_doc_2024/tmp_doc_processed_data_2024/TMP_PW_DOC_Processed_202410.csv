@@ -1,23 +1,23 @@
 "","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
-"1",NA,NA,NA,15,NA,NA,NA,68.83,5735.83333333333,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 7:22:16 AM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"2",NA,NA,NA,15,NA,NA,NA,27.44,2286.66666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 8:01:42 AM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"3",NA,NA,NA,15,NA,NA,NA,31.81,2650.83333333333,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 8:48:18 AM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"4",NA,NA,NA,15,NA,NA,NA,29.69,2474.16666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 9:33:43 AM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
+"1","COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20241003","20241003",68.83,5735.83333333333,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 7:22:16 AM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,1127,1424,"EDT",10
+"2","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20241003","20241003",27.44,2286.66666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 8:01:42 AM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,948,1415,"EDT",12
+"3","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20241003","20241003",31.81,2650.83333333333,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 8:48:18 AM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,945,1402,"EDT",20
+"4","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20241007","20241007",29.69,2474.16666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 9:33:43 AM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20241003,20241007,1233,1031,"EDT",19
 "5",NA,NA,NA,15,NA,NA,NA,15.02,1251.66666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 10:17:39 AM","The TN went down during this run and there were no peaks for samples, 
     and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
 "6",NA,NA,NA,15,NA,NA,NA,11.55,962.5,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 10:59:44 AM","The TN went down during this run and there were no peaks for samples, 
     and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"7",NA,NA,NA,15,NA,NA,NA,8.778,731.5,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 11:33:54 AM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"8",NA,NA,NA,15,NA,NA,NA,11.84,986.666666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 12:16:18 PM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"9",NA,NA,NA,15,NA,NA,NA,21.63,1802.5,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 12:55:53 PM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"10",NA,NA,NA,15,NA,NA,NA,70.1,5841.66666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 1:34:50 PM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
-"11",NA,NA,NA,15,NA,NA,NA,23.34,1945,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 2:17:49 PM","The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples",NA,NA,NA,NA,NA,NA
+"7","COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20241003","20241003",8.778,731.5,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 11:33:54 AM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,940,1347,"EDT",10
+"8","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20241003","20241003",11.84,986.666666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 12:16:18 PM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,1113,1255,"EDT",20
+"9","COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20241003","20241003",21.63,1802.5,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 12:55:53 PM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,938,1336,"EDT",20
+"10","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20241003","20241003",70.1,5841.66666666667,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 1:34:50 PM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,935,1304,"EDT",21
+"11","COMPASS: TEMPEST","SW","I5",15,"DOC","SW_I5_DOC_20241003","20241003",23.34,1945,"NPOC checks out of range","NA","NA","TN broken, no data","10/13/2024 2:17:49 PM","The TN went down during this run and there were no peaks for samples, 
+    and there was not enough volume to rerun - making TN NAs for these samples",20240930,20241003,936,1326,"EDT",10

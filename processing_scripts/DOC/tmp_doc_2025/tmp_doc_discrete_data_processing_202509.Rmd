@@ -1,11 +1,11 @@
 ---
 title: "COMPASS: TEMPEST Discrete DOC Data QAQC"
-author: "December 2024"
+author: "September 2025"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
 ## Run Information
-```{r, run info}
+```{r}
 
 #identify which section you are in 
 cat("Run Information")
@@ -14,26 +14,24 @@ cat("Run Information")
   #steph will add this soon 
   
 #anything that needs to be changed do this in the first chunk
-  Date_Run = "12/18/24"
+  Date_Run = "07/03/25"
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
-  run_notes = " SW_F4 is SW_F6 changed in this code. Rain water samples also
-    collected, these are output to a separate file in processed data"
+  run_notes = "Run by Watershed Science at SERC, no duplicates included"
   
   #file path and name for summary file 
-    raw_file_name = "tmp_doc_raw_data_2024/TMP_202412.txt" 
+    raw_file_name = "tmp_doc_raw_data_2025/TMP_202509.txt" 
   #file path and name for the all peaks file 
-    raw_allpeaks_name = "tmp_doc_raw_data_2024/TMP_202412_allpeaks.txt"
+    raw_allpeaks_name = "tmp_doc_raw_data_2025/TMP_202509_allpeaks.txt"
   #file path and name for processed data after QAQC
-    processed_file_name = "tmp_doc_processed_data_2024/TMP_PW_DOC_Processed_202412.csv"
-    processed_rain_data = "tmp_doc_processed_data_2024/TMP_RAIN_DOC_Processed_202412.csv"
+    processed_file_name = "tmp_doc_processed_data_2025/TMP_PW_DOC_Processed_202509.csv"
 
 #check standard concentrations - Update if running different checks: 
-   chk_std_c = 50
-   chk_std_n = 2
+   chk_std_c = 30
+   chk_std_n = 2.5
     
 #Log path 
-    Log_path = "tmp_doc_raw_data_2024/COMPASS_TMP_TOCTN_QAQClog_2024.csv"
+    Log_path = "tmp_doc_raw_data_2025/COMPASS_TMP_TOCTN_QAQClog_2025.csv"
 
 ```
 
@@ -94,7 +92,7 @@ anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 #inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=496164093#gid=496164093"
 
-directory= file.path(here() %>% dirname(), 'tmp_doc_2024/tmp_doc_metadata_2024')
+directory= file.path(here() %>% dirname(), 'TEMPEST_Porewater/processing_scripts/DOC/tmp_doc_2025/tmp_doc_metadata_2025')
 if(!dir.exists(directory)){
   stop("Directory does not exist, check directory path")
 }
@@ -159,16 +157,6 @@ dat_raw <- raw_file_name %>%
   filter(grepl("TMP", sample_name)) %>% # filter to TMP samples only
   bind_rows() 
 
-#new addition just for this month 
-#we have a sample that was labeled incorrectly by accident, but we realized it
-#SW-F4 should be SW-F6, metadata confirm that we did not collect enough water from 
-#F4 for there to be a DOC sample, but F6 got a full compliment and there was no DOC sample
-#we have determined that F4 is therefore F6 and that is changed here 
-
-dat_raw <- dat_raw %>%
-  mutate(sample_name = ifelse(sample_name == "TMP_SW_F4_20241213", 
-                              "TMP_SW_F6_20241213", sample_name))
-
 head(dat_raw)
 ```
 
@@ -182,7 +170,7 @@ cat("Assess the Standard Curve")
 #filter standards out of the raw data 
 stds_all <- raw_allpeaks_name %>% 
   map_df(read_curve) %>% 
-  filter(grepl("CalCurve", sample_name)) %>% 
+  filter(grepl("Cal", sample_name)) %>% 
   dplyr::rename(
         standard_C_ppm = npoc_raw,
         standard_N_ppm = tdn_raw) %>%
@@ -265,19 +253,19 @@ C_stds_plot <- ggplot(stds_C, aes(x = standard_C_ppm, y = area)) +
   geom_point(size = 3) +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +
   facet_wrap(~ run_date) +
-  geom_text(
-    data = r2_labels_c,
-    aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
-    inherit.aes = FALSE,
-    hjust = 1, vjust = 1,
-    size = 4
-  ) +
   labs(
     title = "NPOC Std Curve by Date",
     x = "Carbon Standard Concentration (ppm)",
     y = "Peak Area"
   ) +
   theme_bw()
+    #geom_text(
+    #data = r2_labels_c,
+    #aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
+    #inherit.aes = FALSE,
+    #hjust = 1, vjust = 1,
+    #size = 4
+  #) +
 
 C_stds_plot
 
@@ -286,13 +274,13 @@ N_stds_plot <- ggplot(stds_N, aes(x = standard_N_ppm, y = area)) +
   geom_point(size = 3) +
   geom_smooth(method = "lm", se = FALSE, color = "purple") +
   facet_wrap(~ run_date) +
-    geom_text(
-    data = r2_labels_n,
-    aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
-    inherit.aes = FALSE,
-    hjust = 1, vjust = 1,
-    size = 4
-  ) +
+    #geom_text(
+    #data = r2_labels_n,
+    #aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
+    #inherit.aes = FALSE,
+    #hjust = 1, vjust = 1,
+    #size = 4
+  #) +
   labs(
     title = "TN Std Curve by Date",
     x = "Nitrogen Standard Concentration (ppm)",
@@ -529,8 +517,237 @@ if (n_blks_percent <= chks_flag) {  # assuming you have tn_chks_percent similarl
 
 \newpage
 
-## Assess Duplicates - if there are any 
-```{r Check Duplicates, echo=FALSE}
+## Sample Flagging   
+```{r Sample Flagging, echo=FALSE}
+
+cat("Sample Flagging")
+
+#Flagging data if the concentration is outside the standards range and based on blanks
+dat_flagged <- dat_raw %>%
+  mutate(
+    npoc_flag = if_else(
+      npoc_raw > top_std_c,
+      if_else(
+        npoc_flag != "" & !is.na(npoc_flag),
+        paste0(npoc_flag, "; value above cal curve"),
+        "value above cal curve"
+      ),
+      npoc_flag
+    ),
+    npoc_flag = if_else(
+      blk_avg_c > 0.25 * npoc_raw,
+      if_else(
+        npoc_flag != "" & !is.na(npoc_flag),
+        paste0(npoc_flag, "; blank is ≥ 25% of sample value"),
+        "blank is ≥ 25% of sample value"
+      ),
+      npoc_flag
+    ),
+
+    tdn_flag = if_else(
+      tdn_raw > top_std_n,
+      if_else(
+        tdn_flag != "" & !is.na(tdn_flag),
+        paste0(tdn_flag, "; value above cal curve"),
+        "value above cal curve"
+      ),
+      tdn_flag
+    ),
+    tdn_flag = if_else(
+      blk_avg_n > 0.25 * tdn_raw,
+      if_else(
+        tdn_flag != "" & !is.na(tdn_flag),
+        paste0(tdn_flag, "; blank is ≥ 25% of sample value"),
+        "blank is ≥ 25% of sample value"
+      ),
+      tdn_flag
+    )
+  )
+
+#lets make a dataframe with just the concentration flag for plotting 
+dat_flag_viz <- dat_raw %>% 
+  mutate(npoc_flag = case_when(npoc_raw > top_std_c ~ "value above cal curve",
+            blk_avg_c > 0.25*npoc_raw ~ "blank is ≥ 25% of sample value"), # flagging if blank concentration is > 20% of the sample concentration
+            #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
+    
+        tdn_flag = case_when(tdn_raw > top_std_n ~ "value above cal curve",
+            blk_avg_n > 0.25*tdn_raw ~ "blank is ≥ 25% of sample value") #, # flagging if blank concentration is > 25% of the sample concentration
+          #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
+ )
+
+dat_flag_viz <- dat_flag_viz %>% 
+  mutate(rep = row_number())
+
+#Plot data and change colors based on flags to check it: 
+c_samples_flag <-  ggplot(data = dat_flag_viz, aes(x = sample_name, y = npoc_raw, fill=npoc_flag)) +
+       geom_bar(stat = 'identity') + 
+        scale_fill_manual(values=c("red", "orange"))+
+        theme_classic() + labs(x= " ", y="C (mg/L)", title="C: Grey = Within Range of Curve") + 
+        theme(legend.position="none")  +
+        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
+
+
+n_samples_flag <-  ggplot(data = dat_flag_viz, aes(x = sample_name, y = tdn_raw, fill=tdn_flag)) +
+       geom_bar(stat = 'identity') + 
+        scale_fill_manual(values=c("red", "orange"))+
+        theme_classic() + labs(x= " ", y="N (mg/L)", title="N: Grey = Within Range of Curve") + 
+        theme(legend.position="none")  +
+        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
+
+#ggarrange(c_samples_flag, n_samples_flag, nrow=1, ncol=2)
+print(c_samples_flag)
+print(n_samples_flag)
+
+```
+
+\newpage
+
+## Visualize Data by Plot   
+```{r Visualize Data, echo=FALSE}
+
+cat("Visualize Data")
+
+#Plot samples to get a first look at concentrations (sanity check)
+IDs <- data.frame(do.call('rbind', strsplit(as.character(dat_flagged$sample_name),'_',fixed=TRUE)))
+colnames(IDs) <- c("Site_Code" ,"Plot", "Grid_Square",  "Date")
+head(IDs)
+
+#rejoin them to the dataframe
+dat_florplot <- cbind(IDs, dat_flagged)
+head(dat_florplot)
+
+dat_florplot <- dat_florplot %>% 
+  mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
+                               Plot == 'FW' ~ "Freshwater", 
+                               Plot == 'C' ~ "Control"))
+
+
+#Plot data and change colors based on flags to check it: 
+viz_c_plot <-  ggplot(data = dat_florplot, aes(x = Grid_Square, y = npoc_raw, fill=Plot_name)) +
+       geom_bar(stat = 'identity') + 
+        facet_grid(~Plot_name, scales="free_x") + 
+        #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
+        scale_fill_manual(values = c("Control" = "springgreen2", "Freshwater" = "cyan2",
+                                      "Saltwater" = "violetred2")) +
+        theme_classic() + labs(x= " ", y="NPOC (mg/L)", title="Carbon by Plot") + 
+        theme(legend.position="none") 
+
+
+viz_n_plot <-  ggplot(data = dat_florplot, aes(x = Grid_Square, y = tdn_raw, fill=Plot_name)) +
+       geom_bar(stat = 'identity') + 
+        facet_grid(~Plot_name, scales="free_x") +
+        #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
+        scale_fill_manual(values = c("Control" = "springgreen2", "Freshwater" = "cyan2",
+                                      "Saltwater" = "violetred2")) + 
+        theme_classic() + labs(x= " ", y="TN (mg/L)", title="Nitrogen by Plot") + 
+        theme(legend.position="none") 
+
+#ggarrange(viz_c_plot, viz_n_plot, nrow=1, ncol=2)
+print(viz_c_plot)
+print(viz_n_plot)
+
+```
+
+\newpage
+
+## Convert data from mg/L to uMoles/L 
+```{r, Unit Conversion, include=FALSE}
+
+#convert npoc and tdn from mg/L to uMoles/L 
+dat_flagged <- dat_flagged %>%
+  mutate(
+    npoc_uM = (((as.numeric(dat_flagged$npoc_raw))/Con1)/mw_c)*Con2, 
+    tdn_uM = (((as.numeric(dat_flagged$tdn_raw))/Con1)/mw_n)*Con2
+  )
+
+```
+
+## Add in/check metadata 
+```{r, check sample ids with metadata, echo=FALSE}
+
+cat("Check Sample IDs with Metadata")
+
+sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
+  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT) %>%
+  mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
+  filter(sample_type == "DOC") #filter to just DOC samples
+
+samples_collected <- sample_collected_metadata %>%
+  #note sample names are not entered in the sheets the same way: DOC data entered time_plot_grid; metadata entered plot_grid_date
+  mutate(plot = stringr::str_extract(Vial_ID, 'SW|FW|C'),
+         grid = stringr::str_extract(Vial_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         date = stringr::str_extract(Vial_ID, "[0-9]{8}"),
+         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date )) 
+
+# Clean up the data to make sure it will match the metadata file 
+dat_flagged <- dat_flagged %>%
+  mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
+  # Remove rows where sample_name ends with "_dup"
+  filter(!str_detect(sample_name, "_dup$"))
+
+#check if metadata was recorded for each of the samples run 
+dat_flagged %>%
+  mutate(metadata_recorded = case_when(
+    sample_name %in% samples_collected$sample_name ~ TRUE,
+    TRUE ~ FALSE
+  )) %>%
+  select(sample_name, metadata_recorded) %>%
+  print()
+
+#join in the metadata to the data 
+merged_data <- dat_flagged %>%
+  left_join(samples_collected, by = "sample_name")
+
+```
+
+## Export Processed Data  
+```{r, Export Processed Data, echo=FALSE}
+
+cat("Export Processed Data")
+
+#Prepare data to be exported - if there is anything else to add 
+#Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
+  #example read in sample IDs list and merge 
+  #create required ID columns in R, etc. 
+final_data <- merged_data %>% 
+  #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
+  mutate(
+    #Project = "COMPASS",   # new column with same value on every row
+    #Experiment = "TEMPEST",
+    Depth_cm = 15,
+    Run_notes = run_notes     # new column with notes about the run
+  ) 
+
+#this needs altered to match the tempest metadata and clean up 
+final_data <- final_data %>%
+  rename(
+    npoc_mgL = npoc_raw, 
+    tdn_mgL = tdn_raw,
+    Analysis_runtime = run_datetime, 
+    # add more rename pairs as needed
+  ) %>%
+  select(
+    Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
+    npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
+    Run_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
+    # list columns in the order you want them
+  )
+
+head(final_data)
+
+#will put final data in processed data folder 
+  write.csv(final_data, processed_file_name)
+
+
+```
+
+#end
+
+
+## Assess Duplicates - NO DUPLICATES ON THIS RUN 
+```{#r Check Duplicates, echo=FALSE}
 
 cat("Assess Duplicates")
 
@@ -627,288 +844,3 @@ if (n_dups_percent <= chks_flag) {  # assuming you have tn_chks_percent similarl
 
 ```
 
-\newpage
-
-## Sample Flagging   
-```{r Sample Flagging, echo=FALSE}
-
-cat("Sample Flagging")
-
-#Flagging data if the concentration is outside the standards range and based on blanks
-dat_flagged <- dat_raw %>%
-  mutate(
-    npoc_flag = if_else(
-      npoc_raw > top_std_c,
-      if_else(
-        npoc_flag != "" & !is.na(npoc_flag),
-        paste0(npoc_flag, "; value above cal curve"),
-        "value above cal curve"
-      ),
-      npoc_flag
-    ),
-    npoc_flag = if_else(
-      blk_avg_c > 0.25 * npoc_raw,
-      if_else(
-        npoc_flag != "" & !is.na(npoc_flag),
-        paste0(npoc_flag, "; blank is ≥ 25% of sample value"),
-        "blank is ≥ 25% of sample value"
-      ),
-      npoc_flag
-    ),
-
-    tdn_flag = if_else(
-      tdn_raw > top_std_n,
-      if_else(
-        tdn_flag != "" & !is.na(tdn_flag),
-        paste0(tdn_flag, "; value above cal curve"),
-        "value above cal curve"
-      ),
-      tdn_flag
-    ),
-    tdn_flag = if_else(
-      blk_avg_n > 0.25 * tdn_raw,
-      if_else(
-        tdn_flag != "" & !is.na(tdn_flag),
-        paste0(tdn_flag, "; blank is ≥ 25% of sample value"),
-        "blank is ≥ 25% of sample value"
-      ),
-      tdn_flag
-    )
-  )
-
-#lets make a dataframe with just the concentration flag for plotting 
-dat_flag_viz <- dat_raw %>% 
-  mutate(npoc_flag = case_when(npoc_raw > top_std_c ~ "value above cal curve",
-            blk_avg_c > 0.25*npoc_raw ~ "blank is ≥ 25% of sample value"), # flagging if blank concentration is > 20% of the sample concentration
-            #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
-    
-        tdn_flag = case_when(tdn_raw > top_std_n ~ "value above cal curve",
-            blk_avg_n > 0.25*tdn_raw ~ "blank is ≥ 25% of sample value") #, # flagging if blank concentration is > 25% of the sample concentration
-          #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
- )
-
-dat_flag_viz <- dat_flag_viz %>% 
-  mutate(rep = row_number())
-
-#Plot data and change colors based on flags to check it: 
-c_samples_flag <-  ggplot(data = dat_flag_viz, aes(x = sample_name, y = npoc_raw, fill=npoc_flag)) +
-       geom_bar(stat = 'identity') + 
-        scale_fill_manual(values=c("red", "orange"))+
-        theme_classic() + labs(x= " ", y="C (mg/L)", title="C: Grey = Within Range of Curve") + 
-        theme(legend.position="none")  +
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-
-n_samples_flag <-  ggplot(data = dat_flag_viz, aes(x = sample_name, y = tdn_raw, fill=tdn_flag)) +
-       geom_bar(stat = 'identity') + 
-        scale_fill_manual(values=c("red", "orange"))+
-        theme_classic() + labs(x= " ", y="N (mg/L)", title="N: Grey = Within Range of Curve") + 
-        theme(legend.position="none")  +
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-#ggarrange(c_samples_flag, n_samples_flag, nrow=1, ncol=2)
-print(c_samples_flag)
-print(n_samples_flag)
-
-```
-
-\newpage
-
-## Visualize Data by Plot   
-```{r Visualize Data, echo=FALSE}
-
-cat("Visualize Data")
-
-#Plot samples to get a first look at concentrations (sanity check)
-IDs <- data.frame(do.call('rbind', strsplit(as.character(dat_flagged$sample_name),'_',fixed=TRUE)))
-colnames(IDs) <- c("Site_Code" , "Plot", "Grid_Square", "Date", "Extra")
-head(IDs)
-
-#rejoin them to the dataframe
-dat_florplot <- cbind(IDs, dat_flagged)
-head(dat_florplot)
-
-dat_florplot <- dat_florplot %>% 
-  mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
-                               Plot == 'FW' ~ "Freshwater", 
-                               Plot == 'CTRL' ~ "Control"))
-
-
-#Plot data and change colors based on flags to check it: 
-viz_c_plot <-  ggplot(data = dat_florplot, aes(x = Grid_Square, y = npoc_raw, fill=Plot_name)) +
-       geom_bar(stat = 'identity') + 
-        facet_grid(~Plot_name, scales="free_x") + 
-        #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
-        scale_fill_manual(values = c("Control" = "springgreen2", "Freshwater" = "cyan2",
-                                      "Saltwater" = "violetred2")) +
-        theme_classic() + labs(x= " ", y="NPOC (mg/L)", title="Carbon by Plot") + 
-        theme(legend.position="none") 
-
-
-viz_n_plot <-  ggplot(data = dat_florplot, aes(x = Grid_Square, y = tdn_raw, fill=Plot_name)) +
-       geom_bar(stat = 'identity') + 
-        facet_grid(~Plot_name, scales="free_x") +
-        #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
-        scale_fill_manual(values = c("Control" = "springgreen2", "Freshwater" = "cyan2",
-                                      "Saltwater" = "violetred2")) + 
-        theme_classic() + labs(x= " ", y="TN (mg/L)", title="Nitrogen by Plot") + 
-        theme(legend.position="none") 
-
-#ggarrange(viz_c_plot, viz_n_plot, nrow=1, ncol=2)
-print(viz_c_plot)
-print(viz_n_plot)
-
-```
-
-\newpage
-
-## Convert data from mg/L to uMoles/L 
-```{r, Unit Conversion, include=FALSE}
-
-#convert npoc and tdn from mg/L to uMoles/L 
-dat_flagged <- dat_flagged %>%
-  mutate(
-    npoc_uM = (((as.numeric(dat_flagged$npoc_raw))/Con1)/mw_c)*Con2, 
-    tdn_uM = (((as.numeric(dat_flagged$tdn_raw))/Con1)/mw_n)*Con2
-  )
-
-```
-
-## Add in/check metadata 
-```{r, check sample ids with metadata, echo=FALSE}
-
-cat("Check Sample IDs with Metadata")
-
-sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
-  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
-         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT) %>%
-  mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
-  filter(sample_type == "DOC") #filter to just DOC samples
-
-samples_collected <- sample_collected_metadata %>%
-  #note sample names are not entered in the sheets the same way: DOC data entered time_plot_grid; metadata entered plot_grid_date
-  mutate(plot = stringr::str_extract(Vial_ID, 'SW|FW|C'),
-         grid = stringr::str_extract(Vial_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
-         date = stringr::str_extract(Vial_ID, "[0-9]{8}"),
-         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date )) 
-
-# Clean up the data to make sure it will match the metadata file 
-dat_flagged <- dat_flagged %>%
-  mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
-  # Remove rows where sample_name ends with "_dup"
-  filter(!str_detect(sample_name, "_dup$"))
-
-#check if metadata was recorded for each of the samples run 
-dat_flagged %>%
-  mutate(metadata_recorded = case_when(
-    sample_name %in% samples_collected$sample_name ~ TRUE,
-    TRUE ~ FALSE
-  )) %>%
-  select(sample_name, metadata_recorded) %>%
-  print()
-
-#join in the metadata to the data 
-merged_data <- dat_flagged %>%
-  left_join(samples_collected, by = "sample_name")
-
-```
-
-## Export PW Processed Data  
-```{r, Export Processed Data, echo=FALSE}
-
-cat("Export Processed Data")
-
-#Prepare data to be exported - if there is anything else to add 
-#Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
-  #example read in sample IDs list and merge 
-  #create required ID columns in R, etc. 
-final_data <- merged_data %>% 
-  #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
-  mutate(
-    #Project = "COMPASS",   # new column with same value on every row
-    #Experiment = "TEMPEST",
-    Depth_cm = 15,
-    Run_notes = run_notes     # new column with notes about the run
-  ) %>% 
-  filter(!str_detect(sample_name, "Well")) %>%  
-  filter(!str_detect(sample_name, "Rain"))
-
-#this needs altered to match the tempest metadata and clean up 
-final_data <- final_data %>%
-  rename(
-    npoc_mgL = npoc_raw, 
-    tdn_mgL = tdn_raw,
-    Analysis_runtime = run_datetime, 
-    # add more rename pairs as needed
-  ) %>%
-  select(
-    Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
-    npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
-    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
-    # list columns in the order you want them
-  )
-
-head(final_data)
-
-#will put final data in processed data folder 
-  write.csv(final_data, processed_file_name)
-
-
-```
-
-## Export Processed Rain Data  
-```{r, Export Processed Rain Data, echo=FALSE}
-
-cat("Export Processed Rain Data")
-
-#Prepare data to be exported - if there is anything else to add 
-#Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
-  #example read in sample IDs list and merge 
-  #create required ID columns in R, etc. 
-final_data1 <- dat_florplot %>% 
-  filter(str_detect(sample_name, "Rain")) %>%
-  #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
-  mutate(
-    Project = "COMPASS: TEMPEST",
-    sample_type = "DOC",# new column with same value on every row
-    #Experiment = "TEMPEST",
-    #Depth_cm = 15,
-    plot = Plot,
-    Type = Grid_Square,
-    Vial_ID = sample_name,
-    date = Date,
-    Run_notes = run_notes     # new column with notes about the run
-  )  
-  
-#convert npoc and tdn from mg/L to uMoles/L 
-final_data1 <- final_data1 %>%
-  mutate(
-    npoc_uM = (((as.numeric(final_data1$npoc_raw))/Con1)/mw_c)*Con2, 
-    tdn_uM = (((as.numeric(final_data1$tdn_raw))/Con1)/mw_n)*Con2
-  )
-
-#this needs altered to match the tempest metadata and clean up 
-final_data1 <- final_data1 %>%
-  rename(
-    npoc_mgL = npoc_raw, 
-    tdn_mgL = tdn_raw,
-    Analysis_runtime = run_datetime, 
-    # add more rename pairs as needed
-  ) %>%
-  select(
-    Project, plot, Type, sample_type, Vial_ID, date, 
-    npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes
-    # list columns in the order you want them
-  )
-
-head(final_data1)
-
-#will put final data in processed data folder 
-  write.csv(final_data1, processed_rain_data)
-
-
-```
-
-#end

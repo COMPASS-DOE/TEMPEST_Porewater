@@ -1,0 +1,7 @@
+"","Project","plot","Type","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes"
+"1","COMPASS: TEMPEST","CTRL","Rain","DOC","TMP_CTRL_Rain_20241212","20241212",11.05,920.833333333333,"",0.3805,27.1785714285714,"","12/18/2024 11:18:36 AM"," SW_F4 is SW_F6 changed in this code. Rain water samples also
+    collected, these are output to a separate file in processed data"
+"2","COMPASS: TEMPEST","FW","Rain","DOC","TMP_FW_Rain_20241212","20241212",7.418,618.166666666667,"",0.5626,40.1857142857143,"","12/18/2024 11:45:14 AM"," SW_F4 is SW_F6 changed in this code. Rain water samples also
+    collected, these are output to a separate file in processed data"
+"3","COMPASS: TEMPEST","SW","Rain","DOC","TMP_SW_Rain_20241212","20241212",10.26,855,"",0.4637,33.1214285714286,"","12/18/2024 12:14:38 PM"," SW_F4 is SW_F6 changed in this code. Rain water samples also
+    collected, these are output to a separate file in processed data"

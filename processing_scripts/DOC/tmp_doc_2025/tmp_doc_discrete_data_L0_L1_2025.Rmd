@@ -7,9 +7,9 @@ output: html_document
 
 This file imports files from generates a yearly DOC/TN data file at L1. 
 Outputs from this script are:
-1) one L1 file per year per sample type (Lysimeter grids, pooled, source waters) steph did already 
+1) one L1 file per year per sample type (Lysimeter grids, pooled, source waters)
 2) weighted DOC values of pooled samples for SPE 
-3) add in collection level metadata (evacuation dates etc) steph did already 
+3) add in collection level metadata (evacuation dates etc)
 
 File naming: SITE_SAMPLETYPE_ORG_ANALYSISTYPE_YEAR_LEVEL.csv 
 Include ORG only if applicable 
@@ -27,24 +27,25 @@ getwd()
 # one L1 file per year per sample type (Lysimeter grids, pooled, source waters)
 
 
-### 2024 
-```{r read in 2024}
+### 2025 
+```{r read in 2025}
 
-folder_2024 <- "../tmp_doc_2024/tmp_doc_processed_data_2024/"
+folder_2025 <- "../tmp_doc_2025/tmp_doc_processed_data_2025/"
 
-files_2024 <- list.files(path = folder_2024, pattern = "*.csv", full.names = TRUE)
+files_2025 <- list.files(path = folder_2025, pattern = "*.csv", full.names = TRUE)
 
-all_2024 <- bind_rows(lapply(files_2024, 
+all_2025 <- bind_rows(lapply(files_2025, 
                              function(file){
                                read_csv(file) %>%
                                  mutate(file_name = basename(file))
                              }))
 
-View(all_2024)
+View(all_2025)
 ```
+#### need to add in something about checking notes / flags for obvious removals if necessary.
 
 ```{r clean and export}
-clean_2024 <- all_2024 %>%
+clean_2025 <- all_2025 %>%
   mutate(plot = case_when(plot == "FW" ~ "Freshwater",
                           plot == "C" ~ "Control",
                           plot == "SW" ~ "Saltwater",
@@ -76,9 +77,11 @@ clean_2024 <- all_2024 %>%
          tdn_mg_l = tdn_mgL,
          doc_flag = npoc_flag) %>%
   select(date, Project, plot, grid, sample_name, evacuation_datetime, collection_datetime, tz, doc_mg_l, tdn_mg_l, doc_flag, tdn_flag)
-  ## Note, talk to steph if we want to include the mM or not of DOC -- keep for ESS-DIVE 
-  # Also discuss if we want to code in the "lysimeter empty" flag for samples without DOC concentrations  -
+  ## Note, talk to steph if we want to include the mM or not of DOC
+  # Also discuss if we want to code in the "lysimeter empty" flag for samples without DOC concentrations 
+
+View(clean_2025)
   
-write_csv(clean_2024, paste0(folder_2024, "01_TMP_PW_NPOCTDN_2024_L1.csv") )#note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
+write_csv(clean_2025, paste0(folder_2025, "01_TMP_PW_NPOCTDN_2025_L1.csv") ) #note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
 
 ```

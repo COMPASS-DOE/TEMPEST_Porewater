@@ -19,6 +19,7 @@ cat("Run Information")
   Script_run_by = "Stephanie J. Wilson"
   run_notes = "The TN went down during this run and there were no peaks for samples, 
     and there was not enough volume to rerun - making TN NAs for these samples"
+  #waiting to hear about samples from SW that don't have metadata 
   
   #file path and name for summary file 
     raw_file_name = "tmp_doc_raw_data_2024/TMP_202410.txt" 
@@ -256,7 +257,7 @@ C_stds_plot <- ggplot(stds_C, aes(x = standard_C_ppm, y = area)) +
   facet_wrap(~ run_date) +
   geom_text(
     data = r2_labels_c,
-    aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
+    aes(x = x_pos, y = y_pos, label = paste0("R^2 = ", r_squared)),
     inherit.aes = FALSE,
     hjust = 1, vjust = 1,
     size = 4
@@ -277,7 +278,7 @@ N_stds_plot <- ggplot(stds_N, aes(x = standard_N_ppm, y = area)) +
   facet_wrap(~ run_date) +
     geom_text(
     data = r2_labels_n,
-    aes(x = x_pos, y = y_pos, label = paste0("R² = ", r_squared)),
+    aes(x = x_pos, y = y_pos, label = paste0("R^2 = ", r_squared)),
     inherit.aes = FALSE,
     hjust = 1, vjust = 1,
     size = 4
@@ -516,105 +517,6 @@ if (n_blks_percent <= chks_flag) {  # assuming you have tn_chks_percent similarl
 
 ```
 
-\newpage
-
-## Assess Duplicates - No duplicates 
-```{#r Check Duplicates, echo=FALSE}
-
-cat("Assess Duplicates")
-
-#Take a look at the raw data 
-  #head(dat_raw)
-
-#pull out any rows that have "dup" in the sample_name column
-dups <- dat_raw %>%  
-  select(!c(npoc_flag, tdn_flag)) %>%
-  filter(str_detect(sample_name, "dup"))      #have to change this to match data
-
-#create a new dataframe and remove dups from sample dataframe 
-dat_raw2 <- dat_raw %>%  
-  filter(!str_detect(sample_name, "dup")) 
-
-#remove the dup from these IDs so we will have duplicate sample names
-dups$sample_name<-gsub("_dup","",as.character(dups$sample_name))
-dups <- dups[ ,-c(4)] #remove the run date time for 
-colnames(dups) <- c('sample_name', 'npoc_raw_dup', "tdn_raw_dup")
-head(dups)
-
-QAdups <- merge(dat_raw2, dups)
-head(QAdups)
-
-df2 <- as.data.frame(QAdups$npoc_raw)
-df2$dups <- QAdups$npoc_raw_dup
-
-df2$sds <- apply(df2,1,sd)
-df2$mean <- apply(df2, 1, mean)
-
-QAdups$npoc_dups_cv <- (df2$sds/df2$mean) * 100
-QAdups$npoc_dups_cv_flag <-  ifelse(QAdups$npoc_dups_cv <10, 'YES', 'NO, rerun')
-
-df3 <- as.data.frame(QAdups$tdn_raw)
-df3$dups <- QAdups$tdn_raw_dup
-
-df3$sds <- apply(df3,1,sd)
-df3$mean <- apply(df3, 1, mean)
-
-QAdups$tdn_dups_cv <- (df3$sds/df3$mean) * 100
-QAdups$tdn_dups_cv_flag <-  ifelse(QAdups$tdn_dups_cv <10, 'YES', 'NO, rerun')
-
-head(QAdups)
-
-#plot dups output as a bar graph to easily check - want any over 10% to be red need to work on this 
-C_dups <- ggplot(data =QAdups, aes(x =sample_name, y =npoc_dups_cv, fill=npoc_dups_cv_flag)) +
-       geom_bar(stat = 'identity') + 
-        theme_classic() + labs(x= "Sample ID", y="CV of NPOC Dups (%)") + 
-        scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "red")) +
-        theme(legend.position="none") +  geom_hline(yintercept=10, linetype="dashed", 
-                color = "black", size=1)  + 
-              guides(fill=guide_legend(title="CV Between Dups <10%")) +
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-
-N_dups <- ggplot(data =QAdups, aes(x =sample_name, y =tdn_dups_cv, fill=tdn_dups_cv_flag)) +
-       geom_bar(stat = 'identity') + 
-        theme_classic() + labs(x= "Sample ID", y="CV of TN Dups (%)") + 
-          scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "red")) +
-        theme(legend.position="none") +  geom_hline(yintercept=10, linetype="dashed", 
-                color = "black", size=1) + 
-              guides(fill=guide_legend(title="CV Between Dups <10%"))+
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-ggarrange(C_dups, N_dups,ncol=2, nrow=1)
-
-
-#calculate the percent of check standards that are within the range based on the flag 
-c_dups_percent <- (sum(QAdups$npoc_dups_cv_flag == "YES")/nrow(QAdups))*100
-n_dups_percent <- (sum(QAdups$tdn_dups_cv_flag == "YES")/nrow(QAdups))*100
-
-#report out if flags indicate need for rerun
-ifelse(c_dups_percent >= chks_flag, ">60% of Carbon Duplicates have a CV <10%",
-       "<60% of Carbon Duplicates have a CB <10% - REASSESS")
-ifelse(n_dups_percent >= chks_flag, ">60% of Nitrogen Duplicates have a CV <10%",
-       "<60% of Nitrogen Duplicates have a CB <10% - REASSESS")
-
-#write out a flag to the sample dataframe if more than 60% of the dups have CVs out of range 
-if (c_dups_percent <= chks_flag) {
-  dat_raw$npoc_flag <- ifelse(
-    dat_raw$npoc_flag != "",
-    paste0(dat_raw$npoc_flag, "; NPOC dups out of range"),
-    "NPOC dups out of range"
-  )
-}
-
-if (n_dups_percent <= chks_flag) {  # assuming you have tn_chks_percent similarly
-  dat_raw$tdn_flag <- ifelse(
-    dat_raw$tdn_flag != "",
-    paste0(dat_raw$tdn_flag, "; TN dups out of range"),
-    "TN dups out of range"
-  )
-}
-
-```
 
 \newpage
 
@@ -639,8 +541,8 @@ dat_flagged <- dat_raw %>%
       blk_avg_c > 0.25 * npoc_raw,
       if_else(
         npoc_flag != "" & !is.na(npoc_flag),
-        paste0(npoc_flag, "; blank is ≥ 25% of sample value"),
-        "blank is ≥ 25% of sample value"
+        paste0(npoc_flag, "; blank is > 25% of sample value"),
+        "blank is > 25% of sample value"
       ),
       npoc_flag
     ),
@@ -658,8 +560,8 @@ dat_flagged <- dat_raw %>%
       blk_avg_n > 0.25 * tdn_raw,
       if_else(
         tdn_flag != "" & !is.na(tdn_flag),
-        paste0(tdn_flag, "; blank is ≥ 25% of sample value"),
-        "blank is ≥ 25% of sample value"
+        paste0(tdn_flag, "; blank is > 25% of sample value"),
+        "blank is > 25% of sample value"
       ),
       tdn_flag
     )
@@ -668,11 +570,11 @@ dat_flagged <- dat_raw %>%
 #lets make a dataframe with just the concentration flag for plotting 
 dat_flag_viz <- dat_raw %>% 
   mutate(npoc_flag = case_when(npoc_raw > top_std_c ~ "value above cal curve",
-            blk_avg_c > 0.25*npoc_raw ~ "blank is ≥ 25% of sample value"), # flagging if blank concentration is > 20% of the sample concentration
+            blk_avg_c > 0.25*npoc_raw ~ "blank is > 25% of sample value"), # flagging if blank concentration is > 20% of the sample concentration
             #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
     
         tdn_flag = case_when(tdn_raw > top_std_n ~ "value above cal curve",
-            blk_avg_n > 0.25*tdn_raw ~ "blank is ≥ 25% of sample value") #, # flagging if blank concentration is > 25% of the sample concentration
+            blk_avg_n > 0.25*tdn_raw ~ "blank is > 25% of sample value") #, # flagging if blank concentration is > 25% of the sample concentration
           #sample_name == "TMP_SW_F4_T3" ~ "incorrect sample naming, cannot resolve"), # if needed and there are issues with sample names
  )
 
@@ -785,8 +687,11 @@ samples_collected <- sample_collected_metadata %>%
 # Clean up the data to make sure it will match the metadata file 
 dat_flagged <- dat_flagged %>%
   mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
+  mutate(sample_name = str_replace(sample_name, "CON", "C")) %>%
   # Remove rows where sample_name ends with "_dup"
-  filter(!str_detect(sample_name, "_dup$"))
+  filter(!str_detect(sample_name, "_dup$")) %>%
+  separate(sample_name, into = c("part1", "date", "part2", "part3"), sep = "_") %>%
+  unite("sample_name", part1, part2, part3, date, sep = "_")
 
 #check if metadata was recorded for each of the samples run 
 dat_flagged %>%
@@ -855,3 +760,104 @@ final_data <- final_data %>%
 ```
 
 #end
+
+\newpage
+
+## Assess Duplicates - No duplicates on this run
+```{#r Check Duplicates, echo=FALSE}
+
+cat("Assess Duplicates")
+
+#Take a look at the raw data 
+  #head(dat_raw)
+
+#pull out any rows that have "dup" in the sample_name column
+dups <- dat_raw %>%  
+  select(!c(npoc_flag, tdn_flag)) %>%
+  filter(str_detect(sample_name, "dup"))      #have to change this to match data
+
+#create a new dataframe and remove dups from sample dataframe 
+dat_raw2 <- dat_raw %>%  
+  filter(!str_detect(sample_name, "dup")) 
+
+#remove the dup from these IDs so we will have duplicate sample names
+dups$sample_name<-gsub("_dup","",as.character(dups$sample_name))
+dups <- dups[ ,-c(4)] #remove the run date time for 
+colnames(dups) <- c('sample_name', 'npoc_raw_dup', "tdn_raw_dup")
+head(dups)
+
+QAdups <- merge(dat_raw2, dups)
+head(QAdups)
+
+df2 <- as.data.frame(QAdups$npoc_raw)
+df2$dups <- QAdups$npoc_raw_dup
+
+df2$sds <- apply(df2,1,sd)
+df2$mean <- apply(df2, 1, mean)
+
+QAdups$npoc_dups_cv <- (df2$sds/df2$mean) * 100
+QAdups$npoc_dups_cv_flag <-  ifelse(QAdups$npoc_dups_cv <10, 'YES', 'NO, rerun')
+
+df3 <- as.data.frame(QAdups$tdn_raw)
+df3$dups <- QAdups$tdn_raw_dup
+
+df3$sds <- apply(df3,1,sd)
+df3$mean <- apply(df3, 1, mean)
+
+QAdups$tdn_dups_cv <- (df3$sds/df3$mean) * 100
+QAdups$tdn_dups_cv_flag <-  ifelse(QAdups$tdn_dups_cv <10, 'YES', 'NO, rerun')
+
+head(QAdups)
+
+#plot dups output as a bar graph to easily check - want any over 10% to be red need to work on this 
+C_dups <- ggplot(data =QAdups, aes(x =sample_name, y =npoc_dups_cv, fill=npoc_dups_cv_flag)) +
+       geom_bar(stat = 'identity') + 
+        theme_classic() + labs(x= "Sample ID", y="CV of NPOC Dups (%)") + 
+        scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "red")) +
+        theme(legend.position="none") +  geom_hline(yintercept=10, linetype="dashed", 
+                color = "black", size=1)  + 
+              guides(fill=guide_legend(title="CV Between Dups <10%")) +
+        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
+
+
+N_dups <- ggplot(data =QAdups, aes(x =sample_name, y =tdn_dups_cv, fill=tdn_dups_cv_flag)) +
+       geom_bar(stat = 'identity') + 
+        theme_classic() + labs(x= "Sample ID", y="CV of TN Dups (%)") + 
+          scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "red")) +
+        theme(legend.position="none") +  geom_hline(yintercept=10, linetype="dashed", 
+                color = "black", size=1) + 
+              guides(fill=guide_legend(title="CV Between Dups <10%"))+
+        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
+
+ggarrange(C_dups, N_dups,ncol=2, nrow=1)
+
+
+#calculate the percent of check standards that are within the range based on the flag 
+c_dups_percent <- (sum(QAdups$npoc_dups_cv_flag == "YES")/nrow(QAdups))*100
+n_dups_percent <- (sum(QAdups$tdn_dups_cv_flag == "YES")/nrow(QAdups))*100
+
+#report out if flags indicate need for rerun
+ifelse(c_dups_percent >= chks_flag, ">60% of Carbon Duplicates have a CV <10%",
+       "<60% of Carbon Duplicates have a CB <10% - REASSESS")
+ifelse(n_dups_percent >= chks_flag, ">60% of Nitrogen Duplicates have a CV <10%",
+       "<60% of Nitrogen Duplicates have a CB <10% - REASSESS")
+
+#write out a flag to the sample dataframe if more than 60% of the dups have CVs out of range 
+if (c_dups_percent <= chks_flag) {
+  dat_raw$npoc_flag <- ifelse(
+    dat_raw$npoc_flag != "",
+    paste0(dat_raw$npoc_flag, "; NPOC dups out of range"),
+    "NPOC dups out of range"
+  )
+}
+
+if (n_dups_percent <= chks_flag) {  # assuming you have tn_chks_percent similarly
+  dat_raw$tdn_flag <- ifelse(
+    dat_raw$tdn_flag != "",
+    paste0(dat_raw$tdn_flag, "; TN dups out of range"),
+    "TN dups out of range"
+  )
+}
+
+```
+
