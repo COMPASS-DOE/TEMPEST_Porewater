@@ -1,498 +1,427 @@
 "","Project","Sample_ID","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
-"1","TMP","TMP_C_H6_20240607_15CM","C","H6","15CM",NA,NA,"PW",5,"20240607",0.00514036182158453,"Within_Range","SO4 checks perc diff out of range",0.0168236953455571,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0011036948,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"1","TMP","TMP_C_H6_20240607_15CM","C","H6","15CM",NA,NA,"PW",5,"20240607",0.00514036182158453,"Within_Range","SO4 checks perc diff out of range",0.0168236953455571,"Within_Range","",0.0011036948,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"2","TMP","TMP_C_H3_20240607_15CM","C","H3","15CM",NA,NA,"PW",5,"20240607",0.00551466001247661,"Within_Range","SO4 checks perc diff out of range",0.0568631875881523,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0036685506,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"2","TMP","TMP_C_H3_20240607_15CM","C","H3","15CM",NA,NA,"PW",5,"20240607",0.00551466001247661,"Within_Range","SO4 checks perc diff out of range",0.0568631875881523,"Within_Range","",0.0036685506,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"3","TMP","TMP_FW_D5_20240607_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240607",0.00800062383031815,"Within_Range","SO4 checks perc diff out of range",0.00818899858956276,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0005505721,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"3","TMP","TMP_FW_D5_20240607_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240607",0.00800062383031815,"Within_Range","SO4 checks perc diff out of range",0.00818899858956276,"Within_Range","",0.0005505721,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"4","TMP","TMP_FW_C6_20240607_15CM","FW","C6","15CM",NA,NA,"PW",5,"20240607",0.5023986275733,"Within_Range","SO4 checks perc diff out of range",0.0372947813822285,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0024150347,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"4","TMP","TMP_FW_C6_20240607_15CM","FW","C6","15CM",NA,NA,"PW",5,"20240607",0.5023986275733,"Within_Range","SO4 checks perc diff out of range",0.0372947813822285,"Within_Range","",0.0024150347,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"5","TMP","TMP_FW_H6_20240607_15CM","FW","H6","15CM",NA,NA,"PW",5,"20240607",0.044451029320025,"Within_Range","SO4 checks perc diff out of range",0.00713399153737659,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0004829903,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"5","TMP","TMP_FW_H6_20240607_15CM","FW","H6","15CM",NA,NA,"PW",5,"20240607",0.044451029320025,"Within_Range","SO4 checks perc diff out of range",0.00713399153737659,"Within_Range","",0.0004829903,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"6","TMP","TMP_FW_I5_20240607_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240607",0.000205864004990643,"Within_Range","SO4 checks perc diff out of range",0.00863469675599436,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0005791227,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"6","TMP","TMP_FW_I5_20240607_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240607",0.000205864004990643,"Within_Range","SO4 checks perc diff out of range",0.00863469675599436,"Within_Range","",0.0005791227,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"7","TMP","TMP_SW_H3_20240607_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240607",0.491088583905178,"Within_Range","SO4 checks perc diff out of range",0.0303159379407616,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0019679829,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"7","TMP","TMP_SW_H3_20240607_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240607",0.491088583905178,"Within_Range","SO4 checks perc diff out of range",0.0303159379407616,"Within_Range","",0.0019679829,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","yellow"
-"8","TMP","TMP_SW_B4_20240607_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240607",0.0681565814098565,"Within_Range","SO4 checks perc diff out of range",0.205968970380818,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0132199912,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"8","TMP","TMP_SW_B4_20240607_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240607",0.0681565814098565,"Within_Range","SO4 checks perc diff out of range",0.205968970380818,"Within_Range","",0.0132199912,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","yellow"
-"9","TMP","TMP_C_H6_20240610_15CM","C","H6","15CM",NA,NA,NA,NA,"20240610",0.00445726762320649,"Within_Range","SO4 checks perc diff out of range",0.0540197461212976,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.003486405,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"9","TMP","TMP_C_H6_20240610_15CM","C","H6","15CM",NA,NA,NA,NA,"20240610",0.00703368683718029,"Within_Range","SO4 checks perc diff out of range",0.0540197461212976,"Within_Range","",0.003486405,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"10","TMP","TMP_FW_D5_20240610_15CM_T0","FW","D5","15CM","T0",NA,"PW",5,"20240610",0.00801621958827199,"Within_Range","SO4 checks perc diff out of range",0.0681382228490832,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0043908085,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"10","TMP","TMP_FW_D5_20240610_15CM_T0","FW","D5","15CM","T0",NA,"PW",5,"20240610",0.00603555832813475,"Within_Range","SO4 checks perc diff out of range",0.0681382228490832,"Within_Range","",0.0043908085,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"11","TMP","TMP_FW_I5_20240610_15CM_T0","FW","I5","15CM","T0",NA,"PW",5,"20240610",0.00193387398627573,"Within_Range","SO4 checks perc diff out of range",0.0344146685472496,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.00223054,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"11","TMP","TMP_FW_I5_20240610_15CM_T0","FW","I5","15CM","T0",NA,"PW",5,"20240610",0,"bdl","SO4 checks perc diff out of range",0.0344146685472496,"Within_Range","",0.00223054,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"12","TMP","TMP_FW_C6_20240610_15CM_T0","FW","C6","15CM","T0",NA,"PW",5,"20240610",0.00618527760449158,"Within_Range","SO4 checks perc diff out of range",0.0199266572637518,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0013024648,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"12","TMP","TMP_FW_C6_20240610_15CM_T0","FW","C6","15CM","T0",NA,"PW",5,"20240610",0.00618527760449158,"Within_Range","SO4 checks perc diff out of range",0.0199266572637518,"Within_Range","",0.0013024648,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"13","TMP","TMP_FW_I5_20240611_15CM_T1","FW","I5","15CM","T1",NA,"PW",5,"20240611",0.131550218340611,"Within_Range","SO4 checks perc diff out of range",0.130662905500705,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.008396024,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"13","TMP","TMP_FW_I5_20240611_15CM_T1","FW","I5","15CM","T1",NA,"PW",5,"20240611",0.131550218340611,"Within_Range","SO4 checks perc diff out of range",0.130662905500705,"Within_Range","",0.008396024,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"14","TMP","TMP_FW_F4_20240611_15CM_T1","FW","F4","15CM","T1",NA,"PW",5,"20240611",0.465049906425452,"Within_Range","SO4 checks perc diff out of range",0.089703808180536,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.00577226,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"14","TMP","TMP_FW_F4_20240611_15CM_T1","FW","F4","15CM","T1",NA,"PW",5,"20240611",0.465049906425452,"Within_Range","SO4 checks perc diff out of range",0.089703808180536,"Within_Range","",0.00577226,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"15","TMP","TMP_FW_D5_20240611_15CM_T1","FW","D5","15CM","T1",NA,"PW",5,"20240611",0.421285090455396,"Within_Range","SO4 checks perc diff out of range",0.07937658674189,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0051107173,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"15","TMP","TMP_FW_D5_20240611_15CM_T1","FW","D5","15CM","T1",NA,"PW",5,"20240611",0.421285090455396,"Within_Range","SO4 checks perc diff out of range",0.07937658674189,"Within_Range","",0.0051107173,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"16","TMP","TMP_FW_C3_20240611_15CM_T1","FW","C3","15CM","T1",NA,"PW",5,"20240611",0.159235807860262,"Within_Range","SO4 checks perc diff out of range",0.170606488011283,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.010954736,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"16","TMP","TMP_FW_C3_20240611_15CM_T1","FW","C3","15CM","T1",NA,"PW",5,"20240611",0.159235807860262,"Within_Range","SO4 checks perc diff out of range",0.170606488011283,"Within_Range","",0.010954736,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"17","TMP","TMP_FW_C6_20240611_15CM_T1","FW","C6","15CM","T1",NA,"PW",5,"20240611",0.139734872114785,"Within_Range","SO4 checks perc diff out of range",0.0854217207334274,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0054979574,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"17","TMP","TMP_FW_C6_20240611_15CM_T1","FW","C6","15CM","T1",NA,"PW",5,"20240611",0.139734872114785,"Within_Range","SO4 checks perc diff out of range",0.0854217207334274,"Within_Range","",0.0054979574,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"18","TMP","TMP_SW_B4_20240611_15CM_T1","SW","B4","15CM","T1",NA,"PW",5,"20240611",7.3221615720524,"Within_Range","SO4 checks perc diff out of range",52.8516332863188,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.3856038528,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"18","TMP","TMP_SW_B4_20240611_15CM_T1","SW","B4","15CM","T1",NA,"PW",5,"20240611",7.3221615720524,"Within_Range","SO4 checks perc diff out of range",52.8516332863188,"Within_Range","",3.3856038528,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"19","TMP","TMP_SW_F6_20240611_15CM_T1","SW","F6","15CM","T1",NA,"PW",5,"20240611",0.784719276356831,"Within_Range","SO4 checks perc diff out of range",6.46275035260931,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.4140178315,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"19","TMP","TMP_SW_F6_20240611_15CM_T1","SW","F6","15CM","T1",NA,"PW",5,"20240611",0.784719276356831,"Within_Range","SO4 checks perc diff out of range",6.46275035260931,"Within_Range","",0.4140178315,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"20","TMP","TMP_FW_I5_20240612_15CM_T2","FW","I5","15CM","T2","AM","PW",5,"20240612",0.183811603243918,"Within_Range","SO4 checks perc diff out of range",0.102014104372355,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0065608348,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"20","TMP","TMP_FW_I5_20240612_15CM_T2","FW","I5","15CM","T2","AM","PW",5,"20240612",0.183811603243918,"Within_Range","SO4 checks perc diff out of range",0.102014104372355,"Within_Range","",0.0065608348,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"21","TMP","TMP_FW_C6_20240612_15CM_T2","FW","C6","15CM","T2","AM","PW",5,"20240612",0.212046163443543,"Within_Range","SO4 checks perc diff out of range",0.259940761636107,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0166773243,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"21","TMP","TMP_FW_C6_20240612_15CM_T2","FW","C6","15CM","T2","AM","PW",5,"20240612",0.212046163443543,"Within_Range","SO4 checks perc diff out of range",0.259940761636107,"Within_Range","",0.0166773243,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"22","TMP","TMP_FW_H3_20240612_15CM_T2","FW","H3","15CM","T2","AM","PW",5,"20240612",0.387960074859638,"Within_Range","SO4 checks perc diff out of range",0.0872722143864598,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0056164966,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"22","TMP","TMP_FW_H3_20240612_15CM_T2","FW","H3","15CM","T2","AM","PW",5,"20240612",0.387960074859638,"Within_Range","SO4 checks perc diff out of range",0.0872722143864598,"Within_Range","",0.0056164966,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"23","TMP","TMP_FW_H6_20240612_15CM_T2","FW","H6","15CM","T2","AM","PW",5,"20240612",0.158718028696195,"Within_Range","SO4 checks perc diff out of range",0.0813483779971791,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0052370266,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"23","TMP","TMP_FW_H6_20240612_15CM_T2","FW","H6","15CM","T2","AM","PW",5,"20240612",0.158718028696195,"Within_Range","SO4 checks perc diff out of range",0.0813483779971791,"Within_Range","",0.0052370266,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"24","TMP","TMP_FW_F4_20240612_15CM_T2","FW","F4","15CM","T2","AM","PW",5,"20240612",0.496453524641297,"Within_Range","SO4 checks perc diff out of range",0.0922708039492243,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.005936697,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"24","TMP","TMP_FW_F4_20240612_15CM_T2","FW","F4","15CM","T2","AM","PW",5,"20240612",0.496453524641297,"Within_Range","SO4 checks perc diff out of range",0.0922708039492243,"Within_Range","",0.005936697,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"25","TMP","TMP_FW_D5_20240612_15CM_T2","FW","D5","15CM","T2","AM","PW",5,"20240612",0.487869619463506,"Within_Range","SO4 checks perc diff out of range",0.097015514809591,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0062406344,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"25","TMP","TMP_FW_D5_20240612_15CM_T2","FW","D5","15CM","T2","AM","PW",5,"20240612",0.487869619463506,"Within_Range","SO4 checks perc diff out of range",0.097015514809591,"Within_Range","",0.0062406344,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"26","TMP","TMP_FW_C3_20240612_15CM_T2","FW","C3","15CM","T2","AM","PW",5,"20240612",0.215826575171553,"Within_Range","SO4 checks perc diff out of range",0.159675599435825,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0102545235,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"26","TMP","TMP_FW_C3_20240612_15CM_T2","FW","C3","15CM","T2","AM","PW",5,"20240612",0.215826575171553,"Within_Range","SO4 checks perc diff out of range",0.159675599435825,"Within_Range","",0.0102545235,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"27","TMP","TMP_FW_E3_20240612_15CM_T2","FW","E3","15CM","T2","AM","PW",5,"20240612",0.0584029943855271,"Within_Range","SO4 checks perc diff out of range",0.0332214386459802,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0021541039,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"27","TMP","TMP_FW_E3_20240612_15CM_T2","FW","E3","15CM","T2","AM","PW",5,"20240612",0.0584029943855271,"Within_Range","SO4 checks perc diff out of range",0.0332214386459802,"Within_Range","",0.0021541039,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"28","TMP","TMP_SW_F6_20240612_15CM_T2","SW","F6","15CM","T2","AM","PW",5,"20240612",4.42987523393637,"Within_Range","SO4 checks perc diff out of range",48.5640789844852,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.1109510562,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"28","TMP","TMP_SW_F6_20240612_15CM_T2","SW","F6","15CM","T2","AM","PW",5,"20240612",4.42987523393637,"Within_Range","SO4 checks perc diff out of range",48.5640789844852,"Within_Range","",3.1109510562,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"29","TMP","TMP_SW_C3_20240612_15CM_T2","SW","C3","15CM","T2","AM","PW",5,"20240612",7.07945726762321,"Within_Range","SO4 checks perc diff out of range",56.5400761636107,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.6218786799,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"29","TMP","TMP_SW_C3_20240612_15CM_T2","SW","C3","15CM","T2","AM","PW",5,"20240612",7.07945726762321,"Within_Range","SO4 checks perc diff out of range",56.5400761636107,"Within_Range","",3.6218786799,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"30","TMP","TMP_SW_H6_20240612_15CM_T2","SW","H6","15CM","T2","AM","PW",5,"20240612",4.91399251403618,"Within_Range","SO4 checks perc diff out of range",34.9479915373766,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",2.2387296841,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"30","TMP","TMP_SW_H6_20240612_15CM_T2","SW","H6","15CM","T2","AM","PW",5,"20240612",4.91399251403618,"Within_Range","SO4 checks perc diff out of range",34.9479915373766,"Within_Range","",2.2387296841,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"31","TMP","TMP_SW_D5_20240612_15CM_T2","SW","D5","15CM","T2","AM","PW",5,"20240612",3.8450998128509,"Within_Range","SO4 checks perc diff out of range",30.2463836389281,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",1.9375533801,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"31","TMP","TMP_SW_D5_20240612_15CM_T2","SW","D5","15CM","T2","AM","PW",5,"20240612",3.8450998128509,"Within_Range","SO4 checks perc diff out of range",30.2463836389281,"Within_Range","",1.9375533801,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"32","TMP","TMP_SW_B4_20240612_15CM_T2","SW","B4","15CM","T2","AM","PW",5,"20240612",10.5729070492826,"Within_Range","SO4 checks perc diff out of range",74.1578787023977,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.7504425176,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"32","TMP","TMP_SW_B4_20240612_15CM_T2","SW","B4","15CM","T2","AM","PW",5,"20240612",10.5729070492826,"Within_Range","SO4 checks perc diff out of range",74.1578787023977,"Within_Range","",4.7504425176,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"33","TMP","TMP_SW_I5_20240612_15CM_T2","SW","I5","15CM","T2","AM","PW",5,"20240612",3.73618839675608,"Within_Range","SO4 checks perc diff out of range",37.1114047954866,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",2.3773139351,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"33","TMP","TMP_SW_I5_20240612_15CM_T2","SW","I5","15CM","T2","AM","PW",5,"20240612",3.73618839675608,"Within_Range","SO4 checks perc diff out of range",37.1114047954866,"Within_Range","",2.3773139351,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"34","TMP","TMP_SW_E3_20240612_15CM_T2","SW","E3","15CM","T2","AM","PW",5,"20240612",3.04402682470368,"Within_Range","SO4 checks perc diff out of range",28.0959294781382,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",1.7997992649,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"34","TMP","TMP_SW_E3_20240612_15CM_T2","SW","E3","15CM","T2","AM","PW",5,"20240612",3.04402682470368,"Within_Range","SO4 checks perc diff out of range",28.0959294781382,"Within_Range","",1.7997992649,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"35","TMP","TMP_FW_H6_20240612_15CM_T3","FW","H6","15CM","T3","PM","PW",5,"20240612",0.182620087336245,"Within_Range","SO4 checks perc diff out of range",0.103007052186178,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0066244412,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"35","TMP","TMP_FW_H6_20240612_15CM_T3","FW","H6","15CM","T3","PM","PW",5,"20240612",0.182620087336245,"Within_Range","SO4 checks perc diff out of range",0.103007052186178,"Within_Range","",0.0066244412,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"36","TMP","TMP_FW_D5_20240612_15CM_T3","FW","D5","15CM","T3","PM","PW",5,"20240612",0.189631940112289,"Within_Range","SO4 checks perc diff out of range",0.152854724964739,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0098175909,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"36","TMP","TMP_FW_D5_20240612_15CM_T3","FW","D5","15CM","T3","PM","PW",5,"20240612",0.189631940112289,"Within_Range","SO4 checks perc diff out of range",0.152854724964739,"Within_Range","",0.0098175909,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"37","TMP","TMP_FW_I5_20240612_15CM_T3","FW","I5","15CM","T3","PM","PW",5,"20240612",0.180995009357455,"Within_Range","SO4 checks perc diff out of range",0.126795486600846,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0081482843,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"37","TMP","TMP_FW_I5_20240612_15CM_T3","FW","I5","15CM","T3","PM","PW",5,"20240612",0.180995009357455,"Within_Range","SO4 checks perc diff out of range",0.126795486600846,"Within_Range","",0.0081482843,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"38","TMP","TMP_FW_F6_20240612_15CM_T3","FW","F6","15CM","T3","PM","PW",5,"20240612",0.179279475982533,"Within_Range","SO4 checks perc diff out of range",0.110499294781382,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0071043804,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"38","TMP","TMP_FW_F6_20240612_15CM_T3","FW","F6","15CM","T3","PM","PW",5,"20240612",0.179279475982533,"Within_Range","SO4 checks perc diff out of range",0.110499294781382,"Within_Range","",0.0071043804,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"39","TMP","TMP_FW_C3_20240612_15CM_T3","FW","C3","15CM","T3","PM","PW",5,"20240612",0.225049906425452,"Within_Range","SO4 checks perc diff out of range",0.13238928067701,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0085066124,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"39","TMP","TMP_FW_C3_20240612_15CM_T3","FW","C3","15CM","T3","PM","PW",5,"20240612",0.225049906425452,"Within_Range","SO4 checks perc diff out of range",0.13238928067701,"Within_Range","",0.0085066124,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"40","TMP","TMP_FW_F4_20240612_15CM_T3","FW","F4","15CM","T3","PM","PW",5,"20240612",0.153870867124142,"Within_Range","SO4 checks perc diff out of range",0.115853314527504,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.007447349,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"40","TMP","TMP_FW_F4_20240612_15CM_T3","FW","F4","15CM","T3","PM","PW",5,"20240612",0.153870867124142,"Within_Range","SO4 checks perc diff out of range",0.115853314527504,"Within_Range","",0.007447349,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"41","TMP","TMP_SW_C3_20240612_15CM_T3","SW","C3","15CM","T3","PM","PW",5,"20240612",9.44897691827823,"Within_Range","SO4 checks perc diff out of range",71.2322256699577,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.5630305968,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"41","TMP","TMP_SW_C3_20240612_15CM_T3","SW","C3","15CM","T3","PM","PW",5,"20240612",9.44897691827823,"Within_Range","SO4 checks perc diff out of range",71.2322256699577,"Within_Range","",4.5630305968,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"42","TMP","TMP_SW_H3_20240612_15CM_T3","SW","H3","15CM",NA,NA,NA,NA,"20240612",8.88670617592015,"Within_Range","SO4 checks perc diff out of range",65.7335796897038,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.2107975078,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"42","TMP","TMP_SW_H3_20240612_15CM_T3","SW","H3","15CM",NA,NA,NA,NA,"20240612",8.88670617592015,"Within_Range","SO4 checks perc diff out of range",65.7335796897038,"Within_Range","",4.2107975078,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"43","TMP","TMP_SW_B4_20240612_15CM_T3","SW","B4","15CM","T3","PM","PW",5,"20240612",11.908780411728,"Within_Range","SO4 checks perc diff out of range",83.6404231311706,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.357876771,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"43","TMP","TMP_SW_B4_20240612_15CM_T3","SW","B4","15CM","T3","PM","PW",5,"20240612",11.908780411728,"Within_Range","SO4 checks perc diff out of range",83.6404231311706,"Within_Range","",5.357876771,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"44","TMP","TMP_SW_E3_20240612_15CM_T3","SW","E3","15CM","T3","PM","PW",5,"20240612",5.0657080474111,"Within_Range","SO4 checks perc diff out of range",43.9368124118477,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",2.81453692,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"44","TMP","TMP_SW_E3_20240612_15CM_T3","SW","E3","15CM","T3","PM","PW",5,"20240612",5.0657080474111,"Within_Range","SO4 checks perc diff out of range",43.9368124118477,"Within_Range","",2.81453692,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"45","TMP","TMP_SW_F6_20240612_15CM_T3","SW","F6","15CM","T3","PM","PW",5,"20240612",7.29957267623206,"Within_Range","SO4 checks perc diff out of range",67.1007926657264,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.2983786417,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"45","TMP","TMP_SW_F6_20240612_15CM_T3","SW","F6","15CM","T3","PM","PW",5,"20240612",7.29957267623206,"Within_Range","SO4 checks perc diff out of range",67.1007926657264,"Within_Range","",4.2983786417,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"46","TMP","TMP_SW_H6_20240612_15CM_T3","SW","H6","15CM","T3","PM","PW",5,"20240612",7.15875545851528,"Within_Range","SO4 checks perc diff out of range",52.0228462623413,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.3325132893,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"46","TMP","TMP_SW_H6_20240612_15CM_T3","SW","H6","15CM","T3","PM","PW",5,"20240612",7.15875545851528,"Within_Range","SO4 checks perc diff out of range",52.0228462623413,"Within_Range","",3.3325132893,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"47","TMP","TMP_FW_C6_20240612_15CM_T3","FW","C6","15CM","T3","PM","PW",5,"20240612",0.377807236431691,"Within_Range","SO4 checks perc diff out of range",0.126984485190409,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0081603912,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"47","TMP","TMP_FW_C6_20240612_15CM_T3","FW","C6","15CM","T3","PM","PW",5,"20240612",0.377807236431691,"Within_Range","SO4 checks perc diff out of range",0.126984485190409,"Within_Range","",0.0081603912,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"48","TMP","TMP_FW_H3_20240612_15CM_T3","FW","H3","15CM","T3","PM","PW",5,"20240612",0.149603867747973,"Within_Range","SO4 checks perc diff out of range",0.0919520451339915,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0059162779,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"48","TMP","TMP_FW_H3_20240612_15CM_T3","FW","H3","15CM","T3","PM","PW",5,"20240612",0.149603867747973,"Within_Range","SO4 checks perc diff out of range",0.0919520451339915,"Within_Range","",0.0059162779,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"49","TMP","TMP_SW_B4_20240613_15CM_T4","SW","B4","15CM","T4","AM","PW",5,"20240613",12.2731066749844,"Within_Range","SO4 checks perc diff out of range",88.3811029619182,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.6615559507,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"49","TMP","TMP_SW_B4_20240613_15CM_T4","SW","B4","15CM","T4","AM","PW",5,"20240613",12.2731066749844,"Within_Range","SO4 checks perc diff out of range",88.3811029619182,"Within_Range","",5.6615559507,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"50","TMP","TMP_SW_D5_20240613_15CM_T4","SW","D5","15CM","T4","AM","PW",5,"20240613",6.49141609482221,"Within_Range","SO4 checks perc diff out of range",53.2389449929478,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.4104143242,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"50","TMP","TMP_SW_D5_20240613_15CM_T4","SW","D5","15CM","T4","AM","PW",5,"20240613",6.49141609482221,"Within_Range","SO4 checks perc diff out of range",53.2389449929478,"Within_Range","",3.4104143242,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"51","TMP","TMP_SW_C3_20240613_15CM_T4","SW","C3","15CM","T4","AM","PW",5,"20240613",10.7420773549595,"Within_Range","SO4 checks perc diff out of range",79.818880112835,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.1130757951,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"51","TMP","TMP_SW_C3_20240613_15CM_T4","SW","C3","15CM","T4","AM","PW",5,"20240613",10.7420773549595,"Within_Range","SO4 checks perc diff out of range",79.818880112835,"Within_Range","",5.1130757951,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"52","TMP","TMP_SW_C6_20240613_15CM_T4","SW","C6","15CM","T4","AM","PW",5,"20240613",3.18127261384903,"Within_Range","SO4 checks perc diff out of range",0,"bdl","Cl dups cv out of range; Cl dups perc diff out of range",2.6e-05,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"52","TMP","TMP_SW_C6_20240613_15CM_T4","SW","C6","15CM","T4","AM","PW",5,"20240613",3.18127261384903,"Within_Range","SO4 checks perc diff out of range",0,"bdl","",2.6e-05,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"53","TMP","TMP_SW_H6_20240613_15CM_T4","SW","H6","15CM","T4","AM","PW",5,"20240613",7.94394884591391,"Within_Range","SO4 checks perc diff out of range",57.5123921015515,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.6841634401,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"53","TMP","TMP_SW_H6_20240613_15CM_T4","SW","H6","15CM","T4","AM","PW",5,"20240613",7.94394884591391,"Within_Range","SO4 checks perc diff out of range",57.5123921015515,"Within_Range","",3.6841634401,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"54","TMP","TMP_SW_E3_20240613_15CM_T4","SW","E3","15CM","T4","AM","PW",5,"20240613",5.05757018091079,"Within_Range","SO4 checks perc diff out of range",42.3961720733427,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",2.7158463501,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"54","TMP","TMP_SW_E3_20240613_15CM_T4","SW","E3","15CM","T4","AM","PW",5,"20240613",5.05757018091079,"Within_Range","SO4 checks perc diff out of range",42.3961720733427,"Within_Range","",2.7158463501,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"55","TMP","TMP_SW_F6_20240613_15CM_T4","SW","F6","15CM","T4","AM","PW",5,"20240613",9.37875233936369,"Within_Range","SO4 checks perc diff out of range",75.4913314527503,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.8358610339,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"55","TMP","TMP_SW_F6_20240613_15CM_T4","SW","F6","15CM","T4","AM","PW",5,"20240613",9.37875233936369,"Within_Range","SO4 checks perc diff out of range",75.4913314527503,"Within_Range","",4.8358610339,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"56","TMP","TMP_SW_I5_20240613_15CM_T4","SW","I5","15CM","T4","AM","PW",5,"20240613",8.7776699937617,"Within_Range","SO4 checks perc diff out of range",75.3559492242595,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.8271886988,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"56","TMP","TMP_SW_I5_20240613_15CM_T4","SW","I5","15CM","T4","AM","PW",5,"20240613",8.7776699937617,"Within_Range","SO4 checks perc diff out of range",75.3559492242595,"Within_Range","",4.8271886988,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ","clear"
-"57","TMP","TMP_FW_H6_20240613_15CM_T4","FW","H6","15CM","T4","AM","PW",5,"20240613",0.179978165938865,"Within_Range","SO4 checks perc diff out of range",0.0985133991537376,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0063365861,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"57","TMP","TMP_FW_H6_20240613_15CM_T4","FW","H6","15CM","T4","AM","PW",5,"20240613",0.179978165938865,"Within_Range","SO4 checks perc diff out of range",0.0985133991537376,"Within_Range","",0.0063365861,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"58","TMP","TMP_FW_H3_20240613_15CM_T4","FW","H3","15CM","T4","AM","PW",5,"20240613",0.181581409856519,"Within_Range","SO4 checks perc diff out of range",0.128138222849083,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0082342975,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"58","TMP","TMP_FW_H3_20240613_15CM_T4","FW","H3","15CM","T4","AM","PW",5,"20240613",0.181581409856519,"Within_Range","SO4 checks perc diff out of range",0.128138222849083,"Within_Range","",0.0082342975,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"59","TMP","TMP_FW_B4_20240613_15CM_T4","FW","B4","15CM","T4","AM","PW",5,"20240613",0.535006238303182,"Within_Range","SO4 checks perc diff out of range",0.0898194640338505,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0057796687,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"59","TMP","TMP_FW_B4_20240613_15CM_T4","FW","B4","15CM","T4","AM","PW",5,"20240613",0.535006238303182,"Within_Range","SO4 checks perc diff out of range",0.0898194640338505,"Within_Range","",0.0057796687,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"60","TMP","TMP_FW_F4_20240613_15CM_T4","FW","F4","15CM","T4","AM","PW",5,"20240613",0.164242046163444,"Within_Range","SO4 checks perc diff out of range",0.102118476727786,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0065675207,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"60","TMP","TMP_FW_F4_20240613_15CM_T4","FW","F4","15CM","T4","AM","PW",5,"20240613",0.164242046163444,"Within_Range","SO4 checks perc diff out of range",0.106527503526093,"Within_Range","",0.0068499548,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"61","TMP","TMP_FW_C3_20240613_15CM_T4","FW","C3","15CM","T4","AM","PW",5,"20240613",0.215502183406114,"Within_Range","SO4 checks perc diff out of range",0.121703808180536,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0078221208,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"61","TMP","TMP_FW_C3_20240613_15CM_T4","FW","C3","15CM","T4","AM","PW",5,"20240613",0.215502183406114,"Within_Range","SO4 checks perc diff out of range",0.116090267983075,"Within_Range","",0.0074625278,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"62","TMP","TMP_FW_I5_20240613_15CM_T4","FW","I5","15CM","T4","AM","PW",5,"20240613",0.172096069868996,"Within_Range","SO4 checks perc diff out of range",0.20257263751763,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0130024284,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"62","TMP","TMP_FW_I5_20240613_15CM_T4","FW","I5","15CM","T4","AM","PW",5,"20240613",0.172096069868996,"Within_Range","SO4 checks perc diff out of range",0.20257263751763,"Within_Range","",0.0130024284,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"63","TMP","TMP_FW_E3_20240613_15CM_T4","FW","E3","15CM","T4","AM","PW",5,"20240613",0.0800218340611354,"Within_Range","SO4 checks perc diff out of range",0.348081805359661,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0223234765,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"63","TMP","TMP_FW_E3_20240613_15CM_T4","FW","E3","15CM","T4","AM","PW",5,"20240613",0.0800218340611354,"Within_Range","SO4 checks perc diff out of range",0.348081805359661,"Within_Range","",0.0223234765,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"64","TMP","TMP_FW_D5_20240613_15CM_T4","FW","D5","15CM","T4","AM","PW",5,"20240613",0.197030567685589,"Within_Range","SO4 checks perc diff out of range",0.118936530324401,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0076448541,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"64","TMP","TMP_FW_D5_20240613_15CM_T4","FW","D5","15CM","T4","AM","PW",5,"20240613",0.197030567685589,"Within_Range","SO4 checks perc diff out of range",0.118936530324401,"Within_Range","",0.0076448541,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"65","TMP","TMP_FW_C6_20240613_15CM_T4","FW","C6","15CM","T4","AM","PW",5,"20240613",0.184588271990019,"Within_Range","SO4 checks perc diff out of range",0.397548660084626,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",0.0254922317,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"65","TMP","TMP_FW_C6_20240613_15CM_T4","FW","C6","15CM","T4","AM","PW",5,"20240613",0.184588271990019,"Within_Range","SO4 checks perc diff out of range",0.397548660084626,"Within_Range","",0.0254922317,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"66","TMP","TMP_SW_D5_20240613_15CM_T5","SW","D5","15CM","T5","PM","PW",5,"20240613",6.20900187149095,"Within_Range","SO4 checks perc diff out of range",53.4857743300423,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",3.4262257549,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"66","TMP","TMP_SW_D5_20240613_15CM_T5","SW","D5","15CM","T5","PM","PW",5,"20240613",6.20900187149095,"Within_Range","SO4 checks perc diff out of range",53.4857743300423,"Within_Range","",3.4262257549,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"67","TMP","TMP_SW_H3_20240613_15CM_T5","SW","H3","15CM","T5","PM","PW",5,"20240613",11.0841297567062,"Within_Range","SO4 checks perc diff out of range",79.42376022567,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.0877651461,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"67","TMP","TMP_SW_H3_20240613_15CM_T5","SW","H3","15CM","T5","PM","PW",5,"20240613",11.0841297567062,"Within_Range","SO4 checks perc diff out of range",79.42376022567,"Within_Range","",5.0877651461,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"68","TMP","TMP_SW_F6_20240613_15CM_T5","SW","F6","15CM","T5","PM","PW",5,"20240613",10.332988147224,"Within_Range","SO4 checks perc diff out of range",78.8717150916784,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.0524021561,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"68","TMP","TMP_SW_F6_20240613_15CM_T5","SW","F6","15CM","T5","PM","PW",5,"20240613",10.332988147224,"Within_Range","SO4 checks perc diff out of range",78.8717150916784,"Within_Range","",5.0524021561,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"69","TMP","TMP_SW_F4_20240613_15CM_T5","SW","F4","15CM","T5","PM","PW",5,"20240613",8.05617280099813,"Within_Range","SO4 checks perc diff out of range",62.4945246826516,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.0033096363,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"69","TMP","TMP_SW_F4_20240613_15CM_T5","SW","F4","15CM","T5","PM","PW",5,"20240613",8.05617280099813,"Within_Range","SO4 checks perc diff out of range",62.4945246826516,"Within_Range","",4.0033096363,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"70","TMP","TMP_SW_H6_20240613_15CM_T5","SW","H6","15CM","T5","PM","PW",5,"20240613",8.40485339987523,"Within_Range","SO4 checks perc diff out of range",63.045952045134,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",4.038633053,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"70","TMP","TMP_SW_H6_20240613_15CM_T5","SW","H6","15CM","T5","PM","PW",5,"20240613",8.40485339987523,"Within_Range","SO4 checks perc diff out of range",63.045952045134,"Within_Range","",4.038633053,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA
-"71","TMP","TMP_SW_C3_20240613_15CM_T5","SW","C3","15CM","T5","PM","PW",5,"20240613",11.1783530879601,"Within_Range","SO4 checks perc diff out of range",82.0363695345557,"Within_Range","Cl dups cv out of range; Cl dups perc diff out of range",5.2551240651,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"71","TMP","TMP_SW_C3_20240613_15CM_T5","SW","C3","15CM","T5","PM","PW",5,"20240613",11.1783530879601,"Within_Range","SO4 checks perc diff out of range",82.0363695345557,"Within_Range","",5.2551240651,"2025-08-14","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   ",NA

@@ -49,8 +49,7 @@ Sys.setenv(TZ = "America/New_York")
   run_notes = "Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for both Cl and SO4, the 6th dup has high cv for Cl only - check peaks 
-  The 1st spk was low and was probably not spiked. 
+  The 1st duplicate has high CV for Cl. 
   Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   " #any notes from the run
 
@@ -119,12 +118,12 @@ Sys.setenv(TZ = "America/New_York")
 ```{r rest of metadata, include=FALSE}
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
-
-drive_download(inventory_directory, overwrite = TRUE)
-
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
-sheet_names
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
+# 
+# sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+# sheet_names
 
 raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
 

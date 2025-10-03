@@ -47,7 +47,7 @@ Sys.setenv(TZ = "America/New_York")
   Run_by = "Zoe Read"  #Instrument user 
   Script_run_by = "Zoe Read" #Code user 
   run_notes = "All std 1's and one std 2 were lower than the expected concentration. 
-  One dup had a high CV for Cl: 80_TMP_FW_H6_20240613_15cm_T5
+  The 5th dup had a high CV for Cl
   One sample ID is missing from metadata: TMP_FW_D5_20240617_15CM 
   " #any notes from the run
 
