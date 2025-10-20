@@ -103,14 +103,14 @@
   TMP_SW_B4_20240711_15CM
   TMP_SW_F6_20241111_15CM
   ","clear"
-"14","TMP","TMP_SW_B4_20240711_15CM","SW","B4","15CM",NA,NA,NA,NA,"20240711",8.01430131004367,"Within_Range","SO4 checks perc diff out of range",75.3608011283498,"Within_Range","",4.8274995028,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"14","TMP","TMP_SW_B4_20240711_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240711",8.01430131004367,"Within_Range","SO4 checks perc diff out of range",75.3608011283498,"Within_Range","",4.8274995028,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   Some sample IDs are missing from metadata: 
   TMP_SW_B4_20240426_15CM
   TMP_SW_B4_20240711_15CM
   TMP_SW_F6_20241111_15CM
-  ",NA
+  ","clear"
 "15","TMP","TMP_SW_D5_20240805_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240805",1.95963194011229,"Within_Range","SO4 checks perc diff out of range",26.2807475317348,"Within_Range","",1.6835220675,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
