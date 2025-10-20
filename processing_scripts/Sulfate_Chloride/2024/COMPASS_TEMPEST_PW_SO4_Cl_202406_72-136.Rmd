@@ -1181,9 +1181,10 @@ viz_cl_plot <- ggplot(data_plotting, aes(x = row_num, y = Cl_ppm, fill = Zone)) 
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Zone, scales="free") +
   scale_fill_manual(values = c(
-    "ESTUARY" = "#20063B",
-    "FW" = "#FFBC42",
-    "SW" = "#25ABE6"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2", 
+    "ESTUARY" = "grey"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -1195,9 +1196,10 @@ viz_so4_plot <-  ggplot(data_plotting, aes(x = row_num, y = SO4_ppm, fill = Zone
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Zone, scales="free") +
   scale_fill_manual(values = c(
-    "ESTUARY" = "#20063B",
-    "FW" = "#FFBC42",
-    "SW" = "#25ABE6"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2", 
+    "ESTUARY" = "grey"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
