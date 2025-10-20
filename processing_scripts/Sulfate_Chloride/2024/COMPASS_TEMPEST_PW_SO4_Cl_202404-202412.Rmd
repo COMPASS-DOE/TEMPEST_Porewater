@@ -49,12 +49,13 @@ Sys.setenv(TZ = "America/New_York")
   run_notes = "Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
-  Some sample IDs are missing from metadata: 
-  TMP_SW_B4_20240426_15CM
-  TMP_SW_B4_20240711_15CM
-  TMP_SW_F6_20241111_15CM
   " #any notes from the run
 
+##Sample data that was entered incorrectly
+# The Old ID is the original, incorrecly-entered ID and the New ID is the correct ID to change it to. 
+Old_ID_1 = "TMP_SW_F6_20241111_15cm"
+New_ID_1 = "TMP_SW_F6_20241104_15cm"
+  
 ###### File Names - PLEASE CHANGE 
 #file path and name for raw summary data file 
   raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202404-202412_Cl.txt"
@@ -316,6 +317,14 @@ all_dat <- all_dat %>%
   mutate(sample_ID = str_replace(sample_ID, "RAINWATER_202412", "RAINWATER_20241212"))
 
 # head(all_dat)
+
+```
+
+##Fix Sample IDs entered wrong
+```{r Fix Sample IDs entered wrong, include = FALSE}
+##Data entered incorrectly
+all_dat$sample_ID <- gsub(Old_ID_1, New_ID_1, all_dat$sample_ID)
+
 
 ```
 
