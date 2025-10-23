@@ -139,10 +139,10 @@
   The 5th dup had a high CV for Cl
   One sample ID is missing from metadata: TMP_FW_D5_20240617_15CM 
   ",NA
-"36","TMP","TMP_FW_D5_20240617_15CM","FW","D5","15CM",NA,NA,NA,NA,"20240617",0.169089207735496,"Within_Range","SO4 checks perc diff out of range",0.124809590973202,"Within_Range","",0.0080210715,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"36","TMP","TMP_FW_D5_20240617_15CM","FW","D5","15CM",NA,NA,"PW",NA,"20240617",0.169089207735496,"Within_Range","SO4 checks perc diff out of range",0.124809590973202,"Within_Range","",0.0080210715,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   One sample ID is missing from metadata: TMP_FW_D5_20240617_15CM 
-  ",NA
+  ","112 mL extracted but no volumes filled in on field sheet; AES to check"
 "37","TMP","TMP_FW_I5_20240624_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240624",0.0204210854647536,"Within_Range","SO4 checks perc diff out of range",0.166406205923836,"Within_Range","",0.0106856737,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   One sample ID is missing from metadata: TMP_FW_D5_20240617_15CM 

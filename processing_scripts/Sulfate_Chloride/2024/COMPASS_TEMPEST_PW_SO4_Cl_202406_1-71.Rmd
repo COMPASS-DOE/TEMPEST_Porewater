@@ -50,8 +50,12 @@ Sys.setenv(TZ = "America/New_York")
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   The 1st duplicate has high CV for Cl. 
-  Some sample IDs are missing from metadata: TMP_C_H6_20240610_15CM, TMP_SW_H3_20240612_15CM_T3 
   " #any notes from the run
+  
+##Sample data that was entered incorrectly
+# The Old ID is the original, incorrecly-entered ID and the New ID is the correct ID to change it to. 
+Old_ID_1 = "TMP_C_H6_20240610_15cm"
+New_ID_1 = "TMP_C_H6_20240610_15cm_T0"
 
 ###### File Names - PLEASE CHANGE 
 #file path and name for raw summary data file 
@@ -346,6 +350,14 @@ all_dat <- all_dat %>%
   select("sample_ID", "sample_type", "SO4_ppm", "SO4_area", "Cl_ppm", "Cl_area"  )
 
 # head(all_dat)
+
+```
+
+##Fix Sample IDs entered wrong
+```{r Fix Sample IDs entered wrong, include = FALSE}
+##Data entered incorrectly
+all_dat$sample_ID <- gsub(Old_ID_1, New_ID_1, all_dat$sample_ID)
+
 
 ```
 
@@ -1172,9 +1184,9 @@ viz_cl_plot <- ggplot(data_plotting, aes(x = row_num, y = Cl_ppm, fill = Zone)) 
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Zone, scales="free") +
   scale_fill_manual(values = c(
-    "C" = "#20063B",
-    "FW" = "#FFBC42",
-    "SW" = "#25ABE6"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -1186,9 +1198,9 @@ viz_so4_plot <-  ggplot(data_plotting, aes(x = row_num, y = SO4_ppm, fill = Zone
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Zone, scales="free") +
   scale_fill_manual(values = c(
-    "C" = "#20063B",
-    "FW" = "#FFBC42",
-    "SW" = "#25ABE6"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
