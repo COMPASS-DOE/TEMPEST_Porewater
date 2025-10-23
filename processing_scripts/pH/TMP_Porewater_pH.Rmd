@@ -156,8 +156,13 @@ porewater_pH_2023 <- porewater_pH %>% filter(datetime < year2_stop & datetime > 
 porewater_pH_2024 <- porewater_pH %>% filter(datetime < year3_stop & datetime > year3_start) %>%
   select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
 
+porewater_pH_2025 <- porewater_pH %>% filter(datetime < year4_stop & datetime > year4_start) %>%
+  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+
 write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
 write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
+
+write_csv(porewater_pH_2025, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2025_L1.csv")
 
 ```
 
@@ -170,6 +175,8 @@ source_pH_2023 <- pH %>%
 source_pH_2024 <- pH %>%
   filter(grid == "SOURCE") %>%
   filter(datetime < year3_stop & datetime > year3_start)
+
+# no source in 2025 # 
 
 write_csv(source_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv")
 
