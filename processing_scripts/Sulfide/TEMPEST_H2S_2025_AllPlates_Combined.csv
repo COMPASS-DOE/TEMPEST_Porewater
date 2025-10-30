@@ -1,0 +1,143 @@
+"Project","Sample_ID","Zone","Grid","Depth_cm","Source","Volume_mL","Collection_Date","H2S_mean","H2S_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes"
+"TMP","TMP_SW_PW_H6_20250131_15CM","SW","H6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; sub-sampled in lab at 1532"
+"TMP","TMP_SW_PW_H3_20250204_15CM","SW","H3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_FW_PW_I5_20250711_15CM","FW","I5","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_D5_20250711_15CM","FW","D5","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_H3_20250131_15CM","C","H3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_I5_20250131_15CM","C","I5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_D5_20250131_15CM","C","D5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_B4_20250131_15CM","C","B4","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_C3_20250131_15CM","C","C3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_E3_20250131_15CM","C","E3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_H6_20250131_15CM","C","H6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_F4_20250204_15CM","C","F4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_SW_PW_C6_20250204_15CM","SW","C6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_C_PW_H3_20250204_15CM","C","H3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_E3_20250204_15CM","C","E3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_F6_20250204_15CM","C","F6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"light color"
+"TMP","TMP_C_PW_B4_20250204_15CM","C","B4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_C6_20250204_15CM","C","C6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_C_PW_C3_20250204_15CM","C","C3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"light color"
+"TMP","TMP_C_PW_I5_20250204_15CM","C","I5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_D5_20250204_15CM","C","D5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H6_20250204_15CM","C","H6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_F4_20250403_15CM","C","F4","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_SW_PW_D5_20250204_15CM","SW","D5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_C_PW_F6_20250403_15CM","C","F6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H6_20250403_15CM","C","H6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_C6_20250403_15CM","C","C6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_I5_20250403_15CM","C","I5","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_F4_20250509_15CM","C","F4","15cm","PW",5,"20250509",0,0,0,"bdl","Within range",NA,1,20250926,"sub-sampled at 1418"
+"TMP","TMP_C_PW_H3_20250509_15CM","C","H3","15cm","PW",5,"20250509",0,0,0,"bdl","Within range",NA,1,20250926,"sub-sampled at 1401"
+"TMP","TMP_C_PW_I5_20250509_15CM","C","I5","15cm","PW",5,"20250509",0,0,0,"bdl","Within range",NA,1,20250926,"sub-sampled at 1351"
+"TMP","TMP_C_PW_B4_20250509_15CM","C","B4","15cm","PW",5,"20250509",0,0,0,"bdl","Within range",NA,1,20250926,"sub-sampled at 1422"
+"TMP","TMP_C_PW_H6_20250509_15CM","C","H6","15cm","PW",5,"20250509",0,0,0,"bdl","Within range",NA,1,20250926,"sub-sampled at 1411"
+"TMP","TMP_C_PW_F4_20250602_15CM","C","F4","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_SW_PW_H6_20250204_15CM","SW","H6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_C_PW_F6_20250602_15CM","C","F6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_I5_20250602_15CM","C","I5","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_C3_20250602_15CM","C","C3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H3_20250602_15CM","C","H3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_B4_20250602_15CM","C","B4","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H6_20250602_15CM","C","H6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_D5_20250602_15CM","C","D5","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_C6_20250602_15CM","C","C6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H3_20250711_15CM","C","H3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_E3_20250711_15CM","C","E3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_SW_PW_F4_20250204_15CM","SW","F4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_C_PW_F6_20250711_15CM","C","F6","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_H6_20250711_15CM","C","H6","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_C_PW_I5_20250711_15CM","C","I5","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250926,NA
+"TMP","TMP_SW_PW_I5_20250204_15CM","SW","I5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_SW_PW_B4_20250204_15CM","SW","B4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_SW_PW_E3_20250204_15CM","SW","E3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_SW_PW_F6_20250204_15CM","SW","F6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_SW_PW_I5_20250403_15CM","SW","I5","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_D5_20250131_15CM","SW","D5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; sub-sampled in the lab at 1508"
+"TMP","TMP_SW_PW_B4_20250403_15CM","SW","B4","15cm","PW",5,"20250403",1.96476808791479,0.317678226209412,16.168739107859,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_F6_20250403_15CM","SW","F6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_E3_20250403_15CM","SW","E3","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_D5_20250403_15CM","SW","D5","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_C3_20250403_15CM","SW","C3","15cm","PW",5,"20250403",0.679567056481717,0.0637484338033313,9.38074222334619,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_H6_20250403_15CM","SW","H6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_C6_20250403_15CM","SW","C6","15cm","PW",5,"20250403",0.789982582732028,0.0637484338033313,8.06959991230029,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_B4_20250509_15CM","SW","B4","15cm","PW",5,"20250509",2.6854491166957,0.0780755673598762,2.90735604984927,"Within_Range","Within range",NA,1,20250925,"sub-sampled at 1215"
+"TMP","TMP_SW_PW_C3_20250509_15CM","SW","C3","15cm","PW",5,"20250509",2.44621547648669,0.229848246808432,9.39607524430125,"Within_Range","Within range",NA,1,20250925,"sub-sampled at 1213"
+"TMP","TMP_SW_PW_F6_20250509_15CM","SW","F6","15cm","PW",5,"20250509",1.85733266981837,0,0,"Within_Range","Within range",NA,1,20250925,"sub-sampled at 1205"
+"TMP","TMP_SW_PW_F4_20250131_15CM","SW","F4","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; sub-sampled in lab at 1516"
+"TMP","TMP_SW_PW_D5_20250509_15CM","SW","D5","15cm","PW",5,"20250509",0.918800696690724,0.234226702079629,25.4926561247995,"Within_Range","High CV",NA,1,20250925,"sub-sampled at 1209"
+"TMP","TMP_SW_PW_F4_20250509_15CM","SW","F4","15cm","PW",NA,"20250509",1.30525503856681,0.110415526250311,8.45930664795968,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_H3_20250509_15CM","SW","H3","15cm","PW",5,"20250509",1.93094302065191,0.168662502313478,8.7347218695524,"Within_Range","Within range",NA,1,20250925,"sub-sampled at 1224"
+"TMP","TMP_SW_PW_C6_20250509_15CM","SW","C6","15cm","PW",5,"20250509",3.45835780044788,0.0780755673598762,2.25759079496531,"Within_Range","Within range",NA,1,20250925,"sub-sampled at 1219"
+"TMP","TMP_SW_PW_H6_20250509_15CM","SW","H6","15cm","PW",5,"20250509",2.26218959940284,1.27496867606663,56.3599389018137,"Within_Range","High CV",NA,1,20250925,"sub-sampled at 1229"
+"TMP","TMP_SW_PW_H3_20250602_15CM","SW","H3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_F6_20250602_15CM","SW","F6","15cm","PW",5,"20250602",1.41567056481712,0.614767632159605,43.425896351742,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_F4_20250602_15CM","SW","F4","15cm","PW",5,"20250602",0.587554117939792,0.0780755673598752,13.2882342197925,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_C6_20250602_15CM","SW","C6","15cm","PW",5,"20250602",1.36046280169197,0.0780755673598762,5.73889762092545,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_E3_20250602_15CM","SW","E3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_I5_20250131_15CM","SW","I5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; sub-sampled in the lab at 1500"
+"TMP","TMP_SW_PW_C3_20250602_15CM","SW","C3","15cm","PW",5,"20250602",2.02295595919384,0.390377836799381,19.2973967142097,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_B4_20250602_15CM","SW","B4","15cm","PW",5,"20250602",1.45247574023389,0.0637484338033313,4.38894998639122,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_D5_20250602_15CM","SW","D5","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_H6_20250602_15CM","SW","H6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_C3_20250711_15CM","SW","C3","15cm","PW",5,"20250711",5.02257775566062,0.337325004626956,6.71617287053007,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_H6_20250711_15CM","SW","H6","15cm","PW",5,"20250711",0.256307539188859,0.0780755673598762,30.4616741306024,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_F6_20250711_15CM","SW","F6","15cm","PW",5,"20250711",1.67330679273452,0.254993735213325,15.2389111381431,"Within_Range","High CV",NA,1,20250925,NA
+"TMP","TMP_SW_PW_D5_20250711_15CM","SW","D5","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_B4_20250711_15CM","SW","B4","15cm","PW",5,"20250711",2.6041811557421,0.207834332609214,7.98079396861267,"Within_Range","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_I5_20250711_15CM","SW","I5","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_E3_20250131_15CM","SW","E3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"clear; sub-sampled in the lab at 1512"
+"TMP","TMP_SW_PW_H3_20250711_15CM","SW","H3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_E3_20250711_15CM","SW","E3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_C3_20250131_15CM","FW","C3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1545"
+"TMP","TMP_FW_PW_F6_20250131_15CM","FW","F6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1606"
+"TMP","TMP_FW_PW_C6_20250131_15CM","FW","C6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1549"
+"TMP","TMP_FW_PW_H6_20250131_15CM","FW","H6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1602"
+"TMP","TMP_FW_PW_D5_20250131_15CM","FW","D5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1619"
+"TMP","TMP_FW_PW_F4_20250131_15CM","FW","F4","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1558"
+"TMP","TMP_FW_PW_I5_20250131_15CM","FW","I5","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"light color; sub-sampled in lab at 1627"
+"TMP","TMP_FW_PW_E3_20250131_15CM","FW","E3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1603"
+"TMP","TMP_SW_PW_C3_20250131_15CM","SW","C3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; field collection"
+"TMP","TMP_FW_PW_H3_20250131_15CM","FW","H3","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"sub-sampled in lab at 1611"
+"TMP","TMP_FW_PW_B4_20250204_15CM","FW","B4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_F6_20250204_15CM","FW","F6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_C3_20250204_15CM","FW","C3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_D5_20250204_15CM","FW","D5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_H3_20250204_15CM","FW","H3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_F4_20250204_15CM","FW","F4","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_I5_20250204_15CM","FW","I5","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"light color"
+"TMP","TMP_FW_PW_C6_20250204_15CM","FW","C6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_FW_PW_H6_20250204_15CM","FW","H6","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,NA
+"TMP","TMP_SW_PW_F6_20250131_15CM","SW","F6","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; sub-sampled in the lab at 1525"
+"TMP","TMP_FW_PW_E3_20250204_15CM","FW","E3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_I5_20250406_15CM","FW","I5","15cm","PW",5,"20250406",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_F4_20250403_15CM","FW","F4","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_E3_20250403_15CM","FW","E3","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_H6_20250403_15CM","FW","H6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_D5_20250403_15CM","FW","D5","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C3_20250403_15CM","FW","C3","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C6_20250403_15CM","FW","C6","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_H3_20250403_15CM","FW","H3","15cm","PW",5,"20250403",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_D5_20250509_15CM","FW","D5","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1055"
+"TMP","TMP_SW_PW_B4_20250131_15CM","SW","B4","15cm","PW",5,"20250131",0,0,0,"bdl","Within range",NA,1,20250925,"colored; field collection"
+"TMP","TMP_FW_PW_I5_20250509_15CM","FW","I5","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1106"
+"TMP","TMP_FW_PW_C6_20250509_15CM","FW","C6","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1120"
+"TMP","TMP_FW_PW_C3_20250509_15CM","FW","C3","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1130"
+"TMP","TMP_FW_PW_H6_20250509_15CM","FW","H6","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1051"
+"TMP","TMP_FW_PW_B4_20250509_15CM","FW","B4","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1125"
+"TMP","TMP_FW_PW_H3_20250509_15CM","FW","H3","15cm","PW",5,"20250509",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,"sub-sampled at 1118"
+"TMP","TMP_FW_PW_F4_20250602_15CM","FW","F4","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_F6_20250602_15CM","FW","F6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_H3_20250602_15CM","FW","H3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_E3_20250602_15CM","FW","E3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_SW_PW_C3_20250204_15CM","SW","C3","15cm","PW",5,"20250204",0,0,0,"bdl","Within range",NA,1,20250925,"colored"
+"TMP","TMP_FW_PW_B4_20250602_15CM","FW","B4","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_H6_20250602_15CM","FW","H6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_D5_20250602_15CM","FW","D5","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C3_20250602_15CM","FW","C3","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C6_20250602_15CM","FW","C6","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_I5_20250602_15CM","FW","I5","15cm","PW",5,"20250602",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_F4_20250711_15CM","FW","F4","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C3_20250711_15CM","FW","C3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_C6_20250711_15CM","FW","C6","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA
+"TMP","TMP_FW_PW_H3_20250711_15CM","FW","H3","15cm","PW",5,"20250711",0,0,0,"bdl","Within range","Std curve r2 low",1,20250926,NA

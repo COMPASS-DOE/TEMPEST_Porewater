@@ -60,13 +60,6 @@ all_data$X <- NULL
 
 colnames(all_data)
 
-all_data <- all_data %>%
-  rename(
-    H2S_Conc_flag = H2S_flag,
-    H2S_QAQC_flag = QAQC_flag, 
-    
-  )
-
 ##Remove Dups and Spikes
 Sample_data <- all_data %>% 
   subset((!IDs %like% " Dup")) %>% 
@@ -74,53 +67,17 @@ Sample_data <- all_data %>%
 
 ```
 
-##Read in and Fix Sample IDs
-```{r Read in and Fix Sample IDs, include = FALSE}
-
-#Read in Sample IDs
-SampleIDs <- read_excel("Raw Data/TEMPEST_2025_SampleIDs.xlsx")
-SampleIDs$Number <- as.character(SampleIDs$Number)
-names(SampleIDs) <- tools::toTitleCase(names(SampleIDs))
-
-```
-
-
-##Convert Sample Numbers to Sample IDs
-```{r Convert Sample Numbers to Sample IDs, include = FALSE}
-##Merge with data
-Sample_data_IDs <- Sample_data %>%
-  left_join(SampleIDs, by = c("IDs" = "Number"))
-
-##Make full sample IDs
-Sample_data_IDs <- Sample_data_IDs %>%
-  mutate(Sample_ID = paste(Project,
-                          Zone, 
-                          Source, 
-                          Plot,
-                          Date, 
-                          Depth, 
-                          sep = "_"))
-
-##Capitalize all sample IDs
-Sample_data_IDs$Sample_ID <- toupper(Sample_data_IDs$Sample_ID)
-
-##Remove NAs
-Sample_data_IDs <- Sample_data_IDs %>%  
-  filter(!str_detect(Sample_ID, "NA"))
-  
-```
-
 ##Remove ADL/BDL samples that were later diluted differently
 ```{r Remove ADL/BDL samples that were later diluted differently, include = FALSE}
 
 #filter the high CV data in to one table
-HighCV<-filter(Sample_data_IDs, H2S_cv_flag=="High CV")
+HighCV<-filter(Sample_data, H2S_cv_flag=="High CV")
 
 #filter out the samples that need to be run at a higher dilution
-ADL<-filter(Sample_data_IDs, H2S_Conc_flag=="adl")
+ADL<-filter(Sample_data, H2S_Conc_flag=="adl")
 
 #remove the samples that have already been run at a higher dilution 
-ww_ADL<-subset(Sample_data_IDs, (IDs %in% ADL$IDs))
+ww_ADL<-subset(Sample_data, (IDs %in% ADL$IDs))
 ww_ADL<-filter(ww_ADL, H2S_Conc_flag=="Within_Range") 
 ADL_not_fixed<-ADL %>% 
   subset((!IDs %in% ww_ADL$IDs)) %>% 
@@ -128,10 +85,10 @@ ADL_not_fixed<-ADL %>%
   subset((!IDs %like% " Spike"))
 
 #filter out the samples that need to be run at a lower dilution
-BDL<-filter(Sample_data_IDs, H2S_Conc_flag=="bdl"& Dilution!=1)
+BDL<-filter(Sample_data, H2S_Conc_flag=="bdl"& Dilution!=1)
 
 #remove the samples that have already been run at a lower dilution 
-ww_BDL<-subset(Sample_data_IDs, (IDs %in% BDL$IDs))
+ww_BDL<-subset(Sample_data, (IDs %in% BDL$IDs))
 ww_BDL<-filter(ww_BDL,H2S_Conc_flag=="Within_Range") 
 BDL_not_fixed<-BDL %>% 
   subset((!IDs %in% ww_BDL$IDs)) %>% 
@@ -153,9 +110,9 @@ BDL_fixed<-BDL %>%
 BDL_fixed$ID_conc <- paste(BDL_fixed$IDs, BDL_fixed$H2S_Conc_flag, sep = "_")
 
 
-Sample_data_IDs$ID_conc <- paste(Sample_data_IDs$IDs, Sample_data_IDs$H2S_Conc_flag, sep = "_")
+Sample_data$ID_conc <- paste(Sample_data$IDs, Sample_data$H2S_Conc_flag, sep = "_")
 
-Sample_data_wr <- Sample_data_IDs %>% 
+Sample_data_wr <- Sample_data %>% 
   subset(!ID_conc %in% BDL_fixed$ID_conc) %>% 
   subset(!ID_conc %in% ADL_fixed$ID_conc)
 
@@ -263,9 +220,6 @@ merged_data <- all_data_selected %>%
 
 ```
 
-
-
-
 ## Visualize Data by Plot   
 ```{r Visualize Data, echo=FALSE, warning=FALSE}
 
@@ -314,7 +268,6 @@ viz_H2S_plot
 
 colnames(merged_data)
 
-
 final_data <- merged_data %>%
   rename(
     Field_notes = Notes,
@@ -334,16 +287,16 @@ final_data <- merged_data %>%
 head(final_data)
 
 #Write out final data frame 
-write.csv(final_data, "TEMPEST_H2S_2025_Plate1-8_Combined.csv")
+write.csv(final_data, "TEMPEST_H2S_2025_AllPlates_Combined.csv", row.names = FALSE)
 
 #Write out samples that still have high CVs
-write.csv(HighCV, "TEMPEST_H2S_2025_Plate1-8_HighCVs.csv")
+write.csv(HighCV, "TEMPEST_H2S_2025_AllPlates_HighCVs.csv", row.names = FALSE)
 
 #Write out ADL samples
-write.csv(ADL_not_fixed, "TEMPEST_H2S_2025_Plate1-8_ADL.csv")
+write.csv(ADL_not_fixed, "TEMPEST_H2S_2025_AllPlates_ADL.csv", row.names = FALSE)
 
 #Write out BDL samples
-write.csv(BDL_not_fixed, "TEMPEST_H2S_2025_Plate1-8_BDL.csv")
+write.csv(BDL_not_fixed, "TEMPEST_H2S_2025_AllPlates_BDL.csv", row.names = FALSE)
 
 
 ```
