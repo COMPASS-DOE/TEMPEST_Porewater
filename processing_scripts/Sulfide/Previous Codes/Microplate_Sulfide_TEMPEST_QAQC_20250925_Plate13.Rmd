@@ -10,8 +10,7 @@ geometry: "left=2cm,right=2cm,top=1cm,bottom=2cm"
 output_dir: "To Be Reviewed/PDF"
 ---
 
-
-```{r Add Required Packages, include=FALSE}
+```{r packages, include=FALSE}
 
 #Packages that are required 
 lapply(c(
@@ -21,6 +20,18 @@ lapply(c(
   "matrixStats", "gridExtra", "grid", "tidyverse", "knitr", 
   "plater", "raster", "readxl", "patchwork"), 
   library, character.only = TRUE)
+
+#Packages for loading metadata
+require(pacman)
+pacman::p_load(janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here) 
+
+common_tz = "Etc/GMT+5"
+
+Sys.setenv(TZ = "America/New_York")
 
 ```
 
@@ -59,6 +70,7 @@ cat(run_notes)
   raw_file_name_id_dil = paste0("Raw Data/", Year, "_", Project, "_H2S_Datasheets.xlsx")
   Sheet = paste0("Plate ", Plate)
   raw_file_name_data = paste0("Raw Data/", Date_Run, "_TEMPEST_H2S_Plate", Plate, ".xlsx")
+  sample_IDs <- paste0("Raw Data/", Project, "_", Year, "_", "SampleIDs.xlsx")
 
 #file path and name of processed data file 
   tidy_file_name = paste0("Tidy Data/", Date_Run, "_TEMPEST_H2S_Plate", Plate, "_tidy.csv")
@@ -791,10 +803,133 @@ MCbar
 
 ```
 
+```{r Read in sample IDs, include = FALSE}
+#Read in Sample IDs
+SampleIDs <- read_excel(sample_IDs)
+SampleIDs$Number <- as.character(SampleIDs$Number)
+names(SampleIDs) <- tools::toTitleCase(names(SampleIDs))
+
+```
+
+```{r Convert Sample Numbers to Sample IDs, include = FALSE}
+##Format data
+dat1 <- dat1 %>%
+  rename(
+    H2S_Conc_flag = H2S_flag,
+    H2S_QAQC_flag = QAQC_flag)
+
+##Remove Dups and Spikes
+dat1 <- dat1 %>% 
+  subset((!IDs %like% " Dup")) %>% 
+  subset((!IDs %like% " Spike"))
+
+
+##Merge with data
+dat_IDs <- dat1 %>%
+  left_join(SampleIDs, by = c("IDs" = "Number"))
+
+##Make full sample IDs
+dat_IDs <- dat_IDs %>%
+  mutate(Sample_ID = paste(Project,
+                          Zone, 
+                          Source, 
+                          Plot,
+                          Date, 
+                          Depth, 
+                          sep = "_"))
+
+##Capitalize all sample IDs
+dat_IDs$Sample_ID <- toupper(dat_IDs$Sample_ID)
+
+##Remove NAs
+dat_IDs <- dat_IDs %>%  
+  filter(!str_detect(Sample_ID, "NA"))
+  
+```
+
+```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+
+```
+
+```{r Create similar sample IDs to match with run samples , include=FALSE}
+
+#select SO4/Cl samples 
+raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "SO4/Cl/H2S")
+
+#select samples from correct year
+raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, Year))
+
+#separate samples into columns
+raw_metadata_lys_year <- raw_metadata_lys_year %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date"),
+    remove = FALSE)
+
+raw_metadata_lys_combined <- raw_metadata_lys_year %>%
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Volume_mL", "Notes")
+
+
+#create IDs from what was collected for comparison later
+raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+  mutate(H2S_ID = paste(Project,
+                          Zone,
+                          Source, 
+                          Grid,
+                          Collection_Date, 
+                          Depth, 
+                          sep = "_"))
+
+raw_metadata_lys_combined$H2S_ID <- toupper(raw_metadata_lys_combined$H2S_ID)
+
+#remove old ID's
+raw_metadata_lys_combined$Sample_ID <- NULL
+
+sulfide_metadata = raw_metadata_lys_combined
+
+```
+
+```{r Check to see if samples run match metadata & merge info, echo = FALSE}
+
+all_present <- all(dat_IDs$Sample_ID %in% sulfide_metadata$H2S_ID)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(Sample_data_nodups$Sample_ID, sulfide_metadata$H2S_ID)
+  print(missing_ids)
+}
+
+# missing_ids <- data.frame(missing_ids)
+# 
+# ##Export missing IDs to csv
+# write.csv(missing_ids, "20250529_COMPASS_H2S_missing_IDs.csv")
+
+sulfide_metadata$Collection_Date <- as.numeric(sulfide_metadata$Collection_Date)
+
+#merge metadata with sample run data 
+merged_data <- dat_IDs %>%
+  left_join(sulfide_metadata, by = c("Sample_ID" = "H2S_ID", "Plot" = "Grid", "Date" = "Collection_Date","Project", "Zone", "Source", "Analyte", "Depth"))
+
+
+```
 
 ```{r Export final data and samples to rerun, echo=FALSE, include = FALSE}
-
-dat_IDs <- dat1
 
 #Read out the processed data
 # dat_IDs$Run_notes <- run_notes
@@ -803,9 +938,9 @@ dat_IDs <- dat1
 dat_IDs$Analysis_rundate <- Date_Run
 write.csv(dat_IDs, processed_file_name)
 
-# write flagged data to file
-write.csv(H2S_DiluteRerun, samples_need_dilution_name)
-write.csv(H2S_HighCVRerun, samples_high_cv_name)
+# # write flagged data to file
+# write.csv(H2S_DiluteRerun, samples_need_dilution_name)
+# write.csv(H2S_HighCVRerun, samples_high_cv_name)
 
 
 ```
