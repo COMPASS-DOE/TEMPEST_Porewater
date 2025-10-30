@@ -849,7 +849,7 @@ dat_IDs <- dat_IDs %>%
 
 ```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
 
-#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+# #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
 # inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 # 
 # drive_download(inventory_directory, overwrite = TRUE)

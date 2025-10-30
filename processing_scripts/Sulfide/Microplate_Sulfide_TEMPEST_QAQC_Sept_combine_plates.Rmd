@@ -10,7 +10,6 @@ geometry: "left=2cm,right=2cm,top=1cm,bottom=2cm"
 output_dir: "To Be Reviewed/PDF"
 ---
 
-##Add Required Packages
 ```{r packages, include=FALSE}
 
 #Packages that are required 
@@ -39,12 +38,11 @@ Sys.setenv(TZ = "America/New_York")
 ##Run Notes
 ```{r}
 Sample_Year <- "2025"
-Run_notes = "Some sample IDs are missing from metadata: TMP_SW_PW_F4_20250509_15CM"
+Run_notes = ""
 
 ```
 
 
-##Read in raw data
 ```{r Read in raw data, include = FALSE}
 
 #Read in list of processed data files
@@ -67,7 +65,7 @@ Sample_data <- all_data %>%
 
 ```
 
-##Remove ADL/BDL samples that were later diluted differently
+##Removed ADL/BDL samples that were later diluted differently
 ```{r Remove ADL/BDL samples that were later diluted differently, include = FALSE}
 
 #filter the high CV data in to one table
@@ -127,7 +125,6 @@ print(BDL_not_fixed)
 
 ```
 
-## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
@@ -143,7 +140,6 @@ raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx"
 ```
 
 
-##Create similar sample IDs to match with run samples 
 ```{r pull in metadata for later, include=FALSE}
 
 #select SO4/Cl samples 
@@ -185,7 +181,6 @@ sulfide_metadata = raw_metadata_lys_combined
 ```
 
 
-##Check to see if samples run match metadata & merge info
 ```{r Check to see if samples run match metadata & merge info, echo = FALSE}
 
 all_present <- all(Sample_data_nodups$Sample_ID %in% sulfide_metadata$H2S_ID)
@@ -258,7 +253,6 @@ viz_H2S_plot
 
 ```
 
-##Export Combined Data
 ```{r Export Combined Data, include = FALSE}
 
 #Prepare data to be exported - if there is anything else to add 
@@ -300,6 +294,3 @@ write.csv(BDL_not_fixed, "TEMPEST_H2S_2025_AllPlates_BDL.csv", row.names = FALSE
 
 
 ```
-
-
-##END
