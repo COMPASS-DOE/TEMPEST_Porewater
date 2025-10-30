@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater Sulfide"
-author: "2025 Samples Plate 12"
+author: "2025 Samples Plate 14"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -28,19 +28,17 @@ lapply(c(
 ```{r Run Information, echo=TRUE, message=FALSE, warning=FALSE}
 ###### Run information - PLEASE CHANGE
   Date_Run = "20250926"  #Date that instrument was run
-  Plate = "12"
+  Plate = "14"
   Year = "2025"
   Run_by = "Zoe Read"  #Instrument user 
   Script_run_by = "Zoe Read" #Code user 
   Project = "TEMPEST"
-  run_notes = "Std Curve r2 is below cutoff: 0.9728355
-  Std curve slope is 2 sd different from previous slopes. 
-  Samples 109 and 133 still have high CVs after removing one duplicate. 
-  Dup & respective sample had H2S values of 0. 
+  run_notes = "Dups and sample had value of 0. 
+  Spike had slightly low percent recovery (original sample was 0). 
   " #any notes from the run
 
 ###### STDs to remove manually - NA unless standards have high CVs
-  stds_to_remove <- c("B03", "C03", "E01") #Ex. c("A02", "B02")
+  stds_to_remove <- c("B03") #Ex. c("A02", "B02")
   
   Chkstds_to_remove <- c(NA)
   
@@ -48,8 +46,8 @@ lapply(c(
   
 ##Sample data that was entered incorrectly
   # The Old ID is the original, incorrectly-entered ID and the New ID is the correct ID to change it to. 
-# Old_ID_1 = "17 Dup"
-# New_ID_1 = "16 Dup"
+# Old_ID_1 = "NA"
+# New_ID_1 = "NA"
 cat(run_notes)
 ```
 
