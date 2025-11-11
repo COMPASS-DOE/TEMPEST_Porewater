@@ -1,0 +1,32 @@
+[Header]	
+System	TOCL TNML ASIL 9ML	
+S/W Version	1.00	
+User	sjw	
+Date/Time	11/10/2025 8:15:04 AM	
+
+[System]	
+Instrument Options	TOC/ASI/IC Unit/TN/	
+
+[Data]	
+Type	Anal.	Sample Name	Sample ID	Result(TOC)	Result(TC)	Result(IC)	Result(POC)	Result(NPOC)	Result(TN)	Unit	Vial	Date / Time	
+Unknown	NPOC/TN	DI	Untitled					0.4326	0.00472	mg/L	0	11/3/2025 9:40:50 AM	
+Unknown	NPOC/TN	DI	Untitled					0.3005	-0.00236	mg/L	0	11/3/2025 10:06:23 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1396	-0.00151	mg/L	0	11/3/2025 10:30:45 AM	
+Unknown	NPOC/TN	Chk_Std_1CN	Untitled					1.212	0.8692	mg/L	1	11/3/2025 11:02:10 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1270	-0.00932	mg/L	0	11/3/2025 11:26:42 AM	
+Unknown	NPOC/TN	DI	Untitled					-0.02485	-0.00929	mg/L	0	11/3/2025 11:50:59 AM	
+Standard	NPOC	CalCurve_NPOC	Untitled					100.0		mg/L	2, 3, 4, 5, 6, 7, 8, 9	11/3/2025 3:06:00 PM	
+Unknown	NPOC/TN	DI	Untitled					0.7716	-0.01038	mg/L	0	11/3/2025 3:31:13 PM	
+Standard	TN	CalCurve_TN	Untitled						3.000	mg/L	10, 11, 12, 13, 14, 15, 16	11/3/2025 5:55:33 PM	
+Unknown	NPOC/TN	DI	Untitled					0.3691	0.06437	mg/L	0	11/3/2025 6:19:53 PM	
+Unknown	NPOC/TN	Chk_Std_1CN	Untitled					1.290	1.096	mg/L	17	11/3/2025 6:44:33 PM	
+Unknown	NPOC/TN	DI	Untitled					0.3144	0.00630	mg/L	0	11/3/2025 7:09:20 PM	
+Unknown	NPOC/TN	TMP_C_I5_20251101	Untitled					12.05	0.5878	mg/L	18	11/3/2025 7:41:06 PM	
+Unknown	NPOC/TN	TMP_FW_I5_20251101	Untitled					19.22	0.7134	mg/L	19	11/3/2025 8:12:39 PM	
+Unknown	NPOC/TN	TMP_SW_F6_20251101	Untitled					23.89	0.8135	mg/L	20	11/3/2025 8:38:56 PM	
+Unknown	NPOC/TN	TMP_SW_H6_20251101	Untitled					27.30	1.084	mg/L	21	11/3/2025 9:10:49 PM	
+Unknown	NPOC/TN	DI	Untitled					0.5591	0.00672	mg/L	0	11/3/2025 9:34:54 PM	
+Unknown	NPOC/TN	Chk_Std_1CN	Untitled					1.260	1.112	mg/L	22	11/3/2025 10:01:40 PM	
+Unknown	NPOC/TN	Chk_Std_1CN	Untitled					1.276	1.048	mg/L	23	11/3/2025 10:29:03 PM	
+Unknown	NPOC/TN	DI	Untitled					0.3759	0.01426	mg/L	0	11/3/2025 10:49:32 PM	
+Unknown	NPOC/TN	DI	Untitled					0.2916	0.02412	mg/L	0	11/3/2025 11:16:39 PM	
