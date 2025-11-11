@@ -1,0 +1,9 @@
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"1","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20251101","20251101",12.05,1004.16666666667,"NPOC checks out of range",0.5878,41.9857142857143,"","11/3/2025 7:41:06 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1305,1052,"EDT",10
+"2","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20251101","20251101",19.22,1601.66666666667,"NPOC checks out of range",0.7134,50.9571428571429,"","11/3/2025 8:12:39 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1406,1237,"EDT",10
+"3","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20251101","20251101",23.89,1990.83333333333,"NPOC checks out of range",0.8135,58.1071428571429,"","11/3/2025 8:38:56 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1337,1143,"EDT",10
+"4","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20251101","20251101",27.3,2275,"NPOC checks out of range",1.084,77.4285714285714,"","11/3/2025 9:10:49 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1345,1202,"EDT",10
