@@ -18,8 +18,10 @@ cat("Run Information")
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
   run_notes = "The TN went down during this run and there were no peaks for samples, 
-    and there was not enough volume to rerun - making TN NAs for these samples"
-  #waiting to hear about samples from SW that don't have metadata 
+    and there was not enough volume to rerun - making TN NAs for these samples. Two samples
+    named incorrectly on instrument run SW_D5 and SW_E3 were listed as 10-07 collections, 
+    but were collected on 10-03. This is changed programmatically upon data read in."
+  
   
   #file path and name for summary file 
     raw_file_name = "tmp_doc_raw_data_2024/TMP_202410.txt" 
@@ -158,6 +160,13 @@ dat_raw <- raw_file_name %>%
   map_df(read_data) %>% 
   filter(grepl("TMP", sample_name)) %>% # filter to TMP samples only
   bind_rows() 
+
+#need to fix two samples that were named incorrectly: 
+dat_raw <- dat_raw %>%
+  mutate(sample_name = ifelse(sample_name == "TMP_20241007_SW_D5", 
+                              "TMP_20241003_SW_D5", sample_name)) %>%
+  mutate(sample_name = ifelse(sample_name == "TMP_20241007_SW_E3", 
+                              "TMP_20241003_SW_E3", sample_name))
 
 head(dat_raw)
 ```
