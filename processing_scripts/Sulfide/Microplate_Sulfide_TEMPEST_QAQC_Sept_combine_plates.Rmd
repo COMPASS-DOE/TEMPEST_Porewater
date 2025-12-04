@@ -63,6 +63,8 @@ Sample_data <- all_data %>%
   subset((!IDs %like% " Dup")) %>% 
   subset((!IDs %like% " Spike"))
 
+Sample_data$IDs <- NULL
+
 ```
 
 ##Removed ADL/BDL samples that were later diluted differently
@@ -75,40 +77,40 @@ HighCV<-filter(Sample_data, H2S_cv_flag=="High CV")
 ADL<-filter(Sample_data, H2S_Conc_flag=="adl")
 
 #remove the samples that have already been run at a higher dilution 
-ww_ADL<-subset(Sample_data, (IDs %in% ADL$IDs))
+ww_ADL<-subset(Sample_data, (Sample_ID %in% ADL$Sample_ID))
 ww_ADL<-filter(ww_ADL, H2S_Conc_flag=="Within_Range") 
 ADL_not_fixed<-ADL %>% 
-  subset((!IDs %in% ww_ADL$IDs)) %>% 
-  subset((!IDs %like% " Dup")) %>% 
-  subset((!IDs %like% " Spike"))
+  subset((!Sample_ID %in% ww_ADL$Sample_ID)) %>% 
+  subset((!Sample_ID %like% " Dup")) %>% 
+  subset((!Sample_ID %like% " Spike"))
 
 #filter out the samples that need to be run at a lower dilution
 BDL<-filter(Sample_data, H2S_Conc_flag=="bdl"& Dilution!=1)
 
 #remove the samples that have already been run at a lower dilution 
-ww_BDL<-subset(Sample_data, (IDs %in% BDL$IDs))
+ww_BDL<-subset(Sample_data, (Sample_ID %in% BDL$Sample_ID))
 ww_BDL<-filter(ww_BDL,H2S_Conc_flag=="Within_Range") 
 BDL_not_fixed<-BDL %>% 
-  subset((!IDs %in% ww_BDL$IDs)) %>% 
-  subset((!IDs %like% " Dup")) %>% 
-  subset((!IDs %like% " Spike"))
+  subset((!Sample_ID %in% ww_BDL$Sample_ID)) %>% 
+  subset((!Sample_ID %like% " Dup")) %>% 
+  subset((!Sample_ID %like% " Spike"))
 
 
 ##Remove samples that were ADL/BDL and are now fixed
 ADL_fixed<-ADL %>% 
-  subset((IDs %in% ww_ADL$IDs)) %>% 
-  subset((!IDs %like% " Dup")) %>% 
-  subset((!IDs %like% " Spike"))
-ADL_fixed$ID_conc <- paste(ADL_fixed$IDs, ADL_fixed$H2S_Conc_flag, sep = "_")
+  subset((Sample_ID %in% ww_ADL$Sample_ID)) %>% 
+  subset((!Sample_ID %like% " Dup")) %>% 
+  subset((!Sample_ID %like% " Spike"))
+ADL_fixed$ID_conc <- paste(ADL_fixed$Sample_ID, ADL_fixed$H2S_Conc_flag, sep = "_")
 
 BDL_fixed<-BDL %>% 
-  subset((IDs %in% ww_BDL$IDs)) %>% 
-  subset((!IDs %like% " Dup")) %>% 
-  subset((!IDs %like% " Spike"))
-BDL_fixed$ID_conc <- paste(BDL_fixed$IDs, BDL_fixed$H2S_Conc_flag, sep = "_")
+  subset((Sample_ID %in% ww_BDL$Sample_ID)) %>% 
+  subset((!Sample_ID %like% " Dup")) %>% 
+  subset((!Sample_ID %like% " Spike"))
+BDL_fixed$ID_conc <- paste(BDL_fixed$Sample_ID, BDL_fixed$H2S_Conc_flag, sep = "_")
 
 
-Sample_data$ID_conc <- paste(Sample_data$IDs, Sample_data$H2S_Conc_flag, sep = "_")
+Sample_data$ID_conc <- paste(Sample_data$Sample_ID, Sample_data$H2S_Conc_flag, sep = "_")
 
 Sample_data_wr <- Sample_data %>% 
   subset(!ID_conc %in% BDL_fixed$ID_conc) %>% 
@@ -116,8 +118,8 @@ Sample_data_wr <- Sample_data %>%
 
 ##If there are duplicates, remove the one with the lowest CV
 Sample_data_nodups <- Sample_data_wr %>%
-  arrange(IDs, H2S_cv) %>% # Sort by ID ascending, Value ascending
-  distinct(IDs, .keep_all = TRUE) # Keep distinct IDs, retaining all other columns
+  arrange(Sample_ID, H2S_cv) %>% # Sort by ID ascending, Value ascending
+  distinct(Sample_ID, .keep_all = TRUE) # Keep distinct IDs, retaining all other columns
 
 print(HighCV)
 print(ADL_not_fixed)
@@ -158,7 +160,7 @@ raw_metadata_lys_year <- raw_metadata_lys_year %>%
     remove = FALSE)
 
 raw_metadata_lys_combined <- raw_metadata_lys_year %>%
-  select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Volume_mL", "Notes")
 
 
 #create IDs from what was collected for comparison later
@@ -270,7 +272,7 @@ final_data <- merged_data %>%
     Collection_Date = Date
     # add more rename pairs as needed
   ) %>%
-  select(
+  dplyr::select(
     Project, Sample_ID, Zone, Grid, Depth_cm,
          Source, Volume_mL, Collection_Date, 
          H2S_mean, H2S_sd, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
