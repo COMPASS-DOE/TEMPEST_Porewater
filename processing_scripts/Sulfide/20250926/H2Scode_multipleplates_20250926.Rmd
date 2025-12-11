@@ -52,7 +52,7 @@ Run_by = "Zoe Read"  #Instrument user
 Script_run_by = "Zoe Read" #Code user 
 Project = "COMPASS"
 
-Run_notes="MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+run_notes="MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."#any notes from run
 

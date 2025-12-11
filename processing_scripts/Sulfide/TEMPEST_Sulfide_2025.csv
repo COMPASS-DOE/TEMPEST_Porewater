@@ -1,714 +1,430 @@
 "Project","Zone","Grid","Depth_cm","Sample_ID","Source","Volume_mL","Collection_Date","H2S_mean_uM","H2S_sd_uM","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Run_notes","Field_notes"
-"TMP","C","B4","15cm","TMP_C_PW_B4_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","B4","15cm","TMP_C_PW_B4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","B4","15cm","TMP_C_PW_B4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1422"
-"TMP","C","B4","15cm","TMP_C_PW_B4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","C3","15cm","TMP_C_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","C3","15cm","TMP_C_PW_C3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","light color"
-"TMP","C","C3","15cm","TMP_C_PW_C3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","C6","15cm","TMP_C_PW_C6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","C6","15cm","TMP_C_PW_C6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","C6","15cm","TMP_C_PW_C6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","D5","15cm","TMP_C_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","D5","15cm","TMP_C_PW_D5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","D5","15cm","TMP_C_PW_D5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","E3","15cm","TMP_C_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","E3","15cm","TMP_C_PW_E3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","E3","15cm","TMP_C_PW_E3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F4","15cm","TMP_C_PW_F4_20250204_15CM","PW",5,20250204,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F4","15cm","TMP_C_PW_F4_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F4","15cm","TMP_C_PW_F4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1418"
-"TMP","C","F4","15cm","TMP_C_PW_F4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F6","15cm","TMP_C_PW_F6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","light color"
-"TMP","C","F6","15cm","TMP_C_PW_F6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F6","15cm","TMP_C_PW_F6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","F6","15cm","TMP_C_PW_F6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H3","15cm","TMP_C_PW_H3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H3","15cm","TMP_C_PW_H3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H3","15cm","TMP_C_PW_H3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1401"
-"TMP","C","H3","15cm","TMP_C_PW_H3_20250602_15CM","PW",5,20250602,0.444043166646813,0.405677386821631,91.3598986074033,"Within Range","High CV","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H3","15cm","TMP_C_PW_H3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1411"
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250602_15CM","PW",5,20250602,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","H6","15cm","TMP_C_PW_H6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1351"
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250602_15CM","PW",5,20250602,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","C","I5","15cm","TMP_C_PW_I5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1125"
-"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250602_15CM","PW",5,20250602,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1545"
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250403_15CM","PW",5,20250403,2.64328193914651,0.40567738682163,15.3474883179741,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1130"
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1549"
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1120"
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1619"
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1055"
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1603"
-"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1558"
-"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1606"
-"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1611"
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1118"
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled in lab at 1602"
-"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250509_15CM","PW",5,20250509,2.73890101621172,0.811354773643261,29.6233696961228,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1051"
-"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","light color; sub-sampled in lab at 1627"
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","light color"
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250406_15CM","PW",5,20250406,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250509_15CM","PW",5,20250509,2.3086151694183,0.202838693410815,8.78616306856914,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1106"
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250131_15CM","PW",5,20250131,0.969948090505437,0.0676128978036051,6.97077487604231,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; field collection"
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250204_15CM","PW",5,20250204,1.59147209142927,0.13522579560721,8.49690021807213,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250403_15CM","PW",5,20250403,4.23693322356659,0.276028499416296,6.51481826243982,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250509_15CM","PW",5,20250509,2.88232963180953,0.0676128978036052,2.34577256735059,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1215"
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250602_15CM","PW",5,20250602,1.81458327124808,0.0552056998832594,3.04233488525929,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250711_15CM","PW",5,20250711,4.93813978871142,0.191238154130409,3.87267599365209,"Within Range","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; field collection"
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250204_15CM","PW",5,20250204,1.20899578316845,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250403_15CM","PW",5,20250403,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250509_15CM","PW",5,20250509,2.67515496483492,0.199046981626967,7.44057762049126,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1213"
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250602_15CM","PW",5,20250602,1.87832932262488,0.270451591214421,14.3985182979775,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250711_15CM","PW",5,20250711,4.90626676302302,0.292121105688744,5.95404040991754,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250204_15CM","PW",5,20250204,0.683090859309824,0.0676128978036052,9.89808264627043,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250403_15CM","PW",5,20250403,1.24086880885685,0.0552056998832593,4.44895540037932,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250509_15CM","PW",5,20250509,3.37636152997975,0.307372328435101,9.10365568692358,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1219"
-"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250602_15CM","PW",5,20250602,1.73490070702707,0.0676128978036052,3.89722002704505,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; sub-sampled in the lab at 1508"
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250204_15CM","PW",5,20250204,0.969948090505437,0.202838693410815,20.9123246281268,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250403_15CM","PW",5,20250403,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250509_15CM","PW",5,20250509,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1209"
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250602_15CM","PW",5,20250602,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250711_15CM","PW",5,20250711,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","clear; sub-sampled in the lab at 1512"
-"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250204_15CM","PW",5,20250204,0.300614551049006,0.0676128978036052,22.4915585648357,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250403_15CM","PW",5,20250403,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250602_15CM","PW",5,20250602,0.444043166646813,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250711_15CM","PW",5,20250711,0.858392500596032,0.0552056998832594,6.43128869892582,"Within Range","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250131_15CM","PW",5,20250131,1.01775762903804,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; sub-sampled in lab at 1516"
-"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250204_15CM","PW",5,20250204,1.71896419418287,0.0552056998832594,3.21156776098539,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250509_15CM","PW",5,20250509,1.68709116849447,0.0956190770652044,5.66768879185902,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1221"
-"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250602_15CM","PW",5,20250602,1.06556716757064,0.0676128978036043,6.3452497281568,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; sub-sampled in the lab at 1525"
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250204_15CM","PW",5,20250204,1.44804347583146,0.202838693410816,14.0077764788344,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250403_15CM","PW",5,20250403,0.874329013440233,0.0676128978036051,7.73311839870987,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250509_15CM","PW",5,20250509,2.2926786565741,0.220822799533037,9.63165068509899,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1205"
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250602_15CM","PW",5,20250602,1.49585301436406,0.270451591214421,18.0800913336662,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250711_15CM","PW",5,20250711,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250204_15CM","PW",5,20250204,1.44804347583146,0.0676128978036052,4.66925882627815,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250509_15CM","PW",5,20250509,2.2289326051973,0.146060552844372,6.55293715493221,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1224"
-"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250711_15CM","PW",5,20250711,1.27274183454525,0.0552056998832593,4.33754107744751,"Within Range","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250131_15CM","PW",5,20250131,0.890265526284434,0.0552056998832594,6.20103758410853,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; sub-sampled in lab at 1532"
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250204_15CM","PW",5,20250204,0.58747178224462,0.0676128978036051,11.5091311356724,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250403_15CM","PW",5,20250403,0.0615668583859948,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250509_15CM","PW",5,20250509,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","sub-sampled at 1229"
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250602_15CM","PW",5,20250602,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250711_15CM","PW",5,20250711,0.778709936375028,0.0676128978036051,8.68268075765796,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored; sub-sampled in the lab at 1500"
-"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250204_15CM","PW",5,20250204,0.444043166646813,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used","colored"
-"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250403_15CM","PW",5,20250403,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
-"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250711_15CM","PW",5,20250711,1.11337670610324,0,0,"Within Range","Within Range","Spk recovery out of range",1,20250925,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
-Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
-Matrix checks were high, probably because std 5 was low. 
-Dup and spk were good.
-50 uL spike used",NA
+"TMP","C","B4","15cm","TMP_C_PW_B4_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","B4","15cm","TMP_C_PW_B4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","B4","15cm","TMP_C_PW_B4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1422"
+"TMP","C","B4","15cm","TMP_C_PW_B4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","C3","15cm","TMP_C_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","C3","15cm","TMP_C_PW_C3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","light color"
+"TMP","C","C3","15cm","TMP_C_PW_C3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","C6","15cm","TMP_C_PW_C6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","C6","15cm","TMP_C_PW_C6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","C6","15cm","TMP_C_PW_C6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","D5","15cm","TMP_C_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","D5","15cm","TMP_C_PW_D5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","D5","15cm","TMP_C_PW_D5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","E3","15cm","TMP_C_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","E3","15cm","TMP_C_PW_E3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","E3","15cm","TMP_C_PW_E3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F4","15cm","TMP_C_PW_F4_20250204_15CM","PW",5,20250204,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F4","15cm","TMP_C_PW_F4_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F4","15cm","TMP_C_PW_F4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1418"
+"TMP","C","F4","15cm","TMP_C_PW_F4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F6","15cm","TMP_C_PW_F6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","light color"
+"TMP","C","F6","15cm","TMP_C_PW_F6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F6","15cm","TMP_C_PW_F6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","F6","15cm","TMP_C_PW_F6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H3","15cm","TMP_C_PW_H3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H3","15cm","TMP_C_PW_H3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H3","15cm","TMP_C_PW_H3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1401"
+"TMP","C","H3","15cm","TMP_C_PW_H3_20250602_15CM","PW",5,20250602,0.444043166646813,0.405677386821631,91.3598986074033,"Within Range","High CV","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H3","15cm","TMP_C_PW_H3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1411"
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250602_15CM","PW",5,20250602,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","H6","15cm","TMP_C_PW_H6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1351"
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250602_15CM","PW",5,20250602,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","C","I5","15cm","TMP_C_PW_I5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1125"
+"TMP","FW","B4","15cm","TMP_FW_PW_B4_20250602_15CM","PW",5,20250602,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1545"
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250403_15CM","PW",5,20250403,2.64328193914651,0.40567738682163,15.3474883179741,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1130"
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C3","15cm","TMP_FW_PW_C3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1549"
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1120"
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","C6","15cm","TMP_FW_PW_C6_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1619"
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1055"
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","D5","15cm","TMP_FW_PW_D5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1603"
+"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","E3","15cm","TMP_FW_PW_E3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1558"
+"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F4","15cm","TMP_FW_PW_F4_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1606"
+"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","F6","15cm","TMP_FW_PW_F6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1611"
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250509_15CM","PW",5,20250509,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1118"
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H3","15cm","TMP_FW_PW_H3_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled in lab at 1602"
+"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250403_15CM","PW",5,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250509_15CM","PW",5,20250509,2.73890101621172,0.811354773643261,29.6233696961228,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1051"
+"TMP","FW","H6","15cm","TMP_FW_PW_H6_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","light color; sub-sampled in lab at 1627"
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250204_15CM","PW",5,20250204,0,0,0,"bdl","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","light color"
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250406_15CM","PW",5,20250406,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250509_15CM","PW",5,20250509,2.3086151694183,0.202838693410815,8.78616306856914,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1106"
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","FW","I5","15cm","TMP_FW_PW_I5_20250711_15CM","PW",5,20250711,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250926,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250131_15CM","PW",5,20250131,0.969948090505437,0.0676128978036051,6.97077487604231,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; field collection"
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250204_15CM","PW",5,20250204,1.59147209142927,0.13522579560721,8.49690021807213,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250403_15CM","PW",5,20250403,4.23693322356659,0.276028499416296,6.51481826243982,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250509_15CM","PW",5,20250509,2.88232963180953,0.0676128978036052,2.34577256735059,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1215"
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250602_15CM","PW",5,20250602,1.81458327124808,0.0552056998832594,3.04233488525929,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","B4","15cm","TMP_SW_PW_B4_20250711_15CM","PW",5,20250711,4.93813978871142,0.191238154130409,3.87267599365209,"Within Range","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; field collection"
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250204_15CM","PW",5,20250204,1.20899578316845,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250403_15CM","PW",5,20250403,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250509_15CM","PW",5,20250509,2.67515496483492,0.199046981626967,7.44057762049126,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1213"
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250602_15CM","PW",5,20250602,1.87832932262488,0.270451591214421,14.3985182979775,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","C3","15cm","TMP_SW_PW_C3_20250711_15CM","PW",5,20250711,4.90626676302302,0.292121105688744,5.95404040991754,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250204_15CM","PW",5,20250204,0.683090859309824,0.0676128978036052,9.89808264627043,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250403_15CM","PW",5,20250403,1.24086880885685,0.0552056998832593,4.44895540037932,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250509_15CM","PW",5,20250509,3.37636152997975,0.307372328435101,9.10365568692358,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1219"
+"TMP","SW","C6","15cm","TMP_SW_PW_C6_20250602_15CM","PW",5,20250602,1.73490070702707,0.0676128978036052,3.89722002704505,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; sub-sampled in the lab at 1508"
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250204_15CM","PW",5,20250204,0.969948090505437,0.202838693410815,20.9123246281268,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250403_15CM","PW",5,20250403,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250509_15CM","PW",5,20250509,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1209"
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250602_15CM","PW",5,20250602,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","D5","15cm","TMP_SW_PW_D5_20250711_15CM","PW",5,20250711,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","clear; sub-sampled in the lab at 1512"
+"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250204_15CM","PW",5,20250204,0.300614551049006,0.0676128978036052,22.4915585648357,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250403_15CM","PW",5,20250403,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250602_15CM","PW",5,20250602,0.444043166646813,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","E3","15cm","TMP_SW_PW_E3_20250711_15CM","PW",5,20250711,0.858392500596032,0.0552056998832594,6.43128869892582,"Within Range","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250131_15CM","PW",5,20250131,1.01775762903804,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; sub-sampled in lab at 1516"
+"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250204_15CM","PW",5,20250204,1.71896419418287,0.0552056998832594,3.21156776098539,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250509_15CM","PW",5,20250509,1.68709116849447,0.0956190770652044,5.66768879185902,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1221"
+"TMP","SW","F4","15cm","TMP_SW_PW_F4_20250602_15CM","PW",5,20250602,1.06556716757064,0.0676128978036043,6.3452497281568,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; sub-sampled in the lab at 1525"
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250204_15CM","PW",5,20250204,1.44804347583146,0.202838693410816,14.0077764788344,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250403_15CM","PW",5,20250403,0.874329013440233,0.0676128978036051,7.73311839870987,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250509_15CM","PW",5,20250509,2.2926786565741,0.220822799533037,9.63165068509899,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1205"
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250602_15CM","PW",5,20250602,1.49585301436406,0.270451591214421,18.0800913336662,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","F6","15cm","TMP_SW_PW_F6_20250711_15CM","PW",5,20250711,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250204_15CM","PW",5,20250204,1.44804347583146,0.0676128978036052,4.66925882627815,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250509_15CM","PW",5,20250509,2.2289326051973,0.146060552844372,6.55293715493221,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1224"
+"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250602_15CM","PW",5,20250602,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","H3","15cm","TMP_SW_PW_H3_20250711_15CM","PW",5,20250711,1.27274183454525,0.0552056998832593,4.33754107744751,"Within Range","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250131_15CM","PW",5,20250131,0.890265526284434,0.0552056998832594,6.20103758410853,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; sub-sampled in lab at 1532"
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250204_15CM","PW",5,20250204,0.58747178224462,0.0676128978036051,11.5091311356724,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250403_15CM","PW",5,20250403,0.0615668583859948,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250509_15CM","PW",5,20250509,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","sub-sampled at 1229"
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250602_15CM","PW",5,20250602,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","H6","15cm","TMP_SW_PW_H6_20250711_15CM","PW",5,20250711,0.778709936375028,0.0676128978036051,8.68268075765796,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250131_15CM","PW",5,20250131,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored; sub-sampled in the lab at 1500"
+"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250204_15CM","PW",5,20250204,0.444043166646813,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.","colored"
+"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250403_15CM","PW",5,20250403,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
+"TMP","SW","I5","15cm","TMP_SW_PW_I5_20250711_15CM","PW",5,20250711,1.11337670610324,0,0,"Within Range","Within Range","Spk recovery out of range",1,20250925,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+2/8 dups were bad. Used 10 uL spike for all plates. 
+3/8 spikes were bad. Plate 15 Std curve used for all plates.",NA
 "TMP","C","I5","15cm","TMP_C_PW_I5_20251101_15CM","PW",5,20251101,0,0,0,"bdl","Within Range","MC 10 out of range; MC 20 out of range",1,20251110,"Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
 Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
 Matrix checks were high, probably because std 5 was low. 

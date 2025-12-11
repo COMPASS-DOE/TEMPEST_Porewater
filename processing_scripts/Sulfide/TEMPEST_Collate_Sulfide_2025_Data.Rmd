@@ -6,13 +6,12 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(dplyr)
 library(ggplot2)
 library(ggpubr)
 library(stringr)
 library(readxl)
-library(tidyr)
 library(tibble)
+library(dplyr)
 ```
 
 #Read in and collate all the files in the Processed Data folder 
@@ -32,7 +31,7 @@ final_data <- all_data %>%
     H2S_mean_uM = H2S_mean, 
     H2S_sd_uM = H2S_sd
     ) %>%
-  select(
+  dplyr::select(
     Project, Zone, Grid, Depth_cm, 
          Sample_ID, Source, Volume_mL, Collection_Date, 
          H2S_mean_uM, H2S_sd_uM, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
