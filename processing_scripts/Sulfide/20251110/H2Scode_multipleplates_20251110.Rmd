@@ -43,7 +43,7 @@ Run_by = "Zoe Read"  #Instrument user
 Script_run_by = "Zoe Read" #Code user 
 Project = "COMPASS"
 
-Run_notes="Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
+run_notes="Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
 Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
 Matrix checks were high, probably because std 5 was low. 
 Dup and spk were good.
@@ -1104,27 +1104,30 @@ final_data <- merged_data %>%
     Collection_Date = Date
     # add more rename pairs as needed
   ) %>%
+  mutate(
+    Run_notes = run_notes
+  ) %>%
   dplyr::select(
     Project, Sample_ID, Zone, Grid, Depth_cm,
          Source, Volume_mL, Collection_Date, 
          H2S_mean, H2S_sd, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
-         Analysis_rundate, Field_notes
+         Analysis_rundate, Field_notes, Run_notes
         # list columns in the order you want them
   )
 
 head(final_data)
 
 #Write out final data frame 
-write.csv(final_data, "TEMPEST_H2S_2025_AllPlates_Combined.csv", row.names = FALSE)
+write.csv(final_data, "Processed Data/TEMPEST_H2S_AllPlates_Combined_20251110.csv", row.names = FALSE)
 
 #Write out samples that still have high CVs
-write.csv(HighCV, "TEMPEST_H2S_2025_AllPlates_HighCVs.csv", row.names = FALSE)
+write.csv(HighCV, "Processed Data/TEMPEST_H2S_AllPlates_HighCVs_20251110.csv", row.names = FALSE)
 
 #Write out ADL samples
-write.csv(ADL_not_fixed, "TEMPEST_H2S_2025_AllPlates_ADL.csv", row.names = FALSE)
+write.csv(ADL_not_fixed, "Processed Data/TEMPEST_H2S_AllPlates_ADL_20251110.csv", row.names = FALSE)
 
 #Write out BDL samples
-write.csv(BDL_not_fixed, "TEMPEST_H2S_2025_AllPlates_BDL.csv", row.names = FALSE)
+write.csv(BDL_not_fixed, "Processed Data/TEMPEST_H2S_AllPlates_BDL_20251110.csv", row.names = FALSE)
 
 
 ```
