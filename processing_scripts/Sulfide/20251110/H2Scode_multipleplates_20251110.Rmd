@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater Sulfide"
-author: "2025 Samples"
+author: "2025 Samples Ran on 20251110"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -12,23 +12,14 @@ output_dir: "To Be Reviewed/PDF"
 
 ```{r Add Required Packages, include=FALSE}
 
-library(dplyr)
-library(broom)
-library(ggplot2)
-library(ggpubr)
-library(stringr)
-library(purrr)
-library(tidyverse)
-library(here)
-library(data.table)
-library(matrixStats)
-library(gridExtra)
-library(grid)
-library(plater)
-library(raster)
-library(knitr)  
-library(readxl)
-library(patchwork)
+#Packages that are required 
+lapply(c(
+  "dplyr", "ggplot2", "ggpubr", "stringr",
+  "purrr", "tidyverse", "here", "broom", "tibble",
+  "googledrive", "googlesheets4", "data.table", 
+  "matrixStats", "gridExtra", "grid", "tidyverse", "knitr", 
+  "plater", "raster", "readxl", "patchwork"), 
+  library, character.only = TRUE)
 
 #Packages for loading metadata
 require(pacman)
@@ -44,21 +35,23 @@ pacman::p_load(janitor, # useful for simplifying column names
 ```{r Run Information, echo=TRUE, message=FALSE, warning=FALSE}
 
 ###things that need to be changed
-Date_Run = "20250926"
-plates<- c("Plate8","Plate9","Plate10","Plate11","Plate12","Plate13","Plate14","Plate15")
-Month = "Sept"
+Date_Run = "20251110"
+plates<- c("Plate4")
+Month = "Nov"
 Year = "2025"
 Run_by = "Zoe Read"  #Instrument user 
 Script_run_by = "Zoe Read" #Code user 
 Project = "COMPASS"
 
-Run_notes="MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
-2/8 dups were bad. Used 10 uL spike for all plates. 
-3/8 spikes were bad. Plate 15 Std curve used for all plates."#any notes from run
+run_notes="Some sample IDs are missing from metadata: TMP_SW_PW_H6_20250926_15CM
+Removed std 5 because it was low and none of the sample absorbances are above Std 3. 
+Matrix checks were high, probably because std 5 was low. 
+Dup and spk were good.
+50 uL spike used"#any notes from run
 
 #Stds that should be excluded
-# stds_to_remove<-data.frame(Plate=c("Plate6"),IDs=c("Std 3"))
-stds_to_remove<-NA
+stds_to_remove<-data.frame(Plate=c("Plate4"),IDs=c("Std 5"))
+# stds_to_remove<-NA
 
 ```
 
@@ -73,16 +66,16 @@ head(file_paths_tidydata)
 
 #file path name for processed data
 #Write out final data frame 
-final_data_path <- "TEMPEST_H2S_20250926_Plates_Combined.csv"
-HighCV_path <- "TEMPEST_H2S_20250926_Plates_HighCVs.csv"
-ADL_not_fixed_path <- "TEMPEST_H2S_20250926_Plates_ADL.csv"
-BDL_not_fixed_path <- "TEMPEST_H2S_20250926_Plates_BDL.csv"
+final_data_path <- "TEMPEST_H2S_20251110_Plates_Combined.csv"
+HighCV_path <- "TEMPEST_H2S_20251110_Plates_HighCVs.csv"
+ADL_not_fixed_path <- "TEMPEST_H2S_20251110_Plates_ADL.csv"
+BDL_not_fixed_path <- "TEMPEST_H2S_20251110_Plates_BDL.csv"
 
 #QAQC log path
 log_path="Raw Data/Sulfide_STD_QAQC.csv"
 
 #Sample ID Path
-SampleIDs1=paste0("Raw Data/TEMPEST_2025_SampleIDs_20250926.xlsx")
+SampleIDs1=paste0("Raw Data/TEMPEST_2025_SampleIDs_20251110.xlsx")
 
 #Metadata path
 Raw_Metadata = "Raw Data/Sulfide_STD_QAQC.csv"
@@ -111,12 +104,12 @@ Raw_Metadata = "Raw Data/Sulfide_STD_QAQC.csv"
   #spike for these samples was 50 uL of the 100uM standard
   Con1 <- 1000000               #conversion factor value for spike volumes (uL -> L)
   spk_std <- 100                # uM S2- standard used
-  spkvol <- 10                  # uL volume of spike added
+  spkvol <- 50                  # uL volume of spike added
   spk_Conc <- spk_std*(spkvol/Con1)  # umoles of S2- added to each spiked sample
   sample_vol <- 250             # the sample volume without the spike is 250 uL
 
 #Top standard Concentration- Update if running different standard curve: 
-   Top_STD = 100
+   Top_STD = 50
    
 #Set time zone 
   common_tz = "Etc/GMT+5"
@@ -286,8 +279,8 @@ print(Slopes)
 dat$QAQC_flag<-"" 
 
 #delete stds that are off for each plate
-# for(i in 1:nrow(stds_to_remove)){
-# H2S_stds<-H2S_stds %>% subset(!(Plate %in% stds_to_remove$Plate[i] & IDs%in%stds_to_remove$IDs[i]))}
+for(i in 1:nrow(stds_to_remove)){
+H2S_stds<-H2S_stds %>% subset(!(Plate %in% stds_to_remove$Plate[i] & IDs%in%stds_to_remove$IDs[i]))}
 
 #create a graph for each plate's std curves
 curves<-function(plate_names){
@@ -456,14 +449,14 @@ head(H2S_MC_HCV)
 #make a dataframe for matrix checks
 QAMC<-data.frame(matrix(nrow=0,ncol=3))
 colnames(QAMC) <- c("Plate","IDs","p_value")
-        
+
 #compare matrix checks to chosen std curve
 for(i in 1:length(plates)){
   H2S_MC1<-filter(H2S_MC, Plate %in% plates[i])
   print(plates[i])
   
   ##Select Std 5 for comparison to MCs
-  std5 <- subset(H2S_stds, IDs == "Std 5"& Plate ==std_curve$Plate)
+  std5 <- subset(H2S_stds_all_fixed, IDs == "Std 5"& Plate ==std_curve$Plate)
   MC10 <- subset(H2S_MC1, IDs == "MC: 10ppt S5")
   MC20 <- subset(H2S_MC1, IDs == "MC: 20ppt S5") 
 
@@ -475,7 +468,7 @@ for(i in 1:length(plates)){
     if(t.test.MC10$p.value > p_value_MC){
       print("Matrix Check 10 GOOD")
     } else {
-      print("Matrix Check 10 is signficantly different from Std 5 - REASSESS")
+      print("Matrix Check 10 is significantly different from Std 5 - REASSESS")
     }
   #write out a flag to the sample dataframe if the MC is Bad
   dat$QAQC_flag<-if(t.test.MC10$p.value < p_value_chkstds){
@@ -499,7 +492,7 @@ for(i in 1:length(plates)){
     if(t.test.MC20$p.value > p_value_MC){
       print("Matrix Check 20 GOOD")
     } else { 
-      print("Matrix Check 20 is signficantly different from Std 5 - REASSESS")
+      print("Matrix Check 20 is significantly different from Std 5 - REASSESS")
     }
 #write out a flag to the sample dataframe if the MC is Bad
   dat$QAQC_flag<-if(t.test.MC20$p.value < p_value_chkstds){
@@ -870,7 +863,7 @@ all_data1 <- dat1 %>%
 ##Remove Dups and Spikes
 Sample_data1 <- all_data1 %>% 
   subset((!IDs %like% "Dup")) %>% 
-  subset((!IDs %like% "Spike"))
+  subset((!IDs %like% "Spike")) 
 
 ```
 
@@ -1111,27 +1104,30 @@ final_data <- merged_data %>%
     Collection_Date = Date
     # add more rename pairs as needed
   ) %>%
+  mutate(
+    Run_notes = run_notes
+  ) %>%
   dplyr::select(
     Project, Sample_ID, Zone, Grid, Depth_cm,
          Source, Volume_mL, Collection_Date, 
          H2S_mean, H2S_sd, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
-         Analysis_rundate, Field_notes
+         Analysis_rundate, Field_notes, Run_notes
         # list columns in the order you want them
   )
 
 head(final_data)
 
 #Write out final data frame 
-write.csv(final_data, "TEMPEST_H2S_2025_AllPlates_Combined.csv", row.names = FALSE)
+write.csv(final_data, "Processed Data/TEMPEST_H2S_AllPlates_Combined_20251110.csv", row.names = FALSE)
 
 #Write out samples that still have high CVs
-write.csv(HighCV, "TEMPEST_H2S_2025_AllPlates_HighCVs.csv", row.names = FALSE)
+write.csv(HighCV, "Processed Data/TEMPEST_H2S_AllPlates_HighCVs_20251110.csv", row.names = FALSE)
 
 #Write out ADL samples
-write.csv(ADL_not_fixed, "TEMPEST_H2S_2025_AllPlates_ADL.csv", row.names = FALSE)
+write.csv(ADL_not_fixed, "Processed Data/TEMPEST_H2S_AllPlates_ADL_20251110.csv", row.names = FALSE)
 
 #Write out BDL samples
-write.csv(BDL_not_fixed, "TEMPEST_H2S_2025_AllPlates_BDL.csv", row.names = FALSE)
+write.csv(BDL_not_fixed, "Processed Data/TEMPEST_H2S_AllPlates_BDL_20251110.csv", row.names = FALSE)
 
 
 ```
