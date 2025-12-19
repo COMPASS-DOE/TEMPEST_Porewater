@@ -1,349 +1,349 @@
-"","Project","Sample_ID","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
-"1","TMP","TMP_SW_B4_20240426_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240426",0.224407361197754,"Within_Range","SO4 checks perc diff out of range",0.214595204513399,"Within_Range","",0.0137725718,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"","Project","Sample_ID","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","SO4_ppm","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_ppm","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
+"1","TMP","TMP_SW_B4_20240426_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240426",7.1945,0.224407361197754,"Within_Range","SO4 checks perc diff out of range",7.6074,0.214595204513399,"Within_Range","",0.0137725718,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"2","TMP","TMP_SW_F6_20240426_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240426",0.462021210230817,"Within_Range","SO4 checks perc diff out of range",0.21761071932299,"Within_Range","",0.0139657401,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"2","TMP","TMP_SW_F6_20240426_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240426",14.8124,0.462021210230817,"Within_Range","SO4 checks perc diff out of range",7.7143,0.21761071932299,"Within_Range","",0.0139657401,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"3","TMP","TMP_C_H3_20240426_15CM","C","H3","15CM",NA,NA,"PW",5,"20240426",0.149451029320025,"Within_Range","SO4 checks perc diff out of range",0.227906911142454,"Within_Range","",0.0146252951,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"3","TMP","TMP_C_H3_20240426_15CM","C","H3","15CM",NA,NA,"PW",5,"20240426",4.7914,0.149451029320025,"Within_Range","SO4 checks perc diff out of range",8.0793,0.227906911142454,"Within_Range","",0.0146252951,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"4","TMP","TMP_FW_C6_20240426_15CM","FW","C6","15CM",NA,NA,"PW",5,"20240426",0.0141266375545852,"Within_Range","SO4 checks perc diff out of range",0.0159210155148096,"Within_Range","",0.0010458708,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"4","TMP","TMP_FW_C6_20240426_15CM","FW","C6","15CM",NA,NA,"PW",5,"20240426",0.4529,0.0141266375545852,"Within_Range","SO4 checks perc diff out of range",0.5644,0.0159210155148096,"Within_Range","",0.0010458708,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"5","TMP","TMP_C_I5_20240426_15CM","C","I5","15CM",NA,NA,"PW",5,"20240426",0.0142888334373051,"Within_Range","SO4 checks perc diff out of range",0.015771509167842,"Within_Range","",0.0010362937,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"5","TMP","TMP_C_I5_20240426_15CM","C","I5","15CM",NA,NA,"PW",5,"20240426",0.4581,0.0142888334373051,"Within_Range","SO4 checks perc diff out of range",0.5591,0.015771509167842,"Within_Range","",0.0010362937,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"6","TMP","TMP_FW_F4_20240426_15CM","FW","F4","15CM",NA,NA,"PW",5,"20240426",0.0296943231441048,"Within_Range","SO4 checks perc diff out of range",0.0162397743300423,"Within_Range","",0.0010662899,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"6","TMP","TMP_FW_F4_20240426_15CM","FW","F4","15CM",NA,NA,"PW",5,"20240426",0.952,0.0296943231441048,"Within_Range","SO4 checks perc diff out of range",0.5757,0.0162397743300423,"Within_Range","",0.0010662899,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"7","TMP","TMP_FW_H3_20240426_15CM","FW","H3","15CM",NA,NA,"PW",5,"20240426",0.213727386150967,"Within_Range","SO4 checks perc diff out of range",0.103732016925247,"Within_Range","",0.0066708811,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"7","TMP","TMP_FW_H3_20240426_15CM","FW","H3","15CM",NA,NA,"PW",5,"20240426",6.8521,0.213727386150967,"Within_Range","SO4 checks perc diff out of range",3.6773,0.103732016925247,"Within_Range","",0.0066708811,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"8","TMP","TMP_FW_D5_20240426_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240426",0.0261291328758578,"Within_Range","SO4 checks perc diff out of range",0.0192214386459803,"Within_Range","",0.0012572898,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"8","TMP","TMP_FW_D5_20240426_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240426",0.8377,0.0261291328758578,"Within_Range","SO4 checks perc diff out of range",0.6814,0.0192214386459803,"Within_Range","",0.0012572898,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"9","TMP","TMP_FW_I5_20240426_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240426",0.00434497816593886,"Within_Range","SO4 checks perc diff out of range",0.0755937940761636,"Within_Range","",0.0048683986,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"9","TMP","TMP_FW_I5_20240426_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240426",0.1393,0.00434497816593886,"Within_Range","SO4 checks perc diff out of range",2.6798,0.0755937940761636,"Within_Range","",0.0048683986,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"10","TMP","TMP_C_H6_20240426_15CM","C","H6","15CM",NA,NA,"PW",5,"20240426",0.0157860262008734,"Within_Range","SO4 checks perc diff out of range",0.0674668547249647,"Within_Range","",0.0043478019,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"10","TMP","TMP_C_H6_20240426_15CM","C","H6","15CM",NA,NA,"PW",5,"20240426",0.5061,0.0157860262008734,"Within_Range","SO4 checks perc diff out of range",2.3917,0.0674668547249647,"Within_Range","",0.0043478019,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"11","TMP","TMP_SW_H3_20240715_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240715",9.19087336244541,"Within_Range","SO4 checks perc diff out of range",82.5182510578279,"Within_Range","",5.285992504,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"11","TMP","TMP_SW_H3_20240715_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240715",294.6594,9.19087336244541,"Within_Range","SO4 checks perc diff out of range",2925.272,82.5182510578279,"Within_Range","",5.285992504,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"12","TMP","TMP_SW_F6_20240715_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240715",7.44379288833437,"Within_Range","SO4 checks perc diff out of range",73.2463949224259,"Within_Range","",4.6920545529,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"12","TMP","TMP_SW_F6_20240715_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240715",238.648,7.44379288833437,"Within_Range","SO4 checks perc diff out of range",2596.5847,73.2463949224259,"Within_Range","",4.6920545529,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"13","TMP","TMP_FW_I5_20240715_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240715",0.00913911416094822,"Within_Range","SO4 checks perc diff out of range",0.243086036671368,"Within_Range","",0.0155976418,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"13","TMP","TMP_FW_I5_20240715_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240715",0.293,0.00913911416094822,"Within_Range","SO4 checks perc diff out of range",8.6174,0.243086036671368,"Within_Range","",0.0155976418,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"14","TMP","TMP_SW_B4_20240711_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240711",8.01430131004367,"Within_Range","SO4 checks perc diff out of range",75.3608011283498,"Within_Range","",4.8274995028,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"14","TMP","TMP_SW_B4_20240711_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240711",256.9385,8.01430131004367,"Within_Range","SO4 checks perc diff out of range",2671.5404,75.3608011283498,"Within_Range","",4.8274995028,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"15","TMP","TMP_SW_D5_20240805_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240805",1.95963194011229,"Within_Range","SO4 checks perc diff out of range",26.2807475317348,"Within_Range","",1.6835220675,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"15","TMP","TMP_SW_D5_20240805_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240805",62.8258,1.95963194011229,"Within_Range","SO4 checks perc diff out of range",931.6525,26.2807475317348,"Within_Range","",1.6835220675,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"16","TMP","TMP_SW_I5_20240808_15CM","SW","I5","15CM",NA,NA,"PW",5,"20240808",7.19422956955708,"Within_Range","SO4 checks perc diff out of range",54.0628519040903,"Within_Range","",3.4631922767,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"16","TMP","TMP_SW_I5_20240808_15CM","SW","I5","15CM",NA,NA,"PW",5,"20240808",230.647,7.19422956955708,"Within_Range","SO4 checks perc diff out of range",1916.5281,54.0628519040903,"Within_Range","",3.4631922767,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"17","TMP","TMP_FW_C3_20240808_15CM","FW","C3","15CM",NA,NA,"PW",5,"20240808",0.0142888334373051,"Within_Range","SO4 checks perc diff out of range",0.0717433004231312,"Within_Range","",0.0046217431,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"17","TMP","TMP_FW_C3_20240808_15CM","FW","C3","15CM",NA,NA,"PW",5,"20240808",0.4581,0.0142888334373051,"Within_Range","SO4 checks perc diff out of range",2.5433,0.0717433004231312,"Within_Range","",0.0046217431,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"18","TMP","TMP_SW_C3_20240802_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240802",5.95518714909545,"Within_Range","SO4 checks perc diff out of range",70.1015684062059,"Within_Range","",4.4906027842,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"18","TMP","TMP_SW_C3_20240802_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240802",190.9233,5.95518714909545,"Within_Range","SO4 checks perc diff out of range",2485.1006,70.1015684062059,"Within_Range","",4.4906027842,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"19","TMP","TMP_FW_D5_20240808_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240808",0.0333250155957579,"Within_Range","SO4 checks perc diff out of range",0.152265162200282,"Within_Range","",0.0097798246,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"19","TMP","TMP_FW_D5_20240808_15CM","FW","D5","15CM",NA,NA,"PW",5,"20240808",1.0684,0.0333250155957579,"Within_Range","SO4 checks perc diff out of range",5.3978,0.152265162200282,"Within_Range","",0.0097798246,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"20","TMP","TMP_FW_H6_20240812_15CM","FW","H6","15CM",NA,NA,"PW",5,"20240812",0.142064878353088,"Within_Range","SO4 checks perc diff out of range",0.0343526093088857,"Within_Range","",0.0022265646,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"20","TMP","TMP_FW_H6_20240812_15CM","FW","H6","15CM",NA,NA,"PW",5,"20240812",4.5546,0.142064878353088,"Within_Range","SO4 checks perc diff out of range",1.2178,0.0343526093088857,"Within_Range","",0.0022265646,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"21","TMP","TMP_SW_F4_20240812_15CM","SW","F4","15CM",NA,NA,"PW",5,"20240812",3.28945102932002,"Within_Range","SO4 checks perc diff out of range",30.6531452750353,"Within_Range","",1.963609778,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"21","TMP","TMP_SW_F4_20240812_15CM","SW","F4","15CM",NA,NA,"PW",5,"20240812",105.4598,3.28945102932002,"Within_Range","SO4 checks perc diff out of range",1086.654,30.6531452750353,"Within_Range","",1.963609778,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"22","TMP","TMP_SW_H6_20240812_15CM","SW","H6","15CM",NA,NA,"PW",5,"20240812",2.02254522769807,"Within_Range","SO4 checks perc diff out of range",10.144778561354,"Within_Range","",0.6498817468,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"22","TMP","TMP_SW_H6_20240812_15CM","SW","H6","15CM",NA,NA,"PW",5,"20240812",64.8428,2.02254522769807,"Within_Range","SO4 checks perc diff out of range",359.6324,10.144778561354,"Within_Range","",0.6498817468,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"23","TMP","TMP_SW_D5_20240802_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240802",2.34966936993138,"Within_Range","SO4 checks perc diff out of range",32.2530860366714,"Within_Range","",2.0660990233,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"23","TMP","TMP_SW_D5_20240802_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240802",75.3304,2.34966936993138,"Within_Range","SO4 checks perc diff out of range",1143.3719,32.2530860366714,"Within_Range","",2.0660990233,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"24","TMP","TMP_SW_B4_20240805_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240805",4.69170617592015,"Within_Range","SO4 checks perc diff out of range",37.6443244005642,"Within_Range","",2.4114517791,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"24","TMP","TMP_SW_B4_20240805_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240805",150.4161,4.69170617592015,"Within_Range","SO4 checks perc diff out of range",1334.4913,37.6443244005642,"Within_Range","",2.4114517791,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"25","TMP","TMP_SW_C6_20240808_15CM","SW","C6","15CM",NA,NA,"PW",5,"20240808",3.89099500935745,"Within_Range","SO4 checks perc diff out of range",23.6931057827927,"Within_Range","",1.5177625242,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"25","TMP","TMP_SW_C6_20240808_15CM","SW","C6","15CM",NA,NA,"PW",5,"20240808",124.7453,3.89099500935745,"Within_Range","SO4 checks perc diff out of range",839.9206,23.6931057827927,"Within_Range","",1.5177625242,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"26","TMP","TMP_FW_I5_20240805_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240805",0.00693387398627573,"Within_Range","SO4 checks perc diff out of range",0.617746121297602,"Within_Range","",0.0395976737,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"26","TMP","TMP_FW_I5_20240805_15CM","FW","I5","15CM",NA,NA,"PW",5,"20240805",0.2223,0.00693387398627573,"Within_Range","SO4 checks perc diff out of range",21.8991,0.617746121297602,"Within_Range","",0.0395976737,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"27","TMP","TMP_SW_H3_20240808_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240808",4.12526512788522,"Within_Range","SO4 checks perc diff out of range",21.1428039492243,"Within_Range","",1.3543949068,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"27","TMP","TMP_SW_H3_20240808_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240808",132.256,4.12526512788522,"Within_Range","SO4 checks perc diff out of range",749.5124,21.1428039492243,"Within_Range","",1.3543949068,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"28","TMP","TMP_SW_E3_20240812_15CM","SW","E3","15CM",NA,NA,"PW",5,"20240812",2.20696818465377,"Within_Range","SO4 checks perc diff out of range",27.9617517630465,"Within_Range","",1.7912040887,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"28","TMP","TMP_SW_E3_20240812_15CM","SW","E3","15CM",NA,NA,"PW",5,"20240812",70.7554,2.20696818465377,"Within_Range","SO4 checks perc diff out of range",991.2441,27.9617517630465,"Within_Range","",1.7912040887,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"29","TMP","TMP_SW_H3_20240805_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240805",6.13982220835933,"Within_Range","SO4 checks perc diff out of range",38.3656220028209,"Within_Range","",2.4576567691,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"29","TMP","TMP_SW_H3_20240805_15CM","SW","H3","15CM",NA,NA,"PW",5,"20240805",196.8427,6.13982220835933,"Within_Range","SO4 checks perc diff out of range",1360.0613,38.3656220028209,"Within_Range","",2.4576567691,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"30","TMP","TMP_SW_F6_20240802_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240802",5.81372738615097,"Within_Range","SO4 checks perc diff out of range",54.8917235543018,"Within_Range","",3.5162882612,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"30","TMP","TMP_SW_F6_20240802_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240802",186.3881,5.81372738615097,"Within_Range","SO4 checks perc diff out of range",1945.9116,54.8917235543018,"Within_Range","",3.5162882612,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"31","TMP","TMP_SW_B4_20240802_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240802",6.85415159076731,"Within_Range","SO4 checks perc diff out of range",61.140191819464,"Within_Range","",3.9165535786,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"31","TMP","TMP_SW_B4_20240802_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240802",219.7441,6.85415159076731,"Within_Range","SO4 checks perc diff out of range",2167.4198,61.140191819464,"Within_Range","",3.9165535786,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"32","TMP","TMP_SW_C3_20240805_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240805",4.87779475982533,"Within_Range","SO4 checks perc diff out of range",50.4793399153738,"Within_Range","",3.2336391282,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"32","TMP","TMP_SW_C3_20240805_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240805",156.3821,4.87779475982533,"Within_Range","SO4 checks perc diff out of range",1789.4926,50.4793399153738,"Within_Range","",3.2336391282,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"33","TMP","TMP_SW_B4_20240906_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240906",5.41187772925764,"Within_Range","SO4 checks perc diff out of range",49.6664174894217,"Within_Range","",3.1815648215,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"33","TMP","TMP_SW_B4_20240906_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240906",173.5048,5.41187772925764,"Within_Range","SO4 checks perc diff out of range",1760.6745,49.6664174894217,"Within_Range","",3.1815648215,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"34","TMP","TMP_SW_D5_20240906_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240906",2.12347161572052,"Within_Range","SO4 checks perc diff out of range",24.0383582510578,"Within_Range","",1.5398787586,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"34","TMP","TMP_SW_D5_20240906_15CM","SW","D5","15CM",NA,NA,"PW",5,"20240906",68.0785,2.12347161572052,"Within_Range","SO4 checks perc diff out of range",852.1598,24.0383582510578,"Within_Range","",1.5398787586,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"35","TMP","TMP_SW_F6_20240906_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240906",4.0888178415471,"Within_Range","SO4 checks perc diff out of range",31.4834104372355,"Within_Range","",2.0167950283,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"35","TMP","TMP_SW_F6_20240906_15CM","SW","F6","15CM",NA,NA,"PW",5,"20240906",131.0875,4.0888178415471,"Within_Range","SO4 checks perc diff out of range",1116.0869,31.4834104372355,"Within_Range","",2.0167950283,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"36","TMP","TMP_SW_C3_20240906_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240906",5.23664379288833,"Within_Range","SO4 checks perc diff out of range",55.1735401974612,"Within_Range","",3.534340914,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"36","TMP","TMP_SW_C3_20240906_15CM","SW","C3","15CM",NA,NA,"PW",5,"20240906",167.8868,5.23664379288833,"Within_Range","SO4 checks perc diff out of range",1955.902,55.1735401974612,"Within_Range","",3.534340914,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"37","TMP","TMP_C_C6_20241003_15CM","C","C6","15CM",NA,NA,"PW",5,"20241003",0.0514098565190268,"Within_Range","SO4 checks perc diff out of range",0.386959097320169,"Within_Range","",0.0248138839,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"37","TMP","TMP_C_C6_20241003_15CM","C","C6","15CM",NA,NA,"PW",5,"20241003",1.6482,0.0514098565190268,"Within_Range","SO4 checks perc diff out of range",13.7177,0.386959097320169,"Within_Range","",0.0248138839,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"38","TMP","TMP_C_F6_20241003_15CM","C","F6","15CM",NA,NA,"PW",5,"20241003",0.0413693075483468,"Within_Range","SO4 checks perc diff out of range",0.224318758815233,"Within_Range","",0.0143954447,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"38","TMP","TMP_C_F6_20241003_15CM","C","F6","15CM",NA,NA,"PW",5,"20241003",1.3263,0.0413693075483468,"Within_Range","SO4 checks perc diff out of range",7.9521,0.224318758815233,"Within_Range","",0.0143954447,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"39","TMP","TMP_C_D5_20241003_15CM","C","D5","15CM",NA,NA,"PW",5,"20241003",0.0164753587024329,"Within_Range","SO4 checks perc diff out of range",0.101486600846262,"Within_Range","",0.0065270439,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"39","TMP","TMP_C_D5_20241003_15CM","C","D5","15CM",NA,NA,"PW",5,"20241003",0.5282,0.0164753587024329,"Within_Range","SO4 checks perc diff out of range",3.5977,0.101486600846262,"Within_Range","",0.0065270439,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"40","TMP","TMP_C_F4_20241003_15CM","C","F4","15CM",NA,NA,"PW",5,"20241003",0.0159326263256394,"Within_Range","SO4 checks perc diff out of range",0.0794358251057828,"Within_Range","",0.005114512,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"40","TMP","TMP_C_F4_20241003_15CM","C","F4","15CM",NA,NA,"PW",5,"20241003",0.5108,0.0159326263256394,"Within_Range","SO4 checks perc diff out of range",2.816,0.0794358251057828,"Within_Range","",0.005114512,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"41","TMP","TMP_FW_C3_20241003_15CM","FW","C3","15CM",NA,NA,"PW",5,"20241003",0.0167654398003743,"Within_Range","SO4 checks perc diff out of range",0.231286318758815,"Within_Range","",0.0148417737,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"41","TMP","TMP_FW_C3_20241003_15CM","FW","C3","15CM",NA,NA,"PW",5,"20241003",0.5375,0.0167654398003743,"Within_Range","SO4 checks perc diff out of range",8.1991,0.231286318758815,"Within_Range","",0.0148417737,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"42","TMP","TMP_SW_H6_20241003_15CM","SW","H6","15CM",NA,NA,"PW",5,"20241003",0.811968184653774,"Within_Range","SO4 checks perc diff out of range",6.77361071932299,"Within_Range","",0.4339309715,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"42","TMP","TMP_SW_H6_20241003_15CM","SW","H6","15CM",NA,NA,"PW",5,"20241003",26.0317,0.811968184653774,"Within_Range","SO4 checks perc diff out of range",240.1245,6.77361071932299,"Within_Range","",0.4339309715,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Yellow"
-"43","TMP","TMP_SW_I5_20241003_15CM","SW","I5","15CM",NA,NA,"PW",5,"20241003",7.25728633811603,"Within_Range","SO4 checks perc diff out of range",56.0139435825106,"Within_Range","",3.5881756001,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"43","TMP","TMP_SW_I5_20241003_15CM","SW","I5","15CM",NA,NA,"PW",5,"20241003",232.6686,7.25728633811603,"Within_Range","SO4 checks perc diff out of range",1985.6943,56.0139435825106,"Within_Range","",3.5881756001,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"44","TMP","TMP_SW_D5_20241003_15CM","SW","D5","15CM",NA,NA,"PW",5,"20241003",2.18252027448534,"Within_Range","SO4 checks perc diff out of range",19.5554499294781,"Within_Range","",1.2527119449,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"44","TMP","TMP_SW_D5_20241003_15CM","SW","D5","15CM",NA,NA,"PW",5,"20241003",69.9716,2.18252027448534,"Within_Range","SO4 checks perc diff out of range",693.2407,19.5554499294781,"Within_Range","",1.2527119449,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"45","TMP","TMP_SW_B4_20241003_15CM","SW","B4","15CM",NA,NA,"PW",5,"20241003",4.72296943231441,"Within_Range","SO4 checks perc diff out of range",45.9683356840621,"Within_Range","",2.9446725425,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"45","TMP","TMP_SW_B4_20241003_15CM","SW","B4","15CM",NA,NA,"PW",5,"20241003",151.4184,4.72296943231441,"Within_Range","SO4 checks perc diff out of range",1629.5775,45.9683356840621,"Within_Range","",2.9446725425,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"46","TMP","TMP_SW_C6_20241003_15CM","SW","C6","15CM",NA,NA,"PW",5,"20241003",2.60495633187773,"Within_Range","SO4 checks perc diff out of range",19.8067080394922,"Within_Range","",1.2688070746,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"46","TMP","TMP_SW_C6_20241003_15CM","SW","C6","15CM",NA,NA,"PW",5,"20241003",83.5149,2.60495633187773,"Within_Range","SO4 checks perc diff out of range",702.1478,19.8067080394922,"Within_Range","",1.2688070746,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"47","TMP","TMP_SW_F4_20241003_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241003",3.64105115408609,"Within_Range","SO4 checks perc diff out of range",29.1164287729196,"Within_Range","",1.8651705618,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"47","TMP","TMP_SW_F4_20241003_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241003",116.7321,3.64105115408609,"Within_Range","SO4 checks perc diff out of range",1032.1774,29.1164287729196,"Within_Range","",1.8651705618,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"48","TMP","TMP_SW_F6_20241003_15CM","SW","F6","15CM",NA,NA,"PW",5,"20241003",3.95092014971928,"Within_Range","SO4 checks perc diff out of range",29.22376022567,"Within_Range","",1.8720460161,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"48","TMP","TMP_SW_F6_20241003_15CM","SW","F6","15CM",NA,NA,"PW",5,"20241003",126.6665,3.95092014971928,"Within_Range","SO4 checks perc diff out of range",1035.9823,29.22376022567,"Within_Range","",1.8720460161,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"49","TMP","TMP_SW_C3_20241003_15CM","SW","C3","15CM",NA,NA,"PW",5,"20241003",3.55339051777916,"Within_Range","SO4 checks perc diff out of range",33.9503779971791,"Within_Range","",2.1748244063,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"49","TMP","TMP_SW_C3_20241003_15CM","SW","C3","15CM",NA,NA,"PW",5,"20241003",113.9217,3.55339051777916,"Within_Range","SO4 checks perc diff out of range",1203.5409,33.9503779971791,"Within_Range","",2.1748244063,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"50","TMP","TMP_SW_H3_20241003_15CM","SW","H3","15CM",NA,NA,"PW",5,"20241003",2.77650343106675,"Within_Range","SO4 checks perc diff out of range",15.2890634696756,"Within_Range","",0.9794151211,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"50","TMP","TMP_SW_H3_20241003_15CM","SW","H3","15CM",NA,NA,"PW",5,"20241003",89.0147,2.77650343106675,"Within_Range","SO4 checks perc diff out of range",541.9973,15.2890634696756,"Within_Range","",0.9794151211,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"51","TMP","TMP_SW_E3_20241003_15CM","SW","E3","15CM",NA,NA,"PW",5,"20241003",2.65886462882096,"Within_Range","SO4 checks perc diff out of range",21.8480733427362,"Within_Range","",1.3995731594,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"51","TMP","TMP_SW_E3_20241003_15CM","SW","E3","15CM",NA,NA,"PW",5,"20241003",85.2432,2.65886462882096,"Within_Range","SO4 checks perc diff out of range",774.5142,21.8480733427362,"Within_Range","",1.3995731594,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"52","TMP","TMP_FW_B4_20241003_15CM","FW","B4","15CM",NA,NA,"PW",5,"20241003",0.0165315034310668,"Within_Range","SO4 checks perc diff out of range",0.462809590973202,"Within_Range","",0.0296727262,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"52","TMP","TMP_FW_B4_20241003_15CM","FW","B4","15CM",NA,NA,"PW",5,"20241003",0.53,0.0165315034310668,"Within_Range","SO4 checks perc diff out of range",16.4066,0.462809590973202,"Within_Range","",0.0296727262,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"53","TMP","TMP_FW_D5_20241003_15CM","FW","D5","15CM",NA,NA,"PW",5,"20241003",0.0316781035558328,"Within_Range","SO4 checks perc diff out of range",0.186575458392102,"Within_Range","",0.0119776787,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"53","TMP","TMP_FW_D5_20241003_15CM","FW","D5","15CM",NA,NA,"PW",5,"20241003",1.0156,0.0316781035558328,"Within_Range","SO4 checks perc diff out of range",6.6141,0.186575458392102,"Within_Range","",0.0119776787,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"54","TMP","TMP_SW_F6_20241104_15CM","SW","F6","15CM",NA,NA,"PW",5,"20241104",3.76116344354336,"Within_Range","SO4 checks perc diff out of range",33.5736614950635,"Within_Range","",2.1506926441,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"54","TMP","TMP_SW_F6_20241104_15CM","SW","F6","15CM",NA,NA,"PW",5,"20241104",120.5829,3.76116344354336,"Within_Range","SO4 checks perc diff out of range",1190.1863,33.5736614950635,"Within_Range","",2.1506926441,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","clear"
-"55","TMP","TMP_C_F4_20241213_15CM","C","F4","15CM",NA,NA,"PW",5,"20241213",0.0197847785402371,"Within_Range","SO4 checks perc diff out of range",0.0730550070521862,"Within_Range","",0.0047057686,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"55","TMP","TMP_C_F4_20241213_15CM","C","F4","15CM",NA,NA,"PW",5,"20241213",0.6343,0.0197847785402371,"Within_Range","SO4 checks perc diff out of range",2.5898,0.0730550070521862,"Within_Range","",0.0047057686,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"56","TMP","TMP_C_E3_20241213_15CM","C","E3","15CM",NA,NA,"PW",5,"20241213",0.0202900810979414,"Within_Range","SO4 checks perc diff out of range",0.107342736248237,"Within_Range","",0.0069021771,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"56","TMP","TMP_C_E3_20241213_15CM","C","E3","15CM",NA,NA,"PW",5,"20241213",0.6505,0.0202900810979414,"Within_Range","SO4 checks perc diff out of range",3.8053,0.107342736248237,"Within_Range","",0.0069021771,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"57","TMP","TMP_C_I5_20241213_15CM","C","I5","15CM",NA,NA,"PW",5,"20241213",0.0176512788521522,"Within_Range","SO4 checks perc diff out of range",0.197004231311707,"Within_Range","",0.0126457266,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"57","TMP","TMP_C_I5_20241213_15CM","C","I5","15CM",NA,NA,"PW",5,"20241213",0.5659,0.0176512788521522,"Within_Range","SO4 checks perc diff out of range",6.9838,0.197004231311707,"Within_Range","",0.0126457266,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"58","TMP","TMP_C_D5_20241213_15CM","C","D5","15CM",NA,NA,"PW",5,"20241213",0.501756082345602,"Within_Range","SO4 checks perc diff out of range",0.0613483779971791,"Within_Range","",0.0039558636,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"58","TMP","TMP_C_D5_20241213_15CM","C","D5","15CM",NA,NA,"PW",5,"20241213",16.0863,0.501756082345602,"Within_Range","SO4 checks perc diff out of range",2.1748,0.0613483779971791,"Within_Range","",0.0039558636,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"59","TMP","TMP_C_H3_20241213_15CM","C","H3","15CM",NA,NA,"PW",5,"20241213",0.0242420461634435,"Within_Range","SO4 checks perc diff out of range",0.0366967559943582,"Within_Range","",0.0023767263,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"59","TMP","TMP_C_H3_20241213_15CM","C","H3","15CM",NA,NA,"PW",5,"20241213",0.7772,0.0242420461634435,"Within_Range","SO4 checks perc diff out of range",1.3009,0.0366967559943582,"Within_Range","",0.0023767263,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"60","TMP","TMP_C_B4_20241213_15CM","C","B4","15CM",NA,NA,"PW",5,"20241213",0.121079226450405,"Within_Range","SO4 checks perc diff out of range",0.387624823695346,"Within_Range","",0.0248565291,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"60","TMP","TMP_C_B4_20241213_15CM","C","B4","15CM",NA,NA,"PW",5,"20241213",3.8818,0.121079226450405,"Within_Range","SO4 checks perc diff out of range",13.7413,0.387624823695346,"Within_Range","",0.0248565291,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"61","TMP","TMP_C_C6_20241213_15CM","C","C6","15CM",NA,NA,"PW",5,"20241213",0.0171241422333125,"Within_Range","SO4 checks perc diff out of range",0.183049365303244,"Within_Range","",0.0117518037,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"61","TMP","TMP_C_C6_20241213_15CM","C","C6","15CM",NA,NA,"PW",5,"20241213",0.549,0.0171241422333125,"Within_Range","SO4 checks perc diff out of range",6.4891,0.183049365303244,"Within_Range","",0.0117518037,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"62","TMP","TMP_C_C3_20241213_15CM","C","C3","15CM",NA,NA,"PW",5,"20241213",0.0214129756706176,"Within_Range","SO4 checks perc diff out of range",0.119675599435825,"Within_Range","",0.0076921975,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"62","TMP","TMP_C_C3_20241213_15CM","C","C3","15CM",NA,NA,"PW",5,"20241213",0.6865,0.0214129756706176,"Within_Range","SO4 checks perc diff out of range",4.2425,0.119675599435825,"Within_Range","",0.0076921975,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"63","TMP","TMP_C_F6_20241213_15CM","C","F6","15CM",NA,NA,"PW",5,"20241213",0.498980037429819,"Within_Range","SO4 checks perc diff out of range",0.0471227080394922,"Within_Range","",0.0030445935,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"63","TMP","TMP_C_F6_20241213_15CM","C","F6","15CM",NA,NA,"PW",5,"20241213",15.9973,0.498980037429819,"Within_Range","SO4 checks perc diff out of range",1.6705,0.0471227080394922,"Within_Range","",0.0030445935,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"64","TMP","TMP_C_H6_20241213_15CM","C","H6","15CM",NA,NA,"PW",5,"20241213",0.0166375545851528,"Within_Range","SO4 checks perc diff out of range",0.119686882933709,"Within_Range","",0.0076929203,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"64","TMP","TMP_C_H6_20241213_15CM","C","H6","15CM",NA,NA,"PW",5,"20241213",0.5334,0.0166375545851528,"Within_Range","SO4 checks perc diff out of range",4.2429,0.119686882933709,"Within_Range","",0.0076929203,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"65","TMP","TMP_FW_F4_20241213_15CM","FW","F4","15CM",NA,NA,"PW",5,"20241213",0.724909544603868,"Within_Range","SO4 checks perc diff out of range",0.0700479548660085,"Within_Range","",0.0045131424,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"65","TMP","TMP_FW_F4_20241213_15CM","FW","F4","15CM",NA,NA,"PW",5,"20241213",23.2406,0.724909544603868,"Within_Range","SO4 checks perc diff out of range",2.4832,0.0700479548660085,"Within_Range","",0.0045131424,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","yellow"
-"66","TMP","TMP_FW_H6_20241213_15CM","FW","H6","15CM",NA,NA,"PW",5,"20241213",0.386865252651279,"Within_Range","SO4 checks perc diff out of range",0.0856220028208745,"Within_Range","",0.0055107871,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"66","TMP","TMP_FW_H6_20241213_15CM","FW","H6","15CM",NA,NA,"PW",5,"20241213",12.4029,0.386865252651279,"Within_Range","SO4 checks perc diff out of range",3.0353,0.0856220028208745,"Within_Range","",0.0055107871,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"67","TMP","TMP_FW_E3_20241213_15CM","FW","E3","15CM",NA,NA,"PW",5,"20241213",0.0580661260137243,"Within_Range","SO4 checks perc diff out of range",0.256440056417489,"Within_Range","",0.0164530756,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"67","TMP","TMP_FW_E3_20241213_15CM","FW","E3","15CM",NA,NA,"PW",5,"20241213",1.8616,0.0580661260137243,"Within_Range","SO4 checks perc diff out of range",9.0908,0.256440056417489,"Within_Range","",0.0164530756,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"68","TMP","TMP_FW_B4_20241213_15CM","FW","B4","15CM",NA,NA,"PW",5,"20241213",0.0401684341859014,"Within_Range","SO4 checks perc diff out of range",0.300820874471086,"Within_Range","",0.0192960287,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"68","TMP","TMP_FW_B4_20241213_15CM","FW","B4","15CM",NA,NA,"PW",5,"20241213",1.2878,0.0401684341859014,"Within_Range","SO4 checks perc diff out of range",10.6641,0.300820874471086,"Within_Range","",0.0192960287,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"69","TMP","TMP_FW_F6_20241213_15CM","FW","F6","15CM",NA,NA,"PW",5,"20241213",0.556603243917654,"Within_Range","SO4 checks perc diff out of range",0.0718166431593794,"Within_Range","",0.0046264413,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"69","TMP","TMP_FW_F6_20241213_15CM","FW","F6","15CM",NA,NA,"PW",5,"20241213",17.8447,0.556603243917654,"Within_Range","SO4 checks perc diff out of range",2.5459,0.0718166431593794,"Within_Range","",0.0046264413,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","light yellow"
-"70","TMP","TMP_SW_H6_20241213_15CM","SW","H6","15CM",NA,NA,"PW",5,"20241213",0.171737367436057,"Within_Range","SO4 checks perc diff out of range",2.80820028208745,"Within_Range","",0.1799141149,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"70","TMP","TMP_SW_H6_20241213_15CM","SW","H6","15CM",NA,NA,"PW",5,"20241213",5.5059,0.171737367436057,"Within_Range","SO4 checks perc diff out of range",99.5507,2.80820028208745,"Within_Range","",0.1799141149,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","light yellow"
-"71","TMP","TMP_SW_E3_20241213_15CM","SW","E3","15CM",NA,NA,"PW",5,"20241213",1.74124142233313,"Within_Range","SO4 checks perc diff out of range",12.9968519040903,"Within_Range","",0.8325802888,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"71","TMP","TMP_SW_E3_20241213_15CM","SW","E3","15CM",NA,NA,"PW",5,"20241213",55.8242,1.74124142233313,"Within_Range","SO4 checks perc diff out of range",460.7384,12.9968519040903,"Within_Range","",0.8325802888,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"72","TMP","TMP_SW_F4_20241213_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241213",2.89242981908921,"Within_Range","SO4 checks perc diff out of range",22.0588180535966,"Within_Range","",1.4130730757,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"72","TMP","TMP_SW_F4_20241213_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241213",92.7313,2.89242981908921,"Within_Range","SO4 checks perc diff out of range",781.9851,22.0588180535966,"Within_Range","",1.4130730757,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"73","TMP","TMP_SW_F4_20241213_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241213",2.53855271366188,"Within_Range","SO4 checks perc diff out of range",14.9763187588152,"Within_Range","",0.9593812735,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"73","TMP","TMP_SW_F4_20241213_15CM","SW","F4","15CM",NA,NA,"PW",5,"20241213",81.386,2.53855271366188,"Within_Range","SO4 checks perc diff out of range",530.9105,14.9763187588152,"Within_Range","",0.9593812735,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"74","TMP","TMP_SW_C3_20241213_15CM","SW","C3","15CM",NA,NA,"PW",5,"20241213",2.49865876481597,"Within_Range","SO4 checks perc diff out of range",24.7108095909732,"Within_Range","",1.5829547474,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"74","TMP","TMP_SW_C3_20241213_15CM","SW","C3","15CM",NA,NA,"PW",5,"20241213",80.107,2.49865876481597,"Within_Range","SO4 checks perc diff out of range",875.9982,24.7108095909732,"Within_Range","",1.5829547474,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"75","TMP","TMP_SW_H3_20241213_15CM","SW","H3","15CM",NA,NA,"PW",5,"20241213",1.3452027448534,"Within_Range","SO4 checks perc diff out of range",9.75437799717912,"Within_Range","",0.6248734089,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"75","TMP","TMP_SW_H3_20241213_15CM","SW","H3","15CM",NA,NA,"PW",5,"20241213",43.1272,1.3452027448534,"Within_Range","SO4 checks perc diff out of range",345.7927,9.75437799717912,"Within_Range","",0.6248734089,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"76","TMP","TMP_SW_B4_20241213_15CM","SW","B4","15CM",NA,NA,"PW",5,"20241213",2.24012788521522,"Within_Range","SO4 checks perc diff out of range",23.5747334273625,"Within_Range","",1.5101798101,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"76","TMP","TMP_SW_B4_20241213_15CM","SW","B4","15CM",NA,NA,"PW",5,"20241213",71.8185,2.24012788521522,"Within_Range","SO4 checks perc diff out of range",835.7243,23.5747334273625,"Within_Range","",1.5101798101,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"77","TMP","TMP_SW_C6_20241213_15CM","SW","C6","15CM",NA,NA,"PW",5,"20241213",1.06650031191516,"Within_Range","SO4 checks perc diff out of range",7.57482369534556,"Within_Range","",0.4852551925,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"77","TMP","TMP_SW_C6_20241213_15CM","SW","C6","15CM",NA,NA,"PW",5,"20241213",34.192,1.06650031191516,"Within_Range","SO4 checks perc diff out of range",268.5275,7.57482369534556,"Within_Range","",0.4852551925,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"78","TMP","TMP_SW_I5_20241213_15CM","SW","I5","15CM",NA,NA,"PW",5,"20241213",6.57252027448534,"Within_Range","SO4 checks perc diff out of range",38.9393624823695,"Within_Range","",2.4944095228,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"78","TMP","TMP_SW_I5_20241213_15CM","SW","I5","15CM",NA,NA,"PW",5,"20241213",210.715,6.57252027448534,"Within_Range","SO4 checks perc diff out of range",1380.4004,38.9393624823695,"Within_Range","",2.4944095228,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"79","TMP","TMP_SW_D5_20241213_15CM","SW","D5","15CM",NA,NA,"PW",5,"20241213",1.50343730505303,"Within_Range","SO4 checks perc diff out of range",9.6021946403385,"Within_Range","",0.6151248246,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"79","TMP","TMP_SW_D5_20241213_15CM","SW","D5","15CM",NA,NA,"PW",5,"20241213",48.2002,1.50343730505303,"Within_Range","SO4 checks perc diff out of range",340.3978,9.6021946403385,"Within_Range","",0.6151248246,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Clear"
-"80","TMP","TMP_FW_I5_20241213_15CM","FW","I5","15CM",NA,NA,"PW",5,"20241213",0.0101497192763568,"Within_Range","SO4 checks perc diff out of range",0.292375176304654,"Within_Range","",0.0187550129,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"80","TMP","TMP_FW_I5_20241213_15CM","FW","I5","15CM",NA,NA,"PW",5,"20241213",0.3254,0.0101497192763568,"Within_Range","SO4 checks perc diff out of range",10.3647,0.292375176304654,"Within_Range","",0.0187550129,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"81","TMP","TMP_FW_D5_20241213_15CM","FW","D5","15CM",NA,NA,"PW",5,"20241213",0.0538989394884591,"Within_Range","SO4 checks perc diff out of range",0.161029619181946,"Within_Range","",0.0103412595,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"81","TMP","TMP_FW_D5_20241213_15CM","FW","D5","15CM",NA,NA,"PW",5,"20241213",1.728,0.0538989394884591,"Within_Range","SO4 checks perc diff out of range",5.7085,0.161029619181946,"Within_Range","",0.0103412595,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","light yellow"
-"82","TMP","TMP_FW_C6_20241213_15CM","FW","C6","15CM",NA,NA,"PW",5,"20241213",0.0303431066749844,"Within_Range","SO4 checks perc diff out of range",0.144713681241185,"Within_Range","",0.0092960907,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"82","TMP","TMP_FW_C6_20241213_15CM","FW","C6","15CM",NA,NA,"PW",5,"20241213",0.9728,0.0303431066749844,"Within_Range","SO4 checks perc diff out of range",5.1301,0.144713681241185,"Within_Range","",0.0092960907,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"83","TMP","TMP_FW_C3_20241213_15CM","FW","C3","15CM",NA,NA,"PW",5,"20241213",0.436388022457891,"Within_Range","SO4 checks perc diff out of range",0.0796925246826516,"Within_Range","",0.0051309557,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"83","TMP","TMP_FW_C3_20241213_15CM","FW","C3","15CM",NA,NA,"PW",5,"20241213",13.9906,0.436388022457891,"Within_Range","SO4 checks perc diff out of range",2.8251,0.0796925246826516,"Within_Range","",0.0051309557,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","yellow"
-"84","TMP","TMP_FW_H3_20241213_15CM","FW","H3","15CM",NA,NA,"PW",5,"20241213",0.033431066749844,"Within_Range","SO4 checks perc diff out of range",0.246569816643159,"Within_Range","",0.0158208063,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"84","TMP","TMP_FW_H3_20241213_15CM","FW","H3","15CM",NA,NA,"PW",5,"20241213",1.0718,0.033431066749844,"Within_Range","SO4 checks perc diff out of range",8.7409,0.246569816643159,"Within_Range","",0.0158208063,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"85","TMP","TMP_C_RAINWATER_20241212","C","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.00474734872114785,"Within_Range","SO4 checks perc diff out of range",0.00114245416078984,"Within_Range","",9.91835e-05,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"85","TMP","TMP_C_RAINWATER_20241212","C","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.1522,0.00474734872114785,"Within_Range","SO4 checks perc diff out of range",0.0405,0.00114245416078984,"Within_Range","",9.91835e-05,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
-"86","TMP","TMP_FW_RAINWATER_20241212","FW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.00462570180910792,"Within_Range","SO4 checks perc diff out of range",0.00244005641748942,"Within_Range","",0.0001823055,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"86","TMP","TMP_FW_RAINWATER_20241212","FW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.1483,0.00462570180910792,"Within_Range","SO4 checks perc diff out of range",0.0865,0.00244005641748942,"Within_Range","",0.0001823055,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
-"87","TMP","TMP_SW_RAINWATER_20241212","SW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.00376481597005614,"Within_Range","SO4 checks perc diff out of range",0.00765867418899859,"Within_Range","",0.0005166005,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"87","TMP","TMP_SW_RAINWATER_20241212","SW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",0.1207,0.00376481597005614,"Within_Range","SO4 checks perc diff out of range",0.2715,0.00765867418899859,"Within_Range","",0.0005166005,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
