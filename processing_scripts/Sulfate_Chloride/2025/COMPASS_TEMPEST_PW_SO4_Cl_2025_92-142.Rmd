@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater SO4/Cl"
-author: "June (1-71) 2024 Samples"
+author: "92-142 2025 Samples"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -42,28 +42,26 @@ Sys.setenv(TZ = "America/New_York")
 ```{r Run Information, echo=TRUE, message=FALSE, warning=FALSE}
 
 ###### Run information - PLEASE CHANGE
-  Sample_Year = "2024"  
-  Date_Run = "2025-08-14"  #Date that instrument was run
+  Sample_Year = "2025"  
+  Date_Run = "2025-12-15"  #Date that instrument was run
   Run_by = "Zoe Read"  #Instrument user 
   Script_run_by = "Zoe Read" #Code user 
-  run_notes = "Check standard 1 is low for SO4, so <80% of Sulfate Check 
-  Standards are within range of expected concentration. The peaks look uniform, 
-  so I'm not sure why the standard is low. 
-  The 1st duplicate has high CV for Cl. 
+  run_notes = "Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+  One bad dup and one bad spk. 
   " #any notes from the run
   
 ##Sample data that was entered incorrectly
-# The Old ID is the original, incorrecly-entered ID and the New ID is the correct ID to change it to. 
-Old_ID_1 = "TMP_C_H6_20240610_15cm"
-New_ID_1 = "TMP_C_H6_20240610_15cm_T0"
+# The Old ID is the original, incorrectly-entered ID and the New ID is the correct ID to change it to. 
+Old_ID_1 = NA
+New_ID_1 = NA
 
 ###### File Names - PLEASE CHANGE 
 #file path and name for raw summary data file 
-  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202406_1-71_Cl.txt"
-  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_202406_1-71_SO4.txt"
+  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_2025_92-142_and_FATE_Cl.txt"
+  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_2025_92-142_and_FATE_SO4.txt"
 
 #file path and name of processed data file 
-  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_202406_1-71.csv" 
+  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_2025_92-142.csv" 
 
 ###### Log Files - PLEASE CHECK 
 
@@ -356,9 +354,7 @@ all_dat <- all_dat %>%
 ##Fix Sample IDs entered wrong
 ```{r Fix Sample IDs entered wrong, include = FALSE}
 ##Data entered incorrectly
-all_dat$sample_ID <- gsub(Old_ID_1, New_ID_1, all_dat$sample_ID)
-
-
+# all_dat$sample_ID <- gsub(Old_ID_1, New_ID_1, all_dat$sample_ID)
 ```
 
 ## Assess Standard Curves
@@ -949,10 +945,11 @@ all_dat$Dilution <-  ifelse(str_detect(all_dat$sample_ID, "TMP"), 50, all_dat$Di
 all_dat$Dilution <-  ifelse(str_detect(all_dat$sample_ID, "EST_SourceWater"), 100, all_dat$Dilution)
 all_dat$Dilution <-  ifelse(str_detect(all_dat$sample_ID, "SW_SourceWater"), 100, all_dat$Dilution)
 
+all_dat$Dilution <-  ifelse(str_detect(all_dat$sample_ID, "FATE"), 100, all_dat$Dilution)
+
+
 # head(all_dat)
 ```
-
-
 
 ## Assess Analytical Spikes
 ```{r Assess Spikes, echo=FALSE}
@@ -1129,6 +1126,8 @@ all_data_flagged <- dat_flagged %>%
   filter(!str_detect(sample_ID, "DUP")) %>%
   filter(!str_detect(sample_ID, "Lab Blank")) %>%
   filter(!str_detect(sample_ID, "SPK")) %>%
+  filter(!str_detect(sample_ID, "FATE")) %>%
+  filter(!str_detect(sample_ID, "AqWell")) %>%
   mutate(sample_ID = sub("^[^_]+_", "", sample_ID))
   #select(!Excess_Info)
 
