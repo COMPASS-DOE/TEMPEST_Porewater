@@ -385,7 +385,8 @@ summary_by_year <- data_plotting %>%
      min_SO4_ppm = min(SO4_ppm, na.rm=TRUE),
      max_SO4_ppm = max(SO4_ppm, na.rm=TRUE), 
      mean_SO4_ppm = mean(SO4_ppm, na.rm=TRUE), 
-     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE))
+     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE)) %>%
+  mutate(across(where(is.numeric), round, digits = 4)) 
 
 ##Metrics for each zone for all years
 summary_all_years <- data_plotting %>%
@@ -399,7 +400,8 @@ summary_all_years <- data_plotting %>%
      min_SO4_ppm = min(SO4_ppm, na.rm=TRUE),
      max_SO4_ppm = max(SO4_ppm, na.rm=TRUE), 
      mean_SO4_ppm = mean(SO4_ppm, na.rm=TRUE), 
-     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE))
+     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE)) %>%
+  mutate(across(where(is.numeric), round, digits = 4)) 
 
 ```
 
