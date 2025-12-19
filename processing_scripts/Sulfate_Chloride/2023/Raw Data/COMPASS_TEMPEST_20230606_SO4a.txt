@@ -1,0 +1,77 @@
+Inj.	Injection Name	Type 	Ret.Time	Amount	Rel.Area 	Area	Height	Type
+No.	Selected Peak:		min	µg/mL	%	µS*min	µS	
+			CD	CD	CD	CD	CD	CD
+			IC-SO4	IC-SO4	IC-SO4	IC-SO4	IC-SO4	IC-SO4
+44	TEMPEST_C_C6_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+45	TEMPEST_C_H6_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+46	TEMPEST_C_I5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+47	TEMPEST_C_H6_20230605	Unknown	4.373 	2.3894 	0.47 	0.0544 	0.35 	 M 
+48	TEMPEST_FW_C3_20230603	Unknown	4.383 	6.9627 	0.69 	0.1403 	0.90 	 M 
+49	TEMPEST_FW_D5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+50	TEMPEST_FW_I5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+51	TEMPEST_FW_D5_20230605	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+52	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+53	Standard 3	Check Standard	4.350 	1.9796 	7.36 	2.2549 	9.79 	 M 
+54	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+55	TEMPEST_FW_F4_20230605	Unknown	4.353 	11.8708 	0.96 	0.2393 	1.29 	 M 
+56	TEMPEST_SW_B4_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+57	TEMPEST_SW_C3_20230603	Unknown	4.380 	17.8438 	1.79 	0.3597 	1.30 	 M 
+58	TEMPEST_SW_H3_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+59	TEMPEST_SW_H3_20230603_dup	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+60	TEMPEST_SW_H3_20230603_spk	Unknown	4.363 	168.9031 	13.25 	3.4046 	12.63 	 M 
+61	TEMPEST_C_C6_20230515	Unknown	4.480 	0.3224 	0.22 	0.3338 	2.35 	Rd
+62	TEMPEST_C_F6_20230515	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+63	TEMPEST_C_H3_20230518	Unknown	4.460 	0.4633 	0.35 	0.4798 	3.04 	Rd
+64	TEMPEST_C_H3_20230515	Unknown	4.463 	0.5567 	0.42 	0.5765 	3.68 	Rd
+65	TEMPEST_C_H6_20230515	Unknown	4.467 	4.3694 	3.16 	4.5246 	13.76 	 M 
+66	TEMPEST_C_I5_20230518	Unknown	4.490 	4.4207 	3.17 	4.5778 	13.74 	 M 
+67	TEMPEST_C_I5_20230518_dup	Unknown	4.483 	4.1578 	2.99 	4.3055 	13.74 	 M 
+68	TEMPEST_FW_B4_20230515	Unknown	4.480 	0.7675 	0.55 	0.7948 	5.09 	Rd
+69	TEMPEST_FW_C3_20230515	Unknown	4.457 	4.9565 	3.69 	5.1326 	14.81 	 M 
+70	TEMPEST_FW_C6_20230515	Unknown	4.453 	4.7490 	3.42 	4.9177 	14.78 	 M 
+71	TEMPEST_FW_D5_20230515	Unknown	4.453 	4.6013 	3.33 	4.7647 	14.78 	 M 
+72	Standard 1	Check Standard	4.363 	0.4374 	6.40 	0.4982 	2.26 	 M 
+73	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+74	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+75	TEMPEST_FW_E3_20230515	Unknown	4.497 	0.8464 	0.59 	0.8765 	5.55 	Rd
+76	TEMPEST_FW_F6_20230515	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+77	TEMPEST_FW_H3_20230515	Unknown	4.460 	1.7905 	1.34 	1.8542 	10.67 	Rd
+78	TEMPEST_FW_H6_20230515	Unknown	4.463 	1.5176 	1.13 	1.5715 	9.29 	Rd
+79	TEMPEST_FW_I5_20230515	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+80	TEMPEST_SW_B4_20230515	Unknown	4.380 	4.4366 	3.20 	4.5943 	14.21 	 M 
+81	TEMPEST_SW_C3_20230515	Unknown	4.460 	11.6350 	7.98 	12.0484 	35.49 	 M 
+82	TEMPEST_SW_C6_20230515	Unknown	4.477 	1.2634 	0.89 	1.3082 	7.89 	Rd
+83	TEMPEST_SW_D5_20230518	Unknown	4.480 	0.7589 	0.54 	0.7859 	5.07 	Rd
+84	TEMPEST_SW_E3_20230515	Unknown	4.470 	1.3250 	0.95 	1.3720 	8.33 	Rd
+85	Standard 2	Check Standard	4.360 	0.9809 	6.56 	1.1173 	5.06 	 M 
+86	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+87	TEMPEST_SW_F6_20230515	Unknown	4.473 	1.4835 	1.03 	1.5362 	9.20 	Rd
+88	TEMPEST_SW_H6_20230515	Unknown	4.463 	0.3839 	0.27 	0.3975 	2.64 	Rd
+89	TEMPEST_SW_H6_20230515_dup	Unknown	4.463 	0.4053 	0.29 	0.4197 	2.77 	Rd
+90	TEMPEST_C_C6_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+91	TEMPEST_C_H6_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+92	TEMPEST_C_I5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+93	TEMPEST_C_H6_20230605	Unknown	4.370 	3.1858 	1.45 	0.8011 	3.86 	 M 
+94	TEMPEST_FW_C3_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+95	TEMPEST_FW_D5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+96	TEMPEST_FW_I5_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+97	TEMPEST_FW_D5_20230605	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+98	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+99	Standard 3	Check Standard	4.353 	2.0451 	7.48 	2.3295 	10.06 	 M 
+100	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+101	TEMPEST_FW_F4_20230605	Unknown	4.420 	11.8980 	2.35 	2.6316 	9.90 	 M 
+102	TEMPEST_SW_B4_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+103	TEMPEST_SW_C3_20230603	Unknown	4.410 	16.9613 	3.93 	3.7515 	11.32 	 M 
+104	TEMPEST_SW_H3_20230603	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+105	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+106	Standard 1	Check Standard	4.360 	0.4622 	6.66 	0.5264 	2.32 	 M 
+107	Standard 2	Check Standard	4.357 	1.0048 	6.69 	1.1446 	5.13 	 M 
+108	Standard 3	Check Standard	4.350 	2.0369 	7.47 	2.3202 	10.06 	 M 
+109	Standard 4	Check Standard	4.320 	10.5131 	7.78 	11.9752 	48.14 	 M 
+110	Standard 5	Check Standard	4.293 	20.5057 	7.70 	23.3576 	89.67 	 M 
+111	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+Maximum			4.497 	168.9031 	24.25 	23.3576 	89.67 	
+Average			4.379 	13.6022 	3.94 	2.4364 	9.38 	
+Minimum			4.260 	0.3224 	0.22 	0.0544 	0.35 	
+Standard Deviation			0.064 	35.5886 	5.13 	4.4420 	16.63 	
+Relative Standard Deviation			1.47%	261.64%	130.18%	182.31%	177.23%	
