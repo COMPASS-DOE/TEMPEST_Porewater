@@ -481,13 +481,17 @@ head(Perc_spks)
 #for steph <- pull out identifiers of the sample names 
 #pull the sample ID and separate it by the underscores 
 IDs <- data.frame(do.call('rbind', strsplit(as.character(sampledat2$Sample_ID),'_',fixed=TRUE)))
-colnames(IDs) <- c("Project" , "Plot","Grid", "Date")
+colnames(IDs) <- c("Number", "Project", "Plot", "Grid", "Date")
 head(IDs)
 
 #rejoin them to the dataframe
 alldat <- cbind(IDs, sampledat2)
-head(alldat)
 
+alldat$Number <- NULL
+
+alldat$Sample_ID <- paste(alldat$Project, alldat$Plot, alldat$Grid, alldat$Date, sep = "_")
+
+head(alldat)
 ```
 
 ## Make final dataframe with IDs  
