@@ -22,8 +22,13 @@ library(openxlsx)
 library(knitr)
 ```
 
-##Grab 2022 and 2023 All Data Files
+##Grab 2023 and 2024 and 2025 All Data Files
 ```{r Pull in 2022-2024 data files, message=FALSE, include=FALSE}
+
+#read in 2023 Dionex Data:
+dat23 <- read.csv("2023/COMPASS_TEMPEST_SO4_Cl_2023.csv")
+# head(dat24)
+colnames(dat23)
 
 #read in 2024 Dionex Data:
 dat24 <- read.csv("2024/COMPASS_TEMPEST_SO4_Cl_2024.csv")
@@ -35,7 +40,7 @@ dat25 <- read.csv("2025/COMPASS_TEMPEST_SO4_Cl_2025.csv")
 # head(dat25)
 colnames(dat25)
 
-raw_dat <- bind_rows(dat24, dat25)
+raw_dat <- bind_rows(dat23, dat24, dat25)
 
 ##Convert Collection Date into Date format
 raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date)
