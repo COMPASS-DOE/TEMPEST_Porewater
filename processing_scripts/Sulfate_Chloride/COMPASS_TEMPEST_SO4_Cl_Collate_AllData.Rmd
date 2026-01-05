@@ -322,7 +322,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fi
     "Saltwater" = "violetred2"
   ), labels = c("Control", "Freshwater", "Saltwater")) +
   theme_classic() +
-  labs(x = " ", y = "Chloride (ppm)", title = "Synoptic CB Porewater: Chloride") +
+  labs(x = " ", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
@@ -345,7 +345,7 @@ viz_so4_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = SO4_ppm, 
     "Saltwater" = "violetred2"
   ), labels = c("Control", "Freshwater", "Saltwater")) +
   theme_classic() +
-  labs(x = " ", y = "Sulfate (ppm)", title = "Synoptic CB Porewater: Sulfate") +
+  labs(x = " ", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
