@@ -33,7 +33,7 @@ final_data <- all_data %>%
     ) %>%
   dplyr::select(
     Project, Zone, Grid, Depth_cm, 
-         Sample_ID, Source, Volume_mL, Collection_Date, 
+         Sample_ID, Source, Volume_mL, Collection_Date, Evacuation_Date, 
          H2S_mean_uM, H2S_sd_uM, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them

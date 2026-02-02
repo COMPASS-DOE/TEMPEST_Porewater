@@ -119,7 +119,7 @@ pH <- pH_raw %>%
           mutate(grid = case_when(grid == "Source" ~ "SOURCE",
                            TRUE ~ grid)
             ) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, flag)
+  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, flag, Notes)
 ```
 
 # Add in lysimeter metadata
