@@ -32,7 +32,7 @@ colnames(all_data)
 final_data <- all_data %>%
     select(
          Project, Zone, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
-         Volume_mL, Collection_Date, Sample_ID, 
+         Volume_mL, Collection_Date, Evacuation_Date, Sample_ID, 
          SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them
@@ -44,7 +44,7 @@ final_data <- all_data %>%
 ## Write the 2023 file out to the folder 
 ```{r, echo=FALSE}
 
-write.csv(final_data, "COMPASS_SynopticCB_SO4_Cl_2024.csv")
+write.csv(final_data, "COMPASS_TEMPEST_SO4_Cl_2024.csv")
 
 ```
 

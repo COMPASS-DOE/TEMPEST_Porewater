@@ -1,190 +1,190 @@
-"","Project","Sample_ID","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","SO4_ppm","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_ppm","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
-"1","TMP","TMP_FW_D5_20250602_15CM","FW","D5","15CM",NA,NA,"PW",5,"20250602",0.4973,0.0155115408608858,"Within_Range","",0.034,0.000959097320169252,"Within_Range","",8.7438e-05,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"","Project","Sample_ID","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","Evacuation_Date","SO4_ppm","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_ppm","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
+"1","TMP","TMP_FW_D5_20250602_15CM","FW","D5","15CM",NA,NA,"PW",5,"20250602",20250530,0.4973,0.0155115408608858,"Within_Range","",0.034,0.000959097320169252,"Within_Range","",8.7438e-05,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"2","TMP","TMP_FW_C3_20250602_15CM","FW","C3","15CM",NA,NA,"PW",5,"20250602",0.7647,0.0238521522145976,"Within_Range","",17.6029,0.496555712270804,"Within_Range","",0.0318344403,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"2","TMP","TMP_FW_C3_20250602_15CM","FW","C3","15CM",NA,NA,"PW",5,"20250602",20250530,0.7647,0.0238521522145976,"Within_Range","",17.6029,0.496555712270804,"Within_Range","",0.0318344403,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"3","TMP","TMP_FW_C6_20250602_15CM","FW","C6","15CM",NA,NA,"PW",5,"20250602",0.8893,0.0277386150966937,"Within_Range","",0.2138,0.00603102961918195,"Within_Range","",0.0004123366,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"3","TMP","TMP_FW_C6_20250602_15CM","FW","C6","15CM",NA,NA,"PW",5,"20250602",20250530,0.8893,0.0277386150966937,"Within_Range","",0.2138,0.00603102961918195,"Within_Range","",0.0004123366,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"4","TMP","TMP_FW_I5_20250602_15CM","FW","I5","15CM",NA,NA,"PW",5,"20250602",0.0954,0.00297567061759201,"Within_Range","",0.3591,0.01012976022567,"Within_Range","",0.0006748937,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"4","TMP","TMP_FW_I5_20250602_15CM","FW","I5","15CM",NA,NA,"PW",5,"20250602",20250530,0.0954,0.00297567061759201,"Within_Range","",0.3591,0.01012976022567,"Within_Range","",0.0006748937,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"5","TMP","TMP_FW_F4_20250711_15CM","FW","F4","15CM",NA,NA,"PW",5,"20250711",0.4377,0.0136525265127885,"Within_Range","",0.4786,0.0135007052186178,"Within_Range","",0.0008908302,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"5","TMP","TMP_FW_F4_20250711_15CM","FW","F4","15CM",NA,NA,"PW",5,"20250711",20250708,0.4377,0.0136525265127885,"Within_Range","",0.4786,0.0135007052186178,"Within_Range","",0.0008908302,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"6","TMP","TMP_FW_C3_20250711_15CM","FW","C3","15CM",NA,NA,"PW",5,"20250711",0.3939,0.0122863381160324,"Within_Range","",0.8746,0.0246713681241185,"Within_Range","",0.0016064022,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"6","TMP","TMP_FW_C3_20250711_15CM","FW","C3","15CM",NA,NA,"PW",5,"20250711",20250708,0.3939,0.0122863381160324,"Within_Range","",0.8746,0.0246713681241185,"Within_Range","",0.0016064022,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"7","TMP","TMP_FW_C6_20250711_15CM","FW","C6","15CM",NA,NA,"PW",5,"20250711",1.1597,0.0361728009981285,"Within_Range","",0.3108,0.0087672778561354,"Within_Range","",0.0005876156,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"7","TMP","TMP_FW_C6_20250711_15CM","FW","C6","15CM",NA,NA,"PW",5,"20250711",20250708,1.1597,0.0361728009981285,"Within_Range","",0.3108,0.0087672778561354,"Within_Range","",0.0005876156,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"8","TMP","TMP_FW_H3_20250711_15CM","FW","H3","15CM",NA,NA,"PW",5,"20250711",9.3896,0.292875857766687,"Within_Range","",0.7916,0.0223300423131171,"Within_Range","",0.0014564212,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"8","TMP","TMP_FW_H3_20250711_15CM","FW","H3","15CM",NA,NA,"PW",5,"20250711",20250708,9.3896,0.292875857766687,"Within_Range","",0.7916,0.0223300423131171,"Within_Range","",0.0014564212,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"9","TMP","TMP_FW_I5_20250711_15CM","FW","I5","15CM",NA,NA,"PW",5,"20250711",0.1402,0.00437305053025577,"Within_Range","",0.0847,0.00238928067700987,"Within_Range","",0.0001790529,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"9","TMP","TMP_FW_I5_20250711_15CM","FW","I5","15CM",NA,NA,"PW",5,"20250711",20250708,0.1402,0.00437305053025577,"Within_Range","",0.0847,0.00238928067700987,"Within_Range","",0.0001790529,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"10","TMP","TMP_FW_D5_20250711_15CM","FW","D5","15CM",NA,NA,"PW",5,"20250711",0.689,0.0214909544603868,"Within_Range","",0.2765,0.00779971791255289,"Within_Range","",0.0005256355,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"10","TMP","TMP_FW_D5_20250711_15CM","FW","D5","15CM",NA,NA,"PW",5,"20250711",20250708,0.689,0.0214909544603868,"Within_Range","",0.2765,0.00779971791255289,"Within_Range","",0.0005256355,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"11","TMP","TMP_C_H3_20250131_15CM","C","H3","15CM",NA,NA,"PW",5,"20250131",1.1822,0.0368746101060511,"Within_Range","",3.2592,0.0919379407616361,"Within_Range","",0.0059153744,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"11","TMP","TMP_C_H3_20250131_15CM","C","H3","15CM",NA,NA,"PW",5,"20250131",20250128,1.1822,0.0368746101060511,"Within_Range","",3.2592,0.0919379407616361,"Within_Range","",0.0059153744,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"12","TMP","TMP_C_I5_20250131_15CM","C","I5","15CM",NA,NA,"PW",5,"20250131",1.2866,0.0401310043668122,"Within_Range","",9.6174,0.271294781382228,"Within_Range","",0.0174046418,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"12","TMP","TMP_C_I5_20250131_15CM","C","I5","15CM",NA,NA,"PW",5,"20250131",20250128,1.2866,0.0401310043668122,"Within_Range","",9.6174,0.271294781382228,"Within_Range","",0.0174046418,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"13","TMP","TMP_C_D5_20250131_15CM","C","D5","15CM",NA,NA,"PW",5,"20250131",0.6508,0.0202994385527137,"Within_Range","",5.4581,0.153966149506347,"Within_Range","",0.0098887867,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"13","TMP","TMP_C_D5_20250131_15CM","C","D5","15CM",NA,NA,"PW",5,"20250131",20250128,0.6508,0.0202994385527137,"Within_Range","",5.4581,0.153966149506347,"Within_Range","",0.0098887867,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"14","TMP","TMP_C_B4_20250131_15CM","C","B4","15CM",NA,NA,"PW",5,"20250131",3.9657,0.123696194635059,"Within_Range","",11.1602,0.314815232722144,"Within_Range","",0.0201924814,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"14","TMP","TMP_C_B4_20250131_15CM","C","B4","15CM",NA,NA,"PW",5,"20250131",20250128,3.9657,0.123696194635059,"Within_Range","",11.1602,0.314815232722144,"Within_Range","",0.0201924814,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"15","TMP","TMP_C_C3_20250131_15CM","C","C3","15CM",NA,NA,"PW",5,"20250131",1.2316,0.0384154709918902,"Within_Range","",11.4565,0.323173483779972,"Within_Range","",0.0207278955,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"15","TMP","TMP_C_C3_20250131_15CM","C","C3","15CM",NA,NA,"PW",5,"20250131",20250128,1.2316,0.0384154709918902,"Within_Range","",11.4565,0.323173483779972,"Within_Range","",0.0207278955,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"16","TMP","TMP_C_E3_20250131_15CM","C","E3","15CM",NA,NA,"PW",5,"20250131",0.7333,0.0228727386150967,"Within_Range","",3.7182,0.104885754583921,"Within_Range","",0.0067447874,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"16","TMP","TMP_C_E3_20250131_15CM","C","E3","15CM",NA,NA,"PW",5,"20250131",20250128,0.7333,0.0228727386150967,"Within_Range","",3.7182,0.104885754583921,"Within_Range","",0.0067447874,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"17","TMP","TMP_C_H6_20250131_15CM","C","H6","15CM",NA,NA,"PW",5,"20250131",1.9586,0.0610917030567686,"Within_Range","",5.5172,0.155633286318759,"Within_Range","",0.0099955804,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"17","TMP","TMP_C_H6_20250131_15CM","C","H6","15CM",NA,NA,"PW",5,"20250131",20250128,1.9586,0.0610917030567686,"Within_Range","",5.5172,0.155633286318759,"Within_Range","",0.0099955804,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"18","TMP","TMP_C_F4_20250204_15CM","C","F4","15CM",NA,NA,"PW",5,"20250204",1.7362,0.0541547099189021,"Within_Range","",5.0669,0.142930888575458,"Within_Range","",0.0091818883,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"18","TMP","TMP_C_F4_20250204_15CM","C","F4","15CM",NA,NA,"PW",5,"20250204",20250131,1.7362,0.0541547099189021,"Within_Range","",5.0669,0.142930888575458,"Within_Range","",0.0091818883,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"19","TMP","TMP_C_H3_20250204_15CM","C","H3","15CM",NA,NA,"PW",5,"20250204",1.0989,0.034276356830942,"Within_Range","",0.8977,0.0253229901269394,"Within_Range","",0.0016481439,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"19","TMP","TMP_C_H3_20250204_15CM","C","H3","15CM",NA,NA,"PW",5,"20250204",20250131,1.0989,0.034276356830942,"Within_Range","",0.8977,0.0253229901269394,"Within_Range","",0.0016481439,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"20","TMP","TMP_C_E3_20250204_15CM","C","E3","15CM",NA,NA,"PW",5,"20250204",0.9494,0.0296132252027449,"Within_Range","",3.5268,0.0994866008462623,"Within_Range","",0.0063989276,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"20","TMP","TMP_C_E3_20250204_15CM","C","E3","15CM",NA,NA,"PW",5,"20250204",20250131,0.9494,0.0296132252027449,"Within_Range","",3.5268,0.0994866008462623,"Within_Range","",0.0063989276,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"21","TMP","TMP_C_F6_20250204_15CM","C","F6","15CM",NA,NA,"PW",5,"20250204",1.6846,0.0525452276980661,"Within_Range","",5.6099,0.158248236953456,"Within_Range","",0.0101630893,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"21","TMP","TMP_C_F6_20250204_15CM","C","F6","15CM",NA,NA,"PW",5,"20250204",20250131,1.6846,0.0525452276980661,"Within_Range","",5.6099,0.158248236953456,"Within_Range","",0.0101630893,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","light color"
-"22","TMP","TMP_C_B4_20250204_15CM","C","B4","15CM",NA,NA,"PW",5,"20250204",3.0106,0.0939051777916407,"Within_Range","",4.8842,0.137777150916784,"Within_Range","",0.0088517494,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"22","TMP","TMP_C_B4_20250204_15CM","C","B4","15CM",NA,NA,"PW",5,"20250204",20250131,3.0106,0.0939051777916407,"Within_Range","",4.8842,0.137777150916784,"Within_Range","",0.0088517494,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"23","TMP","TMP_C_C6_20250204_15CM","C","C6","15CM",NA,NA,"PW",5,"20250204",0.8535,0.026621958827199,"Within_Range","",3.5633,0.100516220028209,"Within_Range","",0.0064648831,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"23","TMP","TMP_C_C6_20250204_15CM","C","C6","15CM",NA,NA,"PW",5,"20250204",20250131,0.8535,0.026621958827199,"Within_Range","",3.5633,0.100516220028209,"Within_Range","",0.0064648831,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"24","TMP","TMP_C_C3_20250204_15CM","C","C3","15CM",NA,NA,"PW",5,"20250204",1.0785,0.0336400499064255,"Within_Range","",2.7472,0.0774950634696756,"Within_Range","",0.0049901904,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"24","TMP","TMP_C_C3_20250204_15CM","C","C3","15CM",NA,NA,"PW",5,"20250204",20250131,1.0785,0.0336400499064255,"Within_Range","",2.7472,0.0774950634696756,"Within_Range","",0.0049901904,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","light color"
-"25","TMP","TMP_C_I5_20250204_15CM","C","I5","15CM",NA,NA,"PW",5,"20250204",1.3425,0.0418746101060512,"Within_Range","",5.0466,0.142358251057828,"Within_Range","",0.0091452062,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"25","TMP","TMP_C_I5_20250204_15CM","C","I5","15CM",NA,NA,"PW",5,"20250204",20250131,1.3425,0.0418746101060512,"Within_Range","",5.0466,0.142358251057828,"Within_Range","",0.0091452062,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"26","TMP","TMP_C_D5_20250204_15CM","C","D5","15CM",NA,NA,"PW",5,"20250204",0.8392,0.0261759201497193,"Within_Range","",3.7902,0.106916784203103,"Within_Range","",0.0068748914,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"26","TMP","TMP_C_D5_20250204_15CM","C","D5","15CM",NA,NA,"PW",5,"20250204",20250131,0.8392,0.0261759201497193,"Within_Range","",3.7902,0.106916784203103,"Within_Range","",0.0068748914,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"27","TMP","TMP_C_H6_20250204_15CM","C","H6","15CM",NA,NA,"PW",5,"20250204",1.8468,0.0576044915782907,"Within_Range","",4.9172,0.138708039492243,"Within_Range","",0.0089113804,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"27","TMP","TMP_C_H6_20250204_15CM","C","H6","15CM",NA,NA,"PW",5,"20250204",20250131,1.8468,0.0576044915782907,"Within_Range","",4.9172,0.138708039492243,"Within_Range","",0.0089113804,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"28","TMP","TMP_C_F4_20250403_15CM","C","F4","15CM",NA,NA,"PW",5,"20250403",1.5258,0.0475920149719276,"Within_Range","",3.0878,0.0871029619181946,"Within_Range","",0.0056056546,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"28","TMP","TMP_C_F4_20250403_15CM","C","F4","15CM",NA,NA,"PW",5,"20250403",20250331,1.5258,0.0475920149719276,"Within_Range","",3.0878,0.0871029619181946,"Within_Range","",0.0056056546,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"29","TMP","TMP_C_F6_20250403_15CM","C","F6","15CM",NA,NA,"PW",5,"20250403",1.5852,0.0494447910168434,"Within_Range","",2.3813,0.0671734837799718,"Within_Range","",0.0043290091,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"29","TMP","TMP_C_F6_20250403_15CM","C","F6","15CM",NA,NA,"PW",5,"20250403",20250331,1.5852,0.0494447910168434,"Within_Range","",2.3813,0.0671734837799718,"Within_Range","",0.0043290091,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"30","TMP","TMP_C_H6_20250403_15CM","C","H6","15CM",NA,NA,"PW",5,"20250403",0.8039,0.0250748596381784,"Within_Range","",1.4906,0.0420479548660085,"Within_Range","",0.0027195142,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"30","TMP","TMP_C_H6_20250403_15CM","C","H6","15CM",NA,NA,"PW",5,"20250403",20250331,0.8039,0.0250748596381784,"Within_Range","",1.4906,0.0420479548660085,"Within_Range","",0.0027195142,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"31","TMP","TMP_C_C6_20250403_15CM","C","C6","15CM",NA,NA,"PW",5,"20250403",0.7555,0.023565190268247,"Within_Range","",13.8442,0.390527503526093,"Within_Range","",0.0250424694,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"31","TMP","TMP_C_C6_20250403_15CM","C","C6","15CM",NA,NA,"PW",5,"20250403",20250331,0.7555,0.023565190268247,"Within_Range","",13.8442,0.390527503526093,"Within_Range","",0.0250424694,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"32","TMP","TMP_C_I5_20250403_15CM","C","I5","15CM",NA,NA,"PW",5,"20250403",1.0032,0.0312913287585777,"Within_Range","",0.8987,0.0253511988716502,"Within_Range","",0.0016499509,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"32","TMP","TMP_C_I5_20250403_15CM","C","I5","15CM",NA,NA,"PW",5,"20250403",20250331,1.0032,0.0312913287585777,"Within_Range","",0.8987,0.0253511988716502,"Within_Range","",0.0016499509,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"33","TMP","TMP_C_F4_20250509_15CM","C","F4","15CM",NA,NA,"PW",5,"20250509",1.0714,0.033418590143481,"Within_Range","",4.6555,0.13132581100141,"Within_Range","",0.0084384885,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"33","TMP","TMP_C_F4_20250509_15CM","C","F4","15CM",NA,NA,"PW",5,"20250509",20250506,1.0714,0.033418590143481,"Within_Range","",4.6555,0.13132581100141,"Within_Range","",0.0084384885,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","sub-sampled at 1418"
-"34","TMP","TMP_C_H3_20250509_15CM","C","H3","15CM",NA,NA,"PW",5,"20250509",0.1549,0.00483156581409856,"Within_Range","",1.1126,0.0313850493653032,"Within_Range","",0.0020364682,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"34","TMP","TMP_C_H3_20250509_15CM","C","H3","15CM",NA,NA,"PW",5,"20250509",20250506,0.1549,0.00483156581409856,"Within_Range","",1.1126,0.0313850493653032,"Within_Range","",0.0020364682,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","sub-sampled at 1401"
-"35","TMP","TMP_C_I5_20250509_15CM","C","I5","15CM",NA,NA,"PW",5,"20250509",0.4619,0.0144073611977542,"Within_Range","",1.1403,0.0321664315937941,"Within_Range","",0.0020865221,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"35","TMP","TMP_C_I5_20250509_15CM","C","I5","15CM",NA,NA,"PW",5,"20250509",20250506,0.4619,0.0144073611977542,"Within_Range","",1.1403,0.0321664315937941,"Within_Range","",0.0020865221,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","sub-sampled at 1351"
-"36","TMP","TMP_C_B4_20250509_15CM","C","B4","15CM",NA,NA,"PW",5,"20250509",0.4076,0.0127136618839676,"Within_Range","",1.4444,0.0407447108603667,"Within_Range","",0.0026360308,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"36","TMP","TMP_C_B4_20250509_15CM","C","B4","15CM",NA,NA,"PW",5,"20250509",20250506,0.4076,0.0127136618839676,"Within_Range","",1.4444,0.0407447108603667,"Within_Range","",0.0026360308,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","sub-sampled at 1422"
-"37","TMP","TMP_C_H6_20250509_15CM","C","H6","15CM",NA,NA,"PW",5,"20250509",0.1469,0.00458203368683718,"Within_Range","",1.4521,0.0409619181946403,"Within_Range","",0.0026499447,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"37","TMP","TMP_C_H6_20250509_15CM","C","H6","15CM",NA,NA,"PW",5,"20250509",20250506,0.1469,0.00458203368683718,"Within_Range","",1.4521,0.0409619181946403,"Within_Range","",0.0026499447,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ","sub-sampled at 1411"
-"38","TMP","TMP_C_F4_20250602_15CM","C","F4","15CM",NA,NA,"PW",5,"20250602",0.4048,0.0126263256394261,"Within_Range","",13.2532,0.373856135401975,"Within_Range","",0.0239745324,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"38","TMP","TMP_C_F4_20250602_15CM","C","F4","15CM",NA,NA,"PW",5,"20250602",20250530,0.4048,0.0126263256394261,"Within_Range","",13.2532,0.373856135401975,"Within_Range","",0.0239745324,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"39","TMP","TMP_C_F6_20250602_15CM","C","F6","15CM",NA,NA,"PW",5,"20250602",0.7918,0.0246974422956956,"Within_Range","",0.6691,0.0188744710860367,"Within_Range","",0.0012350637,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"39","TMP","TMP_C_F6_20250602_15CM","C","F6","15CM",NA,NA,"PW",5,"20250602",20250530,0.7918,0.0246974422956956,"Within_Range","",0.6691,0.0188744710860367,"Within_Range","",0.0012350637,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"40","TMP","TMP_C_I5_20250602_15CM","C","I5","15CM",NA,NA,"PW",5,"20250602",0.1915,0.0059731752963194,"Within_Range","",0.2985,0.00842031029619182,"Within_Range","",0.0005653895,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"40","TMP","TMP_C_I5_20250602_15CM","C","I5","15CM",NA,NA,"PW",5,"20250602",20250530,0.1915,0.0059731752963194,"Within_Range","",0.2985,0.00842031029619182,"Within_Range","",0.0005653895,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"41","TMP","TMP_C_C3_20250602_15CM","C","C3","15CM",NA,NA,"PW",5,"20250602",0.2617,0.00816281971303805,"Within_Range","",0.4486,0.012654442877292,"Within_Range","",0.0008366202,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"41","TMP","TMP_C_C3_20250602_15CM","C","C3","15CM",NA,NA,"PW",5,"20250602",20250530,0.2617,0.00816281971303805,"Within_Range","",0.4486,0.012654442877292,"Within_Range","",0.0008366202,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"42","TMP","TMP_C_H3_20250602_15CM","C","H3","15CM",NA,NA,"PW",5,"20250602",0.126,0.00393013100436681,"Within_Range","",0.1806,0.00509449929478138,"Within_Range","",0.0003523442,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"42","TMP","TMP_C_H3_20250602_15CM","C","H3","15CM",NA,NA,"PW",5,"20250602",20250530,0.126,0.00393013100436681,"Within_Range","",0.1806,0.00509449929478138,"Within_Range","",0.0003523442,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"43","TMP","TMP_C_B4_20250602_15CM","C","B4","15CM",NA,NA,"PW",5,"20250602",0.331,0.0103243917654398,"Within_Range","",0.6221,0.0175486600846262,"Within_Range","",0.0011501347,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"43","TMP","TMP_C_B4_20250602_15CM","C","B4","15CM",NA,NA,"PW",5,"20250602",20250530,0.331,0.0103243917654398,"Within_Range","",0.6221,0.0175486600846262,"Within_Range","",0.0011501347,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"44","TMP","TMP_C_H6_20250602_15CM","C","H6","15CM",NA,NA,"PW",5,"20250602",0.1618,0.00504678727386151,"Within_Range","",0.2516,0.00709732016925247,"Within_Range","",0.0004806412,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"44","TMP","TMP_C_H6_20250602_15CM","C","H6","15CM",NA,NA,"PW",5,"20250602",20250530,0.1618,0.00504678727386151,"Within_Range","",0.2516,0.00709732016925247,"Within_Range","",0.0004806412,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"45","TMP","TMP_C_D5_20250602_15CM","C","D5","15CM",NA,NA,"PW",5,"20250602",0.856,0.0266999376169682,"Within_Range","",1.5238,0.042984485190409,"Within_Range","",0.0027795066,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"45","TMP","TMP_C_D5_20250602_15CM","C","D5","15CM",NA,NA,"PW",5,"20250602",20250530,0.856,0.0266999376169682,"Within_Range","",1.5238,0.042984485190409,"Within_Range","",0.0027795066,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"46","TMP","TMP_C_C6_20250602_15CM","C","C6","15CM",NA,NA,"PW",5,"20250602",0.1139,0.00355271366188397,"Within_Range","",0.3611,0.0101861777150917,"Within_Range","",0.0006785077,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"46","TMP","TMP_C_C6_20250602_15CM","C","C6","15CM",NA,NA,"PW",5,"20250602",20250530,0.1139,0.00355271366188397,"Within_Range","",0.3611,0.0101861777150917,"Within_Range","",0.0006785077,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"47","TMP","TMP_C_H3_20250711_15CM","C","H3","15CM",NA,NA,"PW",5,"20250711",0.0597,0.00186213349968808,"Within_Range","",0.0232,0.00065444287729196,"Within_Range","",6.79224e-05,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"47","TMP","TMP_C_H3_20250711_15CM","C","H3","15CM",NA,NA,"PW",5,"20250711",20250708,0.0597,0.00186213349968808,"Within_Range","",0.0232,0.00065444287729196,"Within_Range","",6.79224e-05,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"48","TMP","TMP_C_E3_20250711_15CM","C","E3","15CM",NA,NA,"PW",5,"20250711",0.147,0.00458515283842795,"Within_Range","",0.4983,0.0140564174894217,"Within_Range","",0.0009264281,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"48","TMP","TMP_C_E3_20250711_15CM","C","E3","15CM",NA,NA,"PW",5,"20250711",20250708,0.147,0.00458515283842795,"Within_Range","",0.4983,0.0140564174894217,"Within_Range","",0.0009264281,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"49","TMP","TMP_C_F6_20250711_15CM","C","F6","15CM",NA,NA,"PW",5,"20250711",1.0586,0.0330193387398628,"Within_Range","",0.3997,0.0112750352609309,"Within_Range","",0.0007482579,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"49","TMP","TMP_C_F6_20250711_15CM","C","F6","15CM",NA,NA,"PW",5,"20250711",20250708,1.0586,0.0330193387398628,"Within_Range","",0.3997,0.0112750352609309,"Within_Range","",0.0007482579,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"50","TMP","TMP_C_H6_20250711_15CM","C","H6","15CM",NA,NA,"PW",5,"20250711",0.0453,0.00141297567061759,"Within_Range","",0.1701,0.00479830747531735,"Within_Range","",0.0003333707,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"50","TMP","TMP_C_H6_20250711_15CM","C","H6","15CM",NA,NA,"PW",5,"20250711",20250708,0.0453,0.00141297567061759,"Within_Range","",0.1701,0.00479830747531735,"Within_Range","",0.0003333707,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"51","TMP","TMP_C_I5_20250711_15CM","C","I5","15CM",NA,NA,"PW",5,"20250711",0.0822,0.00256394260761073,"Within_Range","",0.3858,0.0108829337094499,"Within_Range","",0.0007231406,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"51","TMP","TMP_C_I5_20250711_15CM","C","I5","15CM",NA,NA,"PW",5,"20250711",20250708,0.0822,0.00256394260761073,"Within_Range","",0.3858,0.0108829337094499,"Within_Range","",0.0007231406,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"52","TMP","TMP_SW_F6_20250929_15CM","SW","F6","15CM",NA,NA,"PW",5,"20250929",2.1812,0.0680349344978166,"Within_Range","",71.0137,2.00320733427362,"Within_Range","",0.1283477559,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"52","TMP","TMP_SW_F6_20250929_15CM","SW","F6","15CM",NA,NA,"PW",5,"20250929",20250926,2.1812,0.0680349344978166,"Within_Range","",71.0137,2.00320733427362,"Within_Range","",0.1283477559,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"53","TMP","TMP_SW_B4_20250929_15CM","SW","B4","15CM",NA,NA,"PW",5,"20250929",2.3764,0.0741235184029944,"Within_Range","",115.3775,3.25465444287729,"Within_Range","",0.2085131425,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"53","TMP","TMP_SW_B4_20250929_15CM","SW","B4","15CM",NA,NA,"PW",5,"20250929",20250926,2.3764,0.0741235184029944,"Within_Range","",115.3775,3.25465444287729,"Within_Range","",0.2085131425,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"54","TMP","TMP_SW_H6_20250926_15CM","SW","H6","15CM",NA,NA,NA,NA,"20250926",9.9831,0.311388022457891,"Within_Range","",74.5543,2.1030832157969,"Within_Range","",0.1347456201,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"54","TMP","TMP_SW_H6_20250926_15CM","SW","H6","15CM",NA,NA,NA,NA,"20250926",NA,9.9831,0.311388022457891,"Within_Range","",74.5543,2.1030832157969,"Within_Range","",0.1347456201,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"55","TMP","TMP_SW_H3_20250926_15CM","SW","H3","15CM",NA,NA,"PW",5,"20250926",2.0104,0.062707423580786,"Within_Range","",102.6436,2.89544710860367,"Within_Range","",0.1855029852,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"55","TMP","TMP_SW_H3_20250926_15CM","SW","H3","15CM",NA,NA,"PW",5,"20250926",20250923,2.0104,0.062707423580786,"Within_Range","",102.6436,2.89544710860367,"Within_Range","",0.1855029852,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"56","TMP","TMP_SW_D5_20250926_15CM","SW","D5","15CM",NA,NA,"PW",5,"20250926",2.3257,0.0725421085464753,"Within_Range","",60.3808,1.70326657263752,"Within_Range","",0.1091341056,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"56","TMP","TMP_SW_D5_20250926_15CM","SW","D5","15CM",NA,NA,"PW",5,"20250926",20250923,2.3257,0.0725421085464753,"Within_Range","",60.3808,1.70326657263752,"Within_Range","",0.1091341056,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"57","TMP","TMP_SW_H6_20251101_15CM","SW","H6","15CM",NA,NA,"PW",5,"20251101",1.3249,0.0413256394260761,"Within_Range","",33.2391,0.937633286318759,"Within_Range","",0.0600890537,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"57","TMP","TMP_SW_H6_20251101_15CM","SW","H6","15CM",NA,NA,"PW",5,"20251101",20251029,1.3249,0.0413256394260761,"Within_Range","",33.2391,0.937633286318759,"Within_Range","",0.0600890537,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"58","TMP","TMP_SW_F6_20251101_15CM","SW","F6","15CM",NA,NA,"PW",5,"20251101",1.9321,0.0602651278852152,"Within_Range","",67.3225,1.8990832157969,"Within_Range","",0.1216777575,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"58","TMP","TMP_SW_F6_20251101_15CM","SW","F6","15CM",NA,NA,"PW",5,"20251101",20251029,1.9321,0.0602651278852152,"Within_Range","",67.3225,1.8990832157969,"Within_Range","",0.1216777575,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"59","TMP","TMP_SW_D5_20251101_15CM","SW","D5","15CM",NA,NA,"PW",5,"20251101",3.1101,0.0970087336244541,"Within_Range","",64.1251,1.80888857545839,"Within_Range","",0.1159000557,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"59","TMP","TMP_SW_D5_20251101_15CM","SW","D5","15CM",NA,NA,"PW",5,"20251101",20251029,3.1101,0.0970087336244541,"Within_Range","",64.1251,1.80888857545839,"Within_Range","",0.1159000557,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"60","TMP","TMP_SW_C3_20251101_15CM","SW","C3","15CM",NA,NA,"PW",5,"20251101",2.4646,0.0768746101060511,"Within_Range","",56.3002,1.58815796897038,"Within_Range","",0.1017604614,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"60","TMP","TMP_SW_C3_20251101_15CM","SW","C3","15CM",NA,NA,"PW",5,"20251101",20251029,2.4646,0.0768746101060511,"Within_Range","",56.3002,1.58815796897038,"Within_Range","",0.1017604614,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"61","TMP","TMP_FW_I5_20251101_15CM","FW","I5","15CM",NA,NA,"PW",5,"20251101",0.2507,0.00781971303805365,"Within_Range","",3.1271,0.0882115655853314,"Within_Range","",0.0056766697,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"61","TMP","TMP_FW_I5_20251101_15CM","FW","I5","15CM",NA,NA,"PW",5,"20251101",20251029,0.2507,0.00781971303805365,"Within_Range","",3.1271,0.0882115655853314,"Within_Range","",0.0056766697,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"62","TMP","TMP_C_I5_20251101_15CM","C","I5","15CM",NA,NA,"PW",5,"20251101",0.2682,0.00836556456643793,"Within_Range","",3.6609,0.103269393511989,"Within_Range","",0.0066412463,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"62","TMP","TMP_C_I5_20251101_15CM","C","I5","15CM",NA,NA,"PW",5,"20251101",20251029,0.2682,0.00836556456643793,"Within_Range","",3.6609,0.103269393511989,"Within_Range","",0.0066412463,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA
-"63","TMP","TMP_SW_B4_20251101_15CM","SW","B4","15CM",NA,NA,"PW",5,"20251101",1.5132,0.047199001871491,"Within_Range","",129.0029,3.63900987306065,"Within_Range","",0.2331342403,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
+"63","TMP","TMP_SW_B4_20251101_15CM","SW","B4","15CM",NA,NA,"PW",5,"20251101",20251029,1.5132,0.047199001871491,"Within_Range","",129.0029,3.63900987306065,"Within_Range","",0.2331342403,"2025-12-15","Some sample IDs are missing from metadata: TMP_SW_H6_20250926_15CM. 
   One bad dup and one bad spk. 
   ",NA

@@ -63,7 +63,7 @@ all_dat <- raw_dat %>%
   dplyr::select(
          Project, Sample_ID, Year, Month, Day, 
          Event_Time, Time_of_day, Source, 
-         Volume_mL, Collection_Date, 
+         Volume_mL, Collection_Date, Evacuation_Date, 
          SO4_ppm, SO4_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them
@@ -100,6 +100,7 @@ metadat$Description <- c("Project name",
                          "Source of sample (PW=Porewater, Sourcewater, Rainwater",
                          "Volume of sample collected (mL)", 
                          "Date of sample collection", 
+                         "Date of sample evacuation", 
                          "Sulfate concentration in ppm", 
                          "Sulfate concentration in mM", 
                          "Sulfate concentration flag base on standard curve (bdl=below detection limit (0), adl=above detection limit (highest   
@@ -125,6 +126,7 @@ metadat$Units <-       c("NA",
                          "NA",
                          "mL", 
                          "NA",
+                         "NA",
                          "ppm", 
                          "mM", 
                          "NA",
@@ -149,6 +151,7 @@ metadat$Instrument_ifapplicable <-
                          "NA",
                          "NA",
                          "NA", 
+                         "NA",
                          "NA",
                          "Dionex Integrion HPIC (Thermo Fisher)", 
                          "Dionex Integrion HPIC (Thermo Fisher)", 
