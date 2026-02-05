@@ -7,9 +7,6 @@ output: html_document
 
 #SET UP
 ```{r}
-#Set working directory
-setwd("~/R Code/TEMPEST/Porewater/Fe")
-
 library(googlesheets4)
 library(googledrive)
 library(tidyverse)
