@@ -4,6 +4,13 @@ author: "TMP Event 2024"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
+
+##Missing sample IDs
+```{r}
+# Some sample IDs are missing from metadata.
+# [1] "FW_I5_DOC_20250611_T1"        "FW_I3_DOC_20240613_T4"        "SW_SOURCEWATER_DOC_202401613"
+```
+
 ## Run Information
 ```{r, run info}
 
@@ -17,6 +24,7 @@ cat("Run Information")
   Date_Run = "09/05/24"
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
+  Sample_Year = "2024"
   run_notes = " "
   
   #file path and name for summary file 
@@ -159,7 +167,7 @@ dat_raw <- raw_file_name %>%
 
 head(dat_raw)
 
-dat_raw <- dat_raw %>%
+dat_raw_new <- dat_raw %>%
   mutate(
     # Break into parts
     temp = str_match(sample_name, 
@@ -612,21 +620,21 @@ ifelse(n_dups_percent >= chks_flag, ">60% of Nitrogen Duplicates have a CV <10%"
        "<60% of Nitrogen Duplicates have a CB <10% - REASSESS")
 
 #write out a flag to the sample dataframe if more than 60% of the dups have CVs out of range 
-if (c_dups_percent <= chks_flag) {
-  dat_raw$npoc_flag <- ifelse(
-    dat_raw$npoc_flag != "",
-    paste0(dat_raw$npoc_flag, "; NPOC dups out of range"),
-    "NPOC dups out of range"
-  )
-}
-
-if (n_dups_percent <= chks_flag) {  # assuming you have tn_chks_percent similarly
-  dat_raw$tdn_flag <- ifelse(
-    dat_raw$tdn_flag != "",
-    paste0(dat_raw$tdn_flag, "; TN dups out of range"),
-    "TN dups out of range"
-  )
-}
+# if (c_dups_percent <= chks_flag) {
+#   dat_raw$npoc_flag <- ifelse(
+#     dat_raw$npoc_flag != "",
+#     paste0(dat_raw$npoc_flag, "; NPOC dups out of range"),
+#     "NPOC dups out of range"
+#   )
+# }
+# 
+# if (n_dups_percent <= chks_flag) {  # assuming you have tn_chks_percent similarly
+#   dat_raw$tdn_flag <- ifelse(
+#     dat_raw$tdn_flag != "",
+#     paste0(dat_raw$tdn_flag, "; TN dups out of range"),
+#     "TN dups out of range"
+#   )
+# }
 
 ```
 
@@ -724,7 +732,7 @@ cat("Visualize Data")
 
 #Plot samples to get a first look at concentrations (sanity check)
 IDs <- data.frame(do.call('rbind', strsplit(as.character(dat_flagged$sample_name),'_',fixed=TRUE)))
-colnames(IDs) <- c("Site_Code" , "Date","Plot", "Grid_Square",  "Extra")
+colnames(IDs) <- c("Site_Code" , "Plot", "Grid_Square",  "Extra", "Extra1", "Extra2")
 head(IDs)
 
 #rejoin them to the dataframe
@@ -734,7 +742,7 @@ head(dat_florplot)
 dat_florplot <- dat_florplot %>% 
   mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
                                Plot == 'FW' ~ "Freshwater", 
-                               Plot == 'CTRL' ~ "Control"))
+                               Plot == 'C' ~ "Control"))
 
 
 #Plot data and change colors based on flags to check it: 
@@ -777,8 +785,258 @@ dat_flagged <- dat_flagged %>%
 
 ```
 
+##Make IDs to match the metadata
+```{r}
+
+#select event samples without AM/PM
+all_dat_event <- dat_flagged %>%  
+  filter(str_detect(sample_name, "_T"))%>%  
+  filter(!str_detect(sample_name, "M_"))
+
+#separate event samples into columns TMP_FW_C6_T0_20240610
+all_dat_event <- all_dat_event %>%
+  separate(
+    col = sample_name,
+    sep = "_",
+    into = c("Project", "Plot", "Grid", "Event_Time", "Collection_Date"),
+    remove = FALSE)
+
+#select event samples with AM/PM
+all_dat_event_time <- dat_flagged %>%  
+  filter(str_detect(sample_name, "_T"))%>%  
+  filter(str_detect(sample_name, "M_"))
+
+#separate event samples into columns TMP_SW_B4_T2_AM_20240612
+all_dat_event_time <- all_dat_event_time %>%
+  separate(
+    col = sample_name,
+    sep = "_",
+    into = c("Project", "Plot", "Grid", "Event_Time", "Time_of_day", "Collection_Date"),
+    remove = FALSE)
+
+#select non-event samples 
+all_dat_monmon <- dat_flagged %>%  
+  filter(!str_detect(sample_name, "_T"))%>%  
+  filter(!str_detect(sample_name, "SOURCE"))%>%  
+  filter(!str_detect(sample_name, "ESTUARY"))
+
+#separate non-event samples into columns TMP_C_H3_20240607
+all_dat_monmon <- all_dat_monmon %>%
+  separate(
+    col = sample_name,
+    sep = "_",
+    into = c("Project", "Plot", "Grid", "Collection_Date"),
+    remove = FALSE)
+
+#select source samples 
+all_dat_source <- dat_flagged %>%  
+  filter(str_detect(sample_name, "SOURCE"))
+
+#separate non-event samples into columns TMP_SW_SOURCE_Morning_20240611
+all_dat_source <- all_dat_source %>%
+  separate(
+    col = sample_name,
+    sep = "_",
+    into = c("Project", "Plot", "Grid", "Time_of_day", "Collection_Date"),
+    remove = FALSE)
+
+#select tidal samples 
+all_dat_tides <- dat_flagged %>%  
+  filter(str_detect(sample_name, "T_"))
+
+#separate tidal samples into columns TMP_ESTUARY_LT_20240611
+all_dat_tides <- all_dat_tides %>%
+  separate(
+    col = sample_name,
+    sep = "_",
+    into = c("Project", "Plot", "Tide", "Collection_Date"),
+    remove = FALSE)
+
+#combine event and non-event samples 
+all_dat_pw <- bind_rows(all_dat_event, all_dat_event_time, all_dat_monmon)
+all_dat_pw$Type <- "Porewater"
+
+#combine source samples
+all_dat_sw <- bind_rows(all_dat_source, all_dat_tides)
+all_dat_sw$Grid <- "SourceWater"
+
+#combine all samples
+all_dat <- bind_rows(all_dat_pw, all_dat_sw)
+all_dat$Depth = "15cm"
+
+
+# TMP_FW_C3_20240614_15cm_T6
+all_dat <- all_dat %>%
+  mutate(sample_ID = paste(Plot, 
+                          Grid,
+                          "DOC", 
+                          Collection_Date, 
+                          Event_Time, 
+                          sep = "_"))
+
+all_dat$sample_ID <- gsub("_NA", "", all_dat$sample_ID)
+```
+
+
+##Create similar sample IDs to match with run samples 
+```{r pull in metadata for later, include=FALSE}
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3, col_types = "text")
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3, col_types = "text")
+
+#select DOC samples 
+raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "DOC")
+
+#select 2024 samples
+raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, Sample_Year))
+
+#select event samples 
+raw_metadata_lys_event <- raw_metadata_lys_year %>%  
+  filter(str_detect(Sample_ID, "_T"))
+
+#separate event samples into columns
+raw_metadata_lys_event <- raw_metadata_lys_event %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Event_Time", "Collection_Date", "Time_of_day"),
+    remove = FALSE)
+
+#select non-event samples 
+raw_metadata_lys_monmon <- raw_metadata_lys_year %>%  
+  filter(!str_detect(Sample_ID, "_T"))
+
+#separate non-event samples into columns
+raw_metadata_lys_monmon <- raw_metadata_lys_monmon %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day"),
+    remove = FALSE)
+
+#combine event and non-event samples 
+raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
+raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+  select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", 
+         "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD", "EST_EDT", 
+         "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+colnames(raw_metadata_lys_event)
+
+#create IDs from what was collected for comparison later
+raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+  mutate(DOC_ID = paste(Zone,
+                        Grid,
+                        "DOC", 
+                        Collection_Date, 
+                        Event_Time, 
+                        sep = "_"))
+
+raw_metadata_lys_combined$DOC_ID <- gsub("_NA", "", raw_metadata_lys_combined$DOC_ID)
+
+
+
+
+#select DOC samples 
+raw_metadata_sw <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, "DOC"))
+
+#select 2024 samples
+raw_metadata_sw_year <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, Sample_Year))
+
+#select rainwater samples 
+raw_metadata_sw_rw <- raw_metadata_sw_year %>%  
+  filter(str_detect(Sample_ID, "_Rainwater"))
+
+#separate event samples into columns
+raw_metadata_sw_rw <- raw_metadata_sw_rw %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", NA, "Source", "Zone", "Analyte", "Collection_Date", "Grid", "Depth", "Event_Time", "Time_of_day"),
+    remove = FALSE)
+
+#select sourcewater samples 
+raw_metadata_sw_sw <- raw_metadata_sw_year %>%  
+  filter(!str_detect(Sample_ID, "_Rainwater"))
+
+#separate samples into columns
+raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Source", "Zone", "Analyte", "Collection_Date", "Time_of_day", "Grid", "Depth", "Event_Time"),
+    remove = FALSE)
+
+#combine rw and sw samples 
+raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
+raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
+  rename("Notes" = "Notes:") %>%
+  select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", 
+         "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs", "Collection_Date_YYYYMMDD", "EST/EDT", 
+         "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+colnames(raw_metadata_sw_rw)
+
+#change "Source" to "Sourcewater" 
+raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
+
+#create IDs from what was collected for comparison later
+raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
+  rename(EST_EDT = `EST/EDT`) %>%
+  mutate(DOC_ID = paste(Zone,
+                          Source, 
+                        "DOC", 
+                          Collection_Date, 
+                          sep = "_"))
+
+
+#combine porewater and sourcewater samples
+doc_metadata <- bind_rows(raw_metadata_lys_combined, raw_metadata_sw_combined)
+
+#remove old ID's
+doc_metadata$Sample_ID <- NULL
+
+# head(doc_metadata)
+
+```
+
+## Check to see if samples run match metadata & merge info
+```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
+
+#check to see if all samples are present in the metadata 
+all_dat$sample_ID <- toupper(all_dat$sample_ID)
+doc_metadata$DOC_ID <- toupper(doc_metadata$DOC_ID)
+
+all_present <- all(all_dat$sample_ID %in% doc_metadata$DOC_ID)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(all_dat$sample_ID, doc_metadata$DOC_ID)
+  print(missing_ids)
+}
+
+
+all_dat <- all_dat %>%
+  select(sample_ID, npoc_raw, tdn_raw, run_datetime, npoc_flag, tdn_flag, npoc_uM, tdn_uM)
+
+# colnames(all_dat)
+# colnames(doc_metadata)
+
+#merge metadata with sample run data 
+merged_data <- all_dat %>%
+  left_join(doc_metadata, by = c("sample_ID" = "DOC_ID"))
+
+
+```
+
+
 ## Add in/check metadata 
-```{r, check sample ids with metadata, echo=FALSE}
+```{#r, check sample ids with metadata, echo=FALSE}
 
 cat("Check Sample IDs with Metadata")
 
@@ -828,18 +1086,23 @@ cat("Export Processed Data")
 final_data <- merged_data %>% 
   #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
   mutate(
-    #Project = "COMPASS",   # new column with same value on every row
-    #Experiment = "TEMPEST",
+    Project = "COMPASS: TEMPEST",   # new column with same value on every row
     Depth_cm = 15,
-    Run_notes = run_notes     # new column with notes about the run
+    Run_notes = run_notes,  # new column with notes about the run
+    sample_type = "DOC", 
   ) 
 
 #this needs altered to match the tempest metadata and clean up 
+colnames(final_data)
 final_data <- final_data %>%
   rename(
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
     Analysis_runtime = run_datetime, 
+    plot = Zone, 
+    grid = Grid, 
+    Vial_ID = sample_ID, 
+    date = Collection_Date
     # add more rename pairs as needed
   ) %>%
   select(
