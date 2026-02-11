@@ -1,0 +1,185 @@
+"Project","Zone","Grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250131",20250131,31.35,2612.5,NA,0.9852,70.3714285714286,"TN r2 low","2/4/2025 9:12:13 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1236,1219,"EST",10
+"COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250131",20250131,30.54,2545,NA,0.6599,47.1357142857143,"TN r2 low","2/4/2025 9:42:02 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1225,1137,"EST",10
+"COMPASS: TEMPEST","C","D5",15,"DOC","C_D5_DOC_20250131",20250131,21.09,1757.5,NA,0.5605,40.0357142857143,"TN r2 low","2/4/2025 10:00:23 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1230,1227,"EST",10
+"COMPASS: TEMPEST","C","E3",15,"DOC","C_E3_DOC_20250131",20250131,25.9,2158.33333333333,NA,0.7722,55.1571428571429,"TN r2 low","2/4/2025 10:29:44 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1222,1126,"EST",10
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250131",20250131,36.77,3064.16666666667,NA,1.233,88.0714285714286,"TN r2 low","2/4/2025 10:58:13 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1215,1113,"EST",10
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250131",20250131,16.82,1401.66666666667,NA,0.5264,37.6,"TN r2 low","2/4/2025 11:26:31 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1212,1100,"EST",10
+"COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250131",20250131,23.94,1995,NA,0.8356,59.6857142857143,"TN r2 low","2/5/2025 1:09:38 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1322,1414,"EST",10
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250131",20250131,14.64,1220,NA,0.611,43.6428571428571,"TN r2 low","2/5/2025 1:38:03 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1314,1405,"EST",10
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250131",20250131,21.37,1780.83333333333,NA,0.8061,57.5785714285714,"TN r2 low","2/5/2025 2:06:34 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1316,1408,"EST",13
+"COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250131",20250131,15.27,1272.5,NA,0.5781,41.2928571428571,"TN r2 low","2/5/2025 2:34:41 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1426,1420,"EST",10
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250131",20250131,32.94,2745,NA,1.094,78.1428571428572,"TN r2 low","2/5/2025 3:04:02 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1421,1427,"EST",20
+"COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250131",20250131,53.78,4481.66666666667,NA,1.417,101.214285714286,"TN r2 low","2/5/2025 5:10:42 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1244,1252,"EST",10
+"COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250131",20250131,51.3,4275,NA,1.41,100.714285714286,"TN r2 low","2/5/2025 5:40:20 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1349,1308,"EST",10
+"COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250131",20250131,11.99,999.166666666667,NA,0.7017,50.1214285714286,"TN r2 low","2/5/2025 6:07:29 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1257,1355,"EST",10
+"COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250131",20250131,60.74,5061.66666666667,NA,2.508,179.142857142857,"TN r2 low","2/5/2025 6:32:37 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1255,1351,"EST",10
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250131",20250131,30.94,2578.33333333333,NA,1.255,89.6428571428571,"TN r2 low","2/5/2025 7:00:52 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1253,1347,"EST",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250131",20250131,55.88,4656.66666666667,NA,1.829,130.642857142857,"TN r2 low","2/5/2025 7:20:40 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250128,20250131,1300,1400,"EST",10
+"COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250204",20250204,27.65,2304.16666666667,NA,0.8189,58.4928571428571,"TN r2 low","2/5/2025 8:57:20 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1219,1055,"EST",20
+"COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250204",20250204,29.65,2470.83333333333,NA,0.6686,47.7571428571429,"TN r2 low","2/5/2025 9:26:06 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1137,1043,"EST",20
+"COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20250204",20250204,20.61,1717.5,NA,0.5474,39.1,"TN r2 low","2/5/2025 10:23:07 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1235,1107,"EST",10
+"COMPASS: TEMPEST","C","D5",15,"DOC","C_D5_DOC_20250204",20250204,20.73,1727.5,NA,0.5411,38.65,"TN r2 low","2/5/2025 10:51:20 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1227,1115,"EST",20
+"COMPASS: TEMPEST","C","E3",15,"DOC","C_E3_DOC_20250204",20250204,28.82,2401.66666666667,NA,0.7374,52.6714285714286,"TN r2 low","2/5/2025 11:20:45 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1126,1033,"EST",10
+"COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250204",20250204,18.53,1544.16666666667,NA,0.5041,36.0071428571429,"TN r2 low","2/5/2025 11:49:57 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1123,1026,"EST",10
+"COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250204",20250204,61.09,5090.83333333333,NA,1.366,97.5714285714286,"TN r2 low","2/5/2025 12:19:28 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1121,1019,"EST",10
+"COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250204",20250204,28.35,2362.5,NA,0.9795,69.9642857142857,"TN r2 low","2/5/2025 12:38:07 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1051,941,"EST",10
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250204",20250204,34.06,2838.33333333333,NA,0.9847,70.3357142857143,"TN r2 low","2/5/2025 12:57:03 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1113,1006,"EST",10
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250204",20250204,23.44,1953.33333333333,NA,0.6517,46.55,"TN r2 low","2/5/2025 1:25:30 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1100,953,"EST",10
+"COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250204",20250204,16.71,1392.5,NA,1.074,76.7142857142857,"TN r2 low","2/5/2025 3:10:48 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1412,1407,"EST",20
+"COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250204",20250204,22.56,1880,NA,0.6396,45.6857142857143,"TN r2 low","2/5/2025 3:39:35 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1414,1417,"EST",10
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250204",20250204,10.73,894.166666666667,NA,0.498,35.5714285714286,"TN r2 low","2/5/2025 4:06:58 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1405,1358,"EST",20
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250204",20250204,21.4,1783.33333333333,NA,0.6562,46.8714285714286,"TN r2 low","2/5/2025 4:35:15 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1408,1424,"EST",20
+"COMPASS: TEMPEST","FW","E3",15,"DOC","FW_E3_DOC_20250204",20250204,19.4,1616.66666666667,NA,0.633,45.2142857142857,"TN r2 low","2/5/2025 5:04:18 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1416,1433,"EST",20
+"COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250204",20250204,19.47,1622.5,NA,0.5781,41.2928571428571,"TN r2 low","2/5/2025 5:32:23 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1418,1444,"EST",20
+"COMPASS: TEMPEST","FW","F6",15,"DOC","FW_F6_DOC_20250204",20250204,18.19,1515.83333333333,NA,0.5225,37.3214285714286,"TN r2 low","2/5/2025 6:00:06 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1433,1522,"EST",20
+"COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250204",20250204,15.4,1283.33333333333,NA,0.5379,38.4214285714286,"TN r2 low","2/5/2025 6:47:08 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1420,1454,"EST",20
+"COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250204",20250204,20.43,1702.5,NA,0.7514,53.6714285714286,"TN r2 low","2/5/2025 7:16:53 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1431,1512,"EST",20
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250204",20250204,27.28,2273.33333333333,NA,0.8174,58.3857142857143,"TN r2 low","2/5/2025 7:39:01 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1427,1502,"EST",20
+"COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250204",20250204,69.98,5831.66666666667,NA,1.797,128.357142857143,"TN r2 low","2/5/2025 9:02:48 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1308,1220,"EST",20
+"COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250204",20250204,73.44,6120,NA,1.985,141.785714285714,"TN r2 low","2/5/2025 9:32:19 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1252,1210,"EST",20
+"COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250204",20250204,48.5,4041.66666666667,NA,2.272,162.285714285714,"TN r2 low","2/5/2025 9:56:16 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1245,1230,"EST",20
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250204",20250204,52.21,4350.83333333333,NA,1.645,117.5,"TN r2 low","2/5/2025 10:26:03 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1345,1239,"EST",20
+"COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250204",20250204,39,3250,NA,1.441,102.928571428571,"TN r2 low","2/5/2025 10:48:50 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1355,1306,"EST",20
+"COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250204",20250204,68.88,5740,NA,2.54,181.428571428571,"TN r2 low","2/5/2025 11:18:04 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1351,1258,"EST",20
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250204",20250204,61.7,5141.66666666667,NA,2.016,144,"TN r2 low","2/5/2025 11:46:33 PM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1347,1248,"EST",20
+"COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250204",20250204,66.28,5523.33333333333,NA,2.179,155.642857142857,"TN r2 low","2/6/2025 12:15:11 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1357,1317,"EST",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250204",20250204,45.74,3811.66666666667,NA,1.406,100.428571428571,"TN r2 low","2/6/2025 12:38:33 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1400,1333,"EST",20
+"COMPASS: TEMPEST","SW","I5",15,"DOC","SW_I5_DOC_20250204",20250204,61.38,5115,NA,1.696,121.142857142857,"TN r2 low","2/6/2025 12:58:02 AM","Standard curve for TN is not good, reanalyzed with a
+  recently run standard curve to get values.",20250131,20250204,1359,1325,"EST",20
+"COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250403",20250403,85,7083.33333333333,"NPOC checks out of range",2.174,155.285714285714,"","4/8/2025 12:21:11 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1400,1232,"EDT",20
+"COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250403",20250403,67.3,5608.33333333333,"NPOC checks out of range",1.819,129.928571428571,"","4/8/2025 12:48:14 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1356,1336,"EDT",20
+"COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250403",20250403,60.4,5033.33333333333,"NPOC checks out of range",2.035,145.357142857143,"","4/8/2025 1:52:33 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1403,1247,"EDT",10
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250403",20250403,39.07,3255.83333333333,"NPOC checks out of range",1.312,93.7142857142857,"","4/8/2025 2:22:45 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1406,1255,"EDT",10
+"COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250403",20250403,46.02,3835,"NPOC checks out of range",1.565,111.785714285714,"","4/8/2025 2:54:49 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1411,1327,"EDT",10
+"COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250403",20250403,13.08,1090,"NPOC checks out of range",0.8065,57.6071428571429,"","4/8/2025 3:24:05 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1433,1102,"EDT",10
+"COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250406",20250406,15.19,1265.83333333333,"NPOC checks out of range",0.4337,30.9785714285714,"","4/8/2025 3:54:37 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250403,20250406,1056,1120,"EDT",10
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250403",20250403,9.244,770.333333333333,"NPOC checks out of range",0.2882,20.5857142857143,"blank is ≥ 25% of sample value","4/8/2025 4:24:17 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1429,1124,"EDT",20
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250403",20250403,19.89,1657.5,"NPOC checks out of range",0.6236,44.5428571428571,"","4/8/2025 4:54:34 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1431,1110,"EDT",20
+"COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250403",20250403,20.02,1668.33333333333,"NPOC checks out of range",0.5415,38.6785714285714,"","4/8/2025 5:25:48 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1439,1028,"EDT",10
+"COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250403",20250403,18.61,1550.83333333333,"NPOC checks out of range",0.4969,35.4928571428571,"","4/8/2025 6:25:23 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1340,1415,"EDT",11
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250403",20250403,24.86,2071.66666666667,"NPOC checks out of range",0.6914,49.3857142857143,"","4/8/2025 6:45:40 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1338,1433,"EDT",10
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250403",20250403,19.15,1595.83333333333,"NPOC checks out of range",0.4633,33.0928571428571,"","4/8/2025 7:14:51 AM","NPOC Check Standard was a bit old and came out higher than expected.",20250331,20250403,1336,1424,"EDT",10
+"COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250509",20250509,25.46,2121.66666666667,"NPOC checks out of range",0.9769,69.7785714285714,"TN checks out of range","5/23/2025 2:18:11 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,731,1325,"EDT",20
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250509",20250509,29.91,2492.5,"NPOC checks out of range",0.9752,69.6571428571428,"TN checks out of range","5/23/2025 2:36:46 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,736,1331,"EDT",10
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250509",20250509,21.48,1790,"NPOC checks out of range",0.5675,40.5357142857143,"TN checks out of range","5/23/2025 3:06:35 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,740,1327,"EDT",20
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250509",20250509,10.3,858.333333333333,"NPOC checks out of range",0.3652,26.0857142857143,"TN checks out of range","5/23/2025 3:36:49 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,824,1024,"EDT",10
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250509",20250509,18.45,1537.5,"NPOC checks out of range",0.6574,46.9571428571429,"TN checks out of range","5/23/2025 3:58:38 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,833,1022,"EDT",10
+"COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250509",20250509,13.93,1160.83333333333,"NPOC checks out of range",0.7482,53.4428571428571,"TN checks out of range","5/23/2025 4:26:17 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,840,1033,"EDT",10
+"COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250512",20250512,18.34,1528.33333333333,"NPOC checks out of range",0.7041,50.2928571428571,"TN checks out of range","5/23/2025 4:56:32 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250509,20250512,1016,1103,"EDT",10
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250509",20250509,19.3,1608.33333333333,"NPOC checks out of range",0.7764,55.4571428571429,"TN checks out of range","5/23/2025 5:29:16 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,842,1035,"EDT",20
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250509",20250509,42.4,3533.33333333333,"NPOC checks out of range",1.312,93.7142857142857,"TN checks out of range","5/23/2025 6:27:17 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,758,1156,"EDT",10
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250509",20250509,68.25,5687.5,"NPOC checks out of range",2.303,164.5,"TN checks out of range","5/23/2025 6:50:03 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,801,1159,"EDT",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250509",20250509,49.77,4147.5,"NPOC checks out of range",1.84,131.428571428571,"TN checks out of range","5/23/2025 7:08:44 AM","This run, the high check standard was remade halfway 
+  through run as a 60mg/L C, so checks are okay.",20250506,20250509,809,1141,"EDT",10
+"COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250602",20250602,47.02,3918.33333333333,"NPOC checks out of range",1.185,84.6428571428572,"","6/3/2025 11:56:03 PM","Has not been run just yet - test for july in june .",20250530,20250602,1312,1531,"EDT",35
+"COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250602",20250602,65.21,5434.16666666667,"NPOC checks out of range",1.804,128.857142857143,"","6/4/2025 12:18:54 AM","Has not been run just yet - test for july in june .",20250530,20250602,1308,1518,"EDT",35
+"COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250602",20250602,54.19,4515.83333333333,"NPOC checks out of range",1.871,133.642857142857,"","6/4/2025 12:38:06 AM","Has not been run just yet - test for july in june .",20250530,20250602,1246,1234,"EDT",20
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250602",20250602,33.01,2750.83333333333,"NPOC checks out of range",1.045,74.6428571428571,"","6/4/2025 1:06:44 AM","Has not been run just yet - test for july in june .",20250530,20250602,1248,1248,"EDT",20
+"COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250602",20250602,33.58,2798.33333333333,"NPOC checks out of range",1.076,76.8571428571429,"","6/4/2025 1:30:44 AM","Has not been run just yet - test for july in june .",20250530,20250602,1302,1504,"EDT",35
+"COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250602",20250602,41.28,3440,"NPOC checks out of range",1.453,103.785714285714,"","6/4/2025 1:59:04 AM","Has not been run just yet - test for july in june .",20250530,20250602,1259,1338,"EDT",35
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250602",20250602,46.15,3845.83333333333,"NPOC checks out of range",1.714,122.428571428571,"","6/4/2025 2:27:15 AM","Has not been run just yet - test for july in june .",20250530,20250602,1252,1259,"EDT",35
+"COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250602",20250602,27.82,2318.33333333333,"NPOC checks out of range",0.8934,63.8142857142857,"","6/4/2025 2:57:54 AM","Has not been run just yet - test for july in june .",20250530,20250602,1257,1323,"EDT",35
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250602",20250602,34.14,2845,"NPOC checks out of range",1.046,74.7142857142857,"","6/4/2025 3:19:30 AM","Has not been run just yet - test for july in june .",20250530,20250602,1253,1311,"EDT",35
+"COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250602",20250602,10.42,868.333333333333,"NPOC checks out of range",0.3236,23.1142857142857,"","6/4/2025 5:10:17 AM","Has not been run just yet - test for july in june .",20250530,20250602,1101,1159,"EDT",20
+"COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250602",20250602,10.72,893.333333333333,"NPOC checks out of range",0.274,19.5714285714286,"","6/4/2025 5:37:45 AM","Has not been run just yet - test for july in june .",20250530,20250602,1100,1147,"EDT",20
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250602",20250602,9.584,798.666666666667,"NPOC checks out of range",0.2677,19.1214285714286,"","6/4/2025 6:05:29 AM","Has not been run just yet - test for july in june .",20250530,20250602,1107,1221,"EDT",20
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250602",20250602,14.33,1194.16666666667,"NPOC checks out of range",0.3921,28.0071428571429,"","6/4/2025 6:33:14 AM","Has not been run just yet - test for july in june .",20250530,20250602,1105,1210,"EDT",20
+"COMPASS: TEMPEST","FW","E3",15,"DOC","FW_E3_DOC_20250602",20250602,9.522,793.5,"NPOC checks out of range",0.2566,18.3285714285714,"","6/4/2025 7:00:26 AM","Has not been run just yet - test for july in june .",20250530,20250602,1058,1138,"EDT",12
+"COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250602",20250602,15.63,1302.5,"NPOC checks out of range",0.4121,29.4357142857143,"","6/4/2025 7:27:57 AM","Has not been run just yet - test for july in june .",20250530,20250602,1052,1102,"EDT",12
+"COMPASS: TEMPEST","FW","F6",15,"DOC","FW_F6_DOC_20250602",20250602,12.67,1055.83333333333,"NPOC checks out of range",0.3162,22.5857142857143,"","6/4/2025 7:45:02 AM","Has not been run just yet - test for july in june .",20250530,20250602,1056,1125,"EDT",20
+"COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250602",20250602,11.21,934.166666666667,"NPOC checks out of range",0.4481,32.0071428571429,"","6/4/2025 8:12:42 AM","Has not been run just yet - test for july in june .",20250530,20250602,1050,1051,"EDT",20
+"COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250602",20250602,12.28,1023.33333333333,"NPOC checks out of range",0.4213,30.0928571428571,"","6/4/2025 8:37:43 AM","Has not been run just yet - test for july in june .",20250530,20250602,1055,1113,"EDT",20
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250602",20250602,12.27,1022.5,"NPOC checks out of range",0.395,28.2142857142857,"","6/4/2025 9:05:23 AM","Has not been run just yet - test for july in june .",20250530,20250602,1049,1033,"EDT",20
+"COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250602",20250602,15.96,1330,"NPOC checks out of range",0.4102,29.3,"","6/4/2025 10:52:59 AM","Has not been run just yet - test for july in june .",20250530,20250602,1322,1558,"EDT",30
+"COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250602",20250602,19.63,1635.83333333333,"NPOC checks out of range",0.4815,34.3928571428571,"","6/4/2025 11:21:29 AM","Has not been run just yet - test for july in june .",20250530,20250602,1324,1609,"EDT",10
+"COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20250602",20250602,15.06,1255,"NPOC checks out of range",0.4146,29.6142857142857,"","6/4/2025 11:48:53 AM","Has not been run just yet - test for july in june .",20250530,20250602,1318,1546,"EDT",10
+"COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250602",20250602,14.63,1219.16666666667,"NPOC checks out of range",0.3898,27.8428571428571,"","6/4/2025 12:16:52 PM","Has not been run just yet - test for july in june .",20250530,20250602,1339,1634,"EDT",20
+"COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250602",20250602,22.46,1871.66666666667,"NPOC checks out of range",0.4656,33.2571428571429,"","6/4/2025 12:45:10 PM","Has not been run just yet - test for july in june .",20250530,20250602,1331,1624,"EDT",10
+"COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250602",20250602,21.5,1791.66666666667,"NPOC checks out of range",0.5364,38.3142857142857,"","6/4/2025 1:06:17 PM","Has not been run just yet - test for july in june .",20250530,20250602,1342,1643,"EDT",20
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250602",20250602,20.72,1726.66666666667,"NPOC checks out of range",3.034,216.714285714286,"value above cal curve","6/4/2025 1:24:28 PM","Has not been run just yet - test for july in june .",20250530,20250602,1349,1707,"EDT",35
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250602",20250602,15.11,1259.16666666667,"NPOC checks out of range",0.3941,28.15,"","6/4/2025 1:52:56 PM","Has not been run just yet - test for july in june .",20250530,20250602,1344,1656,"EDT",35
+"COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250711",20250711,24.78,2065,NA,0.8238,58.8428571428571,NA,"7/14/2025 9:35:40 PM",NA,20250708,20250711,1340,1205,"EDT",10
+"COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250711",20250711,25.42,2118.33333333333,NA,0.9261,66.15,NA,"7/14/2025 10:04:08 PM",NA,20250708,20250711,1038,1215,"EDT",20
+"COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250711",20250711,25.83,2152.5,NA,0.8619,61.5642857142857,NA,"7/14/2025 11:45:04 PM",NA,20250708,20250711,1048,1224,"EDT",20
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250711",20250711,17.98,1498.33333333333,NA,0.5845,41.75,NA,"7/15/2025 12:12:38 AM",NA,20250708,20250711,1044,1236,"EDT",20
+"COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250711",20250711,75.8,6316.66666666667,NA,2.597,185.5,NA,"7/15/2025 12:34:38 AM",NA,20250708,20250711,1224,738,"EDT",20
+"COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250711",20250711,96.36,8030,NA,2.976,212.571428571429,NA,"7/15/2025 12:53:18 AM",NA,20250708,20250711,1218,750,"EDT",10
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250711",20250711,32.21,2684.16666666667,NA,1.26,90,NA,"7/15/2025 1:22:53 AM",NA,20250708,20250711,1228,801,"EDT",20
+"COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250711",20250711,41.82,3485,NA,1.627,116.214285714286,NA,"7/15/2025 3:02:00 AM",NA,20250708,20250711,1347,815,"EDT",10
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250711",20250711,61.9,5158.33333333333,NA,2.374,169.571428571429,NA,"7/15/2025 3:31:11 AM",NA,20250708,20250711,1233,827,"EDT",20
+"COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250711",20250711,44.03,3669.16666666667,NA,1.718,122.714285714286,NA,"7/15/2025 3:59:52 AM",NA,20250708,20250711,1243,850,"EDT",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250711",20250711,61.34,5111.66666666667,NA,1.909,136.357142857143,NA,"7/15/2025 4:29:05 AM",NA,20250708,20250711,1249,855,"EDT",10
+"COMPASS: TEMPEST","SW","I5",15,"DOC","SW_I5_DOC_20250711",20250711,43.44,3620,NA,2.113,150.928571428571,NA,"7/15/2025 4:57:33 AM",NA,20250708,20250711,1353,905,"EDT",10
+"COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250711",20250711,15.81,1317.5,NA,0.8707,62.1928571428571,NA,"7/15/2025 5:25:59 AM",NA,20250708,20250711,1303,1006,"EDT",10
+"COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250711",20250711,10.3,858.333333333333,NA,0.4455,31.8214285714286,NA,"7/15/2025 5:55:18 AM",NA,20250708,20250711,1253,1015,"EDT",20
+"COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250711",20250711,19.1,1591.66666666667,NA,0.8667,61.9071428571429,NA,"7/15/2025 7:36:31 AM",NA,20250708,20250711,1258,1027,"EDT",20
+"COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250711",20250711,20.71,1725.83333333333,NA,0.8748,62.4857142857143,NA,"7/15/2025 8:06:42 AM",NA,20250708,20250711,1413,1053,"EDT",10
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250711",20250711,19.53,1627.5,NA,0.849,60.6428571428571,NA,"7/15/2025 8:35:12 AM",NA,20250708,20250711,1313,1110,"EDT",20
+"COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250926",20250926,15.73,1310.83333333333,NA,0.6051,43.2214285714286,NA,"10/1/2025 10:45:08 PM","Run by Watershed Science at SERC, no duplicates included",20250923,20250926,1107,1202,"EDT",10
+"COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250929",20250929,17.7,1475,NA,0.6428,45.9142857142857,NA,"10/1/2025 11:05:35 PM","Run by Watershed Science at SERC, no duplicates included",20250926,20250929,1229,1000,"EDT",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250926",20250926,20.77,1730.83333333333,NA,0.8676,61.9714285714286,NA,"10/1/2025 11:33:43 PM","Run by Watershed Science at SERC, no duplicates included",20250923,20250926,1119,1215,"EDT",19
+"COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20251101",20251101,12.05,1004.16666666667,"NPOC checks out of range",0.5878,41.9857142857143,NA,"11/3/2025 7:41:06 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1305,1052,"EDT",10
+"COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20251101",20251101,19.22,1601.66666666667,"NPOC checks out of range",0.7134,50.9571428571429,NA,"11/3/2025 8:12:39 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1406,1237,"EDT",10
+"COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20251101",20251101,23.89,1990.83333333333,"NPOC checks out of range",0.8135,58.1071428571429,NA,"11/3/2025 8:38:56 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1337,1143,"EDT",10
+"COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20251101",20251101,27.3,2275,"NPOC checks out of range",1.084,77.4285714285714,NA,"11/3/2025 9:10:49 PM","NPOC check standards slightly out of range. Accepting run anyways. 
+      No diuplicates on this run.",20251029,20251101,1345,1202,"EDT",10

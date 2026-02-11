@@ -1102,13 +1102,14 @@ final_data <- final_data %>%
     plot = Zone, 
     grid = Grid, 
     Vial_ID = sample_ID, 
-    date = Collection_Date
+    date = Collection_Date, 
+    Field_notes = Notes
     # add more rename pairs as needed
   ) %>%
   select(
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )

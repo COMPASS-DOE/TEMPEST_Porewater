@@ -527,9 +527,11 @@ cat("Assess Duplicates")
   #head(dat_raw)
 
 #pull out any rows that have "dup" in the sample_name column
-dups <- dat_raw %>%  
+dups <- dat_raw
+dups$sample_name <- gsub("check", "dup", dups$sample_name)
+dups <- dups %>%  
   select(!c(npoc_flag, tdn_flag)) %>%
-  filter(str_detect(sample_name, "dup"))      #have to change this to match data
+  filter(str_detect(sample_name, "dup"))  #have to change this to match data
 
 #create a new dataframe and remove dups from sample dataframe 
 dat_raw2 <- dat_raw %>%  
@@ -783,7 +785,8 @@ samples_collected <- sample_collected_metadata %>%
 dat_flagged <- dat_flagged %>%
   mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
   # Remove rows where sample_name ends with "_dup"
-  filter(!str_detect(sample_name, "_dup$"))
+  filter(!str_detect(sample_name, "_dup$")) %>%
+  filter(!str_detect(sample_name, "_check$"))
 
 #check if metadata was recorded for each of the samples run 
 dat_flagged %>%

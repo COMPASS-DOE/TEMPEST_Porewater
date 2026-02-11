@@ -1,7 +1,7 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
 "1","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20240624","20240624",4.969,414.083333333333,"NPOC checks out of range",6.704,478.857142857143,"TN r2 low; TN checks out of range; value above cal curve","7/19/2024 1:59:07 AM","The TN curves are not good, samples were re-analyzed on the TOC 
-      with a good curve from another run and then the TN analyzer was serviced.",20240621,20240624,1157,1005,"EDT",10
+      with a good curve from another run and then the TN analyzer was serviced.",NA,20240621,20240624,1157,1005,"EDT",10
 "2","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20240624","20240624",7.708,642.333333333333,"NPOC checks out of range",16.18,1155.71428571429,"TN r2 low; TN checks out of range; value above cal curve","7/19/2024 2:25:13 AM","The TN curves are not good, samples were re-analyzed on the TOC 
-      with a good curve from another run and then the TN analyzer was serviced.",20240621,20240624,1210,1029,"EDT",10
+      with a good curve from another run and then the TN analyzer was serviced.",NA,20240621,20240624,1210,1029,"EDT",10
 "3","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20240715","20240715",5.321,443.416666666667,"NPOC checks out of range",0.121,8.64285714285714,"TN r2 low; TN checks out of range; blank is > 25% of sample value","7/19/2024 2:48:20 AM","The TN curves are not good, samples were re-analyzed on the TOC 
-      with a good curve from another run and then the TN analyzer was serviced.",20240711,20240715,1046,1224,"EDT",10
+      with a good curve from another run and then the TN analyzer was serviced.","clear",20240711,20240715,1046,1224,"EDT",10

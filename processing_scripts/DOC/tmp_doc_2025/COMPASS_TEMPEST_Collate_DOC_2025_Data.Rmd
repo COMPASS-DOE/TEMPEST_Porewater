@@ -1,5 +1,5 @@
 ---
-title: "COMPASS_TEMPEST_Collate_Dionex_2024_Data"
+title: "COMPASS_TEMPEST_Collate_DOC_2024_Data"
 author: "Stephanie J. Wilson"
 date: "2025-08-29"
 output: html_document
@@ -18,7 +18,7 @@ library(tibble)
 #Read in and collate all the files in the Processed Data folder 
 ```{r}
 
-files <- list.files(path = "tmp_doc_processed_data_2024", pattern = "\\.csv$", full.names = TRUE)
+files <- list.files(path = "tmp_doc_processed_data_2025", pattern = "\\.csv$", full.names = TRUE)
 
 # 3. Read and combine all CSVs
 all_data <- files %>%
@@ -41,7 +41,7 @@ final_data <- all_data %>%
 ## Write the 2023 file out to the folder 
 ```{r, echo=FALSE}
 
-write.csv(final_data, "COMPASS_TEMPEST_DOC_2024.csv", row.names = FALSE)
+write.csv(final_data, "COMPASS_TEMPEST_DOC_2025.csv", row.names = FALSE)
 
 ```
 
