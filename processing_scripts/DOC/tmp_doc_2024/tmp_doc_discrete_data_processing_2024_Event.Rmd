@@ -790,7 +790,6 @@ dat_flagged <- dat_flagged %>%
   mutate(
     npoc_uM = (((as.numeric(dat_flagged$npoc_raw))/Con1)/mw_c)*Con2, 
     tdn_uM = (((as.numeric(dat_flagged$tdn_raw))/Con1)/mw_n)*Con2
-  )
 
 ```
 
@@ -1108,7 +1107,7 @@ final_data <- final_data %>%
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
     Analysis_runtime = run_datetime, 
-    plot = Zone, 
+    plot = Plot, 
     grid = Grid, 
     Vial_ID = sample_ID, 
     date = Collection_Date, 
