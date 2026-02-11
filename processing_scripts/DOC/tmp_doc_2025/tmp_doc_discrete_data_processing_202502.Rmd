@@ -93,7 +93,7 @@ anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 #inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=496164093#gid=496164093"
 
-directory= file.path(here() %>% dirname(), 'TEMPEST_Porewater/processing_scripts/DOC/tmp_doc_2025/tmp_doc_metadata_2025')
+directory= file.path(here() %>% dirname(), 'tmp_doc_2025/tmp_doc_metadata_2025')
 if(!dir.exists(directory)){
   stop("Directory does not exist, check directory path")
 }
@@ -528,7 +528,7 @@ cat("Assess Duplicates")
 
 #pull out any rows that have "dup" in the sample_name column
 dups <- dat_raw
-dups$sample_name <- gsub("check", "dup", dups$sample_name)
+dups$sample_name <- gsub("check", "dup", dups$sample_name) ##Change "check" samples to dups
 dups <- dups %>%  
   select(!c(npoc_flag, tdn_flag)) %>%
   filter(str_detect(sample_name, "dup"))  #have to change this to match data
@@ -786,7 +786,7 @@ dat_flagged <- dat_flagged %>%
   mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
   # Remove rows where sample_name ends with "_dup"
   filter(!str_detect(sample_name, "_dup$")) %>%
-  filter(!str_detect(sample_name, "_check$"))
+  filter(!str_detect(sample_name, "_check$")) ##Remove check samples from final dataframe because these are basically dups
 
 #check if metadata was recorded for each of the samples run 
 dat_flagged %>%

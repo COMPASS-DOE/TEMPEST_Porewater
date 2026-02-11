@@ -183,6 +183,15 @@ dat_raw_new <- dat_raw %>%
 head(dat_raw)
 ```
 
+##Fix incorrectly-entered sample IDs
+```{r}
+
+dat_raw$sample_name <- gsub("TMP_FW_I5_T1_20250611", "TMP_FW_I5_T1_20240611", dat_raw$sample_name)
+dat_raw$sample_name <- gsub("TMP_FW_I3_T4_AM_20240613", "TMP_FW_I5_T4_AM_20240613", dat_raw$sample_name)
+dat_raw$sample_name <- gsub("TMP_SW_SOURCE_Afternoon_202401613", "TMP_SW_SOURCE_Afternoon_20240613", dat_raw$sample_name)
+
+```
+
 \newpage
 
 ## Assessing standard Curves 
