@@ -1,3 +1,3 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
-"1","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20240812","20240812",11.55,962.5,"",2.097,149.785714285714,"","9/5/2024 9:35:07 PM"," ",20240808,20240812,900,1015,"EDT",20
-"2","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20240812","20240812",4.861,405.083333333333,"",0.3165,22.6071428571429,"","9/5/2024 10:38:39 PM"," ",20240808,20240812,1002,1040,"EDT",10
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"1","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20240812","20240812",11.55,962.5,"",2.097,149.785714285714,"","9/5/2024 9:35:07 PM"," ","clear",20240808,20240812,900,1015,"EDT",20
+"2","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20240812","20240812",4.861,405.083333333333,"",0.3165,22.6071428571429,"","9/5/2024 10:38:39 PM"," ","clear",20240808,20240812,1002,1040,"EDT",10

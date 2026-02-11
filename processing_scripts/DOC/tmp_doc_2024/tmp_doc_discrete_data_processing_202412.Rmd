@@ -781,7 +781,7 @@ cat("Check Sample IDs with Metadata")
 
 sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
   select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
-         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT) %>%
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>%
   mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
   filter(sample_type == "DOC") #filter to just DOC samples
 
@@ -839,12 +839,13 @@ final_data <- final_data %>%
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
     Analysis_runtime = run_datetime, 
+    Field_notes = Notes
     # add more rename pairs as needed
   ) %>%
   select(
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
@@ -894,12 +895,13 @@ final_data1 <- final_data1 %>%
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
     Analysis_runtime = run_datetime, 
+    Field_notes = Notes
     # add more rename pairs as needed
   ) %>%
   select(
     Project, plot, Type, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes
+    Run_notes, Field_notes
     # list columns in the order you want them
   )
 

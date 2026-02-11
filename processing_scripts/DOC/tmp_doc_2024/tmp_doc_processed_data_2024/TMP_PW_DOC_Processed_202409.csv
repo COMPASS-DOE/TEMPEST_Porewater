@@ -1,7 +1,7 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
 "1","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20240906","20240906",9.329,777.416666666667,"NPOC checks out of range",0.6664,47.6,"","9/10/2024 3:03:33 PM","This run the samples names were not put in correctly, they are
-      changed in the code to be the correct format",20240903,20240906,900,1115,"EDT",10
+      changed in the code to be the correct format","clear",20240903,20240906,900,1115,"EDT",10
 "2","COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20240906","20240906",5.781,481.75,"NPOC checks out of range",0.2683,19.1642857142857,"blank is < 25% of sample value","9/10/2024 3:32:19 PM","This run the samples names were not put in correctly, they are
-      changed in the code to be the correct format",20240903,20240906,910,1140,"EDT",10
+      changed in the code to be the correct format","clear",20240903,20240906,910,1140,"EDT",10
 "3","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20240906","20240906",6.013,501.083333333333,"NPOC checks out of range",0.353,25.2142857142857,"","9/10/2024 4:01:16 PM","This run the samples names were not put in correctly, they are
-      changed in the code to be the correct format",20240903,20240906,913,1151,"EDT",20
+      changed in the code to be the correct format","clear",20240903,20240906,913,1151,"EDT",20
