@@ -1,95 +1,95 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
 "1","COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250131","20250131",31.35,2612.5,"",0.9852,70.3714285714286,"TN r2 low","2/4/2025 9:12:13 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1236,1219,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1236,1219,"EST",10
 "2","COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250131","20250131",30.54,2545,"",0.6599,47.1357142857143,"TN r2 low","2/4/2025 9:42:02 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1225,1137,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1225,1137,"EST",10
 "3","COMPASS: TEMPEST","C","D5",15,"DOC","C_D5_DOC_20250131","20250131",21.09,1757.5,"",0.5605,40.0357142857143,"TN r2 low","2/4/2025 10:00:23 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1230,1227,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1230,1227,"EST",10
 "4","COMPASS: TEMPEST","C","E3",15,"DOC","C_E3_DOC_20250131","20250131",25.9,2158.33333333333,"",0.7722,55.1571428571429,"TN r2 low","2/4/2025 10:29:44 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1222,1126,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1222,1126,"EST",10
 "5","COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250131","20250131",36.77,3064.16666666667,"",1.233,88.0714285714286,"TN r2 low","2/4/2025 10:58:13 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1215,1113,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1215,1113,"EST",10
 "6","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250131","20250131",16.82,1401.66666666667,"",0.5264,37.6,"TN r2 low","2/4/2025 11:26:31 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1212,1100,"EST",10
+  recently run standard curve to get values.",NA,20250128,20250131,1212,1100,"EST",10
 "7","COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250131","20250131",23.94,1995,"",0.8356,59.6857142857143,"TN r2 low","2/5/2025 1:09:38 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1322,1414,"EST",10
+  recently run standard curve to get values.","sub-sampled in lab at 1545",20250128,20250131,1322,1414,"EST",10
 "8","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250131","20250131",14.64,1220,"",0.611,43.6428571428571,"TN r2 low","2/5/2025 1:38:03 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1314,1405,"EST",10
+  recently run standard curve to get values.","sub-sampled in lab at 1549",20250128,20250131,1314,1405,"EST",10
 "9","COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250131","20250131",21.37,1780.83333333333,"",0.8061,57.5785714285714,"TN r2 low","2/5/2025 2:06:34 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1316,1408,"EST",13
+  recently run standard curve to get values.","sub-sampled in lab at 1619",20250128,20250131,1316,1408,"EST",13
 "10","COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250131","20250131",15.27,1272.5,"",0.5781,41.2928571428571,"TN r2 low","2/5/2025 2:34:41 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1426,1420,"EST",10
+  recently run standard curve to get values.","sub-sampled in lab at 1611",20250128,20250131,1426,1420,"EST",10
 "11","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250131","20250131",32.94,2745,"",1.094,78.1428571428572,"TN r2 low","2/5/2025 3:04:02 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1421,1427,"EST",20
+  recently run standard curve to get values.","light color; sub-sampled in lab at 1627",20250128,20250131,1421,1427,"EST",20
 "12","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250131","20250131",53.78,4481.66666666667,"",1.417,101.214285714286,"TN r2 low","2/5/2025 5:10:42 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1244,1252,"EST",10
+  recently run standard curve to get values.","colored; field collection",20250128,20250131,1244,1252,"EST",10
 "13","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250131","20250131",51.3,4275,"",1.41,100.714285714286,"TN r2 low","2/5/2025 5:40:20 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1349,1308,"EST",10
+  recently run standard curve to get values.","colored; field collection",20250128,20250131,1349,1308,"EST",10
 "14","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250131","20250131",11.99,999.166666666667,"",0.7017,50.1214285714286,"TN r2 low","2/5/2025 6:07:29 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1257,1355,"EST",10
+  recently run standard curve to get values.","clear; sub-sampled in the lab at 1512",20250128,20250131,1257,1355,"EST",10
 "15","COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250131","20250131",60.74,5061.66666666667,"",2.508,179.142857142857,"TN r2 low","2/5/2025 6:32:37 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1255,1351,"EST",10
+  recently run standard curve to get values.","colored; sub-sampled in lab at 1516",20250128,20250131,1255,1351,"EST",10
 "16","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250131","20250131",30.94,2578.33333333333,"",1.255,89.6428571428571,"TN r2 low","2/5/2025 7:00:52 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1253,1347,"EST",10
+  recently run standard curve to get values.","colored; sub-sampled in the lab at 1525",20250128,20250131,1253,1347,"EST",10
 "17","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250131","20250131",55.88,4656.66666666667,"",1.829,130.642857142857,"TN r2 low","2/5/2025 7:20:40 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250128,20250131,1300,1400,"EST",10
+  recently run standard curve to get values.","colored; sub-sampled in lab at 1532",20250128,20250131,1300,1400,"EST",10
 "18","COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250204","20250204",27.65,2304.16666666667,"",0.8189,58.4928571428571,"TN r2 low","2/5/2025 8:57:20 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1219,1055,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1219,1055,"EST",20
 "19","COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250204","20250204",29.65,2470.83333333333,"",0.6686,47.7571428571429,"TN r2 low","2/5/2025 9:26:06 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1137,1043,"EST",20
+  recently run standard curve to get values.","light color",20250131,20250204,1137,1043,"EST",20
 "20","COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20250204","20250204",20.61,1717.5,"",0.5474,39.1,"TN r2 low","2/5/2025 10:23:07 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1235,1107,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1235,1107,"EST",10
 "21","COMPASS: TEMPEST","C","D5",15,"DOC","C_D5_DOC_20250204","20250204",20.73,1727.5,"",0.5411,38.65,"TN r2 low","2/5/2025 10:51:20 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1227,1115,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1227,1115,"EST",20
 "22","COMPASS: TEMPEST","C","E3",15,"DOC","C_E3_DOC_20250204","20250204",28.82,2401.66666666667,"",0.7374,52.6714285714286,"TN r2 low","2/5/2025 11:20:45 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1126,1033,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1126,1033,"EST",10
 "23","COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250204","20250204",18.53,1544.16666666667,"",0.5041,36.0071428571429,"TN r2 low","2/5/2025 11:49:57 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1123,1026,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1123,1026,"EST",10
 "24","COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250204","20250204",61.09,5090.83333333333,"",1.366,97.5714285714286,"TN r2 low","2/5/2025 12:19:28 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1121,1019,"EST",10
+  recently run standard curve to get values.","light color",20250131,20250204,1121,1019,"EST",10
 "25","COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250204","20250204",28.35,2362.5,"",0.9795,69.9642857142857,"TN r2 low","2/5/2025 12:38:07 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1051,941,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1051,941,"EST",10
 "26","COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250204","20250204",34.06,2838.33333333333,"",0.9847,70.3357142857143,"TN r2 low","2/5/2025 12:57:03 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1113,1006,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1113,1006,"EST",10
 "27","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250204","20250204",23.44,1953.33333333333,"",0.6517,46.55,"TN r2 low","2/5/2025 1:25:30 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1100,953,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1100,953,"EST",10
 "28","COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250204","20250204",16.71,1392.5,"",1.074,76.7142857142857,"TN r2 low","2/5/2025 3:10:48 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1412,1407,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1412,1407,"EST",20
 "29","COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250204","20250204",22.56,1880,"",0.6396,45.6857142857143,"TN r2 low","2/5/2025 3:39:35 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1414,1417,"EST",10
+  recently run standard curve to get values.",NA,20250131,20250204,1414,1417,"EST",10
 "30","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250204","20250204",10.73,894.166666666667,"",0.498,35.5714285714286,"TN r2 low","2/5/2025 4:06:58 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1405,1358,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1405,1358,"EST",20
 "31","COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250204","20250204",21.4,1783.33333333333,"",0.6562,46.8714285714286,"TN r2 low","2/5/2025 4:35:15 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1408,1424,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1408,1424,"EST",20
 "32","COMPASS: TEMPEST","FW","E3",15,"DOC","FW_E3_DOC_20250204","20250204",19.4,1616.66666666667,"",0.633,45.2142857142857,"TN r2 low","2/5/2025 5:04:18 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1416,1433,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1416,1433,"EST",20
 "33","COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250204","20250204",19.47,1622.5,"",0.5781,41.2928571428571,"TN r2 low","2/5/2025 5:32:23 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1418,1444,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1418,1444,"EST",20
 "34","COMPASS: TEMPEST","FW","F6",15,"DOC","FW_F6_DOC_20250204","20250204",18.19,1515.83333333333,"",0.5225,37.3214285714286,"TN r2 low","2/5/2025 6:00:06 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1433,1522,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1433,1522,"EST",20
 "35","COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250204","20250204",15.4,1283.33333333333,"",0.5379,38.4214285714286,"TN r2 low","2/5/2025 6:47:08 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1420,1454,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1420,1454,"EST",20
 "36","COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250204","20250204",20.43,1702.5,"",0.7514,53.6714285714286,"TN r2 low","2/5/2025 7:16:53 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1431,1512,"EST",20
+  recently run standard curve to get values.",NA,20250131,20250204,1431,1512,"EST",20
 "37","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250204","20250204",27.28,2273.33333333333,"",0.8174,58.3857142857143,"TN r2 low","2/5/2025 7:39:01 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1427,1502,"EST",20
+  recently run standard curve to get values.","light color",20250131,20250204,1427,1502,"EST",20
 "38","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250204","20250204",69.98,5831.66666666667,"",1.797,128.357142857143,"TN r2 low","2/5/2025 9:02:48 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1308,1220,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1308,1220,"EST",20
 "39","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250204","20250204",73.44,6120,"",1.985,141.785714285714,"TN r2 low","2/5/2025 9:32:19 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1252,1210,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1252,1210,"EST",20
 "40","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250204","20250204",48.5,4041.66666666667,"",2.272,162.285714285714,"TN r2 low","2/5/2025 9:56:16 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1245,1230,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1245,1230,"EST",20
 "41","COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250204","20250204",52.21,4350.83333333333,"",1.645,117.5,"TN r2 low","2/5/2025 10:26:03 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1345,1239,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1345,1239,"EST",20
 "42","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250204","20250204",39,3250,"",1.441,102.928571428571,"TN r2 low","2/5/2025 10:48:50 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1355,1306,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1355,1306,"EST",20
 "43","COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250204","20250204",68.88,5740,"",2.54,181.428571428571,"TN r2 low","2/5/2025 11:18:04 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1351,1258,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1351,1258,"EST",20
 "44","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250204","20250204",61.7,5141.66666666667,"",2.016,144,"TN r2 low","2/5/2025 11:46:33 PM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1347,1248,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1347,1248,"EST",20
 "45","COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250204","20250204",66.28,5523.33333333333,"",2.179,155.642857142857,"TN r2 low","2/6/2025 12:15:11 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1357,1317,"EST",10
+  recently run standard curve to get values.","colored",20250131,20250204,1357,1317,"EST",10
 "46","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250204","20250204",45.74,3811.66666666667,"",1.406,100.428571428571,"TN r2 low","2/6/2025 12:38:33 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1400,1333,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1400,1333,"EST",20
 "47","COMPASS: TEMPEST","SW","I5",15,"DOC","SW_I5_DOC_20250204","20250204",61.38,5115,"",1.696,121.142857142857,"TN r2 low","2/6/2025 12:58:02 AM","Standard curve for TN is not good, reanalyzed with a
-  recently run standard curve to get values.",20250131,20250204,1359,1325,"EST",20
+  recently run standard curve to get values.","colored",20250131,20250204,1359,1325,"EST",20

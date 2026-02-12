@@ -93,24 +93,25 @@ all_data <- all_data %>%
     Plot = plot, 
     Grid = grid, 
     Site = site, 
-    Date = date
+    Collection_Date_YYYYMMDD = date
   )
 
+
 ##Add Time of Day column (AM < 1200, PM > 1200)
-all_data$Time <- as.numeric(all_data$Time)
+all_data$Collection_End_Time_24hrs <- as.numeric(all_data$Time)
 
 ##For 20220518, 20220520, and Sourcewater, need to change times to T0-T7 in Sample ID
 all_data <- all_data %>% 
-  group_by(Plot, Grid, Date) %>% 
-  arrange(Time, .by_group = TRUE) %>% # Sort by Time ascending
+  group_by(Plot, Grid, Collection_Date_YYYYMMDD) %>% 
+  arrange(Collection_End_Time_24hrs, .by_group = TRUE) %>% # Sort by Time ascending
   mutate(Event_Time = paste0("T", row_number())) %>% 
   ungroup()
 
 all_data <- all_data %>% 
-  mutate(Sample_ID = ifelse(Date == "20220518" | Date == "20220520" | Grid == "Source", paste(Site, Plot, Grid, Date, Event_Time, sep = "_"), paste(Site, Plot, Grid, Date, sep = "_")))
+  mutate(Sample_ID = ifelse(Collection_Date_YYYYMMDD == "20220518" | Collection_Date_YYYYMMDD == "20220520" | Grid == "Source", paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Event_Time, sep = "_"), paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, sep = "_")))
 
 all_data3 <- all_data %>% 
-  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time")
+  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time", "Plot", "Grid", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD")
 
 ```
 
@@ -127,7 +128,8 @@ sheet_names
 
 raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
 
-raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3, col_types = c(
+  "text", "text","numeric","text","text","text","text","date", "text","text"))
 
 
 ```
@@ -138,75 +140,92 @@ raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx",
 
 ###LYSIMETER SAMPLES###
 #select DOC samples 
-raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "DOC")
-
 #select 2022 samples
 raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, "DOC|of")) %>% 
   filter(str_detect(Sample_ID, Sample_Year))
+
+##Remove DOC from the sample IDs that have it
+raw_metadata_lys_year$Sample_ID <- gsub("_DOC_", "_", raw_metadata_lys_year$Sample_ID)
+raw_metadata_lys_year$Sample_ID <- gsub("_DOC _", "_", raw_metadata_lys_year$Sample_ID)
 
 #separate samples into columns
 raw_metadata_lys_year <- raw_metadata_lys_year %>%
   separate(
     col = Sample_ID,
     sep = "_",
-    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Time_of_day"),
+    into = c("Site", "Plot", "Source" ,"Grid", "Depth", "Collection_Date", "Event_Time"),
     remove = FALSE)
 
-##Get rid of #1 and #2 for samples taken in December
-raw_metadata_lys_year$Time_of_day <- gsub("1", NA, raw_metadata_lys_year$Time_of_day)
-raw_metadata_lys_year$Time_of_day <- gsub("2", NA, raw_metadata_lys_year$Time_of_day)
+
+##Change "1of3" to T1
+raw_metadata_lys_year$Event_Time <- gsub("1of1", "T1", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Event_Time <- gsub("1of2", "T1", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Event_Time <- gsub("1of3", "T1", raw_metadata_lys_year$Event_Time)
+
+raw_metadata_lys_year$Event_Time <- gsub("2of2", "T2", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Event_Time <- gsub("2of3", "T2", raw_metadata_lys_year$Event_Time)
+
+raw_metadata_lys_year$Event_Time <- gsub("3of3", "T3", raw_metadata_lys_year$Event_Time)
+
 
 #create IDs from what was collected for comparison later
 raw_metadata_lys_ids <- raw_metadata_lys_year %>%
-  mutate(DOC_ID = paste(Project,
-                          Zone,
+  mutate(DOC_ID = paste(Site,
+                          Plot,
                           Grid,
                           Collection_Date_YYYYMMDD, 
-                          Time_of_day, 
+                          Event_Time, 
                           sep = "_"))
 
 raw_metadata_lys_ids$DOC_ID <- gsub("_NA", "", raw_metadata_lys_ids$DOC_ID)
 
 
 ###SOURCEWATER SAMPLES###
-#select SO4/Cl samples 
-raw_metadata_sw <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, "DOC"))
-
+#select DOC samples
 #select 2022 samples
 raw_metadata_sw_year <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, Sample_Year))
+  filter(str_detect(Vial_ID, "HR")) 
+
+##Set Collection date because it's not in the metadata
+raw_metadata_sw_year$Collection_Date_YYYYMMDD <- 20220622
+
+##Fix collection Time
+raw_metadata_sw_year$time <- substr(raw_metadata_sw_year$Collection_Time_24hrs, 12, 16)
+raw_metadata_sw_year$Collection_End_Time_24hrs <- gsub(":", "", raw_metadata_sw_year$time)
+
+##Change HR# to T#
+raw_metadata_sw_year$DOC_ID <- gsub("HR", "T", raw_metadata_sw_year$Vial_ID)
+
+##Add in the date
+raw_metadata_sw_year$DOC_ID <- gsub("SOURCE_T", "SOURCE_20220622_T", raw_metadata_sw_year$DOC_ID)
 
 #separate samples into columns
-raw_metadata_sw_sw <- raw_metadata_sw_year %>%
-  separate(
-    col = Sample_ID,
-    sep = "_",
-    into = c("Project", "Source", "Zone", "Event_Time", "Analyte", "Collection_Date", "Time_of_day"),
-    remove = FALSE)
-
+raw_metadata_sw_year <- raw_metadata_sw_year %>%
+  rename(EST_EDT = "EST/EDT")
 
 #create IDs from what was collected for comparison later
-raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
-  mutate(DOC_ID = paste(Project,
-                          Zone,
-                          Source, 
-                          Collection_Date, 
-                          Event_Time, 
-                          sep = "_")) %>%
+raw_metadata_sw_combined <- raw_metadata_sw_year %>%
   rename("Notes" = "Notes:")
 
-
-
 #combine porewater and sourcewater samples
+raw_metadata_lys_ids$Collection_End_Time_24hrs <- as.character(raw_metadata_lys_ids$Collection_End_Time_24hrs)
 doc_metadata <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
 
 #remove old ID's
 doc_metadata$Sample_ID <- NULL
 
+#Rename columns that have missing data
+doc_metadata <- doc_metadata %>%
+  rename(Grid_meta = Grid, 
+         Plot_meta = Plot, 
+         Collection_End_Time_24hrs_meta = Collection_End_Time_24hrs, 
+         Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD)
+
+
 colnames(doc_metadata)
 
-# head(dionex_metadata)
+# head(doc_metadata)
 
 ```
 
@@ -235,8 +254,9 @@ if (all_present) {
 merged_data <- all_data3 %>%
   left_join(doc_metadata, by = c("Sample_ID" = "DOC_ID"))
 
-merged_data$Plot <- str_replace_all(merged_data$Plot, "Contol", "Control")
-
+##Add Depth for PW samples 
+merged_data <- merged_data %>% 
+  mutate(Depth = ifelse(Grid != "Source", "15cm", NA))
 merged_data$Sample_ID <- paste(merged_data$Sample_ID, merged_data$Depth, sep = "_")
 merged_data$Sample_ID <- gsub("_NA", "", merged_data$Sample_ID)
 
@@ -268,10 +288,17 @@ merged_data <- merged_data %>%
 data_plotting <- merged_data %>%
   subset(!is.na(Plot))
 
-#Order by Zone from Upland to Surface Water
-unique(data_plotting$Plot)
-data_plotting$Plot = factor(data_plotting$Plot, levels = c("Control", "Freshwater", "Saltwater"))
-data_plotting <- data_plotting[order(data_plotting$Plot), ]
+#Order by Plot from C, FW, SW
+data_plotting <- data_plotting %>% 
+    mutate(
+    Plot_1 = case_when(
+      Plot == "C" ~ "Control",
+      Plot == "FW" ~ "Freshwater",
+      Plot == "SW" ~ "Saltwater",
+      TRUE ~ Plot  # keep everything else unchanged
+    )
+  ) %>%
+  mutate(Plot_1 = factor(Plot_1, levels = c("Control", "Freshwater", "Saltwater")))
 
 data_plotting$doc_mg_l <- as.numeric(data_plotting$doc_mg_l)
 data_plotting$tdn_mg_l <- as.numeric(data_plotting$tdn_mg_l)
@@ -282,9 +309,9 @@ data_plotting <- data_plotting %>%
   ungroup()
 
 #Plot data and change colors based on Zone:
-viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot)) +
+viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
-  facet_wrap(~ Plot, scales="free") +
+  facet_wrap(~ Plot_1, scales="free") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -296,9 +323,9 @@ viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot
   scale_x_discrete(drop = TRUE)
 
 
-viz_tdn_plot <-  ggplot(data_plotting, aes(x = row_num, y = tdn_mg_l, fill = Plot)) +
+viz_tdn_plot <-  ggplot(data_plotting, aes(x = row_num, y = tdn_mg_l, fill = Plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
-  facet_wrap(~ Plot, scales="free") +
+  facet_wrap(~ Plot_1, scales="free") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -325,7 +352,8 @@ final_data <- merged_data %>%
     Field_notes = Notes, 
     Project = "COMPASS", 
     Site = "TEMPEST", 
-    Analysis_runtime = "NA"
+    Analysis_runtime = "NA", 
+    Analyte = "DOC"
   ) %>%
   rename(
     npoc_mgL = doc_mg_l, 
@@ -336,14 +364,16 @@ final_data <- merged_data %>%
     grid = Grid
   ) %>%
  select(
-    Project, plot, grid, Depth_cm, Analyte, Vial_ID, 
+    Project, Site, plot, grid, Depth_cm, Analyte, Sample_ID, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
     Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
 
-write.csv(final_data, "COMPASS_TEMPEST_DOC_2022.csv")
+colnames(final_data)
+
+write.csv(final_data, "COMPASS_TEMPEST_DOC_2022.csv", row.names = FALSE)
 
 ```
 

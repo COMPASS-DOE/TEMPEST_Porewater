@@ -90,16 +90,16 @@ all_data <- all_data %>%
     Plot = plot, 
     Grid = grid, 
     Site = site, 
-    Date = date
+    Collection_Date_YYYYMMDD = date
   )
 
 ##Add Time of Day column (AM < 1200, PM > 1200)
-all_data$Time <- as.numeric(all_data$Time)
+all_data$Collection_End_Time_24hrs <- as.numeric(all_data$Time)
 
 ##For 20230607, need to change times to AM or PM in Sample ID
-all_data$Time_of_day = ifelse(all_data$Time<1200, "AM", "PM")
+all_data$Time_of_day = ifelse(all_data$Collection_End_Time_24hrs<1200, "AM", "PM")
 all_data <- all_data %>% 
-  mutate(Sample_ID = ifelse(Date == "20230607", paste(Site, Plot, Grid, Date, Time_of_day, sep = "_"), sample_name))
+  mutate(Sample_ID = ifelse(Collection_Date_YYYYMMDD == "20230607" & Grid != "Source", paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Time_of_day, sep = "_"), sample_name))
 
 
 ##For Sourcewater samples, need to code source samples as T1-3 based on earliest to latest times
@@ -107,14 +107,14 @@ all_data_nsw <- subset(all_data, Grid != "Source")
 all_data_sw <- subset(all_data, Grid == "Source")
 
 all_data_sw <- all_data_sw %>% 
-  group_by(Plot, Date) %>% 
-  arrange(Time, .by_group = TRUE) %>% # Sort by Time ascending
+  group_by(Plot, Collection_Date_YYYYMMDD) %>% 
+  arrange(Collection_End_Time_24hrs, .by_group = TRUE) %>% # Sort by Time ascending
   mutate(Event_Time = paste0("T", row_number())) %>% 
   ungroup()
   
 all_data_sw <- all_data_sw %>% 
   mutate(
-    Sample_ID = paste(Site, Plot, Grid, Date, Event_Time, sep = "_")
+    Sample_ID = paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Event_Time, sep = "_")
   )
 
 all_data2 <- bind_rows(all_data_sw, all_data_nsw)
@@ -122,7 +122,7 @@ all_data2 <- bind_rows(all_data_sw, all_data_nsw)
 colnames(all_data2)
 
 all_data3 <- all_data2 %>% 
-  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time")
+  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time", "Plot", "Grid", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD")
 
 ```
 
@@ -149,11 +149,11 @@ raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx",
 ```{r pull in metadata for later, include=FALSE}
 
 ###LYSIMETER SAMPLES###
-#select DOC samples 
-raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "DOC")
 
+#select DOC samples 
 #select 2023 samples
 raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, "DOC")) %>% 
   filter(str_detect(Sample_ID, Sample_Year))
 
 #separate samples into columns
@@ -181,12 +181,11 @@ raw_metadata_lys_ids$DOC_ID <- gsub("_NA", "", raw_metadata_lys_ids$DOC_ID)
 
 
 ###SOURCEWATER SAMPLES###
-#select SO4/Cl samples 
-raw_metadata_sw <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, "DOC"))
 
+#select DOC samples 
 #select 2023 samples
 raw_metadata_sw_year <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, "DOC"))  %>%  
   filter(str_detect(Sample_ID, Sample_Year))
 
 #separate samples into columns
@@ -212,6 +211,13 @@ raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
 
 #combine porewater and sourcewater samples
 doc_metadata <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
+
+#Rename columns that have missing data
+doc_metadata <- doc_metadata %>%
+  rename(Grid_meta = Grid, 
+         Plot_meta = Plot, 
+         Collection_End_Time_24hrs_meta = Collection_End_Time_24hrs, 
+         Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD)
 
 #remove old ID's
 doc_metadata$Sample_ID <- NULL
@@ -280,10 +286,17 @@ merged_data <- merged_data %>%
 data_plotting <- merged_data %>%
   subset(!is.na(Plot))
 
-#Order by Zone from Upland to Surface Water
-unique(data_plotting$Plot)
-data_plotting$Plot = factor(data_plotting$Plot, levels = c("Control", "Freshwater", "Saltwater"))
-data_plotting <- data_plotting[order(data_plotting$Plot), ]
+#Order by Plot from C, FW, SW
+data_plotting <- data_plotting %>% 
+    mutate(
+    Plot_1 = case_when(
+      Plot == "C" ~ "Control",
+      Plot == "FW" ~ "Freshwater",
+      Plot == "SW" ~ "Saltwater",
+      TRUE ~ Plot  # keep everything else unchanged
+    )
+  ) %>%
+  mutate(Plot_1 = factor(Plot_1, levels = c("Control", "Freshwater", "Saltwater")))
 
 data_plotting$doc_mg_l <- as.numeric(data_plotting$doc_mg_l)
 data_plotting$tdn_mg_l <- as.numeric(data_plotting$tdn_mg_l)
@@ -294,9 +307,9 @@ data_plotting <- data_plotting %>%
   ungroup()
 
 #Plot data and change colors based on Zone:
-viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot)) +
+viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
-  facet_wrap(~ Plot, scales="free") +
+  facet_wrap(~ Plot_1, scales="free") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -308,9 +321,9 @@ viz_doc_plot <- ggplot(data_plotting, aes(x = row_num, y = doc_mg_l, fill = Plot
   scale_x_discrete(drop = TRUE)
 
 
-viz_tdn_plot <-  ggplot(data_plotting, aes(x = row_num, y = tdn_mg_l, fill = Plot)) +
+viz_tdn_plot <-  ggplot(data_plotting, aes(x = row_num, y = tdn_mg_l, fill = Plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
-  facet_wrap(~ Plot, scales="free") +
+  facet_wrap(~ Plot_1, scales="free") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -337,7 +350,8 @@ final_data <- merged_data %>%
     Field_notes = Notes, 
     Project = "COMPASS", 
     Site = "TEMPEST", 
-    Analysis_runtime = "NA"
+    Analysis_runtime = "NA", 
+    Analyte = "DOC"
   ) %>%
   rename(
     npoc_mgL = doc_mg_l, 
@@ -348,14 +362,14 @@ final_data <- merged_data %>%
     grid = Grid
   ) %>%
  select(
-    Project, plot, grid, Depth_cm, Analyte, Vial_ID, 
+    Project, Site, plot, grid, Depth_cm, Analyte, Sample_ID, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
     Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
 
-write.csv(final_data, "COMPASS_TEMPEST_DOC_2023.csv")
+write.csv(final_data, "COMPASS_TEMPEST_DOC_2023.csv", row.names = FALSE)
 
 ```
 

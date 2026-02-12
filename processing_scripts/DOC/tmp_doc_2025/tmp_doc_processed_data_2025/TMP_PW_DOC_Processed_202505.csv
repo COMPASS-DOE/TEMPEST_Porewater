@@ -1,23 +1,23 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
 "1","COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250509","20250509",25.46,2121.66666666667,"NPOC checks out of range",0.9769,69.7785714285714,"TN checks out of range","5/23/2025 2:18:11 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,731,1325,"EDT",20
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1401",20250506,20250509,731,1325,"EDT",20
 "2","COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250509","20250509",29.91,2492.5,"NPOC checks out of range",0.9752,69.6571428571428,"TN checks out of range","5/23/2025 2:36:46 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,736,1331,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1411",20250506,20250509,736,1331,"EDT",10
 "3","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250509","20250509",21.48,1790,"NPOC checks out of range",0.5675,40.5357142857143,"TN checks out of range","5/23/2025 3:06:35 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,740,1327,"EDT",20
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1351",20250506,20250509,740,1327,"EDT",20
 "4","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250509","20250509",10.3,858.333333333333,"NPOC checks out of range",0.3652,26.0857142857143,"TN checks out of range","5/23/2025 3:36:49 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,824,1024,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1120",20250506,20250509,824,1024,"EDT",10
 "5","COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250509","20250509",18.45,1537.5,"NPOC checks out of range",0.6574,46.9571428571429,"TN checks out of range","5/23/2025 3:58:38 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,833,1022,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1055",20250506,20250509,833,1022,"EDT",10
 "6","COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250509","20250509",13.93,1160.83333333333,"NPOC checks out of range",0.7482,53.4428571428571,"TN checks out of range","5/23/2025 4:26:17 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,840,1033,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1118",20250506,20250509,840,1033,"EDT",10
 "7","COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250512","20250512",18.34,1528.33333333333,"NPOC checks out of range",0.7041,50.2928571428571,"TN checks out of range","5/23/2025 4:56:32 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250509,20250512,1016,1103,"EDT",10
+  through run as a 60mg/L C, so checks are okay.",NA,20250509,20250512,1016,1103,"EDT",10
 "8","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250509","20250509",19.3,1608.33333333333,"NPOC checks out of range",0.7764,55.4571428571429,"TN checks out of range","5/23/2025 5:29:16 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,842,1035,"EDT",20
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1106",20250506,20250509,842,1035,"EDT",20
 "9","COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250509","20250509",42.4,3533.33333333333,"NPOC checks out of range",1.312,93.7142857142857,"TN checks out of range","5/23/2025 6:27:17 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,758,1156,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1209",20250506,20250509,758,1156,"EDT",10
 "10","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250509","20250509",68.25,5687.5,"NPOC checks out of range",2.303,164.5,"TN checks out of range","5/23/2025 6:50:03 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,801,1159,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1205",20250506,20250509,801,1159,"EDT",10
 "11","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250509","20250509",49.77,4147.5,"NPOC checks out of range",1.84,131.428571428571,"TN checks out of range","5/23/2025 7:08:44 AM","This run, the high check standard was remade halfway 
-  through run as a 60mg/L C, so checks are okay.",20250506,20250509,809,1141,"EDT",10
+  through run as a 60mg/L C, so checks are okay.","sub-sampled at 1229",20250506,20250509,809,1141,"EDT",10
