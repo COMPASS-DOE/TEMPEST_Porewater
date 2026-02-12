@@ -1,28 +1,82 @@
-"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
-"1","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250602","20250602",47.02,3918.33333333333,"NPOC checks out of range",1.185,84.6428571428572,"","6/3/2025 11:56:03 PM","Has not been run just yet - test for july in june .",20250530,20250602,1312,1531,"EDT",35
-"2","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250602","20250602",65.21,5434.16666666667,"NPOC checks out of range",1.804,128.857142857143,"","6/4/2025 12:18:54 AM","Has not been run just yet - test for july in june .",20250530,20250602,1308,1518,"EDT",35
-"3","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250602","20250602",54.19,4515.83333333333,"NPOC checks out of range",1.871,133.642857142857,"","6/4/2025 12:38:06 AM","Has not been run just yet - test for july in june .",20250530,20250602,1246,1234,"EDT",20
-"4","COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250602","20250602",33.01,2750.83333333333,"NPOC checks out of range",1.045,74.6428571428571,"","6/4/2025 1:06:44 AM","Has not been run just yet - test for july in june .",20250530,20250602,1248,1248,"EDT",20
-"5","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250602","20250602",33.58,2798.33333333333,"NPOC checks out of range",1.076,76.8571428571429,"","6/4/2025 1:30:44 AM","Has not been run just yet - test for july in june .",20250530,20250602,1302,1504,"EDT",35
-"6","COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250602","20250602",41.28,3440,"NPOC checks out of range",1.453,103.785714285714,"","6/4/2025 1:59:04 AM","Has not been run just yet - test for july in june .",20250530,20250602,1259,1338,"EDT",35
-"7","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250602","20250602",46.15,3845.83333333333,"NPOC checks out of range",1.714,122.428571428571,"","6/4/2025 2:27:15 AM","Has not been run just yet - test for july in june .",20250530,20250602,1252,1259,"EDT",35
-"8","COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250602","20250602",27.82,2318.33333333333,"NPOC checks out of range",0.8934,63.8142857142857,"","6/4/2025 2:57:54 AM","Has not been run just yet - test for july in june .",20250530,20250602,1257,1323,"EDT",35
-"9","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250602","20250602",34.14,2845,"NPOC checks out of range",1.046,74.7142857142857,"","6/4/2025 3:19:30 AM","Has not been run just yet - test for july in june .",20250530,20250602,1253,1311,"EDT",35
-"10","COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250602","20250602",10.42,868.333333333333,"NPOC checks out of range",0.3236,23.1142857142857,"","6/4/2025 5:10:17 AM","Has not been run just yet - test for july in june .",20250530,20250602,1101,1159,"EDT",20
-"11","COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250602","20250602",10.72,893.333333333333,"NPOC checks out of range",0.274,19.5714285714286,"","6/4/2025 5:37:45 AM","Has not been run just yet - test for july in june .",20250530,20250602,1100,1147,"EDT",20
-"12","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250602","20250602",9.584,798.666666666667,"NPOC checks out of range",0.2677,19.1214285714286,"","6/4/2025 6:05:29 AM","Has not been run just yet - test for july in june .",20250530,20250602,1107,1221,"EDT",20
-"13","COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250602","20250602",14.33,1194.16666666667,"NPOC checks out of range",0.3921,28.0071428571429,"","6/4/2025 6:33:14 AM","Has not been run just yet - test for july in june .",20250530,20250602,1105,1210,"EDT",20
-"14","COMPASS: TEMPEST","FW","E3",15,"DOC","FW_E3_DOC_20250602","20250602",9.522,793.5,"NPOC checks out of range",0.2566,18.3285714285714,"","6/4/2025 7:00:26 AM","Has not been run just yet - test for july in june .",20250530,20250602,1058,1138,"EDT",12
-"15","COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250602","20250602",15.63,1302.5,"NPOC checks out of range",0.4121,29.4357142857143,"","6/4/2025 7:27:57 AM","Has not been run just yet - test for july in june .",20250530,20250602,1052,1102,"EDT",12
-"16","COMPASS: TEMPEST","FW","F6",15,"DOC","FW_F6_DOC_20250602","20250602",12.67,1055.83333333333,"NPOC checks out of range",0.3162,22.5857142857143,"","6/4/2025 7:45:02 AM","Has not been run just yet - test for july in june .",20250530,20250602,1056,1125,"EDT",20
-"17","COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250602","20250602",11.21,934.166666666667,"NPOC checks out of range",0.4481,32.0071428571429,"","6/4/2025 8:12:42 AM","Has not been run just yet - test for july in june .",20250530,20250602,1050,1051,"EDT",20
-"18","COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250602","20250602",12.28,1023.33333333333,"NPOC checks out of range",0.4213,30.0928571428571,"","6/4/2025 8:37:43 AM","Has not been run just yet - test for july in june .",20250530,20250602,1055,1113,"EDT",20
-"19","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250602","20250602",12.27,1022.5,"NPOC checks out of range",0.395,28.2142857142857,"","6/4/2025 9:05:23 AM","Has not been run just yet - test for july in june .",20250530,20250602,1049,1033,"EDT",20
-"20","COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250602","20250602",15.96,1330,"NPOC checks out of range",0.4102,29.3,"","6/4/2025 10:52:59 AM","Has not been run just yet - test for july in june .",20250530,20250602,1322,1558,"EDT",30
-"21","COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250602","20250602",19.63,1635.83333333333,"NPOC checks out of range",0.4815,34.3928571428571,"","6/4/2025 11:21:29 AM","Has not been run just yet - test for july in june .",20250530,20250602,1324,1609,"EDT",10
-"22","COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20250602","20250602",15.06,1255,"NPOC checks out of range",0.4146,29.6142857142857,"","6/4/2025 11:48:53 AM","Has not been run just yet - test for july in june .",20250530,20250602,1318,1546,"EDT",10
-"23","COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250602","20250602",14.63,1219.16666666667,"NPOC checks out of range",0.3898,27.8428571428571,"","6/4/2025 12:16:52 PM","Has not been run just yet - test for july in june .",20250530,20250602,1339,1634,"EDT",20
-"24","COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250602","20250602",22.46,1871.66666666667,"NPOC checks out of range",0.4656,33.2571428571429,"","6/4/2025 12:45:10 PM","Has not been run just yet - test for july in june .",20250530,20250602,1331,1624,"EDT",10
-"25","COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250602","20250602",21.5,1791.66666666667,"NPOC checks out of range",0.5364,38.3142857142857,"","6/4/2025 1:06:17 PM","Has not been run just yet - test for july in june .",20250530,20250602,1342,1643,"EDT",20
-"26","COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250602","20250602",20.72,1726.66666666667,"NPOC checks out of range",3.034,216.714285714286,"value above cal curve","6/4/2025 1:24:28 PM","Has not been run just yet - test for july in june .",20250530,20250602,1349,1707,"EDT",35
-"27","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250602","20250602",15.11,1259.16666666667,"NPOC checks out of range",0.3941,28.15,"","6/4/2025 1:52:56 PM","Has not been run just yet - test for july in june .",20250530,20250602,1344,1656,"EDT",35
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"1","COMPASS: TEMPEST","SW","B4",15,"DOC","SW_B4_DOC_20250602","20250602",47.02,3918.33333333333,"NPOC checks out of range",1.185,84.6428571428572,"","6/3/2025 11:56:03 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1312,1531,"EDT",35
+"2","COMPASS: TEMPEST","SW","C3",15,"DOC","SW_C3_DOC_20250602","20250602",65.21,5434.16666666667,"NPOC checks out of range",1.804,128.857142857143,"","6/4/2025 12:18:54 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1308,1518,"EDT",35
+"3","COMPASS: TEMPEST","SW","C6",15,"DOC","SW_C6_DOC_20250602","20250602",54.19,4515.83333333333,"NPOC checks out of range",1.871,133.642857142857,"","6/4/2025 12:38:06 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1246,1234,"EDT",20
+"4","COMPASS: TEMPEST","SW","D5",15,"DOC","SW_D5_DOC_20250602","20250602",33.01,2750.83333333333,"NPOC checks out of range",1.045,74.6428571428571,"","6/4/2025 1:06:44 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1248,1248,"EDT",20
+"5","COMPASS: TEMPEST","SW","E3",15,"DOC","SW_E3_DOC_20250602","20250602",33.58,2798.33333333333,"NPOC checks out of range",1.076,76.8571428571429,"","6/4/2025 1:30:44 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1302,1504,"EDT",35
+"6","COMPASS: TEMPEST","SW","F4",15,"DOC","SW_F4_DOC_20250602","20250602",41.28,3440,"NPOC checks out of range",1.453,103.785714285714,"","6/4/2025 1:59:04 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1259,1338,"EDT",35
+"7","COMPASS: TEMPEST","SW","F6",15,"DOC","SW_F6_DOC_20250602","20250602",46.15,3845.83333333333,"NPOC checks out of range",1.714,122.428571428571,"","6/4/2025 2:27:15 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1252,1259,"EDT",35
+"8","COMPASS: TEMPEST","SW","H3",15,"DOC","SW_H3_DOC_20250602","20250602",27.82,2318.33333333333,"NPOC checks out of range",0.8934,63.8142857142857,"","6/4/2025 2:57:54 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1257,1323,"EDT",35
+"9","COMPASS: TEMPEST","SW","H6",15,"DOC","SW_H6_DOC_20250602","20250602",34.14,2845,"NPOC checks out of range",1.046,74.7142857142857,"","6/4/2025 3:19:30 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1253,1311,"EDT",35
+"10","COMPASS: TEMPEST","FW","B4",15,"DOC","FW_B4_DOC_20250602","20250602",10.42,868.333333333333,"NPOC checks out of range",0.3236,23.1142857142857,"","6/4/2025 5:10:17 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1101,1159,"EDT",20
+"11","COMPASS: TEMPEST","FW","C3",15,"DOC","FW_C3_DOC_20250602","20250602",10.72,893.333333333333,"NPOC checks out of range",0.274,19.5714285714286,"","6/4/2025 5:37:45 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1100,1147,"EDT",20
+"12","COMPASS: TEMPEST","FW","C6",15,"DOC","FW_C6_DOC_20250602","20250602",9.584,798.666666666667,"NPOC checks out of range",0.2677,19.1214285714286,"","6/4/2025 6:05:29 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1107,1221,"EDT",20
+"13","COMPASS: TEMPEST","FW","D5",15,"DOC","FW_D5_DOC_20250602","20250602",14.33,1194.16666666667,"NPOC checks out of range",0.3921,28.0071428571429,"","6/4/2025 6:33:14 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1105,1210,"EDT",20
+"14","COMPASS: TEMPEST","FW","E3",15,"DOC","FW_E3_DOC_20250602","20250602",9.522,793.5,"NPOC checks out of range",0.2566,18.3285714285714,"","6/4/2025 7:00:26 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1058,1138,"EDT",12
+"15","COMPASS: TEMPEST","FW","F4",15,"DOC","FW_F4_DOC_20250602","20250602",15.63,1302.5,"NPOC checks out of range",0.4121,29.4357142857143,"","6/4/2025 7:27:57 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1052,1102,"EDT",12
+"16","COMPASS: TEMPEST","FW","F6",15,"DOC","FW_F6_DOC_20250602","20250602",12.67,1055.83333333333,"NPOC checks out of range",0.3162,22.5857142857143,"","6/4/2025 7:45:02 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1056,1125,"EDT",20
+"17","COMPASS: TEMPEST","FW","H3",15,"DOC","FW_H3_DOC_20250602","20250602",11.21,934.166666666667,"NPOC checks out of range",0.4481,32.0071428571429,"","6/4/2025 8:12:42 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1050,1051,"EDT",20
+"18","COMPASS: TEMPEST","FW","H6",15,"DOC","FW_H6_DOC_20250602","20250602",12.28,1023.33333333333,"NPOC checks out of range",0.4213,30.0928571428571,"","6/4/2025 8:37:43 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1055,1113,"EDT",20
+"19","COMPASS: TEMPEST","FW","I5",15,"DOC","FW_I5_DOC_20250602","20250602",12.27,1022.5,"NPOC checks out of range",0.395,28.2142857142857,"","6/4/2025 9:05:23 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1049,1033,"EDT",20
+"20","COMPASS: TEMPEST","C","B4",15,"DOC","C_B4_DOC_20250602","20250602",15.96,1330,"NPOC checks out of range",0.4102,29.3,"","6/4/2025 10:52:59 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1322,1558,"EDT",30
+"21","COMPASS: TEMPEST","C","C3",15,"DOC","C_C3_DOC_20250602","20250602",19.63,1635.83333333333,"NPOC checks out of range",0.4815,34.3928571428571,"","6/4/2025 11:21:29 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1324,1609,"EDT",10
+"22","COMPASS: TEMPEST","C","C6",15,"DOC","C_C6_DOC_20250602","20250602",15.06,1255,"NPOC checks out of range",0.4146,29.6142857142857,"","6/4/2025 11:48:53 AM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1318,1546,"EDT",10
+"23","COMPASS: TEMPEST","C","F4",15,"DOC","C_F4_DOC_20250602","20250602",14.63,1219.16666666667,"NPOC checks out of range",0.3898,27.8428571428571,"","6/4/2025 12:16:52 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1339,1634,"EDT",20
+"24","COMPASS: TEMPEST","C","F6",15,"DOC","C_F6_DOC_20250602","20250602",22.46,1871.66666666667,"NPOC checks out of range",0.4656,33.2571428571429,"","6/4/2025 12:45:10 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1331,1624,"EDT",10
+"25","COMPASS: TEMPEST","C","H3",15,"DOC","C_H3_DOC_20250602","20250602",21.5,1791.66666666667,"NPOC checks out of range",0.5364,38.3142857142857,"","6/4/2025 1:06:17 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1342,1643,"EDT",20
+"26","COMPASS: TEMPEST","C","H6",15,"DOC","C_H6_DOC_20250602","20250602",20.72,1726.66666666667,"NPOC checks out of range",3.034,216.714285714286,"value above cal curve","6/4/2025 1:24:28 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1349,1707,"EDT",35
+"27","COMPASS: TEMPEST","C","I5",15,"DOC","C_I5_DOC_20250602","20250602",15.11,1259.16666666667,"NPOC checks out of range",0.3941,28.15,"","6/4/2025 1:52:56 PM","One CTRL (H6) sample has high TN, 
+  no issue with peaks or samples before/after and the NPOC in that sample is fine.
+  One check at the end of the run came out odd - was prepped by TL, not SJW - can ignore.",NA,20250530,20250602,1344,1656,"EDT",35

@@ -27,13 +27,30 @@ all_data <- files %>%
 
 all_data <- all_data[, -which(names(all_data) == "X")]
 
+##Make Sample IDs match 2022/2023 data
+all_data$Sample_ID <- paste0("TMP_", all_data$Vial_ID)
+all_data$Sample_ID <- gsub("_DOC_", "_", all_data$Sample_ID)
+
+all_data$Sample_ID <- gsub("TMP_TMP_CTRL_Rain_20241212", "TMP_C_Rain_20241212", all_data$Sample_ID)
+all_data$Sample_ID <- gsub("TMP_TMP_FW_Rain_20241212", "TMP_FW_Rain_20241212", all_data$Sample_ID)
+all_data$Sample_ID <- gsub("TMP_TMP_SW_Rain_20241212", "TMP_SW_Rain_20241212", all_data$Sample_ID)
+
+all_data$Sample_ID <- gsub("SOURCEWATER", "SOURCE", all_data$Sample_ID)
+
+all_data <- all_data %>% 
+  mutate(grid = ifelse(str_detect(Sample_ID, "SOURCE"), "Source", grid))
+
 colnames(all_data)
 
 final_data <- all_data %>%
-    rename(
-      Zone = plot, 
-      Grid = grid
-    )
+    mutate(
+      Project = "COMPASS", 
+      Site = "TEMPEST", 
+      ) %>%
+  rename (
+    Analyte = sample_type
+  ) %>%
+    select (-c(Type, date, Vial_ID)) 
 
 
 ```
