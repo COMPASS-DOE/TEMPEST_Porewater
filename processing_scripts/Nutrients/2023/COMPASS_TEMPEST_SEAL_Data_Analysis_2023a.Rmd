@@ -196,6 +196,9 @@ dat3 <- file3[ ,c(1,4,6,7, 12, 13)]
 # assigning new names to the columns of the data frame
 colnames(dat3) <- c('Run_Info','Sample_Name','Conc', "Abs", "Units", "Test")
 head(dat3)
+# fix same ID
+dat3$Sample_Name <- gsub("TEMPEST_FW_SOURCE_20230607_0621", "TEMPEST_SW_SOURCE_20230607_0621", dat3$Sample_Name)
+
 
 #read in data 
 file4 <- read.csv("Raw Data/SEAL_COMPASS_NH3_PO4_April2023_TEMPEST_May2023_3.csv")
@@ -219,6 +222,11 @@ head(dat5)
 
 
 alldat <- rbind(dat1, dat2, dat3, dat4, dat5)
+
+
+##Fix sample naming
+
+
 
 #Pull out standards 
 stds <- alldat[alldat$Sample_Name %like% "Standard", ]
@@ -311,6 +319,15 @@ Nalldat2 <- Nalldat[Nalldat$Sample_Name %like% "TEM", ]
 #Nalldat2 <- rbind(Nalldat2, (Nalldat[Nalldat$Sample_Name %like% "GCrew_", ]))
 head(Nalldat2)
 
+##Fix sample IDs
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_CON_C6", "TEMPEST_20230515_CON_C6", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_CON_H6", "TEMPEST_20230515_CON_H6", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_C3", "TEMPEST_20230515_FW_C3", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_C6", "TEMPEST_20230515_FW_C6", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_D5", "TEMPEST_20230515_FW_D5", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_E3", "TEMPEST_20230515_FW_E3", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_F6", "TEMPEST_20230515_FW_F6", Nalldat2$Sample_Name)
+Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_B4", "TEMPEST_20230515_FW_B4", Nalldat2$Sample_Name)
 
 ```
 
@@ -391,6 +408,10 @@ all_data$NH3_range <- ifelse(all_data$NH3_mgL<0.02, "bdl",  ifelse(all_data$NH3_
 all_data$PO4_range <- ifelse(all_data$PO4_mgL<0.003, "bdl",  ifelse(all_data$PO4_mgL>3, "adl", "Within_Range")) 
 all_data$NOx_range <- ifelse(all_data$NOx_mgL<0.025, "bdl",  ifelse(all_data$NOx_mgL>1, "adl", "Within_Range"))
 head(all_data)
+
+##Fix sample IDs
+all_data$Sample_Name <- gsub("TEMPEST_FW_D5_202300606", "TEMPEST_FW_D5_20230606", all_data$Sample_Name)
+
 ```
 
 ## Take an initial look at concentrations 
@@ -428,19 +449,36 @@ head(all_data)
 out <- all_data[ ,c(1,3,5,7,8,9,10)]
 head(out)
 
+##0515 and 0608 data entered differently
+# TEMPEST_20230515_FW_I5 - should be TEMPEST_FW_C3_20230607_0800
+out_weird <- out %>%
+  filter(str_detect(Sample_Name, "20230515|20230608|20230518"))
+#pull the sample ID and separate it by the underscores 
+IDs <- data.frame(do.call('rbind', strsplit(as.character(out_weird$Sample_Name),'_',fixed=TRUE)))
+colnames(IDs) <- c("Project" , "Date","Plot", "Grid")
+#rejoin them to the dataframe
+alldat_weird <- cbind(IDs, out_weird)
+alldat_weird$Time <- NA
+
+out_normal <- out %>%
+  filter(!str_detect(Sample_Name, "20230515"))%>%
+  filter(!str_detect(Sample_Name, "20230608"))%>%
+  filter(!str_detect(Sample_Name, "20230518"))
 #for steph <- pull out identifiers of the sample names 
 #pull the sample ID and separate it by the underscores 
-IDs <- data.frame(do.call('rbind', strsplit(as.character(out$Sample_Name),'_',fixed=TRUE)))
-colnames(IDs) <- c("Project" , "Date","Plot", "Grid", "Time")
+IDs <- data.frame(do.call('rbind', strsplit(as.character(out_normal$Sample_Name),'_',fixed=TRUE)))
+colnames(IDs) <- c("Project" , "Plot", "Grid", "Date", "Time")
 #IDs$Month <- ifelse(IDs$Date == 202210,"October","November")
 #IDs$Month <- "September"
 head(IDs)
 
 #rejoin them to the dataframe
-alldat <- cbind(IDs, out)
-head(alldat)
+alldat <- cbind(IDs, out_normal)
+alldat$Time <- gsub("TEMPEST", NA, alldat$Time)
+alldat$Time <- gsub("TEMEPST", NA, alldat$Time)
 
 
+alldat_final <- rbind(alldat, alldat_weird)
 
 ```
 
@@ -448,7 +486,7 @@ head(alldat)
 ```{r}
 
 #Export Data
-# write.csv(alldat, file="Processed Data/COMPASS_TEMPEST_SEAL_NUTR_2023a.csv")
+# write.csv(alldat_final, file="Processed Data/COMPASS_TEMPEST_SEAL_NUTR_2023a.csv")
 
 ```
 

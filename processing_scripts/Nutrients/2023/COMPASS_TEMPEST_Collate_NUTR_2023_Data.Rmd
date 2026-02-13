@@ -53,6 +53,7 @@ colnames(all_data)
 
 ##Add Time of Day column (AM < 1200, PM > 1200)
 all_data$Time <- as.numeric(all_data$Time)
+
 ##Change "Source" to "Sourcewater" 
 all_data$Grid <- replace(all_data$Grid, all_data$Grid == "SOURCE", "SOURCEWATER")
 
@@ -91,11 +92,6 @@ all_data3 <- all_data2 %>%
 ```
 ## Remove aquifer data and correct sample IDs
 ```{r}
-
-##Extra Zero in Sample ID
-Old_ID_1 <- "TMP_FW_D5_202300606"
-New_ID_1 <- "TMP_FW_D5_20230606"
-all_data3$Sample_ID[all_data3$Sample_ID == Old_ID_1] <- New_ID_1
 
 ##Remove Aquifer Data
 all_data3 <- all_data3 %>%  
