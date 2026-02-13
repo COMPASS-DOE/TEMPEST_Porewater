@@ -1,5 +1,5 @@
 ---
-title: "TEMPEST: Porewater DOC"
+title: "TEMPEST: Porewater/Sourcewater DOC"
 author: "2022-2025 Samples"
 date: "`r Sys.Date()`"
 output: 
@@ -187,7 +187,7 @@ write.csv(metadat, "COMPASS_TEMPEST_DOC_Metadata.csv")
 
 ```
 
-## Visualize Data by Grid   
+## Visualize Porewater Data by Grid   
 ```{r Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Remove Sourcewater
@@ -251,7 +251,7 @@ ggarrange(viz_npoc_plot, viz_tdn_plot, nrow=2, ncol=1)
 
 ```
 
-## Summarized data for Site and Grid 
+## Summarized Porewater data for Site and Grid 
 ```{r Summarize and Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Summarize DOC by Date and Grid
@@ -439,7 +439,7 @@ viz_tdn_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = td
     "Estuary" = "gold"
   ), labels = c("Control", "Freshwater", "Saltwater", "Estuary")) +
   theme_classic() +
-  labs(x = " ", y = "TDN (mg/L)", title = "TEMPEST Porewater: TDN") +
+  labs(x = " ", y = "TDN (mg/L)", title = "TEMPEST Sourcewater: TDN") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
