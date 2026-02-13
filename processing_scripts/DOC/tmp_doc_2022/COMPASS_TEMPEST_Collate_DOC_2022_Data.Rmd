@@ -7,7 +7,8 @@ output: html_document
 
 ```{r}
 Sample_Year = "2022"
-Run_notes = ""
+Run_notes = "Samples missing from metadata: 
+TMP_ESTUARY_SOURCE_20220622_T1, TMP_ESTUARY_SOURCE_20220622_T2, TMP_FW_C3_20220520_T1, TMP_FW_E3_20220518_T1, TMP_FW_SOURCE_20220622_T6, TMP_SW_SOURCE_20220622_T6, TMP_SW_H3_20220615, TMP_C_F6_20220615, TMP_C_I5_20220718, TMP_FW_B4_20220718, TMP_SW_E3_20220808, TMP_FW_F4_20220915, TMP_C_C6_20221019"
 ```
 
 ```{r setup, include=FALSE}
@@ -32,6 +33,7 @@ common_tz = "Etc/GMT+5"
 
 Sys.setenv(TZ = "America/New_York")
 ```
+
 
 #Read in and collate all the files in the Processed Data folder 
 ```{r}
@@ -100,20 +102,48 @@ all_data <- all_data %>%
 ##Add Time of Day column (AM < 1200, PM > 1200)
 all_data$Collection_End_Time_24hrs <- as.numeric(all_data$Time)
 
+
+##For event samples, use T# designation 
+all_data_event <- all_data %>%  
+  filter(str_detect(sample_name, "_T")) 
+
+all_data_event$"Timepoint" = substr(all_data_event$sample_name, nchar(all_data_event$sample_name) - 1, nchar(all_data_event$sample_name))
+
+
 ##For 20220518, 20220520, and Sourcewater, need to change times to T0-T7 in Sample ID
-all_data <- all_data %>% 
+all_data_nonevent_special <- all_data %>%  
+  filter(Collection_Date_YYYYMMDD == "20220518" | Collection_Date_YYYYMMDD == "20220520" | Grid == "Source") 
+
+all_data_nonevent_special <- all_data_nonevent_special %>% 
   group_by(Plot, Grid, Collection_Date_YYYYMMDD) %>% 
   arrange(Collection_End_Time_24hrs, .by_group = TRUE) %>% # Sort by Time ascending
-  mutate(Event_Time = paste0("T", row_number())) %>% 
+  mutate(Timepoint = paste0("T", row_number())) %>% 
   ungroup()
 
-all_data <- all_data %>% 
-  mutate(Sample_ID = ifelse(Collection_Date_YYYYMMDD == "20220518" | Collection_Date_YYYYMMDD == "20220520" | Grid == "Source", paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Event_Time, sep = "_"), paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, sep = "_")))
 
-all_data3 <- all_data %>% 
+##separate dataframe for the rest of the samples
+all_data_other <- all_data %>%  
+  filter(!str_detect(sample_name, "_T")) %>%  
+  filter(Collection_Date_YYYYMMDD != "20220518" & Collection_Date_YYYYMMDD != "20220520" &  Grid != "Source") 
+
+all_data_other$"Timepoint" = NA
+
+
+##Combine dataframes
+all_data2 <- rbind(all_data_event, all_data_nonevent_special, all_data_other)
+
+##Make new sample IDs
+all_data2 <- all_data2 %>% 
+  mutate(Sample_ID = paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Timepoint, sep = "_"))
+
+all_data2$Sample_ID <- gsub("_NA", "", all_data2$Sample_ID)
+
+##Select desired columns
+all_data3 <- all_data2 %>% 
   select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time", "Plot", "Grid", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD")
 
 ```
+
 
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
@@ -136,7 +166,7 @@ raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx",
 
 
 ##Create similar sample IDs to match with run samples 
-```{r pull in metadata for later, include=FALSE}
+```{r pull in non-event metadata for later, include=FALSE}
 
 ###LYSIMETER SAMPLES###
 #select DOC samples 
@@ -154,19 +184,19 @@ raw_metadata_lys_year <- raw_metadata_lys_year %>%
   separate(
     col = Sample_ID,
     sep = "_",
-    into = c("Site", "Plot", "Source" ,"Grid", "Depth", "Collection_Date", "Event_Time"),
+    into = c("Site", "Plot", "Source" ,"Grid", "Depth", "Collection_Date", "Timepoint"),
     remove = FALSE)
 
 
 ##Change "1of3" to T1
-raw_metadata_lys_year$Event_Time <- gsub("1of1", "T1", raw_metadata_lys_year$Event_Time)
-raw_metadata_lys_year$Event_Time <- gsub("1of2", "T1", raw_metadata_lys_year$Event_Time)
-raw_metadata_lys_year$Event_Time <- gsub("1of3", "T1", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Timepoint <- gsub("1of1", "T1", raw_metadata_lys_year$Timepoint)
+raw_metadata_lys_year$Timepoint <- gsub("1of2", "T1", raw_metadata_lys_year$Timepoint)
+raw_metadata_lys_year$Timepoint <- gsub("1of3", "T1", raw_metadata_lys_year$Timepoint)
 
-raw_metadata_lys_year$Event_Time <- gsub("2of2", "T2", raw_metadata_lys_year$Event_Time)
-raw_metadata_lys_year$Event_Time <- gsub("2of3", "T2", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Timepoint <- gsub("2of2", "T2", raw_metadata_lys_year$Timepoint)
+raw_metadata_lys_year$Timepoint <- gsub("2of3", "T2", raw_metadata_lys_year$Timepoint)
 
-raw_metadata_lys_year$Event_Time <- gsub("3of3", "T3", raw_metadata_lys_year$Event_Time)
+raw_metadata_lys_year$Timepoint <- gsub("3of3", "T3", raw_metadata_lys_year$Timepoint)
 
 
 #create IDs from what was collected for comparison later
@@ -175,7 +205,7 @@ raw_metadata_lys_ids <- raw_metadata_lys_year %>%
                           Plot,
                           Grid,
                           Collection_Date_YYYYMMDD, 
-                          Event_Time, 
+                          Timepoint, 
                           sep = "_"))
 
 raw_metadata_lys_ids$DOC_ID <- gsub("_NA", "", raw_metadata_lys_ids$DOC_ID)
@@ -210,22 +240,118 @@ raw_metadata_sw_combined <- raw_metadata_sw_year %>%
 
 #combine porewater and sourcewater samples
 raw_metadata_lys_ids$Collection_End_Time_24hrs <- as.character(raw_metadata_lys_ids$Collection_End_Time_24hrs)
-doc_metadata <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
+doc_metadata_nonevent <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
 
 #remove old ID's
-doc_metadata$Sample_ID <- NULL
+doc_metadata_nonevent$Sample_ID <- NULL
 
 #Rename columns that have missing data
-doc_metadata <- doc_metadata %>%
+doc_metadata_nonevent <- doc_metadata_nonevent %>%
   rename(Grid_meta = Grid, 
          Plot_meta = Plot, 
          Collection_End_Time_24hrs_meta = Collection_End_Time_24hrs, 
          Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD)
 
 
-colnames(doc_metadata)
+colnames(doc_metadata_nonevent)
 
 # head(doc_metadata)
+
+```
+
+##Pull in 2022 Event Metadata
+```{r pull in event metadata for later, }
+
+##Event metadata was entered separately from other 2022 metadata. 
+#Used tempest_pw_june_event_pooled.R code to pull those together from google drive into a metadata file, which is then pulled in here. 
+
+raw_metadata_event <- read.csv("TMP_Event_June2022_gridlevel_volumes.csv")
+
+raw_metadata_event_doc <- subset(raw_metadata_event, !is.na(DOC))
+
+raw_metadata_event_doc$Collection_Date_YYYYMMDD <- gsub("-", "", raw_metadata_event_doc$Date)
+
+
+raw_metadata_event_ids <- raw_metadata_event_doc %>%
+  mutate(DOC_ID = paste("TMP",
+                          Plot,
+                          Grid,
+                          Collection_Date_YYYYMMDD, 
+                          Timepoint, 
+                          sep = "_")) %>%
+  rename(
+    Collection_Start_Time_24hrs = Start_time, 
+    Collection_End_Time_24hrs_meta = End_time, 
+    Volume_mL = DOC, 
+    Grid_meta = Grid,
+    Plot_meta = Plot, 
+    Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD
+  ) %>%
+  select(Plot_meta, Grid_meta, Timepoint, Notes, Collection_Date_YYYYMMDD_meta, Collection_Start_Time_24hrs, Collection_End_Time_24hrs_meta, DOC_ID, Volume_mL)
+
+
+```
+
+## Pull in pre-treatment metadata
+```{r rest of metadata, include=FALSE}
+
+# Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory1 <- "https://docs.google.com/spreadsheets/d/1rOAM_nK3SRaa9iNx1fvrmWzkIvYs-Prw/edit?gid=399569871#gid=399569871"
+
+drive_download(inventory_directory1, overwrite = TRUE)
+
+sheet_names1 <- excel_sheets("Jun2022_PW_FieldData.xlsx")
+sheet_names1
+
+raw_metadata_pt <- read_excel("Jun2022_PW_FieldData.xlsx", sheet = "Jun 22", skip = 5)
+
+colnames(raw_metadata_pt) <- c("Plot_meta", "Grid_meta", "Depth_cm", "Volume_mL_20220613", "Volume_mL_20220615", "Bulk_mL_20220613",  "Bulk_mL_20220615", "Notes", "NA", "NA1")
+
+##Convert to long format
+raw_metadata_pt_long <- raw_metadata_pt %>%
+  select("Plot_meta", "Grid_meta", "Depth_cm", "Volume_mL_20220613", "Volume_mL_20220615") %>%
+  mutate(
+    Volume_mL_20220613 = as.character(Volume_mL_20220613), 
+    Volume_mL_20220615 = as.character(Volume_mL_20220615) 
+  ) %>%
+  pivot_longer(
+    cols = starts_with("Volume_mL_"),
+    names_to = "Collection_Date_YYYYMMDD_meta",
+    names_prefix = "Volume_mL_",
+    values_to = "Volume_mL"
+  ) %>% 
+  mutate(
+    Plot_meta = case_when(
+      Plot_meta == "CONTROL" ~ "C",
+      Plot_meta == "FRESHWATER" ~ "FW",
+      Plot_meta == "SEAWATER" ~ "SW",
+      TRUE ~ Plot_meta  # keep everything else unchanged
+    )
+  ) %>%
+  mutate(
+    Volume_mL = as.numeric(Volume_mL)) 
+
+#create IDs from what was collected for comparison later
+raw_metadata_pt_ids <- raw_metadata_pt_long %>%
+  mutate(DOC_ID = paste("TMP",
+                          Plot_meta,
+                          Grid_meta,
+                          Collection_Date_YYYYMMDD_meta,
+                          sep = "_"))
+
+##select only ones with volumes
+raw_metadata_pt_ids <- subset(raw_metadata_pt_ids, Volume_mL > 0)
+
+```
+
+
+## Combine event and non-event metadata
+```{r}
+
+doc_metadata_nonevent$Collection_Start_Time_24hrs <- as.character(doc_metadata_nonevent$Collection_Start_Time_24hrs)
+doc_metadata_nonevent$Collection_Date_YYYYMMDD_meta <- as.character(doc_metadata_nonevent$Collection_Date_YYYYMMDD_meta)
+
+doc_metadata <- bind_rows(doc_metadata_nonevent, raw_metadata_event_ids, raw_metadata_pt_ids)
 
 ```
 
