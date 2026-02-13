@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  13 FEB 2026 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  13 FEB 2026 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -444,9 +444,6 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 
 LaTeX Warning: Label `tab:Porewater summary table metrics' multiply defined.
 
-
-LaTeX Warning: Label `tab:Sourcewater summary table metrics' multiply defined.
-
 )
 \openout1 = `COMPASS_TEMPEST_DOC_Collate_AllData.aux'.
 
@@ -614,18 +611,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12774 strings out of 469514
- 202523 string characters out of 5468199
- 644929 words of memory out of 5000000
+ 12773 strings out of 469514
+ 202516 string characters out of 5468199
+ 635929 words of memory out of 5000000
  41187 multiletter control sequences out of 15000+600000
  670880 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,10n,93p,625b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on COMPASS_TEMPEST_DOC_Collate_AllData.pdf (6 pages, 209745 bytes).
+Output written on COMPASS_TEMPEST_DOC_Collate_AllData.pdf (6 pages, 208937 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 18 named destinations out of 1000 (max. 500000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 500000)
  84 words of extra memory for PDF output out of 10000 (max. 10000000)
 

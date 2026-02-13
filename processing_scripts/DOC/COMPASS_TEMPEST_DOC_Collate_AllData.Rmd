@@ -412,7 +412,7 @@ viz_npoc_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = n
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
     "Saltwater" = "violetred2", 
-    "Estuary" = "gold"
+    "Estuary" = "darkred"
   ), labels = c("Control", "Freshwater", "Saltwater", "Estuary")) +
   theme_classic() +
   labs(x = " ", y = "NPOC (mg/L)", title = "TEMPEST Sourcewater: NPOC") +
@@ -436,7 +436,7 @@ viz_tdn_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = td
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
     "Saltwater" = "violetred2", 
-    "Estuary" = "gold"
+    "Estuary" = "darkred"
   ), labels = c("Control", "Freshwater", "Saltwater", "Estuary")) +
   theme_classic() +
   labs(x = " ", y = "TDN (mg/L)", title = "TEMPEST Sourcewater: TDN") +
@@ -525,21 +525,6 @@ summary_by_year_source <- data_plotting_source %>%
      sd_tdn_mgL = sd(tdn_mgL, na.rm=TRUE)) %>%
   mutate(across(where(is.numeric), round, digits = 4)) 
 
-##Metrics for each Grid for all years
-summary_all_years_source <- data_plotting_source %>%
-  group_by(plot_1) %>%
-   reframe(
-     min_npoc_mgL = min(npoc_mgL, na.rm=TRUE),
-     max_npoc_mgL = max(npoc_mgL, na.rm=TRUE), 
-     mean_npoc_mgL = mean(npoc_mgL, na.rm=TRUE), 
-     sd_npoc_mgL = sd(npoc_mgL, na.rm=TRUE), 
-
-     min_tdn_mgL = min(tdn_mgL, na.rm=TRUE),
-     max_tdn_mgL = max(tdn_mgL, na.rm=TRUE), 
-     mean_tdn_mgL = mean(tdn_mgL, na.rm=TRUE), 
-     sd_tdn_mgL = sd(tdn_mgL, na.rm=TRUE)) %>%
-  mutate(across(where(is.numeric), round, digits = 4)) 
-
 ```
 
 ## Summary Tables for Porewater
@@ -594,36 +579,19 @@ kable(
   row_spec(0, bold = TRUE) %>%   # header
   column_spec(1, bold = TRUE)
 
-kable(
-  summary_by_year_source[, c("plot_1", "min_npoc_mgL",	"max_npoc_mgL",	"mean_npoc_mgL", "min_tdn_mgL",	"max_tdn_mgL",	"mean_tdn_mgL")],  
-  format = "latex",
-  booktabs = TRUE,
-  caption = "Sourcewater Summary Statistics by Grid"
-) %>%
-  kable_styling(
-    latex_options = c("hold_position", "striped", "scale_down"),
-    font_size = 12
-  ) %>%
-  row_spec(0, bold = TRUE) %>%   # header
-  column_spec(1, bold = TRUE)
-
 ```
 
 ##Write out summarized data
 ```{r write out summarized data, include=FALSE}
 
-#write out a csv of all the data to the main folder: 
+#write out a csv of the Porewater Summary Statistics by Year to the main folder: 
 write.csv(summary_by_year, "COMPASS_TEMPEST_PW_DOC_Summarized_By_Year.csv")
 
-#write out a csv of the metadata associated with the data: 
+#write out a csv of the Porewater Summary Statistics by Grid to the main folder: 
 write.csv(summary_all_years, "COMPASS_TEMPEST_PW_DOC_Summarized_Years_Combined.csv")
 
-
-#write out a csv of all the data to the main folder: 
+#write out a csv of the Sourcewater Summary Statistics by Year to the main folder: 
 write.csv(summary_by_year_source, "COMPASS_TEMPEST_SOURCE_DOC_Summarized_By_Year.csv")
-
-#write out a csv of the metadata associated with the data: 
-write.csv(summary_all_years_source, "COMPASS_TEMPEST_SOURCE_DOC_Summarized_Years_Combined.csv")
 
 ```
 
