@@ -342,6 +342,11 @@ all_data$NH3_range <- ifelse(all_data$NH3_mgL<0.02, "bdl",  ifelse(all_data$NH3_
 all_data$PO4_range <- ifelse(all_data$PO4_mgL<0.003, "bdl",  ifelse(all_data$PO4_mgL>3, "adl", "Within_Range")) 
 all_data$NOx_range <- ifelse(all_data$NOx_mgL<0.025, "bdl",  ifelse(all_data$NOx_mgL>1, "adl", "Within_Range"))
 head(all_data)
+
+##Fix sample IDs
+all_data$Sample_Name <- gsub("TEMPEST_C_I5_20230828", "TEMPEST_C_I5_20230628", all_data$Sample_Name)
+
+
 ```
 
 ## Take an initial look at concentrations 
