@@ -8,13 +8,11 @@ output: html_document
 ```{r}
 Sample_Year = "2023"
 Run_notes = "Some sample IDs are missing from metadata:
-TMP_FW_SOURCEWATER_20230607_T4, TMP_C_I5_20230828, TMP_C_C6_20230513, TMP_C_H6_20230513,             
-TMP_FW_B4_20230513, TMP_FW_C3_20230513, TMP_FW_C6_20230513, TMP_FW_D5_20230513,          
-TMP_FW_E3_20230513, TMP_FW_F6_20230513, TMP_SW_H6_20230606"
+TMP_SW_H6_20230606"
 ```
 
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 
 #Packages that are required 
 lapply(c(
@@ -94,8 +92,11 @@ all_data3 <- all_data2 %>%
 ```{r}
 
 ##Remove Aquifer Data
-all_data3 <- all_data3 %>%  
-  filter(!str_detect(Sample_ID, c("AQUIFER"))) 
+all_data4 <- all_data3 %>%  
+  filter(!str_detect(Sample_ID, "Aquifer"), ignore_case = TRUE) 
+
+##Control samples should be "C", not "CON"
+all_data4$Sample_ID <- gsub("CON", "C", all_data4$Sample_ID)
 
 
 ```
@@ -199,10 +200,10 @@ colnames(Nutr_metadata)
 ```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
 
 #check to see if all samples are present in the metadata 
-all_data3$Sample_ID <- toupper(all_data3$Sample_ID)
+all_data4$Sample_ID <- toupper(all_data4$Sample_ID)
 Nutr_metadata$Nutr_ID <- toupper(Nutr_metadata$Nutr_ID)
 
-all_present <- all(all_data3$Sample_ID %in% Nutr_metadata$Nutr_ID)
+all_present <- all(all_data4$Sample_ID %in% Nutr_metadata$Nutr_ID)
 
 if (all_present) {
   message("All sample IDs are present in metadata.")
@@ -210,13 +211,13 @@ if (all_present) {
   message("Some sample IDs are missing from metadata.")
   
   # Optional: Which ones are missing?
-  missing_ids <- setdiff(all_data3$Sample_ID, Nutr_metadata$Nutr_ID)
+  missing_ids <- setdiff(all_data4$Sample_ID, Nutr_metadata$Nutr_ID)
   print(missing_ids)
 }
 
 
 #merge metadata with sample run data 
-merged_data <- all_data3 %>%
+merged_data <- all_data4 %>%
   left_join(Nutr_metadata, by = c("Sample_ID" = "Nutr_ID"))
 
 merged_data$Plot <- str_replace_all(merged_data$Plot, "Contol", "Control")
