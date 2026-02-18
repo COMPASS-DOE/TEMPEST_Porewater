@@ -345,7 +345,7 @@ raw_metadata_pt_ids <- subset(raw_metadata_pt_ids, Volume_mL > 0)
 ```
 
 
-## Combine event and non-event metadata
+## Combine event, non-event, and pre-treatment metadata
 ```{r}
 
 doc_metadata_nonevent$Collection_Start_Time_24hrs <- as.character(doc_metadata_nonevent$Collection_Start_Time_24hrs)

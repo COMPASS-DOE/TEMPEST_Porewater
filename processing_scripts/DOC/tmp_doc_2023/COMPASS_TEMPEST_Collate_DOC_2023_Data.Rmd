@@ -224,7 +224,7 @@ doc_metadata$Sample_ID <- NULL
 
 colnames(doc_metadata)
 
-# head(dionex_metadata)
+# head(doc_metadata)
 
 ```
 
@@ -284,7 +284,7 @@ merged_data <- merged_data %>%
 
 #Plot samples to get a first look at concentrations (sanity check)
 data_plotting <- merged_data %>%
-  subset(!is.na(Plot))
+  filter(Grid != "Source")
 
 #Order by Plot from C, FW, SW
 data_plotting <- data_plotting %>% 
