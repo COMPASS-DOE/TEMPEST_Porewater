@@ -144,6 +144,22 @@ all_data3 <- all_data2 %>%
 
 ```
 
+## Fix Sample IDs
+```{r}
+##Remove TMP_FW_C3_20220520_T1 - no data, not in metadata
+all_data3 <- subset(all_data3, Sample_ID != "TMP_FW_C3_20220520_T1")
+
+##Fix TMP_FW_E3_20220518_T1 
+all_data3$Sample_ID <- gsub("TMP_FW_E3_20220518_T1", "TMP_FW_E3_20220520_T1", all_data3$Sample_ID)
+all_data3$Collection_Date_YYYYMMDD <- ifelse(all_data3$Sample_ID == "TMP_FW_E3_20220520_T1", "20220520", all_data3$Collection_Date_YYYYMMDD)
+
+##Fix TMP_FW_E3_20220518_T1 
+all_data3$Sample_ID <- gsub("TMP_FW_E3_20220518_T1", "TMP_FW_E3_20220520_T1", all_data3$Sample_ID)
+all_data3$Collection_Date_YYYYMMDD <- ifelse(all_data3$Sample_ID == "TMP_FW_E3_20220520_T1", "20220520", all_data3$Collection_Date_YYYYMMDD)
+
+
+```
+
 
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
