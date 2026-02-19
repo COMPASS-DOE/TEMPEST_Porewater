@@ -1771,8 +1771,7 @@ final_data4 <- reduce(data_list, full_join, by = c("Sample_Name"))
 #Add project information 
 final_data_labeled <- final_data4 %>% 
   mutate(
-    Project = "COMPASS: Synoptic",   # new column with same value on every row
-    Region = "CB",
+    Site = "TEMPEST",   # new column with same value on every row
     Run_notes = run_notes, 
     Analysis_rundate = print(run_date)# new column with notes about the run
   ) 
@@ -1783,7 +1782,6 @@ final_data <- final_data_labeled %>%
     Depth_cm = gsub("cm", "", Depth)
   ) %>%
     rename(
-    Site = Site,
     Sample_ID = Sample_Name, 
   
     # NOx_Conc_mgL = `Vanadium NOx_Conc`,
