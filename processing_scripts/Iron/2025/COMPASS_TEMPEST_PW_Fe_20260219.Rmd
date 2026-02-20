@@ -1,5 +1,5 @@
 ---
-title: "FeCode_updated2025_inprogress_multiplates"
+title: "FeCode_updated2025_20260219"
 output: pdf_document
 date: "`r Sys.Date()`"
 ---
@@ -24,6 +24,7 @@ library(readxl)
 
 #take out of sci notation
 options(scipen = 999)
+
 ```
 
 # Things that need to be changed
@@ -32,15 +33,14 @@ options(scipen = 999)
 Date_Run = "20260219"
 plates<- c("Plate1", "Plate2", "Plate3")
 Std_plates<- c("STD")
-file_name<-"Experiment 1-4 Rerun"
 Run_by = "Zoe Read"#Instrument user
 Script_run_by ="Zoe Read"#Code user
 Project = "TEMPEST"
 Experiment="2025"
-Run_notes="Used std curve from 20260218 because there were issues with the std curve this day. Can try using the std curve from 20260219 and removing lower points triplicate and a few other points that were off. "#any notes from run
+Run_notes="Standard curve was better on 20260218"#any notes from run
 
 #Stds that should be excluded
-stds_to_remove<-c("")
+stds_to_remove<-c("6 uM Fe_2 F", "3 uM Fe_3 G")
 ```
 ## File paths 
 ```{r file paths, echo=FALSE}
@@ -52,11 +52,11 @@ file_paths_tidydata <- list.files(path = folder_path_tidydata, full.names = TRUE
 head(file_paths_tidydata)
 
 #file path name for processed data
-summarizeddata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_",file_name,"_Summary_Data.csv")
-fulldata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_",file_name,"_Data.csv")
-shortdata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_",file_name,"_short_Data.csv")
-out_of_Range=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_",file_name,"_out_of_range_Data.csv")
-high_CV=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_",file_name,"_high_CV_Data.csv")
+summarizeddata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_Summary_Data.csv")
+fulldata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_Data.csv")
+shortdata_path=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_short_Data.csv")
+out_of_Range=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_out_of_range_Data.csv")
+high_CV=paste0("QAQC'd Data/",Project,"_FE_",Date_Run,"_high_CV_Data.csv")
 #QAQC log path
 log_path="Fe_STD_QAQC.csv"
 
@@ -99,7 +99,7 @@ Top_STD_Fe2_Abs2_high=100
 
 #read in the csv files
 stds<-read_plates(
-  files = "Tidy Data/20260218_TEMPEST_Fe_STD.csv",#list of all file paths
+  files = "Tidy Data/20260219_TEMPEST_Fe_STD.csv",#list of all file paths
   plate_names = Std_plates ,  #list of plate names          
   well_ids_column = "Wells",    # name to give column of well IDs (optional)
   sep = ","                     # separator used in the csv file (optional)
@@ -853,6 +853,7 @@ ChkStdbar
 
 #No Matrix Checks
 We do not use matrix checks for the Fe samples because our matrix checks are not made with Trace metal grade reagents. If we want to do this in the future, we need to use trace metal grade sodium chloride and sodium bicarbonate for making the matrix checks
+
 
 ```{r flag out of range data, echo=FALSE,include=FALSE}
 
