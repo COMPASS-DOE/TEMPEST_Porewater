@@ -181,7 +181,7 @@ write.csv(metadat, "COMPASS_TEMPEST_SO4_Cl_Metadata.csv")
 
 ```
 
-## Visualize Data by Zone   
+## Visualize Porewater Data by Plot   
 ```{r Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Remove Sourcewater
