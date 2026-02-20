@@ -172,9 +172,6 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon %>%
 
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
-raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
-
 
 #create IDs from what was collected for comparison later
 raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
@@ -222,8 +219,7 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
 #combine rw and sw samples 
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
-  rename("Notes" = "Notes:") %>%
-  select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  rename("Notes" = "Notes:") 
 
 #change "Source" to "Sourcewater" 
 raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
@@ -1204,7 +1200,7 @@ final_data <- final_data %>%
   ) %>%
   select(
     Project, Sample_ID, Zone, Grid, Depth_cm, Event_Time, Time_of_day, 
-         Source, Volume_mL, Collection_Date, Evacuation_Date, 
+         Source, Volume_mL, Collection_Date, Evacuation_Date, Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
          SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them

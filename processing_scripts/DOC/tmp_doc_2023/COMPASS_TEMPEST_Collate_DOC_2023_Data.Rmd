@@ -141,9 +141,6 @@ all_data3 <- all_data2 %>%
 all_data3$Sample_ID <- gsub("TMP_C_I5_20231005", "TMP_C_I5_20231002", all_data3$Sample_ID)
 all_data3$Collection_Date_YYYYMMDD <- ifelse(all_data3$Sample_ID == "TMP_C_I5_20231002", "20221002", all_data3$Collection_Date_YYYYMMDD)
 
-##Fix TMP_SW_C6_20231211   
-all_data3$Sample_ID <- gsub("TMP_SW_C6_20231211", "TMP_SW_H3_20231211", all_data3$Sample_ID)
-all_data3$Grid <- ifelse(all_data3$Sample_ID == "TMP_SW_H3_20231211", "H3", all_data3$Grid)
 
 ```
 

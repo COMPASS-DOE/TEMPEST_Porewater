@@ -7,16 +7,9 @@ output: html_document
 
 ```{r}
 Sample_Year = "2023"
-Run_notes = "Some sample IDs are missing from metadata: 
-TMP_SW_H6_20230612
-TMP_FW_F6_20230606
-TMP_SW_E5_20230606
-TMP_SW_F6_202311
-TMP_SW_B4_202311
-TMP_SW_H6_202311
-TMP_AQUIFER_SAMPLE_A
-TMP_AQUIFER_SAMPLE_B
-TMP_AQUIFER_SAMPLE_C"
+
+##Porewater samples that do not have metadata after checking
+no_meta_flags <- c("TMP_SW_H6_20230612", "TMP_FW_F6_20230606")
 ```
 
 ```{r setup, include=FALSE}
@@ -95,9 +88,30 @@ all_data2 <- bind_rows(all_data_sw, all_data_nsw)
 colnames(all_data2)
 
 all_data3 <- all_data2 %>% 
-  select("Sample_ID", "SO4_ppm", "SO4_Area", "Cl_ppm", "Cl_Area", "SO4_mM", "Cl_mM", "salinity", "Time")
+  select("Sample_ID", "SO4_ppm", "SO4_Area", "Cl_ppm", "Cl_Area", "SO4_mM", "Cl_mM", "salinity", "Time", "Project", "Plot", "Grid", "Date", "Time_of_day", "Event_Time")
+
+all_data3$"Depth_cm" <- ifelse(all_data3$Grid == "SOURCEWATER", NA, "15")
 
 ```
+
+## Fix Sample IDs
+```{r}
+
+##Add day to 202311 samples
+all_data3$Sample_ID <- gsub("202311", "20231116", all_data3$Sample_ID)
+all_data3$Date <- gsub("202311", "20231116", all_data3$Date)
+
+##Fix TMP_SW_E5_20230606
+all_data3$Sample_ID <- gsub("TMP_SW_E5_20230606", "TMP_SW_E3_20230606", all_data3$Sample_ID)
+all_data3$Grid <- ifelse(all_data3$Grid == "TMP_SW_E3_20230606", "E3", all_data3$Grid)
+
+##Remove aquifer samples
+all_data3 <- all_data3 %>%
+  filter(Plot != "Aquifer")
+
+```
+
+
 
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
@@ -178,7 +192,8 @@ raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
                           Collection_Date, 
                           Event_Time, 
                           sep = "_")) %>%
-  rename("Notes" = "Notes:")
+  rename("Notes" = "Notes:", 
+         Collection_End_Time_24hrs = Collection_Time_24hrs)
 
 
 
@@ -189,6 +204,22 @@ dionex_metadata <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
 dionex_metadata$Sample_ID <- NULL
 
 colnames(dionex_metadata)
+
+
+dionex_metadata <- dionex_metadata %>%
+  rename(
+    Plot_meta = Plot, 
+    Project_meta = Project, 
+    Zone_meta = Zone, 
+    Source_meta = Source, 
+    Grid_meta = Grid, 
+    Depth_meta = Depth, 
+    Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD, 
+    Event_Time_meta = Event_Time, 
+    Time_of_day_meta = Time_of_day
+  )
+
+
 
 # head(dionex_metadata)
 
@@ -235,7 +266,7 @@ data_plotting <- merged_data %>%
 
 #Order by Zone from Upland to Surface Water
 unique(data_plotting$Plot)
-data_plotting$Plot = factor(data_plotting$Plot, levels = c("Control", "Freshwater", "Saltwater"))
+data_plotting$Plot = factor(data_plotting$Plot, levels = c("C", "FW", "SW"))
 data_plotting <- data_plotting[order(data_plotting$Plot), ]
 
 data_plotting$SO4_ppm <- as.numeric(data_plotting$SO4_ppm)
@@ -251,9 +282,9 @@ viz_cl_plot <- ggplot(data_plotting, aes(x = row_num, y = Cl_ppm, fill = Plot)) 
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Plot, scales="free") +
   scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -265,9 +296,9 @@ viz_so4_plot <-  ggplot(data_plotting, aes(x = row_num, y = SO4_ppm, fill = Plot
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Plot, scales="free") +
   scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -283,9 +314,11 @@ ggarrange(viz_cl_plot, viz_so4_plot, nrow=2, ncol=1)
 ```{r, echo=FALSE}
 colnames(merged_data)
 
+merged_data$Grid <- ifelse(merged_data$Grid == "SOURCEWATER", "Source", merged_data$Grid)
+
 final_data <- merged_data %>%
+  mutate(Run_notes = ifelse(Sample_ID %in% no_meta_flags, "Sample did not have associated metadata after checking field datasheets", NA)) %>%
   mutate(
-    Depth_cm = Depth, 
     SO4_Conc_flag = NA, 
     SO4_QAQC_flag = NA, 
     Cl_Conc_flag = NA, 
@@ -296,11 +329,14 @@ final_data <- merged_data %>%
   ) %>%
   rename(
     SO4_Conc_mM = SO4_mM, 
-    Cl_Conc_mM = Cl_mM
+    Cl_Conc_mM = Cl_mM, 
+    Collection_Date_YYYYMMDD = Date, 
+    Evacuation_Date_YYYYMMDD = Evacuation_Date
   ) %>%
   select(
-         Project, Zone, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
-         Volume_mL, Collection_Date, Evacuation_Date, Sample_ID, 
+         Sample_ID, Project, Plot, Grid, Depth_cm, Event_Time, Time_of_day, 
+         Volume_mL, Collection_Date_YYYYMMDD, Evacuation_Date_YYYYMMDD, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, 
          SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them
