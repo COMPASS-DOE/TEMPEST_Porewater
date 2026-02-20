@@ -7,8 +7,10 @@ output: html_document
 
 ```{r}
 Sample_Year = "2023"
-Run_notes = "Some sample IDs are missing from metadata.
-TMP_SW_F6_20230417, TMP_SW_D5_20230417, TMP_SW_E3_20230417, TMP_SW_H6_20230417, TMP_FW_D5_20230605, TMP_SW_H6_20230612, TMP_C_C3_20230628, TMP_SW_I5_20230807, TMP_C_H6_20230810, TMP_SW_C6_20230810, TMP_SW_H3_20230810, TMP_SW_E3_20230810, TMP_C_I5_20231005, TMP_SW_C6_20231211"
+  
+##Porewater samples that do not have metadata after checking
+no_meta_flags <- c("TMP_SW_H6_20230417_15cm", "TMP_FW_D5_20230605_15cm", "TMP_SW_H6_20230612_15cm", "TMP_C_C3_20230628_15cm", "TMP_SW_I5_20230807_15cm")
+
 ```
 
 ```{r setup, include=FALSE}
@@ -52,6 +54,9 @@ lys_data$time <- gsub(":", "", lys_data$time)
 ##Remove samples where lysimeter was empty
 lys_data <- subset(lys_data, sample_name != "Lysimeter Empty")
 
+##Add Depth
+lys_data$Depth_cm <- "15"
+
 
 ##SourceWater data
 sw_data <- read.csv(here("processing_scripts/DOC/TEMPORARY/", "TMP_SOURCE_NPOCTDN_2023_L1.csv"))
@@ -69,6 +74,9 @@ sw_data <- sw_data %>%
   rename(
     collection_datetime = datetime
   )
+
+##Add Depth
+sw_data$Depth_cm <- "NA"
 
 
 ##Combine SW and lysimeter data
@@ -122,9 +130,23 @@ all_data2 <- bind_rows(all_data_sw, all_data_nsw)
 colnames(all_data2)
 
 all_data3 <- all_data2 %>% 
-  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time", "Plot", "Grid", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD")
+  select("Sample_ID", "doc_mg_l", "tdn_mg_l", "doc_flag", "tdn_flag", "Time", "Plot", "Grid", "Collection_End_Time_24hrs", "Collection_Date_YYYYMMDD", "Depth_cm")
 
 ```
+
+## Fix Sample IDs
+```{r}
+
+##Fix TMP_C_C6_20221019   
+all_data3$Sample_ID <- gsub("TMP_C_I5_20231005", "TMP_C_I5_20231002", all_data3$Sample_ID)
+all_data3$Collection_Date_YYYYMMDD <- ifelse(all_data3$Sample_ID == "TMP_C_I5_20231002", "20221002", all_data3$Collection_Date_YYYYMMDD)
+
+##Fix TMP_SW_C6_20231211   
+all_data3$Sample_ID <- gsub("TMP_SW_C6_20231211", "TMP_SW_H3_20231211", all_data3$Sample_ID)
+all_data3$Grid <- ifelse(all_data3$Sample_ID == "TMP_SW_H3_20231211", "H3", all_data3$Grid)
+
+```
+
 
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
@@ -217,7 +239,8 @@ doc_metadata <- doc_metadata %>%
   rename(Grid_meta = Grid, 
          Plot_meta = Plot, 
          Collection_End_Time_24hrs_meta = Collection_End_Time_24hrs, 
-         Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD)
+         Collection_Date_YYYYMMDD_meta = Collection_Date_YYYYMMDD, 
+         Depth_meta = Depth)
 
 #remove old ID's
 doc_metadata$Sample_ID <- NULL
@@ -255,8 +278,10 @@ merged_data <- all_data3 %>%
 
 merged_data$Plot <- str_replace_all(merged_data$Plot, "Contol", "Control")
 
-merged_data$Sample_ID <- paste(merged_data$Sample_ID, merged_data$Depth, sep = "_")
-merged_data$Sample_ID <- gsub("_NA", "", merged_data$Sample_ID)
+
+##Add Depth to sample IDs
+merged_data$Sample_ID <- paste0(merged_data$Sample_ID, "_", merged_data$Depth_cm, "cm")
+merged_data$Sample_ID <- gsub("_NAcm", "", merged_data$Sample_ID)
 
 ```
 
@@ -344,9 +369,8 @@ ggarrange(viz_doc_plot, viz_tdn_plot, nrow=2, ncol=1)
 colnames(merged_data)
 
 final_data <- merged_data %>%
+  mutate(Run_notes = ifelse(Sample_ID %in% no_meta_flags, "Sample did not have associated metadata after checking sample sheets", NA)) %>%
   mutate(
-    Depth_cm = Depth, 
-    Run_notes = Run_notes, 
     Field_notes = Notes, 
     Project = "COMPASS", 
     Site = "TEMPEST", 

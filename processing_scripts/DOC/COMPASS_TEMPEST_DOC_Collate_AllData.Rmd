@@ -211,7 +211,7 @@ data_plotting <- data_plotting %>%
 #Plot data by year and change colors based on Grid:
 viz_npoc_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = npoc_mgL, fill = plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "total")) +
-  facet_wrap( ~ plot_1, scales="free") +
+  facet_wrap( ~ plot_1, scales="free_x") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -230,7 +230,7 @@ viz_npoc_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = npoc_mgL,
 
 viz_tdn_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = tdn_mgL, fill = plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "total")) +
-  facet_wrap( ~ plot_1, scales="free") +
+  facet_wrap( ~ plot_1, scales="free_x") +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -269,7 +269,7 @@ viz_npoc_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mea
   geom_point(size = 3) + 
   geom_errorbar(aes(ymin = mean_npoc - sd_npoc, ymax = mean_npoc + sd_npoc), width = 0.2) + 
   geom_line() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   scale_color_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -294,7 +294,7 @@ viz_tdn_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mean
   geom_point(size = 3) + 
   geom_errorbar(aes(ymin = mean_tdn - sd_tdn, ymax = mean_tdn + sd_tdn), width = 0.2) + 
   geom_line() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   scale_color_manual(values = c(
     "Control" = "springgreen2",
     "Freshwater" = "cyan2",
@@ -324,7 +324,7 @@ viz_tdn_plot_avgs
 ##Boxplot Summarize DOC by Date, Site, and Grid
 viz_npoc_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = npoc_mgL, fill = plot_1)) +
   geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
@@ -347,7 +347,7 @@ viz_npoc_boxplot
 
 viz_tdn_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = tdn_mgL, fill = plot_1)) +
   geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   scale_x_discrete(drop = TRUE) +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
@@ -406,7 +406,7 @@ data_plotting_source <- data_plotting_source %>%
 ##Boxplot Summarize DOC by Date, Site, and Grid
 viz_npoc_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = npoc_mgL, fill = plot_1)) +
   geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
@@ -430,7 +430,7 @@ viz_npoc_boxplot
 
 viz_tdn_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = tdn_mgL, fill = plot_1)) +
   geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  facet_wrap( ~ plot_1, ncol = 1) +
   scale_x_discrete(drop = TRUE) +
   scale_fill_manual(values = c(
     "Control" = "springgreen2",
