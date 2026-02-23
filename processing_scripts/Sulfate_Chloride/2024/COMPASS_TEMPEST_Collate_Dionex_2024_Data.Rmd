@@ -29,11 +29,21 @@ all_data <- all_data[, -which(names(all_data) == "X")]
 
 colnames(all_data)
 
+all_data$Depth_cm <- gsub("CM", "", all_data$Depth_cm)
+all_data$Depth_cm <- ifelse(all_data$Grid == "SOURCEWATER"| all_data$Grid == "RAINWATER", NA, all_data$Depth_cm)
+
 final_data <- all_data %>%
-    select(
-         Project, Zone, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
-         Volume_mL, Collection_Date, Evacuation_Date, Sample_ID, Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
-         SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
+  rename(
+    Collection_Date_YYYYMMDD = Collection_Date, 
+    Evacuation_date_YYYMMDD = Evacuation_Date, 
+    Plot = Zone
+  ) %>%
+  select(
+         Project, Plot, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
+         Volume_mL, Collection_Date_YYYYMMDD, Evacuation_date_YYYMMDD, Sample_ID, 
+         Collection_Start_Time_24hrs,Collection_End_Time_24hrs, EST_EDT, 
+         SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, 
+         salinity,
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them
   )

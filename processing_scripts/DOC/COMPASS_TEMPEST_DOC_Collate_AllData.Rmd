@@ -106,7 +106,7 @@ metadat$Instrument_ifapplicable <- ""
 metadat$Description <- c("Project name", 
                          "Site where sample collected", 
                          "Plot where sample collected (SW = Saltwater, FW = Freshwater, C = 
-                         Control, Estuary)", 
+                         Control, Estuary (Sourcewater))", 
                          "Grid where sample collected (Letter + Number)", 
                          "Depth where sample collected", 
                          "Sample Identifier", 

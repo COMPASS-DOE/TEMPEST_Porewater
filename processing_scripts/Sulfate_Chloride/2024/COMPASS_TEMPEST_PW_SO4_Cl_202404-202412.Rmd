@@ -230,7 +230,8 @@ raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
                           Zone,
                           Source, 
                           Collection_Date, 
-                          sep = "_"))
+                          sep = "_")) %>%
+  rename(Collection_End_Time_24hrs = Collection_Time_24hrs)
 
 
 #combine porewater and sourcewater samples

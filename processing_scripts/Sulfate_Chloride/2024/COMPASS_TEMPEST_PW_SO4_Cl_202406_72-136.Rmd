@@ -230,7 +230,8 @@ raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
                           Source, 
                           Collection_Date, 
                           Time_of_day, 
-                          sep = "_"))
+                          sep = "_")) %>%
+  rename(Collection_End_Time_24hrs = Collection_Time_24hrs)
 
 
 #combine porewater and sourcewater samples
@@ -1180,7 +1181,7 @@ viz_cl_plot <- ggplot(data_plotting, aes(x = row_num, y = Cl_ppm, fill = Zone)) 
     "C" = "springgreen2",
     "FW" = "cyan2",
     "SW" = "violetred2", 
-    "ESTUARY" = "grey"
+    "ESTUARY" = "darkred"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -1195,7 +1196,7 @@ viz_so4_plot <-  ggplot(data_plotting, aes(x = row_num, y = SO4_ppm, fill = Zone
     "C" = "springgreen2",
     "FW" = "cyan2",
     "SW" = "violetred2", 
-    "ESTUARY" = "grey"
+    "ESTUARY" = "darkred"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +

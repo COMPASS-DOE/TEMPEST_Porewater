@@ -252,8 +252,8 @@ merged_data <- all_data3 %>%
 
 merged_data$Plot <- str_replace_all(merged_data$Plot, "Contol", "Control")
 
-merged_data$Sample_ID <- paste(merged_data$Sample_ID, merged_data$Depth, sep = "_")
-merged_data$Sample_ID <- gsub("_NA", "", merged_data$Sample_ID)
+merged_data$Sample_ID <- paste0(merged_data$Sample_ID, "_", merged_data$Depth_cm, "CM")
+merged_data$Sample_ID <- gsub("_NACM", "", merged_data$Sample_ID)
 
 ```
 

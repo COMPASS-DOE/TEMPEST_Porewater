@@ -122,75 +122,75 @@
 "41","TMP","TMP_SW_B4_20240624_15CM","SW","B4","15CM",NA,NA,"PW",5,"20240624",20240621,1157,1005,"EDT",312.1626,9.7368247036806,"Within_Range","SO4 checks perc diff out of range",2969.5678,83.7677799717912,"Within_Range","",5.3660350146,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"42","TMP","TMP_FW_SOURCEWATER_20240613_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,NA,NA,8.5959,0.268119151590767,"Within_Range","SO4 checks perc diff out of range",4.483,0.126459802538787,"Within_Range","",0.008126781,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"42","TMP","TMP_FW_SOURCEWATER_20240613_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,853,NA,8.5959,0.268119151590767,"Within_Range","SO4 checks perc diff out of range",4.483,0.126459802538787,"Within_Range","",0.008126781,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"43","TMP","TMP_FW_SOURCEWATER_20240611_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240611",NA,NA,NA,NA,8.5342,0.266194635059264,"Within_Range","SO4 checks perc diff out of range",3.9184,0.110533145275035,"Within_Range","",0.0071065488,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"43","TMP","TMP_FW_SOURCEWATER_20240611_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240611",NA,NA,1550,NA,8.5342,0.266194635059264,"Within_Range","SO4 checks perc diff out of range",3.9184,0.110533145275035,"Within_Range","",0.0071065488,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"44","TMP","TMP_FW_SOURCEWATER_20240612_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240612",NA,NA,NA,NA,8.667,0.270336868371803,"Within_Range","SO4 checks perc diff out of range",3.9375,0.111071932299013,"Within_Range","",0.0071410625,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"44","TMP","TMP_FW_SOURCEWATER_20240612_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240612",NA,NA,1554,NA,8.667,0.270336868371803,"Within_Range","SO4 checks perc diff out of range",3.9375,0.111071932299013,"Within_Range","",0.0071410625,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"45","TMP","TMP_FW_SOURCEWATER_20240611_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,NA,NA,8.3255,0.259684965689332,"Within_Range","SO4 checks perc diff out of range",4.5192,0.12748095909732,"Within_Range","",0.0081921944,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"45","TMP","TMP_FW_SOURCEWATER_20240611_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,834,NA,8.3255,0.259684965689332,"Within_Range","SO4 checks perc diff out of range",4.5192,0.12748095909732,"Within_Range","",0.0081921944,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"46","TMP","TMP_FW_SOURCEWATER_20240611_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240611",NA,NA,NA,NA,8.1301,0.253590143480973,"Within_Range","SO4 checks perc diff out of range",3.5151,0.0991565585331453,"Within_Range","",0.0063777857,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"46","TMP","TMP_FW_SOURCEWATER_20240611_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240611",NA,NA,1232,NA,8.1301,0.253590143480973,"Within_Range","SO4 checks perc diff out of range",3.5151,0.0991565585331453,"Within_Range","",0.0063777857,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"47","TMP","TMP_FW_SOURCEWATER_20240613_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240613",NA,NA,NA,NA,7.9322,0.247417342482845,"Within_Range","SO4 checks perc diff out of range",3.8858,0.109613540197461,"Within_Range","",0.0070476406,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"47","TMP","TMP_FW_SOURCEWATER_20240613_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240613",NA,NA,1257,NA,7.9322,0.247417342482845,"Within_Range","SO4 checks perc diff out of range",3.8858,0.109613540197461,"Within_Range","",0.0070476406,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"48","TMP","TMP_FW_SOURCEWATER_20240612_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240612",NA,NA,NA,NA,7.974,0.248721147847785,"Within_Range","SO4 checks perc diff out of range",3.1488,0.0888236953455571,"Within_Range","",0.0057158816,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"48","TMP","TMP_FW_SOURCEWATER_20240612_MID","FW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240612",NA,NA,1255,NA,7.974,0.248721147847785,"Within_Range","SO4 checks perc diff out of range",3.1488,0.0888236953455571,"Within_Range","",0.0057158816,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"49","TMP","TMP_FW_SOURCEWATER_20240612_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,NA,NA,8.9432,0.278951965065502,"Within_Range","SO4 checks perc diff out of range",4.6792,0.131994358251058,"Within_Range","",0.0084813144,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"49","TMP","TMP_FW_SOURCEWATER_20240612_AM","FW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,900,NA,8.9432,0.278951965065502,"Within_Range","SO4 checks perc diff out of range",4.6792,0.131994358251058,"Within_Range","",0.0084813144,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"50","TMP","TMP_FW_SOURCEWATER_20240613_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240613",NA,NA,NA,NA,8.4073,0.26223643169058,"Within_Range","SO4 checks perc diff out of range",4.0132,0.113207334273625,"Within_Range","",0.0072778524,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"50","TMP","TMP_FW_SOURCEWATER_20240613_PM","FW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240613",NA,NA,1615,NA,8.4073,0.26223643169058,"Within_Range","SO4 checks perc diff out of range",4.0132,0.113207334273625,"Within_Range","",0.0072778524,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"51","TMP","TMP_ESTUARY_SOURCEWATER_20240613_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,NA,NA,511.3148,15.9486837180287,"Within_Range","SO4 checks perc diff out of range",3859.6824,108.876795486601,"Within_Range","",6.9744720968,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"51","TMP","TMP_ESTUARY_SOURCEWATER_20240613_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,1033,NA,511.3148,15.9486837180287,"Within_Range","SO4 checks perc diff out of range",3859.6824,108.876795486601,"Within_Range","",6.9744720968,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"52","TMP","TMP_ESTUARY_SOURCEWATER_20240612_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,NA,NA,491.0263,15.3158546475359,"Within_Range","SO4 checks perc diff out of range",3784.5568,106.757596614951,"Within_Range","",6.8387201376,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"52","TMP","TMP_ESTUARY_SOURCEWATER_20240612_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,1008,NA,491.0263,15.3158546475359,"Within_Range","SO4 checks perc diff out of range",3784.5568,106.757596614951,"Within_Range","",6.8387201376,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"53","TMP","TMP_ESTUARY_SOURCEWATER_20240611_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,NA,NA,428.4834,13.3650467872739,"Within_Range","SO4 checks perc diff out of range",3269.2374,92.2210832157969,"Within_Range","",5.9075379818,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"53","TMP","TMP_ESTUARY_SOURCEWATER_20240611_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,940,NA,428.4834,13.3650467872739,"Within_Range","SO4 checks perc diff out of range",3269.2374,92.2210832157969,"Within_Range","",5.9075379818,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"54","TMP","TMP_ESTUARY_SOURCEWATER_20240611_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,NA,NA,464.2414,14.4803930131004,"Within_Range","SO4 checks perc diff out of range",3491.7519,98.4979379407616,"Within_Range","",6.3096216833,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"54","TMP","TMP_ESTUARY_SOURCEWATER_20240611_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,940,NA,464.2414,14.4803930131004,"Within_Range","SO4 checks perc diff out of range",3491.7519,98.4979379407616,"Within_Range","",6.3096216833,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"55","TMP","TMP_ESTUARY_SOURCEWATER_20240613_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,NA,NA,509.2368,15.8838677479726,"Within_Range","SO4 checks perc diff out of range",3860.8575,108.909943582511,"Within_Range","",6.9765955025,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"55","TMP","TMP_ESTUARY_SOURCEWATER_20240613_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,1033,NA,509.2368,15.8838677479726,"Within_Range","SO4 checks perc diff out of range",3860.8575,108.909943582511,"Within_Range","",6.9765955025,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"56","TMP","TMP_ESTUARY_SOURCEWATER_20240612_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,NA,NA,457.0698,14.256699937617,"Within_Range","SO4 checks perc diff out of range",3463.6409,97.7049619181946,"Within_Range","",6.2588251063,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"56","TMP","TMP_ESTUARY_SOURCEWATER_20240612_AM","ESTUARY","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,1008,NA,457.0698,14.256699937617,"Within_Range","SO4 checks perc diff out of range",3463.6409,97.7049619181946,"Within_Range","",6.2588251063,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"57","TMP","TMP_SW_SOURCEWATER_20240611_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240611",NA,NA,NA,NA,483.8673,15.0925545851528,"Within_Range","SO4 checks perc diff out of range",3667.6635,103.460183356841,"Within_Range","",6.6274939445,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"57","TMP","TMP_SW_SOURCEWATER_20240611_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240611",NA,NA,1247,NA,483.8673,15.0925545851528,"Within_Range","SO4 checks perc diff out of range",3667.6635,103.460183356841,"Within_Range","",6.6274939445,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"58","TMP","TMP_SW_SOURCEWATER_20240612_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240612",NA,NA,NA,NA,432.8411,13.5009700561447,"Within_Range","SO4 checks perc diff out of range",3280.067,92.5265726375176,"Within_Range","",5.927107069,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"58","TMP","TMP_SW_SOURCEWATER_20240612_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240612",NA,NA,1230,NA,432.8411,13.5009700561447,"Within_Range","SO4 checks perc diff out of range",3280.067,92.5265726375176,"Within_Range","",5.927107069,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"59","TMP","TMP_SW_SOURCEWATER_20240613_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,NA,NA,467.8069,14.5916063630692,"Within_Range","SO4 checks perc diff out of range",3535.5176,99.7325133991537,"Within_Range","",6.3887063032,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"59","TMP","TMP_SW_SOURCEWATER_20240613_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240613",NA,NA,838,NA,467.8069,14.5916063630692,"Within_Range","SO4 checks perc diff out of range",3535.5176,99.7325133991537,"Within_Range","",6.3887063032,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"60","TMP","TMP_SW_SOURCEWATER_20240611_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240611",NA,NA,NA,NA,419.2784,13.0779288833437,"Within_Range","SO4 checks perc diff out of range",3194.8201,90.1218645980254,"Within_Range","",5.7730659207,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"60","TMP","TMP_SW_SOURCEWATER_20240611_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240611",NA,NA,1550,NA,419.2784,13.0779288833437,"Within_Range","SO4 checks perc diff out of range",3194.8201,90.1218645980254,"Within_Range","",5.7730659207,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"61","TMP","TMP_SW_SOURCEWATER_20240612_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,NA,NA,450.6764,14.0572800998128,"Within_Range","SO4 checks perc diff out of range",3400.7436,95.9307080394922,"Within_Range","",6.1451696852,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"61","TMP","TMP_SW_SOURCEWATER_20240612_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240612",NA,NA,845,NA,450.6764,14.0572800998128,"Within_Range","SO4 checks perc diff out of range",3400.7436,95.9307080394922,"Within_Range","",6.1451696852,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"62","TMP","TMP_SW_SOURCEWATER_20240613_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240613",NA,NA,NA,NA,453.8037,14.1548253275109,"Within_Range","SO4 checks perc diff out of range",3426.8123,96.6660733427362,"Within_Range","",6.1922758261,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"62","TMP","TMP_SW_SOURCEWATER_20240613_MID","SW","SOURCEWATER","MID",NA,"MID","SourceWater",5,"20240613",NA,NA,1228,NA,453.8037,14.1548253275109,"Within_Range","SO4 checks perc diff out of range",3426.8123,96.6660733427362,"Within_Range","",6.1922758261,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"63","TMP","TMP_SW_SOURCEWATER_20240613_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240613",NA,NA,NA,NA,458.2906,14.2947785402371,"Within_Range","SO4 checks perc diff out of range",3466.6049,97.7885726375176,"Within_Range","",6.2641810543,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"63","TMP","TMP_SW_SOURCEWATER_20240613_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240613",NA,NA,1548,NA,458.2906,14.2947785402371,"Within_Range","SO4 checks perc diff out of range",3466.6049,97.7885726375176,"Within_Range","",6.2641810543,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"64","TMP","TMP_SW_SOURCEWATER_20240611_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,NA,NA,455.0348,14.1932252027449,"Within_Range","SO4 checks perc diff out of range",3421.0234,96.5027757404795,"Within_Range","",6.1818152838,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"64","TMP","TMP_SW_SOURCEWATER_20240611_AM","SW","SOURCEWATER","AM",NA,"AM","SourceWater",5,"20240611",NA,NA,847,NA,455.0348,14.1932252027449,"Within_Range","SO4 checks perc diff out of range",3421.0234,96.5027757404795,"Within_Range","",6.1818152838,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
-"65","TMP","TMP_SW_SOURCEWATER_20240612_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240612",NA,NA,NA,NA,445.5297,13.8967467248908,"Within_Range","SO4 checks perc diff out of range",3368.9869,95.0348913963329,"Within_Range","",6.0877853283,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"65","TMP","TMP_SW_SOURCEWATER_20240612_PM","SW","SOURCEWATER","PM",NA,"PM","SourceWater",5,"20240612",NA,NA,1535,NA,445.5297,13.8967467248908,"Within_Range","SO4 checks perc diff out of range",3368.9869,95.0348913963329,"Within_Range","",6.0877853283,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA
