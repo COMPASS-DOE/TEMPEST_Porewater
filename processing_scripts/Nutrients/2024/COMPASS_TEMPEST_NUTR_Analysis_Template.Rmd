@@ -733,11 +733,25 @@ Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Da
     Num_Runs != 1 ,
     ifelse(Dilution == Max_Dil, "KEEP", "REMOVE"),
     "KEEP"
-  )
-) %>% filter(Rerun == "KEEP") #Only Keep Latest Dilution of Duplicates
+  ) ) %>%
+  filter(Rerun == "KEEP") %>% mutate(Dilution = ifelse(Dilution == 0, 1, Dilution )) %>% mutate(Within_Range = case_when(
+      Test == "Vanadium NOx" & Conc/Dilution < NOx_dl ~ "No, bdl",
+      Test == "Vanadium NOx" & Conc/Dilution > NOx_top    ~ "No, adl",
+      Test == "Vanadium NOx"               ~ "Within_Range",
+      
+      Test == "Ammonia 2" & Conc/Dilution < NH3_dl ~ "No, bdl",
+      Test == "Ammonia 2" & Conc/Dilution > NH3_top    ~ "No, adl",
+      Test == "Ammonia 2"                ~ "Within_Range",
+      
+      Test == "o-PHOS 0.3" & Conc/Dilution < PO4_dl  ~ "No, bdl",
+      Test == "o-PHOS 0.3" & Conc/Dilution > PO4_top   ~ "No, adl",
+      Test == "o-PHOS 0.3"                ~ "Within_Range",
+      
+      TRUE ~ NA_character_  # fallback for unexpected values
+    ))#Only Keep Latest Dilution of Duplicates
 
 #Plot Duplicates
-Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Run_Date, y = Duplicate_CV, fill =  Dup_Flag)) +
+Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Run_Date, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "darkred"), name = "CV below 10% ?") +
@@ -899,7 +913,7 @@ head(samples)
 ```{r Sample Flagging, echo=FALSE}
 
 #Flagging data if the concentration is outside the standards range 
-samples_flagged1 <- samples %>%
+samples_flagged1 <- samples %>% mutate(Dilution = ifelse(Dilution == 0, 1, Dilution )) %>%
   mutate(
     Conc_flag = case_when(
       Test == "Vanadium NOx" & Conc/Dilution < NOx_dl ~ "bdl",
