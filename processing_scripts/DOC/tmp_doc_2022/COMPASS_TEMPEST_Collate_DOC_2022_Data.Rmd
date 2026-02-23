@@ -9,7 +9,8 @@ output: html_document
 Sample_Year = "2022"
 
 ##Porewater samples that do not have metadata after checking
-no_meta_flags <- c("TMP_SW_H6_20230417", "TMP_FW_D5_20230605", "TMP_SW_H6_20230612", "TMP_C_C3_20230628", "TMP_SW_I5_20230807")
+
+no_meta_flags <- c("TMP_ESTUARY_SOURCE_20220622_T0", "TMP_ESTUARY_SOURCE_20220622_T1", "TMP_SW_H3_20220615", "TMP_C_F6_20220615")
 ```
 
 ```{r setup, include=FALSE}
@@ -29,8 +30,6 @@ pacman::p_load(janitor, # useful for simplifying column names
                googledrive, # drive_ functions
                plotrix,
                here) 
-
-common_tz = "Etc/GMT+5"
 
 Sys.setenv(TZ = "America/New_York")
 ```
@@ -66,8 +65,10 @@ sw_data <- read.csv(here("processing_scripts/DOC/TEMPORARY/", "TMP_SOURCE_NPOCTD
 sw_data$date <- as.Date(sw_data$datetime)
 sw_data$date <- gsub("-", "", sw_data$date)
 
-sw_data$time <- substr(sw_data$datetime, 12, 16)
-sw_data$time <- gsub(":", "", sw_data$time)
+sw_data$time1 <- substr(sw_data$datetime, 12, 16)
+sw_data$time1 <- gsub(":", "", sw_data$time1)
+sw_data$time = as.numeric(sw_data$time1) - 400
+sw_data$time <- as.character(sw_data$time)
 
 sw_data$grid <- "Source"
 
@@ -111,15 +112,27 @@ all_data_event <- all_data %>%
 all_data_event$"Timepoint" = substr(all_data_event$sample_name, nchar(all_data_event$sample_name) - 1, nchar(all_data_event$sample_name))
 
 
-##For 20220518, 20220520, and Sourcewater, need to change times to T0-T7 in Sample ID
+##For 20220518, 20220520 need to change times to T1-T3 in Sample ID
 all_data_nonevent_special <- all_data %>%  
-  filter(Collection_Date_YYYYMMDD == "20220518" | Collection_Date_YYYYMMDD == "20220520" | Grid == "Source") 
+  filter(Collection_Date_YYYYMMDD == "20220518" | Collection_Date_YYYYMMDD == "20220520") 
 
 all_data_nonevent_special <- all_data_nonevent_special %>% 
   group_by(Plot, Grid, Collection_Date_YYYYMMDD) %>% 
   arrange(Collection_End_Time_24hrs, .by_group = TRUE) %>% # Sort by Time ascending
   mutate(Timepoint = paste0("T", row_number())) %>% 
   ungroup()
+
+##For Sourcewater, need to change times to T0-T7 in Sample ID
+all_data_sw <- all_data %>%  
+  filter(Grid == "Source") 
+
+all_data_sw <- all_data_sw %>% 
+  group_by(Plot, Grid, Collection_Date_YYYYMMDD) %>% 
+  arrange(Collection_End_Time_24hrs, .by_group = TRUE) %>% # Sort by Time ascending
+  mutate(Timepoint = paste0("T", row_number()-1)) %>% 
+  ungroup()
+
+all_data_sw$Timepoint <- gsub("T6", "T7", all_data_sw$Timepoint)
 
 
 ##separate dataframe for the rest of the samples
@@ -131,7 +144,7 @@ all_data_other$"Timepoint" = NA
 
 
 ##Combine dataframes
-all_data2 <- rbind(all_data_event, all_data_nonevent_special, all_data_other)
+all_data2 <- rbind(all_data_event, all_data_nonevent_special, all_data_sw, all_data_other)
 
 ##Make new sample IDs
 all_data2 <- all_data2 %>% 

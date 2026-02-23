@@ -85,6 +85,14 @@ all_dat <- all_dat %>%
   mutate(npoc_uM = round(npoc_uM, 2)) %>%
   mutate(tdn_uM = round(tdn_uM, 2))
 
+unique(all_dat$npoc_flag)
+unique(all_dat$tdn_flag)
+
+all_dat$npoc_flag <- gsub("≥", "greater than or equal to", all_dat$npoc_flag)
+all_dat$tdn_flag <- gsub("≥", "greater than or equal to", all_dat$tdn_flag)
+all_dat$tdn_flag <- gsub(">", "greater than", all_dat$tdn_flag)
+all_dat$tdn_flag <- gsub("<", "less than", all_dat$tdn_flag)
+
 ```
 
 
