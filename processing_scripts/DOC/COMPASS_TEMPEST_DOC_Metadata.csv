@@ -2,7 +2,7 @@
 "1","Project","Project name","NA","NA"
 "2","Site","Site where sample collected","NA","NA"
 "3","Plot","Plot where sample collected (SW = Saltwater, FW = Freshwater, C = 
-                         Control, Estuary)","NA","NA"
+                         Control, Estuary (Sourcewater))","NA","NA"
 "4","Grid","Grid where sample collected (Letter + Number)","NA","NA"
 "5","Depth_cm","Depth where sample collected","cm","cm"
 "6","Sample_ID","Sample Identifier","NA","NA"
