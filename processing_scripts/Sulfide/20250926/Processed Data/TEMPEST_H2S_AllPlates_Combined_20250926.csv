@@ -1,427 +1,427 @@
-"Project","Sample_ID","Zone","Grid","Depth_cm","Source","Volume_mL","Collection_Date","Evacuation_Date","H2S_mean","H2S_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
-"TMP","TMP_C_PW_B4_20250131_15CM","C","B4","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"Project","Sample_ID","Zone","Grid","Depth_cm","Source","Volume_mL","Collection_Date","Evacuation_Date","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","H2S_mean","H2S_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
+"TMP","TMP_C_PW_B4_20250131_15CM","C","B4","15cm","PW",5,20250131,20250128,1236,1219,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_B4_20250204_15CM","C","B4","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_B4_20250204_15CM","C","B4","15cm","PW",5,20250204,20250131,1219,1055,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_B4_20250509_15CM","C","B4","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1422","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_B4_20250509_15CM","C","B4","15cm","PW",5,20250509,20250506,906,1339,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1422","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_B4_20250602_15CM","C","B4","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_B4_20250602_15CM","C","B4","15cm","PW",5,20250602,20250530,1322,1558,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C3_20250131_15CM","C","C3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C3_20250131_15CM","C","C3","15cm","PW",5,20250131,20250128,1225,1137,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C3_20250204_15CM","C","C3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C3_20250204_15CM","C","C3","15cm","PW",5,20250204,20250131,1137,1043,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C3_20250602_15CM","C","C3","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C3_20250602_15CM","C","C3","15cm","PW",5,20250602,20250530,1324,1609,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C6_20250204_15CM","C","C6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C6_20250204_15CM","C","C6","15cm","PW",5,20250204,20250131,1235,1107,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C6_20250403_15CM","C","C6","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C6_20250403_15CM","C","C6","15cm","PW",5,20250403,20250331,1348,1350,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_C6_20250602_15CM","C","C6","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_C6_20250602_15CM","C","C6","15cm","PW",5,20250602,20250530,1318,1546,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_D5_20250131_15CM","C","D5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_D5_20250131_15CM","C","D5","15cm","PW",5,20250131,20250128,1230,1227,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_D5_20250204_15CM","C","D5","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_D5_20250204_15CM","C","D5","15cm","PW",5,20250204,20250131,1227,1115,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_D5_20250602_15CM","C","D5","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_D5_20250602_15CM","C","D5","15cm","PW",5,20250602,20250530,1328,1620,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_E3_20250131_15CM","C","E3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_E3_20250131_15CM","C","E3","15cm","PW",5,20250131,20250128,1222,1126,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_E3_20250204_15CM","C","E3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_E3_20250204_15CM","C","E3","15cm","PW",5,20250204,20250131,1126,1033,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_E3_20250711_15CM","C","E3","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_E3_20250711_15CM","C","E3","15cm","PW",5,20250711,20250708,1330,1208,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F4_20250204_15CM","C","F4","15cm","PW",5,20250204,20250131,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F4_20250204_15CM","C","F4","15cm","PW",5,20250204,20250131,1123,1026,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F4_20250403_15CM","C","F4","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F4_20250403_15CM","C","F4","15cm","PW",5,20250403,20250331,1340,1415,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F4_20250509_15CM","C","F4","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1418","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F4_20250509_15CM","C","F4","15cm","PW",5,20250509,20250506,857,1345,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1418","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F4_20250602_15CM","C","F4","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F4_20250602_15CM","C","F4","15cm","PW",5,20250602,20250530,1339,1634,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F6_20250204_15CM","C","F6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F6_20250204_15CM","C","F6","15cm","PW",5,20250204,20250131,1121,1019,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F6_20250403_15CM","C","F6","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F6_20250403_15CM","C","F6","15cm","PW",5,20250403,20250331,1458,1407,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F6_20250602_15CM","C","F6","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F6_20250602_15CM","C","F6","15cm","PW",5,20250602,20250530,1331,1624,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_F6_20250711_15CM","C","F6","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_F6_20250711_15CM","C","F6","15cm","PW",5,20250711,20250708,1340,1205,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H3_20250131_15CM","C","H3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H3_20250131_15CM","C","H3","15cm","PW",5,20250131,20250128,1207,1051,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H3_20250204_15CM","C","H3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H3_20250204_15CM","C","H3","15cm","PW",5,20250204,20250131,1051,941,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H3_20250509_15CM","C","H3","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1401","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H3_20250509_15CM","C","H3","15cm","PW",5,20250509,20250506,731,1325,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1401","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H3_20250602_15CM","C","H3","15cm","PW",5,20250602,20250530,0.444043166646813,0.405677386821631,91.3598986074033,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H3_20250602_15CM","C","H3","15cm","PW",5,20250602,20250530,1342,1643,0.444043166646813,0.405677386821631,91.3598986074033,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H3_20250711_15CM","C","H3","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H3_20250711_15CM","C","H3","15cm","PW",5,20250711,20250708,1038,1215,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250131_15CM","C","H6","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250131_15CM","C","H6","15cm","PW",5,20250131,20250128,1215,1113,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250204_15CM","C","H6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250204_15CM","C","H6","15cm","PW",5,20250204,20250131,1113,1006,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250403_15CM","C","H6","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250403_15CM","C","H6","15cm","PW",5,20250403,20250331,1338,1433,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250509_15CM","C","H6","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1411","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250509_15CM","C","H6","15cm","PW",5,20250509,20250506,736,1331,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1411","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250602_15CM","C","H6","15cm","PW",5,20250602,20250530,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250602_15CM","C","H6","15cm","PW",5,20250602,20250530,1349,1707,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_H6_20250711_15CM","C","H6","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_H6_20250711_15CM","C","H6","15cm","PW",5,20250711,20250708,1048,1224,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250131_15CM","C","I5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250131_15CM","C","I5","15cm","PW",5,20250131,20250128,1212,1100,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250204_15CM","C","I5","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250204_15CM","C","I5","15cm","PW",5,20250204,20250131,1100,953,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250403_15CM","C","I5","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250403_15CM","C","I5","15cm","PW",5,20250403,20250331,1336,1424,0,0,0,"bdl","Within Range","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250509_15CM","C","I5","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1351","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250509_15CM","C","I5","15cm","PW",5,20250509,20250506,740,1327,0,0,0,"bdl","Within Range","",1,"20250926","sub-sampled at 1351","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250602_15CM","C","I5","15cm","PW",5,20250602,20250530,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250602_15CM","C","I5","15cm","PW",5,20250602,20250530,1344,1656,0.0307834291929974,0.0435343430610888,141.42135623731,"Within Range","High CV","",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_C_PW_I5_20250711_15CM","C","I5","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_C_PW_I5_20250711_15CM","C","I5","15cm","PW",5,20250711,20250708,1044,1236,0,0,0,"bdl","Within Range","MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_B4_20250204_15CM","FW","B4","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_B4_20250204_15CM","FW","B4","15cm","PW",5,20250204,20250131,1412,1407,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_B4_20250509_15CM","FW","B4","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1125","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_B4_20250509_15CM","FW","B4","15cm","PW",5,20250509,20250506,826,1026,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1125","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_B4_20250602_15CM","FW","B4","15cm","PW",5,20250602,20250530,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_B4_20250602_15CM","FW","B4","15cm","PW",5,20250602,20250530,1101,1159,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250131_15CM","FW","C3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1545","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250131_15CM","FW","C3","15cm","PW",5,20250131,20250128,1322,1414,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1545","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250204_15CM","FW","C3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250204_15CM","FW","C3","15cm","PW",5,20250204,20250131,1414,1417,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250403_15CM","FW","C3","15cm","PW",5,20250403,20250331,2.64328193914651,0.40567738682163,15.3474883179741,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250403_15CM","FW","C3","15cm","PW",5,20250403,20250331,1435,1056,2.64328193914651,0.40567738682163,15.3474883179741,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250509_15CM","FW","C3","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1130","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250509_15CM","FW","C3","15cm","PW",5,20250509,20250506,828,1028,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1130","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250602_15CM","FW","C3","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250602_15CM","FW","C3","15cm","PW",5,20250602,20250530,1100,1147,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C3_20250711_15CM","FW","C3","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C3_20250711_15CM","FW","C3","15cm","PW",5,20250711,20250708,1303,1006,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250131_15CM","FW","C6","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1549","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250131_15CM","FW","C6","15cm","PW",5,20250131,20250128,1314,1405,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1549","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250204_15CM","FW","C6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250204_15CM","FW","C6","15cm","PW",5,20250204,20250131,1405,1358,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250403_15CM","FW","C6","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250403_15CM","FW","C6","15cm","PW",5,20250403,20250331,1429,1124,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250509_15CM","FW","C6","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1120","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250509_15CM","FW","C6","15cm","PW",5,20250509,20250506,824,1024,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1120","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250602_15CM","FW","C6","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250602_15CM","FW","C6","15cm","PW",5,20250602,20250530,1107,1221,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_C6_20250711_15CM","FW","C6","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_C6_20250711_15CM","FW","C6","15cm","PW",5,20250711,20250708,1253,1015,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250131_15CM","FW","D5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1619","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250131_15CM","FW","D5","15cm","PW",5,20250131,20250128,1316,1408,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1619","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250204_15CM","FW","D5","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250204_15CM","FW","D5","15cm","PW",5,20250204,20250131,1408,1424,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250403_15CM","FW","D5","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250403_15CM","FW","D5","15cm","PW",5,20250403,20250331,1431,1110,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250509_15CM","FW","D5","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1055","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250509_15CM","FW","D5","15cm","PW",5,20250509,20250506,833,1022,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1055","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250602_15CM","FW","D5","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250602_15CM","FW","D5","15cm","PW",5,20250602,20250530,1105,1210,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_D5_20250711_15CM","FW","D5","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_D5_20250711_15CM","FW","D5","15cm","PW",5,20250711,20250708,1258,1027,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_E3_20250131_15CM","FW","E3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1603","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_E3_20250131_15CM","FW","E3","15cm","PW",5,20250131,20250128,1326,1416,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1603","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_E3_20250204_15CM","FW","E3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_E3_20250204_15CM","FW","E3","15cm","PW",5,20250204,20250131,1416,1433,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_E3_20250403_15CM","FW","E3","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_E3_20250403_15CM","FW","E3","15cm","PW",5,20250403,20250331,1438,1048,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_E3_20250602_15CM","FW","E3","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_E3_20250602_15CM","FW","E3","15cm","PW",5,20250602,20250530,1058,1138,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F4_20250131_15CM","FW","F4","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1558","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F4_20250131_15CM","FW","F4","15cm","PW",5,20250131,20250128,1330,1418,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1558","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F4_20250204_15CM","FW","F4","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F4_20250204_15CM","FW","F4","15cm","PW",5,20250204,20250131,1418,1444,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F4_20250403_15CM","FW","F4","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F4_20250403_15CM","FW","F4","15cm","PW",5,20250403,20250331,1439,1028,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F4_20250602_15CM","FW","F4","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F4_20250602_15CM","FW","F4","15cm","PW",5,20250602,20250530,1052,1102,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F4_20250711_15CM","FW","F4","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F4_20250711_15CM","FW","F4","15cm","PW",5,20250711,20250708,1413,1053,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F6_20250131_15CM","FW","F6","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1606","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F6_20250131_15CM","FW","F6","15cm","PW",5,20250131,20250128,1343,1433,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1606","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F6_20250204_15CM","FW","F6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F6_20250204_15CM","FW","F6","15cm","PW",5,20250204,20250131,1433,1522,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_F6_20250602_15CM","FW","F6","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_F6_20250602_15CM","FW","F6","15cm","PW",5,20250602,20250530,1056,1125,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250131_15CM","FW","H3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1611","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250131_15CM","FW","H3","15cm","PW",5,20250131,20250128,1426,1420,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1611","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250204_15CM","FW","H3","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250204_15CM","FW","H3","15cm","PW",5,20250204,20250131,1420,1454,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250403_15CM","FW","H3","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250403_15CM","FW","H3","15cm","PW",5,20250403,20250331,1444,1023,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250509_15CM","FW","H3","15cm","PW",5,20250509,20250506,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1118","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250509_15CM","FW","H3","15cm","PW",5,20250509,20250506,840,1033,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1118","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250602_15CM","FW","H3","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250602_15CM","FW","H3","15cm","PW",5,20250602,20250530,1050,1051,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H3_20250711_15CM","FW","H3","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H3_20250711_15CM","FW","H3","15cm","PW",5,20250711,20250708,1312,1100,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H6_20250131_15CM","FW","H6","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1602","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H6_20250131_15CM","FW","H6","15cm","PW",5,20250131,20250128,1340,1431,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","sub-sampled in lab at 1602","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H6_20250204_15CM","FW","H6","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H6_20250204_15CM","FW","H6","15cm","PW",5,20250204,20250131,1431,1512,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H6_20250403_15CM","FW","H6","15cm","PW",5,20250403,20250331,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H6_20250403_15CM","FW","H6","15cm","PW",5,20250403,20250331,1449,1012,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H6_20250509_15CM","FW","H6","15cm","PW",5,20250509,20250506,2.73890101621172,0.811354773643261,29.6233696961228,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1051","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H6_20250509_15CM","FW","H6","15cm","PW",5,20250509,20250506,843,1016,2.73890101621172,0.811354773643261,29.6233696961228,"Within Range","High CV","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1051","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_H6_20250602_15CM","FW","H6","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_H6_20250602_15CM","FW","H6","15cm","PW",5,20250602,20250530,1055,1113,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250131_15CM","FW","I5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","light color; sub-sampled in lab at 1627","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250131_15CM","FW","I5","15cm","PW",5,20250131,20250128,1421,1427,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","light color; sub-sampled in lab at 1627","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250204_15CM","FW","I5","15cm","PW",5,20250204,20250131,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250204_15CM","FW","I5","15cm","PW",5,20250204,20250131,1427,1502,0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20250925","light color","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250406_15CM","FW","I5","15cm","PW",5,20250406,20250403,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250406_15CM","FW","I5","15cm","PW",5,20250406,20250403,1006,1101,0,0,0,"bdl","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250509_15CM","FW","I5","15cm","PW",5,20250509,20250506,2.3086151694183,0.202838693410815,8.78616306856914,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1106","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250509_15CM","FW","I5","15cm","PW",5,20250509,20250506,842,1035,2.3086151694183,0.202838693410815,8.78616306856914,"Within Range","Within Range","Std curve r2 low; Dup perc diff out of range; Spk recovery out of range",1,"20250926","sub-sampled at 1106","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250602_15CM","FW","I5","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250602_15CM","FW","I5","15cm","PW",5,20250602,20250530,1049,1033,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_FW_PW_I5_20250711_15CM","FW","I5","15cm","PW",5,20250711,20250708,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_FW_PW_I5_20250711_15CM","FW","I5","15cm","PW",5,20250711,20250708,1313,1110,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250926",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250131_15CM","SW","B4","15cm","PW",5,20250131,20250128,0.969948090505437,0.0676128978036051,6.97077487604231,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; field collection","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250131_15CM","SW","B4","15cm","PW",5,20250131,20250128,1244,1252,0.969948090505437,0.0676128978036051,6.97077487604231,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; field collection","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250204_15CM","SW","B4","15cm","PW",5,20250204,20250131,1.59147209142927,0.13522579560721,8.49690021807213,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250204_15CM","SW","B4","15cm","PW",5,20250204,20250131,1308,1220,1.59147209142927,0.13522579560721,8.49690021807213,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250403_15CM","SW","B4","15cm","PW",5,20250403,20250331,4.23693322356659,0.276028499416296,6.51481826243982,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250403_15CM","SW","B4","15cm","PW",5,20250403,20250331,1400,1232,4.23693322356659,0.276028499416296,6.51481826243982,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250509_15CM","SW","B4","15cm","PW",5,20250509,20250506,2.88232963180953,0.0676128978036052,2.34577256735059,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1215","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250509_15CM","SW","B4","15cm","PW",5,20250509,20250506,754,1152,2.88232963180953,0.0676128978036052,2.34577256735059,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1215","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250602_15CM","SW","B4","15cm","PW",5,20250602,20250530,1.81458327124808,0.0552056998832594,3.04233488525929,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250602_15CM","SW","B4","15cm","PW",5,20250602,20250530,1312,1531,1.81458327124808,0.0552056998832594,3.04233488525929,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_B4_20250711_15CM","SW","B4","15cm","PW",5,20250711,20250708,4.93813978871142,0.191238154130409,3.87267599365209,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_B4_20250711_15CM","SW","B4","15cm","PW",5,20250711,20250708,1224,738,4.93813978871142,0.191238154130409,3.87267599365209,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250131_15CM","SW","C3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; field collection","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250131_15CM","SW","C3","15cm","PW",5,20250131,20250128,1349,1308,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; field collection","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250204_15CM","SW","C3","15cm","PW",5,20250204,20250131,1.20899578316845,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250204_15CM","SW","C3","15cm","PW",5,20250204,20250131,1252,1210,1.20899578316845,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250403_15CM","SW","C3","15cm","PW",5,20250403,20250331,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250403_15CM","SW","C3","15cm","PW",5,20250403,20250331,1356,1336,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250509_15CM","SW","C3","15cm","PW",5,20250509,20250506,2.67515496483492,0.199046981626967,7.44057762049126,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1213","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250509_15CM","SW","C3","15cm","PW",5,20250509,20250506,751,1050,2.67515496483492,0.199046981626967,7.44057762049126,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1213","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250602_15CM","SW","C3","15cm","PW",5,20250602,20250530,1.87832932262488,0.270451591214421,14.3985182979775,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250602_15CM","SW","C3","15cm","PW",5,20250602,20250530,1308,1518,1.87832932262488,0.270451591214421,14.3985182979775,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C3_20250711_15CM","SW","C3","15cm","PW",5,20250711,20250708,4.90626676302302,0.292121105688744,5.95404040991754,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C3_20250711_15CM","SW","C3","15cm","PW",5,20250711,20250708,1218,750,4.90626676302302,0.292121105688744,5.95404040991754,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C6_20250204_15CM","SW","C6","15cm","PW",5,20250204,20250131,0.683090859309824,0.0676128978036052,9.89808264627043,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C6_20250204_15CM","SW","C6","15cm","PW",5,20250204,20250131,1245,1230,0.683090859309824,0.0676128978036052,9.89808264627043,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C6_20250403_15CM","SW","C6","15cm","PW",5,20250403,20250331,1.24086880885685,0.0552056998832593,4.44895540037932,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C6_20250403_15CM","SW","C6","15cm","PW",5,20250403,20250331,1403,1247,1.24086880885685,0.0552056998832593,4.44895540037932,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C6_20250509_15CM","SW","C6","15cm","PW",5,20250509,20250506,3.37636152997975,0.307372328435101,9.10365568692358,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1219","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C6_20250509_15CM","SW","C6","15cm","PW",5,20250509,20250506,756,1154,3.37636152997975,0.307372328435101,9.10365568692358,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1219","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_C6_20250602_15CM","SW","C6","15cm","PW",5,20250602,20250530,1.73490070702707,0.0676128978036052,3.89722002704505,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_C6_20250602_15CM","SW","C6","15cm","PW",5,20250602,20250530,1246,1234,1.73490070702707,0.0676128978036052,3.89722002704505,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250131_15CM","SW","D5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1508","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250131_15CM","SW","D5","15cm","PW",5,20250131,20250128,1249,1345,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1508","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250204_15CM","SW","D5","15cm","PW",5,20250204,20250131,0.969948090505437,0.202838693410815,20.9123246281268,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250204_15CM","SW","D5","15cm","PW",5,20250204,20250131,1345,1239,0.969948090505437,0.202838693410815,20.9123246281268,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250403_15CM","SW","D5","15cm","PW",5,20250403,20250331,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250403_15CM","SW","D5","15cm","PW",5,20250403,20250331,1406,1255,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250509_15CM","SW","D5","15cm","PW",5,20250509,20250506,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1209","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250509_15CM","SW","D5","15cm","PW",5,20250509,20250506,758,1156,1.35242439876625,0.202838693410816,14.9981539519588,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1209","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250602_15CM","SW","D5","15cm","PW",5,20250602,20250530,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250602_15CM","SW","D5","15cm","PW",5,20250602,20250530,1248,1248,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_D5_20250711_15CM","SW","D5","15cm","PW",5,20250711,20250708,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_D5_20250711_15CM","SW","D5","15cm","PW",5,20250711,20250708,1228,801,0.204995473983802,0.0676128978036052,32.9826295623228,"Within Range","High CV","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_E3_20250131_15CM","SW","E3","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","clear; sub-sampled in the lab at 1512","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_E3_20250131_15CM","SW","E3","15cm","PW",5,20250131,20250128,1257,1355,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","clear; sub-sampled in the lab at 1512","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_E3_20250204_15CM","SW","E3","15cm","PW",5,20250204,20250131,0.300614551049006,0.0676128978036052,22.4915585648357,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_E3_20250204_15CM","SW","E3","15cm","PW",5,20250204,20250131,1355,1306,0.300614551049006,0.0676128978036052,22.4915585648357,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_E3_20250403_15CM","SW","E3","15cm","PW",5,20250403,20250331,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_E3_20250403_15CM","SW","E3","15cm","PW",5,20250403,20250331,1411,1327,1.14524973179164,0.0552056998832594,4.82040714359259,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_E3_20250602_15CM","SW","E3","15cm","PW",5,20250602,20250530,0.444043166646813,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_E3_20250602_15CM","SW","E3","15cm","PW",5,20250602,20250530,1302,1504,0.444043166646813,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_E3_20250711_15CM","SW","E3","15cm","PW",5,20250711,20250708,0.858392500596032,0.0552056998832594,6.43128869892582,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_E3_20250711_15CM","SW","E3","15cm","PW",5,20250711,20250708,1347,815,0.858392500596032,0.0552056998832594,6.43128869892582,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F4_20250131_15CM","SW","F4","15cm","PW",5,20250131,20250128,1.01775762903804,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in lab at 1516","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F4_20250131_15CM","SW","F4","15cm","PW",5,20250131,20250128,1255,1351,1.01775762903804,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in lab at 1516","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F4_20250204_15CM","SW","F4","15cm","PW",5,20250204,20250131,1.71896419418287,0.0552056998832594,3.21156776098539,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F4_20250204_15CM","SW","F4","15cm","PW",5,20250204,20250131,1351,1258,1.71896419418287,0.0552056998832594,3.21156776098539,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F4_20250509_15CM","SW","F4","15cm","PW",5,20250509,20250506,1.68709116849447,0.0956190770652044,5.66768879185902,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1221","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F4_20250509_15CM","SW","F4","15cm","PW",5,20250509,20250506,805,1147,1.68709116849447,0.0956190770652044,5.66768879185902,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1221","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F4_20250602_15CM","SW","F4","15cm","PW",5,20250602,20250530,1.06556716757064,0.0676128978036043,6.3452497281568,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F4_20250602_15CM","SW","F4","15cm","PW",5,20250602,20250530,1259,1338,1.06556716757064,0.0676128978036043,6.3452497281568,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250131_15CM","SW","F6","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1525","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250131_15CM","SW","F6","15cm","PW",5,20250131,20250128,1253,1347,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1525","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250204_15CM","SW","F6","15cm","PW",5,20250204,20250131,1.44804347583146,0.202838693410816,14.0077764788344,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250204_15CM","SW","F6","15cm","PW",5,20250204,20250131,1347,1248,1.44804347583146,0.202838693410816,14.0077764788344,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250403_15CM","SW","F6","15cm","PW",5,20250403,20250331,0.874329013440233,0.0676128978036051,7.73311839870987,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250403_15CM","SW","F6","15cm","PW",5,20250403,20250331,1407,1302,0.874329013440233,0.0676128978036051,7.73311839870987,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250509_15CM","SW","F6","15cm","PW",5,20250509,20250506,2.2926786565741,0.220822799533037,9.63165068509899,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1205","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250509_15CM","SW","F6","15cm","PW",5,20250509,20250506,801,1159,2.2926786565741,0.220822799533037,9.63165068509899,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1205","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250602_15CM","SW","F6","15cm","PW",5,20250602,20250530,1.49585301436406,0.270451591214421,18.0800913336662,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250602_15CM","SW","F6","15cm","PW",5,20250602,20250530,1252,1259,1.49585301436406,0.270451591214421,18.0800913336662,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_F6_20250711_15CM","SW","F6","15cm","PW",5,20250711,20250708,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_F6_20250711_15CM","SW","F6","15cm","PW",5,20250711,20250708,1233,827,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H3_20250204_15CM","SW","H3","15cm","PW",5,20250204,20250131,1.44804347583146,0.0676128978036052,4.66925882627815,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H3_20250204_15CM","SW","H3","15cm","PW",5,20250204,20250131,1357,1317,1.44804347583146,0.0676128978036052,4.66925882627815,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H3_20250509_15CM","SW","H3","15cm","PW",5,20250509,20250506,2.2289326051973,0.146060552844372,6.55293715493221,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1224","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H3_20250509_15CM","SW","H3","15cm","PW",5,20250509,20250506,809,1143,2.2289326051973,0.146060552844372,6.55293715493221,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1224","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H3_20250602_15CM","SW","H3","15cm","PW",5,20250602,20250530,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H3_20250602_15CM","SW","H3","15cm","PW",5,20250602,20250530,1257,1323,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H3_20250711_15CM","SW","H3","15cm","PW",5,20250711,20250708,1.27274183454525,0.0552056998832593,4.33754107744751,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H3_20250711_15CM","SW","H3","15cm","PW",5,20250711,20250708,1243,850,1.27274183454525,0.0552056998832593,4.33754107744751,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250131_15CM","SW","H6","15cm","PW",5,20250131,20250128,0.890265526284434,0.0552056998832594,6.20103758410853,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in lab at 1532","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250131_15CM","SW","H6","15cm","PW",5,20250131,20250128,1300,1400,0.890265526284434,0.0552056998832594,6.20103758410853,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in lab at 1532","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250204_15CM","SW","H6","15cm","PW",5,20250204,20250131,0.58747178224462,0.0676128978036051,11.5091311356724,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250204_15CM","SW","H6","15cm","PW",5,20250204,20250131,1400,1333,0.58747178224462,0.0676128978036051,11.5091311356724,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250403_15CM","SW","H6","15cm","PW",5,20250403,20250331,0.0615668583859948,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250403_15CM","SW","H6","15cm","PW",5,20250403,20250331,1423,1309,0.0615668583859948,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250509_15CM","SW","H6","15cm","PW",5,20250509,20250506,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1229","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250509_15CM","SW","H6","15cm","PW",5,20250509,20250506,809,1141,1.87832932262488,0,0,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925","sub-sampled at 1229","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250602_15CM","SW","H6","15cm","PW",5,20250602,20250530,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250602_15CM","SW","H6","15cm","PW",5,20250602,20250530,1253,1311,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_H6_20250711_15CM","SW","H6","15cm","PW",5,20250711,20250708,0.778709936375028,0.0676128978036051,8.68268075765796,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_H6_20250711_15CM","SW","H6","15cm","PW",5,20250711,20250708,1249,855,0.778709936375028,0.0676128978036051,8.68268075765796,"Within Range","Within Range","Std curve r2 low; MC 10 out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_I5_20250131_15CM","SW","I5","15cm","PW",5,20250131,20250128,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1500","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_I5_20250131_15CM","SW","I5","15cm","PW",5,20250131,20250128,1304,1359,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored; sub-sampled in the lab at 1500","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_I5_20250204_15CM","SW","I5","15cm","PW",5,20250204,20250131,0.444043166646813,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_I5_20250204_15CM","SW","I5","15cm","PW",5,20250204,20250131,1359,1325,0.444043166646813,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925","colored","MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_I5_20250403_15CM","SW","I5","15cm","PW",5,20250403,20250331,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_I5_20250403_15CM","SW","I5","15cm","PW",5,20250403,20250331,1420,1316,0.491852705179415,0.0676128978036052,13.746574348705,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."
-"TMP","TMP_SW_PW_I5_20250711_15CM","SW","I5","15cm","PW",5,20250711,20250708,1.11337670610324,0,0,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
+"TMP","TMP_SW_PW_I5_20250711_15CM","SW","I5","15cm","PW",5,20250711,20250708,1353,905,1.11337670610324,0,0,"Within Range","Within Range","Spk recovery out of range",1,"20250925",NA,"MC 10 was low in 4/8 plates. Plate 1 and 4 dups were bad. 
 2/8 dups were bad. Used 10 uL spike for all plates. 
 3/8 spikes were bad. Plate 15 Std curve used for all plates."

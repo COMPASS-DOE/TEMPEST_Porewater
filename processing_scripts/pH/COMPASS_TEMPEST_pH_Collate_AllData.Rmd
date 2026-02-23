@@ -50,6 +50,9 @@ raw_dat$Year <- format(raw_dat$Collection_Date_Time, format = "%Y")
 raw_dat$Month <- format(raw_dat$Collection_Date_Time, format = "%m")
 raw_dat$Day <- format(raw_dat$Collection_Date_Time, format = "%d")
 
+##Add flags for pH values outside of range (3.5-8)
+raw_dat$pH_flag <- ifelse(raw_dat$pH < 3.5 | raw_dat$pH > 8, "pH value is outside the typical range", NA)
+
 colnames(raw_dat)
 
 all_dat <- raw_dat %>%
@@ -60,12 +63,12 @@ all_dat <- raw_dat %>%
     Zone = plot, 
     Grid = grid, 
     Evacuation_Date = evacuation_date, 
-    qaqc_flag = flag
+    temperature_flag = flag
   )%>%
   dplyr::select(
          Project, Year, Month, Day, 
          Zone, Grid, pH, collection_temp_C, 
-         Collection_Date_Time, Evacuation_Date, qaqc_flag
+         Collection_Date_Time, Evacuation_Date, temperature_flag, pH_flag
         # list columns in the order you want them
   )
 
@@ -95,7 +98,8 @@ metadat$Description <- c("Project name",
                          "Temperature at time of collection in Celsius", 
                          "Date and Time of sample collection", 
                          "Date of sample evacuation",
-                         "Any notes generated during QAQC")
+                         "Flag to indicate if temperature was not recorded", 
+                         "Flag to indicate if the pH is outside of the typicaly range")
 
 metadat$Units <-       c("NA", 
                          "NA",
@@ -107,6 +111,7 @@ metadat$Units <-       c("NA",
                          "degrees Celsius",
                          "NA", 
                          "NA",
+                         "NA", 
                          "NA")
 
 metadat$Instrument_ifapplicable <-  
@@ -121,6 +126,7 @@ metadat$Instrument_ifapplicable <-
                          "NA",
                          "NA", 
                          "NA",
+                         "NA", 
                          "NA")
 
 ```
