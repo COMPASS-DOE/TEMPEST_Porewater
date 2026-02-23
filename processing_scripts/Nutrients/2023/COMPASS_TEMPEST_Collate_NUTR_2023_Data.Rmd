@@ -180,7 +180,8 @@ raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
                           Collection_Date, 
                           Event_Time, 
                           sep = "_")) %>%
-  rename("Notes" = "Notes:")
+  rename("Notes" = "Notes:", 
+         Collection_End_Time_24hrs = Collection_Time_24hrs)
 
 
 #combine porewater and sourcewater samples
@@ -304,11 +305,14 @@ final_data <- merged_data %>%
     Project = "TEMPEST", 
     Depth_cm = Depth, 
     Run_notes = Run_notes, 
-    Field_notes = Notes
+    Field_notes = Notes, 
+    Collection_Date_YYYYMMDD = Collection_Date, 
+    Evacuation_Date_YYYYMMDD = Evacuation_Date
   ) %>%
   select(
          Project, Zone, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
-         Volume_mL, Collection_Date, Evacuation_Date, Sample_ID, 
+         Volume_mL, Collection_Date, Evacuation_Date, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, Sample_ID, 
          NH3_uM, PO4_uM, NOx_uM, NH3_range, PO4_range, NOx_range, 
          Run_notes, Field_notes
         # list columns in the order you want them

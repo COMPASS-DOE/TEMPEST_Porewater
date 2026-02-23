@@ -9,4 +9,5 @@
 "8","collection_temp_C","Temperature at time of collection in Celsius","degrees Celsius","NA"
 "9","Collection_Date_Time","Date and Time of sample collection","NA","NA"
 "10","Evacuation_Date","Date of sample evacuation","NA","NA"
-"11","qaqc_flag","Any notes generated during QAQC","NA","NA"
+"11","temperature_flag","Flag to indicate if temperature was not recorded","NA","NA"
+"12","pH_flag","Flag to indicate if the pH is outside of the typicaly range","NA","NA"
