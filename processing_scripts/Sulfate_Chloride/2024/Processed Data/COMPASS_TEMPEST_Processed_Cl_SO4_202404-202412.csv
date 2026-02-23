@@ -335,15 +335,15 @@
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ",NA
-"85","TMP","TMP_C_RAINWATER_20241212","C","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,NA,NA,0.1522,0.00474734872114785,"Within_Range","SO4 checks perc diff out of range",0.0405,0.00114245416078984,"Within_Range","",9.91835e-05,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"85","TMP","TMP_C_RAINWATER_20241212","C","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,930,NA,0.1522,0.00474734872114785,"Within_Range","SO4 checks perc diff out of range",0.0405,0.00114245416078984,"Within_Range","",9.91835e-05,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
-"86","TMP","TMP_FW_RAINWATER_20241212","FW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,NA,NA,0.1483,0.00462570180910792,"Within_Range","SO4 checks perc diff out of range",0.0865,0.00244005641748942,"Within_Range","",0.0001823055,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"86","TMP","TMP_FW_RAINWATER_20241212","FW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,930,NA,0.1483,0.00462570180910792,"Within_Range","SO4 checks perc diff out of range",0.0865,0.00244005641748942,"Within_Range","",0.0001823055,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
-"87","TMP","TMP_SW_RAINWATER_20241212","SW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,NA,NA,0.1207,0.00376481597005614,"Within_Range","SO4 checks perc diff out of range",0.2715,0.00765867418899859,"Within_Range","",0.0005166005,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
+"87","TMP","TMP_SW_RAINWATER_20241212","SW","RAINWATER",NA,NA,NA,"Rainwater",5,"20241212",NA,NA,930,NA,0.1207,0.00376481597005614,"Within_Range","SO4 checks perc diff out of range",0.2715,0.00765867418899859,"Within_Range","",0.0005166005,"2025-08-13","Check standard 1 is low for SO4, so <80% of Sulfate Check 
   Standards are within range of expected concentration. The peaks look uniform, 
   so I'm not sure why the standard is low. 
   ","Sub-sampled 20241217"
