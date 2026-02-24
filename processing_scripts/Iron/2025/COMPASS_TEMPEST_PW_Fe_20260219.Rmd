@@ -37,7 +37,7 @@ Run_by = "Zoe Read"#Instrument user
 Script_run_by ="Zoe Read"#Code user
 Project = "TEMPEST"
 Experiment="2025"
-Run_notes="Standard curve was better on 20260218"#any notes from run
+Run_notes="Standard curve was better on 20260218, so used that curve instead of the one ran on 20260219."#any notes from run
 
 #Stds that should be excluded
 stds_to_remove<-c("6 uM Fe_2 F", "3 uM Fe_3 G")
@@ -99,7 +99,7 @@ Top_STD_Fe2_Abs2_high=100
 
 #read in the csv files
 stds<-read_plates(
-  files = "Tidy Data/20260219_TEMPEST_Fe_STD.csv",#list of all file paths
+  files = "Tidy Data/20260218_TEMPEST_Fe_STD.csv",#list of all file paths
   plate_names = Std_plates ,  #list of plate names          
   well_ids_column = "Wells",    # name to give column of well IDs (optional)
   sep = ","                     # separator used in the csv file (optional)
@@ -1281,7 +1281,13 @@ Badspks <- subset(QAspks, FE_spks_flag == "NO, rerun")
 
 dat_aver1<-dat_aver1 %>% group_by(Plate) %>% mutate(QAQC_flag=ifelse(Plate %in% Badspks$Plate, ifelse(dat_aver1$QAQC_flag != "", paste0(dat_aver1$QAQC_flag, "; Spk recovery out of range"),"Spk recovery out of range"),paste0( dat_aver1$QAQC_flag,"") ) ) %>% ungroup()
 
+dat_aver1 <- dat_aver1 %>%
+  mutate(Run_notes = Run_notes)
+
 dat1<-dat1 %>% group_by(Plate) %>% mutate(QAQC_flag=ifelse(Plate %in% Baddups_Fe2$Plate, ifelse(dat1$QAQC_flag != "", paste0(dat1$QAQC_flag, "; Spk recovery out of range"),"Spk recovery out of range"),paste0( dat1$QAQC_flag,"") ) ) %>% ungroup()
+
+dat1 <- dat1 %>%
+  mutate(Run_notes = Run_notes)
 
 #write out a flag to the sample dataframe if any spks have recovery out of range 
 
