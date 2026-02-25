@@ -13,7 +13,7 @@ output_dir: "To Be Reviewed/PDF"
 
 \newpage
 
-##Run Information 
+## Run Information 
 ```{r run information, include=TRUE}
 cat("Run Information: NAME ") #lets you know what section you're in 
 #set the run date & user name 
@@ -111,7 +111,7 @@ PO4_pe <- 0.824
 
 ```
 
-## Pull in active porewater tracking inventory sheet from Google Drive: 
+##Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
 
 # #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
@@ -248,9 +248,8 @@ nutr_metadata$NUTR_ID <- gsub("_NA_", "_", nutr_metadata$NUTR_ID)
 
 ```
 
-\newpage
 
-## Import Data & Clean
+##Import Data & Clean
 ```{r Import Data, include=FALSE}
 cat("Import Data")
 
@@ -287,10 +286,9 @@ DF_Flags <- df_all %>% dplyr::select(Run_Date) %>% distinct() %>% na.omit()
 
 ```
 
-
+\newpage
 
 ## Assessing standard Curves
-  ##Pull out standards data  
 ```{r Pull out Standard Curves, echo=FALSE}
 
 #Inputting Standard Values Based on Protocol (LINK PROTOCOL)
@@ -383,11 +381,11 @@ Slope_raw_list <- map(
  
  For_crv_plot <- Slope_raw %>% mutate(Conc =  as.numeric(Conc))
 
- Curves_Plot <- ggplot(For_crv_plot, aes(Conc, Absorbance, color = Run_Date)) + 
-   geom_point(size = 4) +
-  geom_smooth(data = subset(For_crv_plot, Test != "Vanadium NOx"), method = "lm", formula = "y~x",se = FALSE) +
-  geom_smooth(data = subset(For_crv_plot, Test == "Vanadium NOx"), method = "lm", formula = "y~x + I(x^2)",se = FALSE) + 
-   facet_grid(.~Test, scales = "free") + 
+ Curves_Plot <- ggplot(For_crv_plot, aes(Conc, Absorbance)) + 
+   geom_point(size = 3, col = "black") +
+  geom_smooth(data = subset(For_crv_plot, Test != "Vanadium NOx"), method = "lm", formula = "y~x",se = FALSE, col = "black") +
+  geom_smooth(data = subset(For_crv_plot, Test == "Vanadium NOx"), method = "lm", formula = "y~x + I(x^2)",se = FALSE, col = "black") + 
+   facet_wrap(Run_Date~Test, scales = "free") + 
    labs(title = "Standard Curves") + 
    theme_classic()
  
@@ -403,24 +401,85 @@ knitr::kable(R2_Flags) #display Regression flags and R2
 
 ```
 
-##Update Standard Log
-```{r, echo = FALSE}
+## Update Standard Log
+```{r Update Standard Curve Log, echo = FALSE}
 
 #log <- tibble(Test = c(), Intercept= c(), Slope= c(), Quadratic= c(), Run_Date= c(), User= c()) #create standard log in proper format
 
-old_log <- read.csv(file_path) %>% mutate(Run_Date = as.Date(as.character(Run_Date), tryFormats = c("%m/%d/%Y", "%Y-%m-%d"))) #read in log and format date
+old_log <- read.csv(file_path) %>% mutate(Run_Date = as.Date(as.character(Run_Date), tryFormats = c("%m/%d/%Y", "%Y-%m-%d"))) %>% mutate(Run = "Past Runs")#read in log and format date
 
 add_log <- R2_Check %>% dplyr::select(Test, Run_Date, R2, Slope, Intercept, Quadratic) %>%
   mutate(Test = case_when(
     Test == "Ammonia 2" ~ "NH3",
     Test == "Vanadium NOx" ~ "NOx",
     Test == "o-PHOS 0.3" ~ "PO4"
-  )) %>% mutate(Run_Date = as.Date(as.character(Run_Date), format = "%m/%d/%Y")) %>% mutate(User = user) #Format new run data for log
+  )) %>% mutate(Run_Date = as.Date(as.character(Run_Date), format = "%m/%d/%Y")) %>% mutate(User = user) %>% mutate(Run = "Current Runs")#Format new run data for log
 
 
 new_log <- rbind(old_log, add_log) %>% mutate(across(where(is.numeric), \(x) round(x, digits = 4))) %>% distinct() #bind rows, round data, and remove possible duplicate data from rerunning code
+Reg_Coef <- new_log %>% group_by(Test) %>% reframe(Mean_Slope = mean(Slope, na.rm = TRUE), SD_Slope = sd(Slope, na.rm = TRUE), Mean_Int = mean(Intercept, na.rm = TRUE), SD_Int = sd(Intercept, na.rm = TRUE), Mean_Quad = mean(Quadratic, na.rm = TRUE), SD_Quad = sd(Quadratic, na.rm = TRUE), Test = Test ) %>% distinct()
+
+Coef_Lim <- tibble(Test      = c("NH3", "PO4", "NOx"),
+                   Min_Slope = c(1.5,2.0,1.0 ),
+                   Max_Slope = c(2.5,3.0,2.0 ),
+                   Min_Int   = c(-0.06,-0.005 ,-0.2 ),
+                   Max_Int   = c(0,0,0),
+                   Min_Quad  = c(NA,NA,-0.2),
+                   Max_Quad  = c(NA,NA,0),
+                   Run_Date = median(new_log$Run_Date),
+                   Run = "Past Runs")
+
+#Plot Slope log
+Slopes_chk <- ggplot(new_log, aes(x = Run_Date, y = Slope, col = Run)) +
+  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
+  geom_abline(data = Reg_Coef, aes(intercept = Mean_Slope - 2*SD_Slope, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_abline(data = Reg_Coef, aes(intercept = Mean_Slope + 2*SD_Slope, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_point(size = 2) +
+  geom_point(data = Coef_Lim, aes(y = Max_Slope), alpha = 0) +
+  geom_point(data = Coef_Lim, aes(y = Min_Slope), alpha = 0) +
+  facet_wrap(Test~., scales = "free", ncol = 1) +
+  theme_classic()+
+  ggtitle("Slope Log") 
+
+
+#Plot Intercept log
+ints_chk <- ggplot(new_log, aes(x = Run_Date, y = Intercept, col = Run)) +
+  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
+  geom_abline(data = Reg_Coef, aes(intercept = Mean_Int - 2*SD_Int, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_abline(data = Reg_Coef, aes(intercept = Mean_Int + 2*SD_Int, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_point(size = 2) +
+  geom_point(data = Coef_Lim, aes(y = Max_Int), alpha = 0) +
+  geom_point(data = Coef_Lim, aes(y = Min_Int), alpha = 0) +
+  facet_wrap(Test~., scales = "free", ncol = 1) +
+  theme_classic()+
+  ggtitle("Intercept Log")
+
+NOx_Coef <- Reg_Coef %>% filter(Test == "NOx")
+NOx_Lim <- Coef_Lim %>% filter(Test == "NOx")
+
+NOx_Log <- new_log %>% filter(Test == "NOx")
+
+#Plot Quadratic Coef log
+quad_chk <- ggplot(NOx_Log, aes(x = Run_Date, y = Quadratic, col = Run)) +
+  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
+  geom_abline(data = NOx_Coef, aes(intercept = Mean_Quad - 2*SD_Quad, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_abline(data = NOx_Coef, aes(intercept = Mean_Quad + 2*SD_Quad, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
+  geom_point(size = 2) +
+  geom_point(data = NOx_Lim, aes(y = Max_Quad), alpha = 0) +
+  geom_point(data = NOx_Lim, aes(y = Min_Quad), alpha = 0) +
+  theme_classic() +
+  ylab("Quadratic Coefficient")+
+  ggtitle("NOx Quadratic Coef Log") 
+
+Slopes_chk
+
+quad_chk
+
+ints_chk
 
 write.csv(new_log, "Raw Data/SEAL_TEMPEST_QAQC_Log_2024.csv", row.names = FALSE) #write out log
+
+
 
 ```
 
@@ -572,8 +631,8 @@ print(red_effs_plot)
 Red_Eff_2 <- red_eff %>% group_by(Run_Date) %>% mutate(Mean_RedEff = mean(Eff_Percent)) %>% ungroup() %>% distinct()
 
 Red_Eff_disp <- Red_Eff_2 %>% mutate(Red_Eff_Flag = ifelse(Mean_RedEff >= 95,
-       "Mean NOx Reduction Efficiency >95% - PROCEED",
-       "Mean NOx Reduction Efficiency <95% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag)
+       "Mean NOx Reduction Efficiency >90% - PROCEED",
+       "Mean NOx Reduction Efficiency <90% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag)
 
 Red_Eff_join <- Red_Eff_disp
 
@@ -751,15 +810,15 @@ Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Da
     ))#Only Keep Latest Dilution of Duplicates
 
 #Plot Duplicates
-Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Run_Date, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
+Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Sample_Name, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "darkred"), name = "CV below 10% ?") +
-       scale_x_discrete(labels = NULL, breaks = NULL, name =NULL) +
   geom_hline(yintercept = 10, linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free")  + 
   theme_classic() + 
-    theme(legend.position = "bottom", strip.text = element_text(size = 8)) +
+    theme(legend.position = "bottom", strip.text = element_text(size = 8),
+          axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1, size = 7)) +
    labs(title = "Duplicate Check")
 
 Dup_Plot
@@ -807,15 +866,15 @@ Spike_plot_df <- Spike_Joined2 %>% filter(!Sample_Name %ilike% "ppt") %>% group_
       "YES"
       )) %>% ungroup()
 
-Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Run_Date, y = Spike_CV, fill =  Spike_Flag)) +
+Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  Spike_Flag)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "No, rerun" = "darkred"), name = "Spike CV <50% ?") +
-       scale_x_discrete(labels = NULL, breaks = NULL, name =NULL) +
   geom_hline(yintercept = c(50), linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free_x") + 
   theme_classic()  + 
-    theme(legend.position = "bottom", strip.text = element_text(size = 8)) +
+    theme(legend.position = "bottom", strip.text = element_text(size = 8),
+          axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1, size = 7)) +
    labs(title = "Spike Check")
 
 
@@ -867,7 +926,8 @@ Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  
   geom_hline(yintercept = c(50), linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free_x") + 
   theme_classic()  + 
-    theme(legend.position = "bottom", strip.text = element_text(size = 8)) +
+    theme(legend.position = "bottom", strip.text = element_text(size = 8),
+          axis.text.x = element_text(angle =30, hjust = 1, vjust = 1, size = 8)) +
    labs(title = "Matrix Check") +
   ylab("Matrix Spike CV")
 
@@ -980,85 +1040,7 @@ df_all_clean <- samples_flagged_selected %>% dplyr::select(Sample_Name, Test, Co
 
 ```
 
-## Visualize Data
-```{r Visualize Data, echo=FALSE}
 
-### Nitrite + Nitrate 
-
-NOx_forplot <- df_all_clean %>%
-  filter(Test == "Vanadium NOx")
-
-#group the data for plotting
-NOx_forplot <- NOx_forplot %>%
-  mutate(row_num = factor(row_number())) %>%  # create row_num as factor per group
-  ungroup()
-
-viz_NOx_plot <-  ggplot(data = NOx_forplot, aes(x = factor(row_num), y = Conc, fill=Zone)) +
-       geom_bar(stat = "identity", position = position_dodge2(preserve = "single"), 
-                 color="black") +
-        scale_fill_manual(values = c(
-    "C" = "springgreen2",
-    "FW" = "cyan2",
-    "SW" = "violetred2"
-  )) +
-        theme_classic() + 
-        labs(x= " ", y="NOx (mg/L)", title="Porewater NOx") + 
-          theme(legend.position = "none") +
-          scale_x_discrete(drop = TRUE)+
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-### Ammonia 
-
-NH3_forplot <- df_all_clean %>%
-  filter(Test == "Ammonia 2")
-
-#group the data for plotting
-NH3_forplot <- NH3_forplot %>%
-  mutate(row_num = factor(row_number())) %>%  # create row_num as factor per group
-  ungroup()
-
-viz_NH3_plot <- ggplot(data = NH3_forplot, aes(x = factor(row_num), y = Conc, fill=Zone)) +
-       geom_bar(stat = "identity", position = position_dodge2(preserve = "single"), 
-                 color="black") + 
-        scale_fill_manual(values = c(
-    "C" = "springgreen2",
-    "FW" = "cyan2",
-    "SW" = "violetred2"
-  )) +
-        theme_classic() + 
-        labs(x= " ", y="NH3 (mg/L)", title="Porewater NH3") + 
-          scale_x_discrete(drop = TRUE)+
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-### Phosphate 
-
-PO4_forplot <- df_all_clean %>%
-  filter(Test == "o-PHOS 0.3")
-
-#group the data for plotting
-PO4_forplot <- PO4_forplot %>%
-  mutate(row_num = factor(row_number())) %>%  # create row_num as factor per group
-  ungroup()
-
-viz_PO4_plot <- ggplot(data = PO4_forplot, aes(x = factor(row_num), y = Conc, fill=Zone)) +
-       geom_bar(stat = "identity", position = position_dodge2(preserve = "single"), 
-                 color="black") + 
-        scale_fill_manual(values = c(
-    "C" = "springgreen2",
-    "FW" = "cyan2",
-    "SW" = "violetred2"
-  )) +
-        theme_classic() + 
-        labs(x= " ", y="PO4 (mg/L)", title="Porewater PO4") + 
-          scale_x_discrete(drop = TRUE)+
-        theme(axis.text.x = element_text(angle = 90, hjust = 0.5))
-
-
-viz_NOx_plot
-viz_NH3_plot 
-viz_PO4_plot
-
-```
 
 ##Format Data
 ```{r Export Processed Data, include=FALSE}
@@ -1152,6 +1134,67 @@ final_data <- final_data_labeled %>%
 
 ```
 
+## Visualize Data by Plot   
+```{r Visualize Data, echo=FALSE, warning=FALSE}
+
+#Plot samples to get a first look at concentrations (sanity check)
+data_plotting <- final_data
+
+#Order by Zone from Upland to Surface Water
+data_plotting$Zone = factor(data_plotting$Zone, levels = c("C", "FW", "SW"))
+data_plotting <- data_plotting[order(data_plotting$Zone), ]
+
+#group the data for plotting
+data_plotting <- data_plotting %>%
+  mutate(row_num = factor(row_number())) %>%  # create row_num as factor per group
+  ungroup()
+
+#Plot data and change colors based on Zone:
+viz_NH3_plot <- ggplot(data_plotting, aes(x = row_num, y = NH3_Conc_uM, fill = Zone)) +
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
+  facet_wrap(~ Zone, scales="free") +
+  scale_fill_manual(values = c(
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
+  )) +
+  theme_classic() +
+  theme(axis.text.x = element_blank()) +
+  labs(x = " ", y = "NH3 (uM)", title = "Samples: Ammonia") +
+  scale_x_discrete(drop = TRUE)
+
+
+viz_PO4_plot <-  ggplot(data_plotting, aes(x = row_num, y = PO4_Conc_uM, fill = Zone)) +
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
+  facet_wrap(~ Zone, scales="free") +
+  scale_fill_manual(values = c(
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
+  )) +
+  theme_classic() +
+  theme(axis.text.x = element_blank()) +
+  labs(x = " ", y = "PO4 (uM)", title = "Samples: Phosphate") +
+  scale_x_discrete(drop = TRUE)
+
+viz_NOx_plot <-  ggplot(data_plotting, aes(x = row_num, y = NOx_Conc_uM, fill = Zone)) +
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
+  facet_wrap(~ Zone, scales="free") +
+  scale_fill_manual(values = c(
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
+  )) +
+  theme_classic() +
+  theme(axis.text.x = element_blank()) +
+  labs(x = " ", y = "NOx (uM)", title = "Samples: Nitrate/Nitrite") +
+  scale_x_discrete(drop = TRUE)
+
+ggarrange(viz_NH3_plot, viz_PO4_plot, viz_NOx_plot, nrow=3, ncol=1)
+
+
+```
+
 ##Write Out Data
 ```{r Export Data, echo = FALSE}
 
@@ -1160,6 +1203,8 @@ write.csv(final_data, final_path)
   
 
 ```
+
+
 
 
 #end
