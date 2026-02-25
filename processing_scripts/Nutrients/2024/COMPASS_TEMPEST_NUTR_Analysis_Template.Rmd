@@ -22,12 +22,12 @@ cat("Run Information: NAME ") #lets you know what section you're in
 
 #identify the files you want to read in 
   #read in as a list to accommadate ultiple runs in a month
-  NOx_files <- c("Raw Data/20260120_Tempest2024_NH3_PO4_Run1.csv")
-  NH3_PO4_files <- c("Raw Data/20260209_Tempest2024_VNOx_Run1.csv")
+NH3_PO4_files<- c("Raw Data/20260120_Tempest2024_NH3_PO4_Run1.csv", "Raw Data/20260209_Tempest2024_NH4PO4_Run2.csv")
+  NOx_files    <- c("Raw Data/20260209_Tempest2024_VNOx_Run1.csv","Raw Data/20260213_Tempest2024_VNOx_Run2.csv")
 
 # Define the file path for QAQC log file - NO Need to change just check year 
   file_path <- "Raw Data/SEAL_TEMPEST_QAQC_Log_2024.csv"
-  final_path <- "Processed Data/COMPASS_Synoptic_Nutrients_202407.csv"
+  final_path <- "Processed Data/COMPASS_Synoptic_Nutrients_202407a.csv"
 
 #record any notes about the run or anything other info here: 
   run_notes <- "" 
@@ -279,7 +279,7 @@ df1 <- df_combo %>%
 head(df)
 
 df_all <- df1 %>% mutate(Run_Number = as.numeric(Run_Number),
-         Run_Date = format(as.POSIXct(Run_Time,format='%m/%d/%Y %H:%M'),format='%m/%d/%Y'))
+         Run_Date = format(as.POSIXct(Run_Time,format='%m/%d/%Y %H:%M'),format='%m/%d/%Y')) %>% mutate(Sample_Name = ifelse(Sample_Name %ilike% "TMP", gsub("TMP", "TEMPEST", Sample_Name),Sample_Name ))
 
 #Initialize Flags
 DF_Flags <- df_all %>% dplyr::select(Run_Date) %>% distinct() %>% na.omit()
@@ -425,7 +425,7 @@ Coef_Lim <- tibble(Test      = c("NH3", "PO4", "NOx"),
                    Min_Int   = c(-0.06,-0.005 ,-0.2 ),
                    Max_Int   = c(0,0,0),
                    Min_Quad  = c(NA,NA,-0.2),
-                   Max_Quad  = c(NA,NA,0),
+                   Max_Quad  = c(NA,NA,0.2),
                    Run_Date = median(new_log$Run_Date),
                    Run = "Past Runs")
 
@@ -807,19 +807,22 @@ Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Da
       Test == "o-PHOS 0.3"                ~ "Within_Range",
       
       TRUE ~ NA_character_  # fallback for unexpected values
-    ))#Only Keep Latest Dilution of Duplicates
+    )) %>% #Only Keep Latest Dilution of Duplicates
+  mutate(Short_Names = str_extract(Sample_Name, "(?<=_).*(?=_)"))
 
 #Plot Duplicates
-Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Sample_Name, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
+Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Short_Names, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "darkred"), name = "CV below 10% ?") +
   geom_hline(yintercept = 10, linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free")  + 
   theme_classic() + 
-    theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1, size = 7)) +
-   labs(title = "Duplicate Check")
+    theme(legend.position = "bottom", strip.text = element_text( size = 8),
+          axis.text.x = element_text(size = 7)
+          ) +
+  xlab(NULL) +
+   labs(title = "Duplicate Check") + scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2))
 
 Dup_Plot
 
@@ -864,9 +867,10 @@ Spike_plot_df <- Spike_Joined2 %>% filter(!Sample_Name %ilike% "ppt") %>% group_
         Spike_CV >= 50,    #SEAL Uses 50% CV cutoff to check Spikes
       "No, rerun",
       "YES"
-      )) %>% ungroup()
+      )) %>% ungroup() %>%
+  mutate(Short_Names = str_extract(Sample_Name, "(?<=_).*(?=_)"))
 
-Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  Spike_Flag)) +
+Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Short_Names, y = Spike_CV, fill =  Spike_Flag)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "No, rerun" = "darkred"), name = "Spike CV <50% ?") +
@@ -874,7 +878,8 @@ Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  
   facet_wrap(Test~Run_Date, scales = "free_x") + 
   theme_classic()  + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1, size = 7)) +
+          axis.text.x = element_text(size = 7)) +
+  xlab(NULL) + scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2)) +
    labs(title = "Spike Check")
 
 
@@ -916,7 +921,7 @@ Spike_plot_df <- Spike_Joined2 %>% filter(Sample_Name %ilike% "ppt") %>% group_b
         Spike_CV >= 50,    #SEAL Uses 50% CV cutoff to check Spikes
       "No, rerun",
       "YES"
-      )) %>% ungroup()
+      )) %>% ungroup() %>% mutate(Sample_Name = ifelse(Sample_Name %ilike% "10ppt", "10ppt", ifelse(Sample_Name %ilike% "20ppt", "20ppt", "PPT NOT FOUND")))
 
 Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  Spike_Flag)) +
   geom_bar(stat = 'identity',
@@ -927,7 +932,7 @@ Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  
   facet_wrap(Test~Run_Date, scales = "free_x") + 
   theme_classic()  + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle =30, hjust = 1, vjust = 1, size = 8)) +
+          axis.text.x = element_text(size = 8)) +
    labs(title = "Matrix Check") +
   ylab("Matrix Spike CV")
 
