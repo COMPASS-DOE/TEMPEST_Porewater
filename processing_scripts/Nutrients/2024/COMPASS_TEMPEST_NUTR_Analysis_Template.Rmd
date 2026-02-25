@@ -532,13 +532,13 @@ ifelse(
 ifelse(
   length(df_dup_dil_disp$Sample_Name) == 0,
   paste("No Dilutions"),
-  paste("Diluted Samples:", df_dup_disp)
+  paste("Diluted Samples:", df_dup_dil_disp)
 )
 
 ifelse(
   length(df_dup_ndil_disp$Sample_Name) == 0,
   paste("No Naming Issues Detected"),
-  paste("Possible Naming Errors:", df_dup_disp)
+  paste("Possible Naming Errors:", df_dup_ndil_disp)
 )
 
 
