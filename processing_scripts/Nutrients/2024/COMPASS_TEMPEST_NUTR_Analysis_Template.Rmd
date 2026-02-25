@@ -631,8 +631,8 @@ print(red_effs_plot)
 Red_Eff_2 <- red_eff %>% group_by(Run_Date) %>% mutate(Mean_RedEff = mean(Eff_Percent)) %>% ungroup() %>% distinct()
 
 Red_Eff_disp <- Red_Eff_2 %>% mutate(Red_Eff_Flag = ifelse(Mean_RedEff >= 95,
-       "Mean NOx Reduction Efficiency >90% - PROCEED",
-       "Mean NOx Reduction Efficiency <90% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag)
+       "Mean NOx Reduction Efficiency >95% - PROCEED",
+       "Mean NOx Reduction Efficiency <95% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag) %>% distinct()
 
 Red_Eff_join <- Red_Eff_disp
 
