@@ -264,6 +264,7 @@ path <- ("file path")
 data_NOx <- map(NOx_files, read.csv)
 data_NH3_PO4 <- map(NH3_PO4_files, read.csv)
 
+data_redeff <- map(data_NOx, ~ .x %>% rename(QC = 2, RedEff = 3, Date = 15, Test = 13) %>% dplyr::select(QC, RedEff, Date, Test)) %>% bind_rows() %>% filter(QC == "REDUCTION EFFICIENCY" | lead(QC == "REDUCTION EFFICIENCY", default = FALSE)) %>% mutate(Date = ifelse(Date == "", NA, Date)) %>% fill(Date) %>% mutate(Run_Date = format(as.POSIXct(Date,format='%m/%d/%Y %H:%M'),format='%m/%d/%Y')) %>% filter(QC == "REDUCTION EFFICIENCY") %>% mutate(RedEff = as.numeric(RedEff))
 # Combining Files
 df_combo <- bind_rows(data_NOx, data_NH3_PO4)
 
@@ -283,7 +284,7 @@ df1 <- df_combo %>%
 head(df)
 
 df_all <- df1 %>% mutate(Run_Number = as.numeric(Run_Number),
-         Run_Date = format(as.POSIXct(Run_Time,format='%m/%d/%Y %H:%M'),format='%m/%d/%Y')) %>% mutate(Sample_Name = ifelse(Sample_Name %ilike% "TEMPEST", gsub("TEMPEST", "TMP", Sample_Name),Sample_Name ))
+         Run_Date = format(as.POSIXct(Run_Time,format='%m/%d/%Y %H:%M'),format='%m/%d/%Y')) %>% mutate(Sample_Name = ifelse(Sample_Name %ilike% "TEMPEST", gsub("TEMPEST", "TMP", Sample_Name),Sample_Name )) %>% mutate(across(c(Test, Run_Date), as.factor))
 
 #Initialize Flags
 DF_Flags <- df_all %>% dplyr::select(Run_Date) %>% distinct() %>% na.omit()
@@ -384,19 +385,65 @@ Slope_raw_list <- map(
    distinct()
  
  For_crv_plot <- Slope_raw %>% mutate(Conc =  as.numeric(Conc))
-
- Curves_Plot <- ggplot(For_crv_plot, aes(Conc, Absorbance)) + 
-   geom_point(size = 3, col = "black") +
-  geom_smooth(data = subset(For_crv_plot, Test != "Vanadium NOx"), method = "lm", formula = "y~x",se = FALSE, col = "black") +
-  geom_smooth(data = subset(For_crv_plot, Test == "Vanadium NOx"), method = "lm", formula = "y~x + I(x^2)",se = FALSE, col = "black") + 
-   facet_wrap(Run_Date~Test, scales = "free") + 
-   labs(title = "Standard Curves") + 
-   theme_classic()
  
-Curves_Plot
+ NH3_crv_df <- For_crv_plot %>% filter(Test == "Ammonia 2")
+ 
+ NH3_annotate <- NH3_crv_df %>% dplyr::select(R2, Run_Date) %>% distinct() %>% mutate(Conc = c(), Absorbance = max(NH3_crv_df$Absorbance))
+
+ 
+ PO4_crv_df <- For_crv_plot %>% filter(Test == "o-PHOS 0.3") 
+ 
+ PO4_annotate <- PO4_crv_df %>% dplyr::select(R2, Run_Date) %>% distinct()%>% mutate(Conc = c(), Absorbance =  max(PO4_crv_df$Absorbance))
+
+ 
+ NOx_crv_df <- For_crv_plot %>% filter(Test == "Vanadium NOx")
+ 
+ NOx_annotate <- NOx_crv_df %>% dplyr::select(R2, Run_Date) %>% distinct()%>% mutate(Conc = c(), Absorbance = max(NOx_crv_df$Absorbance))
+ 
+ 
  
 
-R2_Flags <- R2_Check %>% dplyr::select(Test, Run_Date, R2_Flag, R2) %>% arrange(Test, Run_Date) #make df for display 
+ NH3_Curves_Plot <- ggplot(NH3_crv_df, aes(Conc, Absorbance)) +
+  geom_point(size=3) +
+  geom_smooth(method = "lm", se = FALSE, color = "darkgoldenrod") +
+  theme_bw() + 
+  facet_wrap(~Run_Date) +
+  labs(x="Concentration (ppm)",
+       y="Absorbance",
+       title = "NH3 Standard Curve") +
+  geom_text(data = NH3_annotate, aes(x = 0.3, y = Absorbance, label = paste("r^2 =", round(R2, 4))),
+          color = "black", size = 4)
+ 
+NH3_Curves_Plot
+
+ PO4_Curves_Plot <- ggplot(PO4_crv_df, aes(Conc, Absorbance)) +
+  geom_point(size=3) +
+  geom_smooth(method = "lm", se = FALSE, color = "darkkhaki") +
+  theme_bw() + 
+  facet_wrap(~Run_Date) +
+  labs(x="Concentration (ppm)",
+       y="Absorbance",
+       title = "PO4 Standard Curve") +
+  geom_text(data = PO4_annotate, aes(x = 0.05, y = Absorbance, label = paste("r^2 =", round(R2, 4))),
+          color = "black", size = 4)
+ 
+PO4_Curves_Plot
+
+ NOx_Curves_Plot <- ggplot(NOx_crv_df, aes(Conc, Absorbance)) +
+  geom_point(size=3) +
+   geom_smooth(method = "lm", formula = y ~ poly(x, 2, raw = TRUE), se = FALSE, color = "coral") +
+  theme_bw() + 
+  facet_wrap(~Run_Date) +
+  labs(x="Concentration (ppm)",
+       y="Absorbance",
+       title = "NOx Standard Curve") +
+  geom_text(data = NOx_annotate, aes(x = 0.2, y = Absorbance, label = paste("r^2 =", round(R2, 4))),
+          color = "black", size = 4)
+ 
+NOx_Curves_Plot
+ 
+
+R2_Flags <- R2_Check %>% dplyr::select(Test, Run_Date, R2_Flag, R2, Slope) %>% arrange(Test, Run_Date) #make df for display 
 
 R2_Flags_join <- R2_Flags %>% dplyr::select(Test, Run_Date, R2_Flag)
 
@@ -420,8 +467,20 @@ add_log <- R2_Check %>% dplyr::select(Test, Run_Date, R2, Slope, Intercept, Quad
   )) %>% mutate(Run_Date = as.Date(as.character(Run_Date), format = "%m/%d/%Y")) %>% mutate(User = user) %>% mutate(Run = "Current Runs")#Format new run data for log
 
 
-new_log <- rbind(old_log, add_log) %>% mutate(across(where(is.numeric), \(x) round(x, digits = 4))) %>% distinct() #bind rows, round data, and remove possible duplicate data from rerunning code
-Reg_Coef <- new_log %>% group_by(Test) %>% reframe(Mean_Slope = mean(Slope, na.rm = TRUE), SD_Slope = sd(Slope, na.rm = TRUE), Mean_Int = mean(Intercept, na.rm = TRUE), SD_Int = sd(Intercept, na.rm = TRUE), Mean_Quad = mean(Quadratic, na.rm = TRUE), SD_Quad = sd(Quadratic, na.rm = TRUE), Test = Test ) %>% distinct()
+new_log <- rbind(old_log, add_log) %>% mutate(across(where(is.numeric), \(x) round(x, digits = 4))) %>% distinct(dplyr::select(.,-Run, -User), .keep_all = TRUE) #bind rows, round data, and remove possible duplicate data from rerunning code
+Reg_Coef <- new_log %>% group_by(Test) %>% reframe(Mean_Slope = mean(Slope, na.rm = TRUE), SD_Slope = sd(Slope, na.rm = TRUE), Mean_Int = mean(Intercept, na.rm = TRUE), SD_Int = sd(Intercept, na.rm = TRUE), Mean_Quad = mean(Quadratic, na.rm = TRUE), SD_Quad = sd(Quadratic, na.rm = TRUE), Test = Test ) %>% distinct() %>% 
+  mutate(
+  SD_Slope_Max = Mean_Slope + 2*SD_Slope, SD_Int_Max = Mean_Int + 2*SD_Int, SD_Quad_Max = Mean_Quad + 2*SD_Quad,
+  SD_Slope_Min = Mean_Slope - 2*SD_Slope, SD_Int_Min = Mean_Int - 2*SD_Int, SD_Quad_Min = Mean_Quad - 2*SD_Quad
+                                                                                                       )
+
+new_log_plot <- left_join(new_log, Reg_Coef, by = join_by(Test)) %>% 
+  mutate(
+    Slope_Lim = ifelse(Slope >= SD_Slope_Max | Slope <= SD_Slope_Min, "Bad", "Good"),
+    Int_Lim = ifelse(Intercept >= SD_Int_Max | Intercept <= SD_Int_Min, "Bad", "Good"),
+    Quad_Lim = ifelse(Quadratic >= SD_Quad_Max | Quadratic <= SD_Quad_Min, "Bad", "Good"),
+    
+    ) %>% mutate(Slope_Range = paste0(Test, Slope_Lim))
 
 Coef_Lim <- tibble(Test      = c("NH3", "PO4", "NOx"),
                    Min_Slope = c(1.5,2.0,1.0 ),
@@ -433,47 +492,44 @@ Coef_Lim <- tibble(Test      = c("NH3", "PO4", "NOx"),
                    Run_Date = median(new_log$Run_Date),
                    Run = "Past Runs")
 
+
 #Plot Slope log
-Slopes_chk <- ggplot(new_log, aes(x = Run_Date, y = Slope, col = Run)) +
-  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
-  geom_abline(data = Reg_Coef, aes(intercept = Mean_Slope - 2*SD_Slope, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_abline(data = Reg_Coef, aes(intercept = Mean_Slope + 2*SD_Slope, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_point(size = 2) +
-  geom_point(data = Coef_Lim, aes(y = Max_Slope), alpha = 0) +
-  geom_point(data = Coef_Lim, aes(y = Min_Slope), alpha = 0) +
-  facet_wrap(Test~., scales = "free", ncol = 1) +
-  theme_classic()+
-  ggtitle("Slope Log") 
+Slopes_chk <- ggplot(new_log_plot, aes(x = Run_Date, y = Slope, fill = Test, col = Slope_Lim, shape = Run)) +
+  scale_shape_manual(values = c("Past Runs" = 21, "Current Runs" = 24)) + 
+  geom_line(aes(group = Test), color = "black") + 
+  theme_bw() + 
+  labs(title="Slope Drift Assessment", x="Run Date", y="Slope") +
+  scale_fill_manual(values=c("NOx" = "coral", "NH3" = "darkgoldenrod", "PO4" = "darkkhaki"))+
+  scale_color_manual(values=c("Bad" = "red", "Good" = "transparent"))+
+  geom_point(size=4) + guides(fill = guide_legend(override.aes = list(shape = 21)))
+
 
 
 #Plot Intercept log
-ints_chk <- ggplot(new_log, aes(x = Run_Date, y = Intercept, col = Run)) +
-  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
-  geom_abline(data = Reg_Coef, aes(intercept = Mean_Int - 2*SD_Int, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_abline(data = Reg_Coef, aes(intercept = Mean_Int + 2*SD_Int, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_point(size = 2) +
-  geom_point(data = Coef_Lim, aes(y = Max_Int), alpha = 0) +
-  geom_point(data = Coef_Lim, aes(y = Min_Int), alpha = 0) +
-  facet_wrap(Test~., scales = "free", ncol = 1) +
-  theme_classic()+
-  ggtitle("Intercept Log")
+ints_chk <- ggplot(new_log_plot, aes(x = Run_Date, y = Intercept, fill = Test, col = Int_Lim, shape = Run)) +
+  scale_shape_manual(values = c("Past Runs" = 21, "Current Runs" = 24)) + 
+  geom_line(aes(group = Test), color = "black") + 
+  theme_bw() + 
+  labs(title="Intercept Drift Assessment", x="Run Date", y="Intercept") +
+  scale_fill_manual(values=c("NOx" = "coral", "NH3" = "darkgoldenrod", "PO4" = "darkkhaki"))+
+  scale_color_manual(values=c("Bad" = "red", "Good" = "transparent"))+
+  geom_point(size=4) + guides(fill = guide_legend(override.aes = list(shape = 21)))
+
 
 NOx_Coef <- Reg_Coef %>% filter(Test == "NOx")
 NOx_Lim <- Coef_Lim %>% filter(Test == "NOx")
 
-NOx_Log <- new_log %>% filter(Test == "NOx")
+NOx_Log <- new_log_plot %>% filter(Test == "NOx")
 
 #Plot Quadratic Coef log
-quad_chk <- ggplot(NOx_Log, aes(x = Run_Date, y = Quadratic, col = Run)) +
-  scale_color_manual(values = c("Past Runs" = "grey27", "Current Runs" = "cyan3")) +
-  geom_abline(data = NOx_Coef, aes(intercept = Mean_Quad - 2*SD_Quad, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_abline(data = NOx_Coef, aes(intercept = Mean_Quad + 2*SD_Quad, slope = 0), linetype = "dashed", linewidth = 1.5, col = "red" )+
-  geom_point(size = 2) +
-  geom_point(data = NOx_Lim, aes(y = Max_Quad), alpha = 0) +
-  geom_point(data = NOx_Lim, aes(y = Min_Quad), alpha = 0) +
-  theme_classic() +
-  ylab("Quadratic Coefficient")+
-  ggtitle("NOx Quadratic Coef Log") 
+quad_chk <- ggplot(NOx_Log, aes(x = Run_Date, y = Quadratic, fill = Test, col = Quad_Lim, shape = Run)) +
+  scale_shape_manual(values = c("Past Runs" = 21, "Current Runs" = 24)) + 
+  geom_line(aes(group = Test), color = "black") + 
+  theme_bw() + 
+  labs(title="Quad Coef Drift Assessment", x="Run Date", y="Quad Coef") +
+  scale_fill_manual(values=c("NOx" = "coral"))+
+  scale_color_manual(values=c("Bad" = "red", "Good" = "transparent"))+
+  geom_point(size=4) + guides(fill = guide_legend(override.aes = list(shape = 21)))
 
 Slopes_chk
 
@@ -616,27 +672,25 @@ knitr::kable(PE_Flag_disp)
 red_eff_1 <- df_all %>%
   filter(Sample_Name %in% c("Nitrate Standard", "Nitrite Standard"))
 
-red_eff <- red_eff_1 %>% group_by(Run_Date) %>% mutate(Eff_Percent = (Conc / 0.5)*100, Eff_Flag = ifelse(Eff_Percent >= 90, 'YES', 'NO, rerun'))
+red_eff <- data_redeff %>% mutate(Eff_Flag = ifelse(RedEff >= 85, 'YES', 'NO, rerun'))
 
 #Plot these efficencies 
-red_effs_plot <-  ggplot(data = red_eff, aes(x = Sample_Name, y = Conc, fill=Eff_Flag)) +
+red_effs_plot <-  ggplot(data = red_eff, aes(x = Run_Date, y = RedEff, fill=Eff_Flag)) +
        geom_bar(stat = 'identity') + 
-       facet_wrap(.~Run_Date, scale = "free_x") +
        scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "darkred")) +
-       theme_classic() + labs(x= " ", y="NOx (mg/L)", title=" ") + 
+       theme_classic() + labs(x= " ", y="Reduction Efficiency %", title=" ") + 
        theme(legend.position="bottom") +  
-       geom_hline(yintercept= 0.5, linetype="dashed", 
+       geom_hline(yintercept= 100, linetype="dashed", 
                 color = "black", linewidth=1)  + 
-       guides(fill=guide_legend(title="Reduction Efficiency >90%"))+
+       guides(fill=guide_legend(title="Reduction Efficiency >85%"))+
       scale_x_discrete(drop = TRUE)
 print(red_effs_plot)
 
 #create a flag 
-Red_Eff_2 <- red_eff %>% group_by(Run_Date) %>% mutate(Mean_RedEff = mean(Eff_Percent)) %>% ungroup() %>% distinct()
 
-Red_Eff_disp <- Red_Eff_2 %>% mutate(Red_Eff_Flag = ifelse(Mean_RedEff >= 95,
-       "Mean NOx Reduction Efficiency >95% - PROCEED",
-       "Mean NOx Reduction Efficiency <95% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag) %>% distinct() %>% arrange(Test, Run_Date)
+Red_Eff_disp <- data_redeff %>% mutate(Red_Eff_Flag = ifelse(RedEff >= 85,
+       "Mean NOx Reduction Efficiency >85% - PROCEED",
+       "Mean NOx Reduction Efficiency <85% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag) %>% distinct() %>% arrange(Test, Run_Date)
 
 Red_Eff_join <- Red_Eff_disp
 
