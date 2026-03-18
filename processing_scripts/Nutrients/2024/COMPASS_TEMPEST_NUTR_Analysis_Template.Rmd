@@ -102,6 +102,10 @@ chk_conc_flag = 15 #cutoff level for percent difference of check stds vs. expect
 chks_flag = 60
 rep_flag = 25 
 #^this is a 25% error between samples
+dup_cutoff = 10 #precent difference limit between duplicates 
+spike_cutoff = 50 #percent difference limit between spike and expected value
+redeff_low_cutoff = 90 #percent difference low limit between detected concentrations of NO3 and NO2 0.5mg/L Standards
+redeff_hi_cutoff = 110 #percent difference high limit between detected concentrations of NO3 and NO2 0.5mg/L Standards
 #blank_flag is calculated based on samples later in this code
 
 #pe check Concentrations
@@ -392,7 +396,7 @@ Slope_raw_list <- map(
 Curves_Plot
  
 
-R2_Flags <- R2_Check %>% dplyr::select(Test, Run_Date, R2_Flag, R2) #make df for display 
+R2_Flags <- R2_Check %>% dplyr::select(Test, Run_Date, R2_Flag, R2) %>% arrange(Test, Run_Date) #make df for display 
 
 R2_Flags_join <- R2_Flags %>% dplyr::select(Test, Run_Date, R2_Flag)
 
@@ -591,7 +595,7 @@ PE_NOx_flag_disp <- NOx_peChk %>% dplyr::select(Test, Run_Date, NOx_pe_flag, Mea
 
 PE_NH3_flag_disp <- NH3_peChk %>% dplyr::select(Test, Run_Date, NH3_pe_flag, Mean_Chk_Conc) %>% rename(PE_Flag = NH3_pe_flag, PE_Conc = Mean_Chk_Conc) %>% mutate(PE_Target_Conc = NH3_pe)
 
-PE_Flag_disp <- rbind(PE_PO4_flag_disp, PE_NOx_flag_disp,PE_NH3_flag_disp)
+PE_Flag_disp <- rbind(PE_PO4_flag_disp, PE_NOx_flag_disp,PE_NH3_flag_disp) %>% arrange(Test, Run_Date)
 
 PE_Flag_join <- PE_Flag_disp %>% dplyr::select(Test, Run_Date, PE_Flag)
 
@@ -632,7 +636,7 @@ Red_Eff_2 <- red_eff %>% group_by(Run_Date) %>% mutate(Mean_RedEff = mean(Eff_Pe
 
 Red_Eff_disp <- Red_Eff_2 %>% mutate(Red_Eff_Flag = ifelse(Mean_RedEff >= 95,
        "Mean NOx Reduction Efficiency >95% - PROCEED",
-       "Mean NOx Reduction Efficiency <95% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag) %>% distinct()
+       "Mean NOx Reduction Efficiency <95% - REASSESS")) %>% dplyr::select(Test, Run_Date, Red_Eff_Flag) %>% distinct() %>% arrange(Test, Run_Date)
 
 Red_Eff_join <- Red_Eff_disp
 
@@ -663,7 +667,7 @@ All_chks <- df_all %>% filter(
 )  
 
 #Create Data frame for displaying RSV flags
-check_flags_disp <- All_chks %>% mutate(RSV_Cutoff = chk_flag) %>% dplyr::select(Test, Run_Date, RSV_Flag, RSV, RSV_Cutoff) %>% distinct()
+check_flags_disp <- All_chks %>% mutate(RSV_Cutoff = chk_flag) %>% dplyr::select(Test, Run_Date, RSV_Flag, RSV, RSV_Cutoff) %>% distinct() %>% arrange(Test, Run_Date)
 
 knitr::kable(check_flags_disp)
 
@@ -703,7 +707,7 @@ chks_plot <-  ggplot(data = Chks_diff, aes(x = rep, y = Conc, fill=Diff_Flag)) +
 chks_plot
 
 #Create Plot for displaying check flags
-Chks_flag_disp <- Chks_diff %>% group_by(Test, Run_Date) %>% mutate(Percent = 100*length(which(Diff_Flag == "YES"))/length(Diff_Flag)) %>% mutate(CHK_Flag = ifelse(Percent >= chks_flag, ">60% of Checks Pass - PROCEED", "<60% of Checks Pass - REASSESs")) %>% ungroup() %>% dplyr::select(Test, Run_Date, CHK_Flag) %>% distinct()
+Chks_flag_disp <- Chks_diff %>% group_by(Test, Run_Date) %>% mutate(Percent = 100*length(which(Diff_Flag == "YES"))/length(Diff_Flag)) %>% mutate(CHK_Flag = ifelse(Percent >= chks_flag, ">60% of Checks Pass - PROCEED", "<60% of Checks Pass - REASSESs")) %>% ungroup() %>% dplyr::select(Test, Run_Date, CHK_Flag) %>% distinct() %>% arrange(Test, Run_Date)
 
 knitr::kable(Chks_flag_disp)
 
@@ -739,7 +743,7 @@ blks_all <- left_join(blks_df, samples, by = join_by(Test, Run_Date))
 blks_flagged <- blks_all %>% mutate(BLK_Flag = ifelse(Conc <= Quant, "YES", "NO, rerun")) %>% group_by(Test, Run_Date) %>% mutate(BLKs_Percent = 100*length(which(BLK_Flag == "YES"))/(length(BLK_Flag)) ) %>% mutate(BLK_Pct_Flag = ifelse(BLKs_Percent >= 60, ">60% of Blanks Pass - PROCEED", "<60% of Blanks Pass - REASSESS")) #Flag blanks 
 
 #Create Data frame for displaying blank flags
-blks_disp <- blks_flagged%>% group_by(Test, Run_Date) %>% mutate(Mean_Blk_Conc = mean(Conc)) %>% dplyr::select(Test, Run_Date, BLK_Pct_Flag, Mean_Blk_Conc, Quant) %>%  rename(Quantile_25 = Quant) %>% distinct()
+blks_disp <- blks_flagged%>% group_by(Test, Run_Date) %>% mutate(Mean_Blk_Conc = mean(Conc)) %>% dplyr::select(Test, Run_Date, BLK_Pct_Flag, Mean_Blk_Conc, Quant) %>%  rename(Quantile_25 = Quant) %>% distinct() %>% arrange(Test, Run_Date)
 
 knitr::kable(blks_disp)
 
@@ -781,8 +785,8 @@ Dup_ready <- df_all_cor %>% mutate(Date_Num = paste0(Run_Number, "_", Run_Date, 
 
 Dup_Joined <- left_join(Duplicates, Dup_ready, by = join_by(Date_Num)) #Join originals and duplicates
 
-Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Date_Num) %>% mutate(Duplicate_CV = cv(c(Dup_Conc, Conc))) %>% #Calculate cv of duplicates
-  mutate(Dup_Flag = ifelse(Duplicate_CV >= 10, "NO, rerun", "YES")) %>% #Flags Dups
+Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Date_Num) %>% mutate(Duplicate_Diff = 100*abs(Dup_Conc - Conc)/mean(c(Dup_Conc, Conc))) %>% #Calculate cv of duplicates
+  mutate(Dup_Flag = ifelse(Duplicate_Diff >= dup_cutoff, "NO, rerun", "YES")) %>% #Flags Dups
   ungroup() %>%
   group_by(Sample_Name) %>% ungroup() %>% group_by(Sample_Name) %>% 
   mutate(
@@ -811,11 +815,11 @@ Dup_plot_df <- Dup_Joined %>% filter(!Sample_Name %ilike% "chk") %>% group_by(Da
   mutate(Short_Names = str_extract(Sample_Name, "(?<=_).*(?=_)"))
 
 #Plot Duplicates
-Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Short_Names, y = Duplicate_CV, fill =  Dup_Flag, color = Within_Range)) +
+Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Short_Names, y = Duplicate_Diff, fill =  Dup_Flag, color = Within_Range)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "NO, rerun" = "darkred"), name = "CV below 10% ?") +
-  geom_hline(yintercept = 10, linetype = "dashed" ) +
+  geom_hline(yintercept = dup_cutoff, linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free")  + 
   theme_classic() + 
     theme(legend.position = "bottom", strip.text = element_text( size = 8),
@@ -827,7 +831,7 @@ Dup_Plot <-  ggplot(Dup_plot_df, aes(x = Short_Names, y = Duplicate_CV, fill =  
 Dup_Plot
 
 #Create Data Frame for Flagging and Displaying Duplicates QAQC
-Flags_Duplicates <- Dup_plot_df %>% group_by(Run_Date, Test) %>% mutate(Dup_Flags = ifelse(length(which(Dup_Flag == "YES"))/(length(Dup_Flag)) >= 0.6,  ">60% of Dups Pass - PROCEED", "<60% of Dups Pass - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Dup_Flags) %>% distinct()
+Flags_Duplicates <- Dup_plot_df %>% group_by(Run_Date, Test) %>% mutate(Dup_Flags = ifelse(length(which(Dup_Flag == "YES"))/(length(Dup_Flag)) >= 0.6,  ">60% of Dups Pass - PROCEED", "<60% of Dups Pass - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Dup_Flags) %>% distinct() %>% arrange(Test, Run_Date)
 
 knitr::kable(Flags_Duplicates)
 
@@ -861,20 +865,20 @@ Spike_Val <- tibble(
 Spike_Joined2 <- left_join(Spike_Joined, Spike_Val, by = join_by(Test))
 
 Spike_plot_df <- Spike_Joined2 %>% filter(!Sample_Name %ilike% "ppt") %>% group_by(Date_Num) %>% mutate(Spike_Exp_Recovery = Conc + Spike) %>% 
-  mutate(Spike_CV = cv(c(Spike_Exp_Recovery, Spike_Conc))) %>% 
+  mutate(Spike_Diff = 100*abs(Spike_Exp_Recovery - Spike_Conc)/Spike_Exp_Recovery) %>% 
   mutate(
     Spike_Flag = ifelse(
-        Spike_CV >= 50,    #SEAL Uses 50% CV cutoff to check Spikes
+        Spike_Diff >= spike_cutoff,    #SEAL Uses 50% CV cutoff to check Spikes
       "No, rerun",
       "YES"
       )) %>% ungroup() %>%
   mutate(Short_Names = str_extract(Sample_Name, "(?<=_).*(?=_)"))
 
-Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Short_Names, y = Spike_CV, fill =  Spike_Flag)) +
+Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Short_Names, y = Spike_Diff, fill =  Spike_Flag)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
   scale_fill_manual(values = c("YES" = "darkgreen", "No, rerun" = "darkred"), name = "Spike CV <50% ?") +
-  geom_hline(yintercept = c(50), linetype = "dashed" ) +
+  geom_hline(yintercept = c(spike_cutoff), linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free_x") + 
   theme_classic()  + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
@@ -886,7 +890,7 @@ Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Short_Names, y = Spike_CV, fill =  
 Spike_Plot
 
 
-Flags_Spike <- Spike_plot_df %>% group_by(Run_Date, Test) %>% mutate(Spike_Flags = ifelse(length(which(Spike_Flag == "YES"))/(length(Spike_Flag)) >= 0.6,  ">60% of Spikes have a CV <50% - PROCEED", ">60% of Spikes have a CV <50% - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Spike_Flags) %>% distinct()
+Flags_Spike <- Spike_plot_df %>% group_by(Run_Date, Test) %>% mutate(Spike_Flags = ifelse(length(which(Spike_Flag == "YES"))/(length(Spike_Flag)) >= 0.6,  ">60% of Spikes have a Diff <50% - PROCEED", ">60% of Spikes have a Diff <50% - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Spike_Flags) %>% distinct() %>% arrange(Test, Run_Date)
 
 knitr::kable(Flags_Spike)
 
@@ -915,18 +919,18 @@ Spike_Val <- tibble(
 Spike_Joined2 <- left_join(Spike_Joined, Spike_Val, by = join_by(Test))
 
 Spike_plot_df <- Spike_Joined2 %>% filter(Sample_Name %ilike% "ppt") %>% group_by(Date_Num) %>% mutate(Spike_Exp_Recovery = Conc + Spike) %>% 
-  mutate(Spike_CV = cv(c(Spike_Exp_Recovery, Spike_Conc))) %>% 
+  mutate(Spike_Diff = 100*abs(Spike_Exp_Recovery - Spike_Conc)/Spike_Exp_Recovery) %>% 
   mutate(
     Spike_Flag = ifelse(
-        Spike_CV >= 50,    #SEAL Uses 50% CV cutoff to check Spikes
+        Spike_Diff >= 50,    #SEAL Uses 50% CV cutoff to check Spikes
       "No, rerun",
       "YES"
       )) %>% ungroup() %>% mutate(Sample_Name = ifelse(Sample_Name %ilike% "10ppt", "10ppt", ifelse(Sample_Name %ilike% "20ppt", "20ppt", "PPT NOT FOUND")))
 
-Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  Spike_Flag)) +
+Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_Diff, fill =  Spike_Flag)) +
   geom_bar(stat = 'identity',
     position = position_dodge2(preserve = "single"), linewidth = 0.75) +
-  scale_fill_manual(values = c("YES" = "darkgreen", "No, rerun" = "darkred"), name = "Matrix Spike CV <50% ?") +
+  scale_fill_manual(values = c("YES" = "darkgreen", "No, rerun" = "darkred"), name = "Matrix Spike Diff <50% ?") +
        scale_x_discrete(name =NULL) +
   geom_hline(yintercept = c(50), linetype = "dashed" ) +
   facet_wrap(Test~Run_Date, scales = "free_x") + 
@@ -934,13 +938,13 @@ Spike_Plot <-  ggplot(Spike_plot_df, aes(x = Sample_Name, y = Spike_CV, fill =  
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
           axis.text.x = element_text(size = 8)) +
    labs(title = "Matrix Check") +
-  ylab("Matrix Spike CV")
+  ylab("Matrix Spike Diff Percent")
 
 
 Spike_Plot
 
 
-Flags_Matrix <- Spike_plot_df %>% group_by(Run_Date, Test) %>% mutate(Matrix_Flags = ifelse(length(which(Spike_Flag == "YES"))/(length(Spike_Flag)) >= 0.6,  "Matrix Has CV <50% - PROCEED", "Matrix Has CV >50% - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Matrix_Flags) %>% distinct()
+Flags_Matrix <- Spike_plot_df %>% group_by(Run_Date, Test) %>% mutate(Matrix_Flags = ifelse(length(which(Spike_Flag == "YES"))/(length(Spike_Flag)) >= 0.6,  "Matrix Has Diff <50% - PROCEED", "Matrix Has Diff >50% - REASSESS")) %>% ungroup() %>% dplyr::select(Test, Run_Date, Matrix_Flags) %>% distinct() %>% arrange(Test, Run_Date)%>% arrange(Test, Run_Date)
 
 knitr::kable(Flags_Matrix)
 
