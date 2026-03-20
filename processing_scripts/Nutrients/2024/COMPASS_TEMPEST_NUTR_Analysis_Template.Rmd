@@ -1476,7 +1476,7 @@ viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NOx_Conc_uM
         theme_classic() + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
           axis.text.x = element_text(angle = 90, size = 7, vjust = 0.5, hjust = 1)) +
-  xlab(NULL) + labs(y="NOx (uM)", title="Ammonia by Plot") + 
+  xlab(NULL) + labs(y="NOx (uM)", title="NOx by Plot") + 
         theme(legend.position="none") 
 
 viz_NOx_plot
