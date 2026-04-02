@@ -1201,9 +1201,11 @@ samples <- samples %>%
 head(samples)
 
 ```
+\newpage
+
 
 ##Sample Flagging - Within range of standard curve
-```{r Sample Flagging, echo=FALSE}
+```{r Sample Flagging, echo=FALSE, fig.align='center'}
 
 #Flagging data if the concentration is outside the standards range 
 samples_flagged1 <- samples %>% mutate(Dilution = ifelse(Dilution == 0, 1, Dilution )) %>%
@@ -1439,7 +1441,7 @@ dat_forplot <- dat_forplot %>%
 
 
 #Plot data and change colors based on flags to check it: 
-viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NH3_Conc_uM, fill=Plot_name)) +
+viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = NH3_Conc_uM, fill=Plot_name)) +
       geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales = "free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
@@ -1447,13 +1449,13 @@ viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NH3_Conc_uM
                                       "Saltwater" = "violetred2")) +
         theme_classic() + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle = 90, size = 7, vjust = 0.5, hjust = 1)) +
+          axis.text.x = element_text(size = 7, vjust = 0.5, hjust = 1)) +
   xlab(NULL) + labs(y="NH3 (uM)", title="NH3 by Plot") + 
         theme(legend.position="none") 
 
 viz_NH3_plot
 
-viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = PO4_Conc_uM, fill=Plot_name)) +
+viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = PO4_Conc_uM, fill=Plot_name)) +
        geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales="free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
@@ -1461,13 +1463,13 @@ viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = PO4_Conc_uM
                                       "Saltwater" = "violetred2")) +
         theme_classic() + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle = 90, size = 7, vjust = 0.5, hjust = 1)) +
+          axis.text.x = element_text(size = 7, vjust = 0.5, hjust = 1)) +
   xlab(NULL) + labs(y="PO4 (uM)", title="PO4 by Plot") + 
         theme(legend.position="none") 
 
 viz_PO4_plot
 
-viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NOx_Conc_uM, fill=Plot_name)) +
+viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = NOx_Conc_uM, fill=Plot_name)) +
        geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales="free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
@@ -1475,7 +1477,7 @@ viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NOx_Conc_uM
                                       "Saltwater" = "violetred2")) +
         theme_classic() + 
     theme(legend.position = "bottom", strip.text = element_text(size = 8),
-          axis.text.x = element_text(angle = 90, size = 7, vjust = 0.5, hjust = 1)) +
+          axis.text.x = element_text(size = 7, vjust = 0.5, hjust = 1)) +
   xlab(NULL) + labs(y="NOx (uM)", title="NOx by Plot") + 
         theme(legend.position="none") 
 
