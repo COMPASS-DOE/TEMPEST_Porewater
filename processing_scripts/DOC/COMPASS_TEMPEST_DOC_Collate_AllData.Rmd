@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater/Sourcewater DOC"
-author: "2022-2025 Samples"
+author: "2022-2026 Samples"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -45,7 +45,12 @@ dat25 <- read.csv("tmp_doc_2025/COMPASS_TEMPEST_DOC_2025.csv", colClasses = "cha
 # head(dat25)
 colnames(dat25)
 
-raw_dat <- bind_rows(dat22, dat23, dat24, dat25)
+#read in 2026 DOC Data:
+dat26 <- read.csv("tmp_doc_2026/COMPASS_TEMPEST_DOC_2026.csv", colClasses = "character")
+# head(dat26)
+colnames(dat26)
+
+raw_dat <- bind_rows(dat22, dat23, dat24, dat25, dat26)
 
 ##Sourcewater samples should be NA for depth, all other samples 15 cm. 
 raw_dat <- raw_dat %>% 

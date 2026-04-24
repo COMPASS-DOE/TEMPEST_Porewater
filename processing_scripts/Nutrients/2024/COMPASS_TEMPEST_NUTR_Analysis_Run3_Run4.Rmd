@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater Nutrients"
-author: "2024 Samples"
+author: "2024 Samples Run 3 and 4"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -22,12 +22,12 @@ cat("Run Information: Brenden ") #lets you know what section you're in
 
 #identify the files you want to read in 
   #read in as a list to accommadate ultiple runs in a month
-NH3_PO4_files<- c("Raw Data/20260416_Tempest2024_NP_Run3.csv", "Raw Data/20260417_Tempest2024_NP_Run3rr_Run4.csv")
+  NH3_PO4_files<- c("Raw Data/20260416_Tempest2024_NP_Run3.csv", "Raw Data/20260417_Tempest2024_NP_Run3rr_Run4.csv")
   NOx_files    <- c("Raw Data/20260416_Tempest2024_VNOx_Run3.csv","Raw Data/20260417_Tempest2024_VNOx_Run4.csv")
 
 # Define the file path for QAQC log file - NO Need to change just check year 
   file_path <- "Raw Data/SEAL_TEMPEST_QAQC_Log_2024.csv"
-  final_path <- "Processed Data/TEMPEST_PW_2024_Run3_4.csv"
+  final_path <- "Processed Data/TEMPEST_PW_Processed_2024_Run3_4.csv"
 
 #record any notes about the run or anything other info here: 
   run_notes <- "Run 3 needed samples reran because volume was low for NH4 and PO4, 0416 end of run had low volume for PE_Chk" 

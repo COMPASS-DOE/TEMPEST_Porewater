@@ -262,7 +262,7 @@ merged_data$Sample_ID <- gsub("_NACM", "", merged_data$Sample_ID)
 
 #Plot samples to get a first look at concentrations (sanity check)
 data_plotting <- merged_data %>%
-  subset(!is.na(Plot))
+  filter(!is.na(Plot))
 
 #Order by Zone from Upland to Surface Water
 unique(data_plotting$Plot)

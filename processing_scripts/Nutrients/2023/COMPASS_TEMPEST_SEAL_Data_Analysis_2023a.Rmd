@@ -446,7 +446,7 @@ NOXlook
 
 head(all_data)
 
-out <- all_data[ ,c(1,3,5,7,8,9,10)]
+out <- all_data #[ ,c(1,3,5,7,8,9,10)]
 head(out)
 
 ##0515 and 0608 data entered differently
@@ -486,7 +486,7 @@ alldat_final <- rbind(alldat, alldat_weird)
 ```{r}
 
 #Export Data
-# write.csv(alldat_final, file="Processed Data/COMPASS_TEMPEST_SEAL_NUTR_2023a.csv")
+write.csv(alldat_final, file="Processed Data/COMPASS_TEMPEST_SEAL_NUTR_2023a.csv")
 
 ```
 

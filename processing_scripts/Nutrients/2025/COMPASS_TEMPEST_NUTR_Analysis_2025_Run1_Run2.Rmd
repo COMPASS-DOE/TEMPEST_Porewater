@@ -27,7 +27,7 @@ NH3_PO4_files<- c("Raw Data/20260421_Tempest2025_NP_Run1.csv", "Raw Data/2026042
 
 # Define the file path for QAQC log file - NO Need to change just check year 
   file_path <- "Raw Data/SEAL_TEMPEST_QAQC_Log_2025.csv"
-  final_path <- "Processed Data/TEMPEST_Nutrients_2025_Run1_Run2.csv"
+  final_path <- "Processed Data/TEMPEST_Nutrients_Processed_2025_Run1_Run2.csv"
 
 #record any notes about the run or anything other info here: 
   run_notes <- "TMP_FW_I5_20250406 sample missing from IDs,
