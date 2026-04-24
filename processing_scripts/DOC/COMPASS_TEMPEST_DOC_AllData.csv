@@ -1006,3 +1006,63 @@
       No diuplicates on this run.",NA,"20251029","20251101","1337","1143","EDT","10"
 "829","COMPASS","TEMPEST","SW","H6",15,"TMP_SW_H6_20251101","27.3",2275,"NPOC checks out of range","1.084",77.43,NA,"11/3/2025 9:10:49 PM","NPOC check standards slightly out of range. Accepting run anyways. 
       No diuplicates on this run.",NA,"20251029","20251101","1345","1202","EDT","10"
+"830","COMPASS","TEMPEST","C","B4",15,"TMP_C_B4_20260309","17.15",1429.17,"NPOC checks out of range","0.3328",23.77,"TN checks out of range","3/18/2026 7:52:08 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1228","1050","EDT","10"
+"831","COMPASS","TEMPEST","C","C3",15,"TMP_C_C3_20260309","25.71",2142.5,"NPOC checks out of range","0.5052",36.09,"TN checks out of range","3/18/2026 8:16:42 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1230","1032","EDT","10"
+"832","COMPASS","TEMPEST","C","D5",15,"TMP_C_D5_20260309","8.9",741.67,"NPOC checks out of range","0.2227",15.91,"TN checks out of range","3/18/2026 8:47:47 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1518","1040","EDT","10"
+"833","COMPASS","TEMPEST","C","F4",15,"TMP_C_F4_20260309","22.11",1842.5,"NPOC checks out of range","0.5453",38.95,"TN checks out of range","3/18/2026 9:30:20 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1218","1017","EDT","10"
+"834","COMPASS","TEMPEST","C","F6",15,"TMP_C_F6_20260309","33.98",2831.67,"NPOC checks out of range","0.6899",49.28,"TN checks out of range","3/18/2026 10:00:49 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1216","1010","EDT","10"
+"835","COMPASS","TEMPEST","C","H3",15,"TMP_C_H3_20260309","28.96",2413.33,"NPOC checks out of range","0.9303",66.45,"TN checks out of range","3/18/2026 10:31:56 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1206","925","EDT","10"
+"836","COMPASS","TEMPEST","C","H6",15,"TMP_C_H6_20260309","30.17",2514.17,"NPOC checks out of range","0.6907",49.34,"TN checks out of range","3/18/2026 11:03:55 AM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1214","957","EDT","20"
+"837","COMPASS","TEMPEST","C","I5",15,"TMP_C_I5_20260309","27.93",2327.5,"NPOC checks out of range","0.539",38.5,"TN checks out of range","3/18/2026 12:04:45 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1210","943","EDT","20"
+"838","COMPASS","TEMPEST","FW","B4",15,"TMP_FW_B4_20260309","23.87",1989.17,"NPOC checks out of range","0.5007",35.76,"TN checks out of range","3/18/2026 2:10:15 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1415","1309","EDT","10"
+"839","COMPASS","TEMPEST","FW","C6",15,"TMP_FW_C6_20260309","16.94",1411.67,"NPOC checks out of range","0.3999",28.56,"TN checks out of range","3/18/2026 2:42:41 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1411","1248","EDT","10"
+"840","COMPASS","TEMPEST","FW","D5",15,"TMP_FW_D5_20260309","15.94",1328.33,"NPOC checks out of range","0.3295",23.54,"TN checks out of range","3/18/2026 3:15:22 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1421","1256","EDT","10"
+"841","COMPASS","TEMPEST","FW","E3",15,"TMP_FW_E3_20260309","20.27",1689.17,"NPOC checks out of range","0.3811",27.22,"TN checks out of range","3/18/2026 3:48:17 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1434","1323","EDT","10"
+"842","COMPASS","TEMPEST","FW","F4",15,"TMP_FW_F4_20260309","25.9",2158.33,"NPOC checks out of range","0.4926",35.19,"TN checks out of range","3/18/2026 4:17:18 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1432","1327","EDT","10"
+"843","COMPASS","TEMPEST","FW","F6",15,"TMP_FW_F6_20260309","25.75",2145.83,"NPOC checks out of range","0.4301",30.72,"TN checks out of range","3/18/2026 4:53:27 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1422","1348","EDT","10"
+"844","COMPASS","TEMPEST","FW","H3",15,"TMP_FW_H3_20260309","18.06",1505,"NPOC checks out of range","0.2973",21.24,"TN checks out of range","3/18/2026 5:29:31 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1431","1334","EDT","20"
+"845","COMPASS","TEMPEST","SW","B4",15,"TMP_SW_B4_20260309","93.09",7757.5,"NPOC checks out of range","1.241",88.64,"TN checks out of range","3/18/2026 7:45:09 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1252","1141","EDT","10"
+"846","COMPASS","TEMPEST","SW","C6",15,"TMP_SW_C6_20260309","78.77",6564.17,"NPOC checks out of range","1.749",124.93,"TN checks out of range","3/18/2026 8:20:56 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1256","1153","EDT","20"
+"847","COMPASS","TEMPEST","SW","F6",15,"TMP_SW_F6_20260309","56.91",4742.5,"NPOC checks out of range","1.085",77.5,"TN checks out of range","3/18/2026 9:35:55 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1300","1212","EDT","10"
+"848","COMPASS","TEMPEST","SW","H6",15,"TMP_SW_H6_20260309","38.47",3205.83,"NPOC checks out of range","1.578",112.71,"TN checks out of range","3/18/2026 10:07:29 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1316","1235","EDT","10"
+"849","COMPASS","TEMPEST","SW","I5",15,"TMP_SW_I5_20260309","105.5",8791.67,"NPOC checks out of range; value above cal curve","1.501",107.21,"TN checks out of range","3/18/2026 10:45:56 PM","Check standards started going out of range after the samples were run. 
+              Looked like the flow of the instrument was disrupted, but this was after the 
+              samples ran, so I think it is okay to use these data.",NA,"20260306","20260309","1313","1230","EDT","10"

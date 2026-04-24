@@ -84,15 +84,15 @@ all_data2 <- bind_rows(all_data_sw, all_data_nsw)
 
 colnames(all_data2)
 
-all_data3 <- all_data2 %>% 
-  select("Sample_ID", "NH3_uM", "PO4_uM",  "NOx_uM", "NH3_range", "PO4_range", "NOx_range", "Time")
+# all_data3 <- all_data2 %>% 
+#   select("Sample_ID", "NH3_mgL", "NH3_uM", "PO4_mgL", "PO4_uM",  "NOx_mgL", "NOx_uM", "NH3_range", "PO4_range", "NOx_range", "Time")
 
 ```
 ## Remove aquifer data and correct sample IDs
 ```{r}
 
 ##Remove Aquifer Data
-all_data4 <- all_data3 %>%  
+all_data4 <- all_data2 %>%  
   filter(!str_detect(Sample_ID, "Aquifer"), ignore_case = TRUE) 
 
 ##Control samples should be "C", not "CON"
@@ -217,6 +217,16 @@ if (all_present) {
 }
 
 
+#select specific columns
+colnames(Nutr_metadata)
+colnames(all_data4)
+
+Nutr_metadata <- Nutr_metadata %>% 
+  select(-c("Plot", "Project", "Zone", "Source", "Grid", "Collection_Date", "Time_of_day", "Event_Time"))
+
+all_data4 <- all_data4 %>% 
+  rename(Collection_Date = Date)
+
 #merge metadata with sample run data 
 merged_data <- all_data4 %>%
   left_join(Nutr_metadata, by = c("Sample_ID" = "Nutr_ID"))
@@ -233,11 +243,11 @@ merged_data$Sample_ID <- gsub("_NA", "", merged_data$Sample_ID)
 
 #Plot samples to get a first look at concentrations (sanity check)
 data_plotting <- merged_data %>%
-  subset(!is.na(Plot))
+  filter(Grid != "SOURCEWATER")
 
 #Order by Zone from Upland to Surface Water
 unique(data_plotting$Plot)
-data_plotting$Plot = factor(data_plotting$Plot, levels = c("Control", "Freshwater", "Saltwater"))
+data_plotting$Plot = factor(data_plotting$Plot, levels = c("C", "FW", "SW"))
 data_plotting <- data_plotting[order(data_plotting$Plot), ]
 
 data_plotting$NH3_uM <- as.numeric(data_plotting$NH3_uM)
@@ -254,9 +264,9 @@ viz_NH3_plot <- ggplot(data_plotting, aes(x = row_num, y = NH3_uM, fill = Plot))
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Plot, scales="free") +
   scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -268,9 +278,9 @@ viz_PO4_plot <-  ggplot(data_plotting, aes(x = row_num, y = PO4_uM, fill = Plot)
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Plot, scales="free") +
   scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -282,9 +292,9 @@ viz_NOx_plot <-  ggplot(data_plotting, aes(x = row_num, y = NOx_uM, fill = Plot)
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single")) +
   facet_wrap(~ Plot, scales="free") +
   scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
+    "C" = "springgreen2",
+    "FW" = "cyan2",
+    "SW" = "violetred2"
   )) +
   theme_classic() +
   theme(axis.text.x = element_blank()) +
@@ -310,13 +320,14 @@ final_data <- merged_data %>%
     Evacuation_Date_YYYYMMDD = Evacuation_Date
   ) %>%
   select(
-         Project, Zone, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
+         Project, Plot, Grid, Depth_cm, Event_Time, Time_of_day, 
          Volume_mL, Collection_Date, Evacuation_Date, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, Sample_ID, 
-         NH3_uM, PO4_uM, NOx_uM, NH3_range, PO4_range, NOx_range, 
+         NH3_mgL, NH3_uM, PO4_mgL, PO4_uM, NOx_mgL, NOx_uM, NH3_range, PO4_range, NOx_range, 
          Run_notes, Field_notes
         # list columns in the order you want them
   )
+
 
 write.csv(final_data, "COMPASS_TEMPEST_NUTR_2023.csv")
 

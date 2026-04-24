@@ -1,6 +1,6 @@
 ---
-title: "PROJECT: Porewater Nutrients"
-author: "Month YEAR Samples"
+title: "TEMPEST: Porewater Nutrients"
+author: "2024 Samples Run 1 and 2"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -18,7 +18,7 @@ output_dir: "To Be Reviewed/PDF"
 cat("Run Information: NAME ") #lets you know what section you're in 
 #set the run date & user name 
   sample_year <- "2024"
-  user <- "NAME"
+  user <- "Brenden Blakley"
 
 #identify the files you want to read in 
   #read in as a list to accommadate ultiple runs in a month
@@ -27,7 +27,7 @@ NH3_PO4_files<- c("Raw Data/20260120_Tempest2024_NH3_PO4_Run1.csv", "Raw Data/20
 
 # Define the file path for QAQC log file - NO Need to change just check year 
   file_path <- "Raw Data/SEAL_TEMPEST_QAQC_Log_2024.csv"
-  final_path <- "Processed Data/COMPASS_Synoptic_Nutrients_Processed_Run1_2.csv"
+  final_path <- "Processed Data/TEMPEST_PW_Processed_2024_Run1_2.csv"
 
 #record any notes about the run or anything other info here: 
   run_notes <- "" 
