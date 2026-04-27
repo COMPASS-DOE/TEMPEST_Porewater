@@ -173,7 +173,7 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
 raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 
 #create IDs from what was collected for comparison later
@@ -223,7 +223,7 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
   rename("Notes" = "Notes:") %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 #change "Source" to "Sourcewater" 
 raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
@@ -1321,12 +1321,17 @@ samples_flagged_selected <- samples_flagged1 %>%
   dplyr::select(-c(Pair_ID)) 
 
 #merge metadata with sample run data 
-df_all_clean <- samples_flagged_selected %>% dplyr::select(Sample_Name, Test, Conc, Conc_uM, Conc_flag, Run_Date) %>% group_by(Sample_Name) %>% mutate(Count = length(Sample_Name), Run_Date_1 = as.Date(Run_Date, "%m/%d/%Y")) %>% mutate(Keep = ifelse(Count <= 1, "Keep", ifelse(Run_Date_1 == max(Run_Date_1), "Keep", "RMV"))) %>% filter(Keep == "Keep") %>% dplyr::select(Sample_Name, Test, Conc, Conc_uM, Conc_flag, Run_Date) %>%
-  left_join(nutr_metadata, by = c("Sample_Name" = "NUTR_ID")) %>% left_join(Flags_Fin, by = join_by(Test, Run_Date))
+df_all_clean <- samples_flagged_selected %>% 
+  dplyr::select(Sample_Name, Test, Conc, Conc_uM, Conc_flag, Run_Date) %>% 
+  group_by(Sample_Name) %>% 
+  mutate(Count = length(Sample_Name), Run_Date_1 = as.Date(Run_Date, "%m/%d/%Y")) %>% 
+  mutate(Keep = ifelse(Count <= 1, "Keep", ifelse(Run_Date_1 == max(Run_Date_1), "Keep", "RMV"))) %>% 
+  filter(Keep == "Keep") %>% 
+  dplyr::select(Sample_Name, Test, Conc, Conc_uM, Conc_flag, Run_Date) %>%
+  left_join(nutr_metadata, by = c("Sample_Name" = "NUTR_ID")) %>% 
+  left_join(Flags_Fin, by = join_by(Test, Run_Date))
 
 ```
-
-
 
 ##Format Data
 ```{r Export Processed Data, include=FALSE}
@@ -1379,7 +1384,7 @@ final_data4 <- reduce(data_list, full_join, by = c("Sample_Name"))
 #Add project information 
 final_data_labeled <- final_data4 %>% 
   mutate(
-    Site = "Tempest",   # new column with same value on every row
+    Site = "TEMPEST",   # new column with same value on every row
     Run_notes = run_notes, 
     Analysis_rundate = Run_Date# new column with notes about the run
   ) 
@@ -1387,8 +1392,9 @@ final_data_labeled <- final_data4 %>%
 #Prepare data to be exported 
 final_data <- final_data_labeled %>%
   mutate(
-    Depth_cm = gsub("cm", "", Depth)
-  ) %>%
+    Depth_cm = gsub("cm", "", Depth), 
+    Sample_Name = ifelse(!is.na(Zone), paste(Sample_Name, "15cm", sep = "_"), Sample_Name)
+    ) %>%
     rename(
     Sample_ID = Sample_Name, 
   
@@ -1408,12 +1414,16 @@ final_data <- final_data_labeled %>%
     PO4_QAQC_Flag = `o-PHOS 0.3_QAQC_Flag`,
     
     Field_notes = Notes, 
-    Evacuation_Date = Evacuation_date_YYYMMDD
+    Evacuation_Date = Evacuation_date_YYYMMDD, 
+    Deployment_Date = Deployment_Date_YYYYMMDD, 
+    Plot = Zone
     # add more rename pairs as needed
   ) %>%
-  dplyr::select(Sample_ID, Site, Zone, Grid, Depth_cm, Event_Time, Time_of_day, 
+  dplyr::select(Sample_ID, Site, Plot, Grid, Depth_cm, Event_Time, Time_of_day, 
          Source, Volume_mL, Collection_Date, Evacuation_Date, 
-          NOx_Conc_mgL, NOx_Conc_uM, NOx_Conc_Flag, NOx_QAQC_Flag,
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, 
+         Deployment_Date, Deployment_Time_24hrs, Collection_Time_24hrs, 
+         NOx_Conc_mgL, NOx_Conc_uM, NOx_Conc_Flag, NOx_QAQC_Flag,
          NH3_Conc_mgL, NH3_Conc_uM, NH3_Conc_Flag, NH3_QAQC_Flag,
          PO4_Conc_mgL, PO4_Conc_uM, PO4_Conc_Flag, PO4_QAQC_Flag,
          Analysis_rundate,  Run_notes, Field_notes)
@@ -1423,24 +1433,20 @@ final_data <- final_data_labeled %>%
 ## Visualize Data by Plot   
 ```{r Visualize Data, echo=FALSE, warning=FALSE}
 
-IDs_df <- data.frame(do.call('rbind', strsplit(as.character(final_data$Sample_ID),'_',fixed=TRUE)))
-colnames(IDs_df) <- c("Site_Code" ,"Plot", "Grid_Square",  "Date", "Extra")
-
-IDs <- IDs_df %>% mutate(Date = ifelse(Date %like% "T", Extra, Date)) %>%dplyr::select(-Extra)
-head(IDs)
-
-#rejoin them to the dataframe
-dat_forplot <- cbind(IDs, final_data)
-head(dat_forplot)
-
-dat_forplot <- dat_forplot %>% 
+dat_forplot <- final_data %>% 
   mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
                                Plot == 'FW' ~ "Freshwater", 
                                Plot == 'C' ~ "Control")) %>%
-  mutate(Short_Names = str_extract(Sample_ID, "(?<=_).*(?=_)")) %>% group_by(Short_Names) %>% mutate(Multiple = ifelse(length(Short_Names) > 1, "YES", "NO")) %>% ungroup() %>% mutate(Short_Names = ifelse(Multiple == "YES", paste0(Short_Names, "_", Collection_Date), Short_Names)) %>% mutate(Grid_Square = ifelse(Grid_Square == "RainWater", "RW", Grid_Square))
+  mutate(Short_Names = str_extract(Sample_ID, "(?<=_).*(?=_)")) %>% 
+  group_by(Short_Names) %>% 
+  mutate(Multiple = ifelse(length(Short_Names) > 1, "YES", "NO")) %>% 
+  ungroup() %>% 
+  mutate(Short_Names = ifelse(Multiple == "YES", paste0(Short_Names, "_", Collection_Date), Short_Names)) %>% 
+  mutate(Grid = ifelse(Grid == "RainWater", "RW", Grid)) %>% 
+  filter(!is.na(Grid))
 
 #Plot data and change colors based on flags to check it: 
-viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = NH3_Conc_uM, fill=Plot_name)) +
+viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Grid, y = NH3_Conc_uM, fill=Plot_name)) +
       geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales = "free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
@@ -1454,7 +1460,7 @@ viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = NH3_Conc_uM
 
 viz_NH3_plot
 
-viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = PO4_Conc_uM, fill=Plot_name)) +
+viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Grid, y = PO4_Conc_uM, fill=Plot_name)) +
        geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales="free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 
@@ -1468,7 +1474,7 @@ viz_PO4_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = PO4_Conc_uM
 
 viz_PO4_plot
 
-viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Grid_Square, y = NOx_Conc_uM, fill=Plot_name)) +
+viz_NOx_plot <-  ggplot(data = dat_forplot, aes(x = Grid, y = NOx_Conc_uM, fill=Plot_name)) +
        geom_bar(stat = 'identity') + 
         facet_grid(.~Plot_name, scales="free_x") + 
         #facet_grid(~factor(Plot_name, levels=c('Control', 'Freshwater', 'Saltwater'))) + 

@@ -1,361 +1,361 @@
-"","Sample_ID","Site","Zone","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","Evacuation_Date","NOx_Conc_mgL","NOx_Conc_uM","NOx_Conc_Flag","NOx_QAQC_Flag","NH3_Conc_mgL","NH3_Conc_uM","NH3_Conc_Flag","NH3_QAQC_Flag","PO4_Conc_mgL","PO4_Conc_uM","PO4_Conc_Flag","PO4_QAQC_Flag","Analysis_rundate","Run_notes","Field_notes"
-"1","TMP_C_B4_20250131","Tempest","C","B4",15,NA,NA,"PW",8,20250131,20250128,0.007008,0.500331983979096,"bdl",NA,0.05528,3.94668265901319,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.004387,0.141636007921802,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"","Sample_ID","Site","Plot","Grid","Depth_cm","Event_Time","Time_of_day","Source","Volume_mL","Collection_Date","Evacuation_Date","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","Deployment_Date","Deployment_Time_24hrs","Collection_Time_24hrs","NOx_Conc_mgL","NOx_Conc_uM","NOx_Conc_Flag","NOx_QAQC_Flag","NH3_Conc_mgL","NH3_Conc_uM","NH3_Conc_Flag","NH3_QAQC_Flag","PO4_Conc_mgL","PO4_Conc_uM","PO4_Conc_Flag","PO4_QAQC_Flag","Analysis_rundate","Run_notes","Field_notes"
+"1","TMP_C_B4_20250131_15cm","TEMPEST","C","B4",15,NA,NA,"PW",8,20250131,20250128,1236,1219,NA,NA,NA,0.007008,0.500331983979096,"bdl",NA,0.05528,3.94668265901319,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.004387,0.141636007921802,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"2","TMP_C_B4_20250204","Tempest","C","B4",15,NA,NA,"PW",8,20250204,20250131,0.006949,0.496119714136806,"bdl",NA,0.017844,1.27396174687828,"bdl","Performance Check NOT Within 25% - REASSESS",0.001996,0.0644416393462312,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"2","TMP_C_B4_20250204_15cm","TEMPEST","C","B4",15,NA,NA,"PW",8,20250204,20250131,1219,1055,NA,NA,NA,0.006949,0.496119714136806,"bdl",NA,0.017844,1.27396174687828,"bdl","Performance Check NOT Within 25% - REASSESS",0.001996,0.0644416393462312,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"3","TMP_C_B4_20250509","Tempest","C","B4",15,NA,NA,"PW",6,20250509,20250506,0,0,"bdl",NA,0.045388,3.24044921359064,"Within_Range","",0.005088,0.164268066630072,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"3","TMP_C_B4_20250509_15cm","TEMPEST","C","B4",15,NA,NA,"PW",6,20250509,20250506,906,1339,NA,NA,NA,0,0,"bdl",NA,0.045388,3.24044921359064,"Within_Range","",0.005088,0.164268066630072,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1422"
-"4","TMP_C_B4_20250602","Tempest","C","B4",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.021293,1.52020104664196,"Within_Range","",0.004176,0.134823790536003,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"4","TMP_C_B4_20250602_15cm","TEMPEST","C","B4",15,NA,NA,"PW",14,20250602,20250530,1322,1558,NA,NA,NA,0,0,"bdl",NA,0.021293,1.52020104664196,"Within_Range","",0.004176,0.134823790536003,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"5","TMP_C_C3_20250131","Tempest","C","C3",15,NA,NA,"PW",8,20250131,20250128,0.013512,0.964681188288462,"bdl",NA,0.03024,2.15896678018377,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.013441,0.433947933092532,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"5","TMP_C_C3_20250131_15cm","TEMPEST","C","C3",15,NA,NA,"PW",8,20250131,20250128,1225,1137,NA,NA,NA,0.013512,0.964681188288462,"bdl",NA,0.03024,2.15896678018377,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.013441,0.433947933092532,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"6","TMP_C_C3_20250204","Tempest","C","C3",15,NA,NA,"PW",8,20250204,20250131,0.017946,1.28124397609715,"bdl",NA,0.012677,0.905066860859446,"bdl","Performance Check NOT Within 25% - REASSESS",0.009792,0.316138543325799,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"6","TMP_C_C3_20250204_15cm","TEMPEST","C","C3",15,NA,NA,"PW",8,20250204,20250131,1137,1043,NA,NA,NA,0.017946,1.28124397609715,"bdl",NA,0.012677,0.905066860859446,"bdl","Performance Check NOT Within 25% - REASSESS",0.009792,0.316138543325799,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","light color"
-"7","TMP_C_C3_20250602","Tempest","C","C3",15,NA,NA,"PW",8,20250602,20250530,0,0,"bdl",NA,0.055481,3.96103293423861,"Within_Range","",0.022235,0.717865656745216,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"7","TMP_C_C3_20250602_15cm","TEMPEST","C","C3",15,NA,NA,"PW",8,20250602,20250530,1324,1609,NA,NA,NA,0,0,"bdl",NA,0.055481,3.96103293423861,"Within_Range","",0.022235,0.717865656745216,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"8","TMP_C_C6_20250204","Tempest","C","C6",15,NA,NA,"PW",8,20250204,20250131,0.01148,0.819607759143838,"bdl",NA,0.017909,1.27860238314521,"bdl","Performance Check NOT Within 25% - REASSESS",0.006323,0.204140523840791,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"8","TMP_C_C6_20250204_15cm","TEMPEST","C","C6",15,NA,NA,"PW",8,20250204,20250131,1235,1107,NA,NA,NA,0.01148,0.819607759143838,"bdl",NA,0.017909,1.27860238314521,"bdl","Performance Check NOT Within 25% - REASSESS",0.006323,0.204140523840791,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"9","TMP_C_C6_20250602","Tempest","C","C6",15,NA,NA,"PW",8,20250602,20250530,0.000744,0.053117436655315,"bdl",NA,0.094864,6.77275875116908,"Within_Range","",0.008482,0.273844681831028,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"9","TMP_C_C6_20250602_15cm","TEMPEST","C","C6",15,NA,NA,"PW",8,20250602,20250530,1318,1546,NA,NA,NA,0.000744,0.053117436655315,"bdl",NA,0.094864,6.77275875116908,"Within_Range","",0.008482,0.273844681831028,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"10","TMP_C_D5_20250204","Tempest","C","D5",15,NA,NA,"PW",8,20250204,20250131,0.015777,1.12638951358992,"bdl",NA,0.014679,1.04799845788087,"bdl","Performance Check NOT Within 25% - REASSESS",0.011188,0.361208948399616,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"10","TMP_C_D5_20250204_15cm","TEMPEST","C","D5",15,NA,NA,"PW",8,20250204,20250131,1227,1115,NA,NA,NA,0.015777,1.12638951358992,"bdl",NA,0.014679,1.04799845788087,"bdl","Performance Check NOT Within 25% - REASSESS",0.011188,0.361208948399616,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"11","TMP_C_D5_20250602","Tempest","C","D5",15,NA,NA,"PW",7,20250602,20250530,0,0,"bdl",NA,0.026143,1.866463906559,"Within_Range","",0.01716,0.554017300191046,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"11","TMP_C_D5_20250602_15cm","TEMPEST","C","D5",15,NA,NA,"PW",7,20250602,20250530,1328,1620,NA,NA,NA,0,0,"bdl",NA,0.026143,1.866463906559,"Within_Range","",0.01716,0.554017300191046,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"12","TMP_C_E3_20250204","Tempest","C","E3",15,NA,NA,"PW",8,20250204,20250131,0.012054,0.86058814710103,"bdl",NA,0.005014,0.357971542190523,"bdl","Performance Check NOT Within 25% - REASSESS",0.002509,0.0810040446491453,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"12","TMP_C_E3_20250204_15cm","TEMPEST","C","E3",15,NA,NA,"PW",8,20250204,20250131,1126,1033,NA,NA,NA,0.012054,0.86058814710103,"bdl",NA,0.005014,0.357971542190523,"bdl","Performance Check NOT Within 25% - REASSESS",0.002509,0.0810040446491453,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"13","TMP_C_F4_20250602","Tempest","C","F4",15,NA,NA,"PW",8,20250602,20250530,0,0,"bdl",NA,0.023028,1.64407033776693,"Within_Range","",0.007795,0.251664618589114,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"13","TMP_C_F4_20250602_15cm","TEMPEST","C","F4",15,NA,NA,"PW",8,20250602,20250530,1339,1634,NA,NA,NA,0,0,"bdl",NA,0.023028,1.64407033776693,"Within_Range","",0.007795,0.251664618589114,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"14","TMP_C_F6_20250204","Tempest","C","F6",15,NA,NA,"PW",7,20250204,20250131,0.139916,9.9892194449799,"Within_Range",NA,0.017176,1.22627028493507,"bdl","Performance Check NOT Within 25% - REASSESS",0.038051,1.22849139216605,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"14","TMP_C_F6_20250204_15cm","TEMPEST","C","F6",15,NA,NA,"PW",7,20250204,20250131,1121,1019,NA,NA,NA,0.139916,9.9892194449799,"Within_Range",NA,0.017176,1.22627028493507,"bdl","Performance Check NOT Within 25% - REASSESS",0.038051,1.22849139216605,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","light color"
-"15","TMP_C_F6_20250602","Tempest","C","F6",15,NA,NA,"PW",8,20250602,20250530,0,0,"bdl",NA,0.011887,0.848665281615227,"bdl","",0.031063,1.00288108367334,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"15","TMP_C_F6_20250602_15cm","TEMPEST","C","F6",15,NA,NA,"PW",8,20250602,20250530,1331,1624,NA,NA,NA,0,0,"bdl",NA,0.011887,0.848665281615227,"bdl","",0.031063,1.00288108367334,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"16","TMP_C_H3_20250204","Tempest","C","H3",15,NA,NA,"PW",8,20250204,20250131,0.042456,3.03112082075007,"Within_Range",NA,0.142598,10.1806992367938,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001983,0.0640219292703289,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"16","TMP_C_H3_20250204_15cm","TEMPEST","C","H3",15,NA,NA,"PW",8,20250204,20250131,1051,941,NA,NA,NA,0.042456,3.03112082075007,"Within_Range",NA,0.142598,10.1806992367938,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001983,0.0640219292703289,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"17","TMP_C_H3_20250509","Tempest","C","H3",15,NA,NA,"PW",14,20250509,20250506,0.000481,0.0343407083752775,"bdl",NA,0.131591,9.39486103079241,"Within_Range","",0.004904,0.158327554786532,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"17","TMP_C_H3_20250509_15cm","TEMPEST","C","H3",15,NA,NA,"PW",14,20250509,20250506,731,1325,NA,NA,NA,0.000481,0.0343407083752775,"bdl",NA,0.131591,9.39486103079241,"Within_Range","",0.004904,0.158327554786532,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1401"
-"18","TMP_C_H3_20250602","Tempest","C","H3",15,NA,NA,"PW",8,20250602,20250530,0,0,"bdl",NA,0.02038,1.45501795569263,"Within_Range","",0.005581,0.180184764123906,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"18","TMP_C_H3_20250602_15cm","TEMPEST","C","H3",15,NA,NA,"PW",8,20250602,20250530,1342,1643,NA,NA,NA,0,0,"bdl",NA,0.02038,1.45501795569263,"Within_Range","",0.005581,0.180184764123906,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"19","TMP_C_H6_20250131","Tempest","C","H6",15,NA,NA,"PW",6,20250131,20250128,0.015425,1.1012586833444,"bdl",NA,0.192046,13.7110097310573,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.002493,0.0804874784018809,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"19","TMP_C_H6_20250131_15cm","TEMPEST","C","H6",15,NA,NA,"PW",6,20250131,20250128,1215,1113,NA,NA,NA,0.015425,1.1012586833444,"bdl",NA,0.192046,13.7110097310573,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.002493,0.0804874784018809,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"20","TMP_C_H6_20250204","Tempest","C","H6",15,NA,NA,"PW",8,20250204,20250131,0.01284,0.916704148728823,"bdl",NA,0.097866,6.98708475229711,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.002989,0.0965010320670766,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"20","TMP_C_H6_20250204_15cm","TEMPEST","C","H6",15,NA,NA,"PW",8,20250204,20250131,1113,1006,NA,NA,NA,0.01284,0.916704148728823,"bdl",NA,0.097866,6.98708475229711,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.002989,0.0965010320670766,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"21","TMP_C_H6_20250406","Tempest","C","H6",15,NA,NA,"PW",8,20250406,20250403,0,0,"bdl",NA,0.04254,3.03711795069502,"Within_Range","",0.007127,0.230097977765826,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"21","TMP_C_H6_20250406_15cm","TEMPEST","C","H6",15,NA,NA,"PW",8,20250406,20250403,1433,1218,NA,NA,NA,0,0,"bdl",NA,0.04254,3.03711795069502,"Within_Range","",0.007127,0.230097977765826,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"22","TMP_C_H6_20250509","Tempest","C","H6",15,NA,NA,"PW",8,20250509,20250506,0,0,"bdl",NA,0.037062,2.64601940499904,"Within_Range","",0.008008,0.258541406755821,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"22","TMP_C_H6_20250509_15cm","TEMPEST","C","H6",15,NA,NA,"PW",8,20250509,20250506,736,1331,NA,NA,NA,0,0,"bdl",NA,0.037062,2.64601940499904,"Within_Range","",0.008008,0.258541406755821,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1411"
-"23","TMP_C_H6_20250602","Tempest","C","H6",15,NA,NA,"PW",14,20250602,20250530,0.003812,0.272155468454382,"bdl",NA,0.938518,67.0049333533238,"Within_Range","",0.006319,0.204011382278975,"bdl",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"23","TMP_C_H6_20250602_15cm","TEMPEST","C","H6",15,NA,NA,"PW",14,20250602,20250530,1349,1707,NA,NA,NA,0.003812,0.272155468454382,"bdl",NA,0.938518,67.0049333533238,"Within_Range","",0.006319,0.204011382278975,"bdl",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"24","TMP_C_I5_20250131","Tempest","C","I5",15,NA,NA,"PW",8,20250131,20250128,0.052729,3.76455553413723,"Within_Range",NA,0.021567,1.53976311336717,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.003135,0.101214699073364,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"24","TMP_C_I5_20250131_15cm","TEMPEST","C","I5",15,NA,NA,"PW",8,20250131,20250128,1212,1100,NA,NA,NA,0.052729,3.76455553413723,"Within_Range",NA,0.021567,1.53976311336717,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.003135,0.101214699073364,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"25","TMP_C_I5_20250204","Tempest","C","I5",15,NA,NA,"PW",8,20250204,20250131,0.016721,1.19378583106656,"bdl",NA,0.008273,0.590645905173952,"bdl","Performance Check NOT Within 25% - REASSESS",0.004921,0.15887640642425,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"25","TMP_C_I5_20250204_15cm","TEMPEST","C","I5",15,NA,NA,"PW",8,20250204,20250131,1100,953,NA,NA,NA,0.016721,1.19378583106656,"bdl",NA,0.008273,0.590645905173952,"bdl","Performance Check NOT Within 25% - REASSESS",0.004921,0.15887640642425,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"26","TMP_C_I5_20250403","Tempest","C","I5",15,NA,NA,"PW",8,20250403,20250331,0.015257,1.08926442345449,"bdl",NA,0.019358,1.38205287469568,"bdl","Performance Check NOT Within 25% - REASSESS",0.010646,0.343710266773536,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"26","TMP_C_I5_20250403_15cm","TEMPEST","C","I5",15,NA,NA,"PW",8,20250403,20250331,1336,1424,NA,NA,NA,0.015257,1.08926442345449,"bdl",NA,0.019358,1.38205287469568,"bdl","Performance Check NOT Within 25% - REASSESS",0.010646,0.343710266773536,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"27","TMP_C_I5_20250509","Tempest","C","I5",15,NA,NA,"PW",14,20250509,20250506,0.003817,0.272512440474916,"bdl",NA,0.02858,2.0404520693668,"Within_Range","",0.011736,0.378901342368421,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"27","TMP_C_I5_20250509_15cm","TEMPEST","C","I5",15,NA,NA,"PW",14,20250509,20250506,740,1327,NA,NA,NA,0.003817,0.272512440474916,"bdl",NA,0.02858,2.0404520693668,"Within_Range","",0.011736,0.378901342368421,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1351"
-"28","TMP_C_I5_20250602","Tempest","C","I5",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.020796,1.48471802780098,"Within_Range","",0.010321,0.333217514875978,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"28","TMP_C_I5_20250602_15cm","TEMPEST","C","I5",15,NA,NA,"PW",14,20250602,20250530,1344,1656,NA,NA,NA,0,0,"bdl",NA,0.020796,1.48471802780098,"Within_Range","",0.010321,0.333217514875978,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"29","TMP_FW_B4_20250204","Tempest","FW","B4",15,NA,NA,"PW",8,20250204,20250131,0.171113,12.2165106698937,"Within_Range",NA,0.214552,15.3178121898806,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001103,0.0356107856707881,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"29","TMP_FW_B4_20250204_15cm","TEMPEST","FW","B4",15,NA,NA,"PW",8,20250204,20250131,1412,1407,NA,NA,NA,0.171113,12.2165106698937,"Within_Range",NA,0.214552,15.3178121898806,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001103,0.0356107856707881,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"30","TMP_FW_B4_20250403","Tempest","FW","B4",15,NA,NA,"PW",7,20250403,20250331,0.045015,3.21381910085887,"Within_Range",NA,0.133448,9.52744043921837,"Within_Range","",0.003419,0.110383749962307,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"30","TMP_FW_B4_20250403_15cm","TEMPEST","FW","B4",15,NA,NA,"PW",7,20250403,20250331,1433,1102,NA,NA,NA,0.045015,3.21381910085887,"Within_Range",NA,0.133448,9.52744043921837,"Within_Range","",0.003419,0.110383749962307,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"31","TMP_FW_B4_20250602","Tempest","FW","B4",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.020954,1.49599834364982,"Within_Range","",0.003494,0.112805154246359,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"31","TMP_FW_B4_20250602_15cm","TEMPEST","FW","B4",15,NA,NA,"PW",14,20250602,20250530,1101,1159,NA,NA,NA,0,0,"bdl",NA,0.020954,1.49599834364982,"Within_Range","",0.003494,0.112805154246359,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"32","TMP_FW_C3_20250204","Tempest","FW","C3",15,NA,NA,"PW",8,20250204,20250131,0.00026,0.0185625450677176,"bdl",NA,0.016559,1.18221993760129,"bdl","Performance Check NOT Within 25% - REASSESS",0.0016,0.0516566247264378,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"32","TMP_FW_C3_20250204_15cm","TEMPEST","FW","C3",15,NA,NA,"PW",8,20250204,20250131,1414,1417,NA,NA,NA,0.00026,0.0185625450677176,"bdl",NA,0.016559,1.18221993760129,"bdl","Performance Check NOT Within 25% - REASSESS",0.0016,0.0516566247264378,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"33","TMP_FW_C3_20250406","Tempest","FW","C3",15,NA,NA,"PW",8,20250406,20250403,0,0,"bdl",NA,0.009067,0.647333062034598,"bdl","",0.003859,0.124589321762077,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"33","TMP_FW_C3_20250406_15cm","TEMPEST","FW","C3",15,NA,NA,"PW",8,20250406,20250403,1056,1120,NA,NA,NA,0,0,"bdl",NA,0.009067,0.647333062034598,"bdl","",0.003859,0.124589321762077,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"34","TMP_FW_C3_20250602","Tempest","FW","C3",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.016431,1.17308145387565,"bdl","",0.003956,0.127721004636118,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"34","TMP_FW_C3_20250602_15cm","TEMPEST","FW","C3",15,NA,NA,"PW",14,20250602,20250530,1100,1147,NA,NA,NA,0,0,"bdl",NA,0.016431,1.17308145387565,"bdl","",0.003956,0.127721004636118,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"35","TMP_FW_C6_20250131","Tempest","FW","C6",15,NA,NA,"PW",8,20250131,20250128,0.023478,1.6761978196149,"bdl",NA,0.012244,0.874153083881285,"bdl","Performance Check NOT Within 25% - REASSESS",0.007092,0.228967989099936,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"35","TMP_FW_C6_20250131_15cm","TEMPEST","FW","C6",15,NA,NA,"PW",8,20250131,20250128,1314,1405,NA,NA,NA,0.023478,1.6761978196149,"bdl",NA,0.012244,0.874153083881285,"bdl","Performance Check NOT Within 25% - REASSESS",0.007092,0.228967989099936,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled in lab at 1549"
-"36","TMP_FW_C6_20250204","Tempest","FW","C6",15,NA,NA,"PW",8,20250204,20250131,0.007064,0.504330070609066,"bdl",NA,0.116463,8.31480648546767,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007498,0.242075857624269,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"36","TMP_FW_C6_20250204_15cm","TEMPEST","FW","C6",15,NA,NA,"PW",8,20250204,20250131,1405,1358,NA,NA,NA,0.007064,0.504330070609066,"bdl",NA,0.116463,8.31480648546767,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007498,0.242075857624269,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"37","TMP_FW_C6_20250403","Tempest","FW","C6",15,NA,NA,"PW",8,20250403,20250331,0.011576,0.826461621938072,"bdl",NA,0.019204,1.37105813646326,"bdl","",0.008937,0.288534534487609,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"37","TMP_FW_C6_20250403_15cm","TEMPEST","FW","C6",15,NA,NA,"PW",8,20250403,20250331,1429,1124,NA,NA,NA,0.011576,0.826461621938072,"bdl",NA,0.019204,1.37105813646326,"bdl","",0.008937,0.288534534487609,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"38","TMP_FW_C6_20250509","Tempest","FW","C6",15,NA,NA,"PW",7.5,20250509,20250506,0.000744,0.053117436655315,"bdl",NA,0.022705,1.62100994524049,"Within_Range","",0.017934,0.57900619240246,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"38","TMP_FW_C6_20250509_15cm","TEMPEST","FW","C6",15,NA,NA,"PW",7.5,20250509,20250506,824,1024,NA,NA,NA,0.000744,0.053117436655315,"bdl",NA,0.022705,1.62100994524049,"Within_Range","",0.017934,0.57900619240246,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1120"
-"39","TMP_FW_C6_20250602","Tempest","FW","C6",15,NA,NA,"PW",14,20250602,20250530,0.003955,0.282364868241627,"bdl",NA,0.020898,1.49200025701985,"Within_Range","",0.008802,0.284176006776316,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"39","TMP_FW_C6_20250602_15cm","TEMPEST","FW","C6",15,NA,NA,"PW",14,20250602,20250530,1107,1221,NA,NA,NA,0.003955,0.282364868241627,"bdl",NA,0.020898,1.49200025701985,"Within_Range","",0.008802,0.284176006776316,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"40","TMP_FW_D5_20250131","Tempest","FW","D5",15,NA,NA,"PW",8,20250131,20250128,0.01637,1.16872639522514,"bdl",NA,0.009292,0.663396802958584,"bdl","Performance Check NOT Within 25% - REASSESS",0.001753,0.0565962894659034,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"40","TMP_FW_D5_20250131_15cm","TEMPEST","FW","D5",15,NA,NA,"PW",8,20250131,20250128,1316,1408,NA,NA,NA,0.01637,1.16872639522514,"bdl",NA,0.009292,0.663396802958584,"bdl","Performance Check NOT Within 25% - REASSESS",0.001753,0.0565962894659034,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled in lab at 1619"
-"41","TMP_FW_D5_20250204","Tempest","FW","D5",15,NA,NA,"PW",8,20250204,20250131,0.012204,0.871297307717021,"bdl",NA,0.011163,0.796975733042044,"bdl","Performance Check NOT Within 25% - REASSESS",0.001251,0.0403890234579836,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"41","TMP_FW_D5_20250204_15cm","TEMPEST","FW","D5",15,NA,NA,"PW",8,20250204,20250131,1408,1424,NA,NA,NA,0.012204,0.871297307717021,"bdl",NA,0.011163,0.796975733042044,"bdl","Performance Check NOT Within 25% - REASSESS",0.001251,0.0403890234579836,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"42","TMP_FW_D5_20250403","Tempest","FW","D5",15,NA,NA,"PW",8,20250403,20250331,0.004591,0.327771709253429,"bdl",NA,0.013684,0.976961025794798,"bdl","",0.004871,0.157262136901549,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"42","TMP_FW_D5_20250403_15cm","TEMPEST","FW","D5",15,NA,NA,"PW",8,20250403,20250331,1431,1110,NA,NA,NA,0.004591,0.327771709253429,"bdl",NA,0.013684,0.976961025794798,"bdl","",0.004871,0.157262136901549,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"43","TMP_FW_D5_20250509","Tempest","FW","D5",15,NA,NA,"PW",8,20250509,20250506,0.004898,0.349689791314157,"bdl",NA,0.024897,1.77750647904217,"Within_Range","",0.009826,0.317236246601236,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"43","TMP_FW_D5_20250509_15cm","TEMPEST","FW","D5",15,NA,NA,"PW",8,20250509,20250506,833,1022,NA,NA,NA,0.004898,0.349689791314157,"bdl",NA,0.024897,1.77750647904217,"Within_Range","",0.009826,0.317236246601236,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1055"
-"44","TMP_FW_D5_20250602","Tempest","FW","D5",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.018818,1.34349989647811,"bdl","",0.005303,0.171209425577687,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"44","TMP_FW_D5_20250602_15cm","TEMPEST","FW","D5",15,NA,NA,"PW",14,20250602,20250530,1105,1210,NA,NA,NA,0,0,"bdl",NA,0.018818,1.34349989647811,"bdl","",0.005303,0.171209425577687,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"45","TMP_FW_E3_20250131","Tempest","FW","E3",15,NA,NA,"PW",6,20250131,20250128,0.024997,1.78464591945283,"bdl",NA,0.033127,2.36508242483954,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001805,0.0582751297695126,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"45","TMP_FW_E3_20250131_15cm","TEMPEST","FW","E3",15,NA,NA,"PW",6,20250131,20250128,1326,1416,NA,NA,NA,0.024997,1.78464591945283,"bdl",NA,0.033127,2.36508242483954,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.001805,0.0582751297695126,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled in lab at 1603"
-"46","TMP_FW_E3_20250204","Tempest","FW","E3",15,NA,NA,"PW",8,20250204,20250131,0.026183,1.86931968272327,"Within_Range",NA,0.016136,1.1520201046642,"bdl","Performance Check NOT Within 25% - REASSESS",0.002442,0.0788409234887257,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"46","TMP_FW_E3_20250204_15cm","TEMPEST","FW","E3",15,NA,NA,"PW",8,20250204,20250131,1416,1433,NA,NA,NA,0.026183,1.86931968272327,"Within_Range",NA,0.016136,1.1520201046642,"bdl","Performance Check NOT Within 25% - REASSESS",0.002442,0.0788409234887257,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"47","TMP_FW_F4_20250204","Tempest","FW","F4",15,NA,NA,"PW",8,20250204,20250131,0.008873,0.633482547637916,"bdl",NA,0.006831,0.487695174452226,"bdl","Performance Check NOT Within 25% - REASSESS",0.003386,0.109318332077324,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"47","TMP_FW_F4_20250204_15cm","TEMPEST","FW","F4",15,NA,NA,"PW",8,20250204,20250131,1418,1444,NA,NA,NA,0.008873,0.633482547637916,"bdl",NA,0.006831,0.487695174452226,"bdl","Performance Check NOT Within 25% - REASSESS",0.003386,0.109318332077324,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"48","TMP_FW_F4_20250403","Tempest","FW","F4",15,NA,NA,"PW",8,20250403,20250331,0.02112,1.50784981473152,"bdl",NA,0.015445,1.10268657142653,"bdl","",0.003196,0.10318410789106,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"48","TMP_FW_F4_20250403_15cm","TEMPEST","FW","F4",15,NA,NA,"PW",8,20250403,20250331,1439,1028,NA,NA,NA,0.02112,1.50784981473152,"bdl",NA,0.015445,1.10268657142653,"bdl","",0.003196,0.10318410789106,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"49","TMP_FW_F6_20250204","Tempest","FW","F6",15,NA,NA,"PW",8,20250204,20250131,0.011279,0.805257483918411,"bdl",NA,0.00598,0.426938536557505,"bdl","Performance Check NOT Within 25% - REASSESS",0.00418,0.134952932097819,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"49","TMP_FW_F6_20250204_15cm","TEMPEST","FW","F6",15,NA,NA,"PW",8,20250204,20250131,1433,1522,NA,NA,NA,0.011279,0.805257483918411,"bdl",NA,0.00598,0.426938536557505,"bdl","Performance Check NOT Within 25% - REASSESS",0.00418,0.134952932097819,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"50","TMP_FW_H3_20250131","Tempest","FW","H3",15,NA,NA,"PW",8,20250131,20250128,0.015287,1.09140625557769,"bdl",NA,0.009484,0.677104528547052,"bdl","Performance Check NOT Within 25% - REASSESS",0.000707,0.0228257710509947,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"50","TMP_FW_H3_20250131_15cm","TEMPEST","FW","H3",15,NA,NA,"PW",8,20250131,20250128,1426,1420,NA,NA,NA,0.015287,1.09140625557769,"bdl",NA,0.009484,0.677104528547052,"bdl","Performance Check NOT Within 25% - REASSESS",0.000707,0.0228257710509947,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled in lab at 1611"
-"51","TMP_FW_H3_20250204","Tempest","FW","H3",15,NA,NA,"PW",8,20250204,20250131,0.040725,2.90753710724153,"Within_Range",NA,0.015141,1.08098267257812,"bdl","Performance Check NOT Within 25% - REASSESS",0.000871,0.0281205750854546,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"51","TMP_FW_H3_20250204_15cm","TEMPEST","FW","H3",15,NA,NA,"PW",8,20250204,20250131,1420,1454,NA,NA,NA,0.040725,2.90753710724153,"Within_Range",NA,0.015141,1.08098267257812,"bdl","Performance Check NOT Within 25% - REASSESS",0.000871,0.0281205750854546,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"52","TMP_FW_H6_20250204","Tempest","FW","H6",15,NA,NA,"PW",8,20250204,20250131,0.04922,3.51403257012715,"Within_Range",NA,0.010595,0.756423711509492,"bdl","Performance Check NOT Within 25% - REASSESS",0.000846,0.027313440324104,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"52","TMP_FW_H6_20250204_15cm","TEMPEST","FW","H6",15,NA,NA,"PW",8,20250204,20250131,1431,1512,NA,NA,NA,0.04922,3.51403257012715,"Within_Range",NA,0.010595,0.756423711509492,"bdl","Performance Check NOT Within 25% - REASSESS",0.000846,0.027313440324104,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"53","TMP_FW_H6_20250509","Tempest","FW","H6",15,NA,NA,"PW",6,20250509,20250506,0.025855,1.8459023181763,"Within_Range",NA,0.069189,4.93970742573197,"Within_Range","",0.007981,0.257669701213563,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"53","TMP_FW_H6_20250509_15cm","TEMPEST","FW","H6",15,NA,NA,"PW",6,20250509,20250506,843,1016,NA,NA,NA,0.025855,1.8459023181763,"Within_Range",NA,0.069189,4.93970742573197,"Within_Range","",0.007981,0.257669701213563,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1051"
-"54","TMP_FW_I5_20250131","Tempest","FW","I5",15,NA,NA,"PW",8,20250131,20250128,0.003118,0.222607752004398,"bdl",NA,0.011616,0.829317398102337,"bdl","Performance Check NOT Within 25% - REASSESS",0.002101,0.0678316053439037,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"54","TMP_FW_I5_20250131_15cm","TEMPEST","FW","I5",15,NA,NA,"PW",8,20250131,20250128,1421,1427,NA,NA,NA,0.003118,0.222607752004398,"bdl",NA,0.011616,0.829317398102337,"bdl","Performance Check NOT Within 25% - REASSESS",0.002101,0.0678316053439037,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","light color; sub-sampled in lab at 1627"
-"55","TMP_FW_I5_20250204","Tempest","FW","I5",15,NA,NA,"PW",8,20250204,20250131,0.001512,0.107948339009188,"bdl",NA,0.016913,1.20749355665503,"bdl","Performance Check NOT Within 25% - REASSESS",0.000612,0.0197586589578625,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"55","TMP_FW_I5_20250204_15cm","TEMPEST","FW","I5",15,NA,NA,"PW",8,20250204,20250131,1427,1502,NA,NA,NA,0.001512,0.107948339009188,"bdl",NA,0.016913,1.20749355665503,"bdl","Performance Check NOT Within 25% - REASSESS",0.000612,0.0197586589578625,"bdl",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","light color"
-"56","TMP_FW_I5_20250406","Tempest",NA,NA,NA,NA,NA,NA,NA,NA,NA,0.004666,0.333126289561424,"bdl",NA,0.108921,7.77634988969565,"Within_Range","",0.006103,0.197037737940906,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"56","TMP_FW_I5_20250406_15cm","TEMPEST",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0.004666,0.333126289561424,"bdl",NA,0.108921,7.77634988969565,"Within_Range","",0.006103,0.197037737940906,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"57","TMP_FW_I5_20250509","Tempest","FW","I5",15,NA,NA,"PW",14,20250509,20250506,0,0,"bdl",NA,0.015657,1.11782218509713,"bdl","",0.00421,0.13592149381144,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"57","TMP_FW_I5_20250509_15cm","TEMPEST","FW","I5",15,NA,NA,"PW",14,20250509,20250506,842,1035,NA,NA,NA,0,0,"bdl",NA,0.015657,1.11782218509713,"bdl","",0.00421,0.13592149381144,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1106"
-"58","TMP_SW_B4_20250131","Tempest","SW","B4",15,NA,NA,"PW",8,20250131,20250128,0.011512,0.82189238007525,"bdl",NA,0.014578,1.0407876230661,"bdl","Performance Check NOT Within 25% - REASSESS",0.015793,0.509883171440395,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"58","TMP_SW_B4_20250131_15cm","TEMPEST","SW","B4",15,NA,NA,"PW",8,20250131,20250128,1244,1252,NA,NA,NA,0.011512,0.82189238007525,"bdl",NA,0.014578,1.0407876230661,"bdl","Performance Check NOT Within 25% - REASSESS",0.015793,0.509883171440395,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored; field collection"
-"59","TMP_SW_B4_20250204","Tempest","SW","B4",15,NA,NA,"PW",8,20250204,20250131,0.014856,1.06063526740774,"bdl",NA,0.026693,1.90573082881764,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.035604,1.14948904172506,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"59","TMP_SW_B4_20250204_15cm","TEMPEST","SW","B4",15,NA,NA,"PW",8,20250204,20250131,1308,1220,NA,NA,NA,0.014856,1.06063526740774,"bdl",NA,0.026693,1.90573082881764,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.035604,1.14948904172506,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"60","TMP_SW_B4_20250403","Tempest","SW","B4",15,NA,NA,"PW",8,20250403,20250331,0.027199,1.94185639729558,"Within_Range",NA,0.056905,4.06269856568642,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.054001,1.74344336990773,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"60","TMP_SW_B4_20250403_15cm","TEMPEST","SW","B4",15,NA,NA,"PW",8,20250403,20250331,1400,1232,NA,NA,NA,0.027199,1.94185639729558,"Within_Range",NA,0.056905,4.06269856568642,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.054001,1.74344336990773,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"61","TMP_SW_B4_20250602","Tempest","SW","B4",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.031097,2.22015178450313,"Within_Range","",0.012881,0.415868114438278,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"61","TMP_SW_B4_20250602_15cm","TEMPEST","SW","B4",15,NA,NA,"PW",14,20250602,20250530,1312,1531,NA,NA,NA,0,0,"bdl",NA,0.031097,2.22015178450313,"Within_Range","",0.012881,0.415868114438278,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"62","TMP_SW_C3_20250131","Tempest","SW","C3",15,NA,NA,"PW",8,20250131,20250128,0.003702,0.264302084002656,"bdl",NA,0.025095,1.79164257105528,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007325,0.236490485075723,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"62","TMP_SW_C3_20250131_15cm","TEMPEST","SW","C3",15,NA,NA,"PW",8,20250131,20250128,1349,1308,NA,NA,NA,0.003702,0.264302084002656,"bdl",NA,0.025095,1.79164257105528,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007325,0.236490485075723,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored; field collection"
-"63","TMP_SW_C3_20250204","Tempest","SW","C3",15,NA,NA,"PW",8,20250204,20250131,0.004376,0.312421912370508,"bdl",NA,0.077805,5.55484161151449,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.010266,0.331441818401007,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"63","TMP_SW_C3_20250204_15cm","TEMPEST","SW","C3",15,NA,NA,"PW",8,20250204,20250131,1252,1210,NA,NA,NA,0.004376,0.312421912370508,"bdl",NA,0.077805,5.55484161151449,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.010266,0.331441818401007,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"64","TMP_SW_C3_20250403","Tempest","SW","C3",15,NA,NA,"PW",8,20250403,20250331,0.017333,1.2374792063798,"bdl",NA,0.033973,2.42548209071373,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.032563,1.05130916935437,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"64","TMP_SW_C3_20250403_15cm","TEMPEST","SW","C3",15,NA,NA,"PW",8,20250403,20250331,1356,1336,NA,NA,NA,0.017333,1.2374792063798,"bdl",NA,0.033973,2.42548209071373,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.032563,1.05130916935437,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"65","TMP_SW_C3_20250602","Tempest","SW","C3",15,NA,NA,"PW",14,20250602,20250530,0.017666,1.2612535429473,"bdl",NA,0.042206,3.01327221972342,"Within_Range","",0.026801,0.865280749558287,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"65","TMP_SW_C3_20250602_15cm","TEMPEST","SW","C3",15,NA,NA,"PW",14,20250602,20250530,1308,1518,NA,NA,NA,0.017666,1.2612535429473,"bdl",NA,0.042206,3.01327221972342,"Within_Range","",0.026801,0.865280749558287,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"66","TMP_SW_C6_20250204","Tempest","SW","C6",15,NA,NA,"PW",8,20250204,20250131,0.391485,27.9498382916747,"Within_Range",NA,0.023159,1.65342300470489,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.017052,0.550530478022011,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"66","TMP_SW_C6_20250204_15cm","TEMPEST","SW","C6",15,NA,NA,"PW",8,20250204,20250131,1245,1230,NA,NA,NA,0.391485,27.9498382916747,"Within_Range",NA,0.023159,1.65342300470489,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.017052,0.550530478022011,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"67","TMP_SW_C6_20250406","Tempest","SW","C6",15,NA,NA,"PW",7.5,20250406,20250403,0.024885,1.77664974619289,"bdl",NA,0.135581,9.67972470317777,"Within_Range","",0.038204,1.23343105690552,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"67","TMP_SW_C6_20250406_15cm","TEMPEST","SW","C6",15,NA,NA,"PW",7.5,20250406,20250403,1247,1133,NA,NA,NA,0.024885,1.77664974619289,"bdl",NA,0.135581,9.67972470317777,"Within_Range","",0.038204,1.23343105690552,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"68","TMP_SW_C6_20250602","Tempest","SW","C6",15,NA,NA,"PW",14,20250602,20250530,0.006583,0.469989362233788,"bdl",NA,0.057695,4.11910014493064,"Within_Range","",0.020785,0.671051840586881,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"68","TMP_SW_C6_20250602_15cm","TEMPEST","SW","C6",15,NA,NA,"PW",14,20250602,20250530,1246,1234,NA,NA,NA,0.006583,0.469989362233788,"bdl",NA,0.057695,4.11910014493064,"Within_Range","",0.020785,0.671051840586881,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"69","TMP_SW_D5_20250204","Tempest","SW","D5",15,NA,NA,"PW",8,20250204,20250131,0.036214,2.58547695031663,"Within_Range",NA,0.023632,1.68719255784732,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.022648,0.731199523002727,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"69","TMP_SW_D5_20250204_15cm","TEMPEST","SW","D5",15,NA,NA,"PW",8,20250204,20250131,1345,1239,NA,NA,NA,0.036214,2.58547695031663,"Within_Range",NA,0.023632,1.68719255784732,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.022648,0.731199523002727,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"70","TMP_SW_D5_20250406","Tempest","SW","D5",15,NA,NA,"PW",6,20250406,20250403,0.010441,0.745428973277075,"bdl",NA,0.043171,3.08216781968629,"Within_Range","",0.033624,1.08556396862609,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"70","TMP_SW_D5_20250406_15cm","TEMPEST","SW","D5",15,NA,NA,"PW",6,20250406,20250403,1255,1136,NA,NA,NA,0.010441,0.745428973277075,"bdl",NA,0.043171,3.08216781968629,"Within_Range","",0.033624,1.08556396862609,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"71","TMP_SW_D5_20250509","Tempest","SW","D5",15,NA,NA,"PW",8,20250509,20250506,0.004262,0.304282950302355,"bdl",NA,0.024606,1.75673070744715,"Within_Range","",0.023329,0.753185873901917,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"71","TMP_SW_D5_20250509_15cm","TEMPEST","SW","D5",15,NA,NA,"PW",8,20250509,20250506,758,1156,NA,NA,NA,0.004262,0.304282950302355,"bdl",NA,0.024606,1.75673070744715,"Within_Range","",0.023329,0.753185873901917,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1209"
-"72","TMP_SW_D5_20250602","Tempest","SW","D5",15,NA,NA,"PW",14,20250602,20250530,0.003075,0.219537792627814,"bdl",NA,0.04751,3.39194813910486,"Within_Range","",0.028951,0.934694339034438,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"72","TMP_SW_D5_20250602_15cm","TEMPEST","SW","D5",15,NA,NA,"PW",14,20250602,20250530,1248,1248,NA,NA,NA,0.003075,0.219537792627814,"bdl",NA,0.04751,3.39194813910486,"Within_Range","",0.028951,0.934694339034438,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"73","TMP_SW_E3_20250204","Tempest","SW","E3",15,NA,NA,"PW",8,20250204,20250131,0.127253,9.08515210577795,"Within_Range",NA,0.024621,1.75780162350875,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007718,0.249178643524154,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"73","TMP_SW_E3_20250204_15cm","TEMPEST","SW","E3",15,NA,NA,"PW",8,20250204,20250131,1355,1306,NA,NA,NA,0.127253,9.08515210577795,"Within_Range",NA,0.024621,1.75780162350875,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.007718,0.249178643524154,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"74","TMP_SW_E3_20250403","Tempest","SW","E3",15,NA,NA,"PW",8,20250403,20250331,0.021272,1.51870176415573,"bdl",NA,0.05195,3.70893929333819,"Within_Range","",0.022002,0.710343160769428,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"74","TMP_SW_E3_20250403_15cm","TEMPEST","SW","E3",15,NA,NA,"PW",8,20250403,20250331,1411,1327,NA,NA,NA,0.021272,1.51870176415573,"bdl",NA,0.05195,3.70893929333819,"Within_Range","",0.022002,0.710343160769428,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"75","TMP_SW_E3_20250602","Tempest","SW","E3",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.028537,2.03738210999022,"Within_Range","",0.011544,0.372702547401249,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"75","TMP_SW_E3_20250602_15cm","TEMPEST","SW","E3",15,NA,NA,"PW",14,20250602,20250530,1302,1504,NA,NA,NA,0,0,"bdl",NA,0.028537,2.03738210999022,"Within_Range","",0.011544,0.372702547401249,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"76","TMP_SW_F4_20250131","Tempest","SW","F4",15,NA,NA,"PW",8,20250131,20250128,0.49829,35.5751176222808,"Within_Range",NA,0.027415,1.95727758858261,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.012887,0.416061826781003,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"76","TMP_SW_F4_20250131_15cm","TEMPEST","SW","F4",15,NA,NA,"PW",8,20250131,20250128,1255,1351,NA,NA,NA,0.49829,35.5751176222808,"Within_Range",NA,0.027415,1.95727758858261,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.012887,0.416061826781003,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored; sub-sampled in lab at 1516"
-"77","TMP_SW_F4_20250204","Tempest","SW","F4",15,NA,NA,"PW",8,20250204,20250131,0.335391,23.9450405877187,"Within_Range",NA,0.028178,2.01175151891595,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.015785,0.509624888316763,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"77","TMP_SW_F4_20250204_15cm","TEMPEST","SW","F4",15,NA,NA,"PW",8,20250204,20250131,1351,1258,NA,NA,NA,0.335391,23.9450405877187,"Within_Range",NA,0.028178,2.01175151891595,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.015785,0.509624888316763,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"78","TMP_SW_F4_20250509","Tempest","SW","F4",15,NA,NA,"PW",6.5,20250509,20250506,0.05307,3.78890102593759,"Within_Range",NA,0.041067,2.93195399344599,"Within_Range","",0.032811,1.05931594618697,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"78","TMP_SW_F4_20250509_15cm","TEMPEST","SW","F4",15,NA,NA,"PW",6.5,20250509,20250506,805,1147,NA,NA,NA,0.05307,3.78890102593759,"Within_Range",NA,0.041067,2.93195399344599,"Within_Range","",0.032811,1.05931594618697,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1221"
-"79","TMP_SW_F4_20250602","Tempest","SW","F4",15,NA,NA,"PW",14,20250602,20250530,0.010871,0.776128567042915,"bdl",NA,0.037578,2.68285891751804,"Within_Range","",0.073587,2.37578502734024,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"79","TMP_SW_F4_20250602_15cm","TEMPEST","SW","F4",15,NA,NA,"PW",14,20250602,20250530,1259,1338,NA,NA,NA,0.010871,0.776128567042915,"bdl",NA,0.037578,2.68285891751804,"Within_Range","",0.073587,2.37578502734024,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"80","TMP_SW_F6_20250131","Tempest","SW","F6",15,NA,NA,"PW",8,20250131,20250128,0.013733,0.980459351596022,"bdl",NA,0.020406,1.4568742101994,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.003052,0.0985350116656801,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"80","TMP_SW_F6_20250131_15cm","TEMPEST","SW","F6",15,NA,NA,"PW",8,20250131,20250128,1253,1347,NA,NA,NA,0.013733,0.980459351596022,"bdl",NA,0.020406,1.4568742101994,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.003052,0.0985350116656801,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored; sub-sampled in the lab at 1525"
-"81","TMP_SW_F6_20250204","Tempest","SW","F6",15,NA,NA,"PW",8,20250204,20250131,0.046948,3.35182448399694,"Within_Range",NA,0.036848,2.63074100252022,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.014889,0.480697178469958,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"81","TMP_SW_F6_20250204_15cm","TEMPEST","SW","F6",15,NA,NA,"PW",8,20250204,20250131,1347,1248,NA,NA,NA,0.046948,3.35182448399694,"Within_Range",NA,0.036848,2.63074100252022,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.014889,0.480697178469958,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"82","TMP_SW_F6_20250403","Tempest","SW","F6",15,NA,NA,"PW",7,20250403,20250331,0.009364,0.66853720005426,"bdl",NA,0.055676,3.9749548430394,"Within_Range","",0.016664,0.53800374652585,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"82","TMP_SW_F6_20250403_15cm","TEMPEST","SW","F6",15,NA,NA,"PW",7,20250403,20250331,1407,1302,NA,NA,NA,0.009364,0.66853720005426,"bdl",NA,0.055676,3.9749548430394,"Within_Range","",0.016664,0.53800374652585,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"83","TMP_SW_F6_20250509","Tempest","SW","F6",15,NA,NA,"PW",8,20250509,20250506,0.011362,0.811183219459259,"bdl",NA,0.035953,2.56684301084481,"Within_Range","",0.014864,0.479890043708607,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"83","TMP_SW_F6_20250509_15cm","TEMPEST","SW","F6",15,NA,NA,"PW",8,20250509,20250506,801,1159,NA,NA,NA,0.011362,0.811183219459259,"bdl",NA,0.035953,2.56684301084481,"Within_Range","",0.014864,0.479890043708607,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1205"
-"84","TMP_SW_F6_20250602","Tempest","SW","F6",15,NA,NA,"PW",14,20250602,20250530,0.009649,0.688884605224642,"bdl",NA,0.03701,2.64230689598549,"Within_Range","",0.01718,0.554663008000126,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"84","TMP_SW_F6_20250602_15cm","TEMPEST","SW","F6",15,NA,NA,"PW",14,20250602,20250530,1252,1259,NA,NA,NA,0.009649,0.688884605224642,"bdl",NA,0.03701,2.64230689598549,"Within_Range","",0.01718,0.554663008000126,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"85","TMP_SW_H3_20250204","Tempest","SW","H3",15,NA,NA,"PW",8,20250204,20250131,0.08234,5.87861523413795,"Within_Range",NA,0.04534,3.23702228219352,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.028924,0.93382263349218,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"85","TMP_SW_H3_20250204_15cm","TEMPEST","SW","H3",15,NA,NA,"PW",8,20250204,20250131,1357,1317,NA,NA,NA,0.08234,5.87861523413795,"Within_Range",NA,0.04534,3.23702228219352,"Within_Range","Performance Check NOT Within 25% - REASSESS",0.028924,0.93382263349218,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"86","TMP_SW_H3_20250509","Tempest","SW","H3",15,NA,NA,"PW",6,20250509,20250506,0.021594,1.54169076227805,"bdl",NA,0.055158,3.93797254171218,"Within_Range","",0.054315,1.75358098251029,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"86","TMP_SW_H3_20250509_15cm","TEMPEST","SW","H3",15,NA,NA,"PW",6,20250509,20250506,809,1143,NA,NA,NA,0.021594,1.54169076227805,"bdl",NA,0.055158,3.93797254171218,"Within_Range","",0.054315,1.75358098251029,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","sub-sampled at 1224"
-"87","TMP_SW_H3_20250602","Tempest","SW","H3",15,NA,NA,"PW",14,20250602,20250530,0,0,"bdl",NA,0.031979,2.28312164892516,"Within_Range","",0.020484,0.66133393806022,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"87","TMP_SW_H3_20250602_15cm","TEMPEST","SW","H3",15,NA,NA,"PW",14,20250602,20250530,1257,1323,NA,NA,NA,0,0,"bdl",NA,0.031979,2.28312164892516,"Within_Range","",0.020484,0.66133393806022,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"88","TMP_SW_H6_20250204","Tempest","SW","H6",15,NA,NA,"PW",8,20250204,20250131,0.020404,1.45673142139119,"bdl",NA,0.018121,1.29373799681581,"bdl","Performance Check NOT Within 25% - REASSESS",0.019225,0.620686631478604,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"88","TMP_SW_H6_20250204_15cm","TEMPEST","SW","H6",15,NA,NA,"PW",8,20250204,20250131,1400,1333,NA,NA,NA,0.020404,1.45673142139119,"bdl",NA,0.018121,1.29373799681581,"bdl","Performance Check NOT Within 25% - REASSESS",0.019225,0.620686631478604,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"
-"89","TMP_SW_H6_20250602","Tempest","SW","H6",15,NA,NA,"PW",14,20250602,20250530,0.00183,0.130651759515089,"bdl",NA,0.029842,2.13055180734934,"Within_Range","",0.015055,0.486056553285326,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"89","TMP_SW_H6_20250602_15cm","TEMPEST","SW","H6",15,NA,NA,"PW",14,20250602,20250530,1253,1311,NA,NA,NA,0.00183,0.130651759515089,"bdl",NA,0.029842,2.13055180734934,"Within_Range","",0.015055,0.486056553285326,"Within_Range",NA,"04/22/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day",NA
-"90","TMP_SW_I5_20250204","Tempest","SW","I5",15,NA,NA,"PW",8,20250204,20250131,0.011384,0.812753896349604,"bdl",NA,0.018785,1.3411438811426,"bdl","Performance Check NOT Within 25% - REASSESS",0.017002,0.54891620849931,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
+"90","TMP_SW_I5_20250204_15cm","TEMPEST","SW","I5",15,NA,NA,"PW",8,20250204,20250131,1359,1325,NA,NA,NA,0.011384,0.812753896349604,"bdl",NA,0.018785,1.3411438811426,"bdl","Performance Check NOT Within 25% - REASSESS",0.017002,0.54891620849931,"Within_Range",NA,"04/21/2026","TMP_FW_I5_20250406 sample missing from IDs,
   0421 NH4 PE Check does not pass (~30% diff) but CCVs do,
   slope and intercept look normal, 
   and PE check was fine the next day","colored"

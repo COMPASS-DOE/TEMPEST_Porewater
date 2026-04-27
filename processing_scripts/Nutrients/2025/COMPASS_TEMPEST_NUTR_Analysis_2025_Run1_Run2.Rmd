@@ -22,7 +22,7 @@ cat("Run Information: Brenden ") #lets you know what section you're in
 
 #identify the files you want to read in 
   #read in as a list to accommadate ultiple runs in a month
-NH3_PO4_files<- c("Raw Data/20260421_Tempest2025_NP_Run1.csv", "Raw Data/20260422_Tempest2025_NP_Run2.csv")
+  NH3_PO4_files<- c("Raw Data/20260421_Tempest2025_NP_Run1.csv", "Raw Data/20260422_Tempest2025_NP_Run2.csv")
   NOx_files    <- c("Raw Data/20260421_Tempest2025_VNOx_Run1.csv","Raw Data/20260422_Tempest2025_VNOx_Run2.csv")
 
 # Define the file path for QAQC log file - NO Need to change just check year 
@@ -176,7 +176,7 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
 raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 
 #create IDs from what was collected for comparison later
@@ -226,7 +226,7 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
   rename("Notes" = "Notes:") %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 #change "Source" to "Sourcewater" 
 raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
@@ -1382,7 +1382,7 @@ final_data4 <- reduce(data_list, full_join, by = c("Sample_Name"))
 #Add project information 
 final_data_labeled <- final_data4 %>% 
   mutate(
-    Site = "Tempest",   # new column with same value on every row
+    Site = "TEMPEST",   # new column with same value on every row
     Run_notes = run_notes, 
     Analysis_rundate = Run_Date# new column with notes about the run
   ) 
@@ -1390,10 +1390,11 @@ final_data_labeled <- final_data4 %>%
 #Prepare data to be exported 
 final_data <- final_data_labeled %>%
   mutate(
-    Depth_cm = gsub("cm", "", Depth)
-  ) %>%
-    rename(
+    Depth_cm = gsub("cm", "", Depth), 
+    Sample_Name = paste(Sample_Name, "15cm", sep = "_")) %>%
+  rename(
     Sample_ID = Sample_Name, 
+    Plot = Zone, 
   
     NOx_Conc_mgL = `Vanadium NOx_Conc`,
     NOx_Conc_uM = `Vanadium NOx_Conc_uM`,
@@ -1411,43 +1412,30 @@ final_data <- final_data_labeled %>%
     PO4_QAQC_Flag = `o-PHOS 0.3_QAQC_Flag`,
     
     Field_notes = Notes, 
-    Evacuation_Date = Evacuation_date_YYYMMDD
+    Evacuation_Date = Evacuation_date_YYYMMDD, 
+    Deployment_Date = Deployment_Date_YYYYMMDD
     # add more rename pairs as needed
   ) %>%
-  dplyr::select(Sample_ID, Site, Zone, Grid, Depth_cm, Event_Time, Time_of_day, 
+  dplyr::select(Sample_ID, Site, Plot, Grid, Depth_cm, Event_Time, Time_of_day, 
          Source, Volume_mL, Collection_Date, Evacuation_Date, 
-          NOx_Conc_mgL, NOx_Conc_uM, NOx_Conc_Flag, NOx_QAQC_Flag,
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, 
+         Deployment_Date, Deployment_Time_24hrs, Collection_Time_24hrs, 
+         NOx_Conc_mgL, NOx_Conc_uM, NOx_Conc_Flag, NOx_QAQC_Flag,
          NH3_Conc_mgL, NH3_Conc_uM, NH3_Conc_Flag, NH3_QAQC_Flag,
          PO4_Conc_mgL, PO4_Conc_uM, PO4_Conc_Flag, PO4_QAQC_Flag,
          Analysis_rundate,  Run_notes, Field_notes)
+
 
 ```
 
 ## Visualize Data by Plot   
 ```{r Visualize Data, echo=FALSE, warning=FALSE}
 
-IDs_df_a <- data.frame(do.call('rbind', strsplit(as.character(final_data$Sample_ID),'_',fixed=TRUE)))
-if(ncol(IDs_df_a) == 4) { IDs_df <- cbind(IDs_df_a, new_column = c("NA")) } else {IDs_df <- IDs_df_a}
-colnames(IDs_df) <- c("Site_Code" ,
-                      "Plot", 
-                      "Grid_Square",  
-                      "Date" ,
-                      "Extra"
-                      )
-
-IDs <- IDs_df %>% mutate(Date = ifelse(Date %like% "T", Extra, Date)) %>%dplyr::select(-Extra)
-head(IDs)
-
-#rejoin them to the dataframe
-dat_forplot <- cbind(IDs, final_data)
-head(dat_forplot)
-
-dat_forplot <- dat_forplot %>% 
+dat_forplot <- final_data %>% 
   mutate(Plot_name = case_when(Plot == 'SW' ~ "Saltwater", 
                                Plot == 'FW' ~ "Freshwater", 
-                               Plot == 'C' ~ "Control")) %>%
-  mutate(Short_Names = Grid_Square) %>% group_by(Short_Names) %>% mutate(Multiple = ifelse(length(Short_Names) > 1, "YES", "NO")) %>% ungroup() %>% mutate(Short_Names = ifelse(Multiple == "YES", paste0(Short_Names, "_", Collection_Date), Short_Names))
-
+                               Plot == 'C' ~ "Control"), 
+         Short_Names = ifelse(Plot == "C", substr(Sample_ID, 5, 17), substr(Sample_ID, 5, 18)))
 
 #Plot data and change colors based on flags to check it: 
 viz_NH3_plot <-  ggplot(data = dat_forplot, aes(x = Short_Names, y = NH3_Conc_uM, fill=Plot_name)) +
