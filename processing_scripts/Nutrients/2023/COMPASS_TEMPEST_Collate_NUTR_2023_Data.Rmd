@@ -180,8 +180,7 @@ raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
                           Collection_Date, 
                           Event_Time, 
                           sep = "_")) %>%
-  rename("Notes" = "Notes:", 
-         Collection_End_Time_24hrs = Collection_Time_24hrs)
+  rename("Notes" = "Notes:")
 
 
 #combine porewater and sourcewater samples
@@ -222,7 +221,7 @@ colnames(Nutr_metadata)
 colnames(all_data4)
 
 Nutr_metadata <- Nutr_metadata %>% 
-  select(-c("Plot", "Project", "Zone", "Source", "Grid", "Collection_Date", "Time_of_day", "Event_Time"))
+  dplyr::select(-c("Plot", "Project", "Zone", "Source", "Grid", "Collection_Date", "Time_of_day", "Event_Time"))
 
 all_data4 <- all_data4 %>% 
   rename(Collection_Date = Date)
@@ -313,16 +312,18 @@ colnames(merged_data)
 final_data <- merged_data %>%
   mutate(
     Project = "TEMPEST", 
-    Depth_cm = Depth, 
+    Depth_cm = gsub("cm", "", Depth), 
     Run_notes = Run_notes, 
     Field_notes = Notes, 
     Collection_Date_YYYYMMDD = Collection_Date, 
-    Evacuation_Date_YYYYMMDD = Evacuation_Date
+    Evacuation_Date_YYYYMMDD = Evacuation_Date, 
+    Deployment_Date = Deployment_Date_YYYYMMDD
   ) %>%
-  select(
+  dplyr::select(
          Project, Plot, Grid, Depth_cm, Event_Time, Time_of_day, 
          Volume_mL, Collection_Date, Evacuation_Date, 
-         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, Sample_ID, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, 
+         Deployment_Date, Deployment_Time_24hrs, Collection_Time_24hrs, Sample_ID, 
          NH3_mgL, NH3_uM, PO4_mgL, PO4_uM, NOx_mgL, NOx_uM, NH3_range, PO4_range, NOx_range, 
          Run_notes, Field_notes
         # list columns in the order you want them
