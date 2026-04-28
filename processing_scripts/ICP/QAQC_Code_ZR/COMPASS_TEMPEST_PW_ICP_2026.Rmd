@@ -1,0 +1,373 @@
+---
+title: "TEMPEST: Porewater ICP"
+author: "2023-2025 Samples"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+
+output_dir: "To Be Reviewed/PDF"
+---
+
+\newpage
+
+##Add Required Packages
+```{r packages, include=FALSE}
+
+library(openxlsx)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+
+```
+
+## Import and QAQC Metal Standards 
+```{r Import and QAQC Metal Standards, echo = FALSE, message = FALSE, warning = FALSE}
+
+## Read in raw data file from ICP - copied and saved as an excel
+
+##Read in blank standard
+std_blank <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = 1:2)
+
+##Read in metals standards - there has to be a better way to do this
+M_0.03 <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(3:4))
+M_0.1 <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(5:6))
+M_0.3_10 <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(7:11))
+M_30 <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(12:13))
+M_100 <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(14:15))
+
+M_stds <- bind_rows(M_0.03, M_0.1, M_0.3_10, M_30, M_100)
+
+M_stds <- M_stds %>%
+  bind_rows(std_blank %>% select(any_of(colnames(M_stds))))
+
+##Add  expected concentrations
+M_stds <- M_stds %>% 
+  mutate(Conc = 
+           ifelse(Sample.Id == "Calib Blank 1", 0, 
+           as.numeric(gsub("M ", "", Sample.Id))))
+
+##Remove percentage values
+M_stds <- M_stds %>% 
+  select(-contains("(IS)"))
+
+
+##Plot std curve for each of the metal stds 
+#plot column 8:20 against column 21 (Conc) each as their own graph 
+M_stds_coeff <- data.frame(
+  Variable = character(),
+  R2 = numeric(),
+  Slope = numeric(),
+  Intercept = numeric())
+
+# plot_list <- list()
+
+for(i in 8:20) {
+  
+  var_name <- names(M_stds)[i]
+  
+  # Fit model
+  model <- lm(M_stds[[var_name]] ~ Conc, data = M_stds)
+  
+  # Extract R² and p-value
+  r2 <- summary(model)$r.squared
+  slope <- summary(model)$coefficients[2, 1]
+  intercept <- summary(model)$coefficients[1, 1]
+  
+  # Add model values to dataframe
+  M_stds_coeff <- bind_rows(
+    M_stds_coeff,
+    data.frame(
+      Variable = var_name,
+      R2 = r2,
+      Slope = slope, 
+      Intercept = intercept
+    )
+  )
+  
+  # Create plot
+  p <- ggplot(M_stds, aes(y = .data[[var_name]], x = Conc)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    annotate(
+      "text",
+      x = Inf, y = Inf,
+      label = paste0(
+        "R² = ", round(r2, 3) ),
+      hjust = 1.1,
+      vjust = 1.5
+    ) +
+    labs(
+      y = var_name,
+      x = "Conc",
+      title = paste(var_name, "vs Conc")
+    ) +
+    theme_bw()
+  
+  print(p) 
+  
+  # plot_list[[length(plot_list) + 1]] <- p
+
+}
+
+##I will eventually want to figure out a way to arrange these plots together so they don't take up so much space
+
+# M_stds_plot <- ggarrange(plotlist = plot_list, ncol = 2)
+# print(M_stds_plot) ##Avoids pagination by ggarrange
+
+print(M_stds_coeff)
+
+```
+
+## Import and QAQC S/P/Si Standards 
+```{r Import and QAQC S/P/Si Standards, echo = FALSE, message = FALSE, warning = FALSE}
+
+## Read in raw data file from ICP - copied and saved as an excel
+
+##Blank std already read in
+
+##Read in metals standards - there has to be a better way to do this
+P_stds <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(16:23))
+
+##Remove empty name column
+P_stds <- P_stds %>%
+select(-1)
+
+##Add blank in
+P_stds <- P_stds %>%
+bind_rows(std_blank %>% select(any_of(colnames(P_stds))))
+
+##Create column with expected concentrations
+P_stds <- P_stds %>% 
+  mutate(Conc = 
+           ifelse(Sample.Id == "Calib Blank 1", 0, 
+           as.numeric(gsub("P ", "", Sample.Id))))
+
+##Remove percentage stds
+P_stds <- P_stds %>% 
+  select(-contains("(IS)"))
+
+##Plot std curve for each of the P stds 
+#plot column 7:11 against column 12 (Conc) each as their own graph 
+P_stds_coeff <- data.frame(
+  Variable = character(),
+  R2 = numeric(),
+  Slope = numeric(),
+  Intercept = numeric())
+
+for(i in 7:11) {
+  
+  var_name <- names(P_stds)[i]
+  
+  # Fit model
+  model <- lm(P_stds[[var_name]] ~ Conc, data = P_stds)
+  
+  # Extract R² and p-value
+  r2 <- summary(model)$r.squared
+  slope <- summary(model)$coefficients[2, 1]
+  intercept <- summary(model)$coefficients[1, 1]
+  
+  # Add model values to dataframe
+  P_stds_coeff <- bind_rows(
+    P_stds_coeff,
+    data.frame(
+      Variable = var_name,
+      R2 = r2,
+      Slope = slope, 
+      Intercept = intercept
+    )
+  )
+
+  # Create plot
+  p <- ggplot(P_stds, aes(y = .data[[var_name]], x = Conc)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    annotate(
+      "text",
+      x = Inf, y = Inf,
+      label = paste0(
+        "R² = ", round(r2, 3) ),
+      hjust = 1.1,
+      vjust = 1.5
+    ) +
+    labs(
+      y = var_name,
+      x = "Conc",
+      title = paste(var_name, "vs Conc")
+    ) +
+    theme_bw()
+  
+  print(p)
+}
+
+print(P_stds_coeff)
+
+```
+
+
+##Import Sample Data 
+```{r Import Sample Data, include=FALSE}
+
+dat <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Conc. in Calib Units", startRow = 26)
+
+dat <- dat %>% 
+  select(-1)
+
+```
+
+## Assess Metal Check Standards 
+```{r Check Metal Standards, echo=FALSE, warning = FALSE}
+
+#one point on each of our P and M calibration curve
+
+# Pull out M check standards
+M_chks_raw <- dat %>%
+  filter(grepl("M ", Sample.Id))
+
+# Remove percentage values and any S/P/Si stds
+M_chks_raw <- M_chks_raw %>% 
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))
+
+# Add expected concentration 
+M_chks_raw <- M_chks_raw %>% 
+  mutate(Conc = 
+           ifelse(Sample.Id == "Calib Blank 1", 0, 
+           as.numeric(gsub("M ", "", Sample.Id)))) %>% 
+  mutate(rep = row_number())
+
+
+##Plot std curve for each of the metal stds 
+#plot column 7:19 against column 24 (Conc) each as their own graph 
+M_chks_flags <- data.frame(
+    Variable = character(),
+    M_perc_error = numeric(),
+    M_flag = character())
+
+for(i in 7:19) {
+  
+  var_name <- names(M_chks_raw)[i]
+  
+  #calculate percent error between check standards & expected concentration 
+  M_perc_error <- abs(M_chks_raw$Conc - M_chks_raw[[var_name]])/(M_chks_raw[[var_name]]) * 100
+  M_flag <-  ifelse(abs(M_perc_error) <= 10, 'PASS', 'FAIL')
+  M_RSV <- abs(sd(M_chks_raw[[var_name]]) / mean(M_chks_raw[[var_name]]))
+  
+  # Add model values to dataframe
+  temp <- data.frame(
+      Variable = var_name, 
+      M_perc_error = M_perc_error,
+      M_flag = M_flag
+    )
+  
+  M_chks_flags <- bind_rows(M_chks_flags, temp)
+ 
+  
+  # Create plot
+  p <- ggplot(M_chks_raw, aes(x = rep, y = .data[[var_name]], fill = M_flag)) +
+    geom_bar(stat = 'identity') + 
+    scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred")) +
+    labs(
+      y = var_name,
+      x = "rep",
+      title = paste(var_name, "vs Conc")
+    ) +
+    geom_hline(yintercept=1, linetype="dashed", color = "black", linewidth=1) + 
+    guides(fill=guide_legend(title="% Difference <10%")) +
+    theme_classic()
+  
+  print(p) 
+  
+  chks_percent <- (sum(temp$M_flag == "PASS")/nrow(temp))*100
+
+  ifelse(chks_percent >= 80, print(paste0(">80% of ", var_name, " Check Standards are within range of expected concentration - PROCEED")),
+       print(paste0("<80% of ", var_name, " Check Standards are within range of expected concentration - REASSESS")))
+  
+  ifelse(M_RSV >= 15, print(paste0(var_name, " RSV TOO HIGH - REASSESS")), print(paste0(var_name, " RSV WITHIN RANGE - PROCEED")))
+  
+}
+
+#write out a flag to the sample dataframe if less than 80% of the checks are within range of expected concentration? 
+
+```
+
+
+## Assess S/P/Si Check Standards 
+```{r Check S/P/Si Standards, echo=FALSE, warning = FALSE}
+
+#one point on each of our P and M calibration curve
+
+# Pull out P check standards
+P_chks_raw <- dat %>%
+  filter(grepl("P ", Sample.Id))
+
+# Remove percentage values and any S/P/Si stds
+P_chks_raw <- P_chks_raw %>% 
+  select(-contains("(IS)")) %>% 
+  select(matches("^S.|^P.|^Si."))
+
+# Add expected concentration 
+P_chks_raw <- P_chks_raw %>% 
+  mutate(Conc = 
+           ifelse(Sample.Id == "Calib Blank 1", 0, 
+           as.numeric(gsub("P ", "", Sample.Id)))) %>% 
+  mutate(rep = row_number())
+
+
+##Plot std curve for each of the metal stds 
+#plot column 2:7 against column 24 (Conc) each as their own graph 
+P_chks_flags <- data.frame(
+    Variable = character(),
+    P_perc_error = numeric(),
+    P_flag = character())
+
+for(i in 2:7) {
+  
+  var_name <- names(P_chks_raw)[i]
+  
+  #calculate percent error between check standards & expected concentration 
+  P_perc_error <- abs(P_chks_raw$Conc - P_chks_raw[[var_name]])/(P_chks_raw[[var_name]]) * 100
+  P_flag <-  ifelse(abs(P_perc_error) <= 10, 'PASS', 'FAIL')
+  P_RSV <- abs(sd(P_chks_raw[[var_name]]) / mean(P_chks_raw[[var_name]]))
+  
+  # Add model values to dataframe
+  temp <- data.frame(
+      Variable = var_name, 
+      P_perc_error = P_perc_error,
+      P_flag = P_flag
+    )
+  
+  P_chks_flags <- bind_rows(P_chks_flags, temp)
+ 
+  
+  # Create plot
+  p <- ggplot(P_chks_raw, aes(x = rep, y = .data[[var_name]], fill = P_flag)) +
+    geom_bar(stat = 'identity') + 
+    scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred")) +
+    labs(
+      y = var_name,
+      x = "rep",
+      title = paste(var_name, "vs Conc")
+    ) +
+    geom_hline(yintercept=1, linetype="dashed", color = "black", linewidth=1) + 
+    guides(fill=guide_legend(title="% Difference <10%")) +
+    theme_classic()
+  
+  print(p) 
+  
+  chks_percent <- (sum(temp$P_flag == "PASS")/nrow(temp))*100
+
+  ifelse(chks_percent >= 80, print(paste0(">80% of ", var_name, " Check Standards are within range of expected concentration - PROCEED")),
+       print(paste0("<80% of ", var_name, " Check Standards are within range of expected concentration - REASSESS")))
+  
+  ifelse(P_RSV >= 15, print(paste0(var_name, " RSV TOO HIGH - REASSESS")), print(paste0(var_name, " RSV WITHIN RANGE - PROCEED")))
+  
+}
+
+#write out a flag to the sample dataframe if less than 80% of the checks are within range of expected concentration? 
+
+```
+
+
+
