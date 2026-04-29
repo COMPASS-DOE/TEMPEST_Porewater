@@ -1,0 +1,206 @@
+---
+title: "TMP_ICP"
+author: "Ashleigh Montgomery"
+date: "2026-04-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#Set working directory
+knitr::opts_knit$set(root.dir = "C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/02_CleanMicroplateData")
+
+library(googlesheets4)
+library(googledrive)
+library(tidyverse)
+library(data.table)
+library(plater)
+library(readxl)
+library(lubridate)
+```
+
+
+
+```{r}
+cal_curve<-function(Conc_uM,ABS){
+    model<-lm(ABS~Conc_uM)
+    slope<-coef(model)[[2]]
+    intercept<-coef(model)[[1]]
+     R2<-summary(model)$adj.r.squared
+  return(data.frame(slope=slope,intercept=intercept,R2=R2))
+}
+
+
+#function to calculate percent difference
+calc_percent_diff<-function(dup,original){
+  avg<-(dup+original)/2
+  percent_diff<-((abs(original-dup))/avg)*100
+  return(percent_diff=percent_diff)
+}
+```
+
+
+
+**Run 1 - April 17, 2026**
+```{r}
+
+stds1<-read.csv("TMP_ICP_20260417_Stds.csv")%>%
+  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))
+
+stds1
+
+
+```
+
+
+```{r}
+#metals
+metals1<-stds1%>%
+   filter(Curve == "M" | Curve =="Calib")%>%
+  select(Curve,Expected_Conc_ppm,
+         Al.axial..cps.,
+         B.axial..cps.,B.radial..cps.,
+         Ba.radial..cps.,
+         Ca.radial..cps.,
+         Fe.radial..cps.,Fe.axial..cps.,
+         K.radial..cps.,
+         Mg.radial..cps.,
+         Mn.axial..cps.,
+         Na.radial..cps.,
+         Zn.radial..cps.)%>%
+  pivot_longer(cols = contains(".cps."),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)
+
+metals1
+
+
+#CALCULATE R2  
+metals1.curve<-metals1%>%
+  group_by(Element)%>%
+  summarise(cal_curve(Expected_Conc_ppm,cps))
+
+metals1.curve
+
+dat.text<-data.frame(Element = c("Al.axial..cps.",
+                                 "B.axial..cps.",
+                                 "B.radial..cps.",
+                                 "Ba.radial..cps.",
+                                 "Ca.radial..cps.",
+                                 "Fe.axial..cps.","Fe.radial..cps.",
+         "K.radial..cps.",
+         "Mg.radial..cps.",
+         "Mn.axial..cps.",
+         "Na.radial..cps.",
+         "Zn.radial..cps."),
+         label = c(as.character(round(metals1.curve[1,4],digits = 4)),
+                   as.character(round(metals1.curve[2,4],digits = 4)),
+                   as.character(round(metals1.curve[3,4],digits = 4)),
+                   as.character(round(metals1.curve[4,4],digits = 4)),
+                   as.character(round(metals1.curve[5,4],digits = 4)),
+                   as.character(round(metals1.curve[6,4],digits = 4)),
+                   as.character(round(metals1.curve[7,4],digits = 4)),
+                   as.character(round(metals1.curve[8,4],digits = 4)),
+                   as.character(round(metals1.curve[9,4],digits = 4)),
+                   as.character(round(metals1.curve[10,4],digits = 4)),
+                   as.character(round(metals1.curve[11,4],digits = 4)),
+                   as.character(round(metals1.curve[12,4],digits = 4))),
+         x=c(80,80,80,80,80,80,80,80,80,80,80,80),
+         y=c(4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000))
+
+dat.text 
+
+
+
+
+#PLOT CURVES
+metals1.curve.plots<-metals1%>%
+  ggplot(aes(x=Expected_Conc_ppm,y=cps))+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)+
+  facet_wrap(~Element)+
+  geom_text(data = dat.text,
+            mapping = aes(x = x,
+                          y = y,
+                          label = label),
+            col = "black",
+            size = 3,
+            fontface="bold")
+  
+
+metals1.curve.plots
+
+
+
+
+```
+
+
+
+
+#P, S, and Si 
+```{r}
+P1<-stds1%>%
+   filter(Curve == "P" | Curve =="Calib")%>%
+  select(Curve,Expected_Conc_ppm,
+         P.178.221..cps.,P.213.617..cps.,
+         S.axial..cps.,S.radial..cps.,
+         Si.axial..cps.)%>%
+  pivot_longer(cols = contains(".cps."),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)
+
+P1
+
+
+#CALCULATE R2  
+P1.curve<-P1%>%
+  group_by(Element)%>%
+  summarise(cal_curve(Expected_Conc_ppm,cps))
+
+P1.curve
+
+
+
+#labels for plot
+dat.textp1<-data.frame(Element = c("P.178.221..cps.","P.213.617..cps.",
+         "S.axial..cps.","S.radial..cps.",
+         "Si.axial..cps."),
+         label = c(as.character(round(P1.curve[1,4],digits = 4)),
+                   as.character(round(P1.curve[2,4],digits = 4)),
+                   as.character(round(P1.curve[3,4],digits = 4)),
+                   as.character(round(P1.curve[4,4],digits = 4)),
+                   as.character(round(P1.curve[5,4],digits = 4))),
+         x=c(55,55,55,55,55),
+         y=c(300,150000,12000,800,1230000))
+
+dat.textp1 
+
+
+
+
+#PLOT CURVES
+P1.curve.plots<-P1%>%
+  ggplot(aes(x=Expected_Conc_ppm,y=cps))+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)+
+  facet_wrap(~Element,scales="free_y")+
+  geom_text(data = dat.textp1,
+            mapping = aes(x = x,
+                          y = y,
+                          label = label),
+            col = "black",
+            size = 3,
+            fontface="bold")
+  
+
+P1.curve.plots
+
+
+
+
+```
+
