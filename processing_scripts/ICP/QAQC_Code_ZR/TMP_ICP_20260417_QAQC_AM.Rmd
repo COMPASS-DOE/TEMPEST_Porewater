@@ -1,33 +1,39 @@
 ---
-title: "TMP_ICP"
-author: "Ashleigh Montgomery"
-date: "2026-04-23"
+title: "TEMPEST: Porewater ICP"
+author: "2023-2025 Samples"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
+\newpage
+
+# SET UP
+
 ```{r setup, include=FALSE}
 #Set working directory
-knitr::opts_knit$set(root.dir = "C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/02_CleanMicroplateData")
+knitr::opts_knit$set(root.dir = "C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/01_RawMicroplateData/ICP")
 
 library(googlesheets4)
 library(googledrive)
 library(tidyverse)
 library(data.table)
 library(plater)
-library(readxl)
+library(openxlsx)
 library(lubridate)
 ```
 
 
+# USEFUL FUNCTIONS
 
-```{r}
+```{r,include=FALSE}
 cal_curve<-function(Conc_uM,ABS){
     model<-lm(ABS~Conc_uM)
-    slope<-coef(model)[[2]]
-    intercept<-coef(model)[[1]]
-     R2<-summary(model)$adj.r.squared
+    slope<-summary(model)$coefficients[2, 1]
+    intercept<-summary(model)$coefficients[1, 1]
+     R2<-summary(model)$r.squared
   return(data.frame(slope=slope,intercept=intercept,R2=R2))
 }
+
 
 
 #function to calculate percent difference
@@ -39,168 +45,133 @@ calc_percent_diff<-function(dup,original){
 ```
 
 
+# April 15, 2026 - Run 1
 
-**Run 1 - April 17, 2026**
-```{r}
+## Metal Standard Curve Checks
 
-stds1<-read.csv("TMP_ICP_20260417_Stds.csv")%>%
-  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+```{r Metal Standard Curve Checks, echo = FALSE, message = FALSE, warning = FALSE}
+run_date<-"04/15/2026"
+
+
+##Read in blank standard
+std_blank <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(1:2))
+
+##Read in metals standards - there has to be a better way to do this
+M_0.03 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(3:4))
+M_0.1 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(5:6))
+M_0.3_10 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(7:11))
+M_30 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(12:13))
+M_100 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(14:15))
+ 
+#COMBINE STANDARDS
+M_stds <- bind_rows(M_0.03,M_0.1,M_0.3_10,M_30,M_100)
+
+
+M_stds <- M_stds %>%
+  #COMBINE WITH STANDARD BLANK
+  #SELECT ONLY COLUMNS MEASURED IN M_STDS
+  bind_rows(std_blank %>% select(any_of(colnames(M_stds))))%>% 
+  #ADD EXPECTED CONCENTRATIONS OF STANDARDS
+    separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
                        too_many = "merge")%>%
-  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))
-
-stds1
-
-
-```
-
-
-```{r}
-#metals
-metals1<-stds1%>%
-   filter(Curve == "M" | Curve =="Calib")%>%
-  select(Curve,Expected_Conc_ppm,
-         Al.axial..cps.,
-         B.axial..cps.,B.radial..cps.,
-         Ba.radial..cps.,
-         Ca.radial..cps.,
-         Fe.radial..cps.,Fe.axial..cps.,
-         K.radial..cps.,
-         Mg.radial..cps.,
-         Mn.axial..cps.,
-         Na.radial..cps.,
-         Zn.radial..cps.)%>%
-  pivot_longer(cols = contains(".cps."),
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  #REMOVE INTERNAL STANDARDS
+  select(-contains("(IS)"))%>%
+  select(Curve, Expected_Conc_ppm,contains("(cps)"))%>%
+  pivot_longer(cols = contains("(cps)"),
     names_to = "Element",
     values_to = "cps",
     values_drop_na = TRUE)
 
-metals1
-
-
-#CALCULATE R2  
-metals1.curve<-metals1%>%
+#CALCULATE R2
+M_stds_curve<-M_stds%>%
   group_by(Element)%>%
-  summarise(cal_curve(Expected_Conc_ppm,cps))
-
-metals1.curve
-
-dat.text<-data.frame(Element = c("Al.axial..cps.",
-                                 "B.axial..cps.",
-                                 "B.radial..cps.",
-                                 "Ba.radial..cps.",
-                                 "Ca.radial..cps.",
-                                 "Fe.axial..cps.","Fe.radial..cps.",
-         "K.radial..cps.",
-         "Mg.radial..cps.",
-         "Mn.axial..cps.",
-         "Na.radial..cps.",
-         "Zn.radial..cps."),
-         label = c(as.character(round(metals1.curve[1,4],digits = 4)),
-                   as.character(round(metals1.curve[2,4],digits = 4)),
-                   as.character(round(metals1.curve[3,4],digits = 4)),
-                   as.character(round(metals1.curve[4,4],digits = 4)),
-                   as.character(round(metals1.curve[5,4],digits = 4)),
-                   as.character(round(metals1.curve[6,4],digits = 4)),
-                   as.character(round(metals1.curve[7,4],digits = 4)),
-                   as.character(round(metals1.curve[8,4],digits = 4)),
-                   as.character(round(metals1.curve[9,4],digits = 4)),
-                   as.character(round(metals1.curve[10,4],digits = 4)),
-                   as.character(round(metals1.curve[11,4],digits = 4)),
-                   as.character(round(metals1.curve[12,4],digits = 4))),
-         x=c(80,80,80,80,80,80,80,80,80,80,80,80),
-         y=c(4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000,4000000))
-
-dat.text 
+  summarise(cal_curve(Expected_Conc_ppm,cps))%>%
+  mutate(Run_Date = run_date)
 
 
+#labels for plots 
+data_text<-data.frame(
+  Element = M_stds_curve$Element,
+  label = round(M_stds_curve$R2,4)
+)
 
 
-#PLOT CURVES
-metals1.curve.plots<-metals1%>%
-  ggplot(aes(x=Expected_Conc_ppm,y=cps))+
-  geom_point()+
-  geom_smooth(method="lm",se=FALSE)+
-  facet_wrap(~Element)+
-  geom_text(data = dat.text,
-            mapping = aes(x = x,
-                          y = y,
-                          label = label),
-            col = "black",
-            size = 3,
-            fontface="bold")
-  
-
-metals1.curve.plots
-
-
-
-
-```
-
-
-
-
-#P, S, and Si 
-```{r}
-P1<-stds1%>%
-   filter(Curve == "P" | Curve =="Calib")%>%
-  select(Curve,Expected_Conc_ppm,
-         P.178.221..cps.,P.213.617..cps.,
-         S.axial..cps.,S.radial..cps.,
-         Si.axial..cps.)%>%
-  pivot_longer(cols = contains(".cps."),
-    names_to = "Element",
-    values_to = "cps",
-    values_drop_na = TRUE)
-
-P1
-
-
-#CALCULATE R2  
-P1.curve<-P1%>%
-  group_by(Element)%>%
-  summarise(cal_curve(Expected_Conc_ppm,cps))
-
-P1.curve
-
-
-
-#labels for plot
-dat.textp1<-data.frame(Element = c("P.178.221..cps.","P.213.617..cps.",
-         "S.axial..cps.","S.radial..cps.",
-         "Si.axial..cps."),
-         label = c(as.character(round(P1.curve[1,4],digits = 4)),
-                   as.character(round(P1.curve[2,4],digits = 4)),
-                   as.character(round(P1.curve[3,4],digits = 4)),
-                   as.character(round(P1.curve[4,4],digits = 4)),
-                   as.character(round(P1.curve[5,4],digits = 4))),
-         x=c(55,55,55,55,55),
-         y=c(300,150000,12000,800,1230000))
-
-dat.textp1 
-
-
-
-
-#PLOT CURVES
-P1.curve.plots<-P1%>%
-  ggplot(aes(x=Expected_Conc_ppm,y=cps))+
+p<-ggplot(M_stds,aes(x=Expected_Conc_ppm,y=cps))+
   geom_point()+
   geom_smooth(method="lm",se=FALSE)+
   facet_wrap(~Element,scales="free_y")+
-  geom_text(data = dat.textp1,
-            mapping = aes(x = x,
-                          y = y,
-                          label = label),
-            col = "black",
-            size = 3,
-            fontface="bold")
+  geom_text(
+    data    = data_text,
+    mapping = aes(x = Inf, y = Inf, label = label),
+    hjust   = 1.1,
+    vjust   = 5)+
+  ggtitle(run_date)
   
 
-P1.curve.plots
+print(p)
 
+print(M_stds_curve)
 
 
 
 ```
+
+## P, S, and Si Standard Curve Checks
+```{r P Standard Curve Checks, echo = FALSE, message = FALSE, warning = FALSE}
+
+#READ IN P STANDARDS
+P_stds <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(16:23))
+
+
+#COMBINE WITH BLANK
+P_stds <- P_stds %>%
+  bind_rows(std_blank)%>%
+  select(Sample.Id:`Ga.radial.(IS).(cps)`)%>%
+  #REMOVE INTERNATL STANDARDS
+  select(-contains("(IS)"))%>%
+  #ADD EXPECTED CONCENTRATIONS OF STANDARDS
+    separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  select(Curve, Expected_Conc_ppm,contains("(cps)"))%>%
+  pivot_longer(cols = contains("(cps)"),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)
+
+
+#CALCULATE R2
+P_stds_curve<-P_stds%>%
+  group_by(Element)%>%
+  summarise(cal_curve(Expected_Conc_ppm,cps))%>%
+  mutate(Run_Date = run_date)
+
+
+
+#LABELS FOR PLOTS
+data_text<-data.frame(
+  Element = P_stds_curve$Element,
+  label = round(P_stds_curve$R2,4)
+)
+
+#PLOT
+p<-ggplot(P_stds,aes(x=Expected_Conc_ppm,y=cps))+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)+
+  facet_wrap(~Element,scales="free_y")+
+  geom_text(
+    data    = data_text,
+    mapping = aes(x = Inf, y = Inf, label = label),
+    hjust   = 1.1,
+    vjust   = 5)+
+  ggtitle(run_date)
+  
+
+print(p)
+
+print(P_stds_curve)
+
+```
+
 
