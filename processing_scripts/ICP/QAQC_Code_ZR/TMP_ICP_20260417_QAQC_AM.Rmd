@@ -35,12 +35,18 @@ cal_curve<-function(Conc_uM,ABS){
 }
 
 
-
 #function to calculate percent difference
 calc_percent_diff<-function(dup,original){
   avg<-(dup+original)/2
   percent_diff<-((abs(original-dup))/avg)*100
   return(percent_diff=percent_diff)
+}
+
+
+#Percent error
+calc_percent_error<-function(chk,expected){
+  percent_error<-(abs((chk-expected))/expected)*100
+  return(percent_error=percent_error)
 }
 ```
 
@@ -173,5 +179,86 @@ print(p)
 print(P_stds_curve)
 
 ```
+
+#Import sample data
+
+```{r,include=FALSE}
+dat<-read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet =  "Conc. in Calib Units", startRow = 24)
+
+dat <- dat %>% 
+  select(-1)
+```
+
+
+## Asses Metal Check Standards 
+```{r,echo=FALSE, warning = FALSE}
+
+# Pull out M check standards
+M_chks_raw <- dat %>%
+  filter(str_detect(Sample.Id,"M "))
+
+# Remove percentage values and any S/P/Si stds
+M_chks_raw <- M_chks_raw %>% 
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))%>%
+  
+  # ADD EXPECTED CONCENTRAITON
+  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  mutate(rep = row_number())
+
+
+# CALCULATE PERCENT ERROR 
+ 
+M_chks_pe<- M_chks_raw %>%
+  select(rep, Curve, Expected_Conc_ppm,contains("mg/L)"))%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #CONCENTRATION OF SR IS LOWER THAN OTHER ELEMENTS
+  mutate(Expected_Conc_ppm = if_else(str_detect(Element,"Sr"),Expected_Conc_ppm/10,Expected_Conc_ppm))%>%
+  mutate(percent_error = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(M_chks_flag = ifelse(abs(percent_error)<=10,"PASS","FAIL"))
+
+#data frame of expected concentrations for hline on graph
+#necessary because Sr has a different expected concentrations from other elements
+hline_dat<-data.frame(
+  Element = M_chks_pe$Element,
+  intercept_value = M_chks_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(M_chks_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=M_chks_flag))+
+  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  labs(x="",y="Concentration (mg/L)")
+
+print(p)
+
+
+chks_percent <- M_chks_pe%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = mean(abs(percent_error)<=10)*100,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))%>%
+  filter(PE_flag == "FAIL")
+ 
+
+print(chks_percent)
+
+
+
+
+ifelse(PE_flag=="FAIL",print(paste(Element," Check Standards are not within range of expected concentration - REASSESS")))
+
+
+```
+
 
 
