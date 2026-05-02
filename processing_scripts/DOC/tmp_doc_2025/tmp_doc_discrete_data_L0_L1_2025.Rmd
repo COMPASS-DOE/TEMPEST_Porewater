@@ -30,7 +30,7 @@ getwd()
 ### 2025 
 ```{r read in 2025}
 
-folder_2025 <- "../tmp_doc_2025/tmp_doc_processed_data_2025/"
+folder_2025 <- "~/GitHub/TEMPEST_Porewater/processing_scripts/DOC/tmp_doc_2025/tmp_doc_processed_data_2025/"
 
 files_2025 <- list.files(path = folder_2025, pattern = "*.csv", full.names = TRUE)
 
@@ -82,6 +82,6 @@ clean_2025 <- all_2025 %>%
 
 View(clean_2025)
   
-write_csv(clean_2025, paste0(folder_2025, "01_TMP_PW_NPOCTDN_2025_L1.csv") ) #note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
+write_csv(clean_2025, paste0(folder_2025, "01_TMP_PW_NPOCTDN_2025_L1_updated.csv") ) #note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
 
 ```
