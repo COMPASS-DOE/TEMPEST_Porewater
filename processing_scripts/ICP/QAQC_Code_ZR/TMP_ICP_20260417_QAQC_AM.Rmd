@@ -20,6 +20,7 @@ library(data.table)
 library(plater)
 library(openxlsx)
 library(lubridate)
+library(patchwork)
 ```
 
 
@@ -252,13 +253,237 @@ chks_percent <- M_chks_pe%>%
 
 print(chks_percent)
 
+```
+
+## Assess P, S, and Si Check Standards
+```{r,echo=FALSE, warning = FALSE}
+# Pull out M check standards
+P_chks_raw <- dat %>%
+  filter(str_detect(Sample.Id,"P "))
+
+# Remove percentage values and any M stds
+P_chks_raw <- P_chks_raw %>% 
+  select(1:6, `P.178.221.(mg/L)`,`P.213.617.(mg/L)`,`S.radial.(mg/L)`,`S.axial.(mg/L)`,`Si.axial.(mg/L)` )%>%
+  
+  # ADD EXPECTED CONCENTRAITON
+  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  mutate(rep = row_number())
 
 
+# CALCULATE PERCENT ERROR 
+ 
+P_chks_pe<- P_chks_raw %>%
+  select(rep, Curve, Expected_Conc_ppm,contains("mg/L)"))%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #PERCENT ERROR CALCULATIONS
+  mutate(percent_error = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(P_chks_flag = ifelse(abs(percent_error)<=10,"PASS","FAIL"))
 
-ifelse(PE_flag=="FAIL",print(paste(Element," Check Standards are not within range of expected concentration - REASSESS")))
+#data frame of expected concentrations for hline on graph
+#necessary because Sr has a different expected concentrations from other elements
+hline_dat<-data.frame(
+  Element = P_chks_pe$Element,
+  intercept_value = P_chks_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(P_chks_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=P_chks_flag))+
+  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  labs(x="",y="Concentration (mg/L)")
+
+print(p)
+
+
+P_chks_percent <- P_chks_pe%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = mean(abs(percent_error)<=10)*100,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))%>%
+  filter(PE_flag == "FAIL")
+ 
+
+print(P_chks_percent)
 
 
 ```
+
+## Check Internal Standards
+```{r,echo=FALSE, warning = FALSE}
+IS_stds<- dat %>%
+  select(1:6, contains("(IS"))%>%
+   mutate(rep = row_number())%>%
+  pivot_longer(cols = contains("(IS)"),
+    names_to = "Element",
+    values_to = "Percent",
+    values_drop_na = TRUE)%>%
+  mutate(IS_flag = case_when(
+    Percent > 110 | Percent < 90 ~ "FAIL",
+    Percent < 110 & Percent > 90 ~ "PASS"
+  ))
+
+
+p_IS<-ggplot(IS_stds, aes(x=rep,y=Percent))+
+  geom_hline(yintercept = 100, color = 'black',linetype='dashed')+
+  geom_line()+
+  geom_point(aes(color=IS_flag))+
+  facet_wrap(~Element)+
+  scale_color_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  coord_cartesian(ylim=c(80,120))
+
+print(p_IS)
+
+
+print(IS_stds %>% filter(IS_flag == "BAD"))
+
+
+```
+
+## Additional Checks 
+
+NIST 1643f and Multi-elemental standard (QCS) are used as additional checks with a 10x dilution 
+
+```{r,echo=FALSE, warning = FALSE}
+DF<-10 # dilution factor 
+
+#Make data frame of expected values for each additional check
+
+##QCS - Multi-elemental standard
+QCS<- data.frame(
+  Element = c("Al", "B","Ca","Fe","K","Mg","Mn","Na","P","S","Si","Sr","Zn"),
+  Expected_Conc_ppm = c(99.8, 49, 98.9,99.9,49.78,99.0,10.03,101.1,49.50,99.1,99.1,9.92,50.3)
+)
+
+QCS<-QCS%>%
+  #Account for dilution factor (10)
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF )
+
+
+#Pull out check samples 
+QCS_dat<-dat%>%
+  filter(str_detect(Sample.Id,"QCS"))%>%
+  #remove internal standards
+  select(-contains("(IS)"))%>%
+  mutate(rep=row_number())%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #MERGE WITH DATA FRAME OF EXPECTED VALUES
+  separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
+  left_join(QCS, by= "Element")
+
+QCS_pe<-QCS_dat%>%
+  mutate(QCS_pe = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(QCS_flag = ifelse(abs(QCS_pe)<=10,"PASS","FAIL"))
+
+
+hline_dat<-data.frame(
+  Element = QCS_pe$Element,
+  intercept_value = QCS_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(QCS_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=QCS_flag))+
+  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  labs(x="",y="Concentration (mg/L)")+
+  ggtitle("QCS Multi-elemental Standard (1:10) check")
+
+print(p)
+
+
+```
+
+```{r}
+##NIST 1643f 
+NIST<-data.frame(
+  Element = c("Al", "B","Ca","Fe","K","Mg","Mn","Na","Sr","Zn"),
+  Expected_Conc_ug.L = c(133.8,152.3,29430,93.44,1932.6,7454,37.14,18830,314,74.4)
+)
+
+NIST<-NIST %>%
+  #convert to ppm (mg/L)
+  group_by(Element)%>%
+  summarise(Expected_Conc_ppm = Expected_Conc_ug.L/1000)%>%
+  #account for dilution factor (10)
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF)
+  
+
+NIST_dat<-dat%>%
+  filter(str_detect(Sample.Id,"NIST"))%>%
+  #remove internal standards
+  select(-contains("(IS)"))%>%
+  mutate(rep=row_number())%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #MERGE WITH DATA FRAME OF EXPECTED VALUES
+  separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
+  left_join(NIST, by= "Element")
+
+NIST_pe<-NIST_dat%>%
+  filter(!is.na(Expected_Conc_ppm))%>%
+  mutate(NIST_pe = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(NIST_flag = ifelse(abs(NIST_pe)<=10,"PASS","FAIL"))
+
+
+hline_dat<-data.frame(
+  Element = NIST_pe$Element,
+  intercept_value = NIST_pe$Expected_Conc_ppm
+)
+
+  
+p_axial<-NIST_pe%>%
+  filter(Measurement.type=="axial")%>%
+  mutate(intercept_value = Expected_Conc_ppm)%>%
+  ggplot(aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y",drop=TRUE)+
+  #dashed line for expected concentration
+  geom_hline(aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=NIST_flag))+
+  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  labs(x="",y="Concentration (mg/L)",title = "NIST 1643f Checks",subtitle = "Axial")
+
+p_radial<-NIST_pe%>%
+  filter(Measurement.type=="radial")%>%
+  mutate(intercept_value = Expected_Conc_ppm)%>%
+  ggplot(aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y",drop=TRUE)+
+  #dashed line for expected concentration
+  geom_hline(aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=NIST_flag))+
+  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  labs(x="",y="Concentration (mg/L)",subtitle = "Radial")
+
+
+p<-p_axial / p_radial + plot_layout(guides = "collect",heights = c(2,4))
+
+print(p)
+
+
+
+```
+
+
 
 
 
