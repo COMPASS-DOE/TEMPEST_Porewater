@@ -251,7 +251,10 @@ chks_percent <- M_chks_pe%>%
   filter(PE_flag == "FAIL")
  
 
-print(chks_percent)
+
+
+print(paste("<80 % of ",chks_percent$Element, " Check Standards are within range of expected concentration - REASSESS"))
+
 
 ```
 
@@ -313,7 +316,8 @@ P_chks_percent <- P_chks_pe%>%
   filter(PE_flag == "FAIL")
  
 
-print(P_chks_percent)
+
+print(paste("<80 % of ",P_chks_percent$Element, " Check Standards are within range of expected concentration - REASSESS"))
 
 
 ```
@@ -345,17 +349,19 @@ p_IS<-ggplot(IS_stds, aes(x=rep,y=Percent))+
 print(p_IS)
 
 
-print(IS_stds %>% filter(IS_flag == "BAD"))
+print(paste(IS_stds%>%
+  summarise(Pass_percent = mean(IS_flag=="PASS")*100), "% of Internal Standards measurements are within 10% of 100"))
+
 
 
 ```
 
 ## Additional Checks 
 
-NIST 1643f and Multi-elemental standard (QCS) are used as additional checks with a 10x dilution 
+### NIST 1643f and Multi-elemental standard (QCS) are used as additional checks with a 10x dilution 
 
-```{r,echo=FALSE, warning = FALSE}
-DF<-10 # dilution factor 
+```{r,echo=FALSE, warning = FALSE,fig.width=10}
+DF_chks<-10 # dilution factor 
 
 #Make data frame of expected values for each additional check
 
@@ -367,7 +373,7 @@ QCS<- data.frame(
 
 QCS<-QCS%>%
   #Account for dilution factor (10)
-  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF )
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF_chks )
 
 
 #Pull out check samples 
@@ -382,7 +388,8 @@ QCS_dat<-dat%>%
     values_drop_na = TRUE)%>%
   #MERGE WITH DATA FRAME OF EXPECTED VALUES
   separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
-  left_join(QCS, by= "Element")
+  left_join(QCS, by= "Element")%>%
+  unite("Element",Element,Measurement.type,Units,sep=".")
 
 QCS_pe<-QCS_dat%>%
   mutate(QCS_pe = calc_percent_error(ppm,Expected_Conc_ppm))%>%
@@ -408,9 +415,25 @@ p<-ggplot(QCS_pe, aes(x=rep,y=ppm))+
 print(p)
 
 
+QCS_percent <- QCS_pe%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = mean(abs(QCS_pe)<=10)*100,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))%>%
+  filter(PE_flag == "FAIL")
+ 
+
+
+print(paste("<80 % of ",QCS_percent$Element, " QCS checks are within range of expected concentration - REASSESS"))
+
+
+
+
+
 ```
 
-```{r}
+```{r,echo=FALSE, warning = FALSE,fig.width=10}
 ##NIST 1643f 
 NIST<-data.frame(
   Element = c("Al", "B","Ca","Fe","K","Mg","Mn","Na","Sr","Zn"),
@@ -422,7 +445,7 @@ NIST<-NIST %>%
   group_by(Element)%>%
   summarise(Expected_Conc_ppm = Expected_Conc_ug.L/1000)%>%
   #account for dilution factor (10)
-  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF)
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF_chks)
   
 
 NIST_dat<-dat%>%
@@ -436,7 +459,8 @@ NIST_dat<-dat%>%
     values_drop_na = TRUE)%>%
   #MERGE WITH DATA FRAME OF EXPECTED VALUES
   separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
-  left_join(NIST, by= "Element")
+  left_join(NIST, by= "Element")%>%
+  unite("Element",Element,Measurement.type,Units,sep=".")
 
 NIST_pe<-NIST_dat%>%
   filter(!is.na(Expected_Conc_ppm))%>%
@@ -450,38 +474,125 @@ hline_dat<-data.frame(
 )
 
   
-p_axial<-NIST_pe%>%
-  filter(Measurement.type=="axial")%>%
-  mutate(intercept_value = Expected_Conc_ppm)%>%
-  ggplot(aes(x=rep,y=ppm))+
+p<-ggplot(NIST_pe,aes(x=rep,y=ppm))+
   facet_wrap(~Element,scales = "free_y",drop=TRUE)+
   #dashed line for expected concentration
-  geom_hline(aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
-  geom_bar(stat = "identity", position = position_dodge(),aes(fill=NIST_flag))+
+  geom_hline(data=hline_dat,aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity",aes(fill=NIST_flag))+
   scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
                     name = "% error < 10%")+
-  labs(x="",y="Concentration (mg/L)",title = "NIST 1643f Checks",subtitle = "Axial")
+  labs(x="",y="Concentration (mg/L)",title = "NIST 1643f Checks")
 
-p_radial<-NIST_pe%>%
-  filter(Measurement.type=="radial")%>%
-  mutate(intercept_value = Expected_Conc_ppm)%>%
-  ggplot(aes(x=rep,y=ppm))+
-  facet_wrap(~Element,scales = "free_y",drop=TRUE)+
-  #dashed line for expected concentration
-  geom_hline(aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
-  geom_bar(stat = "identity", position = position_dodge(),aes(fill=NIST_flag))+
-  scale_fill_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
-                    name = "% error < 10%")+
-  labs(x="",y="Concentration (mg/L)",subtitle = "Radial")
-
-
-p<-p_axial / p_radial + plot_layout(guides = "collect",heights = c(2,4))
 
 print(p)
 
 
+NIST_percent <- NIST_pe%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = mean(abs(NIST_pe)<=10)*100,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))%>%
+  filter(PE_flag == "FAIL")
+ 
+
+
+print(paste("<80 % of ",NIST_percent$Element, " QCS checks are within range of expected concentration - REASSESS"))
+
 
 ```
+
+### Duplicate samples 
+
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10}
+setwd("C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/00_Metadata")
+
+
+#import DF of samples and other info 
+sample_list<-read.xlsx("TEMPEST_ICP_List2.xlsx",sheet="20260415")%>%
+  rename(Sample.Id = Sample.ID)
+  
+
+#combine with sample concentrations 
+dat2<-left_join(dat,sample_list,by="Sample.Id")%>%
+  #FIX SAMPLE IDs ON DUPES AND MISSING SAMPLES 
+  #CORRECT IDs are in Notes column
+  mutate(Sample.Id = if_else(is.na(Notes),Sample.Id,Notes))
+
+
+#pull out dupes
+dups<-dat2%>%
+  filter(str_detect(Sample.Id,"_dup"))%>%
+  select(!contains("(IS)"))%>%
+  #REMOVE _DUP FROM SAMPLE IDS
+  mutate(Sample.Id = gsub("_dup","",Sample.Id),
+         rep = row_number())%>%
+  #CALCULATE CONCENTRATIONS WITH DILUTION FACTOR
+  mutate(across(contains("(mg/L"), ~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm_dup",
+    values_drop_na = TRUE)
+
+
+#remove dupes from dat2
+dups_conc<-dat2%>%
+  filter(!str_detect(Sample.Id,"_dup|_spk"))%>%
+  select(!contains("(IS)"))%>%
+  #ACCOUNT FOR DILUTION FACTOR IN CONCENTRATION
+  mutate(across(contains("(mg/L)"),~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #Combine with duplicate samples 
+  right_join(dups,by=c("Sample.Id","Element"))%>%
+  #calculate percent difference
+  mutate(dup_percentdiff = calc_percent_diff(ppm_dup,ppm))%>%
+  #ADD FLAG IF MORE THAN 10% DIFFERENT 
+  mutate(dup_flag = if_else(abs(dup_percentdiff)>=10,"FAIL","PASS"))
+
+
+
+p<-dups_conc%>%
+  pivot_longer(cols = contains("ppm"),
+    names_to = "Type",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  ggplot(aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  geom_bar(stat="identity",position = "dodge",aes(fill=Type))+
+  scale_fill_manual(values = c("ppm" = "#6c91c2", "ppm_dup" = "#ff934f"),
+                    name = " ",
+                    labels = c("Original","Duplicate"))+
+  labs(x="",y="Concentration (mg/L)",title = "Duplicate Samples")
+
+
+
+print(p)
+
+
+dup_percent <- dups_conc%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = mean(abs(dup_percentdiff)<=10)*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"))%>%
+  filter(PE_flag == "FAIL")
+ 
+
+
+print(paste("<80 % of ",dup_percent$Element, " dups are within 10% of expected concentration - REASSESS"))
+
+
+
+
+```
+
+
+
+
 
 
 
