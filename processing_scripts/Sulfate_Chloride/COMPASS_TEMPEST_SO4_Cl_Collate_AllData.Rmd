@@ -474,6 +474,57 @@ viz_so4_boxplot
 
 ```
 
+## Boxplot summary by Grid
+```{r Porewater grid boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
+
+##Boxplot Summarize SO4 and Cl by Date, Site, and Zone
+viz_cl_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = Cl_ppm, fill = plot_1)) +
+  geom_boxplot() + 
+  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  scale_x_discrete(drop = TRUE) +
+  scale_fill_manual(values = c(
+    "Control" = "springgreen2",
+    "Freshwater" = "cyan2",
+    "Saltwater" = "violetred2"
+  ), labels = c("Control", "Freshwater", "Saltwater")) +
+  theme_classic() +
+  labs(x = "Grid ID", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride by Grid") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(legend.position = "none")
+
+viz_cl_boxplot
+
+
+viz_so4_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = SO4_ppm, fill = plot_1)) +
+  geom_boxplot() + 
+  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  scale_x_discrete(drop = TRUE) +
+  scale_fill_manual(values = c(
+    "Control" = "springgreen2",
+    "Freshwater" = "cyan2",
+    "Saltwater" = "violetred2"
+  ), labels = c("Control", "Freshwater", "Saltwater")) +
+  theme_classic() +
+  labs(x = "Grid ID", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate by Grid") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  #scale_x_discrete(labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water"))+ 
+  theme(legend.position = "none")
+
+viz_so4_boxplot
+
+```
 
 ##Calculate summary metrics for Porewater
 ```{r Porewater additional summary metrics, include=FALSE, dpi = 300}
