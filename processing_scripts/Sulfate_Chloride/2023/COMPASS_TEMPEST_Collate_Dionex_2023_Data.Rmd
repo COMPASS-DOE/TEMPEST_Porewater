@@ -103,7 +103,7 @@ all_data3$Date <- gsub("202311", "20231116", all_data3$Date)
 
 ##Fix TMP_SW_E5_20230606
 all_data3$Sample_ID <- gsub("TMP_SW_E5_20230606", "TMP_SW_E3_20230606", all_data3$Sample_ID)
-all_data3$Grid <- ifelse(all_data3$Grid == "TMP_SW_E3_20230606", "E3", all_data3$Grid)
+all_data3$Grid <- ifelse(all_data3$Sample_ID == "TMP_SW_E3_20230606", "E3", all_data3$Grid)
 
 ##Remove aquifer samples
 all_data3 <- all_data3 %>%

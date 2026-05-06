@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  23 FEB 2026 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  6 MAY 2026 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**COMPASS_TEMPEST_pH_Collate_AllData.tex
-(./COMPASS_TEMPEST_pH_Collate_AllData.tex
+**COMPASS_TEMPEST_DOC_Collate_AllData.tex
+(./COMPASS_TEMPEST_DOC_Collate_AllData.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -440,12 +440,12 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count333
-) (./COMPASS_TEMPEST_pH_Collate_AllData.aux
+) (./COMPASS_TEMPEST_DOC_Collate_AllData.aux
 
-LaTeX Warning: Label `tab:Summary table metrics' multiply defined.
+LaTeX Warning: Label `tab:Porewater summary table metrics' multiply defined.
 
 )
-\openout1 = `COMPASS_TEMPEST_pH_Collate_AllData.aux'.
+\openout1 = `COMPASS_TEMPEST_DOC_Collate_AllData.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
 LaTeX Font Info:    ... okay on input line 85.
@@ -535,7 +535,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
 (c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./COMPASS_TEMPEST_pH_Collate_AllData.toc
+) (./COMPASS_TEMPEST_DOC_Collate_AllData.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -544,31 +544,80 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 1.
 )
 \tf@toc=\write3
-\openout3 = `COMPASS_TEMPEST_pH_Collate_AllData.toc'.
+\openout3 = `COMPASS_TEMPEST_DOC_Collate_AllData.toc'.
 
-<COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Visualize Data-1.pdf, id=8, 1156.32pt x 722.7pt>
-File: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Visualize Data-1.pdf Graphic file (type pdf)
-<use COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Visualize Data-1.pdf>
-Package pdftex.def Info: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Visualize Data-1.pdf  used on input line 100.
-(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
-<COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf, id=9, 1156.32pt x 722.7pt>
-File: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf Graphic file (type pdf)
-<use COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf>
-Package pdftex.def Info: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf  used on input line 105.
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Visualize Data-1.pdf, id=11, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Visualize Data-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Visualize Data-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Visualize Data-1.pdf  used on input line 101.
 (pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
 [1
 
-{c:/Users/readz/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Visualize Data-1.pdf>]
-<COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Overall Boxplot-1.pdf, id=29, 1156.32pt x 722.7pt>
-File: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Overall Boxplot-1.pdf Graphic file (type pdf)
-<use COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Overall Boxplot-1.pdf>
-Package pdftex.def Info: COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Overall Boxplot-1.pdf  used on input line 109.
+{c:/Users/readz/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf, id=29, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf  used on input line 106.
 (pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
-[2 <./COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf>]
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-2.pdf, id=30, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-2.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-2.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-2.pdf  used on input line 107.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+[]
+ []
 
-[3 <./COMPASS_TEMPEST_pH_Collate_AllData_files/figure-latex/Overall Boxplot-1.pdf>] [4] (./COMPASS_TEMPEST_pH_Collate_AllData.aux)
+[2 <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Visualize Data-1.pdf>]
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-1.pdf, id=40, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-1.pdf  used on input line 112.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-2.pdf, id=41, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-2.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-2.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-2.pdf  used on input line 113.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
+[]
+ []
+
+[3 <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-1.pdf> <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Summarize and Visualize Data-2.pdf>]
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf, id=56, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf  used on input line 118.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf, id=57, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf  used on input line 119.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+[]
+ []
+
+[4 <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-1.pdf> <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater Overall Boxplot-2.pdf>]
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf, id=72, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf  used on input line 123.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+<COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf, id=73, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf  used on input line 124.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--125
+[]
+ []
+
+[5 <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf> <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf>] [6 <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf> <./COMPASS_TEMPEST_DOC_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf>] [7] (./COMPASS_TEMPEST_DOC_Collate_AllData.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -578,18 +627,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12735 strings out of 469514
- 199444 string characters out of 5468199
- 616598 words of memory out of 5000000
- 41154 multiletter control sequences out of 15000+600000
+ 12791 strings out of 469514
+ 203883 string characters out of 5468199
+ 638993 words of memory out of 5000000
+ 41203 multiletter control sequences out of 15000+600000
  670880 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,10n,93p,518b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,93p,741b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on COMPASS_TEMPEST_pH_Collate_AllData.pdf (4 pages, 167008 bytes).
+Output written on COMPASS_TEMPEST_DOC_Collate_AllData.pdf (7 pages, 225297 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 159 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 

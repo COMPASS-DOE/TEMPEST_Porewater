@@ -479,6 +479,59 @@ viz_tdn_boxplot
 
 ```
 
+
+## Boxplot Summary by Grid
+```{r Porewater grid boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
+
+##Boxplot Summarize Nutrients by Date, Site, and Zone
+npoc <- ggplot(data_plotting, aes(x = grid,  y = npoc_mgL, fill = plot_1)) +
+  geom_boxplot() + 
+  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  scale_x_discrete(drop = TRUE) +
+  scale_fill_manual(values = c(
+    "Control" = "springgreen2",
+    "Freshwater" = "cyan2",
+    "Saltwater" = "violetred2"
+  ), labels = c("Control", "Freshwater", "Saltwater")) +
+  theme_classic() +
+  labs(x = "Grid ID", y = "NPOC (mg/L)", title = "TEMPEST Porewater: NPOC by Grid") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(legend.position = "none")
+
+npoc
+
+
+viz_tdn_boxplot <- ggplot(data_plotting, aes(x = grid,  y = tdn_mgL, fill = plot_1)) +
+  geom_boxplot() + 
+  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
+  scale_x_discrete(drop = TRUE) +
+  scale_fill_manual(values = c(
+    "Control" = "springgreen2",
+    "Freshwater" = "cyan2",
+    "Saltwater" = "violetred2"
+  ), labels = c("Control", "Freshwater", "Saltwater")) +
+  theme_classic() +
+  labs(x = "Grid ID", y = "TDN (mg/L)", title = "TEMPEST Porewater: TDN by Grid") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(legend.position = "none")
+
+viz_tdn_boxplot
+
+
+```
+
 ##Calculate summary metrics for Porewater
 ```{r Porewater additional summary metrics, include=FALSE, dpi = 300}
 # It would also be great to add to our collation codes a summary chunk that will calculate value ranges, means, and standard deviations (and errors) for each site, Grid, depth for each year; also for each site Grid, depth overall; and for each site and Grid overall so that we have some easy access to metrics. Was just thinking this might be helpful today when re-collating the DIC data.

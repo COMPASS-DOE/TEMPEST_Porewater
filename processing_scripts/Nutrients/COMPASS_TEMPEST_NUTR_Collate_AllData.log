@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  27 APR 2026 20:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.12)  6 MAY 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,16 +615,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--120
  []
 
 [6 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Overall Boxplot-3.pdf>] [7 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-1.pdf> <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-2.pdf>]
+<COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf, id=104, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf  used on input line 123.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+<COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf, id=105, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf  used on input line 124.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+<COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-3.pdf, id=106, 1156.32pt x 722.7pt>
+File: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-3.pdf Graphic file (type pdf)
+<use COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-3.pdf>
+Package pdftex.def Info: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-3.pdf  used on input line 125.
+(pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
+[]
+ []
+
+[8 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-3.pdf>] [9 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-1.pdf> <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-2.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Sourcewater Overall Boxplot-3.pdf>]
-<COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf, id=115, 1156.32pt x 722.7pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf, id=130, 1156.32pt x 722.7pt>
 File: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf Graphic file (type pdf)
 <use COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf>
-Package pdftex.def Info: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf  used on input line 210.
+Package pdftex.def Info: COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf  used on input line 216.
 (pdftex.def)             Requested size: 1156.31718pt x 722.69823pt.
-[9 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf>] (./COMPASS_TEMPEST_NUTR_Collate_AllData.aux)
+[10 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Porewater grid boxplot-3.pdf>] [11 <./COMPASS_TEMPEST_NUTR_Collate_AllData_files/figure-latex/Number of Samples Barplots-1.pdf>] (./COMPASS_TEMPEST_NUTR_Collate_AllData.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -634,18 +662,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12807 strings out of 469514
- 203979 string characters out of 5468199
- 633163 words of memory out of 5000000
- 41212 multiletter control sequences out of 15000+600000
+ 12830 strings out of 469514
+ 205971 string characters out of 5468199
+ 633170 words of memory out of 5000000
+ 41233 multiletter control sequences out of 15000+600000
  670880 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,10n,93p,525b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,93p,525b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/readz/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on COMPASS_TEMPEST_NUTR_Collate_AllData.pdf (9 pages, 218991 bytes).
+Output written on COMPASS_TEMPEST_NUTR_Collate_AllData.pdf (11 pages, 242672 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

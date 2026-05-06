@@ -47,11 +47,19 @@ year4_stop = lubridate::as_date("2025-12-31")
 # Import Data
 
 ```{r import metadata}
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewaterinventory.xlsx", overwrite = TRUE)
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 
-drive_download(inventory_directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewaterinventory.xlsx", overwrite = TRUE)
+drive_download(file = inventory_directory, path = "Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx", overwrite = TRUE)
 
-sample_key <- readxl::read_excel("~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewaterinventory.xlsx", skip=3, sheet="Porewater - Individual") %>%
+sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+sample_key <- readxl::read_excel("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3) %>%
   select(Sample_ID, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, EST_EDT) %>%
   filter(str_detect(Sample_ID, "DOC")) %>%
   rename(sample_name = Sample_ID,
@@ -83,11 +91,23 @@ sample_key_merging <- sample_key %>%
 ```
 
 ```{r import data}
+# directory <- "https://docs.google.com/spreadsheets/d/1KoskjXkHgPmSyFERvZLCX5ZBuV2cyev4-UEBuT0y-Jw/edit?gid=0#gid=0"
+# 
+# drive_download(directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", overwrite = TRUE)
+
+#Run these to pull the pH data into GitHub if not already there
 directory <- "https://docs.google.com/spreadsheets/d/1KoskjXkHgPmSyFERvZLCX5ZBuV2cyev4-UEBuT0y-Jw/edit?gid=0#gid=0"
 
-drive_download(directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", overwrite = TRUE)
+drive_download(file = directory, path = "Data from Google Drive/TEMPEST_Porewater_pH.xlsx", overwrite = TRUE)
 
-pH_raw <- readxl::read_excel("~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", sheet="pH") 
+sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_Porewater_pH.xlsx")
+sheet_names
+
+# pH_raw <- readxl::read_excel("~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", sheet="pH") 
+
+pH_raw <- readxl::read_excel("Data from Google Drive/TEMPEST_Porewater_pH.xlsx", sheet="pH") 
+
+
 ```
 # Clean and Flag
 ```{r clean up}
@@ -159,10 +179,14 @@ porewater_pH_2024 <- porewater_pH %>% filter(datetime < year3_stop & datetime > 
 porewater_pH_2025 <- porewater_pH %>% filter(datetime < year4_stop & datetime > year4_start) %>%
   select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
 
-write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
-write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
+# write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
+# write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
+# write_csv(porewater_pH_2025, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2025_L1.csv")
 
-write_csv(porewater_pH_2025, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2025_L1.csv")
+write_csv(porewater_pH_2023, "TMP_PW_pH_2023_L1.csv")
+write_csv(porewater_pH_2024, "TMP_PW_pH_2024_L1.csv")
+write_csv(porewater_pH_2025, "TMP_PW_pH_2025_L1.csv")
+
 
 ```
 
@@ -178,8 +202,10 @@ source_pH_2024 <- pH %>%
 
 # no source in 2025 # 
 
-write_csv(source_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv")
+# write_csv(source_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2023_L1.csv")
+# write_csv(source_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2024_L1.csv")
 
-write_csv(source_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_SOURCE_pH_2024_L1.csv")
+write_csv(source_pH_2023, "TMP_SOURCE_pH_2023_L1.csv")
+write_csv(source_pH_2024, "TMP_SOURCE_pH_2024_L1.csv")
 ```
 
