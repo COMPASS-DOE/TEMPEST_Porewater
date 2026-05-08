@@ -1,0 +1,106 @@
+---
+title: "TEMPEST20240624_H2S"
+author: "Ashleigh Montgomery"
+date: "2024-06-27"
+output: pdf_document
+---
+
+
+
+#SET UP
+
+```{r}
+#Set working directory
+# knitr::opts_knit$set(root.dir = "C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/02_CleanMicroplateData")
+
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(data.table)
+library(stringr)
+library(plater)
+```
+
+
+```{r}
+#Function to calculate slope, intercept, and R-squared and return in data frame
+#Fe 2 
+cal_curve<-function(Conc_uM,ABS){
+    model<-lm(ABS~Conc_uM)
+    slope<-coef(model)[[2]]
+    intercept<-coef(model)[[1]]
+     R2<-summary(model)$adj.r.squared
+  return(data.frame(slope=slope,intercept=intercept,R2=R2))
+}
+```
+
+#IMPORT DATA
+
+**Files required:** CSV for each plate run. Each plate should include a set of standards and QAQC checks (duplicates, spikes, interference)
+
+```{r}
+# setwd("C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/02_CleanMicroplateData")
+
+plates<-read_plates(
+  files=c("Tidy Data/TEMPEST20240624_H2S_plate1.csv",
+          "Tidy Data/TEMPEST20240624_H2S_plate2.csv",
+          "Tidy Data/TEMPEST20240624_H2S_plate3.csv",
+          "Tidy Data/TEMPEST20240708_H2S_plate1.csv",
+          "Tidy Data/TEMPEST20240708_H2S_plate2.csv",
+          "Tidy Data/TEMPEST20240708_H2S_plate3.csv"),
+  plate_names = c("20240624_Plate1",
+                  "20240624_Plate2",
+                  "20240624_Plate3",
+                  "20240708_Plate1",
+                  "20240708_Plate2",
+                  "20240708_Plate3"),
+  well_ids_column = "Wells",
+  sep=",")
+
+head(plates)
+```
+
+##PLOT STANDARDS 
+
+```{r}
+plates%>%
+  filter(str_detect(plates$IDs,"STD"))%>%
+  ggplot(aes(Std_Conc_uM,ABS1))+
+  facet_wrap(~Plate)+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)
+
+
+stds<-plates%>%
+  filter(str_detect(plates$IDs,"STD"))%>%
+  group_by(Plate)%>%
+  mutate(cal_curve(Std_Conc_uM,ABS1))%>%
+  filter(row_number()==1)%>%
+  select(Plate,slope,intercept,R2)
+
+stds
+  
+
+```
+
+#CALCULATE CONCENTRATIONS
+
+```{r}
+samples<-left_join(plates,stds,by="Plate")%>% #add slope/intercept info
+  filter(!str_detect(plates$IDs,"STD|DUP|SPK|ppt"))%>% #filter out standards and checks
+  mutate(conc_uM=((ABS1-intercept)/slope)*Dilutions)%>% #calculate concentrations
+  mutate(conc_uM=ifelse(conc_uM<=0,0,conc_uM))%>% #make negative values 0
+  group_by(IDs)%>% 
+  summarise(conc_uM=mean(conc_uM))
+
+head(samples)
+```
+
+
+#EXPORT
+```{r}
+# setwd("C:/Users/ashmo/OneDrive - Arizona State University/Data/TEMPEST/Porewater/04_SummarizedData")
+
+write.csv(samples, file="Processed Data/TEMPEST2024_H2S.csv")
+```
+
