@@ -1,9 +1,17 @@
 ---
 title: "TEMPEST_Collate_Sulfide_2023_Data"
 author: "Stephanie J. Wilson and Zoe Read"
-date: "2023-08-29"
+date: "2026-05-11"
 output: html_document
 ---
+
+```{r}
+## Some sample IDs are missing from metadata.
+# "TMP_C_H3_20230617"  "TMP_FW_C3_20230617" "TMP_SW_B4_20230617" "TMP_FW_D5_20230627" "TMP_SW_D5_20230627" "TMP_SW_F4_20230627" "TMP_C_D5_20230628" 
+# "TMP_FW_I5_20230707" "TMP_SW_D5_20230707" "TMP_C_I5_20230710"  "TMP_FW_F4_20230807" "TMP_SW_B4_20230807" "TMP_SW_C3_20230807" "TMP_SW_C6_20230807"
+# "TMP_SW_D5_20230807" "TMP_SW_E3_20230807" "TMP_SW_F4_20230807" "TMP_SW_F6_20230807" "TMP_SW_H3_20230807" "TMP_SW_H6_20230807" "TMP_SW_I5_20230807"
+# "TMP_C_B4_20230810" 
+```
 
 ```{r setup, include=FALSE}
 library(ggplot2)
@@ -12,6 +20,14 @@ library(stringr)
 library(readxl)
 library(tibble)
 library(dplyr)
+
+#Packages for loading metadata
+require(pacman)
+pacman::p_load(janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here) 
 ```
 
 #Read in and collate all the files in the Processed Data folder 
@@ -32,12 +48,140 @@ final_data <- all_data %>%
   rename(
     Sample_ID = IDs, 
     H2S_mean_uM = conc_uM, 
-    H2S_sd_uM = conc_sd_uM
-    ) %>%
-  dplyr::select(
-         Sample_ID, H2S_mean_uM, H2S_sd_uM
-        # list columns in the order you want them
-  )
+    H2S_sd_uM = conc_sd_uM, 
+    Zone = Treatment, 
+    Collection_Date = CollectionDate
+    )
+
+```
+
+##Create similar sample IDs to match with run samples 
+```{r pull in metadata for later, include=FALSE}
+
+#create IDs from what was collected for comparison later #TMP_SW_F6_20230515
+final_data1 <- final_data %>%
+  mutate(Sample_ID = paste("TMP",
+                          Zone,
+                          Grid,
+                          Collection_Date, 
+                          sep = "_"))
+
+```
+
+```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 4)
+
+```
+
+##Create similar sample IDs to match with run samples 
+```{r pull in metadata for later, include=FALSE}
+
+#select SO4/Cl samples 
+raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "SO4/Cl/H2S")
+
+#select 2023 samples
+raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, "2023"))
+
+#separate samples into columns
+raw_metadata_lys_year <- raw_metadata_lys_year %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Time_of_day"),
+    remove = FALSE)%>%
+  rename(Evacuation_Date = Evacuation_date_YYYMMDD)
+
+#create IDs from what was collected for comparison later
+raw_metadata_lys_ids <- raw_metadata_lys_year %>%
+  mutate(H2S_ID = paste(Project,
+                          Zone,
+                          Grid,
+                          Collection_Date_YYYYMMDD, 
+                          Time_of_day, 
+                          sep = "_"))
+
+raw_metadata_lys_ids$Sulfide_ID <- gsub("_NA", "", raw_metadata_lys_ids$H2S_ID)
+
+
+###SOURCEWATER SAMPLES###
+#select Sulfide samples 
+raw_metadata_sw_Sulfide <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, "SO4"))
+
+#select 2023 samples
+raw_metadata_sw_year <- raw_metadata_sw_Sulfide %>%  
+  filter(str_detect(Sample_ID, "2023"))
+
+#separate samples into columns
+raw_metadata_sw_sw <- raw_metadata_sw_year %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Source", "Zone", "Event_Time", "Analyte", "Collection_Date", "Time_of_day"),
+    remove = FALSE)
+
+#change "Source" to "Sourcewater" 
+raw_metadata_sw_sw$Source <- replace(raw_metadata_sw_sw$Source, raw_metadata_sw_sw$Source == "Source", "SourceWater")
+
+#create IDs from what was collected for comparison later
+raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
+  mutate(H2S_ID = paste(Project,
+                          Zone,
+                          Source, 
+                          Collection_Date, 
+                          Event_Time, 
+                          sep = "_")) %>%
+  rename("Notes" = "Notes:")
+
+
+#combine porewater and sourcewater samples
+sulfide_metadata <- bind_rows(raw_metadata_lys_ids, raw_metadata_sw_combined)
+
+#remove old ID's
+sulfide_metadata$Sample_ID <- NULL
+
+colnames(sulfide_metadata)
+
+```
+
+
+```{r Check to see if samples run match metadata & merge info, echo = FALSE}
+
+final_data1$Sample_ID <- toupper(final_data1$Sample_ID)
+sulfide_metadata$H2S_ID <- toupper(sulfide_metadata$H2S_ID)
+
+all_present <- all(final_data1$Sample_ID %in% sulfide_metadata$H2S_ID)
+
+if (all_present) {
+  message("***All sample IDs are present in metadata.***")
+} else {
+  message("***Some sample IDs are missing from metadata.***")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(final_data1$Sample_ID, sulfide_metadata$H2S_ID)
+  print(missing_ids)
+}
+
+colnames(final_data1)
+final_data1 <- final_data1 %>% 
+  select(-c("Event_Time", "Collection_Date", "Zone", "Grid", "Time_of_day"))
+
+sulfide_metadata$Collection_Date <- as.numeric(sulfide_metadata$Collection_Date)
+
+#merge metadata with sample run data 
+merged_data <- final_data1 %>%
+  left_join(sulfide_metadata, by = c("Sample_ID" = "H2S_ID"))
 
 
 ```
@@ -45,7 +189,7 @@ final_data <- all_data %>%
 ## Write the 2023 file out to the folder 
 ```{r, echo=FALSE}
 
-write.csv(final_data, "TEMPEST_Sulfide_2023.csv", row.names = FALSE)
+write.csv(merged_data, "TEMPEST_Sulfide_2023.csv", row.names = FALSE)
 
 ```
 
