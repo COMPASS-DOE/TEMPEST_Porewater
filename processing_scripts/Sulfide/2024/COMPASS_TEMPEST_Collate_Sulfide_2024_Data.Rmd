@@ -202,7 +202,7 @@ raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
 
 #select SO4/Cl samples 
 raw_metadata_sw <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, "NUTR"))
+  filter(str_detect(Sample_ID, "SO4/Cl/H2S"))
 
 #select 2024 samples
 raw_metadata_sw_year <- raw_metadata_sw %>%  
