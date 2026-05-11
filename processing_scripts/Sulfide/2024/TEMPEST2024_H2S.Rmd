@@ -60,6 +60,22 @@ plates<-read_plates(
 head(plates)
 ```
 
+##Fix Sample IDs
+```{r}
+# "TMP_FW_B4_T4_20240612" "TMP_FW_C3_T4_20240612" "TMP_FW_C6_T4_20240612" "TMP_FW_F4_T4_20240612" - No T4 on 20240612, should be 20240613 but it needs to be merged back in with the triplicates. 
+# T0_20240610_C_H should be T0_20240610_C_H6
+# "TMP_FW_F6_T2_20240612" - This must be TMP_FW_H6_T2_20240612 since we are missing that one. 
+
+plates <- plates %>% 
+  mutate(IDs = gsub("T4_20240612", "T4_20240613", IDs)) %>% 
+  mutate(IDs = ifelse(IDs == "T0_20240610_C_H", "T0_20240610_C_H6", IDs)) %>% 
+  mutate(IDs = gsub("T2_20240612_FW_F6", "T2_20240612_FW_H6", IDs))
+
+
+```
+
+
+
 ##PLOT STANDARDS 
 
 ```{r}
@@ -91,7 +107,8 @@ samples<-left_join(plates,stds,by="Plate")%>% #add slope/intercept info
   mutate(conc_uM=((ABS1-intercept)/slope)*Dilutions)%>% #calculate concentrations
   mutate(conc_uM=ifelse(conc_uM<=0,0,conc_uM))%>% #make negative values 0
   group_by(IDs)%>% 
-  summarise(conc_uM=mean(conc_uM))
+  summarise(conc_sd_uM=sd(conc_uM, na.rm = TRUE), 
+            conc_uM=mean(conc_uM))
 
 head(samples)
 ```

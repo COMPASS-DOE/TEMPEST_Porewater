@@ -80,7 +80,7 @@ samples<-left_join(plates,stds,by="Plate")%>% #add slope/intercept info
   mutate(conc_uM=((ABS1-intercept)/slope)*Dilutions)%>% #calculate concentrations
   mutate(conc_uM=ifelse(conc_uM<0,0,conc_uM))%>% #make negative values 0
   group_by(IDs)%>% 
-  summarise(conc_uM=mean(conc_uM))%>%
+  summarise(conc_sd_uM=sd(conc_uM, na.rm = TRUE), conc_uM=mean(conc_uM))%>%
   separate_wider_delim(IDs,names=c("CollectionDate","Treatment","Grid"),delim="_",cols_remove = FALSE)%>%
   mutate(CollectionDate=as.numeric(CollectionDate))
 
