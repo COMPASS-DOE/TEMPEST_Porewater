@@ -1,0 +1,302 @@
+---
+title: "TEMPEST_Collate_Sulfide_2024_Data"
+author: "Stephanie J. Wilson and Zoe Read"
+date: "2024-08-29"
+output: html_document
+---
+
+```{r}
+## Some sample IDs are missing from metadata.
+# "TMP_C_H_T0_20240610" - which grid is this? probably H6
+# "TMP_FW_F6_T2_20240612" - what is this supposed to be? Not in the Dionex data either. This must be TMP_FW_H6_T2_20240612 since we are missing that one. 
+# "TMP_FW_B4_T4_20240612" "TMP_FW_C3_T4_20240612" "TMP_FW_C6_T4_20240612" "TMP_FW_F4_T4_20240612" - No T4 on 20240612, should be 20240613 but it needs to be merged back in with the triplicates. 
+```
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tibble)
+library(dplyr)
+
+#Packages for loading metadata
+require(pacman)
+pacman::p_load(janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here) 
+```
+
+#Read in and collate all the files in the Processed Data folder 
+```{r}
+
+files <- list.files(path = "Processed Data", pattern = "\\.csv$", full.names = TRUE)
+
+# 3. Read and combine all CSVs
+all_data <- files %>%
+  lapply(read.csv) %>%    # or read.csv if you prefer base R
+  bind_rows()             # combine into one data frame
+
+all_data <- all_data[, -which(names(all_data) == "X")]
+
+colnames(all_data)
+
+final_data <- all_data %>%
+  rename(
+    Sample_ID = IDs, 
+    H2S_mean_uM = conc_uM, 
+    H2S_sd_uM = conc_sd_uM
+    )
+
+```
+
+##Create similar sample IDs to match with run samples 
+```{r pull in metadata for later, include=FALSE}
+
+#select event samples 
+data_lys_event <- final_data %>%  
+  filter(str_detect(Sample_ID, "T\\d"))
+
+#separate event samples into columns T5_20240613_SW_F4
+data_lys_event <- data_lys_event %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Event_Time", "Collection_Date", "Zone", "Grid"),
+    remove = FALSE)
+
+#create IDs from what was collected for comparison later #TMP_SW_D5_T2_20240612
+data_lys_event <- data_lys_event %>%
+  mutate(Sample_ID = paste("TMP",
+                          Zone,
+                          Grid,
+                          Event_Time, 
+                          Collection_Date, 
+                          sep = "_"))
+
+
+#select non-event samples 
+data_lys_monmon <- final_data %>%  
+  filter(!str_detect(Sample_ID, "T\\d")) %>%  
+  filter(!str_detect(Sample_ID, "SOURCE"))
+
+#separate non-event samples into columns #20240624_FW_C6
+data_lys_monmon <- data_lys_monmon %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Collection_Date", "Zone", "Grid"), #Warning is okay
+    remove = FALSE)
+
+#create IDs from what was collected for comparison later #TMP_C_C3_20241213
+data_lys_monmon <- data_lys_monmon %>%
+  mutate(Sample_ID = paste("TMP",
+                          Zone,
+                          Grid,
+                          Collection_Date, 
+                          sep = "_"))
+
+
+
+#select sourcewater samples 
+data_sw <- final_data %>%  
+  filter(str_detect(Sample_ID, "SOURCE"))
+
+#separate event samples into columns # 20240612_AFTERNOON_SOURCE_FW
+data_sw <- data_sw %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Collection_Date", "Time_of_day", "Grid", "Zone"),
+    remove = FALSE) %>%
+  mutate(Grid = ifelse(Grid == "SOURCE", "SourceWater", Grid)) %>%
+  mutate(Time_of_day = ifelse(Time_of_day == "HIGH", "AM", Time_of_day)) %>%
+  mutate(Time_of_day = ifelse(Time_of_day == "LOW", "PM", Time_of_day)) %>%
+  mutate(Time_of_day = ifelse(Time_of_day == "MORNING", "AM", Time_of_day)) %>%
+  mutate(Time_of_day = ifelse(Time_of_day == "AFTERNOON", "PM", Time_of_day)) %>%
+  mutate(Time_of_day = ifelse(Time_of_day == "MIDDAY", "MID", Time_of_day))
+
+#create IDs from what was collected for comparison later # TMP_SW_SourceWater_20240613
+data_sw <- data_sw  %>%
+  mutate(Collection_Date = ifelse(Collection_Date == "20230611", "20240611", Collection_Date)) %>% ##Fix date listed as 2023 incorrectly
+  mutate(Sample_ID = paste("TMP",
+                          Zone,
+                          Grid, 
+                          Collection_Date, 
+                          Time_of_day, 
+                          sep = "_"))
+
+
+#combine porewater and sourcewater samples
+final_data1 <- bind_rows(data_lys_event, data_lys_monmon)
+final_data1 <- bind_rows(final_data1, data_sw)
+
+```
+
+```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 4)
+
+```
+
+##Create similar sample IDs to match with run samples 
+```{r pull in metadata for later, include=FALSE}
+
+#select SO4/Cl samples 
+raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "SO4/Cl/H2S")
+
+#select 2024 samples
+raw_metadata_lys_year <- raw_metadata_lys %>%  
+  filter(str_detect(Sample_ID, "2024"))
+
+#select event samples 
+raw_metadata_lys_event <- raw_metadata_lys_year %>%  
+  filter(str_detect(Sample_ID, "_T"))
+
+#separate event samples into columns
+raw_metadata_lys_event <- raw_metadata_lys_event %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Event_Time", "Collection_Date", "Time_of_day"),
+    remove = FALSE)
+
+#select non-event samples 
+raw_metadata_lys_monmon1 <- raw_metadata_lys_year %>%  
+  filter(!str_detect(Sample_ID, "_T"))
+
+#separate non-event samples into columns
+raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day"), #Warning is okay
+    remove = FALSE)
+
+#combine event and non-event samples 
+raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
+raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+
+colnames(raw_metadata_lys_combined)
+
+#create IDs from what was collected for comparison later
+raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+  mutate(H2S_ID = paste(Project,
+                          Zone,
+                          Grid,
+                          Event_Time, 
+                          Collection_Date, 
+                          sep = "_"))
+
+#select SO4/Cl samples 
+raw_metadata_sw <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, "NUTR"))
+
+#select 2024 samples
+raw_metadata_sw_year <- raw_metadata_sw %>%  
+  filter(str_detect(Sample_ID, "2024"))
+
+#select rainwater samples 
+raw_metadata_sw_rw <- raw_metadata_sw_year %>%  
+  filter(str_detect(Sample_ID, "_Rainwater"))
+
+#separate event samples into columns
+raw_metadata_sw_rw <- raw_metadata_sw_rw %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", NA, "Source", "Zone", "Analyte", "Collection_Date", "Grid", "Depth", "Event_Time", "Time_of_day"),
+    remove = FALSE)
+
+#select sourcewater samples 
+raw_metadata_sw_sw <- raw_metadata_sw_year %>%  
+  filter(!str_detect(Sample_ID, "_Rainwater"))
+
+#separate samples into columns
+raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
+  separate(
+    col = Sample_ID,
+    sep = "_",
+    into = c("Project", "Source", "Zone", "Analyte", "Collection_Date", "Time_of_day", "Grid", "Depth", "Event_Time"),
+    remove = FALSE)
+
+#combine rw and sw samples 
+raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
+colnames(raw_metadata_sw_combined)
+raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
+  rename("Notes" = "Notes:") %>%
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+
+#change "Source" to "Sourcewater" 
+raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
+
+#create IDs from what was collected for comparison later
+raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
+  mutate(H2S_ID = paste(Project,
+                          Zone,
+                          Source, 
+                          Collection_Date, 
+                          Time_of_day, 
+                          sep = "_"))
+
+
+#combine porewater and sourcewater samples
+sulfide_metadata <- bind_rows(raw_metadata_lys_combined, raw_metadata_sw_combined)
+
+#remove old ID's
+sulfide_metadata$Sample_ID <- NULL
+
+#Remove NAs from sample IDs
+sulfide_metadata$H2S_ID <- gsub("_NA_", "_", sulfide_metadata$H2S_ID)
+
+```
+
+
+```{r Check to see if samples run match metadata & merge info, echo = FALSE}
+
+final_data1$Sample_ID <- toupper(final_data1$Sample_ID)
+sulfide_metadata$H2S_ID <- toupper(sulfide_metadata$H2S_ID)
+
+all_present <- all(final_data1$Sample_ID %in% sulfide_metadata$H2S_ID)
+
+if (all_present) {
+  message("***All sample IDs are present in metadata.***")
+} else {
+  message("***Some sample IDs are missing from metadata.***")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(final_data1$Sample_ID, sulfide_metadata$H2S_ID)
+  print(missing_ids)
+}
+colnames(final_data1)
+final_data1 <- final_data1 %>% 
+  select(-c("Event_Time", "Collection_Date", "Zone", "Grid", "Time_of_day"))
+
+sulfide_metadata$Collection_Date <- as.numeric(sulfide_metadata$Collection_Date)
+
+#merge metadata with sample run data 
+merged_data <- final_data1 %>%
+  left_join(sulfide_metadata, by = c("Sample_ID" = "H2S_ID"))
+
+
+```
+
+## Write the 2023 file out to the folder 
+```{r, echo=FALSE}
+
+write.csv(merged_data, "TEMPEST_Sulfide_2024.csv", row.names = FALSE)
+
+```
+
