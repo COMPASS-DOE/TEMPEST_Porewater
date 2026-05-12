@@ -6,11 +6,7 @@ output: html_document
 ---
 
 ```{r}
-## Some sample IDs are missing from metadata.
-# "TMP_C_H3_20230617"  "TMP_FW_C3_20230617" "TMP_SW_B4_20230617" "TMP_FW_D5_20230627" "TMP_SW_D5_20230627" "TMP_SW_F4_20230627" "TMP_C_D5_20230628" 
-# "TMP_FW_I5_20230707" "TMP_SW_D5_20230707" "TMP_C_I5_20230710"  "TMP_FW_F4_20230807" "TMP_SW_B4_20230807" "TMP_SW_C3_20230807" "TMP_SW_C6_20230807"
-# "TMP_SW_D5_20230807" "TMP_SW_E3_20230807" "TMP_SW_F4_20230807" "TMP_SW_F6_20230807" "TMP_SW_H3_20230807" "TMP_SW_H6_20230807" "TMP_SW_I5_20230807"
-# "TMP_C_B4_20230810" 
+## ***All sample IDs are present in metadata.***
 ```
 
 ```{r setup, include=FALSE}
@@ -99,8 +95,7 @@ raw_metadata_lys_year <- raw_metadata_lys_year %>%
     col = Sample_ID,
     sep = "_",
     into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Time_of_day"),
-    remove = FALSE)%>%
-  rename(Evacuation_Date = Evacuation_date_YYYMMDD)
+    remove = FALSE)
 
 #create IDs from what was collected for comparison later
 raw_metadata_lys_ids <- raw_metadata_lys_year %>%
@@ -111,7 +106,7 @@ raw_metadata_lys_ids <- raw_metadata_lys_year %>%
                           Time_of_day, 
                           sep = "_"))
 
-raw_metadata_lys_ids$Sulfide_ID <- gsub("_NA", "", raw_metadata_lys_ids$H2S_ID)
+raw_metadata_lys_ids$H2S_ID <- gsub("_NA", "", raw_metadata_lys_ids$H2S_ID)
 
 
 ###SOURCEWATER SAMPLES###
@@ -175,7 +170,7 @@ if (all_present) {
 
 colnames(final_data1)
 final_data1 <- final_data1 %>% 
-  select(-c("Event_Time", "Collection_Date", "Zone", "Grid", "Time_of_day"))
+  select(-c("Collection_Date", "Zone", "Grid"))
 
 sulfide_metadata$Collection_Date <- as.numeric(sulfide_metadata$Collection_Date)
 
@@ -188,6 +183,9 @@ merged_data <- final_data1 %>%
 
 ## Write the 2023 file out to the folder 
 ```{r, echo=FALSE}
+
+merged_data <- merged_data %>% 
+  select(c("Sample_ID", "H2S_sd_uM", "H2S_mean_uM", "Project", "Zone", "Source", "Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Event_Time", "Time_of_day", "Volume_mL", "Notes", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs"))
 
 write.csv(merged_data, "TEMPEST_Sulfide_2023.csv", row.names = FALSE)
 

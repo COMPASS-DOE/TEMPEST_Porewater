@@ -27,25 +27,10 @@ library(knitr)
 
 #read in 2023 Sulfide Data:
 dat23 <- read.csv("2023/TEMPEST_Sulfide_2023.csv")
-dat23 <- dat23 %>% 
-  separate(Sample_ID, into = c("Collection_Date", "Zone", "Grid"), remove = FALSE)
-# head(dat24)
 colnames(dat23)
 
 #read in 2024 Sulfide Data:
 dat24 <- read.csv("2024/TEMPEST_Sulfide_2024.csv")
-
-if (score >= 90) {
-  print("Grade: A")
-} else if (score >= 80) {
-  print("Grade: B")
-} else {
-  print("Grade: C")
-}
-
-dat24 <- dat24 %>% 
-  separate(Sample_ID, into = c("Collection_Date", "Zone", "Grid"), remove = FALSE)
-# head(dat24)
 colnames(dat24)
 
 #read in 2025 Sulfide Data:
@@ -54,6 +39,8 @@ dat25 <- read.csv("2025/TEMPEST_Sulfide_2025.csv")
 colnames(dat25)
 
 raw_dat <- bind_rows(dat23, dat24, dat25)
+
+colnames(raw_dat)
 
 ##Convert Collection Date into Date format
 raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date)
@@ -64,25 +51,27 @@ raw_dat$Year <- format(raw_dat$Collection_Date_formatted, format = "%Y")
 raw_dat$Month <- format(raw_dat$Collection_Date_formatted, format = "%m")
 raw_dat$Day <- format(raw_dat$Collection_Date_formatted, format = "%d")
 
-raw_dat$Grid <- gsub("Source", "Sourcewater", raw_dat$Grid)
-raw_dat$Grid <- gsub("SOURCEWATER", "Sourcewater", raw_dat$Grid)
-raw_dat$Grid <- gsub("RAINWATER", "Rainwater", raw_dat$Grid)
+raw_dat <- raw_dat %>% 
+  mutate(Grid = ifelse(str_detect(Sample_ID, "SOURCE"), "Sourcewater", Grid)) ##Why does 2024 sourcewater data not have attached metadata? 
 
 all_dat <- raw_dat %>%
   mutate(
     Project = "COMPASS", 
-    Site = "TEMPEST"
+    Site = "TEMPEST", 
+    Depth_cm = gsub("cm", "", Depth), 
+    Plot = Zone
   ) %>%
   rename(
-    SO4_mM = SO4_Conc_mM, 
-    Cl_mM = Cl_Conc_mM, 
+    Collection_Date_YYYYMMDD = Collection_Date, 
+    Evacuation_Date_YYYYMMDD = Evacuation_date_YYYMMDD
   )%>%
   dplyr::select(
-         Project, Site, Plot, Grid, Depth_cm, Event_Time, Time_of_day, Sample_ID, 
-         Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+         Project, Site, Year, Month, Day, Plot, Grid, Depth_cm, Event_Time, Time_of_day, Sample_ID, 
+         Volume_mL, Evacuation_Date_YYYYMMDD, Collection_Date_YYYYMMDD, 
+         Deployment_Date_YYYYMMDD, Deployment_Time_24hrs, Collection_Time_24hrs, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
-         SO4_ppm, SO4_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_mM, Cl_Conc_flag, Cl_QAQC_flag, 
-         salinity, Analysis_rundate,  Run_notes, Field_notes
+         H2S_mean_uM, H2S_sd_uM, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, 
+         Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them
   )
 
@@ -205,8 +194,8 @@ all_dat <- all_dat %>%
 write.csv(all_dat, "COMPASS_TEMPEST_Sulfide_AllData.csv")
 
 
-#write out a csv of the metadata associated with the data: 
-write.csv(metadat, "COMPASS_TEMPEST_Sulfide_Metadata.csv")
+# #write out a csv of the metadata associated with the data: 
+# write.csv(metadat, "COMPASS_TEMPEST_Sulfide_Metadata.csv")
 
 ```
 
