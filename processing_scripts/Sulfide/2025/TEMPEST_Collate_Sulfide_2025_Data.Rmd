@@ -29,11 +29,13 @@ colnames(all_data)
 final_data <- all_data %>%
   rename(
     H2S_mean_uM = H2S_mean, 
-    H2S_sd_uM = H2S_sd
+    H2S_sd_uM = H2S_sd, 
+    Depth = Depth_cm
     ) %>%
   dplyr::select(
-    Project, Zone, Grid, Depth_cm, 
-         Sample_ID, Source, Volume_mL, Collection_Date, Evacuation_Date, 
+    Project, Zone, Grid, Depth, 
+         Sample_ID, Source, Volume_mL, Collection_Date, Evacuation_date_YYYMMDD, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
          H2S_mean_uM, H2S_sd_uM, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
          Analysis_rundate,  Run_notes, Field_notes
         # list columns in the order you want them

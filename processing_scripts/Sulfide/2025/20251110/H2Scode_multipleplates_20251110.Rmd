@@ -994,15 +994,10 @@ raw_metadata_lys_year <- raw_metadata_lys_year %>%
     col = Sample_ID,
     sep = "_",
     into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date"),
-    remove = FALSE) %>%
-  rename(Evacuation_Date = Evacuation_date_YYYMMDD)
-
-raw_metadata_lys_combined <- raw_metadata_lys_year %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_Date", "Volume_mL", "Notes")
-
+    remove = FALSE)
 
 #create IDs from what was collected for comparison later
-raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
+raw_metadata_lys_combined <- raw_metadata_lys_year %>%
   mutate(H2S_ID = paste(Project,
                           Zone,
                           Source, 
@@ -1110,7 +1105,8 @@ final_data <- merged_data %>%
   ) %>%
   dplyr::select(
     Project, Sample_ID, Zone, Grid, Depth_cm,
-         Source, Volume_mL, Collection_Date, Evacuation_Date, 
+         Source, Volume_mL, Collection_Date, Evacuation_date_YYYMMDD, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
          H2S_mean, H2S_sd, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
          Analysis_rundate, Field_notes, Run_notes
         # list columns in the order you want them

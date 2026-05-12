@@ -27,6 +27,9 @@ pacman::p_load(janitor, # useful for simplifying column names
                googledrive, # drive_ functions
                plotrix,
                here) 
+
+# detach("package:raster", unload = TRUE)
+
 ```
 
 #Read in and collate all the files in the Processed Data folder 
@@ -186,8 +189,6 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
 
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
-raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 colnames(raw_metadata_lys_combined)
 
@@ -202,7 +203,7 @@ raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
 
 #select SO4/Cl samples 
 raw_metadata_sw <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, "SO4/Cl/H2S"))
+  filter(str_detect(Sample_ID, "SO4"))
 
 #select 2024 samples
 raw_metadata_sw_year <- raw_metadata_sw %>%  
@@ -236,8 +237,7 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 colnames(raw_metadata_sw_combined)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
-  rename("Notes" = "Notes:") %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  rename("Notes" = "Notes:")
 
 #change "Source" to "Sourcewater" 
 raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
@@ -280,7 +280,7 @@ if (all_present) {
   missing_ids <- setdiff(final_data1$Sample_ID, sulfide_metadata$H2S_ID)
   print(missing_ids)
 }
-colnames(final_data1)
+# colnames(final_data1)
 final_data1 <- final_data1 %>% 
   select(-c("Event_Time", "Collection_Date", "Zone", "Grid", "Time_of_day"))
 
@@ -293,8 +293,16 @@ merged_data <- final_data1 %>%
 
 ```
 
-## Write the 2023 file out to the folder 
+## Write the 2024 file out to the folder 
 ```{r, echo=FALSE}
+
+merged_data <- merged_data %>% 
+  rename(Field_notes = Notes) %>% 
+  select(c(Project, Zone, Grid, Depth, Event_Time, Time_of_day, Sample_ID, 
+         Volume_mL, Evacuation_date_YYYMMDD, Collection_Date, 
+         Deployment_Date_YYYYMMDD, Deployment_Time_24hrs, Collection_Time_24hrs, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
+         H2S_mean_uM, H2S_sd_uM, Field_notes))
 
 write.csv(merged_data, "TEMPEST_Sulfide_2024.csv", row.names = FALSE)
 
