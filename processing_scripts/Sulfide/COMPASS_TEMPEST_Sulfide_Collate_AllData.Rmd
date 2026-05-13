@@ -52,7 +52,7 @@ raw_dat$Month <- format(raw_dat$Collection_Date_formatted, format = "%m")
 raw_dat$Day <- format(raw_dat$Collection_Date_formatted, format = "%d")
 
 raw_dat <- raw_dat %>% 
-  mutate(Grid = ifelse(str_detect(Sample_ID, "SOURCE"), "Sourcewater", Grid)) ##Why does 2024 sourcewater data not have attached metadata? 
+  mutate(Grid = ifelse(str_detect(Sample_ID, "SOURCE"), "Sourcewater", Grid))
 
 all_dat <- raw_dat %>%
   mutate(
@@ -203,7 +203,7 @@ write.csv(all_dat, "COMPASS_TEMPEST_Sulfide_AllData.csv")
 ```{r Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Remove Sourcewater
-data_plotting <- raw_dat %>%
+data_plotting <- all_dat %>%
   filter(!str_detect(Grid, "Sourcewater"), ignore.case = TRUE)%>%
   filter(!str_detect(Grid, "Rainwater"), ignore.case = TRUE)
 
@@ -218,8 +218,8 @@ data_plotting <- data_plotting %>%
   ) %>%
   mutate(plot_1 = factor(plot_1, levels = c("Control", "Freshwater", "Saltwater")))
 
-#Plot data by year and change colors based on Zone:
-viz_cl_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = Cl_ppm, fill = plot_1)) +
+#Plot data by year and change colors based on Plot:
+viz_H2S_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = H2S_mean_uM, fill = plot_1)) +
   geom_bar(stat = "identity", position = position_dodge2(preserve = "total")) +
   facet_wrap( ~ plot_1, scales="free") +
   scale_fill_manual(values = c(
@@ -228,34 +228,16 @@ viz_cl_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = Cl_ppm, fil
     "Saltwater" = "violetred2"
   )) +
   theme_classic() +
-  labs(x = " ", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride") +
+  labs(x = " ", y = "Sulfide (uM)", title = "TEMPEST Porewater: Sulfide") +
   theme(
     panel.spacing = unit(.05, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) + 
   theme(text = element_text(size = 20))+ 
-  theme(legend.position = "none")
+  theme(legend.position = "none") + 
+  scale_x_discrete(drop = TRUE)+
+  geom_text(aes(label = ifelse(H2S_mean_uM == 0, "0", "")), vjust = -0.5) 
 
-# viz_cl_plot
-
-viz_so4_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = SO4_ppm, fill = plot_1)) +
-  geom_bar(stat = "identity", position = position_dodge2(preserve = "total")) +
-  facet_wrap( ~ plot_1, scales="free") +
-  scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
-  )) +
-  theme_classic() +
-  labs(x = " ", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate") +
-  theme(
-    panel.spacing = unit(.05, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) + 
-  theme(text = element_text(size = 20))+ 
-  theme(legend.position = "none")
-
-# viz_so4_plot
-
-ggarrange(viz_cl_plot, viz_so4_plot, nrow=2, ncol=1)
+viz_H2S_plot
 
 
 ```
@@ -263,20 +245,20 @@ ggarrange(viz_cl_plot, viz_so4_plot, nrow=2, ncol=1)
 ## Summarized Porewater data for Plot and Collection Date
 ```{r Summarize and Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
+data_plotting$Collection_Date_formatted <- as.Date(as.character(data_plotting$Collection_Date_YYYYMMDD), format = "%Y%m%d")
+
 ##Summarize SO4 and Cl by Date and Zone
 Sulfide_avg <- data_plotting %>%
   group_by(Collection_Date_formatted, plot_1) %>%
-   dplyr::summarize(mean_SO4 = mean(SO4_ppm, na.rm=TRUE),
-            sd_SO4 = sd(SO4_ppm, na.rm=TRUE),
-            mean_Cl = mean(Cl_ppm, na.rm=TRUE),
-            sd_Cl = sd(Cl_ppm, na.rm=TRUE))
+  dplyr::summarize(mean_H2S = mean(H2S_mean_uM, na.rm=TRUE), 
+                   sd_H2S = sd(H2S_mean_uM, na.rm=TRUE))
 
 # Define the specific date breaks you want to display
 specific_breaks <- as.Date(c("2023-01-01", "2024-01-01", "2025-01-01"))
 
-viz_cl_plot_avgs <- ggplot(Sulfide_avg, aes(x = Collection_Date_formatted, y = mean_Cl, color = plot_1)) +
+viz_H2s_plot_avgs <- ggplot(Sulfide_avg, aes(x = Collection_Date_formatted, y = mean_H2S, color = plot_1)) +
   geom_point(size = 3) + 
-  geom_errorbar(aes(ymin = mean_Cl - sd_Cl, ymax = mean_Cl + sd_Cl), width = 0.2) + 
+  geom_errorbar(aes(ymin = mean_H2S - sd_H2S, ymax = mean_H2S + sd_H2S), width = 0.2) + 
   geom_line() + 
   facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
   scale_color_manual(values = c(
@@ -285,7 +267,7 @@ viz_cl_plot_avgs <- ggplot(Sulfide_avg, aes(x = Collection_Date_formatted, y = m
     "Saltwater" = "violetred2"
   )) +
   theme_classic() +
-  labs(x = "Date", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride") +
+  labs(x = "Date", y = "Sulfide (uM)", title = "TEMPEST Porewater: Sulfide") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
@@ -297,35 +279,8 @@ viz_cl_plot_avgs <- ggplot(Sulfide_avg, aes(x = Collection_Date_formatted, y = m
   theme(legend.position = "none")+ 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-viz_cl_plot_avgs
+viz_H2s_plot_avgs
 
-
-viz_so4_plot_avgs <- ggplot(Sulfide_avg, aes(x = Collection_Date_formatted, y = mean_SO4, color = plot_1)) +
-  geom_point(size = 3) + 
-  geom_errorbar(aes(ymin = mean_SO4 - sd_SO4, ymax = mean_SO4 + sd_SO4), width = 0.2) + 
-  geom_line() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
-  scale_color_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
-  )) +
-  theme_classic() +
-  labs(x = "Date", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate") +
-  theme(
-    panel.spacing = unit(0.5, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  # theme(axis.text.x = element_text(angle = 90, hjust = 0.5))+ 
-  theme(text = element_text(size = 30))+
-  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
-  theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  theme(legend.position = "none")+ 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-viz_so4_plot_avgs
-
-# ggarrange(viz_cl_plot_avgs, viz_so4_plot_avgs, nrow=1, ncol=2)
 
 ```
 
@@ -333,7 +288,7 @@ viz_so4_plot_avgs
 ```{r Porewater Overall Boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Boxplot Summarize SO4 and Cl by Date, Site, and Zone
-viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fill = plot_1)) +
+viz_H2S_boxplot <- ggplot(data_plotting, aes(x = Collection_Date_YYYYMMDD,  y = H2S_mean_uM, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
@@ -343,7 +298,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fi
     "Saltwater" = "violetred2"
   ), labels = c("Control", "Freshwater", "Saltwater")) +
   theme_classic() +
-  labs(x = " ", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride") +
+  labs(x = " ", y = "Sulfide (uM)", title = "TEMPEST Porewater: Sulfide") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
@@ -353,33 +308,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fi
   theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
   theme(legend.position = "none")
 
-viz_cl_boxplot
-
-
-viz_so4_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = SO4_ppm, fill = plot_1)) +
-  geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
-  scale_x_discrete(drop = TRUE) +
-  scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
-  ), labels = c("Control", "Freshwater", "Saltwater")) +
-  theme_classic() +
-  labs(x = " ", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate") +
-  theme(
-    panel.spacing = unit(0.5, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
-  theme(text = element_text(size = 30))+
-  theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  #scale_x_discrete(labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water"))+ 
-  theme(legend.position = "none")
-
-viz_so4_boxplot
-
-# ggarrange(viz_cl_boxplot, viz_so4_boxplot, nrow=1, ncol=2)
+viz_H2S_boxplot
 
 # # Save as a PNG
 # png("COMPASS_SynopticCB_Cl_alldata.png", width = 2000, height = 1200, res = 100) 
@@ -397,7 +326,7 @@ viz_so4_boxplot
 ```{r Sourcewater Overall Boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Only Sourcewater
-data_plotting_source <- raw_dat %>%
+data_plotting_source <- all_dat %>%
   filter(str_detect(Grid, "Sourcewater"))
 
 data_plotting_source <- data_plotting_source %>% 
@@ -413,7 +342,7 @@ data_plotting_source <- data_plotting_source %>%
 
 
 ##Boxplot Summarize SO4 and Cl by Date, Site, and Plot
-viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fill = plot_1)) +
+viz_H2S_boxplot <- ggplot(data_plotting, aes(x = Collection_Date_YYYYMMDD,  y = H2S_mean_uM, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
@@ -424,7 +353,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fi
     "Estuary" = "darkred"
   ), labels = c("Control", "Freshwater", "Saltwater", "Estuary")) +
   theme_classic() +
-  labs(x = " ", y = "Chloride (ppm)", title = "TEMPEST Sourcewater: Chloride") +
+  labs(x = " ", y = "Sulfide (uM)", title = "TEMPEST Sourcewater: Sulfide") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
@@ -434,35 +363,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = Cl_ppm, fi
   theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
   theme(legend.position = "none")
 
-viz_cl_boxplot
-
-
-viz_so4_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = SO4_ppm, fill = plot_1)) +
-  geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
-  scale_x_discrete(drop = TRUE) +
-  scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2", 
-    "Estuary" = "darkred"
-  ), labels = c("Control", "Freshwater", "Saltwater", "Estuary")) +
-  theme_classic() +
-  labs(x = " ", y = "Sulfate (ppm)", title = "TEMPEST Sourcewater: Sulfate") +
-  theme(
-    panel.spacing = unit(0.5, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
-  theme(text = element_text(size = 30))+
-  theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  #scale_x_discrete(labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water"))+ 
-  theme(legend.position = "none")
-
-viz_so4_boxplot
-
-
-# ggarrange(viz_cl_boxplot, viz_so4_boxplot, nrow=1, ncol=2)
+viz_H2S_boxplot
 
 # # Save as a PNG
 # png("COMPASS_SynopticCB_Cl_alldata.png", width = 2000, height = 1200, res = 100) 
@@ -480,7 +381,7 @@ viz_so4_boxplot
 ```{r Porewater grid boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Boxplot Summarize SO4 and Cl by Date, Site, and Zone
-viz_cl_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = Cl_ppm, fill = plot_1)) +
+viz_H2S_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = H2S_mean_uM, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
   scale_x_discrete(drop = TRUE) +
@@ -490,7 +391,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = Cl_ppm, fill = plot_1
     "Saltwater" = "violetred2"
   ), labels = c("Control", "Freshwater", "Saltwater")) +
   theme_classic() +
-  labs(x = "Grid ID", y = "Chloride (ppm)", title = "TEMPEST Porewater: Chloride by Grid") +
+  labs(x = "Grid ID", y = "Sulfide (uM)", title = "TEMPEST Porewater: Sulfide by Grid") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
@@ -500,31 +401,7 @@ viz_cl_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = Cl_ppm, fill = plot_1
   theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
   theme(legend.position = "none")
 
-viz_cl_boxplot
-
-
-viz_so4_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = SO4_ppm, fill = plot_1)) +
-  geom_boxplot() + 
-  facet_wrap( ~ plot_1, scales="free_y", ncol = 1) +
-  scale_x_discrete(drop = TRUE) +
-  scale_fill_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
-  ), labels = c("Control", "Freshwater", "Saltwater")) +
-  theme_classic() +
-  labs(x = "Grid ID", y = "Sulfate (ppm)", title = "TEMPEST Porewater: Sulfate by Grid") +
-  theme(
-    panel.spacing = unit(0.5, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
-  theme(text = element_text(size = 30))+
-  theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  #scale_x_discrete(labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water"))+ 
-  theme(legend.position = "none")
-
-viz_so4_boxplot
+viz_H2S_boxplot
 
 ```
 
@@ -538,30 +415,20 @@ colnames(data_plotting)
 summary_by_year <- data_plotting %>%
   group_by(Year, plot_1) %>%
    reframe(
-     min_Cl_ppm = min(Cl_ppm, na.rm=TRUE),
-     max_Cl_ppm = max(Cl_ppm, na.rm=TRUE), 
-     mean_Cl_ppm = mean(Cl_ppm, na.rm=TRUE), 
-     sd_Cl_ppm = sd(Cl_ppm, na.rm=TRUE), 
-
-     min_SO4_ppm = min(SO4_ppm, na.rm=TRUE),
-     max_SO4_ppm = max(SO4_ppm, na.rm=TRUE), 
-     mean_SO4_ppm = mean(SO4_ppm, na.rm=TRUE), 
-     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE)) %>%
+     min_H2S_ppm = min(H2S_mean_uM, na.rm=TRUE),
+     max_H2S_ppm = max(H2S_mean_uM, na.rm=TRUE), 
+     mean_H2S_ppm = mean(H2S_mean_uM, na.rm=TRUE), 
+     sd_H2S_ppm = sd(H2S_mean_uM, na.rm=TRUE)) %>%
   mutate(across(where(is.numeric), round, digits = 4)) 
 
 ##Metrics for each zone for all years
 summary_all_years <- data_plotting %>%
   group_by(plot_1) %>%
    reframe(
-     min_Cl_ppm = min(Cl_ppm, na.rm=TRUE),
-     max_Cl_ppm = max(Cl_ppm, na.rm=TRUE), 
-     mean_Cl_ppm = mean(Cl_ppm, na.rm=TRUE), 
-     sd_Cl_ppm = sd(Cl_ppm, na.rm=TRUE), 
-
-     min_SO4_ppm = min(SO4_ppm, na.rm=TRUE),
-     max_SO4_ppm = max(SO4_ppm, na.rm=TRUE), 
-     mean_SO4_ppm = mean(SO4_ppm, na.rm=TRUE), 
-     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE)) %>%
+     min_H2S_ppm = min(H2S_mean_uM, na.rm=TRUE),
+     max_H2S_ppm = max(H2S_mean_uM, na.rm=TRUE), 
+     mean_H2S_ppm = mean(H2S_mean_uM, na.rm=TRUE), 
+     sd_H2S_ppm = sd(H2S_mean_uM, na.rm=TRUE)) %>% 
   mutate(across(where(is.numeric), round, digits = 4)) 
 
 ```
@@ -576,15 +443,10 @@ colnames(data_plotting_source)
 summary_by_year_source <- data_plotting_source %>%
   group_by(Year, plot_1) %>%
    reframe(
-     min_Cl_ppm = min(Cl_ppm, na.rm=TRUE),
-     max_Cl_ppm = max(Cl_ppm, na.rm=TRUE), 
-     mean_Cl_ppm = mean(Cl_ppm, na.rm=TRUE), 
-     sd_Cl_ppm = sd(Cl_ppm, na.rm=TRUE), 
-
-     min_SO4_ppm = min(SO4_ppm, na.rm=TRUE),
-     max_SO4_ppm = max(SO4_ppm, na.rm=TRUE), 
-     mean_SO4_ppm = mean(SO4_ppm, na.rm=TRUE), 
-     sd_SO4_ppm = sd(SO4_ppm, na.rm=TRUE)) %>%
+     min_H2S_ppm = min(H2S_mean_uM, na.rm=TRUE),
+     max_H2S_ppm = max(H2S_mean_uM, na.rm=TRUE), 
+     mean_H2S_ppm = mean(H2S_mean_uM, na.rm=TRUE), 
+     sd_H2S_ppm = sd(H2S_mean_uM, na.rm=TRUE)) %>%
   mutate(across(where(is.numeric), round, digits = 4)) 
 
 ```
@@ -596,7 +458,7 @@ summary_by_year_source <- data_plotting_source %>%
 library(kableExtra)
 
 kable(
-  summary_by_year[, c("Year", "plot_1", "min_Cl_ppm",	"max_Cl_ppm",	"mean_Cl_ppm", "min_SO4_ppm",	"max_SO4_ppm",	"mean_SO4_ppm")],  
+  summary_by_year[, c("Year", "plot_1", "min_H2S_ppm",	"max_H2S_ppm",	"mean_H2S_ppm", "sd_H2S_ppm")],  
   format = "latex",
   booktabs = TRUE,
   caption = "Porewater Summary Statistics by Year"
@@ -609,7 +471,7 @@ kable(
   column_spec(1, bold = TRUE)
 
 kable(
-  summary_all_years[, c("plot_1", "min_Cl_ppm",	"max_Cl_ppm",	"mean_Cl_ppm", "min_SO4_ppm",	"max_SO4_ppm",	"mean_SO4_ppm")],  
+  summary_all_years[, c("plot_1", "min_H2S_ppm",	"max_H2S_ppm",	"mean_H2S_ppm", "sd_H2S_ppm")],  
   format = "latex",
   booktabs = TRUE,
   caption = "Porewater Summary Statistics by Plot"
@@ -629,7 +491,7 @@ kable(
 library(kableExtra)
 
 kable(
-  summary_by_year_source[, c("Year", "plot_1", "min_Cl_ppm",	"max_Cl_ppm",	"mean_Cl_ppm", "min_SO4_ppm",	"max_SO4_ppm",	"mean_SO4_ppm")],  
+  summary_by_year_source[, c("Year", "plot_1", "min_H2S_ppm",	"max_H2S_ppm",	"mean_H2S_ppm", "sd_H2S_ppm")],  
   format = "latex",
   booktabs = TRUE,
   caption = "Sourcewater Summary Statistics by Year"
@@ -648,13 +510,13 @@ kable(
 ```{r write out summarized data, include=FALSE}
 
 #write out a csv of the Porewater Summary Statistics by Year to the main folder: 
-write.csv(summary_by_year, "COMPASS_TEMPEST_PW_DOC_Summarized_By_Year.csv")
+write.csv(summary_by_year, "COMPASS_TEMPEST_PW_H2S_Summarized_By_Year.csv")
 
 #write out a csv of the Porewater Summary Statistics by Grid to the main folder: 
-write.csv(summary_all_years, "COMPASS_TEMPEST_PW_DOC_Summarized_Years_Combined.csv")
+write.csv(summary_all_years, "COMPASS_TEMPEST_PW_H2S_Summarized_Years_Combined.csv")
 
 #write out a csv of the Sourcewater Summary Statistics by Year to the main folder: 
-write.csv(summary_by_year_source, "COMPASS_TEMPEST_SOURCE_DOC_Summarized_By_Year.csv")
+write.csv(summary_by_year_source, "COMPASS_TEMPEST_SOURCE_H2S_Summarized_By_Year.csv")
 
 ```
 

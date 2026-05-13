@@ -54,7 +54,9 @@ raw_dat <- bind_rows(dat22, dat23, dat24, dat25, dat26)
 
 ##Sourcewater samples should be NA for depth, all other samples 15 cm. 
 raw_dat <- raw_dat %>% 
-  mutate(Depth_cm = ifelse(str_detect(Sample_ID, "SOURCE"), NA, 15))
+  mutate(Depth_cm = ifelse(str_detect(Sample_ID, "SOURCE"), NA, 15)) %>% 
+  mutate(grid = ifelse(grid == "Source", "Sourcewater", grid)) %>% 
+  mutate(grid = ifelse(str_detect(Sample_ID, "Rain"), "Rainwater", grid))
 
 ##Convert Collection Date into Date format
 raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date)
@@ -205,7 +207,7 @@ write.csv(metadat, "COMPASS_TEMPEST_DOC_Metadata.csv")
 
 ##Remove Sourcewater
 data_plotting <- raw_dat %>%
-  filter(!str_detect(grid, "Source"))
+  filter(!str_detect(grid, "Sourcewater"))
 
 data_plotting$npoc_mgL <- as.numeric(data_plotting$npoc_mgL)
 data_plotting$tdn_mgL <- as.numeric(data_plotting$tdn_mgL)
@@ -399,7 +401,7 @@ viz_tdn_boxplot
 
 ##Only Sourcewater
 data_plotting_source <- raw_dat %>%
-  filter(str_detect(grid, "Source"))
+  filter(str_detect(grid, "Sourcewater"))
 
 data_plotting_source$npoc_mgL <- as.numeric(data_plotting_source$npoc_mgL)
 data_plotting_source$tdn_mgL <- as.numeric(data_plotting_source$tdn_mgL)

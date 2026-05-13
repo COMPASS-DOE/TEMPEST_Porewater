@@ -1,0 +1,200 @@
+---
+title: "COMPASS_TEMPEST_Collate_All_Porewater_Data"
+author: "Zoe Read"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+library(purrr)
+# detach("package:raster", unload = TRUE)
+```
+
+#Read in and collate all the collated analyte files
+```{r}
+
+##Collated data by analyte
+##Desired Sample ID format: SWH_202511_WC_LYSC_45CM
+
+DOC <- read.csv("../DOC/COMPASS_TEMPEST_DOC_AllData.csv")
+DOC <- DOC %>% #TMP_FW_H6_20220620_T0_15CM
+  mutate(Sample_ID = ifelse(Grid == "SOURCEWATER", 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_Time_24hrs, "15CM", sep = "_"), 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"))) %>% 
+  dplyr::select(c("Sample_ID", "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag"))
+
+Nutrients <- read.csv("../Nutrients/COMPASS_TEMPEST_Nutrient_AllData.csv")
+Nutrients <- Nutrients %>%
+  mutate(Sample_ID = ifelse(Grid == "SOURCEWATER", 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_Time_24hrs, "15CM", sep = "_"), 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"))) %>% 
+  rename(
+    NOx_mgL = NOx_Conc_mgL, 
+    NOx_uM = NOx_Conc_uM, 
+    NH3_mgL = NH3_Conc_mgL, 
+    NH3_uM = NH3_Conc_uM, 
+    PO4_mgL = PO4_Conc_mgL, 
+    PO4_uM = PO4_Conc_uM
+  ) 
+# %>% 
+#   dplyr::select(c("Sample_ID", "NOx_mgL", "NOx_uM", "NOx_Conc_Flag", "NH3_mgL", "NH3_uM",  "NH3_Conc_Flag", "PO4_mgL", "PO4_uM", "PO4_Conc_Flag"))
+
+SO4_Cl <- read.csv("../Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
+SO4_Cl <- SO4_Cl %>%
+  mutate(Sample_ID = ifelse(Grid == "Sourcewater", 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"), 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"))) 
+# %>%   
+#   dplyr::select(c("Sample_ID", "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "SO4_QAQC_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity"))
+
+Sulfide <- read.csv("../Sulfide/COMPASS_TEMPEST_Sulfide_AllData.csv")
+Sulfide <- Sulfide %>%
+  mutate(Sample_ID = ifelse(Grid == "Sourcewater", 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_Time_24hrs, "15CM", sep = "_"), 
+                            paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"))) %>% 
+  mutate(Month = as.integer(Month)) 
+# %>% 
+#   dplyr::select(c("Sample_ID", "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_Conc_flag", "H2S_cv_flag")) 
+
+##Combine data
+df_list <- list(DOC, Nutrients, SO4_Cl, Sulfide)
+merged_df <- df_list %>% reduce(full_join)
+
+colnames(merged_df)
+merged_df <- merged_df %>% 
+  mutate(Project = "TEMPEST")
+
+##Add in pH data because this only has times
+pH <- read.csv("../pH/COMPASS_TEMPEST_pH_AllData.csv")
+pH <- pH %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Month = as.integer(Month)) %>% 
+  dplyr::select(c("Sample_ID", "pH")) 
+
+
+##Need to figure out duplicates
+df_duplicates <- merged_df %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+
+##Fix SO4/Cl duplicates
+df_duplicates_SO4 <- SO4_Cl %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+##Fix DIC duplicates
+df_duplicates_DIC <- DIC %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+##Fix DOC duplicates
+df_duplicates_DOC <- DOC %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+##Fix Nutrient duplicates
+df_duplicates_Nutrients <- Nutrients %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+##Fix Sulfide duplicates
+df_duplicates_Sulfide <- Sulfide %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+unique(df_duplicates_Sulfide$Sample_ID)
+
+
+```
+##Read in metadata and create similar sample IDs for matching to samples 
+```{r pull in metadata for later, include=FALSE}
+
+#read in the raw metadata files
+meta_2022 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2022.csv")
+meta_2023 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2023.csv")
+meta_2023_fixed <- meta_2023 %>%
+  mutate(
+    Transect.Location = case_when(
+      Year == "2023" & Site == "SWH" & Transect.Location == "Upland" ~ "SWAMP",
+      Year == "2023" & Site == "SWH" & Transect.Location == "UPCON" ~ "Upland",
+      TRUE ~ Transect.Location
+    )) 
+
+meta_2024 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2024.csv")
+meta_2025 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2025.csv")
+
+raw_metadata <- bind_rows(meta_2022, meta_2023_fixed, meta_2024, meta_2025)
+
+#Create NUTR IDs from what was collected for comparison later
+metadata <- raw_metadata %>%
+  mutate(YearMonth = sprintf("%d%02d", Year, Month))  %>%
+  mutate(Zone = case_when(
+    `Transect.Location` == "Transition" ~ "TR",
+    `Transect.Location` == "Wetland"    ~ "WC",
+    `Transect.Location` == "Upland"     ~ "UP",   
+    `Transect.Location` == "Surface Water" ~ "SW",
+    TRUE                 ~ `Transect.Location`))  %>% # keep original value if no match
+  mutate(Sample_ID = paste0(Site, "_", YearMonth, "_", Zone, "_Lys", Lysimeter, "_", Depth_cm, "cm")) %>%
+  mutate(
+    Sample_ID = if_else(
+      Zone == "SW",
+      # Modify the string:
+      Sample_ID %>%
+        str_replace("_LysA", "_A") %>%                    # Replace "_LysA" with "_A"
+        str_replace("_LysB", "_B") %>%                    # Replace "_LysB" with "_B"
+        str_replace("_LysC", "_C") %>%                    # Replace "_LysC" with "_C"
+        str_replace("_0cm$", ""),                         # Remove trailing "_0cm"
+      Sample_ID))  # else keep original
+
+#Take out the columns and rows that are not relevant
+colnames(metadata)
+metadata_sel <- metadata %>%
+  rename(Sampling_Time = Time..24hr., 
+         Sampling_Time_Zone = Time.Zone_EDT.EST, 
+         Field_Notes = Field.Notes) %>% 
+  select(Sample_ID, Year, Month, Day, Site, Zone, Lysimeter, Depth_cm, Sampling_Time, Sampling_Time_Zone, Field_Notes)       
+
+
+##Merge sample data with metadata
+merged_df$Sample_ID <- toupper(merged_df$Sample_ID)
+metadata_sel$Sample_ID <- toupper(metadata_sel$Sample_ID)
+
+
+final_data <- merged_df %>%
+  left_join(metadata_sel, by = c("Sample_ID"))
+
+```
+
+
+## Write the 2023 file out to the folder 
+```{r, echo=FALSE}
+
+##Order data by Year, Month, Day
+final_data1 <- final_data[order(final_data$Year, final_data$Month, final_data$Day, final_data$Zone, final_data$Lysimeter, final_data$Depth_cm),]
+
+colnames(final_data1)
+final_data1 <- final_data1 %>% 
+  select(c("Project", "Region", "Sample_ID", "Year", "Month", "Day", "Site", "Zone", "Lysimeter", "Depth_cm", "Sampling_Time", "Sampling_Time_Zone", "Field_Notes", 
+           "ic_mgL", "ic_uM", "ic_flag", "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 
+           "NOx_mgL", "NOx_uM", "NOx_Conc_Flag", "NH3_mgL", "NH3_uM", "NH3_Conc_Flag", "PO4_mgL", "PO4_uM", "PO4_Conc_Flag", 
+           "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity", 
+           "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_Conc_flag", "H2S_cv_flag"))
+
+
+write.csv(final_data1, "COMPASS_TEMPEST_AllData_AllYears.csv", row.names = FALSE)
+
+```
+

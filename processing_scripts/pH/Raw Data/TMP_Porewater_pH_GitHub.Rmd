@@ -21,9 +21,9 @@ pacman::p_load(tidyverse, # keep things tidy
                plotrix,
                here) 
 
-common_tz = "Etc/GMT+5"
-
-Sys.setenv(TZ = "America/New_York")
+# common_tz = "Etc/GMT+5"
+# 
+# Sys.setenv(TZ = "America/New_York")
 
 getwd()
 ```
@@ -112,12 +112,12 @@ pH_raw <- readxl::read_excel("Data from Google Drive/TEMPEST_Porewater_pH.xlsx",
 # Clean and Flag
 ```{r clean up}
 pH <- pH_raw %>%
-   rename(plot = Plot,
-          grid = Location,         
-          date = Date_YYYYMMDD,
-          time = Time_24hr,
-          tz = `EDT/EST`,
-          collection_temp_C = Temp_C) %>%
+  mutate(date = Date_YYYYMMDD,
+         time = Time_24hr) %>% 
+  rename(plot = Plot,
+         grid = Location, 
+         tz = `EDT/EST`,
+         collection_temp_C = Temp_C) %>%
   mutate(date = lubridate::as_date(as.character(date), format = "%Y%m%d"),
          time = str_replace(time, "^[0-9]{5}$", function(x) paste0("0",x)),
          Depth_cm = case_when(Depth_cm == "NA" ~ NA,
@@ -139,7 +139,7 @@ pH <- pH_raw %>%
           mutate(grid = case_when(grid == "Source" ~ "SOURCE",
                            TRUE ~ grid)
             ) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, flag, Notes)
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag, Notes)
 ```
 
 # Add in lysimeter metadata
@@ -171,13 +171,13 @@ left_join(sample_key_merging, by= c("plot","date"), suffix = c("", ".fill")) %>%
 
 
 porewater_pH_2023 <- porewater_pH %>% filter(datetime < year2_stop & datetime > year2_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
  
 porewater_pH_2024 <- porewater_pH %>% filter(datetime < year3_stop & datetime > year3_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
 
 porewater_pH_2025 <- porewater_pH %>% filter(datetime < year4_stop & datetime > year4_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
 
 # write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
 # write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
@@ -194,11 +194,13 @@ write_csv(porewater_pH_2025, "TMP_PW_pH_2025_L1.csv")
 
 source_pH_2023 <- pH %>%
   filter(grid == "SOURCE") %>%
-  filter(datetime < year2_stop & datetime > year2_start)
+  filter(datetime < year2_stop & datetime > year2_start) %>%
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
 
 source_pH_2024 <- pH %>%
   filter(grid == "SOURCE") %>%
-  filter(datetime < year3_stop & datetime > year3_start)
+  filter(datetime < year3_stop & datetime > year3_start) %>%
+  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
 
 # no source in 2025 # 
 

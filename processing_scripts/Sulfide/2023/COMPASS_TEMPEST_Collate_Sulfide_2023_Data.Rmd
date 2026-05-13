@@ -185,6 +185,7 @@ merged_data <- final_data1 %>%
 ```{r, echo=FALSE}
 
 merged_data <- merged_data %>% 
+  mutate(Sample_ID = paste0(Sample_ID, "_15CM")) %>% 
   select(c("Sample_ID", "H2S_sd_uM", "H2S_mean_uM", "Project", "Zone", "Source", "Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Event_Time", "Time_of_day", "Volume_mL", "Notes", "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs", "Collection_Time_24hrs"))
 
 write.csv(merged_data, "TEMPEST_Sulfide_2023.csv", row.names = FALSE)
