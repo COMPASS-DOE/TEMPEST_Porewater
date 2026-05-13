@@ -297,6 +297,7 @@ merged_data <- final_data1 %>%
 ```{r, echo=FALSE}
 
 merged_data <- merged_data %>% 
+  mutate(Sample_ID = paste0(Sample_ID, "_15CM")) %>% 
   rename(Field_notes = Notes) %>% 
   select(c(Project, Zone, Grid, Depth, Event_Time, Time_of_day, Sample_ID, 
          Volume_mL, Evacuation_date_YYYMMDD, Collection_Date, 

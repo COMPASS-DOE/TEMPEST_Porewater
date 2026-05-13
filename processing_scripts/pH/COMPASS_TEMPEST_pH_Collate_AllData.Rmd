@@ -25,17 +25,19 @@ library(knitr)
 ##Grab 2023 and 2024 and 2025 All Data Files
 ```{r Pull in 2022-2024 data files, message=FALSE, include=FALSE}
 
-#read in 2023 Dionex Data:
-dat23 <- read.csv("Raw Data/TMP_PW_pH_2023_L1.csv")
-# head(dat24)
+#read in 2023 pH Data:
+dat23_pw <- read.csv("Raw Data/TMP_PW_pH_2023_L1.csv")
+dat23_sw <- read.csv("Raw Data/TMP_SOURCE_pH_2023_L1.csv")
+dat23 <- bind_rows(dat23_pw, dat23_sw)
 colnames(dat23)
 
-#read in 2024 Dionex Data:
-dat24 <- read.csv("Raw Data/TMP_PW_pH_2024_L1.csv")
-# head(dat24)
+#read in 2024 pH Data:
+dat24_pw <- read.csv("Raw Data/TMP_PW_pH_2024_L1.csv")
+dat24_sw <- read.csv("Raw Data/TMP_SOURCE_pH_2024_L1.csv")
+dat24 <- bind_rows(dat24_pw, dat24_sw)
 colnames(dat24)
 
-#read in 2025 Dionex Data:
+#read in 2025 pH Data:
 dat25 <- read.csv("Raw Data/TMP_PW_pH_2025_L1.csv")
 # head(dat25)
 colnames(dat25)
@@ -55,22 +57,27 @@ raw_dat$pH_flag <- ifelse(raw_dat$pH < 3.5 | raw_dat$pH > 8, "pH value is outsid
 
 colnames(raw_dat)
 
+raw_dat <- raw_dat %>% 
+  mutate(
+    Zone = case_when(
+      plot == "Control" ~ "C",
+      plot == "Freshwater" ~ "FW",
+      plot == "Saltwater" ~ "SW",
+      TRUE ~ plot  # keep everything else unchanged
+    ) )
+
 all_dat <- raw_dat %>%
   mutate(
-    Project = "TEMPEST"
-  ) %>%
+    Project = "TEMPEST", 
+    Sample_ID = ifelse(grid != "SOURCE", 
+                       paste0("TMP_", Zone, "_", grid, "_", Date_YYYYMMDD, "_", Time_24hr, "_15CM"), 
+                       paste0("TMP_", Zone, "_", "SOURCEWATER", "_", Date_YYYYMMDD, "_", Time_24hr, "_15CM"))) %>%
   rename(
-    Zone = plot, 
     Grid = grid, 
     Evacuation_Date = evacuation_date, 
     temperature_flag = flag
-  )%>%
-  dplyr::select(
-         Project, Year, Month, Day, 
-         Zone, Grid, pH, collection_temp_C, 
-         Collection_Date_Time, Evacuation_Date, temperature_flag, pH_flag
-        # list columns in the order you want them
-  )
+  ) %>% 
+  select(Project, Sample_ID, Year, Month, Day, Zone, Grid, pH, collection_temp_C, tz, Date_YYYYMMDD, Time_24hr, Evacuation_Date, temperature_flag, temperature_flag, pH_flag) 
 
 ```
 
@@ -89,6 +96,7 @@ metadat$Instrument_ifapplicable <- ""
 #add information about each line: 
 
 metadat$Description <- c("Project name", 
+                         "Sample_ID", 
                          "Year of sample collection", 
                          "Month of sample collection", 
                          "Day of sample collection", 
@@ -96,7 +104,9 @@ metadat$Description <- c("Project name",
                          "Grid where sample collected (Letter + Number)", 
                          "pH of sample", 
                          "Temperature at time of collection in Celsius", 
-                         "Date and Time of sample collection", 
+                         "Time zone of sample collection", 
+                         "Date of sample collection", 
+                         "Time of sample collection (HHMM)", 
                          "Date of sample evacuation",
                          "Flag to indicate if temperature was not recorded", 
                          "Flag to indicate if the pH is outside of the typicaly range")
@@ -104,11 +114,14 @@ metadat$Description <- c("Project name",
 metadat$Units <-       c("NA", 
                          "NA",
                          "NA", 
+                         "NA", 
                          "NA",
                          "NA",
                          "NA", 
                          "NA",
                          "degrees Celsius",
+                         "NA", 
+                         "NA", 
                          "NA", 
                          "NA",
                          "NA", 
@@ -119,10 +132,13 @@ metadat$Instrument_ifapplicable <-
                        c("NA", 
                          "NA",
                          "NA", 
+                         "NA", 
                          "NA",
                          "NA",
                          "NA", 
-                         "NA",
+                         "NA", 
+                         "NA", 
+                         "NA", 
                          "NA",
                          "NA", 
                          "NA",
@@ -135,7 +151,7 @@ metadat$Instrument_ifapplicable <-
 ```{r write out combined data and metadata, include=FALSE}
 
 #write out a csv of all the data to the main folder: 
-write.csv(all_dat, "COMPASS_TEMPEST_pH_AllData.csv")
+write.csv(all_dat, "COMPASS_TEMPEST_pH_AllData.csv", row.names = FALSE)
 
 
 #write out a csv of the metadata associated with the data: 
@@ -148,6 +164,7 @@ write.csv(metadat, "COMPASS_TEMPEST_pH_Metadata.csv")
 
 ##Define Zones for plotting
 data_plotting <- all_dat %>% 
+  filter(grid != "SOURCE") %>% 
   mutate(Zone_1 = factor(Zone, levels = c("Control", "Freshwater", "Saltwater")))
 
 #Plot data by year and change colors based on Zone:
