@@ -62,6 +62,7 @@ cat("Setup")
   library(tidyverse)
   library(here)
   library(googledrive)
+  library(readxl)
 
 #any coefficients / constants that are needed for calculations 
   mw_c <- 12   #molecular weight of Carbon 
@@ -789,7 +790,7 @@ print(viz_n_plot)
 dat_flagged <- dat_flagged %>%
   mutate(
     npoc_uM = (((as.numeric(dat_flagged$npoc_raw))/Con1)/mw_c)*Con2, 
-    tdn_uM = (((as.numeric(dat_flagged$tdn_raw))/Con1)/mw_n)*Con2
+    tdn_uM = (((as.numeric(dat_flagged$tdn_raw))/Con1)/mw_n)*Con2)
 
 ```
 
@@ -846,23 +847,33 @@ all_dat_source <- all_dat_source %>%
     col = sample_name,
     sep = "_",
     into = c("Project", "Plot", "Grid", "Time_of_day", "Collection_Date"),
-    remove = FALSE)
+    remove = FALSE) %>% 
+  mutate(Event_Time = case_when(
+    Time_of_day == "Morning" ~ "AM",
+    Time_of_day == "Midday" ~ "MID",
+    Time_of_day == "Afternoon" ~ "PM"
+  ))
 
 #select tidal samples 
 all_dat_tides <- dat_flagged %>%  
   filter(str_detect(sample_name, "T_"))
 
-#separate tidal samples into columns TMP_ESTUARY_LT_20240611
+#separate tidal samples into columns TMP_ESTUARY_LT_20240611, HT AM, LT PM
 all_dat_tides <- all_dat_tides %>%
   separate(
     col = sample_name,
     sep = "_",
     into = c("Project", "Plot", "Tide", "Collection_Date"),
-    remove = FALSE)
+    remove = FALSE) %>% 
+  mutate(Event_Time = case_when(
+    Tide == "HT" ~ "AM",
+    Tide == "LT" ~ "PM"
+  ))
 
 #combine event and non-event samples 
 all_dat_pw <- bind_rows(all_dat_event, all_dat_event_time, all_dat_monmon)
 all_dat_pw$Type <- "Porewater"
+all_dat_pw$Depth = "15cm"
 
 #combine source samples
 all_dat_sw <- bind_rows(all_dat_source, all_dat_tides)
@@ -870,7 +881,6 @@ all_dat_sw$Grid <- "SourceWater"
 
 #combine all samples
 all_dat <- bind_rows(all_dat_pw, all_dat_sw)
-all_dat$Depth = "15cm"
 
 
 # TMP_FW_C3_20240614_15cm_T6
@@ -993,10 +1003,11 @@ raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
   rename(EST_EDT = `EST/EDT`) %>%
   mutate(DOC_ID = paste(Zone,
-                          Source, 
+                        Source, 
                         "DOC", 
-                          Collection_Date, 
-                          sep = "_"))
+                        Collection_Date, 
+                        Time_of_day, 
+                        sep = "_"))
 
 
 #combine porewater and sourcewater samples
@@ -1107,7 +1118,7 @@ final_data <- final_data %>%
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
     Analysis_runtime = run_datetime, 
-    plot = Plot, 
+    plot = Zone, 
     grid = Grid, 
     Vial_ID = sample_ID, 
     date = Collection_Date, 

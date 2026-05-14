@@ -342,7 +342,7 @@ all_dat <- all_dat %>%
   select("sample_ID", "sample_type", "SO4_ppm", "SO4_area", "Cl_ppm", "Cl_area"  )
 
 all_dat$sample_ID <- gsub("HighTide", "AM", all_dat$sample_ID)
-all_dat$sample_ID <- gsub("LowTide", "AM", all_dat$sample_ID)
+all_dat$sample_ID <- gsub("LowTide", "PM", all_dat$sample_ID)
 all_dat$sample_ID <- gsub("Morning", "AM", all_dat$sample_ID)
 all_dat$sample_ID <- gsub("Midday", "MID", all_dat$sample_ID)
 all_dat$sample_ID <- gsub("Afternoon", "PM", all_dat$sample_ID)

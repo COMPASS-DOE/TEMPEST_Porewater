@@ -858,18 +858,18 @@
 "210","TMP","ESTUARY","SOURCEWATER",NA,NA,"AM","SourceWater",5,20240612,NA,"TMP_ESTUARY_SOURCEWATER_20240612_AM",NA,1008,NA,491.0263,15.3158546475359,"Within_Range","SO4 checks perc diff out of range",3784.5568,106.757596614951,"Within_Range",NA,6.8387201376,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"211","TMP","ESTUARY","SOURCEWATER",NA,NA,"AM","SourceWater",5,20240611,NA,"TMP_ESTUARY_SOURCEWATER_20240611_AM",NA,940,NA,428.4834,13.3650467872739,"Within_Range","SO4 checks perc diff out of range",3269.2374,92.2210832157969,"Within_Range",NA,5.9075379818,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"211","TMP","ESTUARY","SOURCEWATER",NA,NA,"PM","SourceWater",5,20240611,NA,"TMP_ESTUARY_SOURCEWATER_20240611_PM",NA,1630,NA,428.4834,13.3650467872739,"Within_Range","SO4 checks perc diff out of range",3269.2374,92.2210832157969,"Within_Range",NA,5.9075379818,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
-  ","high tide"
+  ","low tide"
 "212","TMP","ESTUARY","SOURCEWATER",NA,NA,"AM","SourceWater",5,20240611,NA,"TMP_ESTUARY_SOURCEWATER_20240611_AM",NA,940,NA,464.2414,14.4803930131004,"Within_Range","SO4 checks perc diff out of range",3491.7519,98.4979379407616,"Within_Range",NA,6.3096216833,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ","high tide"
-"213","TMP","ESTUARY","SOURCEWATER",NA,NA,"AM","SourceWater",5,20240613,NA,"TMP_ESTUARY_SOURCEWATER_20240613_AM",NA,1033,NA,509.2368,15.8838677479726,"Within_Range","SO4 checks perc diff out of range",3860.8575,108.909943582511,"Within_Range",NA,6.9765955025,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+"213","TMP","ESTUARY","SOURCEWATER",NA,NA,"PM","SourceWater",5,20240613,NA,"TMP_ESTUARY_SOURCEWATER_20240613_PM",NA,1657,NA,509.2368,15.8838677479726,"Within_Range","SO4 checks perc diff out of range",3860.8575,108.909943582511,"Within_Range",NA,6.9765955025,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
-  ","high tide"
-"214","TMP","ESTUARY","SOURCEWATER",NA,NA,"AM","SourceWater",5,20240612,NA,"TMP_ESTUARY_SOURCEWATER_20240612_AM",NA,1008,NA,457.0698,14.256699937617,"Within_Range","SO4 checks perc diff out of range",3463.6409,97.7049619181946,"Within_Range",NA,6.2588251063,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
+  ","low tide"
+"214","TMP","ESTUARY","SOURCEWATER",NA,NA,"PM","SourceWater",5,20240612,NA,"TMP_ESTUARY_SOURCEWATER_20240612_PM",NA,1704,NA,457.0698,14.256699937617,"Within_Range","SO4 checks perc diff out of range",3463.6409,97.7049619181946,"Within_Range",NA,6.2588251063,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
-  ","high tide"
+  ","low tide"
 "215","TMP","SW","SOURCEWATER",NA,NA,"MID","SourceWater",5,20240611,NA,"TMP_SW_SOURCEWATER_20240611_MID",NA,1247,NA,483.8673,15.0925545851528,"Within_Range","SO4 checks perc diff out of range",3667.6635,103.460183356841,"Within_Range",NA,6.6274939445,"2025-08-18","All std 1's and one std 2 were lower than the expected concentration. 
   The 5th dup had a high CV for Cl
   ",NA

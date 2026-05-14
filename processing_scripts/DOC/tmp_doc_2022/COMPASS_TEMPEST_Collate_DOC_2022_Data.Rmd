@@ -306,6 +306,7 @@ colnames(doc_metadata_nonevent)
 
 ##Event metadata was entered separately from other 2022 metadata. 
 #Used tempest_pw_june_event_pooled.R code to pull those together from google drive into a metadata file, which is then pulled in here. 
+# "https://drive.google.com/drive/folders/1l6ChfOs6wU82ujsoAUw9dGNfoOVL4E8R"
 
 raw_metadata_event <- read.csv("TMP_Event_June2022_gridlevel_volumes.csv")
 
@@ -524,8 +525,8 @@ final_data <- merged_data %>%
     Site = "TEMPEST", 
     Analysis_runtime = "NA", 
     Analyte = "DOC", 
-    Collection_End_Time_24hrs = ifelse(Grid != "Source", time, NA), 
-    Collection_Time_24hrs = ifelse(Grid == "Source", time, NA), 
+    Collection_End_Time_24hrs  = format(strptime(Collection_End_Time_24hrs_meta, format="%H:%M:%S"), "%H%M"), 
+    Collection_Time_24hrs = Collection_Time_24hrs_meta, 
   ) %>%
   rename(
     npoc_mgL = doc_mg_l, 
