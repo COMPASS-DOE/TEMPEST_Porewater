@@ -225,7 +225,9 @@ alldat <- rbind(dat1, dat2, dat3, dat4, dat5)
 
 
 ##Fix sample naming
-
+alldat <- alldat %>% 
+  mutate(Sample_Name = gsub("TEMEPST", "TEMPEST", Sample_Name)) %>% 
+  mutate(Sample_Name = gsub("202300606", "20230606", Sample_Name))
 
 
 #Pull out standards 
@@ -328,6 +330,10 @@ Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_D5", "TEMPEST_20230515_FW_D5",
 Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_E3", "TEMPEST_20230515_FW_E3", Nalldat2$Sample_Name)
 Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_F6", "TEMPEST_20230515_FW_F6", Nalldat2$Sample_Name)
 Nalldat2$Sample_Name <- gsub("TEMPEST_20230513_FW_B4", "TEMPEST_20230515_FW_B4", Nalldat2$Sample_Name)
+
+##Fix sample naming
+Nalldat2 <- Nalldat2 %>% 
+  mutate(Sample_Name = gsub("TEMEPST", "TEMPEST", Sample_Name))
 
 ```
 
