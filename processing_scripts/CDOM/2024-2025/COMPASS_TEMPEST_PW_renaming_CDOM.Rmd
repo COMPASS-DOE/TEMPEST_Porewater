@@ -10,7 +10,7 @@ output:
 ---
 
 ##This code pulls in CDOM Abs and EEM processed data files from Jieun's folders on the Google Drive and renames them based on Jieun's Sample Log also from the Google Drive so that the names correspond to sample IDs. 
-##In additio, this outputs metadaat for each sample ID, including the integration time, dilution, RSU_area_1s columns from the sample log. 
+##In additiom, this outputs metadata for each sample ID, including the integration time, dilution, RSU_area_1s columns from the sample log. 
 
 # Need to double check that these sample ID's match all the ones in the collated data for all other analytes and check against metadata/flag data that Jieun said is missing 
 
@@ -44,7 +44,7 @@ drive_auth()
 # Bring in the sample log:
 ```{r read in sample log, include=FALSE}
 
-#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+#Run these to pull the CDOM sample log into GitHub if not already there
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1ACmmjEuZ04tj0_gnS4SJ170UfjVXtvjB/edit?gid=1419188231#gid=1419188231"
 
 drive_download(inventory_directory, overwrite = TRUE)

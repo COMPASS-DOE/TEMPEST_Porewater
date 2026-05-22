@@ -1,0 +1,362 @@
+---
+title: "TEMPEST: Porewater CDOM"
+author: "2022-2023 Samples"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+
+---
+
+##This code pulls in CDOM Abs and EEM processed data files from Alan's folders on the Google Drive and renames them based on Alan's Sample Log also from the Google Drive so that the names correspond to sample IDs. 
+##In addition, this outputs metadata for each sample ID, including the integration time, dilution, RSU_area_1s columns from the sample log. 
+
+# Need to double check that these sample ID's match all the ones in the collated data for all other analytes and check against metadata/flag data that Jieun said is missing 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, 
+                      message = F,
+                      warning = F)
+
+# load packages
+require(pacman)
+pacman::p_load(tidyverse, # keep things tidy
+               janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here, 
+               readxl, 
+               readr, 
+               purrr) 
+
+#Try to deal with the timezone demons 
+common_tz = "Etc/GMT+5"
+
+Sys.setenv(TZ = "America/New_York")
+
+# Authenticate with your Google account
+drive_auth()
+
+```
+
+# Bring in the sample log:
+```{r read in sample log, include=FALSE}
+
+##Read in and combine Alan's sample logs
+#create folder
+log_folder_path <- "Sample_Logs"
+dir.create(log_folder_path)
+
+#folder link to id
+log_folder = "https://drive.google.com/drive/folders/1yEDeKKGTEToyfHYTbs7ZF7363afSu2cQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+folder_id = drive_get(as_id(log_folder))
+
+#find files in folder
+files = drive_ls(folder_id)
+files <- files %>% 
+  filter(name != "20230825_Mapping_COMPASS_TEMPEST_CDOM.xlsx")
+
+#download files
+for (i in seq_along(files$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(files$id[i]),
+        path = paste0("Sample_Logs/", files$name[i]), 
+        overwrite = TRUE
+      )
+}
+
+#list all sample logs
+log_files <- list.files(path = "Sample_Logs", 
+                    pattern = "*.xlsx", 
+                    full.names = TRUE)
+
+#read, convert all columns to character, and combine
+sample_log <- log_files %>%
+  map(~ {
+    
+    df <- read_excel(.x) %>%
+      mutate(across(everything(), as.character))
+    
+    # Rename columns only if they exist
+    names(df)[names(df) == 
+      "Sample Description \r\n(60 Character Max) - Will display on final EEM figure"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
+      "Project Sample ID"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
+      "Dilution Factor\r\n*Decimal Format…e.g. 1 part sample and 1 part water = 0.50"] <-
+      "Dilution Factor (Decimal Format; e.g. 0.5)"
+    
+    df
+  }) %>%
+  bind_rows()
+
+sample_log <- sample_log %>% 
+  rename(Sample_Description = "Sample Description (60 Character Max) - Will display on final EEM figure", 
+         Dilution_Factor = "Dilution Factor (Decimal Format; e.g. 0.5)")
+
+#Will need to do a lot of work with the sample IDs
+sample_log <- sample_log %>%
+  mutate(abs_inventory_vial_id = paste0(Sample_Description, "_ABS_DilCorr.dat")) %>%
+  mutate(eem_inventory_vial_id = paste0(Sample_Description, "_EEM_DilCorr_IFE_RamNorm.dat"))
+
+```
+
+
+##Pull processed absorbance data from google drive and rename files to save into github 
+```{r read in and rename processed absorbance data}
+##Processed absorbance data: https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+##Files in Abs folder
+abs_folder_path <- "Abs_Data"
+dir.create(abs_folder_path)
+
+#folder link to id
+abs_folder = "https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+folder_id = drive_get(as_id(abs_folder))
+
+#find files in folder
+files = drive_ls(folder_id)
+
+#loop dirs and download files inside them
+for (i in seq_along(files$name)) {
+  #list files
+  i_dir = drive_ls(files[i, ])
+  
+  #download files
+  for (file_i in seq_along(i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(i_dir$id[file_i]),
+        path = paste0("Abs_Data/", i_dir$name[file_i]), 
+        overwrite = TRUE
+      )
+  }
+}
+
+# ##Convert files to csv
+# data <- read.table("myfile.dat", header = TRUE, sep = "\t")
+# library(rio)
+# ##Rename files with sample ID
+# for(i in 1:nrow(sample_log)){
+#     
+#     # Create file paths with folder and file name
+#     old_file <- file.path(abs_folder_path, sample_log$abs_processed_file_name_in_gdrive[i])
+#     new_file <- file.path(abs_folder_path, sample_log$abs_inventory_vial_id[i])
+#     
+#     # Check if the original file actually exists
+#   if (file.exists(old_file)) {
+#     
+#     # Rename the file
+#     convert("myfile.dat", "myfile.csv")
+#     
+#     cat("Success: Renamed", sample_log$abs_processed_file_name_in_gdrive[i], "to", sample_log$abs_inventory_vial_id[i], "\n")
+#   } else {
+#     cat("Warning: File", sample_log$abs_processed_file_name_in_gdrive[i], "not found.\n")
+#   }
+# }
+
+##Rename files with sample ID
+##Old Ids TMP_25.POOL.4_EXP_DilCorr_Abs
+# list(sample_log$`Sample ID`)
+# 
+# 
+# for(i in 1:nrow(sample_log)){
+#     
+#     # Create file paths with folder and file name
+#     old_file <- file.path(abs_folder_path, sample_log$`Absorbance File Name`[i])
+#     new_file <- file.path(abs_folder_path, sample_log$abs_inventory_vial_id[i])
+#     
+#     # Check if the original file actually exists
+#   if (file.exists(old_file)) {
+#     
+#     # Rename the file
+#     file.rename(from = old_file, to = new_file)
+#     
+#     cat("Success: Renamed", sample_log$abs_processed_file_name_in_gdrive[i], "to", sample_log$abs_inventory_vial_id[i], "\n")
+#   } else {
+#     cat("Warning: File", sample_log$abs_processed_file_name_in_gdrive[i], "not found.\n")
+#   }
+# }
+```
+
+
+##Pull processed EEM data from google drive and rename files to save into github 
+```{r read in and rename processed eem data}
+##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+##Files in EEM folder
+eem_folder_path <- "EEM_Data"
+dir.create(eem_folder_path)
+
+#folder link to id
+eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+eem_folder_id = drive_get(as_id(eem_folder))
+
+#find files in folder
+eem_files = drive_ls(eem_folder_id)
+
+#loop dirs and download files inside them
+for (i in seq_along(eem_files$name)) {
+  #list files
+  eem_i_dir = drive_ls(eem_files[i, ])
+  
+  #download files
+  for (file_i in seq_along(eem_i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(eem_i_dir$id[file_i]),
+        path = paste0("EEM_Data/", eem_i_dir$name[file_i]), 
+        overwrite = TRUE
+      )
+  }
+}
+
+##Rename files with sample ID
+# for(i in 1:nrow(sample_log)){
+#     
+#     # Create file paths with folder and file name
+#     eem_old_file <- file.path(eem_folder_path, sample_log$EEM_processed_file_in_gdrive[i])
+#     eem_new_file <- file.path(eem_folder_path, sample_log$eem_inventory_vial_id[i])
+#     
+#     # Check if the original file actually exists
+#   if (file.exists(eem_old_file)) {
+#     
+#     # Rename the file
+#     file.rename(from = eem_old_file, to = eem_new_file)
+#     
+#     cat("Success: Renamed", sample_log$EEM_processed_file_in_gdrive[i], "to", 
+#         sample_log$eem_inventory_vial_id[i], "\n")
+#   } else {
+#     cat("Warning: File", sample_log$EEM_processed_file_in_gdrive[i], "not found.\n")
+#   }
+# }
+```
+
+
+##Try with Raw Data
+```{r}
+##Read in and combine Alan's sample logs
+#create folder
+raw_folder_path <- "Raw_EEM_Data"
+dir.create(raw_folder_path)
+
+#folder link to id
+raw_folder = "https://drive.google.com/drive/folders/1TZoCX0Eil5dgIqk_8W00mY30xGecUiQK?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+folder_id = drive_get(as_id(raw_folder))
+
+#find files in folder
+files = drive_ls(folder_id)
+
+#Remove folders
+files <- files %>% 
+  filter(name != "JK") %>% 
+  filter(name != "processed_EEMs")
+
+
+head(files)
+#download files
+for (i in seq_along(files$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(files$id[i]),
+        path = paste0("Raw_EEM_Data/", files$name[i]), 
+        overwrite = TRUE
+      )
+}
+
+##Rename files with sample ID
+for(i in 1:nrow(sample_log)){
+
+    # Create file paths with folder and file name
+    eem_old_file <- file.path(raw_folder_path, sample_log$`EEM file name`[i])
+    eem_new_file <- file.path(raw_folder_path, sample_log$eem_inventory_vial_id[i])
+
+    # Check if the original file actually exists
+  if (file.exists(eem_old_file)) {
+
+    # Rename the file
+    file.rename(from = eem_old_file, to = eem_new_file)
+
+    cat("Success: Renamed", sample_log$`EEM file name`[i], "to",
+        sample_log$eem_inventory_vial_id[i], "\n")
+  } else {
+    cat("Warning: File", sample_log$`EEM file name`[i], "not found.\n")
+  }
+}
+
+```
+
+
+
+##Pull processed EEM data from google drive and rename files to save into github 
+```{r read in and rename processed eem data}
+##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+##Files in EEM folder
+eem_folder_path <- "EEM_Data"
+dir.create(eem_folder_path)
+
+#folder link to id
+eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+eem_folder_id = drive_get(as_id(eem_folder))
+
+#find files in folder
+eem_files = drive_ls(eem_folder_id)
+
+#loop dirs and download files inside them
+for (i in seq_along(eem_files$name)) {
+  #list files
+  eem_i_dir = drive_ls(eem_files[i, ])
+  
+  #download files
+  for (file_i in seq_along(eem_i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(eem_i_dir$id[file_i]),
+        path = paste0("EEM_Data/", eem_i_dir$name[file_i]), 
+        overwrite = TRUE
+      )
+  }
+}
+
+#Rename files with sample ID
+for(i in 1:nrow(sample_log)){
+
+    # Create file paths with folder and file name
+    eem_old_file <- file.path(eem_folder_path, sample_log$EEM_processed_file_in_gdrive[i])
+    eem_new_file <- file.path(eem_folder_path, sample_log$eem_inventory_vial_id[i])
+
+    # Check if the original file actually exists
+  if (file.exists(eem_old_file)) {
+
+    # Rename the file
+    file.rename(from = eem_old_file, to = eem_new_file)
+
+    cat("Success: Renamed", sample_log$EEM_processed_file_in_gdrive[i], "to",
+        sample_log$eem_inventory_vial_id[i], "\n")
+  } else {
+    cat("Warning: File", sample_log$EEM_processed_file_in_gdrive[i], "not found.\n")
+  }
+}
+```
+
+
+##Create the metadata
+```{r output metadata}
+colnames(sample_log)
+metadata <- sample_log %>% 
+  rename(abs_file_id = abs_inventory_vial_id, 
+         eem_file_id = eem_inventory_vial_id) %>% 
+  select(c(inventory_vial_id, integration_time_s, dilution, RSU_area_1s, abs_file_id, eem_file_id))
+
+write.csv(metadata, "CDOM_metadata.csv")
+
+```
+
