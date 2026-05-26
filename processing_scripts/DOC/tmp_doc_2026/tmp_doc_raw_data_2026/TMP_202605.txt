@@ -1,0 +1,92 @@
+[Header]	
+System	TOCL TNML ASIL 9ML	
+S/W Version	1.00	
+User	sjw	
+Date/Time	5/13/2026 8:10:48 AM	
+
+[System]	
+Instrument Options	TOC/ASI/IC Unit/TN/	
+
+[Data]	
+Type	Anal.	Sample Name	Sample ID	Result(TOC)	Result(TC)	Result(IC)	Result(POC)	Result(NPOC)	Result(TN)	Unit	Vial	Date / Time	
+Unknown	NPOC/TN	Cond_Blank	Untitled					1.162	0.00979	mg/L	0	5/11/2026 12:56:54 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.9543	0.00465	mg/L	0	5/11/2026 1:22:11 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.7880	0.03769	mg/L	0	5/11/2026 1:48:38 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.7481	0.02636	mg/L	0	5/11/2026 2:14:17 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4985	0.00822	mg/L	0	5/11/2026 2:39:55 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4784	0.06260	mg/L	0	5/11/2026 3:05:43 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4547	-0.01189	mg/L	0	5/11/2026 3:32:42 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4357	0.00360	mg/L	0	5/11/2026 4:25:36 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4017	0.01633	mg/L	0	5/11/2026 4:51:51 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.3249	0.02225	mg/L	0	5/11/2026 5:18:27 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.3776	0.03950	mg/L	0	5/11/2026 5:43:48 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4124	-0.00376	mg/L	0	5/11/2026 6:08:47 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.3390	-0.00183	mg/L	0	5/11/2026 6:30:00 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.4396	0.04648	mg/L	0	5/11/2026 6:55:45 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2816	0.00536	mg/L	0	5/11/2026 7:20:54 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.3132	0.03826	mg/L	0	5/11/2026 7:46:37 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2604	0.04439	mg/L	0	5/11/2026 8:12:32 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.3395	0.00031	mg/L	0	5/11/2026 8:39:19 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2342	0.01918	mg/L	0	5/11/2026 9:11:42 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2358	0.04646	mg/L	0	5/11/2026 9:40:47 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1226	-0.00653	mg/L	0	5/11/2026 10:10:39 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1563	-0.00774	mg/L	0	5/11/2026 10:35:18 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2179	-0.00091	mg/L	0	5/11/2026 11:06:30 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1785	0.01624	mg/L	0	5/11/2026 11:34:23 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1691	0.01293	mg/L	0	5/11/2026 11:59:44 PM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2760	0.00585	mg/L	0	5/12/2026 12:26:27 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2378	-0.00013	mg/L	0	5/12/2026 12:55:26 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2188	0.00204	mg/L	0	5/12/2026 1:20:50 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2151	0.04862	mg/L	0	5/12/2026 1:53:20 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1668	0.05089	mg/L	0	5/12/2026 2:18:59 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1453	0.00011	mg/L	0	5/12/2026 2:44:23 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1007	0.05777	mg/L	0	5/12/2026 3:10:10 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1525	0.00511	mg/L	0	5/12/2026 3:38:26 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2137	-0.00510	mg/L	0	5/12/2026 4:05:01 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2522	0.08219	mg/L	0	5/12/2026 4:33:17 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1894	0.05941	mg/L	0	5/12/2026 5:02:15 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2624	0.02317	mg/L	0	5/12/2026 5:26:46 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2630	0.06663	mg/L	0	5/12/2026 5:52:57 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1710	0.01281	mg/L	0	5/12/2026 6:18:16 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2661	0.02832	mg/L	0	5/12/2026 6:43:19 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2607	0.02078	mg/L	0	5/12/2026 7:10:11 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1865	-0.00826	mg/L	0	5/12/2026 7:36:53 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1077	-0.00236	mg/L	0	5/12/2026 8:02:28 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2089	0.07372	mg/L	0	5/12/2026 8:28:16 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.1261	0.03205	mg/L	0	5/12/2026 8:58:12 AM	
+Unknown	NPOC/TN	Cond_Blank	Untitled					0.2248	0.06235	mg/L	0	5/12/2026 9:26:59 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1661	0.03902	mg/L	0	5/12/2026 9:53:45 AM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					47.51	2.725	mg/L	1	5/12/2026 10:26:49 AM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					47.52	2.836	mg/L	2	5/12/2026 11:05:04 AM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					47.55	2.614	mg/L	3	5/12/2026 11:37:27 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1310	0.07031	mg/L	0	5/12/2026 12:06:04 PM	
+Standard	NPOC	CalCurve_NPOC	Untitled					100.0		mg/L	4, 5, 6, 7, 8, 9, 10, 11	5/12/2026 3:00:24 PM	
+Unknown	NPOC/TN	DI	Untitled					0.2535	0.08025	mg/L	0	5/12/2026 3:31:26 PM	
+Standard	TN	CalCurve_TN	Untitled						3.000	mg/L	12, 13, 14, 15, 16, 17, 18	5/12/2026 5:56:55 PM	
+Unknown	NPOC/TN	DI	Untitled					0.1893	0.00382	mg/L	0	5/12/2026 6:26:41 PM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					48.43	2.173	mg/L	19	5/12/2026 6:59:36 PM	
+Unknown	NPOC/TN	DI	Untitled					0.2738	0.04534	mg/L	0	5/12/2026 7:22:14 PM	
+Unknown	NPOC/TN	TMP_C_C6_50cm_20260508	Untitled					1.979	0.08792	mg/L	20	5/12/2026 7:50:06 PM	
+Unknown	NPOC/TN	TMP_C_H6_50cm_20260508	Untitled					5.702	0.2498	mg/L	21	5/12/2026 8:17:56 PM	
+Unknown	NPOC/TN	TMP_FW_E3_15cm_20260508	Untitled					10.01	0.3560	mg/L	22	5/12/2026 8:45:39 PM	
+Unknown	NPOC/TN	TMP_FW_C6_50cm_20260508	Untitled					2.963	0.1608	mg/L	23	5/12/2026 9:13:30 PM	
+Unknown	NPOC/TN	TMP_FW_H6_50cm_20260508	Untitled					1.664	0.3430	mg/L	24	5/12/2026 9:41:21 PM	
+Unknown	NPOC/TN	DI	Untitled					0.2182	-0.00568	mg/L	0	5/12/2026 10:05:55 PM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					46.56	2.019	mg/L	25	5/12/2026 10:25:00 PM	
+Unknown	NPOC/TN	DI	Untitled					0.2212	0.04176	mg/L	0	5/12/2026 10:50:16 PM	
+Unknown	NPOC/TN	TMP_SW_H3_15cm_20260508	Untitled					53.06	1.907	mg/L	26	5/12/2026 11:21:11 PM	
+Unknown	NPOC/TN	TMP_SW_C3_30cm_20260508	Untitled					63.23	1.794	mg/L	27	5/12/2026 11:40:57 PM	
+Unknown	NPOC/TN	TMP_SW_C6_30cm_20260508	Untitled					56.42	1.966	mg/L	28	5/13/2026 12:01:45 AM	
+Unknown	NPOC/TN	TMP_SW_H6_30cm_20260508	Untitled					30.28	1.163	mg/L	29	5/13/2026 12:31:45 AM	
+Unknown	NPOC/TN	TMP_SW_F4_50cm_20260508	Untitled					10.83	0.9352	mg/L	30	5/13/2026 12:53:18 AM	
+Unknown	NPOC/TN	TMP_SW_H6_50cm_20260508	Untitled					9.211	0.4267	mg/L	31	5/13/2026 1:24:02 AM	
+Unknown	NPOC/TN	DI	Untitled					0.2719	0.03085	mg/L	0	5/13/2026 1:48:33 AM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					46.96	2.036	mg/L	32	5/13/2026 2:18:26 AM	
+Unknown	NPOC/TN	Chk_Std_50C_2N	Untitled					47.06	2.030	mg/L	33	5/13/2026 2:36:57 AM	
+Unknown	NPOC/TN	DI	Untitled					0.2343	0.06056	mg/L	0	5/13/2026 3:01:49 AM	
+Unknown	NPOC/TN	DI	Untitled					0.2434	0.02924	mg/L	0	5/13/2026 3:30:24 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1689	0.02755	mg/L	0	5/13/2026 3:57:34 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1849	0.00562	mg/L	0	5/13/2026 4:24:23 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1351	-0.01118	mg/L	0	5/13/2026 4:51:47 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1608	0.02525	mg/L	0	5/13/2026 5:17:57 AM	
+Unknown	NPOC/TN	DI	Untitled					0.1488	-0.00999	mg/L	0	5/13/2026 5:47:19 AM	
