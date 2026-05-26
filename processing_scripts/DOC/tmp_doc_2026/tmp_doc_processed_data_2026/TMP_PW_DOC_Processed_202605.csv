@@ -1,0 +1,12 @@
+"","Project","plot","grid","Depth_cm","sample_type","Vial_ID","date","npoc_mgL","npoc_uM","npoc_flag","tdn_mgL","tdn_uM","tdn_flag","Analysis_runtime","Run_notes","Field_notes","Evacuation_date_YYYMMDD","Collection_Date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","Volume_mL"
+"1",NA,NA,NA,15,NA,NA,NA,1.979,164.916666666667,"",0.08792,6.28,"TN checks out of range; blank is ≥ 25% of sample value","5/12/2026 7:50:06 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"2",NA,NA,NA,15,NA,NA,NA,5.702,475.166666666667,"",0.2498,17.8428571428571,"TN checks out of range","5/12/2026 8:17:56 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"3",NA,NA,NA,15,NA,NA,NA,10.01,834.166666666667,"",0.356,25.4285714285714,"TN checks out of range","5/12/2026 8:45:39 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"4",NA,NA,NA,15,NA,NA,NA,2.963,246.916666666667,"",0.1608,11.4857142857143,"TN checks out of range","5/12/2026 9:13:30 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"5",NA,NA,NA,15,NA,NA,NA,1.664,138.666666666667,"",0.343,24.5,"TN checks out of range","5/12/2026 9:41:21 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"6",NA,NA,NA,15,NA,NA,NA,53.06,4421.66666666667,"",1.907,136.214285714286,"TN checks out of range","5/12/2026 11:21:11 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"7",NA,NA,NA,15,NA,NA,NA,63.23,5269.16666666667,"",1.794,128.142857142857,"TN checks out of range","5/12/2026 11:40:57 PM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"8",NA,NA,NA,15,NA,NA,NA,56.42,4701.66666666667,"",1.966,140.428571428571,"TN checks out of range","5/13/2026 12:01:45 AM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"9",NA,NA,NA,15,NA,NA,NA,30.28,2523.33333333333,"",1.163,83.0714285714286,"TN checks out of range","5/13/2026 12:31:45 AM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"10",NA,NA,NA,15,NA,NA,NA,10.83,902.5,"",0.9352,66.8,"TN checks out of range","5/13/2026 12:53:18 AM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
+"11",NA,NA,NA,15,NA,NA,NA,9.211,767.583333333333,"",0.4267,30.4785714285714,"TN checks out of range","5/13/2026 1:24:02 AM","Run Notes ",NA,NA,NA,NA,NA,NA,NA
