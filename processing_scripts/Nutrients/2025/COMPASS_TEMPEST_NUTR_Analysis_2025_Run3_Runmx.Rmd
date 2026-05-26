@@ -1,6 +1,6 @@
 ---
-title: "PROJECT: Porewater Nutrients"
-author: "Month YEAR Samples"
+title: "Tempest: Porewater Nutrients"
+author: "2025 Samples"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -17,17 +17,17 @@ output_dir: "To Be Reviewed/PDF"
 ```{r run information, include=TRUE}
 cat("Run Information: NAME ") #lets you know what section you're in 
 #set the run date & user name 
-  sample_year <- "2024"
-  user <- "NAME"
+  sample_year <- "2025"
+  user <- "Brenden Blakley"
 
 #identify the files you want to read in 
   #read in as a list to accommadate ultiple runs in a month
-NH3_PO4_files<- c("Raw Data/20260120_Tempest2024_NH3_PO4_Run1.csv", "Raw Data/20260209_Tempest2024_NH4PO4_Run2.csv")
-  NOx_files    <- c("Raw Data/20260209_Tempest2024_VNOx_Run1.csv","Raw Data/20260213_Tempest2024_VNOx_Run2.csv")
+NH3_PO4_files<- c("Raw Data/20260504_TMP2025_NP_Run3.csv", "Raw Data/20260508_TMPmix_NP_Run1.csv")
+  NOx_files    <- c("Raw Data/20260504_TMP2025_NOx_Run3.csv", "Raw Data/20260508_TMPmix_NOx_Run1.csv")
 
 # Define the file path for QAQC log file - NO Need to change just check year 
   file_path <- "Raw Data/SEAL_TEMPEST_QAQC_Log_2024.csv"
-  final_path <- "Processed Data/COMPASS_Synoptic_Nutrients_202407a.csv"
+  final_path <- "Processed Data/Tempest_Nutrients_2025_Run3_Runmix.csv"
 
 #record any notes about the run or anything other info here: 
   run_notes <- "" 
@@ -730,11 +730,11 @@ knitr::kable(check_flags_disp)
 
 Chks_diff <- All_chks %>% mutate(Diff = ifelse(
   Test == "Vanadium NOx",
-  100 * (Conc - NOx_CCV) / NOx_CCV,
+  100 * abs(Conc - NOx_CCV) / NOx_CCV,
   ifelse(
     Test == "Ammonia 2",
-    100 * (Conc - NH3_CCV) / NH3_CCV,
-    ifelse(Test == "o-PHOS 0.3", 100 * (Conc - PO4_CCV) / PO4_CCV, -999) #Calculate Check Percent Difference
+    100 * abs(Conc - NH3_CCV) / NH3_CCV,
+    ifelse(Test == "o-PHOS 0.3", 100 * abs(Conc - PO4_CCV) / PO4_CCV, -999) #Calculate Check Percent Difference
   )
 )) %>% mutate(Diff_Flag = ifelse(Test == "Vanadium NOx", ifelse(Diff <= NOx_chk_cutoff, "YES", "NO, rerun"), ifelse(Test == "Ammonia 2", ifelse(Diff <= NH3_chk_cutoff, "YES", "NO, rerun"), ifelse(Test == "o-PHOS 0.3", ifelse(Diff <= PO4_chk_cutoff, "YES", "NO, rerun"), "TEST NOT FOUND")))) #Flag data
 
