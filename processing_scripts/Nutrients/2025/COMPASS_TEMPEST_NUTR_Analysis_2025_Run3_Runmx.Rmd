@@ -17,7 +17,7 @@ output_dir: "To Be Reviewed/PDF"
 ```{r run information, include=TRUE}
 cat("Run Information: NAME ") #lets you know what section you're in 
 #set the run date & user name 
-  sample_year <- "2025"
+  sample_year <- "2024|2025|2026"
   user <- "Brenden Blakley"
 
 #identify the files you want to read in 
@@ -121,12 +121,12 @@ PO4_pe <- 0.824
 ```{r rest of metadata, include=FALSE}
 
 # #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
- # inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
- # 
- # drive_download(inventory_directory, overwrite = TRUE)
- # 
- # sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
- # sheet_names
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
+# 
+# sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+# sheet_names
 
 raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
 
@@ -226,15 +226,29 @@ raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
   dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 #change "Source" to "Sourcewater" 
-raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
+#raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
 
 #create IDs from what was collected for comparison later
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
-  mutate(NUTR_ID = paste(Project,
-                          Zone,
+  mutate(NUTR_ID = ifelse(
+    Notes %ilike% "tide", ifelse( Notes %ilike% "high",
+                          paste(Project,
                           Source, 
-                          Collection_Date, 
+                          Zone,
+                          Collection_Date,
+                          "HT",
+                          sep = "_"), paste(Project,
+                          Source, 
+                          Zone,
+                          Collection_Date,
+                          "LT",
                           sep = "_"))
+         ,paste(Project,
+                          Source,
+                          Zone,
+                          Collection_Date,
+                          Time_of_day,
+                          sep = "_")))
 
 
 #combine porewater and sourcewater samples
@@ -1225,7 +1239,16 @@ samples_flagged1 <- samples %>% mutate(Dilution = ifelse(Dilution == 0, 1, Dilut
       
       TRUE ~ NA_character_  # fallback for unexpected values
     )
+  ) %>% mutate(Sample_Name = case_when(
+    Sample_Name %ilike% "MD" ~ str_replace(Sample_Name, "MD", "MID"),
+    Sample_Name %ilike% "AN" ~ str_replace(Sample_Name, "AN", "PM"),
+    Sample_Name %ilike% "MN" ~ str_replace(Sample_Name, "MN", "AM"),
+    TRUE ~ Sample_Name)
+  ) %>% mutate(Sample_Name = case_when(
+    Sample_Name %ilike% "Est" ~ str_replace(Sample_Name, "Est", "Estuary"),
+    TRUE ~ Sample_Name
   )
+               )
 
 NH3_dl_df <- samples_flagged1 %>% filter(Test == "Ammonia 2")
 
@@ -1318,7 +1341,7 @@ if (all_present) {
 }
 colnames(samples_flagged1)
 samples_flagged_selected <- samples_flagged1 %>%
-  dplyr::select(-c(Pair_ID)) 
+  dplyr::select(-c(Pair_ID))
 
 #merge metadata with sample run data 
 df_all_clean <- samples_flagged_selected %>% dplyr::select(Sample_Name, Test, Conc, Conc_uM, Conc_flag, Run_Date) %>%
