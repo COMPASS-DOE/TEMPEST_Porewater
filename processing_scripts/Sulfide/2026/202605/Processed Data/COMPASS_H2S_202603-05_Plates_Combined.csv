@@ -1,0 +1,307 @@
+"","Project","Sample_ID","Zone","Grid","Depth_cm","Source","Volume_mL","Collection_Date","Evacuation_date_YYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","H2S_mean","H2S_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
+"1","TEMPEST","TMP_C_PW_B4_20260309_15CM","C","B4","15cm","PW",5,"20260309",20260306,1228,1050,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"2","TEMPEST","TMP_C_PW_C3_20260309_15CM","C","C3","15cm","PW",5,"20260309",20260306,1230,1032,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"3","TEMPEST","TMP_C_PW_C3_202605_30CM","C","C3","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"4","TEMPEST","TMP_C_PW_C3_202605_50CM","C","C3","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"5","TEMPEST","TMP_C_PW_C6_20260309_15CM","C","C6","15cm","PW",5,"20260309",20260306,1235,1046,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"6","TEMPEST","TMP_C_PW_C6_202605_50CM","C","C6","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"7","TEMPEST","TMP_C_PW_D5_20260309_15CM","C","D5","15cm","PW",5,"20260309",20260306,1518,1040,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"8","TEMPEST","TMP_C_PW_E3_20260309_15CM","C","E3","15cm","PW",5,"20260309",20260306,1221,1028,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"9","TEMPEST","TMP_C_PW_F4_20260309_15CM","C","F4","15cm","PW",5,"20260309",20260306,1218,1017,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"10","TEMPEST","TMP_C_PW_F4_202605_50CM","C","F4","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"11","TEMPEST","TMP_C_PW_F6_20260309_15CM","C","F6","15cm","PW",5,"20260309",20260306,1216,1010,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"12","TEMPEST","TMP_C_PW_H3_20260309_15CM","C","H3","15cm","PW",5,"20260309",20260306,1206,925,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"13","TEMPEST","TMP_C_PW_H3_202605_15CM","C","H3","15cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"14","TEMPEST","TMP_C_PW_H6_202506_30CM","C","H6","30cm","PW",NA,"202506",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"15","TEMPEST","TMP_C_PW_H6_20260309_15CM","C","H6","15cm","PW",5,"20260309",20260306,1214,957,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"16","TEMPEST","TMP_C_PW_H6_202605_50CM","C","H6","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"17","TEMPEST","TMP_C_PW_I5_20260309_15CM","C","I5","15cm","PW",5,"20260309",20260306,1210,943,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"18","TEMPEST","TMP_FW_PW_B4_20260309_15CM","FW","B4","15cm","PW",5,"20260309",20260306,1415,1309,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"19","TEMPEST","TMP_FW_PW_B4_20260410_15CM","FW","B4","15cm","PW",NA,"20260410",NA,NA,NA,NA,2.7913393222639,0.165791216088901,5.93948628052991,"Within Range","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"20","TEMPEST","TMP_FW_PW_C3_20260309_15CM","FW","C3","15cm","PW",5,"20260309",20260306,1520,1318,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"21","TEMPEST","TMP_FW_PW_C6_20260309_15CM","FW","C6","15cm","PW",5,"20260309",20260306,1411,1248,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"22","TEMPEST","TMP_FW_PW_C6_202605_30CM","FW","C6","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"23","TEMPEST","TMP_FW_PW_C6_202605_50CM","FW","C6","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"24","TEMPEST","TMP_FW_PW_D5_20260309_15CM","FW","D5","15cm","PW",5,"20260309",20260306,1421,1256,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"25","TEMPEST","TMP_FW_PW_D5_20260410_15CM","FW","D5","15cm","PW",5,"20260410",20260407,1129,1016,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"26","TEMPEST","TMP_FW_PW_D5_202605_15CM","FW","D5","15cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"27","TEMPEST","TMP_FW_PW_E3_20260309_15CM","FW","E3","15cm","PW",5,"20260309",20260306,1434,1323,"EDT",0,0,0,"bdl","Within Range","Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"28","TEMPEST","TMP_FW_PW_E3_202605_15CM","FW","E3","15cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"29","TEMPEST","TMP_FW_PW_F4_20260309_15CM","FW","F4","15cm","PW",5,"20260309",20260306,1432,1327,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"30","TEMPEST","TMP_FW_PW_F4_202605_30CM","FW","F4","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"31","TEMPEST","TMP_FW_PW_F6_20260309_15CM","FW","F6","15cm","PW",5,"20260309",20260306,1422,1348,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"32","TEMPEST","TMP_FW_PW_H3_20260309_15CM","FW","H3","15cm","PW",5,"20260309",20260306,1431,1334,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"33","TEMPEST","TMP_FW_PW_H6_20260309_15CM","FW","H6","15cm","PW",5,"20260309",20260306,1525,1346,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"34","TEMPEST","TMP_FW_PW_H6_202605_15CM","FW","H6","15cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"35","TEMPEST","TMP_FW_PW_H6_202605_30CM","FW","H6","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"36","TEMPEST","TMP_FW_PW_H6_202605_50CM","FW","H6","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"37","TEMPEST","TMP_SW_PW_B4_20260309_15CM","SW","B4","15cm","PW",5,"20260309",20260306,1252,1141,"EDT",2.07454760582967,0.0459822100484663,2.21649336555363,"Within Range","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"38","TEMPEST","TMP_SW_PW_C3_202605_30CM","SW","C3","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"39","TEMPEST","TMP_SW_PW_C6_20260309_15CM","SW","C6","15cm","PW",5,"20260309",20260306,1256,1153,"EDT",1.03918179320245,0.0459822100484664,4.42484754344696,"Within Range","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"40","TEMPEST","TMP_SW_PW_C6_202605_30CM","SW","C6","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"41","TEMPEST","TMP_SW_PW_D5_20260309_15CM","SW","D5","15cm","PW",5,"20260309",20260306,1257,1207,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"42","TEMPEST","TMP_SW_PW_F4_20260309_15CM","SW","F4","15cm","PW",5,"20260309",20260306,1303,1220,"EDT",0.147921117709399,0.20919205082602,141.42135623731,"Within Range","High CV","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"43","TEMPEST","TMP_SW_PW_F4_202605_50CM","SW","F4","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"44","TEMPEST","TMP_SW_PW_F6_20260309_15CM","SW","F6","15cm","PW",5,"20260309",20260306,1300,1212,"EDT",0.0967334252981787,0.05631647593211,58.2182174967088,"Within Range","High CV","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"45","TEMPEST","TMP_SW_PW_H3_202605_15CM","SW","H3","15cm","PW",NA,"202605",NA,NA,NA,NA,0.216198711370551,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"46","TEMPEST","TMP_SW_PW_H3_202605_30CM","SW","H3","30cm","PW",NA,"202605",NA,NA,NA,NA,0.216198711370551,0,0,"Within Range","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"47","TEMPEST","TMP_SW_PW_H6_20260309_15CM","SW","H6","15cm","PW",5,"20260309",20260306,1316,1235,"EDT",0,0,0,"bdl","Within Range","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"48","TEMPEST","TMP_SW_PW_H6_202605_30CM","SW","H6","30cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"49","TEMPEST","TMP_SW_PW_H6_202605_50CM","SW","H6","50cm","PW",NA,"202605",NA,NA,NA,NA,0,0,0,"bdl","Within Range","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"50","TEMPEST","TMP_SW_PW_I5_20260309_15CM","SW","I5","15cm","PW",5,"20260309",20260306,1313,1230,"EDT",0.335663997442923,0.05631647593211,16.7776336935528,"Within Range","High CV","Std curve r2 low; MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
+"51","TEMPEST","TMP_SW_PW_I5_202605_15CM","SW","I5","15cm","PW",NA,"202605",NA,NA,NA,NA,0.494951045539418,0.0563164759321092,11.3781911240804,"Within Range","High CV","MC 10 out of range; Dup perc diff out of range; Spk recovery out of range",1,"20260526-20260527",NA,"
+Missing TMP_FW_PW_B4_20260410_15CM and May 2026 plots from metadata. 
+Used 20260527_Plate2 std curve. 
+3/16 Matrix checks were bad. 
+3/8 dups were bad, probably because the sulfide values were so low. 
+5/8 spikes were bad"
