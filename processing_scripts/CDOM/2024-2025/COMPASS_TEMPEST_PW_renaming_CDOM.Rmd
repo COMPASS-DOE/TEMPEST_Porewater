@@ -92,6 +92,7 @@ for (i in seq_along(files$name)) {
   }
 }
 
+##Rename files
 for(i in 1:nrow(sample_log)){
     
     # Create file paths with folder and file name
