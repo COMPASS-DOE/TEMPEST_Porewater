@@ -86,25 +86,64 @@ sample_log <- log_files %>%
       "Sample Description (60 Character Max) - Will display on final EEM figure"
     
     names(df)[names(df) == 
+      "Sample Description \n(60 Character Max) - Will display on final EEM figure"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
       "Project Sample ID"] <-
       "Sample Description (60 Character Max) - Will display on final EEM figure"
     
     names(df)[names(df) == 
       "Dilution Factor\r\n*Decimal Format…e.g. 1 part sample and 1 part water = 0.50"] <-
       "Dilution Factor (Decimal Format; e.g. 0.5)"
+
+    names(df)[names(df) == 
+      "Absorbance \r\nPathlength"] <-
+      "Absorbance Pathlength"
+    
+    names(df)[names(df) == 
+      "Absorbance \nPathlength"] <-
+      "Absorbance Pathlength"
     
     df
   }) %>%
   bind_rows()
 
+colnames(sample_log)
+
 sample_log <- sample_log %>% 
   rename(Sample_Description = "Sample Description (60 Character Max) - Will display on final EEM figure", 
          Dilution_Factor = "Dilution Factor (Decimal Format; e.g. 0.5)")
 
-#Will need to do a lot of work with the sample IDs
-sample_log <- sample_log %>%
-  mutate(abs_inventory_vial_id = paste0(Sample_Description, "_ABS_DilCorr.dat")) %>%
-  mutate(eem_inventory_vial_id = paste0(Sample_Description, "_EEM_DilCorr_IFE_RamNorm.dat"))
+##Remove "EXP" and "Tea" files
+sample_log <- sample_log %>% 
+  filter(!str_detect(Sample_Description, "EXP")) %>% 
+  filter(!str_detect(Sample_Description, "Tea"))
+
+##Add Sample ID for ones that were NA 
+sample_log <- sample_log %>% 
+  rename(Sample_ID = 'Sample ID') %>% 
+  mutate(Sample_ID = ifelse(is.na(Sample_ID), Sample_Description, Sample_ID))
+
+##Fix sample ID for ones that are actually renamed in file ID 
+sample_log <- sample_log %>% 
+  mutate(Sample_ID = case_when(
+      Sample_ID == "TSD51002 2s" ~ Sample_Description,
+      Sample_ID == "TSF61002 1s" ~ Sample_Description,
+      Sample_ID == "TSC31002 2s" ~ Sample_Description,
+      Sample_ID == "TSH31002 2s" ~ Sample_Description,
+      Sample_ID == "TFH31002 2s" ~ Sample_Description,
+      Sample_ID == "TFI51005 1s" ~ Sample_Description,
+      Sample_ID == "TCI51002 2s" ~ Sample_Description,
+      TRUE ~ Sample_ID)) # fallback for other values
+
+##Fix some Sample Descriptions
+sample_log <- sample_log %>% 
+  mutate(Sample_Description = toupper(Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("POOLED", "POOL", Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("BARGE", "SOURCE", Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("SW_ESTUARY", "ESTUARY_SOURCE", Sample_Description)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID)) 
 
 ```
 
@@ -123,6 +162,7 @@ folder_id = drive_get(as_id(abs_folder))
 
 #find files in folder
 files = drive_ls(folder_id)
+files
 
 #loop dirs and download files inside them
 for (i in seq_along(files$name)) {
@@ -140,50 +180,156 @@ for (i in seq_along(files$name)) {
   }
 }
 
-# ##Convert files to csv
-# data <- read.table("myfile.dat", header = TRUE, sep = "\t")
-# library(rio)
-# ##Rename files with sample ID
-# for(i in 1:nrow(sample_log)){
-#     
-#     # Create file paths with folder and file name
-#     old_file <- file.path(abs_folder_path, sample_log$abs_processed_file_name_in_gdrive[i])
-#     new_file <- file.path(abs_folder_path, sample_log$abs_inventory_vial_id[i])
-#     
-#     # Check if the original file actually exists
-#   if (file.exists(old_file)) {
-#     
-#     # Rename the file
-#     convert("myfile.dat", "myfile.csv")
-#     
-#     cat("Success: Renamed", sample_log$abs_processed_file_name_in_gdrive[i], "to", sample_log$abs_inventory_vial_id[i], "\n")
-#   } else {
-#     cat("Warning: File", sample_log$abs_processed_file_name_in_gdrive[i], "not found.\n")
-#   }
-# }
+##Remove "EXP" files as these are not part of the TEMPEST project
+files_to_delete <- list.files(
+  path = abs_folder_path, 
+  pattern = "EXP|TMPC23May 1s (02) - Abs Spectra Graphs.dat|TMPFW23May 1s (01) - Abs Spectra Graphs.dat
+|TMPSW23May 2s (01) - Abs Spectra Graphs.dat", 
+  full.names = TRUE
+)
 
-##Rename files with sample ID
-##Old Ids TMP_25.POOL.4_EXP_DilCorr_Abs
-# list(sample_log$`Sample ID`)
-# 
-# 
-# for(i in 1:nrow(sample_log)){
-#     
-#     # Create file paths with folder and file name
-#     old_file <- file.path(abs_folder_path, sample_log$`Absorbance File Name`[i])
-#     new_file <- file.path(abs_folder_path, sample_log$abs_inventory_vial_id[i])
-#     
-#     # Check if the original file actually exists
-#   if (file.exists(old_file)) {
-#     
-#     # Rename the file
-#     file.rename(from = old_file, to = new_file)
-#     
-#     cat("Success: Renamed", sample_log$abs_processed_file_name_in_gdrive[i], "to", sample_log$abs_inventory_vial_id[i], "\n")
-#   } else {
-#     cat("Warning: File", sample_log$abs_processed_file_name_in_gdrive[i], "not found.\n")
-#   }
-# }
+files_to_delete
+
+file.remove(files_to_delete)
+
+
+##List all files
+files_abs <- list.files(path = abs_folder_path)
+files_abs <- data.frame(files_abs)  
+files_abs <- files_abs %>% 
+  rename(original_file_name_abs = files_abs)
+
+##Remove extra words so it's just the sample ID 
+files_abs <- files_abs %>% 
+  mutate(Sample_ID = gsub("_DilCorr_Abs", "", original_file_name_abs)) %>% 
+  mutate(Sample_ID = gsub("_ABS", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(".dat", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("\\(01\\) - Abs Spectra Graphs", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("\\(02\\) - Abs Spectra Graphs", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID))
+
+##Combine with sample log
+sample_log_abs <- files_abs %>% 
+  left_join(sample_log, by = "Sample_ID")
+
+
+
+
+
+##What is "TEMPEST CONTROL/FW/SW POREWATER" aka "TMPC23May1s"? 
+
+##Desired Sample IDs 
+#TMP_FW_H6_20220620_T0_15CM
+#TMP_FW_SOURCE_20220622_T0
+
+##Fix sample description
+sample_log_abs1 <- sample_log_abs %>%
+  mutate(Sample_Description = gsub("TEMPEST CONTROL PLOT", "TMP_C_SOURCE", Sample_Description)) %>% ##Fix sourcewater formats
+  mutate(Sample_Description = gsub("TEMPEST FRESHWATER PLOT", "TMP_FW_SOURCE", Sample_Description)) %>%
+  mutate(Sample_Description = gsub("TEMPEST SEAWATER PLOT", "TMP_SW_SOURCE", Sample_Description)) %>%
+  mutate(Sample_Description = gsub("TEMPEST CONTROL POREWATER", "TMP_C_SOURCE", Sample_Description)) %>% ##Fix sourcewater formats
+  mutate(Sample_Description = gsub("TEMPEST FRESHWATER POREWATER", "TMP_FW_SOURCE", Sample_Description)) %>%
+  mutate(Sample_Description = gsub("TEMPEST SEAWATER POREWATER", "TMP_SW_SOURCE", Sample_Description)) %>%
+  mutate(Sample_Description = gsub(" - 09/09/22", "_20220909", Sample_Description)) %>% ##Fix date formats
+  mutate(Sample_Description = gsub(" - 08/08/22", "_20220808", Sample_Description)) %>%
+  mutate(Sample_Description = gsub(" -  08/08/22", "_20220808", Sample_Description)) %>%
+  mutate(Sample_Description = gsub(" - 07/18/22", "_20220718", Sample_Description)) %>%
+  mutate(Sample_Description = gsub(" - 07/21/22", "_20220721", Sample_Description)) %>% 
+  # mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), paste0(Sample_Description, "_2022"), Sample_Description)) %>% ##Add year to 2022 samples
+  mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% ##Remove CDOM since these are all CDOM samples
+  mutate(Sample_Description = ifelse(str_detect(Sample_Description, "SOURCE_HR"), paste0(Sample_Description, "_20220622"), Sample_Description)) %>% ##Date for 2022 Source water samples 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T0", "T0_20220620", Sample_Description), Sample_Description)) %>% ##Date for 2022 Porewater samples
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T1", "T1_20220622", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T2", "T2_20220622", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), sub("T4", "T4_20220624", Sample_Description), Sample_Description)) 
+
+##Separate into columns to make into correct sample IDs
+# TMP_FW_C3_20220622_T1_15CM
+sample_log_abs2 <- sample_log_abs1 %>%
+  separate(
+    col = Sample_Description,
+    sep = "_",
+    into = c("Project", "Plot", "Grid", "Date", "Timepoint"),
+    remove = FALSE) %>% 
+  mutate(temp_Date = Timepoint) %>% ##Fix Dates and Timepoints
+  mutate(Timepoint = ifelse(str_detect(Date, "T|HR"), Date, Timepoint)) %>% 
+  mutate(Date = ifelse(str_detect(Date, "T|HR"), temp_Date, Date)) %>% 
+  mutate(Timepoint = ifelse(str_detect(Timepoint, "2022"), NA, Timepoint)) %>% 
+  mutate(Depth = ifelse(Grid == "SOURCE"|Grid == "WELL", NA, "15cm"))  %>% ##Add 15 cm depth for all porewater samples
+  mutate(Time_of_day = ifelse(str_detect(Timepoint, "T|HR"), NA, Timepoint)) %>% 
+  mutate(Timepoint = case_when(
+    Time_of_day < 1200  ~ "AM",
+    Time_of_day > 1200 & Time_of_day < 1400 ~ "MID",
+    Time_of_day > 1400  ~ "PM",
+    TRUE    ~ Timepoint)) %>% ##For 20230606/07, need to change times to AM or PM - #########may want to code this as T1-3 instead to match DOC data########
+
+
+  mutate(Sample_ID = paste(Project, Plot, Grid, Date, Timepoint, Depth, sep = "_")) %>% ##Make sample ID to match others
+  mutate(Sample_ID = gsub("_NA", "", Sample_ID))
+
+
+
+
+
+
+
+#Create desired file ID
+sample_log_abs <- sample_log_abs %>%
+  mutate(new_abs_file_id = paste0(Sample_Description, "_ABS_DilCorr.dat")) %>%
+  mutate(new_eem_file_id = paste0(Sample_Description, "_EEM_DilCorr_IFE_RamNorm.dat"))
+
+
+
+##Rename files
+for(i in 1:nrow(sample_log_abs)){
+    
+    # Create file paths with folder and file name
+    old_file <- file.path(abs_folder_path, sample_log_abs$original_file_name_abs[i])
+    new_file <- file.path(abs_folder_path, sample_log_abs$new_abs_file_id[i])
+    
+    # Check if the original file actually exists
+  if (file.exists(old_file)) {
+    
+    # Rename the file
+    file.rename(from = old_file, to = new_file)
+    
+    cat("Success: Renamed", sample_log_abs$original_file_name_abs[i], "to", sample_log$new_abs_file_id[i], "\n")
+  } else {
+    cat("Warning: File", sample_log_abs$original_file_name_abs[i], "not found.\n")
+  }
+}
+
+
+# Get a list of all .dat files in that folder
+abs_files <- list.files(path = abs_folder_path, pattern = "\\.dat$", full.names = TRUE, ignore.case = TRUE)
+
+# Loop through each file and convert it
+for (file in abs_files) {
+  
+  # 1. Read the file (Change 'sep' depending on your delimiter)
+  # Use sep = "" for spaces, sep = "\t" for tabs, or sep = "," for commas
+  temp_data <- read.table(file, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+  
+  # 2. Create the new file path by changing the extension to .csv
+  csv_file <- sub("\\.dat$", ".csv", file, ignore.case = TRUE)
+  
+  # 3. Write out the data frame as a CSV
+  write.csv(temp_data, file = csv_file, row.names = FALSE)
+  
+  # 4. Remove old .dat file
+  file.remove(file)
+
+}
+
+print("Conversion complete!")
+```
+
+##Make new file ID
+```{r}
+
+
+
 ```
 
 
@@ -352,9 +498,9 @@ for(i in 1:nrow(sample_log)){
 ```{r output metadata}
 colnames(sample_log)
 metadata <- sample_log %>% 
-  rename(abs_file_id = abs_inventory_vial_id, 
-         eem_file_id = eem_inventory_vial_id) %>% 
-  select(c(inventory_vial_id, integration_time_s, dilution, RSU_area_1s, abs_file_id, eem_file_id))
+  rename(abs_Sample_ID = abs_inventory_vial_id, 
+         eem_Sample_ID = eem_inventory_vial_id) %>% 
+  select(c(inventory_vial_id, integration_time_s, dilution, RSU_area_1s, abs_Sample_ID, eem_Sample_ID))
 
 write.csv(metadata, "CDOM_metadata.csv")
 

@@ -85,33 +85,6 @@
 "COMPASS","TEMPEST","FW","E3","15cm","DOC","TMP_FW_E3_20220624_T4_15cm",10.51,875.833333333333,NA,0.36,25.7142857142857,NA,"NA",NA,NA,NA,"20220624","12:16:00","1336",NA,NA,10
 "COMPASS","TEMPEST","SW","C3","15cm","DOC","TMP_SW_C3_20220624_T4_15cm",14.34,1195,NA,1.36,97.1428571428572,NA,"NA",NA,NA,NA,"20220624","12:15:00","1357",NA,NA,10
 "COMPASS","TEMPEST","SW","F6","15cm","DOC","TMP_SW_F6_20220624_T4_15cm",5.81,484.166666666667,NA,0.39,27.8571428571429,NA,"NA",NA,NA,NA,"20220624","12:15:00","1357",NA,NA,10
-"COMPASS","TEMPEST","C","B4","15cm","DOC","TMP_C_B4_20220518_T1_15cm",18.19,1515.83333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","B4","15cm","DOC","TMP_C_B4_20220518_T2_15cm",18.19,1515.83333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","C6","15cm","DOC","TMP_C_C6_20220518_T1_15cm",9.235,769.583333333333,"average value of multiple aliquots",0.365,26.0714285714286,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","C6","15cm","DOC","TMP_C_C6_20220518_T2_15cm",9.235,769.583333333333,"average value of multiple aliquots",0.365,26.0714285714286,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","D5","15cm","DOC","TMP_C_D5_20220518_T1_15cm",18.36,1530,NA,0.66,47.1428571428571,NA,"NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,18
-"COMPASS","TEMPEST","C","E3","15cm","DOC","TMP_C_E3_20220518_T1_15cm",9.88,823.333333333333,"average value of multiple aliquots",0.535,38.2142857142857,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","E3","15cm","DOC","TMP_C_E3_20220518_T2_15cm",9.88,823.333333333333,"average value of multiple aliquots",0.535,38.2142857142857,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","F4","15cm","DOC","TMP_C_F4_20220518_T1_15cm",8.13,677.5,NA,0.47,33.5714285714286,NA,"NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,8
-"COMPASS","TEMPEST","C","F6","15cm","DOC","TMP_C_F6_20220518_T1_15cm",7.46,621.666666666667,"average value of multiple aliquots",0.335,23.9285714285714,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","F6","15cm","DOC","TMP_C_F6_20220518_T2_15cm",7.46,621.666666666667,"average value of multiple aliquots",0.335,23.9285714285714,"average value of multiple aliquots","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","H3","15cm","DOC","TMP_C_H3_20220518_T1_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","H3","15cm","DOC","TMP_C_H3_20220518_T2_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","H6","15cm","DOC","TMP_C_H6_20220518_T1_15cm",13.92,1160,NA,0.47,33.5714285714286,NA,"NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,12
-"COMPASS","TEMPEST","C","I5","15cm","DOC","TMP_C_I5_20220518_T1_15cm",9.385,782.083333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","C","I5","15cm","DOC","TMP_C_I5_20220518_T2_15cm",9.385,782.083333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220513,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","C3","15cm","DOC","TMP_FW_C3_20220518_T1_15cm",7.01,584.166666666667,NA,0.33,23.5714285714286,NA,"NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,8
-"COMPASS","TEMPEST","FW","C3","15cm","DOC","TMP_FW_C3_20220520_T2_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220518,"20220520",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","C6","15cm","DOC","TMP_FW_C6_20220518_T1_15cm",21.68,1806.66666666667,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","C6","15cm","DOC","TMP_FW_C6_20220518_T2_15cm",21.68,1806.66666666667,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","D5","15cm","DOC","TMP_FW_D5_20220518_T1_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","D5","15cm","DOC","TMP_FW_D5_20220518_T2_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","E3","15cm","DOC","TMP_FW_E3_20220520_T1_15cm",13.84,1153.33333333333,NA,0.6,42.8571428571429,NA,"NA",NA,NA,20220518,"20220520",NA,NA,NA,NA,17
-"COMPASS","TEMPEST","FW","F4","15cm","DOC","TMP_FW_F4_20220518_T1_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","F4","15cm","DOC","TMP_FW_F4_20220518_T2_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","H3","15cm","DOC","TMP_FW_H3_20220518_T1_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","H3","15cm","DOC","TMP_FW_H3_20220518_T2_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,20220512,"20220518",NA,NA,NA,NA,20
-"COMPASS","TEMPEST","FW","H6","15cm","DOC","TMP_FW_H6_20220520_T1_15cm",9.03,752.5,NA,0.45,32.1428571428571,NA,"NA",NA,NA,20220518,"20220520",NA,NA,NA,NA,15
 "COMPASS","TEMPEST","ESTUARY","Source",NA,"DOC","TMP_ESTUARY_SOURCE_20220622_T0",27.27,2272.5,NA,0.88,62.8571428571429,NA,"NA",NA,NA,NA,"20220622",NA,NA,NA,NA,NA
 "COMPASS","TEMPEST","ESTUARY","Source",NA,"DOC","TMP_ESTUARY_SOURCE_20220622_T1",5.23,435.833333333333,NA,0.43,30.7142857142857,NA,"NA",NA,NA,NA,"20220622",NA,NA,NA,NA,NA
 "COMPASS","TEMPEST","FW","Source",NA,"DOC","TMP_FW_SOURCE_20220622_T0",0.83,69.1666666666667,NA,0.09,6.42857142857143,"blank is ≥ 25% of sample value","NA",NA,NA,NA,"20220622",NA,NA,"0654","EDT",NA
@@ -128,6 +101,23 @@
 "COMPASS","TEMPEST","SW","Source",NA,"DOC","TMP_SW_SOURCE_20220622_T4",5.13,427.5,NA,0.34,24.2857142857143,NA,"NA",NA,NA,NA,"20220622",NA,NA,"1100","EDT",NA
 "COMPASS","TEMPEST","SW","Source",NA,"DOC","TMP_SW_SOURCE_20220622_T5",5.615,467.916666666667,"average value of multiple aliquots",0.405,28.9285714285714,"average value of multiple aliquots","NA",NA,NA,NA,"20220622",NA,NA,"1200","EDT",NA
 "COMPASS","TEMPEST","SW","Source",NA,"DOC","TMP_SW_SOURCE_20220622_T7",4.765,397.083333333333,"average value of multiple aliquots",0.375,26.7857142857143,"average value of multiple aliquots","NA",NA,NA,NA,"20220622",NA,NA,"1409","EDT",NA
+"COMPASS","TEMPEST","C","F4","15cm","DOC","TMP_C_F4_20220518_15cm",8.13,677.5,NA,0.47,33.5714285714286,NA,"NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","H6","15cm","DOC","TMP_C_H6_20220518_15cm",13.92,1160,NA,0.47,33.5714285714286,NA,"NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","D5","15cm","DOC","TMP_C_D5_20220518_15cm",18.36,1530,NA,0.66,47.1428571428571,NA,"NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","C3","15cm","DOC","TMP_FW_C3_20220518_15cm",7.01,584.166666666667,NA,0.33,23.5714285714286,NA,"NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","E3","15cm","DOC","TMP_FW_E3_20220518_15cm",13.84,1153.33333333333,NA,0.6,42.8571428571429,NA,"NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","B4","15cm","DOC","TMP_C_B4_20220518_15cm",18.19,1515.83333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","C6","15cm","DOC","TMP_C_C6_20220518_15cm",9.235,769.583333333333,"average value of multiple aliquots",0.365,26.0714285714286,"average value of multiple aliquots","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","E3","15cm","DOC","TMP_C_E3_20220518_15cm",9.88,823.333333333333,"average value of multiple aliquots",0.535,38.2142857142857,"average value of multiple aliquots","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","F6","15cm","DOC","TMP_C_F6_20220518_15cm",7.46,621.666666666667,"average value of multiple aliquots",0.335,23.9285714285714,"average value of multiple aliquots","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","H3","15cm","DOC","TMP_C_H3_20220518_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","C","I5","15cm","DOC","TMP_C_I5_20220518_15cm",9.385,782.083333333333,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","C6","15cm","DOC","TMP_FW_C6_20220518_15cm",21.68,1806.66666666667,"average value of multiple aliquots",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","D5","15cm","DOC","TMP_FW_D5_20220518_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","F4","15cm","DOC","TMP_FW_F4_20220518_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","H3","15cm","DOC","TMP_FW_H3_20220518_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220518",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","H6","15cm","DOC","TMP_FW_H6_20220520_15cm",9.03,752.5,NA,0.45,32.1428571428571,NA,"NA",NA,NA,NA,"20220520",NA,NA,NA,NA,NA
+"COMPASS","TEMPEST","FW","C3","15cm","DOC","TMP_FW_C3_20220520_15cm",NA,NA,"replicates greater than 25% different",NA,NA,"replicates greater than 25% different","NA",NA,NA,NA,"20220520",NA,NA,NA,NA,NA
 "COMPASS","TEMPEST","FW","I5","15cm","DOC","TMP_FW_I5_20220613_15cm",12.73,1060.83333333333,NA,0.78,55.7142857142857,NA,"NA",NA,NA,NA,"20220613",NA,NA,NA,NA,15
 "COMPASS","TEMPEST","SW","E3","15cm","DOC","TMP_SW_E3_20220613_15cm",9.96,830,NA,1,71.4285714285714,NA,"NA",NA,NA,NA,"20220613",NA,NA,NA,NA,15
 "COMPASS","TEMPEST","FW","F4","15cm","DOC","TMP_FW_F4_20220613_15cm",10.91,909.166666666667,NA,0.05,3.57142857142857,"blank is ≥ 25% of sample value","NA",NA,NA,NA,"20220613",NA,NA,NA,NA,15
