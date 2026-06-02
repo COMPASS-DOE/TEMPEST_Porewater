@@ -368,12 +368,6 @@ sample_log5 <- sample_log5 %>%
   mutate(new_eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.dat"))
 
 
-
-
-
-
-
-
 ```
 
 ##Rename all absorbance files
@@ -483,8 +477,8 @@ metadata <- sample_log5 %>%
          eem_file_id = new_eem_file_id, 
          integration_time_s = `Integration Time`, 
          dilution_factor = Dilution_Factor, 
-         raman_1s_area = `Raman 1s Area`) %>% 
-  select(c(Sample_ID, integration_time_s, dilution_factor, raman_1s_area, abs_file_id, eem_file_id))
+         RSU_area_1s = `Raman 1s Area`) %>% 
+  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
 
 write.csv(metadata, "CDOM_metadata_2022-2023.csv")
 

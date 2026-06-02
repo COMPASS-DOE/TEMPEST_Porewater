@@ -52,11 +52,38 @@ drive_download(inventory_directory, overwrite = TRUE)
 sheet_names <- excel_sheets("JK_CDOM_sample_log_TMP3_Jun24-25.xlsx")
 sheet_names
 
-sample_log <- read_excel("JK_CDOM_sample_log_TMP3_Jun24-25.xlsx", sheet = "log")
-colnames(sample_log)
-sample_log <- sample_log %>% 
-  mutate(abs_inventory_vial_id = paste0(inventory_vial_id, "_ABS_DilCorr.csv")) %>% 
-  mutate(eem_inventory_vial_id = paste0(inventory_vial_id, "_EEM_DilCorr_IFE_RamNorm.csv"))
+sample_log_raw <- read_excel("JK_CDOM_sample_log_TMP3_Jun24-25.xlsx", sheet = "log")
+
+colnames(sample_log_raw)
+
+##Format Sample IDs
+#Source_Estuary_CDOM_20240611_PM
+#SW_B4_CDOM_T1_20240611
+
+sample_log <- sample_log_raw %>% 
+  separate(
+    col = inventory_vial_id,
+    sep = "_",
+    into = c("Plot", "Grid", "Analyte", "Date", "Timepoint"),
+    remove = FALSE) %>% 
+  mutate(Timepoint = gsub("MI", "MID", Timepoint)) %>%
+  mutate(temp_Date = Timepoint) %>% ##Fix Dates and Timepoints
+  mutate(Timepoint = ifelse(str_detect(Date, "T|HR|AM|PM|MID"), Date, Timepoint)) %>% 
+  mutate(Date = ifelse(str_detect(Date, "T|HR|AM|PM|MID"), temp_Date, Date)) %>% 
+  mutate(Plot = ifelse(Plot == "Source", Grid, Plot)) %>% ##Fix Plots and Grids for Sourcewater samples
+  mutate(Grid = ifelse(str_detect(inventory_vial_id, "Source"), "Source", Grid)) %>% 
+  mutate(Depth = ifelse(Grid == "Source", NA, "15cm"))
+
+
+##Make new Sample IDs
+sample_log1 <- sample_log %>% 
+  mutate(Sample_ID = paste("TMP", Plot, Grid, Date, Timepoint, Depth, sep = "_")) %>% ##Make sample ID to match others
+  mutate(Sample_ID = gsub("_NA", "", Sample_ID))
+
+#Create desired file ID
+sample_log2 <- sample_log1 %>%
+  mutate(abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.csv")) %>% 
+  mutate(eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.csv"))
 
 ```
 
@@ -65,7 +92,10 @@ sample_log <- sample_log %>%
 ```{r read in and rename processed absorbance data}
 ##Processed absorbance data: https://drive.google.com/drive/folders/18gq7wUsBCfbxl4vDXvInE00T_AWML_rB
 
-##Files in EEM folder
+#Remove the old Abs folder
+unlink("Abs_Data", recursive = TRUE)
+
+##Files in Abs folder
 abs_folder_path <- "Abs_Data"
 dir.create(abs_folder_path)
 
@@ -93,11 +123,11 @@ for (i in seq_along(files$name)) {
 }
 
 ##Rename files
-for(i in 1:nrow(sample_log)){
+for(i in 1:nrow(sample_log2)){
     
     # Create file paths with folder and file name
-    old_file <- file.path(abs_folder_path, sample_log$abs_processed_file_name_in_gdrive[i])
-    new_file <- file.path(abs_folder_path, sample_log$abs_inventory_vial_id[i])
+    old_file <- file.path(abs_folder_path, sample_log2$abs_processed_file_name_in_gdrive[i])
+    new_file <- file.path(abs_folder_path, sample_log2$abs_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(old_file)) {
@@ -105,9 +135,9 @@ for(i in 1:nrow(sample_log)){
     # Rename the file
     file.rename(from = old_file, to = new_file)
     
-    cat("Success: Renamed", sample_log$abs_processed_file_name_in_gdrive[i], "to", sample_log$abs_inventory_vial_id[i], "\n")
+    cat("Success: Renamed", sample_log2$abs_processed_file_name_in_gdrive[i], "to", sample_log2$abs_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log$abs_processed_file_name_in_gdrive[i], "not found.\n")
+    cat("Warning: File", sample_log2$abs_processed_file_name_in_gdrive[i], "not found.\n")
   }
 }
 ```
@@ -116,6 +146,9 @@ for(i in 1:nrow(sample_log)){
 ##Pull processed EEM data from google drive and rename files to save into github 
 ```{r read in and rename processed eem data}
 ##Processed EEM data: https://drive.google.com/drive/folders/1PISZZLcDSNMOLkQKUy7MLEI18pLTHCn0
+
+#Remove the old EEM folder
+unlink("EEM_Data", recursive = TRUE)
 
 ##Files in EEM folder
 eem_folder_path <- "EEM_Data"
@@ -144,11 +177,11 @@ for (i in seq_along(eem_files$name)) {
   }
 }
 
-for(i in 1:nrow(sample_log)){
+for(i in 1:nrow(sample_log2)){
     
     # Create file paths with folder and file name
-    eem_old_file <- file.path(eem_folder_path, sample_log$EEM_processed_file_in_gdrive[i])
-    eem_new_file <- file.path(eem_folder_path, sample_log$eem_inventory_vial_id[i])
+    eem_old_file <- file.path(eem_folder_path, sample_log2$EEM_processed_file_in_gdrive[i])
+    eem_new_file <- file.path(eem_folder_path, sample_log2$eem_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(eem_old_file)) {
@@ -156,10 +189,10 @@ for(i in 1:nrow(sample_log)){
     # Rename the file
     file.rename(from = eem_old_file, to = eem_new_file)
     
-    cat("Success: Renamed", sample_log$EEM_processed_file_in_gdrive[i], "to", 
-        sample_log$eem_inventory_vial_id[i], "\n")
+    cat("Success: Renamed", sample_log2$EEM_processed_file_in_gdrive[i], "to", 
+        sample_log2$eem_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log$EEM_processed_file_in_gdrive[i], "not found.\n")
+    cat("Warning: File", sample_log2$EEM_processed_file_in_gdrive[i], "not found.\n")
   }
 }
 ```
@@ -167,13 +200,14 @@ for(i in 1:nrow(sample_log)){
 
 ##Create the metadata
 ```{r output metadata}
-colnames(sample_log)
-metadata <- sample_log %>% 
-  rename(abs_file_id = abs_inventory_vial_id, 
-         eem_file_id = eem_inventory_vial_id) %>% 
-  select(c(inventory_vial_id, integration_time_s, dilution, RSU_area_1s, abs_file_id, eem_file_id))
 
-write.csv(metadata, "CDOM_metadata.csv")
+colnames(sample_log2)
+
+metadata <- sample_log2 %>% 
+  rename(dilution_factor = dilution) %>% 
+  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
+
+write.csv(metadata, "CDOM_metadata_2024-2025.csv")
 
 ```
 
