@@ -152,16 +152,19 @@ sample_log <- sample_log %>%
 ```{r read in and rename processed absorbance data}
 ##Processed absorbance data: https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
 
+#Remove the old Abs folder
+unlink("Abs_Data", recursive = TRUE)
+
 ##Files in Abs folder
 abs_folder_path <- "Abs_Data"
 dir.create(abs_folder_path)
 
 #folder link to id
 abs_folder = "https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-folder_id = drive_get(as_id(abs_folder))
+abs_folder_id = drive_get(as_id(abs_folder))
 
 #find files in folder
-files = drive_ls(folder_id)
+files = drive_ls(abs_folder_id)
 files
 
 #loop dirs and download files inside them
@@ -180,11 +183,10 @@ for (i in seq_along(files$name)) {
   }
 }
 
-##Remove "EXP" files as these are not part of the TEMPEST project
+##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
 files_to_delete <- list.files(
   path = abs_folder_path, 
-  pattern = "EXP|TMPC23May 1s (02) - Abs Spectra Graphs.dat|TMPFW23May 1s (01) - Abs Spectra Graphs.dat
-|TMPSW23May 2s (01) - Abs Spectra Graphs.dat", 
+  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
   full.names = TRUE
 )
 
@@ -204,32 +206,99 @@ files_abs <- files_abs %>%
   mutate(Sample_ID = gsub("_DilCorr_Abs", "", original_file_name_abs)) %>% 
   mutate(Sample_ID = gsub("_ABS", "", Sample_ID)) %>% 
   mutate(Sample_ID = gsub(".dat", "", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("\\(01\\) - Abs Spectra Graphs", "", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("\\(02\\) - Abs Spectra Graphs", "", Sample_ID)) %>% 
   mutate(Sample_ID = gsub(" ", "", Sample_ID))
 
+
+
+```
+
+
+##Pull processed eem data from google drive and rename files to save into github 
+```{r read in and rename processed eem data}
+##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+#Remove the old EEM folder
+unlink("EEM_Data", recursive = TRUE)
+
+##Files in EEM folder
+eem_folder_path <- "EEM_Data"
+dir.create(eem_folder_path)
+
+#folder link to id
+eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+eem_folder_id = drive_get(as_id(eem_folder))
+
+#find files in folder
+files = drive_ls(eem_folder_id)
+files
+
+#loop dirs and download files inside them
+for (i in seq_along(files$name)) {
+  #list files
+  i_dir = drive_ls(files[i, ])
+  
+  #download files
+  for (file_i in seq_along(i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(i_dir$id[file_i]),
+        path = paste0("EEM_Data/", i_dir$name[file_i]), 
+        overwrite = TRUE
+      )
+  }
+}
+
+##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
+files_to_delete <- list.files(
+  path = eem_folder_path, 
+  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
+  full.names = TRUE
+)
+
+files_to_delete
+
+file.remove(files_to_delete)
+
+
+##List all files
+files_eem <- list.files(path = eem_folder_path)
+files_eem <- data.frame(files_eem)  
+files_eem <- files_eem %>% 
+  rename(original_file_name_eem = files_eem)
+
+##Remove extra words so it's just the sample ID 
+files_eem <- files_eem %>% 
+  mutate(Sample_ID = gsub("_DilCorr_IFE_RamNorm", "", original_file_name_eem)) %>% 
+  mutate(Sample_ID = gsub("_EEM", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(".dat", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID))
+
+
+
+```
+
+##Combine Abs and EEM file dataframes
+```{r}
+files <- merge(files_abs, files_eem, by = "Sample_ID", all = TRUE)
+```
+
+
+##Make new file ID
+```{r}
 ##Combine with sample log
-sample_log_abs <- files_abs %>% 
+sample_log <- files %>% 
   left_join(sample_log, by = "Sample_ID")
 
-
-
-
-
-##What is "TEMPEST CONTROL/FW/SW POREWATER" aka "TMPC23May1s"? 
 
 ##Desired Sample IDs 
 #TMP_FW_H6_20220620_T0_15CM
 #TMP_FW_SOURCE_20220622_T0
 
 ##Fix sample description
-sample_log_abs1 <- sample_log_abs %>%
+sample_log1 <- sample_log %>%
   mutate(Sample_Description = gsub("TEMPEST CONTROL PLOT", "TMP_C_SOURCE", Sample_Description)) %>% ##Fix sourcewater formats
   mutate(Sample_Description = gsub("TEMPEST FRESHWATER PLOT", "TMP_FW_SOURCE", Sample_Description)) %>%
   mutate(Sample_Description = gsub("TEMPEST SEAWATER PLOT", "TMP_SW_SOURCE", Sample_Description)) %>%
-  mutate(Sample_Description = gsub("TEMPEST CONTROL POREWATER", "TMP_C_SOURCE", Sample_Description)) %>% ##Fix sourcewater formats
-  mutate(Sample_Description = gsub("TEMPEST FRESHWATER POREWATER", "TMP_FW_SOURCE", Sample_Description)) %>%
-  mutate(Sample_Description = gsub("TEMPEST SEAWATER POREWATER", "TMP_SW_SOURCE", Sample_Description)) %>%
   mutate(Sample_Description = gsub(" - 09/09/22", "_20220909", Sample_Description)) %>% ##Fix date formats
   mutate(Sample_Description = gsub(" - 08/08/22", "_20220808", Sample_Description)) %>%
   mutate(Sample_Description = gsub(" -  08/08/22", "_20220808", Sample_Description)) %>%
@@ -242,11 +311,12 @@ sample_log_abs1 <- sample_log_abs %>%
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T1", "T1_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T2", "T2_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
-  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), sub("T4", "T4_20220624", Sample_Description), Sample_Description)) 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), sub("T4", "T4_20220624", Sample_Description), Sample_Description))
+
 
 ##Separate into columns to make into correct sample IDs
 # TMP_FW_C3_20220622_T1_15CM
-sample_log_abs2 <- sample_log_abs1 %>%
+sample_log2 <- sample_log1 %>%
   separate(
     col = Sample_Description,
     sep = "_",
@@ -257,36 +327,64 @@ sample_log_abs2 <- sample_log_abs1 %>%
   mutate(Date = ifelse(str_detect(Date, "T|HR"), temp_Date, Date)) %>% 
   mutate(Timepoint = ifelse(str_detect(Timepoint, "2022"), NA, Timepoint)) %>% 
   mutate(Depth = ifelse(Grid == "SOURCE"|Grid == "WELL", NA, "15cm"))  %>% ##Add 15 cm depth for all porewater samples
-  mutate(Time_of_day = ifelse(str_detect(Timepoint, "T|HR"), NA, Timepoint)) %>% 
+  mutate(Time_of_day = ifelse(str_detect(Timepoint, "T|HR"), NA, Timepoint))
+
+##T1-3 for sourcewater
+sw_2023 <- sample_log2 %>% 
+  filter(!is.na(Time_of_day)) %>% 
+  filter(str_detect(Sample_Description, "SOURCE")) %>% 
+  group_by(Plot, Date) %>% 
+  arrange(Time_of_day, .by_group = TRUE) %>% # Sort by Time ascending
+  mutate(Timepoint = paste0("T", row_number())) %>% 
+  ungroup()
+
+##AM/PM for 2023 porewater/pooled samples
+pw_2023 <- sample_log2 %>% 
+  filter(str_detect(Sample_Description, "20230607")) %>% 
+  filter(!str_detect(Sample_Description, "SOURCE")) %>% 
   mutate(Timepoint = case_when(
     Time_of_day < 1200  ~ "AM",
-    Time_of_day > 1200 & Time_of_day < 1400 ~ "MID",
-    Time_of_day > 1400  ~ "PM",
-    TRUE    ~ Timepoint)) %>% ##For 20230606/07, need to change times to AM or PM - #########may want to code this as T1-3 instead to match DOC data########
+    Time_of_day > 1200  ~ "PM",
+    TRUE    ~ Timepoint))
 
 
+##Recombine data
+sample_log3 <- sample_log2 %>%
+  filter(is.na(Time_of_day))
+
+sample_log4 <- bind_rows(sample_log3, sw_2023, pw_2023)
+
+
+
+##Make new Sample IDs
+sample_log5 <- sample_log4 %>% 
   mutate(Sample_ID = paste(Project, Plot, Grid, Date, Timepoint, Depth, sep = "_")) %>% ##Make sample ID to match others
   mutate(Sample_ID = gsub("_NA", "", Sample_ID))
 
 
-
-
-
-
-
 #Create desired file ID
-sample_log_abs <- sample_log_abs %>%
-  mutate(new_abs_file_id = paste0(Sample_Description, "_ABS_DilCorr.dat")) %>%
-  mutate(new_eem_file_id = paste0(Sample_Description, "_EEM_DilCorr_IFE_RamNorm.dat"))
+sample_log5 <- sample_log5 %>%
+  mutate(new_abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.dat")) %>%
+  mutate(new_eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.dat"))
 
 
+
+
+
+
+
+
+```
+
+##Rename all absorbance files
+```{r}
 
 ##Rename files
-for(i in 1:nrow(sample_log_abs)){
+for(i in 1:nrow(sample_log5)){
     
     # Create file paths with folder and file name
-    old_file <- file.path(abs_folder_path, sample_log_abs$original_file_name_abs[i])
-    new_file <- file.path(abs_folder_path, sample_log_abs$new_abs_file_id[i])
+    old_file <- file.path(abs_folder_path, sample_log5$original_file_name_abs[i])
+    new_file <- file.path(abs_folder_path, sample_log5$new_abs_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(old_file)) {
@@ -294,12 +392,13 @@ for(i in 1:nrow(sample_log_abs)){
     # Rename the file
     file.rename(from = old_file, to = new_file)
     
-    cat("Success: Renamed", sample_log_abs$original_file_name_abs[i], "to", sample_log$new_abs_file_id[i], "\n")
+    cat("Success: Renamed", sample_log5$original_file_name_abs[i], "to", sample_log5$new_abs_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log_abs$original_file_name_abs[i], "not found.\n")
+    cat("Warning: File", sample_log5$original_file_name_abs[i], "not found.\n")
   }
 }
 
+##Convert files from .dat to .csv
 
 # Get a list of all .dat files in that folder
 abs_files <- list.files(path = abs_folder_path, pattern = "\\.dat$", full.names = TRUE, ignore.case = TRUE)
@@ -325,184 +424,69 @@ for (file in abs_files) {
 print("Conversion complete!")
 ```
 
-##Make new file ID
+
+##Rename all EEM files
 ```{r}
 
-
-
-```
-
-
-##Pull processed EEM data from google drive and rename files to save into github 
-```{r read in and rename processed eem data}
-##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
-
-##Files in EEM folder
-eem_folder_path <- "EEM_Data"
-dir.create(eem_folder_path)
-
-#folder link to id
-eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-eem_folder_id = drive_get(as_id(eem_folder))
-
-#find files in folder
-eem_files = drive_ls(eem_folder_id)
-
-#loop dirs and download files inside them
-for (i in seq_along(eem_files$name)) {
-  #list files
-  eem_i_dir = drive_ls(eem_files[i, ])
-  
-  #download files
-  for (file_i in seq_along(eem_i_dir$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(eem_i_dir$id[file_i]),
-        path = paste0("EEM_Data/", eem_i_dir$name[file_i]), 
-        overwrite = TRUE
-      )
-  }
-}
-
-##Rename files with sample ID
-# for(i in 1:nrow(sample_log)){
-#     
-#     # Create file paths with folder and file name
-#     eem_old_file <- file.path(eem_folder_path, sample_log$EEM_processed_file_in_gdrive[i])
-#     eem_new_file <- file.path(eem_folder_path, sample_log$eem_inventory_vial_id[i])
-#     
-#     # Check if the original file actually exists
-#   if (file.exists(eem_old_file)) {
-#     
-#     # Rename the file
-#     file.rename(from = eem_old_file, to = eem_new_file)
-#     
-#     cat("Success: Renamed", sample_log$EEM_processed_file_in_gdrive[i], "to", 
-#         sample_log$eem_inventory_vial_id[i], "\n")
-#   } else {
-#     cat("Warning: File", sample_log$EEM_processed_file_in_gdrive[i], "not found.\n")
-#   }
-# }
-```
-
-
-##Try with Raw Data
-```{r}
-##Read in and combine Alan's sample logs
-#create folder
-raw_folder_path <- "Raw_EEM_Data"
-dir.create(raw_folder_path)
-
-#folder link to id
-raw_folder = "https://drive.google.com/drive/folders/1TZoCX0Eil5dgIqk_8W00mY30xGecUiQK?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-folder_id = drive_get(as_id(raw_folder))
-
-#find files in folder
-files = drive_ls(folder_id)
-
-#Remove folders
-files <- files %>% 
-  filter(name != "JK") %>% 
-  filter(name != "processed_EEMs")
-
-
-head(files)
-#download files
-for (i in seq_along(files$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(files$id[i]),
-        path = paste0("Raw_EEM_Data/", files$name[i]), 
-        overwrite = TRUE
-      )
-}
-
-##Rename files with sample ID
-for(i in 1:nrow(sample_log)){
-
+##Rename files
+for(i in 1:nrow(sample_log5)){
+    
     # Create file paths with folder and file name
-    eem_old_file <- file.path(raw_folder_path, sample_log$`EEM file name`[i])
-    eem_new_file <- file.path(raw_folder_path, sample_log$eem_inventory_vial_id[i])
-
+    old_file <- file.path(eem_folder_path, sample_log5$original_file_name_eem[i])
+    new_file <- file.path(eem_folder_path, sample_log5$new_eem_file_id[i])
+    
     # Check if the original file actually exists
-  if (file.exists(eem_old_file)) {
-
+  if (file.exists(old_file)) {
+    
     # Rename the file
-    file.rename(from = eem_old_file, to = eem_new_file)
-
-    cat("Success: Renamed", sample_log$`EEM file name`[i], "to",
-        sample_log$eem_inventory_vial_id[i], "\n")
+    file.rename(from = old_file, to = new_file)
+    
+    cat("Success: Renamed", sample_log5$original_file_name_eem[i], "to", sample_log5$new_eem_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log$`EEM file name`[i], "not found.\n")
+    cat("Warning: File", sample_log5$original_file_name_eem[i], "not found.\n")
   }
 }
 
-```
 
+##Convert files from .dat to .csv
+# Get a list of all .dat files in that folder
+eem_files <- list.files(path = eem_folder_path, pattern = "\\.dat$", full.names = TRUE, ignore.case = TRUE)
 
-
-##Pull processed EEM data from google drive and rename files to save into github 
-```{r read in and rename processed eem data}
-##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
-
-##Files in EEM folder
-eem_folder_path <- "EEM_Data"
-dir.create(eem_folder_path)
-
-#folder link to id
-eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-eem_folder_id = drive_get(as_id(eem_folder))
-
-#find files in folder
-eem_files = drive_ls(eem_folder_id)
-
-#loop dirs and download files inside them
-for (i in seq_along(eem_files$name)) {
-  #list files
-  eem_i_dir = drive_ls(eem_files[i, ])
+# Loop through each file and convert it
+for (file in eem_files) {
   
-  #download files
-  for (file_i in seq_along(eem_i_dir$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(eem_i_dir$id[file_i]),
-        path = paste0("EEM_Data/", eem_i_dir$name[file_i]), 
-        overwrite = TRUE
-      )
-  }
+  # 1. Read the file (Change 'sep' depending on your delimiter)
+  # Use sep = "" for spaces, sep = "\t" for tabs, or sep = "," for commas
+  temp_data <- read.table(file, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+  
+  # 2. Create the new file path by changing the extension to .csv
+  csv_file <- sub("\\.dat$", ".csv", file, ignore.case = TRUE)
+  
+  # 3. Write out the data frame as a CSV
+  write.csv(temp_data, file = csv_file, row.names = FALSE)
+  
+  # 4. Remove old .dat file
+  file.remove(file)
+
 }
 
-#Rename files with sample ID
-for(i in 1:nrow(sample_log)){
-
-    # Create file paths with folder and file name
-    eem_old_file <- file.path(eem_folder_path, sample_log$EEM_processed_file_in_gdrive[i])
-    eem_new_file <- file.path(eem_folder_path, sample_log$eem_inventory_vial_id[i])
-
-    # Check if the original file actually exists
-  if (file.exists(eem_old_file)) {
-
-    # Rename the file
-    file.rename(from = eem_old_file, to = eem_new_file)
-
-    cat("Success: Renamed", sample_log$EEM_processed_file_in_gdrive[i], "to",
-        sample_log$eem_inventory_vial_id[i], "\n")
-  } else {
-    cat("Warning: File", sample_log$EEM_processed_file_in_gdrive[i], "not found.\n")
-  }
-}
+print("Conversion complete!")
 ```
+
 
 
 ##Create the metadata
 ```{r output metadata}
-colnames(sample_log)
-metadata <- sample_log %>% 
-  rename(abs_Sample_ID = abs_inventory_vial_id, 
-         eem_Sample_ID = eem_inventory_vial_id) %>% 
-  select(c(inventory_vial_id, integration_time_s, dilution, RSU_area_1s, abs_Sample_ID, eem_Sample_ID))
+colnames(sample_log5)
+metadata <- sample_log5 %>% 
+  rename(abs_file_id = new_abs_file_id, 
+         eem_file_id = new_eem_file_id, 
+         integration_time_s = `Integration Time`, 
+         dilution_factor = Dilution_Factor, 
+         raman_1s_area = `Raman 1s Area`) %>% 
+  select(c(Sample_ID, integration_time_s, dilution_factor, raman_1s_area, abs_file_id, eem_file_id))
 
-write.csv(metadata, "CDOM_metadata.csv")
+write.csv(metadata, "CDOM_metadata_2022-2023.csv")
 
 ```
 
