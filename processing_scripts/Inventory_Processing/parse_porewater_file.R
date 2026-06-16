@@ -7,16 +7,26 @@ parse_porewater_file <- function(file) {
     event <- sub("^.*?:\\s*", "", file[2,1])
     measurement <- sub("^.*?:\\s*", "", file[3,1])
     timepoint <- file[4, 2] |> pull()
-    collection_date <- as.character(file[5, 2] |> pull())
+    collection_date <- file[5, 2] |> pull()
+    
+    collection_date <- ifelse(
+      is.na(collection_date),
+      NA_character_,
+      format(as.numeric(collection_date), scientific = FALSE, trim = TRUE)
+    )
+    
     personnel_header <- file[6, 2] |> pull()
 
     #look for EST/EDT and report it out
     EST_EDT <- file[1:5, ] %>%
-        mutate(across(everything(), as.character)) %>%
-        unlist() %>%
-        str_trim() %>%
-        str_subset("^EST$|^EDT$") %>%
-        unique()
+      mutate(across(everything(), as.character)) %>%
+      unlist() %>%
+      str_trim() %>%
+      str_subset("^EST$|^EDT$") %>%
+      unique()
+    
+    #If there is no EST/EDT it will be filled with EST_EDT 
+    EST_EDT <- if(length(EST_EDT) == 0) NA_character_ else EST_EDT[1]
 
     Collection_End_Time_24hrs <- "NA"
 
@@ -24,6 +34,11 @@ parse_porewater_file <- function(file) {
     # Find data start
     #-----------------------------
     data_start <- which(file[[1]] %in% c("Control", "Saltwater", "Freshwater"))[1]
+    
+    #this is here as a safe gaurd in case there isn't one of the start words in the file
+    if(is.na(data_start)) {
+      stop("Could not find data start row")
+    }
 
     # Header rows immediately above data
     header1 <- file[data_start - 3, ]
@@ -103,8 +118,7 @@ parse_porewater_file <- function(file) {
             Collection_Date = collection_date,
             Collection_Personnel = personnel_header,
             Collection_End_Time_24hrs = Collection_End_Time_24hrs,
-            EST_EDT = EST_EDT,
-
+            EST_EDT = EST_EDT
         )
 
 

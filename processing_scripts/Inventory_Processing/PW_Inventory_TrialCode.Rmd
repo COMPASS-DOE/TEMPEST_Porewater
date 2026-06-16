@@ -13,9 +13,20 @@ library(stringr)
 library(openxlsx)
 library(googledrive)
 
-source("parse_porewater_file.R")
 
-drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
+#test path
+#drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
+
+#TEMPEST IV Path for just porewater sheets:
+drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
+
+#parent path for all dataentry sheets 
+#drive_path <- "https://drive.google.com/drive/u/0/folders/1ZwiczkmBMBIjxyxK2Bm0hbfaq3nyFEFl"
+
+#Full Inventory Path 
+inventory_path <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=1740738201#gid=1740738201"
+
+
 
 ```
 
@@ -25,7 +36,43 @@ Need to make this pull in multiple sheets and from google drive
 
 ```{r, pull in entered datasheets}
 
-googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
+#for just one folder 
+#googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
+
+#to look within multipel folders 
+files <- googledrive::drive_ls(
+  path = drive_path,
+  recursive = TRUE,
+  pattern = "Field"
+)
+
+
+source("parse_porewater_file.R")
+
+parse_files <- list()
+
+for(i in seq_len(nrow(files))) {
+
+    cat("Processing:", files$name[i], "\n")
+
+    drive_download(files$id[i],
+                   path = "temp.xlsx",
+                   overwrite = TRUE)
+
+    pw_raw <- read_excel("temp.xlsx",
+                         col_names = FALSE)
+
+    parse_files[[i]] <- tryCatch(
+        parse_porewater_file(pw_raw),
+        error = function(e) {
+            message("Failed on: ", files$name[i])
+            message(e$message)
+            return(NULL)
+        }
+    )
+
+    unlink("temp.xlsx")
+}
 
 # I think we can use either purrr:map or lapply here but I couldn't figure it out, 
 # for now we'll use a for loop
@@ -46,159 +93,15 @@ for(i in 1:nrow(files)) {
 ```
 
 # Now let's pivot the dataframe so that it can be appended to the inventory
-```{r, create sample and vial IDs from entered data to match inventory}
+```{r}
 
-#Grab the columns that you need and pivot them longer
-inventory_new <- dat %>%
-    pivot_longer(
-        cols = c(
-            SO4_Cl_H2S,
-            Fe,
-            DOC,
-            NUTR,
-            CDOM,
-            Isotopes,
-            SPE
-        ),
-        names_to = "Analyte",
-        values_to = "Volume_mL"
-    )
+source("reorg_porewater_file.R")
 
-#We are going to remove rows that were not collected (i.e., zero volume)
-inventory_new <- inventory_new %>%
-    mutate(
-        Volume_mL = na_if(Volume_mL, "-"),
-    ) %>%
-    mutate(
-        Volume_mL = as.numeric(Volume_mL)
-    ) %>%
-    filter(!is.na(Volume_mL))
+inventory_files <- lapply(parse_files, process_inventory)
 
-#We need to recode the SO4 column to match the inventory
-inventory_new <- inventory_new %>%
-    mutate(
-        Analyte = recode(
-            Analyte,
-            SO4_Cl_H2S = "SO4/Cl/H2S"
-        )
-    )
+inventory_all <- bind_rows(inventory_files)
 
-#Change the project to match the inventory
-inventory_new <- inventory_new %>%
-    mutate(
-        Project = paste("COMPASS:", Project)
-    )
 
-#Change the date into an actual date
-inventory_new <- inventory_new %>%
-    mutate(
-        Collection_Date = as.Date(Collection_Date, format = "%Y%m%d"),
-        Collection_Date_YYYYMMDD = format(Collection_Date, "%Y%m%d")
-    ) %>%
-    mutate(Evacuation_date_YYYMMDD = Collection_Date_YYYYMMDD)
-
-#Add a sample location
-inventory_new <- inventory_new %>%
-    mutate(
-        sample_location = if_else(Analyte == "CDOM", "SEQUIM", "SERC")
-    )
-
-#Analyte code to make a sample ID
-inventory_new <- inventory_new %>%
-    mutate(
-        analyte_code = recode(
-            Analyte,
-            SO4_Cl_H2S = "SO4",
-            Fe = "FE",
-            NUTR = "NUTR",
-            DOC = "DOC",
-            CDOM = "CDOM",
-            Isotopes = "ISO",
-            SPE = "SPE"
-        )
-    )
-
-#Create a depth code
-inventory_new <- inventory_new %>%
-    mutate(
-        depth_code = paste0(Depth_cm, "cm")
-    )
-
-#Now we will create the Sample_ID & Vial ID
-inventory_new <- inventory_new %>%
-    #Create the Sample_ID
-    mutate(
-        Sample_ID = paste(
-            "TMP",
-            case_when(
-                Plot == "Control" ~ "C",
-                Plot == "Saltwater" ~ "SW",
-                Plot == "Freshwater" ~ "FW",
-                TRUE ~ NA_character_
-            ),
-            "PW",
-            Grid_Square,
-            depth_code,
-            analyte_code,
-            Collection_Date_YYYYMMDD,
-            sep = "_"
-        )
-    ) %>%
-    #Create the Vial_ID
-    mutate(
-        Vial_ID = paste(
-            case_when(
-                Plot == "Control" ~ "C",
-                Plot == "Saltwater" ~ "SW",
-                Plot == "Freshwater" ~ "FW",
-                TRUE ~ NA_character_  # or Plot if you want to keep other values
-            ),
-            Grid_Square,
-            Depth_cm,
-            analyte_code,
-            Collection_Date_YYYYMMDD,
-            sep = "_"
-        )
-    ) %>%
-    mutate(Sample_ID = str_replace(
-        Sample_ID,
-        fixed("_SO4/Cl/H2S_"),
-        "_SO4_"
-    )) %>%
-    mutate(Vial_ID = str_replace(
-        Vial_ID,
-        fixed("_SO4/Cl/H2S_"),
-        "_SO4_"
-    ))
-
-#add in the fixed columns and set the order
-inventory_new <- inventory_new %>%
-    mutate(
-        Project = "COMPASS: TEMPEST",
-        sample_location = "SERC",
-        Volume_mL = as.numeric(Volume_mL)
-    ) %>%
-    filter(!is.na(Volume_mL)) %>%
-    select(
-        Project,
-        Plot,
-        Sample_ID,
-        Volume_mL,
-        Vial_ID,
-        sample_location,
-        Analyte,
-        Collection_Date_YYYYMMDD,
-        everything()
-    )
-
-#change the Evacuation date to a number
-inventory_new <- inventory_new %>%
-    mutate(
-        Evacuation_date_YYYMMDD = as.numeric(Evacuation_date_YYYMMDD),
-        Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD),
-        Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
-        Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
-    )
 ```
 
 # Now prep it to be read into the inventory file 
@@ -216,7 +119,7 @@ master <- master %>%
   filter(!is.na(Sample_ID))
 
 # Align the columns
-inventory_new <- inventory_new %>%
+inventory_new <- inventory_all %>%
   select(any_of(names(master)))
 
 missing_cols <- setdiff(names(master), names(inventory_new))
@@ -246,7 +149,7 @@ header_rows <- data.frame(
 ```{r, add the new inventory file}
 
 # Load existing workbook
-wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_Trial.xlsx")
+wb <- loadWorkbook(inventory_path)
 
 # Remove existing sheet if it exists
 if ("Inventory" %in% names(wb)) {
@@ -275,7 +178,7 @@ writeData(
 ```{r, create the sample list you need }
 
 #Input the start date, end date, and the analyte you want the list for 
-start_date <- as.numeric("20220604")
+start_date <- as.numeric("20260501")
 end_date   <- as.numeric("20260611")
 target_analyte <- "Fe" #"SO4/Cl/H2S"
 
