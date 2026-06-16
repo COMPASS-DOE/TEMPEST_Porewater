@@ -32,8 +32,7 @@ inventory_path <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu
 
 Need to make this pull in multiple sheets and from google drive 
 
-## Read in the datafiles that you need 
-
+## Read in the POREWATER datafiles that you need 
 ```{r, pull in entered datasheets}
 
 #for just one folder 
@@ -103,6 +102,71 @@ inventory_all <- bind_rows(inventory_files)
 
 
 ```
+
+
+## Source Water 
+```{r}
+
+#to look within multipel folders 
+files <- googledrive::drive_ls(
+  path = drive_path,
+  recursive = TRUE,
+  pattern = "Field"
+)
+
+
+source("parse_porewater_file.R")
+
+parse_files <- list()
+
+for(i in seq_len(nrow(files))) {
+
+    cat("Processing:", files$name[i], "\n")
+
+    drive_download(files$id[i],
+                   path = "temp.xlsx",
+                   overwrite = TRUE)
+
+    pw_raw <- read_excel("temp.xlsx",
+                         col_names = FALSE)
+
+    parse_files[[i]] <- tryCatch(
+        parse_porewater_file(pw_raw),
+        error = function(e) {
+            message("Failed on: ", files$name[i])
+            message(e$message)
+            return(NULL)
+        }
+    )
+
+    unlink("temp.xlsx")
+}
+
+# I think we can use either purrr:map or lapply here but I couldn't figure it out, 
+# for now we'll use a for loop
+
+parse_files <- list()
+
+for(i in 1:nrow(files)) {
+    
+    drive_download(files$id[i], path = "temp.xlsx", overwrite = TRUE)
+    read_excel("temp.xlsx", col_names = FALSE) -> pw_raw
+    parse_porewater_file(pw_raw) -> parse_files[[i]]
+    unlink("temp.xlsx")
+
+} 
+
+# When you're ready to upload you can use googledrive::drive_upload
+
+source("parse_sourcewater_file.R")
+
+data <- parse_sourcewater_file("TEMPEST_SourceWater_FieldDataCollection_D2_20260608.xlsx")
+
+
+```
+
+
+
 
 # Now prep it to be read into the inventory file 
 ```{r, process data file to match inventory}

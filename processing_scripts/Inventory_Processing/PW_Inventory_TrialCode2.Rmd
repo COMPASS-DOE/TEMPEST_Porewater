@@ -21,12 +21,14 @@ drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKa
 
 googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
 
+ 
 # Read in the sheet 
 raw <- read_excel(
   #"TEMPEST_PW_FieldDataCollection_D1-PM_20260607.xlsx",
-  "TEMPEST_PW_FieldDataCollection_D1-PM_20260607.xlsx",
+  "TEMPEST_SourceWater_FieldDataCollection_D2_20260608.xlsx",
   col_names = FALSE
 )
+
 
 head(raw)
 
