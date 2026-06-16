@@ -1,4 +1,5 @@
-parse_sourcewater_file <- function(path) {
+
+parse_runoff_file <- function(path) {
   
   library(readxl)
   library(dplyr)
@@ -14,7 +15,7 @@ parse_sourcewater_file <- function(path) {
   
   project <- sub("^.*?:\\s*", "", meta[1,1])
   event <- sub("^.*?:\\s*", "", meta[2,1])
-  measurement <- "Source Water"
+  measurement <- "Runoff Water"
   
   collection_date <- meta[4, 2] |> pull()
   collection_date <- as.numeric(collection_date)
@@ -46,7 +47,7 @@ parse_sourcewater_file <- function(path) {
   #-------------------------
   process_sheet <- function(file, sheet_name) {
     
-    data_start <- which(file[[1]] %in% c("Estuary", "Saltwater", "Freshwater"))[1]
+    data_start <- which(file[[1]] %in% c("Saltwater", "Freshwater"))[1]
     if (is.na(data_start)) return(NULL)
     
     header1 <- file[data_start - 3, ]
@@ -70,7 +71,6 @@ parse_sourcewater_file <- function(path) {
       "DOC" = "DOC",
       "Nutr" = "NUTR",
       "CDOM" = "CDOM",
-      "Exetainer" = "GHG",
       "pH" = "pH",
       "Cond" = "Conductivity",
       "Temp" = "Temperature_C",
@@ -79,7 +79,8 @@ parse_sourcewater_file <- function(path) {
       "Colored" = "Colored",
       "Time of Sample" = "Collection_Start_Time_24hrs",
       "Notes" = "Notes",
-      "Personnel" = "Personnel"
+      "Personnel" = "Personnel", 
+      "T_id" = "T_id"
     )
     
     for (pattern in names(rename_map)) {

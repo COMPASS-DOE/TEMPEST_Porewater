@@ -1,7 +1,7 @@
 # Function to parse digitized field porewater data sheet
 # Created by Stephanie Wilson
 
-parse_porewater_file <- function(file) {
+parse_event_porewater_file <- function(file) {
 
     project <- sub("^.*?:\\s*", "", file[1,1])
     event <- sub("^.*?:\\s*", "", file[2,1])
