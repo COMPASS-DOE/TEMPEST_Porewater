@@ -45,22 +45,41 @@ dat25 <- read.csv("tmp_doc_2025/COMPASS_TEMPEST_DOC_2025.csv", colClasses = "cha
 # head(dat25)
 colnames(dat25)
 
+##Combine samples from before 2026 when new depths were added
+raw_dat_pre26 <- bind_rows(dat22, dat23, dat24, dat25)
+
+##Sourcewater samples should be NA for depth, all other samples have depths. 
+raw_dat_pre26 <- raw_dat_pre26 %>% 
+  mutate(Depth_cm = ifelse(str_detect(Sample_ID, "SOURCE"), NA, Depth_cm)) %>% 
+  mutate(Depth_cm = gsub("cm", "", Depth_cm)) %>% 
+  mutate(grid = ifelse(grid == "Source", "Sourcewater", grid)) %>% 
+  mutate(grid = ifelse(str_detect(Sample_ID, "Rain"), "Rainwater", grid)) %>% 
+  mutate(Sample_ID = gsub("_15CM", "", Sample_ID)) %>%
+  mutate(Sample_ID = gsub("_15cm", "", Sample_ID)) %>%
+  rowwise() %>%
+  mutate(
+    Sample_ID = if (is.na(Depth_cm)) {
+      Sample_ID
+    } else {
+      sub("([0-9]{8})", paste0(Depth_cm, "_\\1"), Sample_ID)
+    }
+  ) %>%
+  ungroup()
+
+
 #read in 2026 DOC Data:
 dat26 <- read.csv("tmp_doc_2026/COMPASS_TEMPEST_DOC_2026.csv", colClasses = "character")
 # head(dat26)
 colnames(dat26)
 
-raw_dat <- bind_rows(dat22, dat23, dat24, dat25, dat26)
+##combine with the rest of the data
+raw_dat <- bind_rows(raw_dat_pre26, dat26)
 
-##Sourcewater samples should be NA for depth, all other samples 15 cm. 
-raw_dat <- raw_dat %>% 
-  mutate(Depth_cm = ifelse(str_detect(Sample_ID, "SOURCE"), NA, 15)) %>% 
-  mutate(grid = ifelse(grid == "Source", "Sourcewater", grid)) %>% 
-  mutate(grid = ifelse(str_detect(Sample_ID, "Rain"), "Rainwater", grid))
+
 
 ##Convert Collection Date into Date format
-raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date)
-raw_dat$Collection_Date_formatted <- as.Date(raw_dat$Collection_Date, format = "%Y%m%d")
+raw_dat$Collection_Date_YYYYMMDD <- as.character(raw_dat$Collection_Date_YYYYMMDD)
+raw_dat$Collection_Date_formatted <- as.Date(raw_dat$Collection_Date_YYYYMMDD, format = "%Y%m%d")
 
 ##Extract Year and month from Collection Date
 raw_dat$Year <- format(raw_dat$Collection_Date_formatted, format = "%Y")
@@ -99,6 +118,10 @@ all_dat$npoc_flag <- gsub("≥", "greater than or equal to", all_dat$npoc_flag)
 all_dat$tdn_flag <- gsub("≥", "greater than or equal to", all_dat$tdn_flag)
 all_dat$tdn_flag <- gsub(">", "greater than", all_dat$tdn_flag)
 all_dat$tdn_flag <- gsub("<", "less than", all_dat$tdn_flag)
+
+##Remove any notes about vibes
+all_dat <- all_dat %>% 
+  mutate(Field_notes = ifelse(str_detect(Field_notes, "vibe|Vibe"), NA, Field_notes))
 
 ```
 
@@ -207,7 +230,7 @@ write.csv(metadat, "COMPASS_TEMPEST_DOC_Metadata.csv")
 
 ##Remove Sourcewater
 data_plotting <- raw_dat %>%
-  filter(!str_detect(grid, "Sourcewater"))
+  filter(!str_detect(grid, "Sourcewater|Rainwater"))
 
 data_plotting$npoc_mgL <- as.numeric(data_plotting$npoc_mgL)
 data_plotting$tdn_mgL <- as.numeric(data_plotting$tdn_mgL)
@@ -337,7 +360,7 @@ viz_tdn_plot_avgs
 ```{r Porewater Overall Boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Boxplot Summarize DOC by Date, Site, and Grid
-viz_npoc_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = npoc_mgL, fill = plot_1)) +
+viz_npoc_boxplot <- ggplot(data_plotting, aes(x = Collection_Date_YYYYMMDD,  y = npoc_mgL, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
@@ -360,7 +383,7 @@ viz_npoc_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = npoc_mgL
 viz_npoc_boxplot
 
 
-viz_tdn_boxplot <- ggplot(data_plotting, aes(x = Collection_Date,  y = tdn_mgL, fill = plot_1)) +
+viz_tdn_boxplot <- ggplot(data_plotting, aes(x = Collection_Date_YYYYMMDD,  y = tdn_mgL, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, ncol = 1) +
   scale_x_discrete(drop = TRUE) +
@@ -419,7 +442,7 @@ data_plotting_source <- data_plotting_source %>%
   mutate(plot_1 = factor(plot_1, levels = c("Control", "Freshwater", "Saltwater", "Estuary")))
 
 ##Boxplot Summarize DOC by Date, Site, and Grid
-viz_npoc_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = npoc_mgL, fill = plot_1)) +
+viz_npoc_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date_YYYYMMDD,  y = npoc_mgL, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, ncol = 1) +
   # scale_x_discrete(drop = TRUE) +
@@ -443,7 +466,7 @@ viz_npoc_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = n
 viz_npoc_boxplot
 
 
-viz_tdn_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date,  y = tdn_mgL, fill = plot_1)) +
+viz_tdn_boxplot <- ggplot(data_plotting_source, aes(x = Collection_Date_YYYYMMDD,  y = tdn_mgL, fill = plot_1)) +
   geom_boxplot() + 
   facet_wrap( ~ plot_1, ncol = 1) +
   scale_x_discrete(drop = TRUE) +

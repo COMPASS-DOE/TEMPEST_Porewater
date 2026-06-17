@@ -698,16 +698,22 @@ samples_collected <- sample_collected_metadata %>%
          grid = stringr::str_extract(Vial_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          depth = stringr::str_extract(Sample_ID, "15|30|50"), 
          date = stringr::str_extract(Vial_ID, "[0-9]{8}"),
-         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date )) 
+         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date, "_", depth, "cm" )) 
 
 # Clean up the data to make sure it will match the metadata file 
-dat_flagged <- dat_flagged %>%
+dat_flagged1 <- dat_flagged %>%
   mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
   # Remove rows where sample_name ends with "_dup"
-  filter(!str_detect(sample_name, "_dup$"))
+  filter(!str_detect(sample_name, "_dup$")) %>% 
+  mutate(plot = stringr::str_extract(sample_name, 'SW|FW|C'),
+         grid = stringr::str_extract(sample_name, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         depth = stringr::str_extract(sample_name, "15cm|30cm|50cm"), 
+         date = stringr::str_extract(sample_name, "[0-9]{8}"),
+         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date, "_", depth)) %>%
+ select(-c(plot, grid, depth, date))
 
 #check if metadata was recorded for each of the samples run 
-dat_flagged %>%
+dat_flagged1 %>%
   mutate(metadata_recorded = case_when(
     sample_name %in% samples_collected$sample_name ~ TRUE,
     TRUE ~ FALSE
@@ -716,7 +722,7 @@ dat_flagged %>%
   print()
 
 #join in the metadata to the data 
-merged_data <- dat_flagged %>%
+merged_data <- dat_flagged1 %>%
   left_join(samples_collected, by = "sample_name")
 
 ```
@@ -735,7 +741,6 @@ final_data <- merged_data %>%
   mutate(
     #Project = "COMPASS",   # new column with same value on every row
     #Experiment = "TEMPEST",
-    #Depth_cm = 15, #now is added by the metadata 
     Run_notes = run_notes     # new column with notes about the run
   ) 
 
