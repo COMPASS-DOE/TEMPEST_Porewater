@@ -15,7 +15,7 @@ library(openxlsx)
 library(googledrive)
 
 
-#Montly path - CHANGE FOR THE MONTH AS NEEDED: 
+#Monthly path - CHANGE FOR THE MONTH AS NEEDED: 
 #drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
 
 #TEMPEST IV Path for just porewater sheets:
