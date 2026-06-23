@@ -20,7 +20,7 @@ library(googlesheets4)
 #TEMPEST Event Path for just entered data sheets:
 pw_drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
 
-sw_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
+sce_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
 
 ro_drive_path <- "https://drive.google.com/drive/u/0/folders/1gzAa97H8ukTfbjioSMfGeZWcsD7LwIX1"
 
@@ -110,37 +110,37 @@ Surface Water
 ## Read in the SOURCEWATER datasheets and parse 
 ```{r}
 
-#to look within multipel folders 
-sw_files <- googledrive::drive_ls(
-  path = sw_drive_path,
+#to look within multiple folders 
+sce_files <- googledrive::drive_ls(
+  path = sce_drive_path,
   recursive = TRUE,
   pattern = "Field"
 )
 
 source("parse_sourcewater_file.R")
 
-parse_sw_files <- list()
+parse_sce_files <- list()
 
-for(i in seq_len(nrow(sw_files))) {
+for(i in seq_len(nrow(sce_files))) {
 
-  cat("Processing:", sw_files$name[i], "\n")
+  cat("Processing:", sce_files$name[i], "\n")
 
   drive_download(
-    sw_files$id[i],
-    path = "sw_temp.xlsx",
+    sce_files$id[i],
+    path = "sce_temp.xlsx",
     overwrite = TRUE
   )
 
-  parse_sw_files[[i]] <- tryCatch(
-    parse_sourcewater_file("sw_temp.xlsx"),
+  parse_sce_files[[i]] <- tryCatch(
+    parse_sourcewater_file("sce_temp.xlsx"),
     error = function(e) {
-      message("Failed on: ", sw_files$name[i])
+      message("Failed on: ", sce_files$name[i])
       message(e$message)
       NULL
     }
   )
 
-  unlink("sw_temp.xlsx")
+  unlink("sce_temp.xlsx")
 }
 
 
@@ -150,9 +150,9 @@ for(i in seq_len(nrow(sw_files))) {
 
 source("reorg_sourcewater_file.R")
 
-sw_inventory_files <- lapply(parse_sw_files, process_sw_inventory)
+sce_inventory_files <- lapply(parse_sce_files, process_sce_inventory)
 
-sw_inventory_all <- bind_rows(sw_inventory_files)
+sce_inventory_all <- bind_rows(sce_inventory_files)
 
 
 ```
@@ -287,7 +287,7 @@ Source Water
 ```{#r, process data file to match inventory}
 
 #Read in the master inventory 
-sw_master <- read_excel(
+sce_master <- read_excel(
   #path = inventory_path,
   "TEMPEST_PorewaterInventory_May2022_Present.xlsx",
   sheet = "Source Water",
@@ -295,25 +295,25 @@ sw_master <- read_excel(
 )
 
 #clean out any empty sample_ID rows
-sw_master <- sw_master %>%
+sce_master <- sce_master %>%
   filter(!is.na(Sample_ID))
 
 # Align the columns
-sw_inventory_new <- sw_inventory_all %>%
-  select(any_of(names(sw_master)))
+sce_inventory_new <- sce_inventory_all %>%
+  select(any_of(names(sce_master)))
 
-missing_cols <- setdiff(names(sw_master), names(sw_inventory_new))
+missing_cols <- setdiff(names(sce_master), names(sce_inventory_new))
 missing_cols
 
 for (col in missing_cols) {
-  sw_inventory_new[[col]] <- NA
+  sce_inventory_new[[col]] <- NA
 }
 
 # Append to the inventory
-sw_inventory_new <- sw_inventory_new %>%
+sce_inventory_new <- sce_inventory_new %>%
   select(names(master))
 
-sw_inventory <- bind_rows(sw_inventory_new, master)
+sce_inventory <- bind_rows(sce_inventory_new, master)
 
 #Set the header rows 
 header_rows <- data.frame(
@@ -331,21 +331,21 @@ header_rows <- data.frame(
 wb <- loadWorkbook(inventory_path)
 
 # Remove existing sheet if it exists
-if ("SW-Inventory" %in% names(wb)) {
-  removeWorksheet(wb, "SW-Inventory")
+if ("sce-Inventory" %in% names(wb)) {
+  removeWorksheet(wb, "sce-Inventory")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "SW-Inventory")
+addWorksheet(wb, "sce-Inventory")
 
 # Write header block
-writeData(wb, "SW-Inventory", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "sce-Inventory", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "SW-Inventory",
-  sw_inventory,
+  "sce-Inventory",
+  sce_inventory,
   startRow = nrow(header_rows) + 1
 )
 
@@ -402,8 +402,8 @@ pw_sample_list <- build_sample_list(
   end_date
 )
 
-sw_sample_list <- build_sample_list(
-  sw_inventory_all,
+sce_sample_list <- build_sample_list(
+  sce_inventory_all,
   target_analyte,
   start_date,
   end_date
@@ -425,7 +425,7 @@ ro_sample_list <- build_sample_list(
 
 #add a type column 
 pw_sample_list$type <- "PW"
-sw_sample_list$type <- "SW"
+sce_sample_list$type <- "SCE"
 ro_sample_list$type <- "RO"
 
 
@@ -444,8 +444,8 @@ pw_sample_list <- pw_sample_list %>%
   )
 
 
-#order the sw list 
-sw_sample_list <- sw_sample_list %>%
+#order the SCE list 
+sce_sample_list <- sce_sample_list %>%
   mutate(
     time_order = paste(Collection_Date_YYYYMMDD, Timepoint)
   )
@@ -459,7 +459,7 @@ ro_sample_list <- ro_sample_list %>%
 #combine the dataframes
 all_samples <- bind_rows(
   pw_sample_list,
-  sw_sample_list,
+  sce_sample_list,
   ro_sample_list
 )
 
@@ -473,7 +473,7 @@ all_samples <- all_samples %>%
   mutate(
     type_order = case_when(
       type == "PW" ~ 1,
-      type == "SW" ~ 2,
+      type == "SCE" ~ 2,
       type == "RO" ~ 3,
       TRUE ~ 99
     )
