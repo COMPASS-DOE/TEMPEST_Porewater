@@ -1,6 +1,6 @@
 # Created by Stephanie Wilson
 
-process_sw_inventory <- function(dat){
+process_sce_inventory <- function(dat){
   
   inventory_new <- dat %>%
     pivot_longer(
@@ -62,7 +62,7 @@ process_sw_inventory <- function(dat){
           Plot == "Freshwater" ~ "FW",
           TRUE ~ NA_character_
         ),
-        "SW",
+        "SCE",
         #Grid_Square,
         #depth_code,
         analyte_code,
