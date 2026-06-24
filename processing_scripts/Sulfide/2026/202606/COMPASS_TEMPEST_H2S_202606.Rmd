@@ -324,7 +324,7 @@ new_log_stds <- STD_run_date %>% dplyr::select(Plate,
 #read in log file and format
 log <- read.csv(log_path)
 log_2 <- log %>% 
-  rename(Run_Date = Date) %>% 
+  # rename(Run_Date = Date) %>% 
   mutate(Run_Date = as.Date(as.character(Run_Date), tryFormats = c("%Y%m%d", "%Y-%m-%d", "%m/%d/%y")), Run = "Past Runs")
 log_3 <- log_2[, -c(1)]
 log_4 <- bind_rows(log_3, new_log_stds)
@@ -1172,8 +1172,7 @@ viz_H2S_plot
 ```
 
 ##Export Data
-```{r, echo=FALSE}
-
+```{r, include=FALSE}
 
 #Prepare data to be exported - if there is anything else to add 
 #Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
