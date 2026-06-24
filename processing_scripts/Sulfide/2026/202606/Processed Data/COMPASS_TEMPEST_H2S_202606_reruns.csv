@@ -1,0 +1,9 @@
+"","Project","Sample_ID","Volume_mL","Collection_Date_YYYYMMDD","Evacuation_date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","H2S_Conc_uM","H2S_Conc_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
+"1","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260604_Pre",NA,NA,NA,NA,NA,NA,0.843636363636364,0.539972451087909,64.00535519361,"Within_Range","CV_High","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"2","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260607_D1_PM",NA,NA,NA,NA,NA,NA,0.970909090909091,0.119993878019535,12.3589200207387,"Within_Range","CV_High","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"

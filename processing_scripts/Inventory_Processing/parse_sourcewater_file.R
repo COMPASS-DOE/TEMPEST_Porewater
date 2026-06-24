@@ -95,7 +95,11 @@ parse_sourcewater_file <- function(path) {
         Project = project,
         Event = event,
         Measurement = measurement,
-        Timepoint = paste0(timepoint, "-", T_id),
+        T_id = case_when(
+          str_detect(Notes, regex("High Tide", ignore_case = TRUE)) ~ "HT",
+          str_detect(Notes, regex("Low Tide", ignore_case = TRUE)) ~ "LT",
+          TRUE ~ T_id), 
+        Timepoint = paste0(timepoint, "_", T_id),
         Collection_Date = collection_date,
         Collection_Personnel = personnel_header,
         Collection_End_Time_24hrs = Collection_End_Time_24hrs,
