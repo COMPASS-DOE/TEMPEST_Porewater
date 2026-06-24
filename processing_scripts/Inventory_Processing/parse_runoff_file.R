@@ -96,7 +96,7 @@ parse_runoff_file <- function(path) {
         Project = project,
         Event = event,
         Measurement = measurement,
-        Timepoint = paste0(timepoint, "-", T_id),
+        Timepoint = paste0(timepoint, "_", T_id),
         Collection_Date = collection_date,
         Collection_Personnel = personnel_header,
         Collection_End_Time_24hrs = Collection_End_Time_24hrs,

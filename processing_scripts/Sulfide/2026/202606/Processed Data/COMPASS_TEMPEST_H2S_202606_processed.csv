@@ -1,0 +1,1461 @@
+"","Project","Sample_ID","Number_on_vial","Volume_mL","Collection_Date_YYYYMMDD","Evacuation_date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","H2S_Conc_uM","H2S_Conc_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
+"1","TEMPEST","TMP_C_PW_F4_30cm_SO4_20260604_Pre","2",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"2","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260604_Pre","10",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"3","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260604_Pre","16",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"4","TEMPEST","TMP_C_PW_F4_50cm_SO4_20260604_Pre","3",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"5","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260604_Pre","11",NA,NA,NA,NA,NA,NA,0.843636363636364,0.539972451087909,64.00535519361,"Within_Range","CV_High","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"6","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260604_Pre","17",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"7","TEMPEST","TMP_C_PW_H3_30cm_SO4_20260604_Pre","4",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"8","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260604_Pre","12",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"9","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260604_Pre","18",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"10","TEMPEST","TMP_C_PW_H6_30cm_SO4_20260604_Pre","5",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"11","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260604_Pre","13",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"12","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260604_Pre","19",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"13","TEMPEST","TMP_C_PW_H6_50cm_SO4_20260604_Pre","6",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"14","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260604_Pre","14",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"15","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260604_Pre","20",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"16","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260604_Pre","7",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"17","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260604_Pre","21",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"18","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260604_Pre","8",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"19","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260604_Pre","15",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"20","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260604_Pre","22",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"21","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260604_Pre","1",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"22","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260604_Pre","9",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"23","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260607_D1_PM","23",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"24","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T2","209",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"25","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_AM","217",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"26","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_AM","223",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"27","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_AM","210",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"28","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_AM","218",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"29","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_AM","224",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"30","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_AM","211",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"31","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_AM","219",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"32","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_AM","225",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"33","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_AM","212",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"34","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_AM","220",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"35","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_AM","226",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"36","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_AM","213",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"37","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_AM","221",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"38","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_AM","227",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"39","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_AM","214",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"40","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_AM","228",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"41","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_AM","215",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"42","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260611_D5_AM","222",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"43","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_AM","229",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"44","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T2","208",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"45","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_AM","216",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"46","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_AM","230",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"47","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_AM","232",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"48","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_AM","240",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"49","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_AM","246",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"50","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_AM","233",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"51","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_AM","241",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"52","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_AM","247",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"53","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_AM","234",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"54","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_AM","242",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"55","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_AM","248",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"56","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_AM","235",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"57","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_AM","243",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"58","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_AM","249",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"59","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_AM","236",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"60","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_AM","244",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"61","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_AM","250",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"62","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_AM","237",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"63","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_LT","251",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"64","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_AM","238",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"65","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_AM","245",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"66","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T1","252",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"67","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_AM","231",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"68","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_AM","239",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"69","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T1","253",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"70","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_PM","255",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"71","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_PM","263",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"72","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_PM","269",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"73","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_PM","256",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"74","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_PM","264",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"75","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_PM","270",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"76","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_PM","257",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"77","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_PM","265",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"78","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_PM","271",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"79","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_PM","258",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"80","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_PM","266",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"81","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_PM","272",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"82","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_PM","259",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"83","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_PM","267",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"84","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_PM","273",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"85","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_PM","260",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"86","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_PM","274",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"87","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_PM","261",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"88","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_PM","268",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"89","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_PM","275",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"90","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260611_D5_PM","254",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"91","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_PM","262",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"92","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_PM","276",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"93","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_PM","278",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"94","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260611_D5_PM","286",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"95","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_PM","292",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"96","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_PM","279",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"97","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_PM","287",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"98","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_PM","293",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"99","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_PM","280",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"100","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_PM","288",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"101","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_PM","294",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"102","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_PM","281",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"103","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_PM","289",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"104","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_PM","295",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"105","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_PM","282",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"106","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_PM","290",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"107","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_HT","296",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"108","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_PM","283",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"109","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T2","297",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"110","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_PM","284",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"111","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_PM","291",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"112","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T2","298",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"113","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_PM","277",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"114","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_PM","285",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"115","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260612_D6_PM","299",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"116","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260612_D6_PM","301",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"117","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260612_D6_PM","309",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"118","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260612_D6_PM","315",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"119","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260612_D6_PM","302",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"120","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260612_D6_PM","310",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"121","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260612_D6_PM","316",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"122","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260612_D6_PM","303",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"123","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260612_D6_PM","311",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"124","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260612_D6_PM","317",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"125","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260612_D6_PM","304",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"126","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260612_D6_PM","312",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"127","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260612_D6_PM","318",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"128","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260612_D6_PM","305",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"129","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260612_D6_PM","313",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"130","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260612_D6_PM","319",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"131","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260612_D6_PM","306",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"132","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260612_D6_PM","320",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"133","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260612_D6_PM","308",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"134","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260612_D6_PM","314",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"135","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260612_D6_PM","321",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"136","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260612_D6_PM","300",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"137","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260612_D6_PM","307",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"138","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260612_D6_PM","322",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,Std5Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"139","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260612_D6_PM","324",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"140","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260612_D6_PM","332",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"141","TEMPEST",NA,"338",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"142","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260612_D6_PM","325",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"143","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260612_D6_PM","333",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"144","TEMPEST",NA,"339",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"145","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260612_D6_PM","326",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"146","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260612_D6_PM","334",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"147","TEMPEST",NA,"340",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"148","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260612_D6_PM","327",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"149","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260612_D6_PM","335",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"150","TEMPEST",NA,"341",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"151","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260612_D6_PM","328",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"152","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260612_D6_PM","336",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"153","TEMPEST",NA,"342",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"154","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260612_D6_PM","329",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"155","TEMPEST",NA,"343",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"156","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260612_D6_PM","330",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"157","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260612_D6_PM","337",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"158","TEMPEST",NA,"344",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"159","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260612_D6_PM","323",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"160","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260612_D6_PM","331",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"161","TEMPEST",NA,"345",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"162","TEMPEST",NA,"347",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"163","TEMPEST",NA,"355",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"164","TEMPEST",NA,"361",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"165","TEMPEST",NA,"348",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"166","TEMPEST",NA,"356",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"167","TEMPEST",NA,"362",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"168","TEMPEST",NA,"349",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"169","TEMPEST",NA,"357",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"170","TEMPEST",NA,"363",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"171","TEMPEST",NA,"350",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"172","TEMPEST",NA,"358",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"173","TEMPEST",NA,"364",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"174","TEMPEST",NA,"351",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"175","TEMPEST",NA,"359",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"176","TEMPEST",NA,"365",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"177","TEMPEST",NA,"352",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"178","TEMPEST",NA,"353",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"179","TEMPEST",NA,"360",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"180","TEMPEST",NA,"346",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"181","TEMPEST",NA,"354",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"182","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260607_D1_PM","25",NA,NA,NA,NA,NA,NA,0.970909090909091,0.119993878019535,12.3589200207387,"Within_Range","CV_High","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"183","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260608_D2_PM","33",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"184","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260608_D2_PM","39",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"185","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260607_D1_PM","26",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"186","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260608_D2_PM","34",NA,NA,NA,NA,NA,NA,0,0,0,"Within_Range","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"187","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260608_D2_PM","40",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"188","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260607_D1_PM","27",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"189","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260608_D2_PM","35",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"190","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260608_D2_PM","41",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"191","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260607_D1_PM","28",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"192","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260608_D2_PM","36",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"193","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260608_D2_PM","42",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"194","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_AM","29",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"195","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260608_D2_PM","37",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"196","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260608_D2_PM","43",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"197","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_AM","30",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"198","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260608_D2_PM","44",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"199","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T1","31",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"200","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260608_D2_PM","38",NA,NA,NA,NA,NA,NA,1.73454545454545,0.119993878019535,6.91788604934429,"Within_Range","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"201","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260608_D2_PM","45",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"202","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260607_D1_PM","24",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"203","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260608_D2_PM","32",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"204","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260608_D2_PM","46",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"205","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260608_D2_PM","48",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"206","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_HT","56",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"207","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260609_D3_AM","62",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"208","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260608_D2_PM","49",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"209","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T2","57",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"210","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_AM","63",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"211","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260608_D2_PM","50",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"212","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_AM","58",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"213","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_AM","64",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"214","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260608_D2_PM","51",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"215","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260609_D3_AM","59",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"216","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_AM","65",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"217","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260608_D2_PM","52",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"218","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_AM","60",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"219","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_AM","66",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"220","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_PM","53",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"221","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_AM","67",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"222","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_PM","54",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"223","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_AM","61",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"224","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260609_D3_AM","68",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"225","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260608_D2_PM","47",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"226","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_LT","55",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"227","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_AM","69",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"228","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_AM","71",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"229","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_AM","79",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"230","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_AM","85",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"231","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_AM","72",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"232","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_AM","80",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"233","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_AM","86",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"234","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_AM","73",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"235","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_AM","81",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"236","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_AM","87",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"237","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_AM","74",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"238","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_AM","82",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"239","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_AM","88",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"240","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_AM","75",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"241","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_AM","83",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"242","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_AM","89",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"243","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_AM","76",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"244","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_AM","90",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"245","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_AM","77",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"246","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_AM","84",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"247","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_AM","91",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"248","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260609_D3_AM","70",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"249","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_AM","78",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"250","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_LT","92",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"251","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T1","94",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"252","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260609_D3_PM","102",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"253","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_PM","108",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"254","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T1","95",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"255","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260609_D3_PM","103",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"256","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260609_D3_PM","109",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"257","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_PM","96",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"258","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_PM","104",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"259","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_PM","110",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"260","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_PM","97",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"261","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_PM","105",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"262","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_PM","111",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"263","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_PM","98",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"264","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260609_D3_PM","106",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"265","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_PM","112",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"266","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_PM","99",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"267","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_PM","113",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"268","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_PM","100",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"269","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_PM","107",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"270","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_PM","114",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"271","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_HT","93",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"272","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_PM","101",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"273","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_PM","115",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"274","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_PM","117",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"275","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_PM","125",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"276","TEMPEST","TMP_SW_RO_SO4_20260609_D3-Macropore","131",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"277","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_PM","118",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"278","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_PM","126",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"279","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T2","132",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"280","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_PM","119",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"281","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_PM","127",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"282","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T2","133",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"283","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_PM","120",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"284","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260609_D3_PM","128",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"285","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_AM","134",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"286","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_PM","121",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"287","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_PM","129",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"288","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_AM","135",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"289","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_PM","122",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"290","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260610_D4_AM","136",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"291","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_PM","123",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"292","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_PM","130",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"293","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_AM","137",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"294","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_PM","116",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"295","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_PM","124",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"296","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260610_D4_AM","138",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Std5Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"297","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_AM","140",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"298","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260610_D4_AM","148",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"299","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_AM","154",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"300","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_AM","141",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"301","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_AM","149",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"302","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_AM","155",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"303","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_AM","142",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"304","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260610_D4_AM","150",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"305","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_AM","156",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"306","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260610_D4_AM","143",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"307","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_AM","151",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"308","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_AM","157",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"309","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_AM","144",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"310","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_AM","152",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"311","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260610_D4_AM","158",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"312","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260610_D4_AM","145",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"313","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_AM","159",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"314","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_AM","146",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"315","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_AM","153",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"316","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_AM","160",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"317","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_AM","139",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"318","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_AM","147",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"319","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_AM","161",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"320","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_AM","163",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"321","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_LT","171",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"322","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_PM","177",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"323","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_AM","164",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"324","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T1","172",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"325","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_PM","178",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"326","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_AM","165",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"327","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T1","173",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"328","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_PM","179",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"329","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_AM","166",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"330","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_PM","174",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"331","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260610_D4_PM","180",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"332","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_AM","167",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"333","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_PM","175",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"334","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_PM","181",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"335","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_AM","168",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"336","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_PM","182",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"337","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_AM","169",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"338","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_PM","176",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"339","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260610_D4_PM","183",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"340","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_AM","162",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"341","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_AM","170",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"342","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_PM","184",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"343","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_PM","186",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"344","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_PM","194",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"345","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_PM","200",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"346","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_PM","187",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"347","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_PM","195",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"348","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_PM","201",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"349","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_PM","188",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"350","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_PM","196",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"351","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_PM","202",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"352","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_PM","189",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"353","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260610_D4_PM","197",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"354","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_PM","203",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"355","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_PM","190",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"356","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_PM","198",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"357","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_PM","204",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"358","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_PM","191",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"359","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_PM","205",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"360","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_PM","192",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"361","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_PM","199",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"362","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_PM","206",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"363","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_PM","185",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"364","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_PM","193",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
+"365","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_HT","207",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+10/16 spikes were good.
+
+Need to fix: MC check flags show as Std5 check flag"
