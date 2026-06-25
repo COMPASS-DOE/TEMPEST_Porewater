@@ -29,7 +29,7 @@ pacman::p_load(tidyverse, # keep things tidy
                here, 
                readxl, 
                readr, 
-               purrr) 
+               purrr)
 
 #Try to deal with the timezone demons 
 common_tz = "Etc/GMT+5"
@@ -57,8 +57,8 @@ sample_log_raw <- read_excel("JK_CDOM_sample_log_TMP3_Jun24-25.xlsx", sheet = "l
 colnames(sample_log_raw)
 
 ##Format Sample IDs
-#Source_Estuary_CDOM_20240611_PM
-#SW_B4_CDOM_T1_20240611
+#Source_Estuary_CDOM_20240611_PM --> Source_Estuary_20240611_PM
+#SW_B4_CDOM_T1_20240611 --> FW_C6_15_20240613_T5_PM
 
 sample_log <- sample_log_raw %>% 
   separate(
@@ -77,7 +77,7 @@ sample_log <- sample_log_raw %>%
 
 ##Make new Sample IDs
 sample_log1 <- sample_log %>% 
-  mutate(Sample_ID = paste("TMP", Plot, Grid, Date, Timepoint, Depth, sep = "_")) %>% ##Make sample ID to match others
+  mutate(Sample_ID = paste("TMP", Plot, Grid, Depth, Date, Timepoint, sep = "_")) %>% ##Make sample ID to match others
   mutate(Sample_ID = gsub("_NA", "", Sample_ID))
 
 #Create desired file ID
@@ -89,7 +89,7 @@ sample_log2 <- sample_log1 %>%
 
 
 ##Pull processed absorbance data from google drive and rename files to save into github 
-```{r read in and rename processed absorbance data}
+```{#r read in and rename processed absorbance data}
 ##Processed absorbance data: https://drive.google.com/drive/folders/18gq7wUsBCfbxl4vDXvInE00T_AWML_rB
 
 #Remove the old Abs folder
@@ -144,7 +144,7 @@ for(i in 1:nrow(sample_log2)){
 
 
 ##Pull processed EEM data from google drive and rename files to save into github 
-```{r read in and rename processed eem data}
+```{#r read in and rename processed eem data}
 ##Processed EEM data: https://drive.google.com/drive/folders/1PISZZLcDSNMOLkQKUy7MLEI18pLTHCn0
 
 #Remove the old EEM folder
@@ -197,7 +197,6 @@ for(i in 1:nrow(sample_log2)){
 }
 ```
 
-
 ##Create the metadata
 ```{r output metadata}
 
@@ -210,4 +209,24 @@ metadata <- sample_log2 %>%
 write.csv(metadata, "CDOM_metadata_2024-2025.csv")
 
 ```
+
+## Pull in active porewater tracking inventory sheet from Google Drive: 
+```{r rest of metadata, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+
+drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+
+raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sw)
+
+```
+
 
