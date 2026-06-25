@@ -57,28 +57,20 @@ sample_log_raw <- read_excel("JK_CDOM_sample_log_TMP3_Jun24-25.xlsx", sheet = "l
 colnames(sample_log_raw)
 
 ##Format Sample IDs
-#Source_Estuary_CDOM_20240611_PM --> Source_Estuary_20240611_PM
-#SW_B4_CDOM_T1_20240611 --> FW_C6_15_20240613_T5_PM
-
-sample_log <- sample_log_raw %>% 
-  separate(
-    col = inventory_vial_id,
-    sep = "_",
-    into = c("Plot", "Grid", "Analyte", "Date", "Timepoint"),
-    remove = FALSE) %>% 
-  mutate(Timepoint = gsub("MI", "MID", Timepoint)) %>%
-  mutate(temp_Date = Timepoint) %>% ##Fix Dates and Timepoints
-  mutate(Timepoint = ifelse(str_detect(Date, "T|HR|AM|PM|MID"), Date, Timepoint)) %>% 
-  mutate(Date = ifelse(str_detect(Date, "T|HR|AM|PM|MID"), temp_Date, Date)) %>% 
-  mutate(Plot = ifelse(Plot == "Source", Grid, Plot)) %>% ##Fix Plots and Grids for Sourcewater samples
-  mutate(Grid = ifelse(str_detect(inventory_vial_id, "Source"), "Source", Grid)) %>% 
-  mutate(Depth = ifelse(Grid == "Source", NA, "15cm"))
-
+#Source_Estuary_CDOM_20240611_PM --> TMP_Source_Estuary_CDOM_20240611_PM
+#SW_B4_CDOM_T1_20240611 --> TMP_FW_PW_H6_15cm_CDOM_20250509
 
 ##Make new Sample IDs
-sample_log1 <- sample_log %>% 
-  mutate(Sample_ID = paste("TMP", Plot, Grid, Depth, Date, Timepoint, sep = "_")) %>% ##Make sample ID to match others
-  mutate(Sample_ID = gsub("_NA", "", Sample_ID))
+sample_log1 <- sample_log_raw %>% 
+  mutate(Sample_ID = paste0("TMP_", inventory_vial_id)) %>% 
+  mutate(Sample_ID = gsub("CT", "C", Sample_ID)) %>% #CT should be C for Control
+  mutate(Sample_ID = gsub("_MI", "_MID", Sample_ID)) %>% #MI should be MID for Midday
+  mutate(Sample_ID = ifelse(!str_detect(Sample_ID, "Source"), gsub("_CDOM", "_15cm_CDOM", Sample_ID), Sample_ID)) %>% #Add in depth for PW samples
+  mutate(Sample_ID = ifelse(!str_detect(Sample_ID, "Source"), gsub("W_", "W_PW_", Sample_ID), Sample_ID)) %>% #Add in "PW for PW samples
+  mutate(Sample_ID = ifelse(!str_detect(Sample_ID, "Source"), gsub("C_", "C_PW_", Sample_ID), Sample_ID)) %>% #Add in "PW for PW samples
+
+  # Missing TMP_FW_PW_H6_15cm_CDOM_20250509, should be 20250512
+  mutate(Sample_ID = gsub("TMP_FW_PW_H6_15cm_CDOM_20250509", "TMP_FW_PW_H6_15cm_CDOM_20250512", Sample_ID))
 
 #Create desired file ID
 sample_log2 <- sample_log1 %>%
@@ -89,7 +81,7 @@ sample_log2 <- sample_log1 %>%
 
 
 ##Pull processed absorbance data from google drive and rename files to save into github 
-```{#r read in and rename processed absorbance data}
+```{r read in and rename processed absorbance data}
 ##Processed absorbance data: https://drive.google.com/drive/folders/18gq7wUsBCfbxl4vDXvInE00T_AWML_rB
 
 #Remove the old Abs folder
@@ -144,7 +136,7 @@ for(i in 1:nrow(sample_log2)){
 
 
 ##Pull processed EEM data from google drive and rename files to save into github 
-```{#r read in and rename processed eem data}
+```{r read in and rename processed eem data}
 ##Processed EEM data: https://drive.google.com/drive/folders/1PISZZLcDSNMOLkQKUy7MLEI18pLTHCn0
 
 #Remove the old EEM folder
@@ -197,18 +189,6 @@ for(i in 1:nrow(sample_log2)){
 }
 ```
 
-##Create the metadata
-```{r output metadata}
-
-colnames(sample_log2)
-
-metadata <- sample_log2 %>% 
-  rename(dilution_factor = dilution) %>% 
-  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
-
-write.csv(metadata, "CDOM_metadata_2024-2025.csv")
-
-```
 
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
@@ -227,6 +207,61 @@ raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx",
 
 raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sw)
 
+#Select CDOM Data
+raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM"))
+
+##Select certain columns 
+raw_metadata_DOC <- raw_metadata_DOC %>% 
+  select(-c(Plot, sample_location, Analyte))
+
 ```
 
+##Create the metadata
+```{r output metadata}
+
+metadata <- sample_log2 %>% 
+  rename(dilution_factor = dilution) %>% 
+  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
+
+head(metadata)
+
+##Get sample metadata from Sample ID
+metadata <- metadata %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
+         Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
+         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
+  unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
+
+```
+
+## Check to see if samples run match metadata & merge info
+```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
+
+all_present <- all(metadata$Sample_ID %in% raw_metadata_DOC$Sample_ID)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(metadata$Sample_ID, raw_metadata_DOC$Sample_ID)
+  print(missing_ids)
+}
+
+```
+
+##Merge the metadata and export
+```{r}
+
+#merge metadata with sample run data 
+merged_data <- metadata %>%
+  left_join(raw_metadata_DOC, by = "Sample_ID")
+
+write.csv(merged_data, "CDOM_metadata_2024-2025.csv")
+
+```
 
