@@ -290,75 +290,76 @@ sample_log <- files %>%
   left_join(sample_log, by = "Sample_ID")
 
 
-##Desired Sample IDs 
-#TMP_FW_H6_20220620_T0_15CM
-#TMP_FW_SOURCE_20220622_T0
+
+
+unique(sample_log$Sample_Description)
+subset <- subset(sample_log, str_detect(sample_log$Sample_Description, "TEMPEST"))
 
 ##Fix sample description
 sample_log1 <- sample_log %>%
-  mutate(Sample_Description = gsub("TEMPEST CONTROL PLOT", "TMP_C_SOURCE", Sample_Description)) %>% ##Fix sourcewater formats
-  mutate(Sample_Description = gsub("TEMPEST FRESHWATER PLOT", "TMP_FW_SOURCE", Sample_Description)) %>%
-  mutate(Sample_Description = gsub("TEMPEST SEAWATER PLOT", "TMP_SW_SOURCE", Sample_Description)) %>%
-  mutate(Sample_Description = gsub(" - 09/09/22", "_20220909", Sample_Description)) %>% ##Fix date formats
-  mutate(Sample_Description = gsub(" - 08/08/22", "_20220808", Sample_Description)) %>%
-  mutate(Sample_Description = gsub(" -  08/08/22", "_20220808", Sample_Description)) %>%
-  mutate(Sample_Description = gsub(" - 07/18/22", "_20220718", Sample_Description)) %>%
-  mutate(Sample_Description = gsub(" - 07/21/22", "_20220721", Sample_Description)) %>% 
-  # mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), paste0(Sample_Description, "_2022"), Sample_Description)) %>% ##Add year to 2022 samples
-  mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% ##Remove CDOM since these are all CDOM samples
-  mutate(Sample_Description = ifelse(str_detect(Sample_Description, "SOURCE_HR"), paste0(Sample_Description, "_20220622"), Sample_Description)) %>% ##Date for 2022 Source water samples 
-  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T0", "T0_20220620", Sample_Description), Sample_Description)) %>% ##Date for 2022 Porewater samples
+  filter(!str_detect(Sample_Description, "TEMPEST")) %>% # Remove unknown TEMPEST samples
+  mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% 
+  ##Remove part of ID that don't need 
+  mutate(Sample_Description = gsub("_SW11", "", Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("_FW11", "", Sample_Description)) %>% 
+  ##Date for 2022 Source water samples 
+  mutate(Sample_Description = ifelse(str_detect(Sample_Description, "SOURCE_HR"), paste0(Sample_Description, "_20220622"), Sample_Description)) %>% 
+  ##Dates for 2022 Porewater samples
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T0", "T0_20220620", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T1", "T1_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T2", "T2_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
-  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), sub("T4", "T4_20220624", Sample_Description), Sample_Description))
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T4", "T4_20220624", Sample_Description), Sample_Description))
 
 
 ##Separate into columns to make into correct sample IDs
 # TMP_FW_C3_20220622_T1_15CM
 sample_log2 <- sample_log1 %>%
-  separate(
-    col = Sample_Description,
-    sep = "_",
-    into = c("Project", "Plot", "Grid", "Date", "Timepoint"),
-    remove = FALSE) %>% 
-  mutate(temp_Date = Timepoint) %>% ##Fix Dates and Timepoints
-  mutate(Timepoint = ifelse(str_detect(Date, "T|HR"), Date, Timepoint)) %>% 
-  mutate(Date = ifelse(str_detect(Date, "T|HR"), temp_Date, Date)) %>% 
-  mutate(Timepoint = ifelse(str_detect(Timepoint, "2022"), NA, Timepoint)) %>% 
-  mutate(Depth = ifelse(Grid == "SOURCE"|Grid == "WELL", NA, "15cm"))  %>% ##Add 15 cm depth for all porewater samples
-  mutate(Time_of_day = ifelse(str_detect(Timepoint, "T|HR"), NA, Timepoint))
+  mutate(Plot = stringr::str_extract(Sample_Description, "TMP_C|TMP_FW|TMP_SW|TMP_ESTUARY") ,
+         Grid = stringr::str_extract(Sample_Description, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|SOURCE|POOL") ,
+         Date = stringr::str_extract(Sample_Description, "[0-9]{8}"), 
+         T_num = stringr::str_extract(Sample_Description, "T1|T2|T3|T4|T5|T6|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
+         Time = stringr::str_extract(Sample_Description, "(?<=_)[0-9]{4}$"), 
+         Plot = gsub("TMP_", "", Plot))
+
 
 ##T1-3 for sourcewater
 sw_2023 <- sample_log2 %>% 
-  filter(!is.na(Time_of_day)) %>% 
+  filter(!is.na(Time)) %>% 
   filter(str_detect(Sample_Description, "SOURCE")) %>% 
   group_by(Plot, Date) %>% 
-  arrange(Time_of_day, .by_group = TRUE) %>% # Sort by Time ascending
-  mutate(Timepoint = paste0("T", row_number())) %>% 
+  arrange(Time, .by_group = TRUE) %>% # Sort by Time ascending
+  mutate(T_num = paste0("T", row_number())) %>% 
   ungroup()
 
 ##AM/PM for 2023 porewater/pooled samples
 pw_2023 <- sample_log2 %>% 
   filter(str_detect(Sample_Description, "20230607")) %>% 
   filter(!str_detect(Sample_Description, "SOURCE")) %>% 
-  mutate(Timepoint = case_when(
-    Time_of_day < 1200  ~ "AM",
-    Time_of_day > 1200  ~ "PM",
-    TRUE    ~ Timepoint))
+  mutate(TOD = case_when(
+    Time < 1200  ~ "AM",
+    Time > 1200  ~ "PM",
+    TRUE    ~ NA))
 
 
 ##Recombine data
 sample_log3 <- sample_log2 %>%
-  filter(is.na(Time_of_day))
+  filter(is.na(Time))
 
 sample_log4 <- bind_rows(sample_log3, sw_2023, pw_2023)
 
 
-
 ##Make new Sample IDs
+##Desired Sample IDs 
+#TMP_FW_PW_H6_15cm_CDOM_20250509
+#TMP_Source_Estuary_CDOM_20240611_PM
+
 sample_log5 <- sample_log4 %>% 
-  mutate(Sample_ID = paste(Project, Plot, Grid, Date, Timepoint, Depth, sep = "_")) %>% ##Make sample ID to match others
+  mutate(Sample_ID = 
+           case_when(
+             str_detect(Sample_Description, "SOURCE") ~  paste("TMP", "Source", Plot, "CDOM", T_num, Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "POOLED", Date, TOD, sep = "_"), 
+             TRUE ~ paste("TMP", Plot, "PW", Grid, "15cm", "CDOM", T_num, Date, TOD, sep = "_"))) %>% ##Make sample ID to match others
   mutate(Sample_ID = gsub("_NA", "", Sample_ID))
 
 
@@ -371,7 +372,7 @@ sample_log5 <- sample_log5 %>%
 ```
 
 ##Rename all absorbance files
-```{r}
+```{#r}
 
 ##Rename files
 for(i in 1:nrow(sample_log5)){
@@ -420,7 +421,7 @@ print("Conversion complete!")
 
 
 ##Rename all EEM files
-```{r}
+```{#r}
 
 ##Rename files
 for(i in 1:nrow(sample_log5)){
@@ -468,10 +469,35 @@ print("Conversion complete!")
 ```
 
 
+## Pull in active porewater tracking inventory sheet from Google Drive: 
+```{r rest of metadata, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+
+drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+
+raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sw)
+
+#Select CDOM Data
+raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM"))
+
+##Select certain columns 
+raw_metadata_DOC <- raw_metadata_DOC %>% 
+  select(-c(Plot, sample_location, Analyte))
+
+```
 
 ##Create the metadata
 ```{r output metadata}
-colnames(sample_log5)
+
 metadata <- sample_log5 %>% 
   rename(abs_file_id = new_abs_file_id, 
          eem_file_id = new_eem_file_id, 
@@ -480,7 +506,44 @@ metadata <- sample_log5 %>%
          RSU_area_1s = `Raman 1s Area`) %>% 
   select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
 
-write.csv(metadata, "CDOM_metadata_2022-2023.csv")
+head(metadata)
+
+##Get sample metadata from Sample ID
+metadata <- metadata %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
+         Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
+         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
+  unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
 
 ```
 
+## Check to see if samples run match metadata & merge info
+```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
+
+all_present <- all(metadata$Sample_ID %in% raw_metadata_DOC$Sample_ID)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(metadata$Sample_ID, raw_metadata_DOC$Sample_ID)
+  print(missing_ids)
+}
+
+```
+
+##Merge the metadata and export
+```{r}
+
+#merge metadata with sample run data 
+merged_data <- metadata %>%
+  left_join(raw_metadata_DOC, by = "Sample_ID")
+
+write.csv(merged_data, "CDOM_metadata_2022-2023.csv")
+
+```
