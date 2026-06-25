@@ -57,9 +57,7 @@ Run_by = "Zoe Read, Melanie Giessner"#Instrument user
 Script_run_by ="Zoe Read"#Code user
 
 Run_notes="All dups and related samples had values of 0. 
-10/16 spikes were good.
-
-Need to fix: MC check flags show as Std5 check flag"#any notes from run
+11/16 spikes were good."#any notes from run
 
 #Plate Data
 folder_path_rawdata <- paste0("Raw Data")
@@ -535,8 +533,8 @@ Chk_Std_flags <- Chk_Std_join %>% mutate(
     "Chk_Bad"
   )
   
-) %>% mutate(CHK_Flag = paste0(gsub(" ", "", IDs), Chk_Flag_pv)) %>%
-  mutate(CHK_CV_Flag = paste0("Chk",gsub(" ", "", IDs), Chk_cv_flag))
+) %>% mutate(CHK_Flag = ifelse(is.na(Chk_IDs), paste0(gsub(" ", "", IDs), Chk_Flag_pv), paste0(Chk_IDs, " ", Chk_Flag_pv))) %>%
+  mutate(CHK_CV_Flag = ifelse(is.na(Chk_IDs), paste0("Chk",gsub(" ", "", IDs), Chk_cv_flag) , paste0("Chk ", Chk_IDs, " ", Chk_cv_flag)))
 
  #Organize Data for Plotting and Flagging
 Chk_Flags <- Chk_Std_flags %>% group_by(Plate) %>% 
