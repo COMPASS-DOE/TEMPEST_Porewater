@@ -269,11 +269,11 @@ cols_align(
   )
 
 ##Export the table
-gtsave(gt_table, "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.html")
+gtsave(gt_table, "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.html")
 
 webshot2::webshot(
-  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.html",
-  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.png",
+  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.html",
+  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.png",
   vwidth = 1200,
   vheight = 1200,
   zoom = 2
