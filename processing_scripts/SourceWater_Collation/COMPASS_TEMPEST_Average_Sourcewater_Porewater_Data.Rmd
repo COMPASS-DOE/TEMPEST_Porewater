@@ -1,0 +1,319 @@
+---
+title: "COMPASS_TEMPEST_Collate_T1-T3_Sourcewater_Data"
+author: "Zoe Read"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+library(purrr)
+# detach("package:raster", unload = TRUE)
+```
+
+#Read in and collate all the collated analyte files
+```{r}
+
+##Should negative concentrations all be converted to zero? 
+
+# Event samples: 
+# 2022: T#
+# 2023: AM/PM for PW, T# for Sourcewater
+# 2023: T# and AM/PM for PW, AM/MID/PM for Sourcewater, High and Low Tide for Estuary Sourcewater (Removed AM/PM from PW ID, converted HT/LT to AM/PM for Estuary Sourcewater)
+
+##Collated data by analyte
+##Desired Sample ID format: SWH_202511_WC_LYSC_45CM
+
+DOC <- read.csv("../DOC/COMPASS_TEMPEST_DOC_AllData.csv")
+DOC <- DOC %>% 
+  dplyr::select(c("Sample_ID", "npoc_mgL", "npoc_flag", "tdn_mgL", "tdn_flag")) %>% 
+  mutate(Sample_ID = toupper (Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("SOURCE", "SOURCEWATER", Sample_ID))
+DOC_source <- DOC %>% 
+  filter(str_detect(Sample_ID, "SOURCE"))
+# DOC_source_noflags <- DOC_source %>% 
+#     mutate(npoc_mgL = case_when (
+#       str_detect(npoc_flag, "blank is greater than or equal to 25% of sample value") ~ NA, 
+#       str_detect(npoc_flag, "replicates greater than 25% different") ~ NA, 
+#       TRUE ~ npoc_mgL)) %>% 
+#     mutate(tdn_mgL = case_when (
+#       str_detect(tdn_flag, "blank is greater than or equal to 25% of sample value") ~ NA, 
+#       str_detect(tdn_flag, "replicates greater than 25% different") ~ NA, 
+#       TRUE ~ npoc_mgL))
+
+##Separate the year and average by year TMP_SW_SOURCEWATERWATER_20220622_T5
+DOC_annual <- DOC_source %>% 
+  mutate(Year = str_extract(Sample_ID, "\\d{4}(?=\\d{4})")) %>% 
+  mutate(Source = case_when(
+    str_detect(Sample_ID, "ESTUARY") ~ "Estuary", 
+    str_detect(Sample_ID, "SW") ~ "Saltwater", 
+    str_detect(Sample_ID, "FW") ~ "Freshwater")) %>% 
+  ##set negative values to zero 
+  mutate(npoc_mgL = ifelse(npoc_mgL<0, 0, npoc_mgL), 
+         tdn_mgL = ifelse(tdn_mgL<0, 0, tdn_mgL)) 
+DOC_avg <- DOC_annual %>% 
+  group_by(Year, Source) %>%
+  summarise(
+    npoc_mgL_avg = mean(npoc_mgL, na.rm = TRUE),
+    npoc_mgL_sd = sd(npoc_mgL, na.rm = TRUE),
+    tdn_mgL_avg = mean(tdn_mgL, na.rm = TRUE),
+    tdn_mgL_sd = sd(tdn_mgL, na.rm = TRUE),
+    .groups = "drop")
+
+unique(DOC_source$npoc_flag)
+unique(DOC_source$tdn_flag)
+
+
+####Nutrients####
+Nutrients <- read.csv("../Nutrients/COMPASS_TEMPEST_Nutrient_AllData.csv")
+Nutrients <- Nutrients %>% 
+  dplyr::select(c("Sample_ID", "NOx_Conc_mgL", "NOx_Conc_Flag", "NH3_Conc_mgL",  "NH3_Conc_Flag", "PO4_Conc_mgL", "PO4_Conc_Flag")) %>% 
+  mutate(Sample_ID = toupper (Sample_ID)) 
+Nutrients_source <- Nutrients %>% 
+  filter(str_detect(Sample_ID, "SOURCE"))
+##Separate the year and average by year TMP_SW_SOURCEWATERWATER_20220622_T5
+Nutrients_annual <- Nutrients_source %>% 
+  mutate(Year = str_extract(Sample_ID, "\\d{4}(?=\\d{4})")) %>% 
+  mutate(Source = case_when(
+    str_detect(Sample_ID, "ESTUARY") ~ "Estuary", 
+    str_detect(Sample_ID, "SW") ~ "Saltwater", 
+    str_detect(Sample_ID, "FW") ~ "Freshwater")) %>% ##set negative values to zero 
+  mutate(PO4_Conc_mgL = ifelse(PO4_Conc_mgL<0, 0, PO4_Conc_mgL), 
+         NH3_Conc_mgL = ifelse(NH3_Conc_mgL<0, 0, NH3_Conc_mgL), 
+         NOx_Conc_mgL = ifelse(NOx_Conc_mgL<0, 0, NOx_Conc_mgL)) 
+Nutrients_avg <- Nutrients_annual %>% 
+  group_by(Year, Source) %>%
+  summarise(
+    PO4_mgL_avg = mean(PO4_Conc_mgL, na.rm = TRUE),
+    PO4_mgL_sd = sd(PO4_Conc_mgL, na.rm = TRUE),
+    NH3_mgL_avg = mean(NH3_Conc_mgL, na.rm = TRUE),
+    NH3_mgL_sd = sd(NH3_Conc_mgL, na.rm = TRUE),
+    NOx_mgL_avg = mean(NOx_Conc_mgL, na.rm = TRUE),
+    NOx_mgL_sd = sd(NOx_Conc_mgL, na.rm = TRUE),
+    .groups = "drop")
+
+####SO4/Cl####
+SO4_Cl <- read.csv("../Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
+SO4_Cl <- SO4_Cl %>%
+  dplyr::select(c("Sample_ID", "SO4_ppm", "SO4_Conc_flag", "Cl_ppm", "Cl_Conc_flag", "salinity")) %>%
+  mutate(Sample_ID = toupper (Sample_ID)) %>% 
+  distinct() 
+SO4_Cl_source <- SO4_Cl %>% 
+  filter(str_detect(Sample_ID, "SOURCE"))
+
+##Separate the year and average by year TMP_SW_SOURCEWATERWATER_20220622_T5
+SO4_Cl_annual <- SO4_Cl_source %>% 
+  mutate(Year = str_extract(Sample_ID, "\\d{4}(?=\\d{4})")) %>% 
+  mutate(Source = case_when(
+    str_detect(Sample_ID, "ESTUARY") ~ "Estuary", 
+    str_detect(Sample_ID, "SW") ~ "Saltwater", 
+    str_detect(Sample_ID, "FW") ~ "Freshwater")) %>% 
+  ##set negative values to zero 
+  mutate(SO4_ppm = ifelse(SO4_ppm<0, 0, SO4_ppm), 
+         Cl_ppm = ifelse(Cl_ppm<0, 0, Cl_ppm)) 
+
+SO4_Cl_avg <- SO4_Cl_annual %>% 
+  group_by(Year, Source) %>%
+  summarise(
+    SO4_ppm_avg = mean(SO4_ppm, na.rm = TRUE),
+    SO4_ppm_sd = sd(SO4_ppm, na.rm = TRUE),
+    Cl_ppm_avg = mean(Cl_ppm, na.rm = TRUE),
+    Cl_ppm_sd = sd(Cl_ppm, na.rm = TRUE),
+    .groups = "drop")
+
+
+####Sulfide####
+Sulfide <- read.csv("../Sulfide/COMPASS_TEMPEST_Sulfide_AllData.csv")
+Sulfide <- Sulfide %>%
+  dplyr::select(c("Sample_ID", "H2S_mean_uM", "H2S_sd_uM", "H2S_Conc_flag")) %>% 
+  mutate(Sample_ID = toupper (Sample_ID))
+Sulfide_source <- Sulfide %>% 
+  filter(str_detect(Sample_ID, "SOURCE"))
+Sulfide_annual <- Sulfide_source %>% 
+  mutate(Year = str_extract(Sample_ID, "\\d{4}(?=\\d{4})")) %>% 
+  mutate(Source = case_when(
+    str_detect(Sample_ID, "ESTUARY") ~ "Estuary", 
+    str_detect(Sample_ID, "SW") ~ "Saltwater", 
+    str_detect(Sample_ID, "FW") ~ "Freshwater")) %>% 
+  ##set negative values to zero 
+  mutate(H2S_mean_uM = ifelse(H2S_mean_uM<0, 0, H2S_mean_uM))
+Sulfide_avg <- Sulfide_annual %>% 
+  group_by(Year, Source) %>%
+  summarise(
+    H2S_uM_avg = mean(H2S_mean_uM, na.rm = TRUE),
+    H2S_uM_sd = sd(H2S_mean_uM, na.rm = TRUE),
+    .groups = "drop")
+
+
+####pH####
+pH <- read.csv("../pH/COMPASS_TEMPEST_pH_AllData.csv")
+pH <- pH %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>%
+  distinct() %>% ##Remove duplicates
+  filter(!(Sample_ID == "TMP_SW_SOURCEWATER_20230607_1255_15CM" & temperature_flag == "temperature not recorded")) %>%
+  filter(!(Sample_ID == "TMP_ESTUARY_SOURCEWATER_20230607_1500_15CM" & temperature_flag == "temperature not recorded")) %>%
+  filter(!(Sample_ID == "TMP_FW_SOURCEWATER_20230607_1519_15CM" & temperature_flag == "temperature not recorded")) %>%
+  dplyr::select(c("Sample_ID", "pH", "pH_flag")) %>%
+  mutate(Sample_ID = toupper (Sample_ID))
+pH_source <- pH %>%
+  filter(str_detect(Sample_ID, "SOURCE"))
+pH_annual <- pH_source %>% 
+  mutate(Year = str_extract(Sample_ID, "\\d{4}(?=\\d{4})")) %>% 
+  mutate(Source = case_when(
+    str_detect(Sample_ID, "ESTUARY") ~ "Estuary", 
+    str_detect(Sample_ID, "SW") ~ "Saltwater", 
+    str_detect(Sample_ID, "FW") ~ "Freshwater")) %>% 
+  ##set negative values to zero 
+  mutate(pH = ifelse(pH<0, 0, pH))
+pH_avg <- pH_annual %>% 
+  group_by(Year, Source) %>%
+  summarise(
+    pH_avg = mean(pH, na.rm = TRUE),
+    pH_sd = sd(pH, na.rm = TRUE),
+    .groups = "drop")
+
+
+####Combine data####
+df_list <- list(DOC_avg, Nutrients_avg, SO4_Cl_avg, Sulfide_avg, pH_avg)
+merged_df <- df_list %>% reduce(full_join)
+
+
+```
+
+## Write the averages file out to the folder 
+```{r, echo=FALSE}
+
+write.csv(merged_df, "COMPASS_TEMPEST_Sourcewater_Avg_SD_AllYears.csv", row.names = FALSE)
+
+```
+
+##Format data table
+```{r}
+
+colnames(merged_df)
+
+table_formatted <- merged_df %>% 
+  mutate(
+    "NPOC (mg/L)" = paste0(sprintf("%.2f", npoc_mgL_avg), " \u00B1 ", sprintf("%.2f", npoc_mgL_sd)), 
+    "TDN (mg/L)" = paste0(sprintf("%.2f", tdn_mgL_avg), " \u00B1 ", sprintf("%.2f", tdn_mgL_sd)), 
+    "PO4 (mg/L)" = paste0(sprintf("%.2f", PO4_mgL_avg), " \u00B1 ", sprintf("%.2f", PO4_mgL_sd)), 
+    "NH3 (mg/L)" = paste0(sprintf("%.2f", NH3_mgL_avg), " \u00B1 ", sprintf("%.2f", NH3_mgL_sd)), 
+    "NOx (mg/L)" = paste0(sprintf("%.2f", NOx_mgL_avg), " \u00B1 ", sprintf("%.2f", NOx_mgL_sd)), 
+    "SO4 (ppm)" = paste0(sprintf("%.2f", SO4_ppm_avg), " \u00B1 ", sprintf("%.2f", SO4_ppm_sd)), 
+    "Cl (ppm)" = paste0(sprintf("%.2f", Cl_ppm_avg), " \u00B1 ", sprintf("%.2f", Cl_ppm_sd)), 
+    "Sulfide (umol/L)" = paste0(sprintf("%.2f", H2S_uM_avg), " \u00B1 ", sprintf("%.2f", H2S_uM_sd)), 
+    "pH" = paste0(sprintf("%.2f", pH_avg), " \u00B1 ", sprintf("%.2f", pH_sd))) %>% 
+  select(c("Year", "Source", "NPOC (mg/L)", "TDN (mg/L)", "PO4 (mg/L)", "NH3 (mg/L)", "NOx (mg/L)", "SO4 (ppm)", "Cl (ppm)", "Sulfide (umol/L)", "pH")) %>% 
+  mutate(
+    across(
+      everything(),
+      ~ replace(.x, .x == "NA ± NA", "")
+    )
+  )
+
+
+```
+
+##Output as a png
+```{r}
+
+library(gt)
+
+##Convert to a gt object and format table 
+gt_table <- gt(table_formatted) %>%
+  tab_style(
+    style = list(
+      cell_borders(
+        sides = "right",
+        color = "grey70",
+        weight = px(1)
+      )
+    ),
+    locations = cells_body(columns = everything())
+  ) %>%
+  tab_style(
+    style = list(
+      cell_borders(
+        sides = "right",
+        color = "grey70",
+        weight = px(1)
+      )
+    ),
+    locations = cells_column_labels(columns = everything())
+  ) %>% 
+opt_table_outline() %>%
+tab_style(
+    style = list(
+      cell_fill(color = "grey90"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_column_labels(columns = everything())
+  ) %>%
+tab_style(
+    style = cell_text(whitespace = "nowrap"),
+    locations = cells_body()
+  ) %>% 
+tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = c(Year, Source))
+  ) %>%
+cols_align(
+    align = "center",
+    columns = everything()
+  )
+
+##Export the table
+gtsave(gt_table, "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.html")
+
+webshot2::webshot(
+  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.html",
+  "COMPASS_TEMPEST_Sourcewater_Avg_SD_Formatted.csv.png",
+  vwidth = 1200,
+  vheight = 1200,
+  zoom = 2
+)
+
+```
+
+
+
+##Need to figure out duplicates
+```{#r}
+##Need to figure out duplicates
+DOC_duplicates <- DOC_source %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+Nutrients_duplicates <- Nutrients_source %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+SO4_Cl_duplicates <- SO4_Cl_source %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+## 2024 Estuary source water was incorrectly all labelled AM, some should be PM - DONE
+
+Sulfide_duplicates <- Sulfide_source %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+pH_duplicates <- pH_source %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
+# TMP_SW_SOURCEWATER_20230607_1255_15CM has two entries? One says taken with YSI, no temperature - removed
+# TMP_FW_SOURCEWATER_20230607_1519_15CM has two entries? One has no temperature - removed
+# TMP_ESTUARY_SOURCEWATER_20230607_1500_15CM has two entries? One has no temperature - removed
+
+
+```
