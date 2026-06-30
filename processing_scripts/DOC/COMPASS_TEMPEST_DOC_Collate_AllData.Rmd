@@ -314,18 +314,30 @@ viz_npoc_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mea
     "Saltwater" = "violetred2"
   )) +
   theme_classic() +
-  labs(x = "Date", y = "NPOC (mg/L)", title = "TEMPEST Porewater: NPOC") +
+  labs(x = "Date", y = "NPOC (mg/L)") +
   theme(
     panel.spacing = unit(0.5, "lines"), 
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  theme(text = element_text(size = 30))+
-  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
+  theme(text = element_text(size = 30)) + 
+  scale_x_date(
+    breaks = as.Date(c("2022-06-01", "2023-06-01", "2024-06-01", "2025-06-01")),
+    date_labels = "%B %Y"
+  ) + 
   theme(axis.ticks.x = element_line(linewidth = 1))+
   theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  theme(legend.position = "none")+ 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 20))
+  theme(legend.position = "none") +
+  theme(
+    # Adds a 20pt margin to the top, right, bottom, and left edges
+    plot.margin = margin(t = 15, r = 35, b = 15, l = 15, unit = "pt"), 
+    axis.title.x = element_text(margin = margin(t = 15))
+  )
 
 viz_npoc_plot_avgs
+
+# Save as a PNG
+png("COMPASS_SynopticCB_NPOC_timeline.png", width = 2000, height = 1200, res = 100)
+print(viz_npoc_plot_avgs)  # For ggplot objects, use print()
+dev.off()
 
 
 viz_tdn_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mean_tdn, color = plot_1)) +
