@@ -28,18 +28,35 @@ library(purrr)
 # 2023: T# and AM/PM for PW, AM/MID/PM for Sourcewater, High and Low Tide for Estuary Sourcewater (Removed AM/PM from PW ID, converted HT/LT to AM/PM for Estuary Sourcewater)
 
 ##Collated data by analyte
-##Desired Sample ID format: SWH_202511_WC_LYSC_45CM
+##Desired Sample ID format: 
 
-DOC <- read.csv("../DOC/COMPASS_TEMPEST_DOC_AllData.csv")
-DOC <- DOC %>% 
+DOC <- read.csv("DOC/COMPASS_TEMPEST_DOC_AllData.csv")
+DOC1 <- DOC %>% 
   dplyr::select(c("Sample_ID", "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("_15CM", "", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("SOURCE", "SOURCEWATER", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID))
+  mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID))
 
-Nutrients <- read.csv("../Nutrients/COMPASS_TEMPEST_Nutrient_AllData.csv")
-Nutrients <- Nutrients %>%
+DOC2 <- DOC1 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY'),
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE|RAIN"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
+
+
+
+
+Nutrients <- read.csv("Nutrients/COMPASS_TEMPEST_Nutrient_AllData.csv")
+Nutrients1 <- Nutrients %>%
   # mutate(Sample_ID = ifelse(Grid == "SOURCEWATER", 
   #                           paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_Time_24hrs, "15CM", sep = "_"), 
   #                           paste("TMP", Plot, Grid, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, "15CM", sep = "_"))) %>% 
@@ -53,11 +70,33 @@ Nutrients <- Nutrients %>%
   ) %>%
   dplyr::select(c("Sample_ID", "NOx_mgL", "NOx_uM", "NOx_Conc_Flag", "NH3_mgL", "NH3_uM",  "NH3_Conc_Flag", "PO4_mgL", "PO4_uM", "PO4_Conc_Flag")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("_15CM", "", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("RAINWATER_DEC10-12_2024", "RAINWATER_20241212", Sample_ID))
+  mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("Dec10-12_2024", "20241212", Sample_ID))
 
 
-SO4_Cl <- read.csv("../Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
+
+Nutrients2 <- Nutrients1 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY'),
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE|RAIN"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
+
+
+
+
+
+
+SO4_Cl <- read.csv("Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
 SO4_Cl <- SO4_Cl %>%
   dplyr::select(c("Sample_ID", "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
@@ -65,23 +104,16 @@ SO4_Cl <- SO4_Cl %>%
   mutate(Sample_ID = gsub("RAINWATER_DEC10-12_2024", "RAINWATER_20241212", Sample_ID)) %>% 
   distinct() 
 
-Sulfide <- read.csv("../Sulfide/COMPASS_TEMPEST_Sulfide_AllData.csv")
+Sulfide <- read.csv("Sulfide/COMPASS_TEMPEST_Sulfide_AllData.csv")
 Sulfide <- Sulfide %>%
   mutate(Month = as.integer(Month)) %>%
   dplyr::select(c("Sample_ID", "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_Conc_flag", "H2S_cv_flag")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_15CM", "", Sample_ID))
 
-##Combine data
-df_list <- list(DOC, Nutrients, SO4_Cl, Sulfide)
-merged_df <- df_list %>% reduce(full_join)
-
-colnames(merged_df)
-merged_df <- merged_df %>% 
-  mutate(Project = "TEMPEST")
 
 ##Add in pH data because this only has times
-pH <- read.csv("../pH/COMPASS_TEMPEST_pH_AllData.csv")
+pH <- read.csv("pH/COMPASS_TEMPEST_pH_AllData.csv")
 colnames(pH)
 pH <- pH %>%
   mutate(Sample_ID = toupper(Sample_ID)) %>% 
@@ -92,6 +124,18 @@ pH <- pH %>%
   filter(!(Sample_ID == "TMP_FW_SOURCEWATER_20230607_1519_15CM" & temperature_flag == "temperature not recorded"))
 
 
+
+```
+
+##Combine data
+```{r}
+df_list <- list(DOC, Nutrients, SO4_Cl, Sulfide, pH)
+merged_df <- df_list %>% reduce(full_join)
+
+colnames(merged_df)
+merged_df <- merged_df %>% 
+  mutate(Project = "COMPASS:Synoptic", 
+         Region = "CB")
 ```
 
 ##Need to figure out duplicates
@@ -207,7 +251,7 @@ final_data <- merged_df %>%
 ```
 
 
-## Write the 2023 file out to the folder 
+## Write the alldata file out to the folder 
 ```{r, echo=FALSE}
 
 ##Order data by Year, Month, Day
