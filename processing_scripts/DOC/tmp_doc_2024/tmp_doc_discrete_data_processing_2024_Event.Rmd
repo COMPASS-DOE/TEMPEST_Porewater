@@ -101,7 +101,7 @@ anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 #inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=496164093#gid=496164093"
 
-directory= file.path(here() %>% dirname(), 'tmp_doc_2024/tmp_doc_metadata_2024')
+directory= ('tmp_doc_metadata_2024')
 if(!dir.exists(directory)){
   stop("Directory does not exist, check directory path")
 }
@@ -1129,7 +1129,7 @@ final_data <- final_data %>%
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
     Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
-    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
+    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, Collection_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
 
