@@ -152,47 +152,47 @@ sample_log <- sample_log %>%
 ```{r read in and rename processed absorbance data}
 ##Processed absorbance data: https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
 
-#Remove the old Abs folder
-unlink("Abs_Data", recursive = TRUE)
-
+# #Remove the old Abs folder
+# unlink("Abs_Data", recursive = TRUE)
+# 
 ##Files in Abs folder
 abs_folder_path <- "Abs_Data"
-dir.create(abs_folder_path)
-
-#folder link to id
-abs_folder = "https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-abs_folder_id = drive_get(as_id(abs_folder))
-
-#find files in folder
-files = drive_ls(abs_folder_id)
-files
-
-#loop dirs and download files inside them
-for (i in seq_along(files$name)) {
-  #list files
-  i_dir = drive_ls(files[i, ])
-  
-  #download files
-  for (file_i in seq_along(i_dir$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(i_dir$id[file_i]),
-        path = paste0("Abs_Data/", i_dir$name[file_i]), 
-        overwrite = TRUE
-      )
-  }
-}
-
-##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
-files_to_delete <- list.files(
-  path = abs_folder_path, 
-  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
-  full.names = TRUE
-)
-
-files_to_delete
-
-file.remove(files_to_delete)
+# dir.create(abs_folder_path)
+# 
+# #folder link to id
+# abs_folder = "https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+# abs_folder_id = drive_get(as_id(abs_folder))
+# 
+# #find files in folder
+# files = drive_ls(abs_folder_id)
+# files
+# 
+# #loop dirs and download files inside them
+# for (i in seq_along(files$name)) {
+#   #list files
+#   i_dir = drive_ls(files[i, ])
+#   
+#   #download files
+#   for (file_i in seq_along(i_dir$name)) {
+#     #fails if already exists
+#       drive_download(
+#         as_id(i_dir$id[file_i]),
+#         path = paste0("Abs_Data/", i_dir$name[file_i]), 
+#         overwrite = TRUE
+#       )
+#   }
+# }
+# 
+# ##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
+# files_to_delete <- list.files(
+#   path = abs_folder_path, 
+#   pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
+#   full.names = TRUE
+# )
+# 
+# files_to_delete
+# 
+# file.remove(files_to_delete)
 
 
 ##List all files
@@ -217,47 +217,47 @@ files_abs <- files_abs %>%
 ```{r read in and rename processed eem data}
 ##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
 
-#Remove the old EEM folder
-unlink("EEM_Data", recursive = TRUE)
-
+# #Remove the old EEM folder
+# unlink("EEM_Data", recursive = TRUE)
+# 
 ##Files in EEM folder
 eem_folder_path <- "EEM_Data"
-dir.create(eem_folder_path)
-
-#folder link to id
-eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-eem_folder_id = drive_get(as_id(eem_folder))
-
-#find files in folder
-files = drive_ls(eem_folder_id)
-files
-
-#loop dirs and download files inside them
-for (i in seq_along(files$name)) {
-  #list files
-  i_dir = drive_ls(files[i, ])
-  
-  #download files
-  for (file_i in seq_along(i_dir$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(i_dir$id[file_i]),
-        path = paste0("EEM_Data/", i_dir$name[file_i]), 
-        overwrite = TRUE
-      )
-  }
-}
-
-##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
-files_to_delete <- list.files(
-  path = eem_folder_path, 
-  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
-  full.names = TRUE
-)
-
-files_to_delete
-
-file.remove(files_to_delete)
+# dir.create(eem_folder_path)
+# 
+# #folder link to id
+# eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+# eem_folder_id = drive_get(as_id(eem_folder))
+# 
+# #find files in folder
+# files = drive_ls(eem_folder_id)
+# files
+# 
+# #loop dirs and download files inside them
+# for (i in seq_along(files$name)) {
+#   #list files
+#   i_dir = drive_ls(files[i, ])
+#   
+#   #download files
+#   for (file_i in seq_along(i_dir$name)) {
+#     #fails if already exists
+#       drive_download(
+#         as_id(i_dir$id[file_i]),
+#         path = paste0("EEM_Data/", i_dir$name[file_i]), 
+#         overwrite = TRUE
+#       )
+#   }
+# }
+# 
+# ##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
+# files_to_delete <- list.files(
+#   path = eem_folder_path, 
+#   pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
+#   full.names = TRUE
+# )
+# 
+# files_to_delete
+# 
+# file.remove(files_to_delete)
 
 
 ##List all files
@@ -289,15 +289,14 @@ files <- merge(files_abs, files_eem, by = "Sample_ID", all = TRUE)
 sample_log <- files %>% 
   left_join(sample_log, by = "Sample_ID")
 
-
-
-
 unique(sample_log$Sample_Description)
 subset <- subset(sample_log, str_detect(sample_log$Sample_Description, "TEMPEST"))
+pool <- subset(sample_log, str_detect(sample_log$Sample_Description, "POOL"))
 
 ##Fix sample description
 sample_log1 <- sample_log %>%
-  filter(!str_detect(Sample_Description, "TEMPEST")) %>% # Remove unknown TEMPEST samples
+  ##TEMPEST pooled samples for 2022
+  filter(Sample_Description != "TEMPEST") %>% 
   mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% 
   ##Remove part of ID that don't need 
   mutate(Sample_Description = gsub("_SW11", "", Sample_Description)) %>% 
@@ -318,13 +317,13 @@ sample_log2 <- sample_log1 %>%
   mutate(Plot = stringr::str_extract(Sample_Description, "TMP_C|TMP_FW|TMP_SW|TMP_ESTUARY") ,
          Grid = stringr::str_extract(Sample_Description, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|SOURCE|POOL") ,
          Date = stringr::str_extract(Sample_Description, "[0-9]{8}"), 
-         T_num = stringr::str_extract(Sample_Description, "T1|T2|T3|T4|T5|T6|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
+         T_num = stringr::str_extract(Sample_Description, "T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
          Time = stringr::str_extract(Sample_Description, "(?<=_)[0-9]{4}$"), 
          Plot = gsub("TMP_", "", Plot))
 
 
 ##T1-3 for sourcewater
-sw_2023 <- sample_log2 %>% 
+sce_2023 <- sample_log2 %>% 
   filter(!is.na(Time)) %>% 
   filter(str_detect(Sample_Description, "SOURCE")) %>% 
   group_by(Plot, Date) %>% 
@@ -346,7 +345,7 @@ pw_2023 <- sample_log2 %>%
 sample_log3 <- sample_log2 %>%
   filter(is.na(Time))
 
-sample_log4 <- bind_rows(sample_log3, sw_2023, pw_2023)
+sample_log4 <- bind_rows(sample_log3, sce_2023, pw_2023)
 
 
 ##Make new Sample IDs
@@ -357,8 +356,9 @@ sample_log4 <- bind_rows(sample_log3, sw_2023, pw_2023)
 sample_log5 <- sample_log4 %>% 
   mutate(Sample_ID = 
            case_when(
-             str_detect(Sample_Description, "SOURCE") ~  paste("TMP", "Source", Plot, "CDOM", T_num, Date, TOD, sep = "_"), 
-             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "POOLED", Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "SOURCE") & !str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, "CDOM", Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "SOURCE") & str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "CDOM", "POOLED", Date, TOD, sep = "_"), 
              TRUE ~ paste("TMP", Plot, "PW", Grid, "15cm", "CDOM", T_num, Date, TOD, sep = "_"))) %>% ##Make sample ID to match others
   mutate(Sample_ID = gsub("_NA", "", Sample_ID))
 
@@ -368,6 +368,93 @@ sample_log5 <- sample_log5 %>%
   mutate(new_abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.dat")) %>%
   mutate(new_eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.dat"))
 
+
+unique(sample_log5$Sample_ID)
+
+```
+
+##Create the sample metadata
+```{r output metadata}
+
+sample_log6 <- sample_log5 %>% 
+  rename(abs_file_id = new_abs_file_id, 
+         eem_file_id = new_eem_file_id, 
+         integration_time_s = `Integration Time`, 
+         dilution_factor = Dilution_Factor, 
+         RSU_area_1s = `Raman 1s Area`) %>% 
+  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
+
+head(sample_log6)
+
+##Get sample metadata from Sample ID
+sample_log6 <- sample_log6 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
+         Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
+         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
+  unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
+
+```
+## Pull in active porewater tracking inventory sheet from Google Drive: 
+```{r rest of metadata, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+
+drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+
+raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+
+raw_metadata_pool <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Pooled", skip = 4)
+
+raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sce, raw_metadata_pool)
+
+#Select CDOM Data
+raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM|of|POOLED|HR"))
+
+#Select 2022/2023 Data
+raw_metadata_DOC_22_23 <- subset(raw_metadata_DOC, str_detect(Sample_ID, "2022|2023"))
+
+##Select certain columns 
+raw_metadata_final <- raw_metadata_DOC_22_23 %>% 
+  mutate(Sample_ID = gsub("DOC/CDOM", "CDOM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("POOLED", "CDOM_POOLED", Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "Source"), gsub("_POOLED", "", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "of"), gsub("cm_", "cm_CDOM_", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = sub("_[0-9]{4}$", "", Sample_ID)) %>% 
+  select(-c(Plot, sample_location, Analyte))
+
+```
+
+
+## Check to see if samples run match metadata & merge info
+```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
+
+sample_log6$Sample_ID <- toupper(sample_log6$Sample_ID) 
+raw_metadata_final$Sample_ID <- toupper(raw_metadata_final$Sample_ID)
+
+all_present <- all(sample_log6$Sample_ID %in% raw_metadata_final$Sample_ID)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(sample_log6$Sample_ID, raw_metadata_final$Sample_ID)
+  print(missing_ids)
+}
+
+missing_ids <- data.frame("Missing.IDs" = missing_ids)
+
+write.csv(missing_ids, "Samples_missing_from_metadata.csv", row.names = FALSE)
 
 ```
 
@@ -469,73 +556,7 @@ print("Conversion complete!")
 ```
 
 
-## Pull in active porewater tracking inventory sheet from Google Drive: 
-```{r rest of metadata, include=FALSE}
 
-#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
-
-drive_download(inventory_directory, overwrite = TRUE)
-
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
-sheet_names
-
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
-
-raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
-
-raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sw)
-
-#Select CDOM Data
-raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM"))
-
-##Select certain columns 
-raw_metadata_DOC <- raw_metadata_DOC %>% 
-  select(-c(Plot, sample_location, Analyte))
-
-```
-
-##Create the metadata
-```{r output metadata}
-
-metadata <- sample_log5 %>% 
-  rename(abs_file_id = new_abs_file_id, 
-         eem_file_id = new_eem_file_id, 
-         integration_time_s = `Integration Time`, 
-         dilution_factor = Dilution_Factor, 
-         RSU_area_1s = `Raman 1s Area`) %>% 
-  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
-
-head(metadata)
-
-##Get sample metadata from Sample ID
-metadata <- metadata %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
-         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
-         Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
-         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
-         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
-         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
-  unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
-
-```
-
-## Check to see if samples run match metadata & merge info
-```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
-
-all_present <- all(metadata$Sample_ID %in% raw_metadata_DOC$Sample_ID)
-
-if (all_present) {
-  message("All sample IDs are present in metadata.")
-} else {
-  message("Some sample IDs are missing from metadata.")
-  
-  # Optional: Which ones are missing?
-  missing_ids <- setdiff(metadata$Sample_ID, raw_metadata_DOC$Sample_ID)
-  print(missing_ids)
-}
-
-```
 
 ##Merge the metadata and export
 ```{r}
