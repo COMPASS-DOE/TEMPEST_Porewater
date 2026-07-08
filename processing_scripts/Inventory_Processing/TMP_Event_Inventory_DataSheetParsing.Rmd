@@ -210,13 +210,15 @@ ro_inventory_all <- bind_rows(ro_inventory_files)
 
 
 
-NOW COMBINE THE NEW INVENTORY WITH THE OLD - just using a downloaded inventory for now but needs changed to pull from google when we are comfy with this
-
+NOW COMBINE THE NEW INVENTORY WITH THE OLD
 Porewater
 # Prep POREWATER to be appended to the inventory file 
-```{#r, process data file to match inventory}
+```{r, process data file to match inventory}
 
-#Read in the master inventory 
+# Run this to pull the TEMPEST porewater metadata into GitHub if not already there
+drive_download(inventory_path, overwrite = TRUE)
+
+#Read in the master inventory
 master <- read_excel(
   "TEMPEST_PorewaterInventory_May2022_Present.xlsx",
   sheet = "Porewater - Individual",
@@ -242,7 +244,7 @@ for (col in missing_cols) {
 inventory_new <- inventory_new %>%
   select(names(master))
 
-inventory <- bind_rows(inventory_new, master)
+pw_inventory <- bind_rows(inventory_new, master)
 
 #Set the header rows 
 header_rows <- data.frame(
@@ -253,43 +255,48 @@ header_rows <- data.frame(
     "" ))
 
 ```
+
 # Replace the POREWATER sheet in the inventory file - not doing this because not pushing to google yet 
-```{#r, add the new inventory file}
+```{r, add the new inventory file}
+
+# Run this to pull the TEMPEST porewater metadata into GitHub if not already there
+drive_download(inventory_path, overwrite = TRUE)
 
 # Load existing workbook
-wb <- loadWorkbook(inventory_path)
+wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
 
 # Remove existing sheet if it exists
-if ("Inventory" %in% names(wb)) {
-  removeWorksheet(wb, "Inventory")
+if ("Porewater - Individual" %in% names(wb)) {
+  removeWorksheet(wb, "Porewater - Individual")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "Inventory")
+addWorksheet(wb, "Porewater - Individual")
 
 # Write header block
-writeData(wb, "Inventory", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Porewater - Individual", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "Inventory",
-  inventory,
+  "Porewater - Individual",
+  pw_inventory,
   startRow = nrow(header_rows) + 1
 )
 
 # Save changes back to the same file
+saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", overwrite = TRUE)
 
 ```
 
 Source Water 
 # Prep SOURCEWATER to be appended to the inventory file  
-```{#r, process data file to match inventory}
+```{r, process data file to match inventory}
 
 #Read in the master inventory 
 sce_master <- read_excel(
   #path = inventory_path,
-  "TEMPEST_PorewaterInventory_May2022_Present.xlsx",
+  "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
   sheet = "Source Water",
   skip = 4
 )
@@ -324,37 +331,40 @@ header_rows <- data.frame(
     "" ))
 
 ```
+
 # Replace the SOURCEWATER sheet in the inventory file 
-```{#r, add the new inventory file}
+```{r, add the new inventory file}
 
 # Load existing workbook
-wb <- loadWorkbook(inventory_path)
+wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 
 # Remove existing sheet if it exists
-if ("sce-Inventory" %in% names(wb)) {
-  removeWorksheet(wb, "sce-Inventory")
+if ("Source Water" %in% names(wb)) {
+  removeWorksheet(wb, "Source Water")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "sce-Inventory")
+addWorksheet(wb, "Source Water")
 
 # Write header block
-writeData(wb, "sce-Inventory", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Source Water", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "sce-Inventory",
+  "Source Water",
   sce_inventory,
   startRow = nrow(header_rows) + 1
 )
 
 # Save changes back to the same file
+saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", overwrite = TRUE)
 
 ```
 
-Runoff - doesn't have a page in the inventory yet... 
-
+-Need to do the same thing for pooled SPE samples and remove those from the individual porewater sample list, also need to output the pooled samples with the volumes from each grid somehow 
+-Runoff - doesn't have a page in the inventory yet... 
+-Need to add pH data to datasheet
 
 
 # Create sample lists from the new inventory or whole inventory
