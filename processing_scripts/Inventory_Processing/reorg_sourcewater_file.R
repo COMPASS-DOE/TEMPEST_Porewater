@@ -103,22 +103,26 @@ process_sce_inventory <- function(dat){
     ) %>%
     select(
       Project,
-      Plot,
+      # Plot,
       Sample_ID,
       Volume_mL,
       Vial_ID,
-      sample_location,
-      Analyte,
+      # sample_location,
+      # Analyte,
       Collection_Date_YYYYMMDD,
       Timepoint,
       everything()
+    ) %>% 
+    rename(
+      Collection_Time_24hrs = Timepoint
     ) %>%
     mutate(
       #Evacuation_date_YYYMMDD = as.numeric(Evacuation_date_YYYMMDD),
       Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD),
-      Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
-      Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
-    )
+      Collection_Time_24hrs = as.numeric(Collection_Time_24hrs),
+      # Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
+      # Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
+    ) 
   
   return(inventory_new)
 }
