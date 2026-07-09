@@ -39,7 +39,7 @@ process_event_inventory <- function(dat){
       Project = paste("COMPASS:", Project),
       Collection_Date = as.Date(Collection_Date, format = "%Y%m%d"),
       Collection_Date_YYYYMMDD = format(Collection_Date, "%Y%m%d"),
-      Evacuation_date_YYYMMDD = Collection_Date_YYYYMMDD,
+      Evacuation_date_YYYYMMDD = Collection_Date_YYYYMMDD,
       sample_location = if_else(Analyte == "CDOM", "SEQUIM", "SERC"),
       analyte_code = recode(
         Analyte,
@@ -109,12 +109,14 @@ process_event_inventory <- function(dat){
       Vial_ID,
       sample_location,
       Analyte,
+      Evacuation_date_YYYYMMDD, 
       Collection_Date_YYYYMMDD,
-      Timepoint,
+      Collection_Start_Time_24hrs, 
+      Collection_End_Time_24hrs, 
       everything()
     ) %>%
     mutate(
-      Evacuation_date_YYYMMDD = as.numeric(Evacuation_date_YYYMMDD),
+      Evacuation_date_YYYYMMDD = as.numeric(Evacuation_date_YYYYMMDD),
       Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD),
       Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
       Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)

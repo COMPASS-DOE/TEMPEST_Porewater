@@ -11,7 +11,7 @@ process_event_pw_pH <- function(dat){
       pH = str_trim(pH),
       pH = if_else(
         pH %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         pH
       ),
       pH = as.numeric(pH)
@@ -21,7 +21,7 @@ process_event_pw_pH <- function(dat){
       Temperature_C = str_trim(Temperature_C),
       Temperature_C = if_else(
         Temperature_C %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         Temperature_C
       ),
       Temperature_C = as.numeric(Temperature_C)
@@ -32,7 +32,7 @@ process_event_pw_pH <- function(dat){
       str_detect(Notes, "uS/cm") ~ "uS/cm",
       str_detect(Notes, "mS/cm") ~ "mS/cm",
       # Plot == "Control|Freshwater" ~ "uS/cm", 
-      TRUE ~ NA_character_)) %>% 
+      TRUE ~ NA)) %>% 
     mutate(
       Conductivity = as.character(Conductivity),
       Conductivity = gsub("uS/cm", "", Conductivity), 
@@ -40,7 +40,7 @@ process_event_pw_pH <- function(dat){
       Conductivity = str_trim(Conductivity),
       Conductivity = if_else(
         Conductivity %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         Conductivity
       ),
       Conductivity = as.numeric(Conductivity)
@@ -76,7 +76,7 @@ process_event_pw_pH <- function(dat){
       'Colored_Y/N', 
       Instrument, # Need to add to the datasheet entry instrument used
       Notes, 
-      # everything()
+      everything()
     ) %>%
     mutate(
       Date_YYYYMMDD = as.numeric(Date_YYYYMMDD),
@@ -84,7 +84,7 @@ process_event_pw_pH <- function(dat){
       Depth_cm = as.numeric(Depth_cm), 
       Cond = as.numeric(Cond),
       Temp_C = as.numeric(Temp_C)
-    )
+    ) 
   
   return(inventory_new)
 }
@@ -104,7 +104,7 @@ process_sce_pH <- function(dat){
       pH = str_trim(pH),
       pH = if_else(
         pH %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         pH
       ),
       pH = as.numeric(pH)
@@ -114,7 +114,7 @@ process_sce_pH <- function(dat){
       Temperature_C = str_trim(Temperature_C),
       Temperature_C = if_else(
         Temperature_C %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         Temperature_C
       ),
       Temperature_C = as.numeric(Temperature_C)
@@ -125,7 +125,7 @@ process_sce_pH <- function(dat){
       str_detect(Notes, "uS/cm") ~ "uS/cm",
       str_detect(Notes, "mS/cm") ~ "mS/cm",
       # Plot == "Control|Freshwater" ~ "uS/cm", 
-      TRUE ~ NA_character_)) %>%
+      TRUE ~ NA)) %>%
     mutate(
       Conductivity = as.character(Conductivity),
       Conductivity = gsub("uS/cm", "", Conductivity), 
@@ -133,7 +133,7 @@ process_sce_pH <- function(dat){
       Conductivity = str_trim(Conductivity),
       Conductivity = if_else(
         Conductivity %in% c("-", "–", "—", "", "NA", "n/a", "N/A"),
-        NA_character_,
+        NA,
         Conductivity
       ),
       Conductivity = as.numeric(Conductivity)
@@ -169,7 +169,7 @@ process_sce_pH <- function(dat){
       # 'Colored_Y/N', 
       Instrument, # Need to add to the datasheet entry instrument used
       Notes, 
-      # everything()
+      everything()
     ) %>%
     mutate(
       Date_YYYYMMDD = as.numeric(Date_YYYYMMDD),

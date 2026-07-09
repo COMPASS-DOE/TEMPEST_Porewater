@@ -241,6 +241,10 @@ sce_pH_all <- bind_rows(sce_pH_files)
 
 pH_all <- bind_rows(pw_pH_all, sce_pH_all)
 
+pH_all <- pH_all %>%
+  mutate(Plot = factor(Plot, levels = c("Control", "Saltwater", "Freshwater", "Estuary"))) %>%
+  arrange(Date_YYYYMMDD, Timepoint, Plot, Location, Depth_cm)
+
 ```
 
 NOW COMBINE THE NEW pH DATA WITH THE OLD
@@ -257,11 +261,12 @@ pH_master <- read_excel(
 )
 
 pH_master <- pH_master  %>%
-    mutate(
+  mutate(
       Depth_cm = as.numeric(Depth_cm), 
       Cond = as.numeric(Cond),
       Temp_C = as.numeric(Temp_C)
-    )
+    ) %>% 
+  filter(!if_all(c(pH, Cond, Temp_C), is.na))
 
 # Align the columns
 pH_new <- pH_all %>%
@@ -278,7 +283,7 @@ for (col in missing_cols) {
 pH_new <- pH_new %>%
   select(names(pH_master))
 
-pH_final <- bind_rows(pH_new, pH_master)
+pH_final <- bind_rows(pH_master, pH_new)
 
 ```
 
@@ -289,12 +294,12 @@ pH_final <- bind_rows(pH_new, pH_master)
 wb <- loadWorkbook("TEMPEST_Porewater_pH.xlsx")
 
 # Remove existing sheet if it exists
-if ("pH Updated" %in% names(wb)) {
-  removeWorksheet(wb, "pH Updated")
+if ("pH" %in% names(wb)) {
+  removeWorksheet(wb, "pH")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "pH Updated")
+addWorksheet(wb, "pH")
 
 # Write inventory data below it
 header_style <- createStyle(
@@ -303,20 +308,13 @@ header_style <- createStyle(
 
 writeData(
   wb,
-  "pH Updated",
+  "pH",
   pH_final, 
   headerStyle = header_style
 )
 
 # Save changes back to the same file
 saveWorkbook(wb, "TEMPEST_Porewater_pH_updated.xlsx", overwrite = TRUE)
-
-drive_upload(
-  media = "TEMPEST_Porewater_pH_updated.xlsx",
-  path = folder_path, 
-  name = "TEMPEST_Porewater_pH_updated",
-  type = "spreadsheet"                    # Triggers conversion to Google Sheets
-)
 
 ```
 
@@ -378,22 +376,37 @@ drive_download(inventory_path, overwrite = TRUE)
 wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
 
 # Remove existing sheet if it exists
-if ("Porewater - Individual - Updated" %in% names(wb)) {
-  removeWorksheet(wb, "Porewater - Individual Updated")
+if ("Porewater - Individual" %in% names(wb)) {
+  removeWorksheet(wb, "Porewater - Individual")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "Porewater - Individual Updated")
+addWorksheet(wb, "Porewater - Individual")
 
 # Write header block
-writeData(wb, "Porewater - Individual Updated", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Porewater - Individual", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "Porewater - Individual Updated",
+  "Porewater - Individual",
   pw_inventory,
   startRow = nrow(header_rows) + 1
+)
+
+##Bold the headers
+header_style <- createStyle(
+  textDecoration = "bold",
+  halign = "center",
+  valign = "center"
+)
+addStyle(
+  wb,
+  sheet = "Porewater - Individual",
+  style = header_style,
+  rows = 1:5,
+  cols = 1:ncol(pw_inventory),
+  gridExpand = TRUE
 )
 
 # Save changes back to the same file
@@ -448,27 +461,24 @@ header_rows <- data.frame(
 # Replace the POOLED porewater sheet in the inventory file
 ```{r, add the new inventory file}
 
-# Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(inventory_path, overwrite = TRUE)
-
 # Load existing workbook
-wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 
 # Remove existing sheet if it exists
-if ("Porewater - Pooled - Updated" %in% names(wb)) {
-  removeWorksheet(wb, "Porewater - Pooled Updated")
+if ("Porewater - Pooled" %in% names(wb)) {
+  removeWorksheet(wb, "Porewater - Pooled")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "Porewater - Pooled Updated")
+addWorksheet(wb, "Porewater - Pooled")
 
 # Write header block
-writeData(wb, "Porewater - Pooled Updated", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Porewater - Pooled", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "Porewater - Pooled Updated",
+  "Porewater - Pooled",
   pooled_inventory,
   startRow = nrow(header_rows) + 1
 )
@@ -476,7 +486,7 @@ writeData(
 # Write the header text into G4 (column 7, row 4)
 writeData(
   wb,
-  sheet = "Porewater - Pooled Updated",
+  sheet = "Porewater - Pooled",
   x = "Breakdown_by_volume_mL",
   startCol = 7,
   startRow = 4,
@@ -486,7 +496,7 @@ writeData(
 # Merge G4:Q4 (columns 7-17)
 mergeCells(
   wb,
-  sheet = "Porewater - Pooled Updated",
+  sheet = "Porewater - Pooled",
   cols = 7:16,
   rows = 4
 )
@@ -499,7 +509,7 @@ header_style <- createStyle(
 )
 addStyle(
   wb,
-  sheet = "Porewater - Pooled Updated",
+  sheet = "Porewater - Pooled",
   style = header_style,
   rows = 1:5,
   cols = 1:21,
@@ -561,22 +571,37 @@ header_rows <- data.frame(
 wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 
 # Remove existing sheet if it exists
-if ("Source Water Updated" %in% names(wb)) {
-  removeWorksheet(wb, "Source Water Updated")
+if ("Source Water" %in% names(wb)) {
+  removeWorksheet(wb, "Source Water")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "Source Water Updated")
+addWorksheet(wb, "Source Water")
 
 # Write header block
-writeData(wb, "Source Water Updated", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Source Water", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "Source Water Updated",
+  "Source Water",
   sce_inventory,
   startRow = nrow(header_rows) + 1
+)
+
+##Bold the headers
+header_style <- createStyle(
+  textDecoration = "bold",
+  halign = "center",
+  valign = "center"
+)
+addStyle(
+  wb,
+  sheet = "Source Water",
+  style = header_style,
+  rows = 1:5,
+  cols = 1:ncol(sce_inventory),
+  gridExpand = TRUE
 )
 
 # Save changes back to the same file
@@ -639,22 +664,37 @@ header_rows <- data.frame(
 wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 
 # Remove existing sheet if it exists
-if ("Runoff Updated" %in% names(wb)) {
-  removeWorksheet(wb, "Runoff Updated")
+if ("Runoff" %in% names(wb)) {
+  removeWorksheet(wb, "Runoff")
 }
 
 # Add replacement sheet
-addWorksheet(wb, "Runoff Updated")
+addWorksheet(wb, "Runoff")
 
 # Write header block
-writeData(wb, "Runoff Updated", header_rows, startRow = 1, colNames = FALSE)
+writeData(wb, "Runoff", header_rows, startRow = 1, colNames = FALSE)
 
 # Write inventory data below it
 writeData(
   wb,
-  "Runoff Updated",
+  "Runoff",
   ro_inventory,
   startRow = nrow(header_rows) + 1
+)
+
+##Bold the headers
+header_style <- createStyle(
+  textDecoration = "bold",
+  halign = "center",
+  valign = "center"
+)
+addStyle(
+  wb,
+  sheet = "Runoff",
+  style = header_style,
+  rows = 1:5,
+  cols = 1:ncol(ro_inventory),
+  gridExpand = TRUE
 )
 
 # Save changes back to the same file
@@ -662,11 +702,19 @@ saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", over
 
 ```
 
--Need to do the same thing for pooled SPE samples and remove those from the individual porewater sample list, also need to output the pooled samples with the volumes from each grid somehow 
 
-# Upload the new inventory to Google Drive
+# Upload the new pH and inventory files to Google Drive
 ```{r}
 
+##pH
+drive_upload(
+  media = "TEMPEST_Porewater_pH_updated.xlsx",
+  path = folder_path, 
+  name = "TEMPEST_Porewater_pH_updated",
+  type = "spreadsheet"                    # Triggers conversion to Google Sheets
+)
+
+##inventory
 drive_upload(
   media = "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
   path = folder_path, 
