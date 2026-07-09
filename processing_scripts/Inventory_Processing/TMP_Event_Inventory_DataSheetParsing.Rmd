@@ -107,6 +107,16 @@ pw_inventory_files <- lapply(parse_files, process_event_inventory)
 
 pw_inventory_all <- bind_rows(pw_inventory_files)
 
+```
+
+# Reorganize POOLED POREWATER data to match inventory
+```{r}
+
+source("reorg_event_pooled_porewater_file.R")
+
+pooled_inventory_files <- lapply(parse_files, process_event_pooled_inventory)
+
+pooled_inventory_all <- bind_rows(pooled_inventory_files)
 
 ```
 
@@ -162,8 +172,60 @@ sce_inventory_all <- bind_rows(sce_inventory_files)
 
 ```
 
+Runoff
+## Read in the RUNOFF datasheets and parse 
+```{r}
 
-# Reorganize POREWATER and SOURCEWATER pH data to pH entering datasheets. 
+#to look within multiple folders 
+ro_files <- googledrive::drive_ls(
+  path = ro_drive_path,
+  recursive = TRUE,
+  pattern = "Field"
+)
+
+source("parse_runoff_file.R")
+
+parse_ro_files <- list()
+
+for(i in seq_len(nrow(ro_files))) {
+
+  cat("Processing:", ro_files$name[i], "\n")
+
+  drive_download(
+    ro_files$id[i],
+    path = "ro_temp.xlsx",
+    overwrite = TRUE
+  )
+
+  parse_ro_files[[i]] <- tryCatch(
+    parse_runoff_file("ro_temp.xlsx"),
+    error = function(e) {
+      message("Failed on: ", ro_files$name[i])
+      message(e$message)
+      NULL
+    }
+  )
+
+  unlink("ro_temp.xlsx")
+}
+
+
+```
+
+# Reorganize RUNOFF data to match inventory
+```{r}
+
+source("reorg_runoff_file.R")
+
+ro_inventory_files <- lapply(parse_ro_files, process_ro_inventory)
+
+ro_inventory_all <- bind_rows(ro_inventory_files)
+
+
+```
+
+
+# Reorganize pH data from POREWATER and SOURCEWATER 
 Runoff pH was measured by the Aquatroll. 
 ```{r}
 
@@ -220,7 +282,7 @@ pH_final <- bind_rows(pH_new, pH_master)
 
 ```
 
-# Replace the POREWATER sheet in the inventory file - not doing this because not pushing to google yet 
+# Replace the pH sheet in the inventory file
 ```{r, add the new inventory file}
 
 # Load existing workbook
@@ -255,57 +317,6 @@ drive_upload(
   name = "TEMPEST_Porewater_pH_updated",
   type = "spreadsheet"                    # Triggers conversion to Google Sheets
 )
-
-```
-
-Runoff
-## Read in the RUNOFF datasheets and parse 
-```{r}
-
-#to look within multipel folders 
-ro_files <- googledrive::drive_ls(
-  path = ro_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
-
-source("parse_runoff_file.R")
-
-parse_ro_files <- list()
-
-for(i in seq_len(nrow(ro_files))) {
-
-  cat("Processing:", ro_files$name[i], "\n")
-
-  drive_download(
-    ro_files$id[i],
-    path = "ro_temp.xlsx",
-    overwrite = TRUE
-  )
-
-  parse_ro_files[[i]] <- tryCatch(
-    parse_runoff_file("ro_temp.xlsx"),
-    error = function(e) {
-      message("Failed on: ", ro_files$name[i])
-      message(e$message)
-      NULL
-    }
-  )
-
-  unlink("ro_temp.xlsx")
-}
-
-
-```
-# Reorganize RUNOFF data to match inventory
-```{r}
-
-source("reorg_runoff_file.R")
-
-ro_inventory_files <- lapply(parse_ro_files, process_ro_inventory)
-
-ro_inventory_all <- bind_rows(ro_inventory_files)
-
 
 ```
 
@@ -350,14 +361,14 @@ pw_inventory <- bind_rows(inventory_new, master)
 #Set the header rows 
 header_rows <- data.frame(
   col1 = c(
-    "Project: COMPASS: TEMPEST",
-    "Site: SERC",
+    "Project: COMPASS",
+    "Site: TEMPEST",
     "Content: Lysimeter Porewater Inventory",
     "" ))
 
 ```
 
-# Replace the POREWATER sheet in the inventory file - not doing this because not pushing to google yet 
+# Replace the POREWATER sheet in the inventory file
 ```{r, add the new inventory file}
 
 # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
@@ -383,6 +394,116 @@ writeData(
   "Porewater - Individual Updated",
   pw_inventory,
   startRow = nrow(header_rows) + 1
+)
+
+# Save changes back to the same file
+saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", overwrite = TRUE)
+
+```
+
+
+POOLED
+# Prep POOLED porewater to be appended to the inventory file 
+```{r, process data file to match inventory}
+
+#Read in the master inventory 
+pooled_master <- read_excel(
+  #path = inventory_path,
+  "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
+  sheet = "Porewater - Pooled",
+  skip = 4
+)
+
+#clean out any empty sample_ID rows
+pooled_master <- pooled_master %>%
+  filter(!is.na(Sample_ID))
+
+# Align the columns
+inventory_new <- pooled_inventory_all %>%
+  select(any_of(names(pooled_master)))
+
+missing_cols <- setdiff(names(pooled_master), names(inventory_new))
+missing_cols
+
+for (col in missing_cols) {
+  inventory_new[[col]] <- NA
+}
+
+# Append to the inventory
+inventory_new <- inventory_new %>%
+  select(names(pooled_master))
+
+pooled_inventory <- bind_rows(inventory_new, pooled_master)
+
+#Set the header rows 
+header_rows <- data.frame(
+  col1 = c(
+    "Project: COMPASS",
+    "Site: TEMPEST",
+    "Event: POOLED Porewater Inventory July 2022 - present",
+    "" ))
+
+```
+
+# Replace the POOLED porewater sheet in the inventory file
+```{r, add the new inventory file}
+
+# Run this to pull the TEMPEST porewater metadata into GitHub if not already there
+drive_download(inventory_path, overwrite = TRUE)
+
+# Load existing workbook
+wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+
+# Remove existing sheet if it exists
+if ("Porewater - Pooled - Updated" %in% names(wb)) {
+  removeWorksheet(wb, "Porewater - Pooled Updated")
+}
+
+# Add replacement sheet
+addWorksheet(wb, "Porewater - Pooled Updated")
+
+# Write header block
+writeData(wb, "Porewater - Pooled Updated", header_rows, startRow = 1, colNames = FALSE)
+
+# Write inventory data below it
+writeData(
+  wb,
+  "Porewater - Pooled Updated",
+  pooled_inventory,
+  startRow = nrow(header_rows) + 1
+)
+
+# Write the header text into G4 (column 7, row 4)
+writeData(
+  wb,
+  sheet = "Porewater - Pooled Updated",
+  x = "Breakdown_by_volume_mL",
+  startCol = 7,
+  startRow = 4,
+  colNames = FALSE
+)
+
+# Merge G4:Q4 (columns 7-17)
+mergeCells(
+  wb,
+  sheet = "Porewater - Pooled Updated",
+  cols = 7:16,
+  rows = 4
+)
+
+##Bold the headers
+header_style <- createStyle(
+  textDecoration = "bold",
+  halign = "center",
+  valign = "center"
+)
+addStyle(
+  wb,
+  sheet = "Porewater - Pooled Updated",
+  style = header_style,
+  rows = 1:5,
+  cols = 1:21,
+  gridExpand = TRUE
 )
 
 # Save changes back to the same file
@@ -426,8 +547,8 @@ sce_inventory <- bind_rows(sce_inventory_new, sce_master)
 #Set the header rows 
 header_rows <- data.frame(
   col1 = c(
-    "Project: COMPASS: TEMPEST",
-    "Site: SERC",
+    "Project: COMPASS",
+    "Site: TEMPEST",
     "Event: Source Water",
     "" ))
 
@@ -504,8 +625,8 @@ ro_inventory <- ro_inventory_all %>%
 #Set the header rows 
 header_rows <- data.frame(
   col1 = c(
-    "Project: COMPASS: TEMPEST",
-    "Site: SERC",
+    "Project: COMPASS",
+    "Site: TEMPEST", 
     "Event: Runoff",
     "" ))
 
@@ -596,6 +717,13 @@ build_sample_list <- function(dat, target_analyte, start_date, end_date) {
 #apply the function to each inventory we made 
 pw_sample_list <- build_sample_list(
   pw_inventory_all,
+  target_analyte,
+  start_date,
+  end_date
+)
+
+pooled_sample_list <- build_sample_list(
+  pooled_inventory_all,
   target_analyte,
   start_date,
   end_date

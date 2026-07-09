@@ -118,7 +118,8 @@ process_event_inventory <- function(dat){
       Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD),
       Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
       Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
-    )
+    ) %>% 
+    filter(Analyte != "SPE")
   
   return(inventory_new)
 }
