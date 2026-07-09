@@ -35,7 +35,7 @@ parse_event_porewater_file <- function(file) {
     #-----------------------------
     data_start <- which(file[[1]] %in% c("Control", "Saltwater", "Freshwater"))[1]
     
-    #this is here as a safe gaurd in case there isn't one of the start words in the file
+    #this is here as a safe guard in case there isn't one of the start words in the file
     if(is.na(data_start)) {
       stop("Could not find data start row")
     }
