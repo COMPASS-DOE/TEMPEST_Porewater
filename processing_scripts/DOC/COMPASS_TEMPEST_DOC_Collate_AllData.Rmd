@@ -303,10 +303,18 @@ DOC_avg <- data_plotting %>%
 # Define the specific date breaks you want to display
 specific_breaks <- as.Date(c("2022-01-01","2023-01-01","2024-01-01", "2025-01-01"))
 
+####Figure for DOC Paper####
 viz_npoc_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mean_npoc, color = plot_1)) +
-  geom_point(size = 3) + 
-  geom_errorbar(aes(ymin = mean_npoc - sd_npoc, ymax = mean_npoc + sd_npoc), width = 0.2) + 
-  geom_line() + 
+  geom_point(size = 2) + 
+  geom_errorbar(aes(ymin = mean_npoc - sd_npoc, ymax = mean_npoc + sd_npoc), width = 3, linewidth = 1) + 
+  geom_line(linewidth = 1) + 
+  geom_vline(xintercept = as.Date("2023-06-07"), linetype = "dashed", color = "black", size = 1) + 
+  geom_vline(xintercept = as.Date("2024-06-12"), linetype = "dashed", color = "black", size = 1) + 
+  geom_vline(xintercept = as.Date("2024-06-13"), linetype = "dashed", color = "black", size = 1) + 
+  # geom_vline(xintercept = as.Date("2026-06-08"), linetype = "dashed", color = "black", size = 1) + 
+  # geom_vline(xintercept = as.Date("2026-06-09"), linetype = "dashed", color = "black", size = 1) + 
+  # geom_vline(xintercept = as.Date("2026-06-10"), linetype = "dashed", color = "black", size = 1) + 
+  # geom_vline(xintercept = as.Date("2026-06-11"), linetype = "dashed", color = "black", size = 1) + 
   facet_wrap( ~ plot_1, ncol = 1) +
   scale_color_manual(values = c(
     "Control" = "springgreen2",
@@ -321,10 +329,13 @@ viz_npoc_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mea
   theme(text = element_text(size = 30)) + 
   scale_x_date(
     breaks = as.Date(c("2022-06-01", "2023-06-01", "2024-06-01", "2025-06-01")),
-    date_labels = "%B %Y"
+    date_labels = "%B %Y", 
+    date_minor_breaks = "1 month", 
+    guide = guide_axis(minor.ticks = TRUE)
   ) + 
   theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(axis.ticks.length.x = unit(0.45, "cm"))+ 
+  theme(axis.minor.ticks.length.x = unit(0.15, "cm"))+ 
   theme(legend.position = "none") +
   theme(
     # Adds a 20pt margin to the top, right, bottom, and left edges
@@ -339,30 +350,30 @@ png("COMPASS_SynopticCB_NPOC_timeline.png", width = 2000, height = 1200, res = 1
 print(viz_npoc_plot_avgs)  # For ggplot objects, use print()
 dev.off()
 
-
-viz_tdn_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mean_tdn, color = plot_1)) +
-  geom_point(size = 3) + 
-  geom_errorbar(aes(ymin = mean_tdn - sd_tdn, ymax = mean_tdn + sd_tdn), width = 0.2) + 
-  geom_line() + 
-  facet_wrap( ~ plot_1, ncol = 1) +
-  scale_color_manual(values = c(
-    "Control" = "springgreen2",
-    "Freshwater" = "cyan2",
-    "Saltwater" = "violetred2"
-  )) +
-  theme_classic() +
-  labs(x = "Date", y = "TDN (mg/L)", title = "TEMPEST Porewater: TDN") +
-  theme(
-    panel.spacing = unit(0.5, "lines"), 
-    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
-  theme(text = element_text(size = 30))+
-  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
-  theme(axis.ticks.x = element_line(linewidth = 1))+
-  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
-  theme(legend.position = "none")+ 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 20))
-
-viz_tdn_plot_avgs
+# 
+# viz_tdn_plot_avgs <- ggplot(DOC_avg, aes(x = Collection_Date_formatted, y = mean_tdn, color = plot_1)) +
+#   geom_point(size = 3) + 
+#   geom_errorbar(aes(ymin = mean_tdn - sd_tdn, ymax = mean_tdn + sd_tdn), width = 0.2) + 
+#   geom_line() + 
+#   facet_wrap( ~ plot_1, ncol = 1) +
+#   scale_color_manual(values = c(
+#     "Control" = "springgreen2",
+#     "Freshwater" = "cyan2",
+#     "Saltwater" = "violetred2"
+#   )) +
+#   theme_classic() +
+#   labs(x = "Date", y = "TDN (mg/L)", title = "TEMPEST Porewater: TDN") +
+#   theme(
+#     panel.spacing = unit(0.5, "lines"), 
+#     panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+#   theme(text = element_text(size = 30))+
+#   scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
+#   theme(axis.ticks.x = element_line(linewidth = 1))+
+#   theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+#   theme(legend.position = "none")+ 
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 20))
+# 
+# viz_tdn_plot_avgs
 
 # ggarrange(viz_cl_plot_avgs, viz_tdn_plot_avgs, nrow=1, ncol=2)
 
