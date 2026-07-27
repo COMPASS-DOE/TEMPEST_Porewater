@@ -5,7 +5,9 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
+##Load required packages
 ```{r setup, include=FALSE}
+
 library(dplyr)
 library(ggplot2)
 library(ggpubr)
@@ -14,7 +16,17 @@ library(readxl)
 library(tidyr)
 library(tibble)
 library(purrr)
+
+#Packages for loading metadata
+require(pacman)
+pacman::p_load(janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here) 
+
 # detach("package:raster", unload = TRUE)
+
 ```
 
 #Read in and collate all the collated analyte files
@@ -39,10 +51,12 @@ DOC1 <- DOC %>%
   mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
   mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("RAIN_20241212", "SOURCE_RAINWATER_20241212", Sample_ID))
+  mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID)) %>% 
+  distinct() 
 
 DOC2 <- DOC1 %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY|RAINWATER'),
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
          Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
@@ -52,7 +66,8 @@ DOC2 <- DOC1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
          Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
-         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID)
 
 
 ####Nutrients####
@@ -71,11 +86,13 @@ Nutrients1 <- Nutrients %>%
   mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("RAINWATER_DEC10-12_2024", "SOURCE_RAINWATER_20241212", Sample_ID)) 
+  mutate(Sample_ID = gsub("RAINWATER_DEC10-12_2024", "RAINWATER_20241212", Sample_ID))  %>% 
+  distinct() 
 
 
 Nutrients2 <- Nutrients1 %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY|RAINWATER'),
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
          Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
@@ -85,8 +102,8 @@ Nutrients2 <- Nutrients1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
          Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
-         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
-
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID)
 
 
 
@@ -99,12 +116,13 @@ SO4_Cl1 <- SO4_Cl %>%
   mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("RAINWATER_20241212", "SOURCE_RAINWATER_20241212", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("RAINWATER_20241212", "RAINWATER_20241212", Sample_ID)) %>% 
   distinct() 
 
 
 SO4_Cl2 <- SO4_Cl1 %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY|RAINWATER'),
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
          Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
@@ -114,8 +132,8 @@ SO4_Cl2 <- SO4_Cl1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
          Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
-         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
-
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID)
 
 
 ####Sulfide####
@@ -125,11 +143,13 @@ Sulfide1 <- Sulfide %>%
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID))
+  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
+  distinct() 
 
 
 Sulfide2 <- Sulfide1 %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY|RAINWATER'),
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
          Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
@@ -139,9 +159,8 @@ Sulfide2 <- Sulfide1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
          Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
-         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) 
-
-
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID)
 
 
 ####pH####
@@ -161,124 +180,171 @@ pH <- pH %>%
 
 ##Combine data
 ```{r}
-df_list <- list(DOC, Nutrients, SO4_Cl, Sulfide, pH)
+df_list <- list(DOC2, Nutrients2, SO4_Cl2, Sulfide2)
 merged_df <- df_list %>% reduce(full_join)
-
-colnames(merged_df)
-merged_df <- merged_df %>% 
-  mutate(Project = "COMPASS:Synoptic", 
-         Region = "CB")
 ```
 
 ##Need to figure out duplicates
 ```{r}
 ##Need to figure out duplicates
 df_duplicates <- merged_df %>%
-  group_by(Sample_ID) %>%
+  group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
 
-
 ##Fix SO4/Cl duplicates
-df_duplicates_SO4 <- SO4_Cl %>%
-  group_by(Sample_ID) %>%
+df_duplicates_SO4 <- SO4_Cl2 %>%
+  group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
 # lots of duplicate SO4_Cl rows removed - should do this in collated SO4_Cl data
-##Some samples were ran twice in COMPASS_TEMPEST_20230606_SO4/Cl run, sometimes the values are similar and sometimes very different. Not sure what happened here. 
-## 2024 Estuary sourcewater was incorrectly all labelled AM, some should be PM - DONE
+# 2024 Estuary sourcewater was incorrectly all labelled AM, some should be PM - DONE
+## Some samples were ran twice in COMPASS_TEMPEST_20230603 and 20230605 SO4/Cl run, sometimes the values are similar and sometimes very different. Not sure what happened here.
+## TMP_PW_SW_F4_15CM_20241213 ran twice, different Cl values
 
-##Fix pH duplicates
-df_duplicates_pH <- pH %>%
-  group_by(Sample_ID) %>%
+##Fix DOC duplicates
+df_duplicates_DOC <- DOC2 %>%
+  group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
+## 20230607_PM samples ran twice, sometimes the values are similar and sometimes very different. 
+## TMP_PW_SW_C3_15CM_T3_20240612 ran twice, different values
+
+##Fix Nutrient duplicates
+df_duplicates_Nutrients <- Nutrients2 %>%
+  group_by(Sample_ID_formatted) %>%
+  filter(n() > 1) %>%
+  ungroup()
+# 202300606 entered incorrectly, fixed 
+# TEMPEST spelled incorrectly, fixed 
+## TMP_C_C6_20230515 has zeroes for NOx in one run but not the other, the zero run was second but doesn't say it was a dilution, not sure what happened here. 
+## Estuary sourcewater 20240611, 20240612, 20240613 ran twice
+
+##Fix Sulfide duplicates
+df_duplicates_Sulfide <- Sulfide2 %>%
+  group_by(Sample_ID_formatted) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+
+##Fix pH duplicates
+# df_duplicates_pH <- pH2 %>%
+#   group_by(Sample_ID_formatted) %>%
+#   filter(n() > 1) %>%
+#   ungroup()
 ##lots of duplicate pH rows removed - should do this in collated pH data
 # TMP_SW_SOURCEWATER_20230607_1255_15CM has two entries? One says taken with YSI, no temperature - removed 
 # TMP_FW_SOURCEWATER_20230607_1519_15CM has two entries? One has no temperature - removed
 # TMP_ESTUARY_SOURCEWATER_20230607_1500_15CM has two entries? One has no temperature - removed 
 
-##Fix DOC duplicates
-df_duplicates_DOC <- DOC %>%
-  group_by(Sample_ID) %>%
-  filter(n() > 1) %>%
-  ungroup()
+```
 
-##Fix Nutrient duplicates
-df_duplicates_Nutrients <- Nutrients %>%
-  group_by(Sample_ID) %>%
-  filter(n() > 1) %>%
-  ungroup()
-# 202300606 entered incorrectly, fixed 
-# TEMPEST spelled incorrectly, fixed 
-##TMP_C_C6_20230515 has zeroes for NOx in one run but not the other, the zero run was second though but doesn't say it was a dilution? 
 
-##Fix Sulfide duplicates
-df_duplicates_Sulfide <- Sulfide %>%
-  group_by(Sample_ID) %>%
-  filter(n() > 1) %>%
-  ungroup()
-unique(df_duplicates_Sulfide$Sample_ID)
+## Pull in active porewater tracking inventory sheet from Google Drive: 
+```{r rest of metadata, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+
+drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
 
 ```
 
 
-##Read in metadata and create similar sample IDs for matching to samples 
+## Create similar sample IDs for matching to samples 
 ```{r pull in metadata for later, include=FALSE}
 
-#read in the raw metadata files
-meta_2022 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2022.csv")
-meta_2023 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2023.csv")
-meta_2023_fixed <- meta_2023 %>%
-  mutate(
-    Transect.Location = case_when(
-      Year == "2023" & Site == "SWH" & Transect.Location == "Upland" ~ "SWAMP",
-      Year == "2023" & Site == "SWH" & Transect.Location == "UPCON" ~ "Upland",
-      TRUE ~ Transect.Location
-    )) 
+#Create IDs from what was collected for comparison later
+##Lysimeter
+raw_metadata_lys1 <- raw_metadata_lys %>%
+  mutate(Sample_ID = toupper (Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF1", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF2", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF3", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("2OF2", "T2", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("2OF3", "T2", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("3OF3", "T3", Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID))
 
-meta_2024 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2024.csv")
-meta_2025 <- read.csv("Sample Logs/COMPASS_TEMPEST_PW_SampleLog_2025.csv")
+raw_metadata_lys2 <- raw_metadata_lys1 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID) %>% 
+  distinct(Sample_ID_formatted, .keep_all = TRUE) %>% 
+  select(c("Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Notes", "Sample_ID_formatted"))
 
-raw_metadata <- bind_rows(meta_2022, meta_2023_fixed, meta_2024, meta_2025)
 
-#Create NUTR IDs from what was collected for comparison later
-metadata <- raw_metadata %>%
-  mutate(YearMonth = sprintf("%d%02d", Year, Month))  %>%
-  mutate(Zone = case_when(
-    `Transect.Location` == "Transition" ~ "TR",
-    `Transect.Location` == "Wetland"    ~ "WC",
-    `Transect.Location` == "Upland"     ~ "UP",   
-    `Transect.Location` == "Surface Water" ~ "SW",
-    TRUE                 ~ `Transect.Location`))  %>% # keep original value if no match
-  mutate(Sample_ID = paste0(Site, "_", YearMonth, "_", Zone, "_Lys", Lysimeter, "_", Depth_cm, "cm")) %>%
-  mutate(
-    Sample_ID = if_else(
-      Zone == "SW",
-      # Modify the string:
-      Sample_ID %>%
-        str_replace("_LysA", "_A") %>%                    # Replace "_LysA" with "_A"
-        str_replace("_LysB", "_B") %>%                    # Replace "_LysB" with "_B"
-        str_replace("_LysC", "_C") %>%                    # Replace "_LysC" with "_C"
-        str_replace("_0cm$", ""),                         # Remove trailing "_0cm"
-      Sample_ID))  # else keep original
+##Source Water
+raw_metadata_sw1 <- raw_metadata_sw %>%
+  mutate(Sample_ID = toupper (Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF1", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF2", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("1OF3", "T1", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("2OF2", "T2", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("2OF3", "T2", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("3OF3", "T3", Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID))
 
-#Take out the columns and rows that are not relevant
-colnames(metadata)
-metadata_sel <- metadata %>%
-  rename(Sampling_Time = Time..24hr., 
-         Sampling_Time_Zone = Time.Zone_EDT.EST, 
-         Field_Notes = Field.Notes) %>% 
-  select(Sample_ID, Year, Month, Day, Site, Zone, Lysimeter, Depth_cm, Sampling_Time, Sampling_Time_Zone, Field_Notes)       
+raw_metadata_sw2 <- raw_metadata_sw1 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|RAINWATER'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID) %>% 
+  distinct(Sample_ID_formatted, .keep_all = TRUE) %>% 
+  select(c("Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs" , "Collection_Date_YYYYMMDD", "Collection_Time_24hrs",  "EST_EDT", "Notes", "Sample_ID_formatted"))
 
+
+##Combine lys and sw data
+metadata <- bind_rows(raw_metadata_lys2, raw_metadata_sw2)
 
 ##Merge sample data with metadata
-merged_df$Sample_ID <- toupper(merged_df$Sample_ID)
-metadata_sel$Sample_ID <- toupper(metadata_sel$Sample_ID)
+merged_df$Sample_ID_formatted <- toupper(merged_df$Sample_ID_formatted)
+metadata$Sample_ID_formatted <- toupper(metadata$Sample_ID_formatted)
 
 
 final_data <- merged_df %>%
-  left_join(metadata_sel, by = c("Sample_ID"))
+  left_join(metadata, by = c("Sample_ID_formatted"))
+
+
+final_data_dup <- final_data %>%
+  group_by(Sample_ID_formatted) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
 
 ```
 
@@ -287,15 +353,30 @@ final_data <- merged_df %>%
 ```{r, echo=FALSE}
 
 ##Order data by Year, Month, Day
-final_data1 <- final_data[order(final_data$Year, final_data$Month, final_data$Day, final_data$Zone, final_data$Lysimeter, final_data$Depth_cm),]
+# final_data1 <- final_data[order(final_data$Year, final_data$Month, final_data$Day, final_data$Zone, final_data$Lysimeter, final_data$Depth_cm),]
 
-colnames(final_data1)
-final_data1 <- final_data1 %>% 
-  select(c("Project", "Region", "Sample_ID", "Year", "Month", "Day", "Site", "Zone", "Lysimeter", "Depth_cm", "Sampling_Time", "Sampling_Time_Zone", "Field_Notes", 
-           "ic_mgL", "ic_uM", "ic_flag", "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 
-           "NOx_mgL", "NOx_uM", "NOx_Conc_Flag", "NH3_mgL", "NH3_uM", "NH3_Conc_Flag", "PO4_mgL", "PO4_uM", "PO4_Conc_Flag", 
-           "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity", 
-           "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_Conc_flag", "H2S_cv_flag"))
+colnames(final_data)
+
+final_data1 <- final_data %>% 
+  mutate(Project = "COMPASS", 
+         Region = "CB", 
+         Site = "TEMPEST", 
+         Depth_cm = gsub("CM", "", Depth)) %>% 
+  rename(Sample_ID = Sample_ID_formatted, 
+         NOx_flag = NOx_Conc_Flag, 
+         NH3_flag = NH3_Conc_Flag, 
+         PO4_flag = PO4_Conc_Flag, 
+         SO4_flag = SO4_Conc_flag, 
+         Cl_flag = Cl_Conc_flag, 
+         H2S_flag = H2S_Conc_flag
+         ) %>% 
+  select(c("Project", "Region", "Site", "Sample_ID", "Plot", "Grid", "Date", "Depth_cm", "T_num", "TOD", "Sample_Type", 
+           "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", 
+           "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs" , "Collection_Time_24hrs", "EST_EDT", "Notes", 
+           "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 
+           "NOx_mgL", "NOx_uM", "NOx_flag", "NH3_mgL", "NH3_uM", "NH3_flag", "PO4_mgL", "PO4_uM", "PO4_flag", 
+           "SO4_ppm", "SO4_mM", "SO4_flag", "Cl_ppm", "Cl_mM", "Cl_flag", "salinity", 
+           "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_flag"))
 
 
 write.csv(final_data1, "COMPASS_TEMPEST_AllData_AllYears.csv", row.names = FALSE)
