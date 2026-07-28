@@ -1,731 +1,733 @@
 "","Project","Sample_ID","Number_on_vial","Volume_mL","Collection_Date_YYYYMMDD","Evacuation_date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","H2S_Conc_uM","H2S_Conc_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
-"1","TEMPEST","TMP_C_PW_F4_30cm_SO4_20260604_Pre","2",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"1","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_AM","141",5,20260610,20260610,1046,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-07-24,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"2","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260604_Pre","10",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"2","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260610_D4_AM","141A",5,20260610,20260610,946,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-07-24,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"3","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260604_Pre","16",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"3","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_PM","117",5,20260609,20260609,1346,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"4","TEMPEST","TMP_C_PW_F4_50cm_SO4_20260604_Pre","3",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"4","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_PM","125",5,20260609,20260609,1500,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"5","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260604_Pre","11",NA,NA,NA,NA,NA,NA,0.843636363636364,0.539972451087909,64.00535519361,"Within_Range","CV_High","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"5","TEMPEST","TMP_SW_RO_SO4_20260609_D3_Macropore","131",5,20260609,NA,1415,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,"sampled macropore ~1m deep","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"6","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260604_Pre","17",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"6","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_PM","118",5,20260609,20260609,1401,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"7","TEMPEST","TMP_C_PW_H3_30cm_SO4_20260604_Pre","4",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"7","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_PM","126",5,20260609,20260609,1504,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"8","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260604_Pre","12",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"8","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T2","132",5,20260609,NA,1640,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,"pH, Cond, Temp measured by AquaTROLL","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"9","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260604_Pre","18",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"9","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_PM","119",5,20260609,20260609,1429,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"10","TEMPEST","TMP_C_PW_H6_30cm_SO4_20260604_Pre","5",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"10","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_PM","127",5,20260609,20260609,1511,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"11","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260604_Pre","13",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"11","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T2","133",5,20260609,NA,1655,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,"pH, Cond, Temp taken with AquaTROLL","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"12","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260604_Pre","19",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"12","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_PM","120",5,20260609,20260609,1437,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"13","TEMPEST","TMP_C_PW_H6_50cm_SO4_20260604_Pre","6",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"13","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260609_D3_PM","128",5,20260609,20260609,1410,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"14","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260604_Pre","14",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"14","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_AM","134",5,20260610,20260610,1015,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"15","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260604_Pre","20",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"15","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_PM","121",5,20260609,20260609,1447,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"16","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260604_Pre","7",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"16","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_PM","129",5,20260609,NA,NA,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,"pH, cond, temp from proDSS","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"17","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260604_Pre","21",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"17","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_AM","135",5,20260610,20260610,953,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"18","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260604_Pre","8",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"18","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_PM","122",5,20260609,20260609,1535,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"19","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260604_Pre","15",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"19","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260610_D4_AM","136",5,20260610,20260610,958,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"20","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260604_Pre","22",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"20","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_PM","123",5,20260609,20260609,1539,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"21","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260604_Pre","1",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"21","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_PM","130",5,20260609,NA,NA,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,"pH, cond, temp from ProDSS","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"22","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260604_Pre","9",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"22","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_AM","137",5,20260610,20260610,1004,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"23","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260607_D1_PM","23",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"23","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_PM","116",5,20260609,20260609,1349,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"24","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T2","209",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"24","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_PM","124",5,20260609,20260609,1550,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"25","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_AM","217",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"25","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260610_D4_AM","138",5,20260610,20260610,1022,NA,"EDT",NA,NA,NA,"bdl",NA,NA,1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"26","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_AM","223",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"26","TEMPEST","TMP_C_PW_F4_30cm_SO4_20260604_Pre","2",5,20260604,20260604,1256,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"27","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_AM","210",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"27","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260604_Pre","10",5,20260604,20260604,1128,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"28","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_AM","218",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"28","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260604_Pre","16",5,20260604,20260604,1007,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"29","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_AM","224",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"29","TEMPEST","TMP_C_PW_F4_50cm_SO4_20260604_Pre","3",5,20260604,20260604,1303,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"30","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_AM","211",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"30","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260604_Pre","11",5,20260604,20260604,1207,NA,"EDT",1.01272984441301,0.54008155847346,53.329282379991,"Within_Range","CV_High","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"31","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_AM","219",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"31","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260604_Pre","17",5,20260604,20260604,1014,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"32","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_AM","225",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"32","TEMPEST","TMP_C_PW_H3_30cm_SO4_20260604_Pre","4",5,20260604,20260604,1306,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"33","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_AM","212",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"33","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260604_Pre","12",5,20260604,20260604,1144,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"34","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_AM","220",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"34","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260604_Pre","18",5,20260604,20260604,1018,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"35","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_AM","226",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"35","TEMPEST","TMP_C_PW_H6_30cm_SO4_20260604_Pre","5",5,20260604,20260604,1324,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"36","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_AM","213",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"36","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260604_Pre","13",5,20260604,20260604,1151,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"37","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_AM","221",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"37","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260604_Pre","19",5,20260604,20260604,933,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"38","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_AM","227",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"38","TEMPEST","TMP_C_PW_H6_50cm_SO4_20260604_Pre","6",5,20260604,20260604,1328,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"39","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_AM","214",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"39","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260604_Pre","14",5,20260604,20260604,948,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"40","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_AM","228",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"40","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260604_Pre","20",5,20260604,20260604,940,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"41","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_AM","215",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"41","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260604_Pre","7",5,20260604,20260604,1056,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"42","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260611_D5_AM","222",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"42","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260604_Pre","21",5,20260604,20260604,914,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"43","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_AM","229",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"43","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260604_Pre","8",5,20260604,20260604,1028,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"44","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T2","208",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"44","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260604_Pre","15",5,20260604,20260604,1003,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"45","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_AM","216",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"45","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260604_Pre","22",5,20260604,20260604,918,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"46","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_AM","230",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"46","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260604_Pre","1",6,20260604,20260604,1227,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"47","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_AM","232",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"47","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260604_Pre","9",5,20260604,20260604,1124,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"48","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_AM","240",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"48","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260607_D1_PM","23",5,20260607,20260607,1534,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"49","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_AM","246",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"49","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T2","209",5,20260610,NA,1605,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"50","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_AM","233",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"50","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_AM","217",5,20260611,20260611,1048,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"51","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_AM","241",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"51","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_AM","223",5,20260611,20260611,823,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"52","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_AM","247",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"52","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_AM","210",5,20260611,20260611,1011,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"53","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_AM","234",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"53","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_AM","218",5,20260611,20260611,939,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"54","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_AM","242",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"54","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_AM","224",5,20260611,20260611,828,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"55","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_AM","248",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"55","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_AM","211",5,20260611,20260611,945,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"56","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_AM","235",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"56","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_AM","219",5,20260611,20260611,916,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"57","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_AM","243",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"57","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_AM","225",5,20260611,20260611,837,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"58","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_AM","249",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"58","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_AM","212",5,20260611,20260611,949,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"59","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_AM","236",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"59","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_AM","220",5,20260611,20260611,923,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"60","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_AM","244",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"60","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_AM","226",5,20260611,20260611,847,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"61","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_AM","250",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"61","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_AM","213",5,20260611,20260611,954,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"62","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_AM","237",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"62","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_AM","221",5,20260611,20260611,929,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"63","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_LT","251",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"63","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_AM","227",5,20260611,20260611,850,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"64","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_AM","238",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"64","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_AM","214",5,20260611,20260611,1026,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"65","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_AM","245",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"65","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_AM","228",5,20260611,20260611,857,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"66","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T1","252",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"66","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_AM","215",5,20260611,20260611,1030,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"67","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_AM","231",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"67","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260611_D5_AM","222",5,20260611,20260611,913,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"68","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_AM","239",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"68","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_AM","229",5,20260611,20260611,818,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"69","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T1","253",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"69","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T2","208",5,20260610,NA,1613,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"70","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_PM","255",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"70","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_AM","216",5,20260611,20260611,1038,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"71","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_PM","263",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"71","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_AM","230",5,20260611,20260611,1118,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"72","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_PM","269",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"72","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_AM","232",5,20260611,20260611,816,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"73","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_PM","256",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"73","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_AM","240",5,20260611,20260611,945,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"74","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_PM","264",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"74","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_AM","246",5,20260611,20260611,1052,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"75","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_PM","270",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"75","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_AM","233",5,20260611,20260611,828,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"76","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_PM","257",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"76","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_AM","241",5,20260611,20260611,959,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"77","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_PM","265",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"77","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_AM","247",5,20260611,20260611,1102,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"78","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_PM","271",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"78","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_AM","234",5,20260611,20260611,851,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"79","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_PM","258",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"79","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_AM","242",5,20260611,20260611,1016,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"80","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_PM","266",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"80","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_AM","248",5,20260611,20260611,1159,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"81","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_PM","272",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"81","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_AM","235",5,20260611,20260611,901,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"82","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_PM","259",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"82","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_AM","243",5,20260611,20260611,1023,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"83","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_PM","267",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"83","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_AM","249",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"84","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_PM","273",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"84","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_AM","236",5,20260611,20260611,912,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"85","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_PM","260",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"85","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_AM","244",5,20260611,20260611,1034,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"86","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_PM","274",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"86","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_AM","250",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"87","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_PM","261",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"87","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_AM","237",5,20260611,20260611,1130,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"88","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_PM","268",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"88","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_LT","251",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,"Low Tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"89","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_PM","275",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"89","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_AM","238",5,20260611,20260611,1143,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"90","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260611_D5_PM","254",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"90","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_AM","245",5,20260611,20260611,1046,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"91","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_PM","262",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"91","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T1","252",5,20260611,NA,1003,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"92","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_PM","276",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"92","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_AM","231",5,20260611,20260611,811,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"93","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_PM","278",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"93","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_AM","239",5,20260611,20260611,936,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"94","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260611_D5_PM","286",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"94","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T1","253",5,20260611,NA,1017,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,"AM","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"95","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_PM","292",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"95","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260611_D5_PM","255",5,20260611,20260611,1518,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"96","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_PM","279",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"96","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260611_D5_PM","263",5,20260611,20260611,1445,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"97","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_PM","287",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"97","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260611_D5_PM","269",5,20260611,20260611,1337,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"98","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_PM","293",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"98","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260611_D5_PM","256",5,20260611,20260611,1453,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"99","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_PM","280",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"99","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260611_D5_PM","264",5,20260611,20260611,1406,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"100","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_PM","288",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"100","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260611_D5_PM","270",5,20260611,20260611,1344,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"101","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_PM","294",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"101","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260611_D5_PM","257",5,20260611,20260611,1503,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"102","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_PM","281",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"102","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260611_D5_PM","265",5,20260611,20260611,1416,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"103","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_PM","289",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"103","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260611_D5_PM","271",5,20260611,20260611,1348,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"104","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_PM","295",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"104","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260611_D5_PM","258",5,20260611,20260611,1508,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"105","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_PM","282",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"105","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260611_D5_PM","266",5,20260611,20260611,1418,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"106","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_PM","290",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"106","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260611_D5_PM","272",5,20260611,20260611,1352,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"107","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_HT","296",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"107","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260611_D5_PM","259",5,20260611,20260611,1526,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"108","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_PM","283",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"108","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260611_D5_PM","267",5,20260611,20260611,1324,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"109","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T2","297",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"109","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260611_D5_PM","273",5,20260611,20260611,1315,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"110","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_PM","284",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"110","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260611_D5_PM","260",5,20260611,20260611,1532,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"111","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_PM","291",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"111","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260611_D5_PM","274",5,20260611,20260611,1609,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"112","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T2","298",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"112","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260611_D5_PM","261",5,20260611,20260611,1536,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"113","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_PM","277",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"113","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260611_D5_PM","268",5,20260611,20260611,1334,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"114","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_PM","285",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"114","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260611_D5_PM","275",5,20260611,20260611,1302,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"115","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260612_D6_PM","299",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"115","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260611_D5_PM","254",5,20260611,20260611,1457,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,"Cloudy","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"116","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260612_D6_PM","301",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"116","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260611_D5_PM","262",5,20260611,20260611,1548,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"117","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260612_D6_PM","309",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"117","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260611_D5_PM","276",5,20260611,20260611,1308,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"118","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260612_D6_PM","315",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"118","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260611_D5_PM","278",5,20260611,20260611,1416,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"119","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260612_D6_PM","302",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"119","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260611_D5_PM","286",5,20260611,20260611,1604,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"120","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260612_D6_PM","310",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"120","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260611_D5_PM","292",5,20260611,20260611,1543,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"121","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260612_D6_PM","316",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"121","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260611_D5_PM","279",5,20260611,20260611,1425,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"122","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260612_D6_PM","303",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"122","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260611_D5_PM","287",5,20260611,20260611,1454,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"123","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260612_D6_PM","311",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"123","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260611_D5_PM","293",5,20260611,20260611,1554,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"124","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260612_D6_PM","317",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"124","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260611_D5_PM","280",5,20260611,20260611,1430,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"125","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260612_D6_PM","304",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"125","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260611_D5_PM","288",5,20260611,20260611,1500,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"126","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260612_D6_PM","312",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"126","TEMPEST","TMP_SW_SCE_SO4_20260611_D5_PM","294",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"127","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260612_D6_PM","318",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"127","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260611_D5_PM","281",5,20260611,20260611,1610,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"128","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260612_D6_PM","305",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"128","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260611_D5_PM","289",5,20260611,20260611,1511,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"129","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260612_D6_PM","313",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"129","TEMPEST","TMP_FW_SCE_SO4_20260611_D5_PM","295",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"130","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260612_D6_PM","319",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"130","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260611_D5_PM","282",5,20260611,20260611,1619,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"131","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260612_D6_PM","306",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"131","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260611_D5_PM","290",5,20260611,20260611,1532,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"132","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260612_D6_PM","320",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"132","TEMPEST","TMP_EST_SCE_SO4_20260611_D5_HT","296",5,20260611,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,"High Tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"133","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260612_D6_PM","308",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"133","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260611_D5_PM","283",5,20260611,20260611,1346,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"134","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260612_D6_PM","314",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"134","TEMPEST","TMP_SW_RO_SO4_20260611_D5_T2","297",5,20260611,NA,1610,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"135","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260612_D6_PM","321",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"135","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260611_D5_PM","284",5,20260611,20260611,1356,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"136","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260612_D6_PM","300",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"136","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260611_D5_PM","291",5,20260611,20260611,1537,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"137","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260612_D6_PM","307",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"137","TEMPEST","TMP_FW_RO_SO4_20260611_D5_T2","298",5,20260611,NA,1612,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,"PM","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"138","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260612_D6_PM","322",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"138","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260611_D5_PM","277",5,20260611,20260611,1318,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"139","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260612_D6_PM","324",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"139","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260611_D5_PM","285",5,20260611,20260611,1405,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"140","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260612_D6_PM","332",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"140","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260612_D6_PM","299",5,20260612,20260612,1520,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"141","TEMPEST",NA,"338",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"141","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260612_D6_PM","301",5,20260612,20260612,1512,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"142","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260612_D6_PM","325",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"142","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260612_D6_PM","309",5,20260612,20260612,1440,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"143","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260612_D6_PM","333",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"143","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260612_D6_PM","315",5,20260612,20260612,1359,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"144","TEMPEST",NA,"339",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"144","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260612_D6_PM","302",5,20260612,20260612,1531,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"145","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260612_D6_PM","326",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"145","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260612_D6_PM","310",5,20260612,20260612,1416,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"146","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260612_D6_PM","334",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"146","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260612_D6_PM","316",5,20260612,20260612,1406,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"147","TEMPEST",NA,"340",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"147","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260612_D6_PM","303",5,20260612,20260612,1538,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"148","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260612_D6_PM","327",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"148","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260612_D6_PM","311",5,20260612,20260612,1326,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"149","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260612_D6_PM","335",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"149","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260612_D6_PM","317",5,20260612,20260612,1315,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"150","TEMPEST",NA,"341",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"150","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260612_D6_PM","304",5,20260612,20260612,1544,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"151","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260612_D6_PM","328",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"151","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260612_D6_PM","312",5,20260612,20260612,1336,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"152","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260612_D6_PM","336",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"152","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260612_D6_PM","318",5,20260612,20260612,1609,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"153","TEMPEST",NA,"342",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"153","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260612_D6_PM","305",5,20260612,20260612,1550,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"154","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260612_D6_PM","329",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"154","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260612_D6_PM","313",5,20260612,20260612,1343,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"155","TEMPEST",NA,"343",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"155","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260612_D6_PM","319",5,20260612,20260612,1311,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,"cloudy with large particles; water came up when pumped; cleared more water before reset","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"156","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260612_D6_PM","330",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"156","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260612_D6_PM","306",5,20260612,20260612,1457,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"157","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260612_D6_PM","337",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"157","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260612_D6_PM","320",5,20260612,20260612,1316,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"158","TEMPEST",NA,"344",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"158","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260612_D6_PM","308",5,20260612,20260612,1429,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"159","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260612_D6_PM","323",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"159","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260612_D6_PM","314",5,20260612,20260612,1355,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"160","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260612_D6_PM","331",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"160","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260612_D6_PM","321",5,20260612,20260612,1324,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"161","TEMPEST",NA,"345",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"161","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260612_D6_PM","300",5,20260612,20260612,1502,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"162","TEMPEST",NA,"347",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"162","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260612_D6_PM","307",5,20260612,20260612,1424,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"163","TEMPEST",NA,"355",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"163","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260612_D6_PM","322",5,20260612,20260612,1400,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,MC: 10ppt S5 Chk_Bad,R2_Bad,STDCV_High",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"164","TEMPEST",NA,"361",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"164","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260612_D6_PM","324",5,20260612,20260612,1417,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"165","TEMPEST",NA,"348",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"165","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260612_D6_PM","332",5,20260612,20260612,1520,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"166","TEMPEST",NA,"356",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"166","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260615_Post","338",5,20260615,20260615,1519,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"167","TEMPEST",NA,"362",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"167","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260612_D6_PM","325",5,20260612,20260612,1623,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"168","TEMPEST",NA,"349",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"168","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260612_D6_PM","333",5,20260612,20260612,1528,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"169","TEMPEST",NA,"357",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"169","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260615_Post","339",5,20260615,20260615,1420,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"170","TEMPEST",NA,"363",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"170","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260612_D6_PM","326",5,20260612,20260612,1615,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"171","TEMPEST",NA,"350",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"171","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260612_D6_PM","334",5,20260612,20260612,1540,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"172","TEMPEST",NA,"358",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"172","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260615_Post","340",5,20260615,20260615,1433,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"173","TEMPEST",NA,"364",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"173","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260612_D6_PM","327",5,20260612,20260612,1438,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"174","TEMPEST",NA,"351",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"174","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260612_D6_PM","335",5,20260612,20260612,1545,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"175","TEMPEST",NA,"359",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"175","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260615_Post","341",5,20260615,20260615,1449,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"176","TEMPEST",NA,"365",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"176","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260612_D6_PM","328",5,20260612,20260612,1448,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,"likely more water; did not get everything before pumping","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"177","TEMPEST",NA,"352",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"177","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260612_D6_PM","336",5,20260612,20260612,1552,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"178","TEMPEST",NA,"353",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"178","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260615_Post","342",5,20260615,20260615,1405,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"179","TEMPEST",NA,"360",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"179","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260612_D6_PM","329",5,20260612,20260612,1455,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"180","TEMPEST",NA,"346",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"180","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260615_Post","343",5,20260615,20260615,1413,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"181","TEMPEST",NA,"354",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
+"181","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260612_D6_PM","330",5,20260612,20260612,1611,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"182","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260607_D1_PM","25",NA,NA,NA,NA,NA,NA,0.970909090909091,0.119993878019535,12.3589200207387,"Within_Range","CV_High","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"182","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260612_D6_PM","337",5,20260612,20260612,1600,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"183","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260608_D2_PM","33",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"183","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260615_Post","344",5,20260615,20260615,1334,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"184","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260608_D2_PM","39",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"184","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260612_D6_PM","323",5,20260612,20260612,1409,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"185","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260607_D1_PM","26",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"185","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260612_D6_PM","331",5,20260612,20260612,1516,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"186","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260608_D2_PM","34",NA,NA,NA,NA,NA,NA,0,0,0,"Within_Range","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"186","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260615_Post","345",5,20260615,20260615,1345,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"187","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260608_D2_PM","40",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"187","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260615_Post","347",5,20260615,20260615,1310,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"188","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260607_D1_PM","27",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"188","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260615_Post","355",5,20260615,20260615,955,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"189","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260608_D2_PM","35",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"189","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260615_Post","361",5,20260615,20260615,843,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"190","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260608_D2_PM","41",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"190","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260615_Post","348",5,20260615,20260615,1322,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"191","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260607_D1_PM","28",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"191","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260615_Post","356",5,20260615,20260615,1009,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"192","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260608_D2_PM","36",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"192","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260615_Post","362",5,20260615,20260615,849,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"193","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260608_D2_PM","42",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"193","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260615_Post","349",5,20260615,20260615,1244,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"194","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_AM","29",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"194","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260615_Post","357",5,20260615,20260615,1101,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"195","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260608_D2_PM","37",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"195","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260615_Post","363",5,20260615,20260615,926,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"196","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260608_D2_PM","43",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"196","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260615_Post","350",5,20260615,20260615,1252,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"197","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_AM","30",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"197","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260615_Post","358",5,20260615,20260615,1112,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"198","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260608_D2_PM","44",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"198","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260615_Post","364",5,20260615,20260615,930,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"199","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T1","31",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"199","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260615_Post","351",5,20260615,20260615,1302,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"200","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260608_D2_PM","38",NA,NA,NA,NA,NA,NA,1.73454545454545,0.119993878019535,6.91788604934429,"Within_Range","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"200","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260615_Post","359",5,20260615,20260615,859,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"201","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260608_D2_PM","45",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"201","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260615_Post","365",5,20260615,20260615,8031,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"202","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260607_D1_PM","24",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"202","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260615_Post","352",5,20260615,20260615,1121,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"203","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260608_D2_PM","32",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"203","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260615_Post","353",5,20260615,20260615,1131,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"204","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260608_D2_PM","46",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"204","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260615_Post","360",5,20260615,20260615,913,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"205","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260608_D2_PM","48",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"205","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260615_Post","346",5,20260615,20260615,1306,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"206","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_HT","56",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"206","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260615_Post","354",5,20260615,20260615,943,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-17,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"207","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260609_D3_AM","62",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"207","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260607_D1_PM","25",5,20260607,20260607,1430,NA,"EDT",1.14002828854314,0.120018124105213,10.5276443849114,"Within_Range","CV_High","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"208","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260608_D2_PM","49",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"208","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260608_D2_PM","33",5,20260608,20260608,1449,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"209","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T2","57",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"209","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260608_D2_PM","39",5,20260608,20260608,1344,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"210","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_AM","63",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"210","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260607_D1_PM","26",5,20260607,20260607,1408,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"211","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260608_D2_PM","50",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"211","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260608_D2_PM","34",5,20260608,20260608,1408,NA,"EDT",0.588401697312589,0.660099682578672,112.185210476712,"Within_Range","CV_High","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"212","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_AM","58",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"212","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260608_D2_PM","40",5,20260608,20260608,1349,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"213","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_AM","64",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"213","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260607_D1_PM","27",5,20260607,20260607,1436,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"214","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260608_D2_PM","51",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"214","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260608_D2_PM","35",5,20260608,20260608,1415,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"215","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260609_D3_AM","59",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"215","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260608_D2_PM","41",5,20260608,20260608,1604,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"216","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_AM","65",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"216","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260607_D1_PM","28",5,20260607,20260607,1340,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"217","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260608_D2_PM","52",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"217","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260608_D2_PM","36",5,20260608,20260608,1317,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"218","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_AM","60",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"218","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260608_D2_PM","42",5,20260608,20260608,1612,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"219","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_AM","66",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"219","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_AM","29",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"pH from ProDSS, Sal = 9.19 PSU","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"220","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_PM","53",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"220","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260608_D2_PM","37",5,20260608,20260608,1325,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"221","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_AM","67",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"221","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260608_D2_PM","43",5,20260608,20260608,1512,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"222","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_PM","54",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"222","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_AM","30",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"223","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_AM","61",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"223","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260608_D2_PM","44",5,20260608,20260608,1524,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"224","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260609_D3_AM","68",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"224","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T1","31",5,20260608,NA,1229,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"5cm 1249 flume; 5cm 1300 flume, water run off start complicated by sump pump failure (bucket). Was dry at 11am, wetted somwhere around 11:30-12pm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"225","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260608_D2_PM","47",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"225","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260608_D2_PM","38",5,20260608,20260608,1304,NA,"EDT",1.9038189533239,0.120018124105213,6.30407234341647,"Within_Range","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"226","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_LT","55",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"226","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260608_D2_PM","45",5,20260608,20260608,1535,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"227","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_AM","69",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"227","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260607_D1_PM","24",5,20260607,20260607,1453,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"228","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_AM","71",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"228","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260608_D2_PM","32",5,20260608,20260608,1322,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"229","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_AM","79",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"229","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260608_D2_PM","46",5,20260608,20260608,1548,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"230","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_AM","85",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"230","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260608_D2_PM","48",5,20260608,20260608,1444,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"231","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_AM","72",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"231","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_HT","56",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"high tide @ 1700; Used ProDSS YSI for the pH, Cond, Temp","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"232","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_AM","80",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"232","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260609_D3_AM","62",5,20260609,20260609,1034,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"233","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_AM","86",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"233","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260608_D2_PM","49",5,20260608,20260608,1320,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"234","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_AM","73",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"234","TEMPEST","TMP_SW_RO_SO4_20260608_D2_T2","57",5,20260608,NA,1631,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"235","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_AM","81",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"235","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_AM","63",5,20260609,20260609,1040,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"cloudy","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"236","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_AM","87",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"236","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260608_D2_PM","50",5,20260608,20260608,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"237","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_AM","74",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"237","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_AM","58",5,20260609,20260609,1026,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"slight color, hard to filter","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"238","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_AM","82",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"238","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_AM","64",5,20260609,20260609,1046,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"cloudy","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"239","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_AM","88",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"239","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260608_D2_PM","51",5,20260608,20260608,1349,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"240","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_AM","75",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"240","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260609_D3_AM","59",5,20260609,20260609,936,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"241","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_AM","83",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"241","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_AM","65",5,20260609,20260609,1104,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"242","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_AM","89",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"242","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260608_D2_PM","52",5,20260608,20260608,1359,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"243","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_AM","76",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"243","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_AM","60",5,20260609,20260609,940,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"particulates/dirt","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"244","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_AM","90",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"244","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_AM","66",5,20260609,20260609,903,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"245","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_AM","77",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"245","TEMPEST","TMP_SW_SCE_SO4_20260608_D2_PM","53",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"246","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_AM","84",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"246","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_AM","67",5,20260609,20260609,914,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"247","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_AM","91",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"247","TEMPEST","TMP_FW_SCE_SO4_20260608_D2_PM","54",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"248","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260609_D3_AM","70",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"248","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_AM","61",5,20260609,20260609,947,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"249","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_AM","78",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"249","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260609_D3_AM","68",5,20260609,20260609,853,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"250","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_LT","92",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"250","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260608_D2_PM","47",5,20260608,20260608,1434,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"251","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T1","94",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"251","TEMPEST","TMP_EST_SCE_SO4_20260608_D2_LT","55",5,20260608,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"low tide @ 1044; Used ProDSS YSI for the pH, Cond, Temp","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"252","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260609_D3_PM","102",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"252","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_AM","69",5,20260609,20260609,822,NA,"EDT",0.0367751060820374,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"253","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_PM","108",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"253","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_AM","71",5,20260609,20260609,844,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"254","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T1","95",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"254","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_AM","79",5,20260609,20260609,927,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"255","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260609_D3_PM","103",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"255","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_AM","85",5,20260609,20260609,1056,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"256","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260609_D3_PM","109",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"256","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_AM","72",5,20260609,20260609,814,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"257","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_PM","96",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"257","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_AM","80",5,20260609,20260609,936,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"258","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_PM","104",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"258","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_AM","86",5,20260609,20260609,1106,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"259","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_PM","110",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"259","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_AM","73",5,20260609,20260609,854,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"260","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_PM","97",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"260","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_AM","81",5,20260609,20260609,955,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"261","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_PM","105",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"261","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_AM","87",5,20260609,20260609,1115,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"262","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_PM","111",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"262","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_AM","74",5,20260609,20260609,859,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"263","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_PM","98",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"263","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_AM","82",5,20260609,20260609,959,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"264","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260609_D3_PM","106",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"264","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_AM","88",5,20260609,20260609,1120,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"265","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_PM","112",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"265","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_AM","75",5,20260609,20260609,910,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"266","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_PM","99",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"266","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_AM","83",5,20260609,20260609,1015,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"267","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_PM","113",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"267","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_AM","89",5,20260609,20260609,1127,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"268","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_PM","100",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"268","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_AM","76",5,20260609,20260609,812,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"269","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_PM","107",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"269","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_AM","90",5,20260609,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"pH, cond, temp from proDSS","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"270","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_PM","114",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"270","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_AM","77",5,20260609,20260609,827,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"271","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_HT","93",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"271","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_AM","84",5,20260609,20260609,1048,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"272","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_PM","101",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"272","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_AM","91",5,20260609,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"pH, cond, temp from ProDSS resampled the SO4 because first one put in too much volume","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"273","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_PM","115",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"273","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260609_D3_AM","70",5,20260609,20260609,832,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"274","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260609_D3_PM","117",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"274","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_AM","78",5,20260609,20260609,836,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"275","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260609_D3_PM","125",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"275","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_LT","92",5,20260609,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"low tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"276","TEMPEST","TMP_SW_RO_SO4_20260609_D3-Macropore","131",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"276","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T1","94",5,20260609,NA,905,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"pH, Cond, Temp measured by AquaTROLL","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"277","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260609_D3_PM","118",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"277","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260609_D3_PM","102",5,20260609,20260609,1427,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"278","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260609_D3_PM","126",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"278","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260609_D3_PM","108",5,20260609,20260609,1557,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"279","TEMPEST","TMP_SW_RO_SO4_20260609_D3_T2","132",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"279","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T1","95",5,20260609,NA,920,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"pH, Cond, Temp taken with AquaTROLL","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"280","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260609_D3_PM","119",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"280","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260609_D3_PM","103",5,20260609,20260609,1408,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"281","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260609_D3_PM","127",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"281","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260609_D3_PM","109",5,20260609,20260609,1601,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"282","TEMPEST","TMP_FW_RO_SO4_20260609_D3_T2","133",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"282","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260609_D3_PM","96",5,20260609,20260609,1507,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"283","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260609_D3_PM","120",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"283","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260609_D3_PM","104",5,20260609,20260609,1412,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"284","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260609_D3_PM","128",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"284","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260609_D3_PM","110",5,20260609,20260609,1345,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"285","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_AM","134",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"285","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260609_D3_PM","97",5,20260609,20260609,1444,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"286","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260609_D3_PM","121",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"286","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260609_D3_PM","105",5,20260609,20260609,1422,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"287","TEMPEST","TMP_SW_SCE_SO4_20260609_D3_PM","129",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"287","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260609_D3_PM","111",5,20260609,20260609,1359,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"288","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_AM","135",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"288","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260609_D3_PM","98",5,20260609,20260609,1447,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"289","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260609_D3_PM","122",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"289","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260609_D3_PM","106",5,20260609,20260609,1351,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"290","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260610_D4_AM","136",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"290","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260609_D3_PM","112",5,20260609,20260609,1404,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"291","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260609_D3_PM","123",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"291","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260609_D3_PM","99",5,20260609,20260609,1523,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"292","TEMPEST","TMP_FW_SCE_SO4_20260609_D3_PM","130",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"292","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260609_D3_PM","113",5,20260609,20260609,1412,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"293","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_AM","137",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"293","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260609_D3_PM","100",5,20260609,20260609,1530,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"294","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260609_D3_PM","116",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"294","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260609_D3_PM","107",5,20260609,20260609,1356,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"295","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260609_D3_PM","124",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"295","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260609_D3_PM","114",5,20260609,20260609,1333,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"296","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260610_D4_AM","138",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"296","TEMPEST","TMP_EST_SCE_SO4_20260609_D3_HT","93",5,20260609,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,"high tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"297","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_AM","140",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"297","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260609_D3_PM","101",5,20260609,20260609,1539,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"298","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260610_D4_AM","148",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"298","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260609_D3_PM","115",5,20260609,20260609,1339,NA,"EDT",0,0,0,"bdl","CV_Good","MC: 10ppt S5 Chk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"299","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_AM","154",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"299","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_AM","140",5,20260610,20260610,1033,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"300","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_AM","141",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"300","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260610_D4_AM","148",5,20260610,20260610,841,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"301","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_AM","149",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"301","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_AM","154",5,20260610,20260610,838,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"302","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_AM","155",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"302","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_AM","149",5,20260610,20260610,847,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"303","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_AM","142",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"303","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_AM","155",5,20260610,20260610,845,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"304","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260610_D4_AM","150",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"304","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_AM","142",5,20260610,20260610,904,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"305","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_AM","156",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"305","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260610_D4_AM","150",5,20260610,20260610,803,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"306","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260610_D4_AM","143",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"306","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_AM","156",5,20260610,20260610,857,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"307","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_AM","151",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"307","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260610_D4_AM","143",5,20260610,20260610,911,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"308","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_AM","157",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"308","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_AM","151",5,20260610,20260610,800,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"309","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_AM","144",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"309","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_AM","157",5,20260610,20260610,1004,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"310","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_AM","152",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"310","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_AM","144",5,20260610,20260610,919,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"311","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260610_D4_AM","158",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"311","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_AM","152",5,20260610,20260610,808,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"312","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260610_D4_AM","145",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"312","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260610_D4_AM","158",5,20260610,20260610,1033,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"313","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_AM","159",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"313","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260610_D4_AM","145",5,20260610,20260610,859,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"314","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_AM","146",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"314","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_AM","159",5,20260610,20260610,912,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"315","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_AM","153",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"315","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_AM","146",5,20260610,20260610,816,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"316","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_AM","160",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"316","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_AM","153",5,20260610,20260610,822,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"317","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_AM","139",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"317","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_AM","160",5,20260610,20260610,915,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"318","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_AM","147",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"318","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_AM","139",5,20260610,20260610,1028,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"319","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_AM","161",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"319","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_AM","147",5,20260610,20260610,828,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"320","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_AM","163",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"320","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_AM","161",5,20260610,20260610,943,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"321","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_LT","171",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"321","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_AM","163",5,20260610,20260610,1012,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"322","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_PM","177",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"322","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_LT","171",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"Low Tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"323","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_AM","164",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"323","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260610_D4_PM","177",5,20260610,20260610,1435,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"324","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T1","172",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"324","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_AM","164",5,20260610,20260610,1019,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"325","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_PM","178",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"325","TEMPEST","TMP_SW_RO_SO4_20260610_D4_T1","172",5,20260610,NA,948,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"326","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_AM","165",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"326","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260610_D4_PM","178",5,20260610,20260610,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"ms/cm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"327","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T1","173",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"327","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_AM","165",5,20260610,20260610,1035,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"328","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_PM","179",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"328","TEMPEST","TMP_FW_RO_SO4_20260610_D4_T1","173",5,20260610,NA,910,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"329","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_AM","166",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"329","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_PM","179",5,20260610,20260610,1451,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"330","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_PM","174",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"330","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_AM","166",5,20260610,20260610,1038,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"331","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260610_D4_PM","180",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"331","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260610_D4_PM","174",5,20260610,20260610,1420,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"332","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_AM","167",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"332","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260610_D4_PM","180",5,20260610,20260610,1352,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"ms/cm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"333","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_PM","175",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"333","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_AM","167",5,20260610,20260610,1047,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"334","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_PM","181",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"334","TEMPEST","TMP_SW_PW_C3_15cm_SO4_20260610_D4_PM","175",5,20260610,20260610,1400,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"ms/cm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"335","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_AM","168",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"335","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260610_D4_PM","181",5,20260610,20260610,1336,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"ms/cm; lysimeter feels loose in soil","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"336","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_PM","182",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"336","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_AM","168",5,20260610,20260610,1025,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"337","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_AM","169",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"337","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260610_D4_PM","182",5,20260610,20260610,1345,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"338","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_PM","176",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"338","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_AM","169",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"339","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260610_D4_PM","183",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"339","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260610_D4_PM","176",5,20260610,20260610,1412,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,"ms/cm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"340","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_AM","162",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"340","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260610_D4_PM","183",5,20260610,20260610,1304,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"341","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_AM","170",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"341","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_AM","162",5,20260610,20260610,957,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"342","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_PM","184",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"342","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_AM","170",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"343","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_PM","186",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"343","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260610_D4_PM","184",5,20260610,20260610,1307,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"344","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_PM","194",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"344","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260610_D4_PM","186",5,20260610,20260610,1324,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"345","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_PM","200",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"345","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260610_D4_PM","194",5,20260610,20260610,1354,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"346","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_PM","187",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"346","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260610_D4_PM","200",5,20260610,20260610,1458,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"347","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_PM","195",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"347","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260610_D4_PM","187",5,20260610,20260610,1301,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"348","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_PM","201",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"348","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260610_D4_PM","195",5,20260610,20260610,1402,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"349","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_PM","188",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"349","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260610_D4_PM","201",5,20260610,20260610,1508,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"350","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_PM","196",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"350","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260610_D4_PM","188",5,20260610,20260610,1307,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"351","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_PM","202",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"351","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260610_D4_PM","196",5,20260610,20260610,1413,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"352","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_PM","189",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"352","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260610_D4_PM","202",5,20260610,20260610,1512,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"353","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260610_D4_PM","197",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"353","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260610_D4_PM","189",5,20260610,20260610,1312,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"354","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_PM","203",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"354","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260610_D4_PM","197",5,20260610,20260610,1540,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"355","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_PM","190",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"355","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260610_D4_PM","203",5,20260610,20260610,1518,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"356","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_PM","198",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"356","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260610_D4_PM","190",5,20260610,20260610,1332,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"357","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_PM","204",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"357","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260610_D4_PM","198",5,20260610,20260610,1444,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"358","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_PM","191",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"358","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260610_D4_PM","204",5,20260610,20260610,1532,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"359","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_PM","205",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"359","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260610_D4_PM","191",5,20260610,20260610,1336,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"360","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_PM","192",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"360","TEMPEST","TMP_SW_SCE_SO4_20260610_D4_PM","205",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"361","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_PM","199",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"361","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260610_D4_PM","192",5,20260610,20260610,1341,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"362","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_PM","206",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"362","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260610_D4_PM","199",5,20260610,20260610,1450,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"363","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_PM","185",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"363","TEMPEST","TMP_FW_SCE_SO4_20260610_D4_PM","206",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
 11/16 spikes were good."
-"364","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_PM","193",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"364","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260610_D4_PM","185",5,20260610,20260610,1311,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"ms/cm","All dups and related samples had values of 0. 
 11/16 spikes were good."
-"365","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_HT","207",NA,NA,NA,NA,NA,NA,0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+"365","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260610_D4_PM","193",5,20260610,20260610,1547,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,NA,"All dups and related samples had values of 0. 
+11/16 spikes were good."
+"366","TEMPEST","TMP_EST_SCE_SO4_20260610_D4_HT","207",5,20260610,NA,NA,NA,"EDT",0,0,0,"bdl","CV_Good","",1,2026-06-16,"High Tide","All dups and related samples had values of 0. 
 11/16 spikes were good."
