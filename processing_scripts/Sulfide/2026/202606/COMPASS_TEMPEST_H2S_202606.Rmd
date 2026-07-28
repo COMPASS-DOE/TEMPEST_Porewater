@@ -123,7 +123,7 @@ sigdigs <- 3
 ```{r read in plates,echo=FALSE,include=FALSE}
 
 #read in the csv files
-dat<-read_plates(
+dat1<-read_plates(
   files = Raw_plates,#list of all file paths
   plate_names = Raw_plates ,  #list of plate names          
   well_ids_column = "Wells",    # name to give column of well IDs (optional)
@@ -133,7 +133,7 @@ dat<-read_plates(
          "IDs"=values.2,
          "Dilution"=values.3)
 
-dat <- dat %>%
+dat <- dat1 %>%
   mutate(file_name = Plate) %>% 
   mutate(Plate = str_extract(file_name, "Plate[0-9]+")) %>% 
   mutate(Run_Date = str_extract(file_name, "\\d{4}\\d{2}\\d{2}")) %>% 
@@ -697,7 +697,8 @@ H2S_Spl_Plot_Pre <- ggplot(H2S_Spl_pre_viz, aes(y = Mean_Conc, x = IDs, fill = C
     vjust = 0.5,
     hjust = 1)
   ) +
-  ggtitle("Sample triplicate means and sd dev before bad reps removed")
+  ggtitle("Sample triplicate means and sd dev before bad reps removed") +
+  theme(axis.text.x = element_blank())
 
 
 H2S_Spl_Plot_Pre
@@ -737,7 +738,8 @@ H2S_Spl_Plot_CV <- ggplot(H2S_Spl_rmv_viz, aes(y = Mean_Conc, x = IDs, fill = CV
     strip.text = element_blank(),
           strip.background = element_blank()
   ) +
-  ggtitle("Sample triplicate means and sd dev after bad reps removed")
+  ggtitle("Sample triplicate means and sd dev after bad reps removed") +
+  theme(axis.text.x = element_blank())
 
 
 H2S_Spl_Plot_CV
@@ -1060,9 +1062,21 @@ Flags <- Flags_Joined %>% replace(is.na(.), "") %>%
 flagged_data <- left_join(Samples, Flags, by = join_by(Plate))
 
 
-df_all_clean <- flagged_data %>% dplyr::select(-Plate)
+df_all_clean1 <- flagged_data %>% dplyr::select(-Plate)
 
 ```
+
+##Remove Synoptic samples and rename TEMPEST samples
+```{r}
+
+df_all_clean <- df_all_clean1 %>% 
+  filter(!str_detect(Sample_ID, "SWH|GCW|GWI|MSM")) %>% 
+  filter(Sample_ID != "141") %>% 
+  mutate(Sample_ID = gsub("TMP_2026_EVENT_141A", "141A", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_2026_EVENT_141", "141", Sample_ID))
+
+```
+
 
 ##Merge with Sample ID list to get actual sample IDs 
 ```{r Read in and Fix Sample IDs, include = FALSE}
@@ -1070,12 +1084,17 @@ df_all_clean <- flagged_data %>% dplyr::select(-Plate)
 #Read in Sample IDs
 SampleIDs <- read.csv(file = SampleID_path, skip = 1)
 SampleIDs <- SampleIDs %>% 
-  dplyr::select(c(Vial_Number, Sample_ID))
+  dplyr::select(c(Vial_Number, Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("-", "_", Sample_ID))
 
 #Merge with data
 Sample_data_IDs <- df_all_clean %>%
   rename(ID = Sample_ID) %>%
   left_join(SampleIDs, by = c("ID" = "Vial_Number"))
+
+Sample_data_IDs_need_to_check <- Sample_data_IDs %>% 
+  filter(is.na(Sample_ID)) %>% 
+  mutate(ID = as.numeric(ID))
 
 ```
 
@@ -1083,26 +1102,31 @@ Sample_data_IDs <- df_all_clean %>%
 ```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1wmhVkZveW-DMPETJUXhfTduove8QmYF8puNV6gZfxxI/edit?gid=60538078#gid=60538078"
 
 drive_download(inventory_directory, overwrite = TRUE)
 
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 sheet_names
 
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
-raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
-# raw_metadata_ro <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3) ##Do we have an inventory for the runoff samples? 
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
+raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
+raw_metadata_ro <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Runoff", skip = 4) 
+
+#merge metadata
+raw_metadata_all <- bind_rows(raw_metadata_lys, raw_metadata_sce, raw_metadata_ro)
 
 #select SO4/Cl samples 
-raw_metadata_lys <- subset(raw_metadata_lys, Analyte == "SO4/Cl/H2S")
+raw_metadata <- raw_metadata_all %>% 
+  filter(str_detect(Sample_ID, "SO4")) %>% 
+  mutate(Sample_ID = gsub("-", "_", Sample_ID))
 
 ```
 
 ##Check samples against metadata
 ```{r Check to see if samples run match metadata & merge info, echo = FALSE}
 
-all_present <- all(Sample_data_IDs$Sample_ID %in% raw_metadata_lys$Sample_ID)
+all_present <- all(Sample_data_IDs$Sample_ID %in% raw_metadata$Sample_ID)
 
 if (all_present) {
   message("***All sample IDs are present in metadata.***")
@@ -1110,7 +1134,7 @@ if (all_present) {
   message("***Some sample IDs are missing from metadata.***")
   
   # Optional: Which ones are missing?
-  missing_ids <- setdiff(Sample_data_IDs$Sample_ID, raw_metadata_lys$Sample_ID)
+  missing_ids <- setdiff(Sample_data_IDs$Sample_ID, raw_metadata$Sample_ID)
   print(missing_ids)
 }
 
@@ -1121,7 +1145,7 @@ if (all_present) {
 
 #merge metadata with sample run data 
 merged_data <- Sample_data_IDs %>%
-  left_join(raw_metadata_lys, by = c("Sample_ID"))
+  left_join(raw_metadata, by = c("Sample_ID"))
 
 
 ```
