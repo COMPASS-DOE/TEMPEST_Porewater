@@ -166,7 +166,8 @@ dat_raw <- dat_raw %>%
   mutate(sample_name = ifelse(sample_name == "TMP_20241007_SW_D5", 
                               "TMP_20241003_SW_D5", sample_name)) %>%
   mutate(sample_name = ifelse(sample_name == "TMP_20241007_SW_E3", 
-                              "TMP_20241003_SW_E3", sample_name))
+                              "TMP_20241003_SW_E3", sample_name)) %>% 
+  filter(sample_name != "TMP_20241003_CON_C6") # Remove sample with clumped peaks
 
 head(dat_raw)
 ```
@@ -681,7 +682,7 @@ dat_flagged <- dat_flagged %>%
 cat("Check Sample IDs with Metadata")
 
 sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
-  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>%
   mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
   filter(sample_type == "DOC") #filter to just DOC samples
@@ -747,7 +748,7 @@ final_data <- final_data %>%
   select(
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )

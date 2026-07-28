@@ -18,7 +18,8 @@ cat("Run Information")
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
   run_notes = "The TN curves are not good, samples were re-analyzed on the TOC 
-      with a good curve from another run and then the TN analyzer was serviced."
+  with a good curve from another run and then the TN analyzer was serviced. 
+  TN for these samples was changed to NA. "
   
   #file path and name for summary file 
     raw_file_name = "tmp_doc_raw_data_2024/TMP_202406_07.txt" 
@@ -769,7 +770,7 @@ dat_flagged <- dat_flagged %>%
 cat("Check Sample IDs with Metadata")
 
 sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
-  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+  select(Project, Plot, Vial_ID, Volume_mL, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>%
   mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
   filter(sample_type == "DOC") #filter to just DOC samples
@@ -821,7 +822,9 @@ final_data <- merged_data %>%
   ) 
 
 #this needs altered to match the tempest metadata and clean up 
-final_data <- final_data %>%
+final_data1 <- final_data %>%
+  mutate(tdn_raw = NA, 
+         tdn_uM = NA) %>% 
   rename(
     npoc_mgL = npoc_raw, 
     tdn_mgL = tdn_raw,
@@ -832,15 +835,15 @@ final_data <- final_data %>%
   select(
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
 
-head(final_data)
+head(final_data1)
 
 #will put final data in processed data folder 
-  write.csv(final_data, processed_file_name)
+  write.csv(final_data1, processed_file_name)
 
 
 ```

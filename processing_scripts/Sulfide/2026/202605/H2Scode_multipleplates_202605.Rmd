@@ -149,7 +149,7 @@ head(dat)
 
 ```{r Fix data entered incorrectly, echo=TRUE, message=FALSE, warning=FALSE, include = FALSE, results = 'hide'}
 ##Data entered incorrectly
-# dat$IDs[dat$IDs == Old_ID_1] <- New_ID_1
+dat$IDs[dat$IDs == "TMP_FW_B4_202604_15cm"] <- "TMP_SW_B4_202604_15cm"
 # dat$IDs[dat$IDs == Old_ID_2] <- New_ID_2
 # dat$IDs[dat$IDs == Old_ID_3] <- New_ID_3
 # dat$IDs[dat$IDs == Old_ID_4] <- New_ID_4
@@ -949,7 +949,14 @@ Sample_data_IDs <- Sample_data_IDs %>%
 ####Fix Dates - ONLY FOR 202603 and 202304!####
 Sample_data_IDs <- Sample_data_IDs %>% 
   mutate(Collection_Date = ifelse(Collection_Date == "202603", "20260309", Collection_Date)) %>% 
-  mutate(Collection_Date = ifelse(Collection_Date == "202604", "20260410", Collection_Date))
+  mutate(Collection_Date = ifelse(Collection_Date == "202604", "20260410", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(Collection_Date == "202506", "20260511", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(Collection_Date == "202605", "20260508", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(IDs == "TMP_C_H6_202506_30cm", "20260511", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(IDs == "TMP_C_H3_202605_15cm", "20260511", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(IDs == "TMP_FW_F4_202605_30cm", "20260511", Collection_Date)) %>% 
+  mutate(Collection_Date = ifelse(IDs == "TMP_FW_H6_202605_15cm", "20260511", Collection_Date))
+
 
 ####All of these are Sourcewater Samples
 Sample_data_IDs <- Sample_data_IDs %>% 
@@ -1111,7 +1118,7 @@ final_data <- merged_data %>%
   ) %>%
   dplyr::select(
     Project, Sample_ID, Zone, Grid, Depth_cm,
-         Source, Volume_mL, Collection_Date, Evacuation_date_YYYMMDD, 
+         Source, Volume_mL, Collection_Date, Evacuation_date_YYYYMMDD, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
          H2S_mean, H2S_sd, H2S_cv, H2S_Conc_flag, H2S_cv_flag, H2S_QAQC_flag, Dilution, 
          Analysis_rundate, Field_notes, Run_notes
