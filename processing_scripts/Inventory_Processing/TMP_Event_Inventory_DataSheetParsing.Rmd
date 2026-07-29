@@ -391,7 +391,7 @@ writeData(
   wb,
   "Porewater - Individual",
   pw_inventory,
-  startRow = nrow(header_rows) + 1
+  startRow = nrow(header_rows) 
 )
 
 ##Bold the headers
@@ -404,7 +404,7 @@ addStyle(
   wb,
   sheet = "Porewater - Individual",
   style = header_style,
-  rows = 1:5,
+  rows = 1:4,
   cols = 1:ncol(pw_inventory),
   gridExpand = TRUE
 )
@@ -480,7 +480,7 @@ writeData(
   wb,
   "Porewater - Pooled",
   pooled_inventory,
-  startRow = nrow(header_rows) + 1
+  startRow = nrow(header_rows) 
 )
 
 # Write the header text into G4 (column 7, row 4)
@@ -511,7 +511,7 @@ addStyle(
   wb,
   sheet = "Porewater - Pooled",
   style = header_style,
-  rows = 1:5,
+  rows = 1:4,
   cols = 1:21,
   gridExpand = TRUE
 )
@@ -586,7 +586,7 @@ writeData(
   wb,
   "Source Water",
   sce_inventory,
-  startRow = nrow(header_rows) + 1
+  startRow = nrow(header_rows) 
 )
 
 ##Bold the headers
@@ -599,7 +599,7 @@ addStyle(
   wb,
   sheet = "Source Water",
   style = header_style,
-  rows = 1:5,
+  rows = 1:4,
   cols = 1:ncol(sce_inventory),
   gridExpand = TRUE
 )
@@ -679,7 +679,7 @@ writeData(
   wb,
   "Runoff",
   ro_inventory,
-  startRow = nrow(header_rows) + 1
+  startRow = nrow(header_rows) 
 )
 
 ##Bold the headers
@@ -692,7 +692,7 @@ addStyle(
   wb,
   sheet = "Runoff",
   style = header_style,
-  rows = 1:5,
+  rows = 1:4,
   cols = 1:ncol(ro_inventory),
   gridExpand = TRUE
 )
