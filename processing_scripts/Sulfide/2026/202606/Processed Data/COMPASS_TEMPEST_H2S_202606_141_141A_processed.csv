@@ -1,0 +1,5 @@
+"","Project","Sample_ID","Number_on_vial","Volume_mL","Collection_Date_YYYYMMDD","Evacuation_date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","H2S_Conc_uM","H2S_Conc_sd","H2S_cv","H2S_Conc_flag","H2S_cv_flag","H2S_QAQC_flag","Dilution","Analysis_rundate","Field_notes","Run_notes"
+"1","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260610_D4_AM","141",5,20260610,20260610,1046,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,R2_Bad,STDCV_High",1,2026-07-24,NA,"All dups and related samples had values of 0. 
+11/16 spikes were good."
+"2","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260610_D4_AM","141A",5,20260610,20260610,946,NA,"EDT",0,0,0,"bdl","CV_Good","Spk_Bad,R2_Bad,STDCV_High",1,2026-07-24,NA,"All dups and related samples had values of 0. 
+11/16 spikes were good."
