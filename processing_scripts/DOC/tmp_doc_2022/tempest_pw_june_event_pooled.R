@@ -327,6 +327,17 @@ TMP_Event_June2022_Metadata <- TMP_Event_June2022_Metadata %>%
     Plot == "SEAWATER" ~ "SW"
   ))
 
+# fill in start time gaps - pulling the earliest start time reported based on other plots at same timepoint
+# T1 control plot set to 12:45
+TMP_Event_June2022_Metadata$Start_time[is.na(TMP_Event_June2022_Metadata$Start_time) & TMP_Event_June2022_Metadata$Timepoint == "T1"] <- "12:45:00"
+
+# T2 freshwater set to 16:14
+TMP_Event_June2022_Metadata$Start_time[is.na(TMP_Event_June2022_Metadata$Start_time) & TMP_Event_June2022_Metadata$Timepoint == "T2"] <- "16:14:00"
+
+# T3 freshwater set to 9:38
+TMP_Event_June2022_Metadata$Start_time[is.na(TMP_Event_June2022_Metadata$Start_time) & TMP_Event_June2022_Metadata$Timepoint == "T3"] <- "9:38:00"
+
+
 # write out as CSV with all volumes collected by grid by plot by time for future records
 write.csv(TMP_Event_June2022_Metadata, "TMP_Event_June2022_gridlevel_volumes.csv",
         row.names = FALSE)
@@ -433,8 +444,8 @@ June2022_event_source_pw_datetime <- rbind(event_pw_datetime, source_water_datet
 # 11. Final Clean-Up -----------------------------------------------------------
 
 # write out csv of event dates and times
-write_rds(June2022_event_source_pw_datetime, file = "./data/for processing/TMP_Event_June2022_META_PW_SOURCE_DateTime.rds")
-write.csv(June2022_event_source_pw_datetime, "./data/for processing/TMP_Event_June2022_META_PW_SOURCE_DateTime.csv",
+write_rds(June2022_event_source_pw_datetime, file = "TMP_Event_June2022_META_PW_SOURCE_DateTime.rds")
+write.csv(June2022_event_source_pw_datetime, "TMP_Event_June2022_META_PW_SOURCE_DateTime.csv",
           row.names = FALSE)
 
 # delete google sheet files
