@@ -1,6 +1,6 @@
 ---
 title: "COMPASS TEMPEST Sulfide"
-author: "June 2026 Samples"
+author: "June 2026 Samples - 141 and 141A"
 date: "`r Sys.Date()`"
 output:
   pdf_document:
@@ -52,7 +52,7 @@ After_Reruns = "YES"
 ###things that need to be changed
 sample_month = "June"
 sample_year = "2026"
-Run_Date = as.Date("06/16/2026", format = "%m/%d/%Y")
+Run_Date = as.Date("07/24/2026", format = "%m/%d/%Y")
 Run_by = "Zoe Read, Melanie Giessner"#Instrument user
 Script_run_by ="Zoe Read"#Code user
 
@@ -61,8 +61,7 @@ Run_notes="All dups and related samples had values of 0.
 
 #Plate Data
 folder_path_rawdata <- paste0("Raw Data")
-Raw_plates <- list.files(path = folder_path_rawdata, full.names = TRUE,pattern = "Plate\\d+?(:_202606:)?") %>%
-  stringr::str_subset("20260724", negate = TRUE)
+Raw_plates <- list.files(path = folder_path_rawdata, full.names = TRUE,pattern = "20260724")
 (Raw_plates)
 
 #Sample ID Path
@@ -72,7 +71,7 @@ SampleID_path = "Raw Data/TEMPEST_SO4_20260501-20260612_corrected.csv"
 log_path <- "Raw Data/Sulfide_STD_QAQC.csv"
 
 # Define final path for data be sure to change year and month and run number
-final_path <- "Processed Data/COMPASS_TEMPEST_H2S_202606_processed.csv"
+final_path <- "Processed Data/COMPASS_TEMPEST_H2S_202606_141_141A_processed.csv"
 rerun_path <- "Processed Data/COMPASS_TEMPEST_H2S_202606_reruns.csv"
 
 
@@ -372,7 +371,8 @@ Slopes_chk
 
 
 #Get done of original runs
-Date_1 <-as.Date(new_log_stds$Run_Date[which(new_log_stds$Plate == "Plate1")]) 
+# Date_1 <-as.Date(new_log_stds$Run_Date[which(new_log_stds$Plate == "Plate1")]) 
+Date_1 <- Run_Date
 
 #Check if Std Crvs are Within range and see if dates are close enough for combination
 stdcrv_tagged <- new_log_stds %>% mutate(
@@ -1072,8 +1072,9 @@ df_all_clean1 <- flagged_data %>% dplyr::select(-Plate)
 
 df_all_clean <- df_all_clean1 %>% 
   filter(!str_detect(Sample_ID, "SWH|GCW|GWI|MSM")) %>% 
-  filter(Sample_ID != "141") #%>% 
-  # mutate(Sample_ID = gsub("TMP_2026_EVENT_141A", "141A", Sample_ID)) %>% 
+  filter(Sample_ID != "141") %>% 
+  mutate(Sample_ID = gsub("TMP_2026_EVENT_141A", "141A", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_2026_EVENT_141", "141", Sample_ID))
 
 ```
 
