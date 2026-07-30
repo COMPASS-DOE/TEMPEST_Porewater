@@ -243,17 +243,33 @@ df_duplicates_Sulfide <- Sulfide2 %>%
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
 
-#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+# #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+# inventory_directory <- "https://docs.google.com/spreadsheets/d/1J4aPIRrKrPi_o8c7WzkY6cenWtoK8UgOrzIR5GiRBgg/edit?gid=1169944999#gid=1169944999"
+# 
+# drive_download(inventory_directory, overwrite = TRUE)
 
-drive_download(inventory_directory, overwrite = TRUE)
+# link directory to google drive location
+directory <- "https://drive.google.com/drive/folders/1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e"
 
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+# check list of files found at the link
+drive_ls(directory)
+
+# filter to necessary files
+# updated metadata event
+files_pulse <- drive_ls(directory) %>%
+  filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated", name))
+
+# download files to local drive
+lapply(c(files_pulse$name), drive_download, 
+       overwrite = TRUE)
+
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 sheet_names
 
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
 
-raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
 
 ```
 
