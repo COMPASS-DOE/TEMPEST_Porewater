@@ -352,7 +352,7 @@ write.csv(TMP_Event_June2022_Metadata, "TMP_Event_June2022_gridlevel_volumes.csv
         row.names = FALSE)
 
 
-# # 8. Create CSV File for Further Pooled Sample Calculations --------------------
+# # # 8. Create CSV File for Further Pooled Sample Calculations --------------------
 # 
 # # trim down columns
 # tmp_event_pooled_volumes <- TMP_Event_June2022_Metadata[,-c(7:12,14:17)]
@@ -369,55 +369,61 @@ write.csv(TMP_Event_June2022_Metadata, "TMP_Event_June2022_gridlevel_volumes.csv
 # tmp_event_pooled_volumes_tidy <- left_join(tmp_event_pooled_volumes, tmp_event_pooled_sum)
 # 
 # # write out RDS file
-# write_rds(tmp_event_pooled_volumes_tidy, file = "tmp_2022_event_pooled_pw_volumes_tidy.rds")
+# # write_rds(tmp_event_pooled_volumes_tidy, file = "tmp_2022_event_pooled_pw_volumes_tidy.rds")
 # 
-# # alter format for easier viewing 
-# # tmp_event_pooled_volumes <- tmp_event_pooled_volumes %>%
-#   # spread(Grid, Pooled)
+# # alter format for easier viewing
+# tmp_event_pooled_volumes1 <- tmp_event_pooled_volumes %>%
+# spread(Grid, Pooled)
 # # would need more edits to make sure this function works to only have one row per plot/time combo
 # 
+# # write out as CSV with all volumes collected by grid by plot by time for future records
+# write.csv(tmp_event_pooled_volumes1, "TMP_Event_June2022_pooled_volumes.csv",
+#         row.names = FALSE)
 # 
-# # 9. Edit Source Water Metadata ------------------------------------------------
-# 
-# # load source water info
-# files_source_water <- drive_ls(directory) %>%
-#   filter(grepl("Source", name))
-# 
-# # download files to local drive
-# lapply(c(files_source_water$name), drive_download, 
-#        overwrite = TRUE)
-# 
-# # add ".xlsx" to file name
-# files_source_water$name <- paste0(files_source_water$name, ".xlsx")
-# 
-# # make data frame 
-# source_water_meta <- readxl::read_excel(files_source_water$name)
-# source_water_meta <- source_water_meta %>%
-#   clean_names()
-# 
+# 9. Edit Source Water Metadata ------------------------------------------------
+
+# load source water info
+files_source_water <- drive_ls(directory) %>%
+  filter(grepl("Source", name))
+
+# download files to local drive
+lapply(c(files_source_water$name), drive_download,
+       overwrite = TRUE)
+
+# add ".xlsx" to file name
+files_source_water$name <- paste0(files_source_water$name, ".xlsx")
+
+# make data frame
+source_water_meta <- readxl::read_excel(files_source_water$name)
+source_water_meta <- source_water_meta %>%
+  clean_names()
+ 
 # # save complete source water data as csv file
 # #write.csv(source_water_meta, "./data/raw/DOC meta/June2022_Event_SourceWater_Metadata.csv")
 # 
-# # edit water type column
-# source_water_meta_edit <- source_water_meta %>%
-#   rename(Plot = source_water_type,
-#          Date = date,
-#          Start_time = time) %>%
-#   mutate(Plot = case_when(Plot == "Freshwater" ~ "FW",
-#                           Plot == "Seawater" ~ "SW"),
-#          Grid = "SOURCE",
-#          Timepoint = gsub(".*SOURCE_", "", label_name))
-# 
-# # edit the time format
-# source_water_meta_edit$Start_time <- as.POSIXct(source_water_meta_edit$Start_time, format = "%Y-%m-%d %H:%M:%S")
-# source_water_meta_edit$Start_time <- format(source_water_meta_edit$Start_time, format = "%H:%M:%S")
-# 
-# # cut columns to match the porewater metadata
-# source_water_datetime <- source_water_meta_edit %>%
-#   select(Plot, Grid, Timepoint, Date, Start_time) %>%
-#   mutate(End_time = NA)
-# 
-# 
+# edit water type column
+source_water_meta_edit <- source_water_meta %>%
+  rename(Plot = source_water_type,
+         Date = date,
+         Start_time = time) %>%
+  mutate(Plot = case_when(Plot == "Freshwater" ~ "FW",
+                          Plot == "Seawater" ~ "SW"),
+         Grid = "SOURCE",
+         Timepoint = gsub(".*SOURCE_", "", label_name))
+
+# edit the time format
+source_water_meta_edit$Start_time <- as.POSIXct(source_water_meta_edit$Start_time, format = "%Y-%m-%d %H:%M:%S")
+source_water_meta_edit$Start_time <- format(source_water_meta_edit$Start_time, format = "%H:%M:%S")
+
+# cut columns to match the porewater metadata
+source_water_datetime <- source_water_meta_edit %>%
+  select(Plot, Grid, Timepoint, Date, Start_time) %>%
+  mutate(End_time = NA)
+ 
+# write out as CSV with all volumes collected by grid by plot by time for future records
+write.csv(source_water_datetime, "TMP_Event_June2022_sourcewater_volumes.csv", row.names = FALSE)
+
+
 # # 10. Make Final Date/Time Metadata File for June 2022 Event -------------------
 # 
 # # separate out the unique values of start time and timepoint
@@ -462,6 +468,7 @@ write.csv(TMP_Event_June2022_Metadata, "TMP_Event_June2022_gridlevel_volumes.csv
 
 
 ```
+
 ##Notes
 ```{r}
 Sample_Year = "2022"
@@ -500,8 +507,8 @@ pacman::p_load(janitor, # useful for simplifying column names
 Sys.setenv(TZ = "America/New_York")
 ```
 
-##Pull in 2022 Event Metadata
-```{r pull in event metadata for later, }
+##Pull in 2022 Event Porewater Metadata
+```{r pull in event porewater metadata for later, }
 
 ##Event metadata was entered separately from other 2022 metadata. 
 #Used tempest_pw_june_event_pooled.R code to pull those together from google drive into a metadata file, which is then pulled in here. 
@@ -510,15 +517,18 @@ Sys.setenv(TZ = "America/New_York")
 ##Read in event metadata
 raw_metadata_event <- read.csv("TMP_Event_June2022_gridlevel_volumes.csv")
 
-##Select only rows that have sample volumes
+##Select only rows that have sample volumes and remove pooled samples
 raw_metadata_event_samples <- raw_metadata_event %>% 
-  filter(!is.na(DOC|Ions|Water_Isotopes|HR.MS|Saccharides|Amino_Acids|Pooled|CDOM_Subsample)) 
+  filter(!is.na(DOC|Ions|Water_Isotopes|HR.MS|Saccharides|Amino_Acids|Pooled|CDOM_Subsample)) %>% 
+  select(-c(Pooled, HR.MS))
 
 ##Pivot dataframe so have volume per sample type
 raw_metadata_event_long <- raw_metadata_event_samples %>%
+  rename(ISO = Water_Isotopes, 
+         CDOM = CDOM_Subsample) %>% 
   pivot_longer(
-    cols = c(DOC, Ions, Water_Isotopes, HR.MS, Saccharides,
-             Amino_Acids, Pooled, CDOM_Subsample),
+    cols = c(DOC, Ions, ISO, Saccharides,
+             Amino_Acids, CDOM),
     names_to = "Analyte",
     values_to = "Volume_mL"
   )
@@ -561,14 +571,13 @@ raw_metadata_event_ids <- raw_metadata_event_long %>%
     Collection_End_Time_24hrs = substr(End_time, 1, 5), 
     Collection_End_Time_24hrs = as.numeric(gsub(":", "", Collection_End_Time_24hrs))
   ) %>% ##Format columns
-  select(Project, Plot, Sample_ID, Volume_mL, Vial_ID, sample_location, Analyte, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
-         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>% 
+  select(Project, Plot, Sample_ID, Volume_mL, Vial_ID, sample_location, Analyte, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>% 
   filter(Volume_mL>0) ##Remove samples with no volume
 
 
 ```
 
-## Pull in pre-treatment metadata
+## Pull in pre-treatment porewater metadata
 ```{r rest of metadata, include=FALSE}
 
 # Run these to pull the TEMPEST porewater metadata into GitHub if not already there
@@ -645,10 +654,16 @@ raw_metadata_pt_ids <- raw_metadata_pt_long %>%
 ```
 
 
-## Combine event, non-event, and pre-treatment metadata
+## Combine event and pre-treatment metadata
 ```{r}
 
 pw_metadata <- bind_rows(raw_metadata_event_ids, raw_metadata_pt_ids)
+
+pw_metadata <- pw_metadata %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "vibe|Vibe"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "frog"), NA, Notes))
+
+unique(pw_metadata$Notes)
 
 ```
 
@@ -754,7 +769,331 @@ saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", over
 
 ```
 
-# Upload the new pH and inventory files to Google Drive
+
+
+## Pull in 2022 Pooled Metadata
+```{r pull in event metadata for later, }
+
+##Event metadata was entered separately from other 2022 metadata. 
+#Used tempest_pw_june_event_pooled.R code to pull those together from google drive into a metadata file, which is then pulled in here. 
+# "https://drive.google.com/drive/folders/1l6ChfOs6wU82ujsoAUw9dGNfoOVL4E8R"
+
+##Pivot dataframe to get pooled and spe analytes with volumes
+raw_metadata_pooled_analytes <- raw_metadata_event %>%
+  select(-c(DOC, Ions, Water_Isotopes, Saccharides,
+             Amino_Acids, CDOM_Subsample, Total_Volume)) %>% 
+  rename(SPE = HR.MS) %>% 
+  pivot_longer(
+    cols = c(Pooled, SPE),
+    names_to = "Analyte",
+    values_to = "Volume_mL_Grid"
+  ) %>% 
+  mutate(Volume_mL_Grid = as.numeric(Volume_mL_Grid)) %>% 
+  mutate(Volume_mL_Grid = ifelse(is.na(Volume_mL_Grid), 0, Volume_mL_Grid)) ##Replace NA values with zeroes
+
+##Pivot dataframe so have volume per plot and timepoint
+raw_metadata_pooled_samples <- raw_metadata_pooled_analytes %>%
+    pivot_wider(
+      id_cols = c(Plot, Date, Timepoint, Start_time, End_time, Analyte), 
+      names_from = Grid, 
+      values_from = Volume_mL_Grid, 
+      names_prefix = "Grid_", 
+    ) %>% 
+    mutate(Total_Volume_mL = rowSums(across(c(Grid_B4, 
+                                              Grid_C3, 
+                                              Grid_C6, 
+                                              Grid_D5, 
+                                              Grid_E3, 
+                                              Grid_F4, 
+                                              Grid_F6, 
+                                              Grid_H3, 
+                                              Grid_H6, 
+                                              Grid_I5)), na.rm = TRUE)) %>% 
+    filter(Total_Volume_mL > 0)
+
+
+
+##Create IDs
+pooled_inventory_event <- raw_metadata_pooled_samples %>%
+  mutate(Collection_Date_YYYYMMDD = as.numeric(gsub("-", "", Date))) %>%  ##Format date
+  mutate(Analyte = toupper(Analyte)) %>% 
+  mutate(Plot = gsub("SEAWATER", "SALTWATER", Plot)) %>% ##Format Plot
+  mutate(Plot_abb = case_when(
+    Plot == "CONTROL" ~ "C",
+    Plot == "FRESHWATER" ~ "FW",
+    Plot == "SALTWATER" ~ "SW"
+  )) %>% 
+  mutate(Project = "COMPASS TEMPEST", 
+         Plot = str_to_title(Plot), 
+         Sample_location = NA, 
+         Evacuation_date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
+         EST_EDT = "EDT") %>% 
+  mutate(Sample_ID = paste("TMP",
+                          Plot_abb,
+                          "PW", 
+                          "15cm", 
+                          Analyte, 
+                          Timepoint, 
+                          Collection_Date_YYYYMMDD, 
+                          sep = "_")) %>% ##Create Sample IDs
+  mutate(Vial_ID = paste(Plot_abb,
+                          "15", 
+                          Analyte, 
+                          Timepoint, 
+                          Collection_Date_YYYYMMDD, 
+                          sep = "_")) %>% ##Create Vial IDs
+  mutate(
+    Collection_Start_Time_24hrs = substr(Start_time, 1, 5), 
+    Collection_Start_Time_24hrs = as.numeric(gsub(":", "", Collection_Start_Time_24hrs)), 
+    Collection_End_Time_24hrs = substr(End_time, 1, 5), 
+    Collection_End_Time_24hrs = as.numeric(gsub(":", "", Collection_End_Time_24hrs))
+  ) %>% ##Format columns
+    select(
+      Project,
+      Plot,
+      Sample_ID,
+      Sample_location,
+      Total_Volume_mL,
+      Vial_ID,
+      Grid_B4, 
+      Grid_C3, 
+      Grid_C6, 
+      Grid_D5, 
+      Grid_E3, 
+      Grid_F4, 
+      Grid_F6, 
+      Grid_H3, 
+      Grid_H6, 
+      Grid_I5, 
+      Evacuation_date_YYYYMMDD, 
+      Collection_Date_YYYYMMDD,
+      Collection_Start_Time_24hrs, 
+      Collection_End_Time_24hrs) 
+
+
+```
+
+## Pull in pre-treatment pooled metadata
+```{r rest of metadata, include=FALSE}
+
+##Convert to long format
+raw_metadata_pt_pooled_long <- raw_metadata_pt %>%
+  select("Plot", "Grid", "Depth_cm", "Bulk_mL_20220613", "Bulk_mL_20220615", "Notes") %>%
+  mutate(
+    Bulk_mL_20220613 = as.character(Bulk_mL_20220613), 
+    Bulk_mL_20220615 = as.character(Bulk_mL_20220615) 
+  ) %>%
+  pivot_longer(
+    cols = starts_with("Bulk_mL_"),
+    names_to = "Collection_Date_YYYYMMDD",
+    names_prefix = "Bulk_mL_",
+    values_to = "Bulk_mL"
+  ) %>% 
+  mutate(Bulk_mL = as.numeric(Bulk_mL)) %>% 
+  mutate(Bulk_mL = ifelse(is.na(Bulk_mL), 0, Bulk_mL)) ##Replace NA values with zeroes
+
+##Pivot dataframe so have volume per plot and timepoint
+raw_metadata_pooled_pt <- raw_metadata_pt_pooled_long %>%
+    pivot_wider(
+      id_cols = c(Plot, Collection_Date_YYYYMMDD), 
+      names_from = Grid, 
+      values_from = Bulk_mL, 
+      names_prefix = "Grid_", 
+    ) %>% 
+    mutate(Total_Volume_mL = rowSums(across(c(Grid_B4, 
+                                              Grid_C3, 
+                                              Grid_C6, 
+                                              Grid_D5, 
+                                              Grid_E3, 
+                                              Grid_F4, 
+                                              Grid_F6, 
+                                              Grid_H3, 
+                                              Grid_H6, 
+                                              Grid_I5)), na.rm = TRUE)) %>% 
+    filter(Total_Volume_mL > 0)
+
+
+
+##Create IDs
+pooled_inventory_pt <- raw_metadata_pooled_pt %>%
+  mutate(Plot = gsub("SEAWATER", "SALTWATER", Plot)) %>% ##Format Plot
+  mutate(Plot_abb = case_when(
+    Plot == "CONTROL" ~ "C",
+    Plot == "FRESHWATER" ~ "FW",
+    Plot == "SALTWATER" ~ "SW"
+  )) %>% 
+  mutate(Start_time = case_when(
+    Collection_Date_YYYYMMDD == "20220613" ~ "1100",
+    Collection_Date_YYYYMMDD == "20220615" ~ "1200")) %>% 
+  mutate(End_time = case_when(
+    Collection_Date_YYYYMMDD == "20220613" ~ "1330",
+    Collection_Date_YYYYMMDD == "20220615" ~ NA)) %>% 
+  mutate(Project = "COMPASS TEMPEST", 
+         Plot = str_to_title(Plot), 
+         Sample_location = NA, 
+         Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
+         Evacuation_date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
+         EST_EDT = "EDT") %>% 
+  mutate(Sample_ID = paste("TMP",
+                          Plot_abb,
+                          "PW", 
+                          "15cm", 
+                          "POOLED", 
+                          Collection_Date_YYYYMMDD, 
+                          sep = "_")) %>% ##Create Sample IDs
+  mutate(Vial_ID = paste(Plot_abb,
+                          "15", 
+                          Collection_Date_YYYYMMDD, 
+                          sep = "_")) %>% ##Create Vial IDs
+  mutate(
+    Collection_Start_Time_24hrs = substr(Start_time, 1, 5), 
+    Collection_Start_Time_24hrs = as.numeric(gsub(":", "", Collection_Start_Time_24hrs)), 
+    Collection_End_Time_24hrs = substr(End_time, 1, 5), 
+    Collection_End_Time_24hrs = as.numeric(gsub(":", "", Collection_End_Time_24hrs))
+  ) %>% ##Format columns
+    select(
+      Project,
+      Plot,
+      Sample_ID,
+      Sample_location,
+      Total_Volume_mL,
+      Vial_ID,
+      Grid_B4, 
+      Grid_C3, 
+      Grid_C6, 
+      Grid_D5, 
+      Grid_E3, 
+      Grid_F4, 
+      Grid_F6, 
+      Grid_H3, 
+      Grid_H6, 
+      Grid_I5, 
+      Evacuation_date_YYYYMMDD, 
+      Collection_Date_YYYYMMDD,
+      Collection_Start_Time_24hrs, 
+      Collection_End_Time_24hrs) 
+
+
+```
+
+
+## Combine event and pre-treatment pooled metadata
+```{r}
+
+pooled_inventory_all <- bind_rows(pooled_inventory_event, pooled_inventory_pt)
+
+```
+
+
+NOW COMBINE THE NEW INVENTORY WITH THE OLD
+# Prep POOLED metadata to be appended to the inventory file 
+```{r, process data file to match inventory}
+
+#Read in the master inventory 
+pooled_master <- read_excel(
+  #path = inventory_path,
+  "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
+  sheet = "Porewater - Pooled",
+  skip = 4
+)
+
+#clean out any empty sample_ID rows
+pooled_master <- pooled_master %>%
+  filter(!is.na(Sample_ID))
+
+# Align the columns
+inventory_new <- pooled_inventory_all %>%
+  select(any_of(names(pooled_master)))
+
+missing_cols <- setdiff(names(pooled_master), names(inventory_new))
+missing_cols
+
+for (col in missing_cols) {
+  inventory_new[[col]] <- NA
+}
+
+# Append to the inventory
+inventory_new <- inventory_new %>%
+  select(names(pooled_master))
+
+pooled_inventory <- bind_rows(inventory_new, pooled_master)
+
+#Set the header rows 
+header_rows <- data.frame(
+  col1 = c(
+    "Project: COMPASS",
+    "Site: TEMPEST",
+    "Event: POOLED Porewater Inventory July 2022 - present",
+    "" ))
+
+```
+
+
+# Replace the POOLED sheet in the inventory file
+```{r, add the new inventory file}
+
+# Load existing workbook
+wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
+
+# Remove existing sheet if it exists
+if ("Porewater - Pooled" %in% names(wb)) {
+  removeWorksheet(wb, "Porewater - Pooled")
+}
+
+# Add replacement sheet
+addWorksheet(wb, "Porewater - Pooled")
+
+# Write header block
+writeData(wb, "Porewater - Pooled", header_rows, startRow = 1, colNames = FALSE)
+
+# Write inventory data below it
+writeData(
+  wb,
+  "Porewater - Pooled",
+  pooled_inventory,
+  startRow = nrow(header_rows) + 1
+)
+
+# Write the header text into G4 (column 7, row 4)
+writeData(
+  wb,
+  sheet = "Porewater - Pooled",
+  x = "Breakdown_by_volume_mL",
+  startCol = 7,
+  startRow = 4,
+  colNames = FALSE
+)
+
+# Merge G4:Q4 (columns 7-17)
+mergeCells(
+  wb,
+  sheet = "Porewater - Pooled",
+  cols = 7:16,
+  rows = 4
+)
+
+##Bold the headers
+header_style <- createStyle(
+  textDecoration = "bold",
+  halign = "center",
+  valign = "center"
+)
+addStyle(
+  wb,
+  sheet = "Porewater - Pooled",
+  style = header_style,
+  rows = 1:5,
+  cols = 1:21,
+  gridExpand = TRUE
+)
+
+# Save changes back to the same file
+saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", overwrite = TRUE)
+
+```
+
+
+# Upload the new inventory files to Google Drive
 ```{r}
 
 ##inventory
