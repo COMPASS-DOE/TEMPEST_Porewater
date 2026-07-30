@@ -674,7 +674,8 @@ Porewater
 ```{r, process data file to match inventory}
 
 #Full Inventory Path 
-inventory_path <- "https://docs.google.com/spreadsheets/d/1wmhVkZveW-DMPETJUXhfTduove8QmYF8puNV6gZfxxI/edit?gid=60538078#gid=60538078"
+####Need to change this link each time####
+inventory_path <- "https://docs.google.com/spreadsheets/d/1J4aPIRrKrPi_o8c7WzkY6cenWtoK8UgOrzIR5GiRBgg/edit?gid=680737830#gid=680737830"
 
 #Folder to upload the new files to
 folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
@@ -686,7 +687,7 @@ drive_download(inventory_path, overwrite = TRUE)
 master <- read_excel(
   "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
   sheet = "Porewater - Individual",
-  skip = 3
+  skip = 4
 )
 
 #clean out any empty sample_ID rows
@@ -746,7 +747,7 @@ writeData(
   wb,
   "Porewater - Individual",
   pw_inventory,
-  startRow = nrow(header_rows)
+  startRow = nrow(header_rows)+1
 )
 
 ##Bold the headers
@@ -759,7 +760,7 @@ addStyle(
   wb,
   sheet = "Porewater - Individual",
   style = header_style,
-  rows = 1:4,
+  rows = 1:5,
   cols = 1:ncol(pw_inventory),
   gridExpand = TRUE
 )
@@ -1023,7 +1024,7 @@ header_rows <- data.frame(
   col1 = c(
     "Project: COMPASS",
     "Site: TEMPEST",
-    "Event: POOLED Porewater Inventory July 2022 - present",
+    "Event: POOLED Porewater Inventory May 2022 - present",
     "" ))
 
 ```
