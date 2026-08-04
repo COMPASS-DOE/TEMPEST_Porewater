@@ -45,6 +45,15 @@ pacman::p_load(janitor, # useful for simplifying column names
 ####DOC####
 DOC <- read.csv("DOC/COMPASS_TEMPEST_DOC_AllData.csv")
 DOC1 <- DOC %>% 
+  ##Fix sample IDs
+  mutate(Sample_ID = gsub("TMP_FW_E3_15_20220518", "TMP_FW_E3_15_20220520", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_H6_15_20230417", "TMP_SW_H3_15_20230417", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_H6_15_20230612", "TMP_SW_B4_15_20230612", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_C_C3_15_20230628", "TMP_C_B4_15_20230628", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_C3_15_20260508 ", "TMP_SW_C3_30_20260508", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_C6_15_20260508", "TMP_SW_C6_30_20260508", Sample_ID)) %>% 
+
+  
   dplyr::select(c("Sample_ID", "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
@@ -52,7 +61,9 @@ DOC1 <- DOC %>%
   mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
   mutate(Sample_ID = ifelse(str_detect(Sample_ID, "SOURCE"), gsub("20220622_T", "20220622_HR", Sample_ID), Sample_ID)) %>% 
   mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID)) %>% 
-  distinct() 
+  distinct() %>% 
+  mutate(Sample_ID = gsub("TMP_SW_C3_15CM_20260508", "TMP_SW_C3_30CM_20260508", Sample_ID))
+  
 
 DOC2 <- DOC1 %>%
   mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
@@ -62,7 +73,7 @@ DOC2 <- DOC1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
-         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
+         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309|20260410") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
          Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
          T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
          TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
@@ -80,7 +91,16 @@ DOC2 <- DOC1 %>%
 ####Nutrients####
 Nutrients <- read.csv("Nutrients/COMPASS_TEMPEST_Nutrient_AllData.csv")
 Nutrients1 <- Nutrients %>%
-  rename(
+  ##Fix sample IDs
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240611_HT", "TMP_Source_Estuary_20240611_AM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240611_LT", "TMP_Source_Estuary_20240611_PM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240612_HT", "TMP_Source_Estuary_20240612_AM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240612_LT", "TMP_Source_Estuary_20240612_PM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240613_HT", "TMP_Source_Estuary_20240613_AM", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_Source_Estuary_20240613_LT", "TMP_Source_Estuary_20240613_PM", Sample_ID)) %>% 
+  # mutate(Sample_ID = gsub("TMP_C_H6_20260602", "TMP_C_H6_20250602", Sample_ID)) %>% 
+
+rename(
     NOx_mgL = NOx_Conc_mgL, 
     NOx_uM = NOx_Conc_uM, 
     NH3_mgL = NH3_Conc_mgL, 
@@ -105,7 +125,7 @@ Nutrients2 <- Nutrients1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
-         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
+         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309|20260410") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
          Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
          T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
          TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
@@ -125,6 +145,12 @@ Nutrients2 <- Nutrients1 %>%
 SO4_Cl <- read.csv("Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
 
 SO4_Cl1 <- SO4_Cl %>%
+  ##Fix sample IDs
+  mutate(Sample_ID = gsub("TMP_SW_H6_20230612_15CM", "TMP_SW_B4_20230612_15CM", Sample_ID)) %>% 
+  
+  
+  
+  
   dplyr::select(c("Sample_ID", "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_15_", "_15CM_", Sample_ID)) %>% 
@@ -142,7 +168,7 @@ SO4_Cl2 <- SO4_Cl1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
-         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
+         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309|20260410") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
          Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
          T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
          TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
@@ -178,7 +204,7 @@ Sulfide2 <- Sulfide1 %>%
          Sample_Type = replace_na(Sample_Type, "PW"), 
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
-         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
+         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309|20260410") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
          T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
          TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
          TOD = case_when(
@@ -211,6 +237,16 @@ pH <- pH %>%
 ```{r}
 df_list <- list(DOC2, Nutrients2, SO4_Cl2, Sulfide2)
 data <- df_list %>% reduce(full_join)
+```
+
+##Make table of sample IDs
+```{r}
+sampleID_format <- data %>% 
+  mutate(Year = substr(Date, 1, 4)) %>% 
+  select(c(Sample_Type, Year, T_num, TOD)) %>% 
+  distinct()
+
+write.csv(sampleID_format, "Sample_ID_formatting.csv")
 ```
 
 ##Need to figure out duplicates
@@ -415,56 +451,80 @@ merged_data <- data %>%
 ##Samples missing from metadata: 
 
 # 2022 estuary sourcewater samples ("TMP_SOURCE_ESTUARY_HR0_20220622", "TMP_SOURCE_ESTUARY_HR1_20220622") - not entered in metadata
-# TMP_PW_FW_E3_15CM_20220518 - sample was collected but not entered in metadata
-# TMP_PW_SW_H3_15CM_20220615 and TMP_PW_C_F6_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
-# TMP_PW_C_F6_15CM_20220615
-# TMP_PW_SW_H6_15CM_20230417 - datasheet says no water collected but have DOC data? 
-# TMP_PW_SW_H6_15CM_20230612 - datasheet says no water collected but have DOC and SO4/Cl data? 
-# TMP_PW_C_C3_15CM_20230628 - datasheet says no water collected but have DOC data? 
-# TMP_PW_SW_C3_15CM_20260508
-# TMP_PW_SW_C6_15CM_20260508
-# TMP_PW_C_H6_20260602
-# TMP_PW_FW_D5_20260410
-# TMP_SOURCE_ESTUARY_20240611
-# TMP_SOURCE_ESTUARY_20240612
-# TMP_SOURCE_ESTUARY_20240613
-# TMP_PW_FW_F6_15CM_20230606 
+# TMP_PW_SW_H3_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
+# TMP_PW_C_F6_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
+# TMP_PW_FW_F6_15CM_20230606 - scanned datasheet says no water collected but have SO4/Cl data? Not missing any of the other SW samples
 
 # 2024 sourcewater samples don't match metadata
+data_sel <- data %>% 
+  filter(Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615")
+
 ```
 
-##Check samples against metadata
+## Round data to sensitivity of the instrument 
 ```{r}
 
-##Check for duplicate sample IDs
-final_data_dup <- final_data %>%
-  group_by(Sample_ID_formatted) %>%
-  filter(n() > 1) %>%
-  ungroup()
+colnames(merged_data)
+##Based on raw data from the instrument: 
+#SO4/Cl/Salinity - 4 decimals 
+#H2S/Fe - 3 decimals
+#Nutrients - 6 decimals 
+#DOC - ? 
 
-####Samples missing from metadata####
-final_data_noID <- merged_data %>%
-  filter(is.na(Sample_ID_meta))
-# Estuary sourcewater 2022
-
-dat1 <- raw_metadata_sw2 %>% 
-  filter(str_detect(Sample_ID_meta, "202406"))
+final_data1 <- merged_data %>% 
+  mutate(SO4_ppm = round(as.numeric(SO4_ppm), digits = 4), 
+         SO4_mM = round(as.numeric(SO4_mM), digits = 4), 
+         Cl_ppm = round(as.numeric(Cl_ppm), digits = 4), 
+         Cl_mM = round(as.numeric(Cl_mM), digits = 4), 
+         salinity = round(as.numeric(salinity), digits = 4), 
+         H2S_mean_uM = round(as.numeric(H2S_mean_uM), digits = 3), 
+         H2S_sd_uM = round(as.numeric(H2S_sd_uM), digits = 3), 
+         NH3_mgL = round(as.numeric(NH3_mgL), digits = 6), 
+         NH3_uM = round(as.numeric(NH3_uM), digits = 6), 
+         PO4_mgL = round(as.numeric(PO4_mgL), digits = 6), 
+         PO4_uM = round(as.numeric(PO4_uM), digits = 6), 
+         NOx_mgL = round(as.numeric(NOx_mgL), digits = 6), 
+         NOx_uM = round(as.numeric(NOx_uM), digits = 6))
 ```
 
-
-## Write the alldata file out to the folder 
+## Format and write the alldata file out to the folder 
 ```{r, echo=FALSE}
 
 ##Order data by Year, Month, Day
 # final_data1 <- final_data[order(final_data$Year, final_data$Month, final_data$Day, final_data$Zone, final_data$Lysimeter, final_data$Depth_cm),]
 
-colnames(final_data)
+colnames(final_data1)
 
-final_data1 <- final_data %>% 
-  mutate(Project = "COMPASS", 
-         Region = "CB", 
-         Site = "TEMPEST", 
-         Depth_cm = gsub("CM", "", Depth)) %>% 
+final_data2 <- final_data1 %>% 
+  mutate(
+    Year = as.numeric(substr(Date, 1, 4)), 
+    Month = as.numeric(substr(Date, 5, 6)), 
+    Day = as.numeric(substr(Date, 7, 8)), 
+    date = as.numeric(Date), 
+    Project = "COMPASS", 
+    Region = "CB", 
+    Site = "TMP", 
+    Depth_cm = gsub("CM", "", Depth), 
+    Timepoint = paste(T_num, TOD, sep = "_"), 
+    Timepoint = gsub("_NA", "", Timepoint), 
+    Timepoint = gsub("NA_", "", Timepoint), 
+    ) %>% 
+  ##Code in EDT/EST
+  mutate(EST_EDT = case_when(
+    Date >= 20220313 & Date <  20221106 ~ "EDT", 
+    Date >= 20221106 & Date <  20230312 ~ "EST", 
+    Date >= 20230312 & Date <  20231105 ~ "EDT", 
+    Date >= 20231105 & Date <  20240310 ~ "EST", 
+    Date >= 20240310 & Date <  20241103 ~ "EDT", 
+    Date >= 20241103 & Date <  20250309 ~ "EST", 
+    Date >= 20250309 & Date <  20251102 ~ "EDT", 
+    Date >= 20251102 & Date <  20260308 ~ "EST",    
+    Date >= 20260308 & Date <  20261101 ~ "EDT", 
+    TRUE ~ EST_EDT
+  ))
+  
+  
+  
   rename(Sample_ID = Sample_ID_formatted, 
          NOx_flag = NOx_Conc_Flag, 
          NH3_flag = NH3_Conc_Flag, 
@@ -473,7 +533,7 @@ final_data1 <- final_data %>%
          Cl_flag = Cl_Conc_flag, 
          H2S_flag = H2S_Conc_flag
          ) %>% 
-  select(c("Project", "Region", "Site", "Sample_ID", "Plot", "Grid", "Date", "Depth_cm", "T_num", "TOD", "Sample_Type", 
+  select(c("Project", "Region", "Year", "Month", "Day", "Site", "Sample_ID", "Plot", "Grid", "Date", "Depth_cm", "T_num", "TOD", "Sample_Type", 
            "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", 
            "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs" , "Collection_Time_24hrs", "EST_EDT", "Notes", 
            "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 

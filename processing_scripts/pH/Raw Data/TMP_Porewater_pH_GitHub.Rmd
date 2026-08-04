@@ -52,18 +52,18 @@ year4_stop = lubridate::as_date("2025-12-31")
 # drive_download(inventory_directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewaterinventory.xlsx", overwrite = TRUE)
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1403K8StN0iwPnDXt0u-eLLxcfAS2Mid75rNfU9qojLw/edit?gid=581935863#gid=581935863"
 
-drive_download(file = inventory_directory, path = "Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx", overwrite = TRUE)
+drive_download(file = inventory_directory, path = "Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", overwrite = TRUE)
 
-sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 sheet_names
 
-sample_key <- readxl::read_excel("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3) %>%
-  select(Sample_ID, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, EST_EDT) %>%
+sample_key <- readxl::read_excel("Data from Google Drive/TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4) %>%
+  select(Sample_ID, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, Collection_End_Time_24hrs, EST_EDT) %>%
   filter(str_detect(Sample_ID, "DOC")) %>%
   rename(sample_name = Sample_ID,
-         evacuation_date = Evacuation_date_YYYMMDD,
+         evacuation_date = Evacuation_date_YYYYMMDD,
          collection_date = Collection_Date_YYYYMMDD,
          time = Collection_End_Time_24hrs,
          tz = EST_EDT) %>%
@@ -96,19 +96,27 @@ sample_key_merging <- sample_key %>%
 # drive_download(directory, path="~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", overwrite = TRUE)
 
 #Run these to pull the pH data into GitHub if not already there
-directory <- "https://docs.google.com/spreadsheets/d/1KoskjXkHgPmSyFERvZLCX5ZBuV2cyev4-UEBuT0y-Jw/edit?gid=0#gid=0"
+directory <- "https://docs.google.com/spreadsheets/d/1-KTABMU-2e6ZxQXeY1yMahHB5lX9HuvN-NF-kWinLTA/edit?gid=1955793989#gid=1955793989"
 
-drive_download(file = directory, path = "Data from Google Drive/TEMPEST_Porewater_pH.xlsx", overwrite = TRUE)
+drive_download(file = directory, path = "Data from Google Drive/TEMPEST_Porewater_pH_updated.xlsx", overwrite = TRUE)
 
-sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_Porewater_pH.xlsx")
+sheet_names <- excel_sheets("Data from Google Drive/TEMPEST_Porewater_pH_updated.xlsx")
 sheet_names
 
 # pH_raw <- readxl::read_excel("~/GitHub/TEMPEST-1-porewater/data_do_not_commit/porewater_pH_raw.xlsx", sheet="pH") 
 
-pH_raw <- readxl::read_excel("Data from Google Drive/TEMPEST_Porewater_pH.xlsx", sheet="pH") 
+pH_raw <- readxl::read_excel("Data from Google Drive/TEMPEST_Porewater_pH_updated.xlsx", sheet="pH") 
+pH_raw$Time_24hr <- as.integer(pH_raw$Time_24hr)
 
+pH_annual <- pH_raw %>% 
+  filter(!str_detect(Date_YYYYMMDD, "2026"))
+
+pH_NA <- pH_annual %>% 
+  filter(Cond_units == "NA" | is.na(Cond_units)) %>% 
+  filter(!is.na(Cond))
 
 ```
+
 # Clean and Flag
 ```{r clean up}
 pH <- pH_raw %>%
@@ -126,11 +134,11 @@ pH <- pH_raw %>%
                            TRUE ~ collection_temp_C)) %>%
   filter(!Action %in% "Omit") %>%
   filter(!is.na(pH)) %>%
-  mutate(time = sprintf("%04d", as.numeric(time)),
+  mutate(time = sprintf("%04d", as.integer(time)),
            time= str_replace(time, '\\d+', function(m) str_pad(m, 6, pad = '0', side = ("right"))),
                             time= strptime(time, format ="%H%M%S"),
                             time = strftime(time, "%H:%M:%S")) %>%
-   mutate(datetime = as.POSIXct(paste(date, time), format = "%Y-%m-%d %H:%M:%S")) %>%
+  mutate(datetime = as.POSIXct(paste(date, time), format = "%Y-%m-%d %H:%M:%S")) %>%
   mutate(collection_temp_C= as.numeric(collection_temp_C)) %>%
   mutate(flag = case_when(is.na(collection_temp_C) ~ "temperature not recorded",
                           TRUE ~ NA)) %>%
@@ -139,7 +147,7 @@ pH <- pH_raw %>%
           mutate(grid = case_when(grid == "Source" ~ "SOURCE",
                            TRUE ~ grid)
             ) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag, Notes)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag, Notes)
 ```
 
 # Add in lysimeter metadata
