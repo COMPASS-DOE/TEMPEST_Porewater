@@ -1098,11 +1098,15 @@ merged_data <- dat_flagged %>%
 
 cat("Export Processed Data")
 
+##Remove duplicate samples
+final_data1 <- merged_data %>% 
+  filter(sample_ID != "SW_C3_DOC_20240612_T3")
+
 #Prepare data to be exported - if there is anything else to add 
 #Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
   #example read in sample IDs list and merge 
   #create required ID columns in R, etc. 
-final_data <- merged_data %>% 
+final_data <- final_data1 %>% 
   #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
   mutate(
     Project = "COMPASS: TEMPEST",   # new column with same value on every row

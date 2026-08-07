@@ -31,11 +31,12 @@ Sdat <- read.table("Raw Data/COMPASS_TEMPEST_20230606_SO4a.txt",sep='\t' , heade
 head(Sdat)
 
 ## Only keep the columns that we need 
-Sdat <- Sdat[ ,c(2,5,7)] # dont need this here 
+Sdat <- Sdat[ ,c(1,2,5,7)] # dont need this here 
 head(Sdat)
 
+
 ## Name the columns correctly 
-colnames(Sdat) <- c( "Sample_ID", "SO4_ppm", "SO4_Area")
+colnames(Sdat) <- c("Number", "Sample_ID", "SO4_ppm", "SO4_Area")
 Sdat$Sample_ID <- as.factor(Sdat$Sample_ID)
 Sdat$SO4_ppm <- as.numeric(Sdat$SO4_ppm)
 Sdat$SO4_Area <- as.numeric(Sdat$SO4_Area)
@@ -48,11 +49,11 @@ Cldat <- read.table("Raw Data/COMPASS_TEMPEST_20230606_Cla.txt",sep='\t' , heade
 head(Cldat)
 
 ## Only keep the columns that we need 
-Cldat <- Cldat[ ,c(2,5,7)]
+Cldat <- Cldat[ ,c(1,2,5,7)]
 head(Cldat)
 
 ## Name the columns correctly 
-colnames(Cldat) <- c( "Sample_ID", "Cl_ppm", "Cl_Area")
+colnames(Cldat) <- c("Number", "Sample_ID", "Cl_ppm", "Cl_Area")
 Cldat$Sample_ID <- as.factor(Cldat$Sample_ID)
 Cldat$Cl_ppm <- as.numeric(Cldat$Cl_ppm)
 Cldat$Cl_Area <- as.numeric(Cldat$Cl_Area)
@@ -61,8 +62,13 @@ head(Cldat)
 
 
 ## Bring the data back together: 
-all_dat <- merge(Sdat, Cldat, by="Sample_ID")
+all_dat1 <- merge(Sdat, Cldat, by=c("Sample_ID", "Number"))
 head(all_dat)
+
+##Remove duplicates - select the first one
+all_dat <- all_dat %>%
+  arrange(Sample_ID, Number) %>%
+  distinct(Sample_ID, .keep_all = TRUE)
 
 ## Remove empty lines 
 all_dat <- all_dat[!(is.na(all_dat$Sample_ID) | all_dat$Sample_ID==""), ]
@@ -406,7 +412,7 @@ spks <- sampledat_dils %>%
 head(spks)
 
 ## Only keep the columns that we need 
-spks <- spks[ ,c(1,9,10)]
+spks <- spks[ ,c(1,10,11)]
 head(spks)
 
 #remove the spk from these IDs so we will have duplicate sample names

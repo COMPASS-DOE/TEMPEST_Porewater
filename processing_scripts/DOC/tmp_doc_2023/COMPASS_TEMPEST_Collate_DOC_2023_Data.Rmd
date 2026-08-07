@@ -43,7 +43,7 @@ Sys.setenv(TZ = "America/New_York")
 ##Code for creating these datasets is already in the 2023 folder
 
 ##Lysimeter data
-lys_data <- read.csv(here("processing_scripts/DOC/TEMPORARY/", "TMP_PW_GRIDSONLY_NPOCTDN_2023_L1.csv"))
+lys_data <- read.csv(here("DOC/TEMPORARY/", "TMP_PW_GRIDSONLY_NPOCTDN_2023_L1.csv"))
 
 lys_data$date <- as.Date(lys_data$collection_datetime)
 lys_data$date <- gsub("-", "", lys_data$date)
@@ -59,7 +59,7 @@ lys_data$Depth_cm <- "15"
 
 
 ##SourceWater data
-sw_data <- read.csv(here("processing_scripts/DOC/TEMPORARY/", "TMP_SOURCE_NPOCTDN_2023_L1.csv"))
+sw_data <- read.csv(here("DOC/TEMPORARY/", "TMP_SOURCE_NPOCTDN_2023_L1.csv"))
 
 #Format sample IDs
 sw_data$date <- as.Date(sw_data$datetime)
@@ -105,7 +105,12 @@ all_data <- all_data %>%
 all_data$Collection_End_Time_24hrs <- as.numeric(all_data$Time)
 
 ##For 20230607, need to change times to AM or PM in Sample ID
-all_data$Time_of_day = ifelse(all_data$Collection_End_Time_24hrs<1200, "AM", "PM")
+all_data <- all_data %>% 
+  mutate(Time_of_day = case_when(
+    str_detect(sample_name, "_0800") ~ "AM", 
+    str_detect(sample_name, "_1600") ~ "PM",
+    TRUE ~ NA))
+
 all_data <- all_data %>% 
   mutate(Sample_ID = ifelse(Collection_Date_YYYYMMDD == "20230607" & Grid != "Source", paste(Site, Plot, Grid, Collection_Date_YYYYMMDD, Time_of_day, sep = "_"), sample_name))
 
@@ -139,6 +144,7 @@ all_data3 <- all_data2 %>%
 
 ##Fix TMP_C_C6_20221019   
 all_data3$Sample_ID <- gsub("TMP_C_I5_20231005", "TMP_C_I5_20231002", all_data3$Sample_ID)
+all_data3$Sample_ID <- gsub("TMP_SW_C6_20231211", "TMP_SW_H3_20231211", all_data3$Sample_ID)
 all_data3$Collection_Date_YYYYMMDD <- ifelse(all_data3$Sample_ID == "TMP_C_I5_20231002", "20221002", all_data3$Collection_Date_YYYYMMDD)
 
 
@@ -223,8 +229,7 @@ raw_metadata_sw_combined <- raw_metadata_sw_sw %>%
                           Source, 
                           Collection_Date, 
                           Event_Time, 
-                          sep = "_")) %>%
-  rename("Notes" = "Notes:")
+                          sep = "_"))
 
 
 
@@ -385,7 +390,7 @@ final_data <- merged_data %>%
  select(
     Project, Site, plot, grid, Depth_cm, Analyte, Sample_ID, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
