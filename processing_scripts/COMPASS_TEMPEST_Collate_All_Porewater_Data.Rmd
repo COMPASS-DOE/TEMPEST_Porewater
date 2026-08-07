@@ -252,7 +252,7 @@ write.csv(sampleID_format, "Sample_ID_formatting.csv")
 ##Need to figure out duplicates
 ```{r}
 ##Need to figure out duplicates
-df_duplicates <- merged_df %>%
+df_duplicates <- data %>%
   group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
@@ -264,16 +264,17 @@ df_duplicates_SO4 <- SO4_Cl2 %>%
   ungroup()
 # lots of duplicate SO4_Cl rows removed - should do this in collated SO4_Cl data
 # 2024 Estuary sourcewater was incorrectly all labelled AM, some should be PM - DONE
-## Some samples were ran twice in COMPASS_TEMPEST_20230603 and 20230605 SO4/Cl run, sometimes the values are similar and sometimes very different. Not sure what happened here.
-## TMP_PW_SW_F4_15CM_20241213 ran twice, different Cl values
+## Some samples were ran twice in COMPASS_TEMPEST_20230603 and 20230605 SO4/Cl run, sometimes the values are similar and sometimes very different. Not sure what happened here. - used the first sample
+## TMP_PW_SW_F4_15CM_20241213 ran twice, different Cl values - removed both
 
 ##Fix DOC duplicates
 df_duplicates_DOC <- DOC2 %>%
   group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
-## 20230607_PM samples ran twice, sometimes the values are similar and sometimes very different. 
-## TMP_PW_SW_C3_15CM_T3_20240612 ran twice, different values
+## 20230607_PM samples ran twice, sometimes the values are similar and sometimes very different. - AM samples were coded as PM samples, fixed the code for this. 
+## TMP_PW_SW_C3_15CM_T3_20240612 ran twice, different values - removed
+
 
 ##Fix Nutrient duplicates
 df_duplicates_Nutrients <- Nutrients2 %>%
@@ -293,10 +294,10 @@ df_duplicates_Sulfide <- Sulfide2 %>%
 
 
 ##Fix pH duplicates
-# df_duplicates_pH <- pH2 %>%
-#   group_by(Sample_ID_formatted) %>%
-#   filter(n() > 1) %>%
-#   ungroup()
+df_duplicates_pH <- pH %>%
+  group_by(Sample_ID) %>%
+  filter(n() > 1) %>%
+  ungroup()
 ##lots of duplicate pH rows removed - should do this in collated pH data
 # TMP_SW_SOURCEWATER_20230607_1255_15CM has two entries? One says taken with YSI, no temperature - removed 
 # TMP_FW_SOURCEWATER_20230607_1519_15CM has two entries? One has no temperature - removed
@@ -457,7 +458,7 @@ merged_data <- data %>%
 
 # 2024 sourcewater samples don't match metadata
 data_sel <- data %>% 
-  filter(Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615")
+  filter(Sample_ID_formatted == "TMP_PW_SW_C6_15CM_20231211")
 
 ```
 
