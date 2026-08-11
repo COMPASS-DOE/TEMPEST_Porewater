@@ -1,0 +1,428 @@
+---
+title: "ESS-DIVE TEMPEST: Porewater Data - 2026-08-11 Submission Prep"
+author: "2022-2025 Samples"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+
+output_dir: "To Be Reviewed/PDF"
+header-includes:
+  - \pagenumbering{gobble}
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+library(openxlsx)
+library(knitr)
+library(here)
+```
+
+
+## Pull in compiled data and export annual files
+```{r Pull in compiled data files, message=FALSE, include=FALSE}
+
+#write out a csv of all the data to the main folder: 
+final_data <- read.csv("../COMPASS_TEMPEST_AllData_AllYears.csv")
+
+##Separate by year for ESS-DIVE 
+final_data_2022 <- subset(final_data, Sample_Year == "2022")
+final_data_2023 <- subset(final_data, Sample_Year == "2023")
+final_data_2024 <- subset(final_data, Sample_Year == "2024")
+final_data_2025 <- subset(final_data, Sample_Year == "2025")
+
+##Write out annual data files
+write.csv(final_data_2022, "Data package/COMPASS_TEMPEST_water_analysis_2022.csv", row.names = FALSE)
+write.csv(final_data_2023, "Data package/COMPASS_TEMPEST_water_analysis_2023.csv", row.names = FALSE)
+write.csv(final_data_2024, "Data package/COMPASS_TEMPEST_water_analysis_2024.csv", row.names = FALSE)
+write.csv(final_data_2025, "Data package/COMPASS_TEMPEST_water_analysis_2025.csv", row.names = FALSE)
+
+```
+
+
+## Create dd file
+```{r make metadata, include = FALSE}
+
+#pull the column names from the all_dat1 dataframe and create a new dataframe with them
+dd <- data.frame(Column_Names = colnames(final_data))
+colnames(final_data)
+
+dd$Unit <- ""
+dd$Definition <- ""
+dd$Column_Long_Name <- dd$Column_Names
+dd$data_type <- ""
+dd$Instrument_ifapplicable <- ""
+dd$Method_ifapplicable <- ""
+
+#add information about each line:
+
+dd$Definition <-       c("Project name: Project component", 
+                         "Region samples originated from: CB = Chesapeake Bay",
+                         "Water sample ID", 
+                         "Year (YYYY) of sample collection", 
+                         "Month (MM) of sample collection",
+                         "Day (DD) of sample collection",
+                         "Site Code identifier for sampling transect location (TMP), see dataset location for coordinates", 
+                         "Sampling Event (TMP-I, TMP-II, TMP-III, Monitoring)", 
+                         "Sampling plot (F = Freshwater, S = Saltwater, C = Control)",
+                         "Sampling grid location in plot (Letter + Number)", 
+                         "Depth interval below the soil surface from which the sample was collected in cm",
+                         "Sampling timepoint during an event (T#, HR#, AM/MID/PM)", 
+                         "Type of sample collected (SOURCE = Source water, PW = Porewater, RAINWATER = Rain water)", 
+                         "Date lysimeter was evacuated before sample collection (YYYYMMDD)", 
+                         "Date sample was collected (YYYYMMDD)", 
+                         "Time sample collection was started (HHMM)", 
+                         "Time sample collection ended (HHMM)", 
+                         "Daylight savings time zone during sample collection (EST/EDT)", 
+                         "Notes from sample collection in the field", 
+                         "Non-Purgeable Organic Carbon concentration", 
+                         "Non-Purgeable Organic Carbon concentration", 
+                         "Non-Purgeable Organic Carbon flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
+                         "TDN concentration", 
+                         "TDN concentration", 
+                         "TDN flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration flag (adl = above detection limit (1 mg/L), bdl = below detection limit (0.025 mg/L))",
+                         "Ammonia (NH3) concentration", 
+                         "Ammonia (NH3) concentration", 
+                         "Ammonia (NH3) concentration flag (adl = above detection limit (2 mg/L), bdl = below detection limit (0.02 mg/L))", 
+                         "Phosphate (PO4) concentration", 
+                         "Phosphate (PO4) concentration", 
+                         "Phosphate (PO4) concentration flag (adl = above detection limit (0.3 mg/L), bdl = below detection limit (0.003 mg/L))", 
+                         "Sulfate concentration", 
+                         "Sulfate concentration", 
+                         "Sulfate concentration flag (adl = above detection limit (20 ug/mL), bdl = below detection limit (0 ug/mL))", 
+                         "Chloride concentration", 
+                         "Chloride concentration", 
+                         "Chloride concentration flag (adl = above detection limit (200 ug/mL), bdl = below detection limit (0 ug/mL))", 
+                         "Salinity", 
+                         "Sulfide concentration in uM, mean of analytical replicates during sample analysis", 
+                         "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
+                         "Iron (II) concentration in uM, mean of analytical replicates during sample analysis", 
+                         "Iron (II) concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Iron (II) concentration concentration flag (adl = above detection limit (500 umoles/L), bdl = below detection limit (0.6 umoles/L))", 
+                         "Iron (III) concentration in uM, mean of analytical replicates during sample analysis", 
+                         "Iron (III) concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Iron (III) concentration concentration flag (adl = above detection limit (500 umoles/L), bdl = below detection limit (0.6 umoles/L))", 
+                         "Notes for analytes not measured")
+
+dd$Unit <-             c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "cm",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "mg/L", 
+                         "umoles/L", 
+                         "NA",
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",   
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "ppm", 
+                         "mmol/L", 
+                         "NA", 
+                         "ppm", 
+                         "mmol/L", 
+                         "NA", 
+                         "ppt", 
+                         "umoles/L",  
+                         "umoles/L",  
+                         "NA", 
+                         "umoles/L",  
+                         "umoles/L",  
+                         "NA", 
+                         "umoles/L",  
+                         "umoles/L",  
+                         "NA", 
+                         "NA")
+
+dd$data_type <-        c("text", 
+                         "text",
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "text",
+                         "text",
+                         "text",
+                         "numeric", 
+                         "text",
+                         "text",
+                         "date", 
+                         "date", 
+                         "time", 
+                         "time", 
+                         "text",
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "text")
+
+dd$Instrument_ifapplicable <-   c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "Shimadzu TOC", 
+                         "Shimadzu TOC", 
+                         "NA", 
+                         "Shimadzu TOC", 
+                         "Shimadzu TOC", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "NA", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "NA", 
+                         "Calculated with Knudsen equation (Strickland and Parsons, 1972)", 
+                         "Modified Cline (1969) method measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "NA", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "NA", 
+                         "NA")
+
+
+dd$Method_ifapplicable <- c(
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "NA",
+                         "NA", 
+                         "NA", 
+                         "NA",
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "Calculated with Knudsen equation (Strickland and Parsons, 1972)", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
+                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020")
+
+
+#write out the data dictionary associated with the data:
+write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
+
+# #write out data dictionary associated with the data to the main folder: 
+# write.csv(dd, here("Porewater/Peeper Data/","COMPASS_SynopticCB_Peeper_DataDictionary.csv"), row.names = FALSE)
+
+```
+
+
+## Create flmd file
+```{#r create flmd}
+
+files  = list.files("Data package")
+files
+
+files = c("COMPASS_SynopticCB_GW-Peeper_2022.csv", "COMPASS_SynopticCB_GW-Peeper_2023.csv", "dd.csv")
+
+flmd <- data.frame(file_name = files)
+flmd
+
+flmd$file_description <- ""
+flmd$standard <- ""
+flmd$file_version <- ""
+flmd$data_orientation <- ""
+flmd$header_rows <- ""
+flmd$column_or_row_name_position <- ""
+flmd$notes <- ""
+
+#add information about each line:
+
+flmd$file_description <-  c("Depth resolved groundwater samples collected from COMPASS CB Synoptic sites in 2022",
+                            "Depth resolved groundwater samples collected from COMPASS CB Synoptic sites in 2023",
+                            "Data dictionary file for annual Peeper water sample analysis data files describing each column in the dataset")
+
+flmd$data_orientation <-  c("horizontal",
+                            "horizontal",
+                            "horizontal")
+
+flmd$header_rows <-   c("1",
+                        "1",
+                        "1")
+
+flmd$column_or_row_name_position <- c("1",
+                                      "1",
+                                      "1")
+
+
+#write out the flmd associated with the data:
+write.csv(flmd, "Data package/flmd.csv", row.names = FALSE)
+
+```
+
+
+## Create site list
+```{#r create site list}
+
+##Description, Latitude, Longitude
+
+MSM <- data.frame(
+  Description = "Moneystump Swamp (MSM); one of the COMPASS-FME synoptic sites located in the Blackwater National Wildlife Refuge along the mesohaline Beaverdam Creek. This synoptic site consists of three plots: upland ('UP'; located at 38.4315N, 76.2267W), transition ('TR'; 38.4310N, 76.2277W), and wetland ('WC'; 38.4308N, 76.2286W). The site was established in June 2022. The transect spans a coastal loblolly pine forest and a mesohaline marsh dominated by Spartina and Distichlis.", 
+  Latitude = "38.4310 degrees", 
+  Longitude = "-76.2277 degrees")
+
+site_list = MSM
+
+#write out the site list associated with the data:
+write.csv(site_list, "Data package/site_list.csv", row.names = FALSE)
+
+```
+
+
+## Data Description - NEED TO EDIT THIS FOR PEEPER DATA
+```{#r data description}
+
+#Create a text file that has the description of the data - This ideally should match the text that is in the data READ.ME 
+
+datadescription <- "These data are measurements of depth resolved groundwater samples collected in 2022 from the COMPASS 'synoptic' sites in the Chesapeake Bay region:  GCReW (GCW), Goodwin Islands (GWI), Moneystump (MSM), and Sweet Hall (SWH). These sites have space for time transects spanning coastal upland forest (UP), coastal upland forest transitioning to wetland (TR), and wetland (WC) plots. The Sweet Hall Marsh site also has a forested swamp as part of its transect (SWAMP). Soil REDOX profiles were measured at 10, 20, and 30/35cm depths monthly from 2022-2024 then bi-monthly from 2025-present across the plots. The SWH TR site has variable topography that includes hummocks and hollows; these were measured separately and are denoted in the dataset by the Topography column as Hummock/Hollow. To make measurements, five replicate soil REDOX probes were pushed into the ground to the depth of measurement and allowed to equilibrate for five minutes before recording the probe reading with a Thermo Scientific Orion pH/ORP handheld meter. After the reading, probes were pushed to the next depth of interest."
+
+
+#write to a text file 
+writeLines(datadescription, "Data package/SynopticCB_Redox_ESSDIVE_DataDescription.txt")
+
+
+```
+
+
+## Create Author List - NEED TO EDIT THIS FOR PEEPER DATA
+```{#r create author list}
+
+#Pull in the common synoptic authors list: 
+authors_common <- read.csv(here("Metadata/Synoptic CB/", "COMPASS_SynopticCB_common_essdive_author_list.csv"))
+
+
+#create a list of the last names you want to pull 
+names_we_want <- c("Wilson", "Read", "Stearns", "Phillips", "Chin", "Megonigal")
+
+#Subset the common list for the names that we want 
+author_list <- authors_common %>%
+  filter(last_name %in% names_we_want)
+
+#if you need to add any other authors 
+others <- data.frame(
+  first_name = c("first_name1", "first_name2"), 
+  last_name = c("last_name1", "last_name2"), 
+  orcid = c("orcid_id1", "orcid_id2"), 
+  affiliation = c("affiliation1", "affiliation2"), 
+  email = c("email1", "email2")
+)
+
+#add in the other authors 
+#author_list <- bind_rows(author_list, others)
+
+#write out the author list associated with the data:
+write.csv(author_list, "Data package/author_list.csv", row.names = FALSE)
+```
+

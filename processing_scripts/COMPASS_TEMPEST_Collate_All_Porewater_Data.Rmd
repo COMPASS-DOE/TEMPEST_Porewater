@@ -491,16 +491,13 @@ final_data1 <- merged_data %>%
 ## Format and write the alldata file out to the folder 
 ```{r, echo=FALSE}
 
-##Order data by Year, Month, Day
-# final_data1 <- final_data[order(final_data$Year, final_data$Month, final_data$Day, final_data$Zone, final_data$Lysimeter, final_data$Depth_cm),]
-
 colnames(final_data1)
 
 final_data2 <- final_data1 %>% 
   mutate(
-    Year = as.numeric(substr(Date, 1, 4)), 
-    Month = as.numeric(substr(Date, 5, 6)), 
-    Day = as.numeric(substr(Date, 7, 8)), 
+    Sample_Year = as.numeric(substr(Date, 1, 4)), 
+    Sample_Month = as.numeric(substr(Date, 5, 6)), 
+    Sample_Day = as.numeric(substr(Date, 7, 8)), 
     date = as.numeric(Date), 
     Project = "COMPASS", 
     Region = "CB", 
@@ -510,40 +507,65 @@ final_data2 <- final_data1 %>%
     Timepoint = gsub("_NA", "", Timepoint), 
     Timepoint = gsub("NA_", "", Timepoint), 
     ) %>% 
+  ##Code in event column
+  mutate(Event = case_when(
+    date == 20220622 ~ "TMP-I", 
+    date >= 20230606 & date <=  20230607 ~ "TMP-II", 
+    date >= 20240611 & date <=  20240613 ~ "TMP-III", 
+    TRUE ~ "Monitoring"
+  ))  %>% 
+  ##Code in collection start time column for non-porewater samples
+  mutate(Collection_Start_Time_24hrs = case_when(
+    Sample_Type == "RAINWATER" ~ Collection_Time_24hrs, 
+    Sample_Type == "SOURCE" ~ Collection_Time_24hrs, 
+    TRUE ~ Collection_Start_Time_24hrs
+  )) %>%  
   ##Code in EDT/EST
   mutate(EST_EDT = case_when(
-    Date >= 20220313 & Date <  20221106 ~ "EDT", 
-    Date >= 20221106 & Date <  20230312 ~ "EST", 
-    Date >= 20230312 & Date <  20231105 ~ "EDT", 
-    Date >= 20231105 & Date <  20240310 ~ "EST", 
-    Date >= 20240310 & Date <  20241103 ~ "EDT", 
-    Date >= 20241103 & Date <  20250309 ~ "EST", 
-    Date >= 20250309 & Date <  20251102 ~ "EDT", 
-    Date >= 20251102 & Date <  20260308 ~ "EST",    
-    Date >= 20260308 & Date <  20261101 ~ "EDT", 
+    date >= 20220313 & date <  20221106 ~ "EDT", 
+    date >= 20221106 & date <  20230312 ~ "EST", 
+    date >= 20230312 & date <  20231105 ~ "EDT", 
+    date >= 20231105 & date <  20240310 ~ "EST", 
+    date >= 20240310 & date <  20241103 ~ "EDT", 
+    date >= 20241103 & date <  20250309 ~ "EST", 
+    date >= 20250309 & date <  20251102 ~ "EDT", 
+    date >= 20251102 & date <  20260308 ~ "EST",    
+    date >= 20260308 & date <  20261101 ~ "EDT", 
     TRUE ~ EST_EDT
-  ))
-  
-  
-  
+  ))  %>% 
+  ##Code in Analyte_Notes
+  mutate(Analyte_Notes = case_when(
+    Sample_Year == 2022 ~ "Nutrients, pH, Sulfate/Chloride/Salinity, and Sulfide were not analyzed in 2022", 
+    TRUE ~ NA_character_
+  )) %>% 
+  ##Code in FW --> F, SW --> S
+  mutate(Plot = case_when(
+    Plot == "FW" ~ "F", 
+    Plot == "SW" ~ "S", 
+    TRUE ~ Plot
+  )) %>% 
+  ##Rename columns
   rename(Sample_ID = Sample_ID_formatted, 
          NOx_flag = NOx_Conc_Flag, 
          NH3_flag = NH3_Conc_Flag, 
          PO4_flag = PO4_Conc_Flag, 
          SO4_flag = SO4_Conc_flag, 
          Cl_flag = Cl_Conc_flag, 
-         H2S_flag = H2S_Conc_flag
+         H2S_flag = H2S_Conc_flag, 
+         Location = Grid, 
+         Salinity = salinity
          ) %>% 
-  select(c("Project", "Region", "Year", "Month", "Day", "Site", "Sample_ID", "Plot", "Grid", "Date", "Depth_cm", "T_num", "TOD", "Sample_Type", 
-           "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", 
-           "Deployment_Date_YYYYMMDD", "Deployment_Time_24hrs" , "Collection_Time_24hrs", "EST_EDT", "Notes", 
+  filter(Sample_Year < 2026) %>% 
+  select(c("Project", "Region", "Sample_ID", "Sample_Year", "Sample_Month", "Sample_Day", 
+           "Site", "Event", "Plot", "Location", "Depth_cm", "Timepoint", "Sample_Type", 
+           "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Notes", 
            "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 
            "NOx_mgL", "NOx_uM", "NOx_flag", "NH3_mgL", "NH3_uM", "NH3_flag", "PO4_mgL", "PO4_uM", "PO4_flag", 
-           "SO4_ppm", "SO4_mM", "SO4_flag", "Cl_ppm", "Cl_mM", "Cl_flag", "salinity", 
-           "H2S_mean_uM", "H2S_sd_uM", "H2S_cv", "H2S_flag"))
+           "SO4_ppm", "SO4_mM", "SO4_flag", "Cl_ppm", "Cl_mM", "Cl_flag", "Salinity", 
+           "H2S_mean_uM", "H2S_sd_uM", "H2S_flag", "Analyte_Notes"))
 
 
-write.csv(final_data1, "COMPASS_TEMPEST_AllData_AllYears.csv", row.names = FALSE)
+write.csv(final_data2, "COMPASS_TEMPEST_AllData_AllYears.csv", row.names = FALSE)
 
 ```
 
