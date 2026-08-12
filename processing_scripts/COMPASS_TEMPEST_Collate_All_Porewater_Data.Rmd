@@ -536,47 +536,56 @@ merged_data1 <- merged_data %>%
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "ESTUARY", 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "ESTUARY", 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "SW", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "C")) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "C", 
+    TRUE ~ Plot)) %>% 
   mutate(Grid = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "H3", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "F6")) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "F6", 
+    TRUE ~ Grid)) %>% 
   mutate(Sample_Type = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "SOURCE", 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "SOURCE", 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "PW", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "PW")) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "PW", 
+    TRUE ~ Sample_Type)) %>% 
   mutate(Date = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "20220622", 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "20220622", 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615", 
+    TRUE ~ Date)) %>% 
   mutate(Depth = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "15CM", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "15CM")) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "15CM", 
+    TRUE ~ Depth)) %>% 
   mutate(T_num = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "HR0", 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "HR1", 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ NA, 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA)) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA, 
+    TRUE ~ T_num)) %>% 
   mutate(TOD = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ NA, 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA)) %>% 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA, 
+    TRUE ~ TOD)) %>% 
   mutate(Evacuation_date_YYYYMMDD = case_when(
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
     Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
-    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) %>%   
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ 20220615, 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ 20220615, 
+    TRUE ~ Evacuation_date_YYYYMMDD)) %>%   
   mutate(Collection_Date_YYYYMMDD = case_when(
-    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "20220622", 
-    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "20220622", 
-    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
-    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ 20220622, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ 20220622, 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ 20220615, 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ 20220615, 
+    TRUE ~ Collection_Date_YYYYMMDD)) 
 
 ```
 
