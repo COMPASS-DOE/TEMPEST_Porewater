@@ -355,10 +355,10 @@ flmd$notes <- ""
 
 #add information about each line:
 
-flmd$file_description <-  c("Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2022",
-                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2023",
-                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2024",
-                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2025",
+flmd$file_description <-  c("Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2022",
+                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2023",
+                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2024",
+                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2025",
                             "Data dictionary file for annual TEMPEST water sample analysis data files describing each column in the dataset")
 
 flmd$data_orientation <-  c("horizontal",
