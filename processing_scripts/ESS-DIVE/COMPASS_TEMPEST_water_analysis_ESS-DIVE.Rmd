@@ -1,5 +1,5 @@
 ---
-title: "ESS-DIVE TEMPEST: Porewater Data - 2026-08-11 Submission Prep"
+title: "ESS-DIVE TEMPEST: Water analysis Data - 2026-08-11 Submission Prep"
 author: "2022-2025 Samples"
 date: "`r Sys.Date()`"
 output: 
@@ -107,12 +107,12 @@ dd$Definition <-       c("Project name: Project component",
                          "Sulfide concentration in uM, mean of analytical replicates during sample analysis", 
                          "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
                          "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
-                         "Iron (II) concentration in uM, mean of analytical replicates during sample analysis", 
-                         "Iron (II) concentration standard deviation in uM of analytical replicates during sample analysis", 
-                         "Iron (II) concentration concentration flag (adl = above detection limit (500 umoles/L), bdl = below detection limit (0.6 umoles/L))", 
-                         "Iron (III) concentration in uM, mean of analytical replicates during sample analysis", 
-                         "Iron (III) concentration standard deviation in uM of analytical replicates during sample analysis", 
-                         "Iron (III) concentration concentration flag (adl = above detection limit (500 umoles/L), bdl = below detection limit (0.6 umoles/L))", 
+                         "pH of sample", 
+                         "pH flag (pH value is outside the typical range = pH is less than 3.5 or greater than 8)", 
+                         "Conductivity of sample", 
+                         "Conductivity units", 
+                         "Temperature of sample when collected (degrees Celsius)", 
+                         "Temperature flag (temperature not recorded)", 
                          "Notes for analytes not measured")
 
 dd$Unit <-             c("NA", 
@@ -159,11 +159,11 @@ dd$Unit <-             c("NA",
                          "umoles/L",  
                          "umoles/L",  
                          "NA", 
-                         "umoles/L",  
-                         "umoles/L",  
                          "NA", 
-                         "umoles/L",  
-                         "umoles/L",  
+                         "NA", 
+                         "mS/cm or uS/cm", 
+                         "mS/cm or uS/cm", 
+                         "degrees Celsius", 
                          "NA", 
                          "NA")
 
@@ -212,9 +212,9 @@ dd$data_type <-        c("text",
                          "numeric", 
                          "text",
                          "numeric", 
-                         "numeric", 
                          "text",
                          "numeric", 
+                         "text",
                          "numeric", 
                          "text",
                          "text")
@@ -263,51 +263,66 @@ dd$Instrument_ifapplicable <-   c("NA",
                          "Modified Cline (1969) method measured with Agilent BioTek PowerWave Microplate Reader", 
                          "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
                          "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Oakton", 
                          "NA", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020 methods measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Oakton", 
+                         "NA", 
+                         "Oakton", 
                          "NA", 
                          "NA")
 
 
-dd$Method_ifapplicable <- c(
+dd$Method_ifapplicable <- c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA", 
                          "NA",
                          "NA",
                          "NA", 
                          "NA",
                          "NA",
                          "NA", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "NA",
                          "NA",
                          "NA", 
-                         "NA", 
                          "NA",
-                         "NA", 
-                         "NA", 
-                         "NA", 
-                         "NA", 
-                         "NA", 
+                         "NA",
                          "NA", 
                          "Calculated with Knudsen equation (Strickland and Parsons, 1972)", 
                          "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
                          "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
                          "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
-                         "EPA-103-A Rev. 10", 
-                         "EPA-103-A Rev. 10", 
-                         "EPA-103-A Rev. 10", 
-                         "EPA-155-D Rev. 0", 
-                         "EPA-155-D Rev. 0", 
-                         "EPA-155-D Rev. 0", 
-                         "EPA-160-A Rev. 0", 
-                         "EPA-160-A Rev. 0", 
-                         "EPA-160-A Rev. 0", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020", 
-                         "Adapted from Stookey, 1970, Violler et al., 2000, Charbonnier & Anschutz 2021, Gong 2020")
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA")
 
 
 #write out the data dictionary associated with the data:
@@ -320,12 +335,12 @@ write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
 
 
 ## Create flmd file
-```{#r create flmd}
+```{r create flmd}
 
 files  = list.files("Data package")
 files
 
-files = c("COMPASS_SynopticCB_GW-Peeper_2022.csv", "COMPASS_SynopticCB_GW-Peeper_2023.csv", "dd.csv")
+files = c("COMPASS_TEMPEST_water_analysis_2022.csv", "COMPASS_TEMPEST_water_analysis_2023.csv", "COMPASS_TEMPEST_water_analysis_2024.csv","COMPASS_TEMPEST_water_analysis_2025.csv", "dd.csv")
 
 flmd <- data.frame(file_name = files)
 flmd
@@ -340,19 +355,27 @@ flmd$notes <- ""
 
 #add information about each line:
 
-flmd$file_description <-  c("Depth resolved groundwater samples collected from COMPASS CB Synoptic sites in 2022",
-                            "Depth resolved groundwater samples collected from COMPASS CB Synoptic sites in 2023",
-                            "Data dictionary file for annual Peeper water sample analysis data files describing each column in the dataset")
+flmd$file_description <-  c("Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2022",
+                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2023",
+                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2024",
+                            "Depth resolved porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2025",
+                            "Data dictionary file for annual TEMPEST water sample analysis data files describing each column in the dataset")
 
 flmd$data_orientation <-  c("horizontal",
+                            "horizontal",
+                            "horizontal",
                             "horizontal",
                             "horizontal")
 
 flmd$header_rows <-   c("1",
                         "1",
+                        "1",
+                        "1",
                         "1")
 
 flmd$column_or_row_name_position <- c("1",
+                                      "1",
+                                      "1",
                                       "1",
                                       "1")
 
@@ -368,12 +391,12 @@ write.csv(flmd, "Data package/flmd.csv", row.names = FALSE)
 
 ##Description, Latitude, Longitude
 
-MSM <- data.frame(
+TMP <- data.frame(
   Description = "Moneystump Swamp (MSM); one of the COMPASS-FME synoptic sites located in the Blackwater National Wildlife Refuge along the mesohaline Beaverdam Creek. This synoptic site consists of three plots: upland ('UP'; located at 38.4315N, 76.2267W), transition ('TR'; 38.4310N, 76.2277W), and wetland ('WC'; 38.4308N, 76.2286W). The site was established in June 2022. The transect spans a coastal loblolly pine forest and a mesohaline marsh dominated by Spartina and Distichlis.", 
   Latitude = "38.4310 degrees", 
   Longitude = "-76.2277 degrees")
 
-site_list = MSM
+site_list = TMP
 
 #write out the site list associated with the data:
 write.csv(site_list, "Data package/site_list.csv", row.names = FALSE)

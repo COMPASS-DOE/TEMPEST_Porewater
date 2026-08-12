@@ -119,7 +119,7 @@ pH_NA <- pH_annual %>%
 
 # Clean and Flag
 ```{r clean up}
-pH <- pH_raw %>%
+pH <- pH_annual %>%
   mutate(date = Date_YYYYMMDD,
          time = Time_24hr) %>% 
   rename(plot = Plot,
@@ -147,7 +147,11 @@ pH <- pH_raw %>%
           mutate(grid = case_when(grid == "Source" ~ "SOURCE",
                            TRUE ~ grid)
             ) %>%
-  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag, Notes)
+  mutate(Instrument = case_when(
+    str_detect(Notes, "YSI") ~ "YSI",
+    TRUE ~ "Oakton")) %>% 
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, flag, Notes)
+
 ```
 
 # Add in lysimeter metadata
@@ -179,13 +183,13 @@ left_join(sample_key_merging, by= c("plot","date"), suffix = c("", ".fill")) %>%
 
 
 porewater_pH_2023 <- porewater_pH %>% filter(datetime < year2_stop & datetime > year2_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
  
 porewater_pH_2024 <- porewater_pH %>% filter(datetime < year3_stop & datetime > year3_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
 
 porewater_pH_2025 <- porewater_pH %>% filter(datetime < year4_stop & datetime > year4_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, evacuation_date, flag)
 
 # write_csv(porewater_pH_2023, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2023_L1.csv")
 # write_csv(porewater_pH_2024, "~/GitHub/TEMPEST-1-porewater/processed data/for_google_drive/TMP_PW_pH_2024_L1.csv")
@@ -203,12 +207,12 @@ write_csv(porewater_pH_2025, "TMP_PW_pH_2025_L1.csv")
 source_pH_2023 <- pH %>%
   filter(grid == "SOURCE") %>%
   filter(datetime < year2_stop & datetime > year2_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
 
 source_pH_2024 <- pH %>%
   filter(grid == "SOURCE") %>%
   filter(datetime < year3_stop & datetime > year3_start) %>%
-  select(Site, plot, grid, pH, collection_temp_C, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
+  select(Site, plot, grid, pH, Cond, Cond_units, collection_temp_C, Instrument, datetime, Date_YYYYMMDD, Time_24hr, tz, flag)
 
 # no source in 2025 # 
 
