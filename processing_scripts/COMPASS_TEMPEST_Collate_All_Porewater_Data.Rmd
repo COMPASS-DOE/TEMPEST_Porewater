@@ -295,7 +295,7 @@ pH1 <- pH_timepoint %>%
 
 
 pH2 <- pH1 %>%
-  dplyr::select(c("Sample_ID_formatted", "pH", "pH_flag", "Cond", "Cond_units", "collection_temp_C", "temperature_flag"))
+  dplyr::select(c("Sample_ID_formatted", "pH", "pH_flag", "Cond", "Cond_units", "collection_temp_C", "temperature_flag", "Timepoint"))
 
 colnames(pH2)
 ```
@@ -501,6 +501,8 @@ data$Sample_ID_formatted <- toupper(data$Sample_ID_formatted)
 metadata$Sample_ID_formatted <- toupper(metadata$Sample_ID_formatted)
 
 ##Remove samples not in scanned datasheets: 
+# TMP_PW_FW_F6_15CM_20230606 - scanned datasheet says no water collected but have SO4/Cl data? Not missing any of the other SW samples
+# TMP_PW_C_H6_20260602 - no sample collected on this date, already have 20250602 sample
 data <- data %>% 
   filter(Sample_ID_formatted != "TMP_PW_C_H6_20260602") %>% 
   filter(Sample_ID_formatted != "TMP_PW_FW_F6_15CM_20230606") 
@@ -521,18 +523,60 @@ if (all_present) {
 merged_data <- data %>%
   left_join(metadata, by = c("Sample_ID_formatted"))
 
+colnames(merged_data)
 
 ##Samples missing from metadata: 
-
 # 2022 estuary sourcewater samples ("TMP_SOURCE_ESTUARY_HR0_20220622", "TMP_SOURCE_ESTUARY_HR1_20220622") - not entered in metadata
-# TMP_PW_SW_H3_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
-# TMP_PW_C_F6_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
-# TMP_PW_FW_F6_15CM_20230606 - scanned datasheet says no water collected but have SO4/Cl data? Not missing any of the other SW samples
-# TMP_PW_C_H6_20260602 - no sample collected on this date, already have 20250602 sample
+# TMP_PW_SW_H3_15CM_20220615 - not entered in metadata
+# TMP_PW_C_F6_15CM_20220615 - not entered in metadata
 
-# 2024 sourcewater samples don't match metadata
-data_sel <- data %>% 
-  filter(Sample_ID_formatted == "TMP_PW_SW_C6_15CM_20231211")
+##Code in samples missing from metadata 
+merged_data1 <- merged_data %>% 
+  mutate(Plot = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "ESTUARY", 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "ESTUARY", 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "SW", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "C")) %>% 
+  mutate(Grid = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "H3", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "F6")) %>% 
+  mutate(Sample_Type = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "SOURCE", 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "SOURCE", 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "PW", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "PW")) %>% 
+  mutate(Date = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "20220622", 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "20220622", 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) %>% 
+  mutate(Depth = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "15CM", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "15CM")) %>% 
+  mutate(T_num = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "HR0", 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "HR1", 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA)) %>% 
+  mutate(TOD = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ NA)) %>% 
+  mutate(Evacuation_date_YYYYMMDD = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ NA, 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) %>%   
+  mutate(Collection_Date_YYYYMMDD = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR0_20220622" ~ "20220622", 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_HR1_20220622" ~ "20220622", 
+    Sample_ID_formatted == "TMP_PW_SW_H3_15CM_20220615" ~ "20220615", 
+    Sample_ID_formatted == "TMP_PW_C_F6_15CM_20220615" ~ "20220615")) 
 
 ```
 
@@ -540,7 +584,7 @@ data_sel <- data %>%
 ```{r}
 
 #merge porewater sample data with pH data 
-merged_data_pH <- merged_data %>%
+merged_data_pH <- merged_data1 %>%
   left_join(pH2, by = c("Sample_ID_formatted"))
 
 ```
@@ -597,7 +641,7 @@ final_data2 <- final_data1 %>%
     Region = "CB", 
     Site = "TMP", 
     Depth_cm = gsub("CM", "", Depth), 
-    Timepoint = paste(T_num, TOD, sep = "_"), 
+    Timepoint = ifelse(is.na(Timepoint), paste(T_num, TOD, sep = "_"), Timepoint), 
     Timepoint = gsub("_NA", "", Timepoint), 
     Timepoint = gsub("NA_", "", Timepoint), 
     ) %>% 
