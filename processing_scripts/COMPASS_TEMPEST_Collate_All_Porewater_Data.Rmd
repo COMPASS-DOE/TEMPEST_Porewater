@@ -84,7 +84,7 @@ DOC2 <- DOC1 %>%
            Date == "20240613" & T_num == "T5" ~ "PM", 
            TRUE ~ TOD), 
 
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID)
 
@@ -136,7 +136,7 @@ Nutrients2 <- Nutrients1 %>%
            Date == "20240613" & T_num == "T5" ~ "PM", 
            TRUE ~ TOD), 
          
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID)
 
@@ -147,9 +147,6 @@ SO4_Cl <- read.csv("Sulfate_Chloride/COMPASS_TEMPEST_SO4_Cl_AllData.csv")
 SO4_Cl1 <- SO4_Cl %>%
   ##Fix sample IDs
   mutate(Sample_ID = gsub("TMP_SW_H6_20230612_15CM", "TMP_SW_B4_20230612_15CM", Sample_ID)) %>% 
-  
-  
-  
   
   dplyr::select(c("Sample_ID", "SO4_ppm", "SO4_mM", "SO4_Conc_flag", "Cl_ppm", "Cl_mM", "Cl_Conc_flag", "salinity")) %>% 
   mutate(Sample_ID = toupper (Sample_ID)) %>% 
@@ -179,7 +176,7 @@ SO4_Cl2 <- SO4_Cl1 %>%
            Date == "20240613" & T_num == "T5" ~ "PM", 
            TRUE ~ TOD), 
          
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID)
 
@@ -214,23 +211,93 @@ Sulfide2 <- Sulfide1 %>%
            Date == "20240613" & T_num == "T5" ~ "PM", 
            TRUE ~ TOD), 
          
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID)
 
+```
+
+##Format pH data
+```{r}
 ####pH####
 pH <- read.csv("pH/COMPASS_TEMPEST_pH_AllData.csv")
 colnames(pH)
-pH <- pH %>%
+
+pH_nodup <- pH %>% 
   mutate(Sample_ID = toupper(Sample_ID)) %>% 
-  dplyr::select(c("Sample_ID", "pH", "collection_temp_C", "temperature_flag", "pH_flag")) %>% 
+  select(-Evacuation_Date) %>% 
   distinct() %>% 
   filter(!(Sample_ID == "TMP_SW_SOURCEWATER_20230607_1255_15CM" & temperature_flag == "temperature not recorded")) %>% 
   filter(!(Sample_ID == "TMP_ESTUARY_SOURCEWATER_20230607_1500_15CM" & temperature_flag == "temperature not recorded")) %>% 
-  filter(!(Sample_ID == "TMP_FW_SOURCEWATER_20230607_1519_15CM" & temperature_flag == "temperature not recorded"))
+  filter(!(Sample_ID == "TMP_FW_SOURCEWATER_20230607_1519_15CM" & temperature_flag == "temperature not recorded")) %>% 
+  filter(!(Sample_ID == "TMP_SW_SOURCEWATER_20230606_1316_15CM" & temperature_flag == "temperature not recorded")) %>% 
+  mutate(Time_24hr = ifelse(Time_24hr == 155, 1550, Time_24hr))
+
+pH_arranged <- pH_nodup %>% group_by(Zone, Grid) %>% arrange(Date_YYYYMMDD, Time_24hr, .by_group = TRUE)
+
+pH_numbered <- pH_arranged %>% group_by(Zone, Grid, Date_YYYYMMDD) %>% mutate(Number = row_number()) %>% ungroup()
+
+pH_timepoint <- pH_numbered %>%
+  mutate(Timepoint = case_when(
+    ##Order 2023 event sourcewater data by time and create T1-T3 timepoints
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230606" & Number == 1 ~ "T1", 
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230606" & Number == 2 ~ "T2", 
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230606" & Number == 3 ~ "T3", 
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230607" & Number == 1 ~ "T1", 
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230607" & Number == 2 ~ "T2", 
+    Grid == "SOURCE" & Date_YYYYMMDD == "20230607" & Number == 3 ~ "T3", 
+    
+    ##Order 2023 event porewater data by time and create AM/PM timepoints
+    Grid != "SOURCE" & Date_YYYYMMDD == "20230607" & Number == 1 ~ "AM",
+    Grid != "SOURCE" & Date_YYYYMMDD == "20230607" & Number == 2 ~ "PM",
+      
+    ##Order 2024 event sourcewater data by time and create AM/MID/PM timepoints
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240611" & Number == 1 ~ "AM",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240611" & Number == 2 ~ "MID",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240611" & Number == 3 ~ "PM",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240612" & Number == 1 ~ "AM",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240612" & Number == 2 ~ "MID",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240612" & Number == 3 ~ "PM",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240613" & Number == 1 ~ "AM",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240613" & Number == 2 ~ "MID",
+    Grid == "SOURCE" & Date_YYYYMMDD == "20240613" & Number == 3 ~ "PM",
+    
+    ##Order 2024 event porewater data by time and create AM/MID/PM timepoints
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240610" ~ "T0",
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240611" ~ "T1",
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240612" & Number == 1 ~ "T2_AM",    
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240612" & Number == 2 ~ "T3_PM",   
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240613" & Number == 1 ~ "T4_AM",    
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240613" & Number == 2 ~ "T5_PM", 
+    Grid != "SOURCE" & Date_YYYYMMDD == "20240614" ~ "T6", 
+    
+    TRUE ~ NA_character_))
+  
+pH1 <- pH_timepoint %>% 
+  mutate(Sample_Type = case_when(
+    str_detect(Grid, "SOURCE") ~ "SOURCE", 
+    str_detect(Grid, "RAINWATER") ~ "RAINWATER", 
+    TRUE ~ "PW")) %>% 
+  mutate(Grid = case_when(
+    str_detect(Grid, "SOURCE") ~ NA, 
+    str_detect(Grid, "RAINWATER") ~ NA, 
+    TRUE ~ Grid)) %>% 
+  mutate(Depth = case_when(
+    str_detect(Grid, "SOURCE") ~ NA, 
+    str_detect(Grid, "RAINWATER") ~ NA, 
+    TRUE ~ "15CM")) %>% 
+  mutate(Sample_ID_formatted = paste("TMP", Sample_Type, Zone, Grid, Depth, Date_YYYYMMDD, Timepoint, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  select(-Sample_ID) %>% 
+  rename(Plot = Zone, 
+         Collection_Date_YYYYMMDD = Date_YYYYMMDD, 
+         Collection_Start_Time_24hrs = Time_24hr)
 
 
+pH2 <- pH1 %>%
+  dplyr::select(c("Sample_ID_formatted", "pH", "pH_flag", "Cond", "Cond_units", "collection_temp_C", "temperature_flag"))
 
+colnames(pH2)
 ```
 
 ##Combine data
@@ -239,8 +306,9 @@ df_list <- list(DOC2, Nutrients2, SO4_Cl2, Sulfide2)
 data <- df_list %>% reduce(full_join)
 ```
 
+
 ##Make table of sample IDs
-```{r}
+```{#r}
 sampleID_format <- data %>% 
   mutate(Year = substr(Date, 1, 4)) %>% 
   select(c(Sample_Type, Year, T_num, TOD)) %>% 
@@ -294,8 +362,8 @@ df_duplicates_Sulfide <- Sulfide2 %>%
 
 
 ##Fix pH duplicates
-df_duplicates_pH <- pH %>%
-  group_by(Sample_ID) %>%
+df_duplicates_pH <- pH2 %>%
+  group_by(Sample_ID_formatted) %>%
   filter(n() > 1) %>%
   ungroup()
 ##lots of duplicate pH rows removed - should do this in collated pH data
@@ -376,7 +444,7 @@ raw_metadata_lys2 <- raw_metadata_lys1 %>%
          Sample_Type = gsub("SOURCE_RAINWATER", "RAINWATER", Sample_Type), 
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID) %>% 
   distinct(Sample_ID_formatted, .keep_all = TRUE) %>% 
@@ -413,7 +481,7 @@ raw_metadata_sw2 <- raw_metadata_sw1 %>%
          Sample_Type = gsub("SOURCE_RAINWATER", "RAINWATER", Sample_Type), 
          Sample_Type = replace_na(Sample_Type, "PW"), 
          
-         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, T_num, Date, TOD, sep = "_"), 
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
          Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
   select(-Sample_ID) %>% 
   distinct(Sample_ID_formatted, .keep_all = TRUE) %>% 
@@ -431,6 +499,11 @@ metadata <- bind_rows(raw_metadata_lys2, raw_metadata_sw2)
 #check to see if all samples are present in the metadata 
 data$Sample_ID_formatted <- toupper(data$Sample_ID_formatted)
 metadata$Sample_ID_formatted <- toupper(metadata$Sample_ID_formatted)
+
+##Remove samples not in scanned datasheets: 
+data <- data %>% 
+  filter(Sample_ID_formatted != "TMP_PW_C_H6_20260602") %>% 
+  filter(Sample_ID_formatted != "TMP_PW_FW_F6_15CM_20230606") 
 
 all_present <- all(data$Sample_ID_formatted %in% metadata$Sample_ID_formatted)
 
@@ -455,6 +528,7 @@ merged_data <- data %>%
 # TMP_PW_SW_H3_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
 # TMP_PW_C_F6_15CM_20220615 - not entered in metadata, can't find scanned datasheets for these
 # TMP_PW_FW_F6_15CM_20230606 - scanned datasheet says no water collected but have SO4/Cl data? Not missing any of the other SW samples
+# TMP_PW_C_H6_20260602 - no sample collected on this date, already have 20250602 sample
 
 # 2024 sourcewater samples don't match metadata
 data_sel <- data %>% 
@@ -462,17 +536,28 @@ data_sel <- data %>%
 
 ```
 
+##Add in pH data which is not in the porewater inventory 
+```{r}
+
+#merge porewater sample data with pH data 
+merged_data_pH <- merged_data %>%
+  left_join(pH2, by = c("Sample_ID_formatted"))
+
+```
+
 ## Round data to sensitivity of the instrument 
 ```{r}
 
-colnames(merged_data)
+colnames(merged_data_pH)
 ##Based on raw data from the instrument: 
 #SO4/Cl/Salinity - 4 decimals 
 #H2S/Fe - 3 decimals
 #Nutrients - 6 decimals 
 #DOC - ? 
+#pH/Cond - 2 decimals 
+#collection temperature - 1 decimal
 
-final_data1 <- merged_data %>% 
+final_data1 <- merged_data_pH %>% 
   mutate(SO4_ppm = round(as.numeric(SO4_ppm), digits = 4), 
          SO4_mM = round(as.numeric(SO4_mM), digits = 4), 
          Cl_ppm = round(as.numeric(Cl_ppm), digits = 4), 
@@ -485,7 +570,16 @@ final_data1 <- merged_data %>%
          PO4_mgL = round(as.numeric(PO4_mgL), digits = 6), 
          PO4_uM = round(as.numeric(PO4_uM), digits = 6), 
          NOx_mgL = round(as.numeric(NOx_mgL), digits = 6), 
-         NOx_uM = round(as.numeric(NOx_uM), digits = 6))
+         NOx_uM = round(as.numeric(NOx_uM), digits = 6), 
+         npoc_mgL = round(as.numeric(npoc_mgL), digits = 4), 
+         npoc_uM = round(as.numeric(npoc_uM), digits = 2), 
+         tdn_mgL = round(as.numeric(tdn_mgL), digits = 4), 
+         tdn_uM = round(as.numeric(tdn_uM), digits = 2)
+           
+         # pH = round(as.numeric(pH), digits = 2), 
+         # Cond = round(as.numeric(Cond), digits = 2), 
+         # collection_temp_C = round(as.numeric(pH), digits = 1), 
+         )
 ```
 
 ## Format and write the alldata file out to the folder 
@@ -553,7 +647,9 @@ final_data2 <- final_data1 %>%
          Cl_flag = Cl_Conc_flag, 
          H2S_flag = H2S_Conc_flag, 
          Location = Grid, 
-         Salinity = salinity
+         Salinity = salinity, 
+         Collection_temp_C = collection_temp_C, 
+         Temperature_flag = temperature_flag
          ) %>% 
   filter(Sample_Year < 2026) %>% 
   select(c("Project", "Region", "Sample_ID", "Sample_Year", "Sample_Month", "Sample_Day", 
@@ -562,7 +658,7 @@ final_data2 <- final_data1 %>%
            "npoc_mgL", "npoc_uM", "npoc_flag", "tdn_mgL", "tdn_uM", "tdn_flag", 
            "NOx_mgL", "NOx_uM", "NOx_flag", "NH3_mgL", "NH3_uM", "NH3_flag", "PO4_mgL", "PO4_uM", "PO4_flag", 
            "SO4_ppm", "SO4_mM", "SO4_flag", "Cl_ppm", "Cl_mM", "Cl_flag", "Salinity", 
-           "H2S_mean_uM", "H2S_sd_uM", "H2S_flag", "Analyte_Notes"))
+           "H2S_mean_uM", "H2S_sd_uM", "H2S_flag", "pH", "pH_flag", "Cond", "Cond_units", "Collection_temp_C", "Temperature_flag", "Analyte_Notes"))
 
 
 write.csv(final_data2, "COMPASS_TEMPEST_AllData_AllYears.csv", row.names = FALSE)
