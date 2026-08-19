@@ -659,9 +659,11 @@ raw_metadata_pt_ids <- raw_metadata_pt_long %>%
 
 pw_metadata <- bind_rows(raw_metadata_event_ids, raw_metadata_pt_ids)
 
+##Remove unneccesary notes and fix column data types
 pw_metadata <- pw_metadata %>% 
   mutate(Notes = ifelse(str_detect(Notes, "vibe|Vibe"), NA, Notes)) %>% 
-  mutate(Notes = ifelse(str_detect(Notes, "frog"), NA, Notes))
+  mutate(Notes = ifelse(str_detect(Notes, "frog"), NA, Notes)) %>% 
+  mutate(sample_location = as.character(sample_location))
 
 unique(pw_metadata$Notes)
 
@@ -674,25 +676,67 @@ Porewater
 ```{r, process data file to match inventory}
 
 #Full Inventory Path 
-####Need to change this link each time####
-inventory_path <- "https://docs.google.com/spreadsheets/d/1J4aPIRrKrPi_o8c7WzkY6cenWtoK8UgOrzIR5GiRBgg/edit?gid=680737830#gid=680737830"
+# ####Need to change this link each time####
+# inventory_path <- "https://docs.google.com/spreadsheets/d/1J4aPIRrKrPi_o8c7WzkY6cenWtoK8UgOrzIR5GiRBgg/edit?gid=680737830#gid=680737830"
+# 
+# #Folder to upload the new files to
+# folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
+# 
+# # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
+# drive_download(inventory_path, overwrite = TRUE)
+# 
+# #Read in the master inventory
+# master <- read_excel(
+#   "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
+#   sheet = "Porewater - Individual",
+#   skip = 4
+# )
 
-#Folder to upload the new files to
-folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
+# link directory to google drive location
+inventory_path <- "https://drive.google.com/drive/folders/1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e"
 
-# Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(inventory_path, overwrite = TRUE)
+# check list of files found at the link
+drive_ls(inventory_path)
+
+# filter to necessary files
+# June 2022 event
+files_meta <- drive_ls(inventory_path) %>%
+  filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", name))
+
+# download files to local drive
+lapply(c(files_meta$name), drive_download, 
+       overwrite = TRUE)
+
+# lapply(split(files_pulse, seq_len(nrow(files_pulse))), 
+#        drive_download, overwrite = TRUE)
+
+
+# "https://drive.google.com/drive/folders/1l6ChfOs6wU82ujsoAUw9dGNfoOVL4E8R"
 
 #Read in the master inventory
 master <- read_excel(
   "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
   sheet = "Porewater - Individual",
-  skip = 4
+  skip = 4, 
+  col_types = "text"
 )
+
 
 #clean out any empty sample_ID rows
 master <- master %>%
   filter(!is.na(Sample_ID))
+
+#Change column types
+master <- master %>%
+  mutate(
+    Volume_mL = as.numeric(Volume_mL), 
+    Evacuation_date_YYYYMMDD = as.numeric(Evacuation_date_YYYYMMDD), 
+    Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
+    Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs), 
+    Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
+  )
+
+# colnames(inventory_new)
 
 # Align the columns
 inventory_new <- pw_metadata %>%
@@ -726,7 +770,8 @@ header_rows <- data.frame(
 ```{r, add the new inventory file}
 
 # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(inventory_path, overwrite = TRUE)
+# drive_download(inventory_path, overwrite = TRUE)
+
 
 # Load existing workbook
 wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
@@ -826,7 +871,7 @@ pooled_inventory_event <- raw_metadata_pooled_samples %>%
   )) %>% 
   mutate(Project = "COMPASS TEMPEST", 
          Plot = str_to_title(Plot), 
-         Sample_location = NA, 
+         Sample_location = as.character(NA), 
          Evacuation_date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
          EST_EDT = "EDT") %>% 
   mutate(Sample_ID = paste("TMP",
@@ -931,7 +976,7 @@ pooled_inventory_pt <- raw_metadata_pooled_pt %>%
     Collection_Date_YYYYMMDD == "20220615" ~ NA)) %>% 
   mutate(Project = "COMPASS TEMPEST", 
          Plot = str_to_title(Plot), 
-         Sample_location = NA, 
+         Sample_location = as.character(NA), 
          Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
          Evacuation_date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
          EST_EDT = "EDT") %>% 
@@ -995,12 +1040,34 @@ pooled_master <- read_excel(
   #path = inventory_path,
   "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
   sheet = "Porewater - Pooled",
-  skip = 4
+  skip = 4, 
+  col_types = "text"
 )
 
 #clean out any empty sample_ID rows
 pooled_master <- pooled_master %>%
   filter(!is.na(Sample_ID))
+
+#Change column types
+pooled_master <- pooled_master %>%
+  mutate(
+    Total_Volume_mL = as.numeric(Total_Volume_mL), 
+    Grid_B4 = as.numeric(Grid_B4), 
+    Grid_C3 = as.numeric(Grid_C3), 
+    Grid_C6 = as.numeric(Grid_C6), 
+    Grid_D5 = as.numeric(Grid_D5), 
+    Grid_E3 = as.numeric(Grid_E3), 
+    Grid_F4 = as.numeric(Grid_F4), 
+    Grid_F6 = as.numeric(Grid_F6), 
+    Grid_H3 = as.numeric(Grid_H3), 
+    Grid_H6 = as.numeric(Grid_H6), 
+    Grid_I5 = as.numeric(Grid_I5),
+    Evacuation_date_YYYYMMDD = as.numeric(Evacuation_date_YYYYMMDD), 
+    Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD), 
+    Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs), 
+    Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
+  )
+
 
 # Align the columns
 inventory_new <- pooled_inventory_all %>%
@@ -1100,7 +1167,7 @@ saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", over
 ##inventory
 drive_upload(
   media = "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx",
-  path = folder_path, 
+  path = inventory_path, 
   name = "TEMPEST_PorewaterInventory_May2022_Present_updated",
   type = "spreadsheet"                    # Triggers conversion to Google Sheets
 )

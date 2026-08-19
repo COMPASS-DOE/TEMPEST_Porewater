@@ -459,14 +459,14 @@ raw_metadata_sw1 <- raw_metadata_sw %>%
   mutate(Sample_ID = gsub("_30_", "_30CM_", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("_50_", "_50CM_", Sample_ID)) %>% 
   mutate(Collection_Date_YYYYMMDD = ifelse(str_detect(Sample_ID, "20220622"), 20220622, Collection_Date_YYYYMMDD)) %>% 
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_0654", 0654, Collection_Time_24hrs)) %>% ##Fix 2022 sourcewater dates and times
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_0645", 0645, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_0800", 0800, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_0930", 0930, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_1000", 1000, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_1100", 1100, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_1200", 1200, Collection_Time_24hrs)) %>%
-  mutate(Collection_Time_24hrs = ifelse(Sample_ID == "TMP_Source_FW_HR0_20220622_1448", 1448, Collection_Time_24hrs)) %>%
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_0654"), 0654, Collection_Time_24hrs)) %>% ##Fix 2022 sourcewater dates and times
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_0645"), 0645, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_0800"), 0800, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_0930"), 0930, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_1000"), 1000, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_1100"), 1100, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_1200"), 1200, Collection_Time_24hrs)) %>% 
+  mutate(Collection_Time_24hrs = ifelse(str_detect(Sample_ID, "20220622_1448"), 1448, Collection_Time_24hrs)) %>% 
   mutate(Sample_ID = gsub("RAIN_20241212", "RAINWATER_20241212", Sample_ID))
 
 raw_metadata_sw2 <- raw_metadata_sw1 %>%
@@ -523,7 +523,7 @@ if (all_present) {
 merged_data <- data %>%
   left_join(metadata, by = c("Sample_ID_formatted"))
 
-colnames(merged_data)
+# colnames(merged_data)
 
 ##Samples missing from metadata: 
 # 2022 estuary sourcewater samples ("TMP_SOURCE_ESTUARY_HR0_20220622", "TMP_SOURCE_ESTUARY_HR1_20220622") - not entered in metadata
@@ -691,6 +691,13 @@ final_data2 <- final_data1 %>%
     Plot == "SW" ~ "S", 
     TRUE ~ Plot
   )) %>% 
+  ##Remove unneccesary notes
+  mutate(Notes = ifelse(str_detect(Notes, "This may not exist??"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "UNCLEAR IF THIS WAS A SAMPLE"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "General note"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "AES"), gsub(", AES to check", "", Notes), Notes)) %>% 
+
+  
   ##Rename columns
   rename(Sample_ID = Sample_ID_formatted, 
          NOx_flag = NOx_Conc_Flag, 
