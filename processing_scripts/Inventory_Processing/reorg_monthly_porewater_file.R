@@ -1,7 +1,7 @@
 # Function to reorganize digitized field porewater data sheet
 # Created by Stephanie Wilson
 
-process_inventory <- function(dat){
+process_monthly_inventory <- function(dat){
   
   inventory_new <- dat %>%
     pivot_longer(
@@ -37,10 +37,10 @@ process_inventory <- function(dat){
         SO4_Cl_H2S = "SO4/Cl/H2S"
       ),
       Project = paste("COMPASS:", Project),
-      Collection_Date = as.Date(Collection_Date, format = "%Y%m%d"),
+      Collection_Date = as.Date(Collection_Date, format = "%d-%b-%Y"),
       Collection_Date_YYYYMMDD = format(Collection_Date, "%Y%m%d"),
-      Evacuation_date_YYYMMDD = Collection_Date_YYYYMMDD,
-      sample_location = if_else(Analyte == "CDOM", "SEQUIM", "SERC"),
+      Evacuation_date_YYYYMMDD = NA, ##Need to fix and pull this from evacuation checklist
+      sample_location = if_else(Analyte == "CDOM|SPE", "SEQUIM", "SERC"),
       analyte_code = recode(
         Analyte,
         "SO4/Cl/H2S" = "SO4",
@@ -97,7 +97,6 @@ process_inventory <- function(dat){
     ) %>%
     mutate(
       Project = "COMPASS: TEMPEST",
-      sample_location = "SERC"
     ) %>%
     select(
       Project,
@@ -107,11 +106,14 @@ process_inventory <- function(dat){
       Vial_ID,
       sample_location,
       Analyte,
+      Evacuation_date_YYYYMMDD, 
       Collection_Date_YYYYMMDD,
+      Collection_Start_Time_24hrs, 
+      Collection_End_Time_24hrs, 
       everything()
     ) %>%
     mutate(
-      Evacuation_date_YYYMMDD = as.numeric(Evacuation_date_YYYMMDD),
+      Evacuation_date_YYYYMMDD = as.numeric(Evacuation_date_YYYYMMDD),
       Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD),
       Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
       Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)
