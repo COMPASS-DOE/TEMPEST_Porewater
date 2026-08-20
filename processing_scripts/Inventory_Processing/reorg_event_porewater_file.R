@@ -99,7 +99,7 @@ process_event_inventory <- function(dat){
     ) %>%
     mutate(
       Project = "COMPASS: TEMPEST",
-      sample_location = "SERC"
+      # sample_location = "SERC"
     ) %>%
     select(
       Project,
