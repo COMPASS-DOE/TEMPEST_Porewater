@@ -15,20 +15,23 @@ library(openxlsx)
 library(googledrive)
 library(googlesheets4)
 
+#Monthly path - CHANGE FOR THE MONTH AS NEEDED: 
+drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
+
 
 #TEMPEST Event Path for just entered data sheets:
-pw_drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
-
-sce_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
-
-ro_drive_path <- "https://drive.google.com/drive/u/0/folders/1gzAa97H8ukTfbjioSMfGeZWcsD7LwIX1"
+# pw_drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
+# 
+# sce_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
+# 
+# ro_drive_path <- "https://drive.google.com/drive/u/0/folders/1gzAa97H8ukTfbjioSMfGeZWcsD7LwIX1"
 
 
 #Full Inventory Path 
-inventory_path <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=1740738201#gid=1740738201"
+inventory_path <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=260638594#gid=260638594"
 
 #pH file path 
-pH_path <- "https://docs.google.com/spreadsheets/d/1KoskjXkHgPmSyFERvZLCX5ZBuV2cyev4-UEBuT0y-Jw/edit?gid=0#gid=0"
+pH_path <- "https://docs.google.com/spreadsheets/d/1-KTABMU-2e6ZxQXeY1yMahHB5lX9HuvN-NF-kWinLTA/edit?gid=1955793989#gid=1955793989"
 
 #Folder to upload the new files to
 folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
@@ -43,14 +46,14 @@ Porewater
 ```{r, pull in entered datasheets}
 
 #for just one folder 
-#googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
+googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
 
 #to look within multipel folders 
-files <- googledrive::drive_ls(
-  path = pw_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
+# files <- googledrive::drive_ls(
+#   path = pw_drive_path,
+#   recursive = TRUE,
+#   pattern = "Field"
+# )
 
 
 source("parse_event_porewater_file.R")

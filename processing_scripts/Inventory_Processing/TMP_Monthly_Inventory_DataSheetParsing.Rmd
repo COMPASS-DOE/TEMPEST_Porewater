@@ -16,14 +16,14 @@ library(googledrive)
 
 
 #Monthly path - CHANGE FOR THE MONTH AS NEEDED: 
-#drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
+drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
 
 #TEMPEST IV Path for just porewater sheets:
-pw_drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
-
-sw_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
-
-ro_drive_path <- "https://drive.google.com/drive/u/0/folders/1gzAa97H8ukTfbjioSMfGeZWcsD7LwIX1"
+# pw_drive_path <- "https://drive.google.com/drive/u/0/folders/1rgLRWzPJWol3McRebYK6zM3DwcHsnH5Z"
+# 
+# sw_drive_path <- "https://drive.google.com/drive/u/0/folders/1YjeqzmBnWLg8U_-fbNzzQnL_la-TGfSb"
+# 
+# ro_drive_path <- "https://drive.google.com/drive/u/0/folders/1gzAa97H8ukTfbjioSMfGeZWcsD7LwIX1"
 
 
 
@@ -43,7 +43,7 @@ Porewater
 #for just one folder 
 #googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
 
-#to look within multipel folders 
+#to look within multiple folders 
 files <- googledrive::drive_ls(
   path = pw_drive_path,
   recursive = TRUE,
@@ -106,110 +106,6 @@ pw_inventory_all <- bind_rows(pw_inventory_files)
 
 
 ```
-
-Surface Water
-## Read in the SOURCEWATER datasheets and parse 
-```{r}
-
-#to look within multipel folders 
-sw_files <- googledrive::drive_ls(
-  path = sw_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
-
-source("parse_sourcewater_file.R")
-
-parse_sw_files <- list()
-
-for(i in seq_len(nrow(sw_files))) {
-
-  cat("Processing:", sw_files$name[i], "\n")
-
-  drive_download(
-    sw_files$id[i],
-    path = "sw_temp.xlsx",
-    overwrite = TRUE
-  )
-
-  parse_sw_files[[i]] <- tryCatch(
-    parse_sourcewater_file("sw_temp.xlsx"),
-    error = function(e) {
-      message("Failed on: ", sw_files$name[i])
-      message(e$message)
-      NULL
-    }
-  )
-
-  unlink("sw_temp.xlsx")
-}
-
-
-```
-# Reorganize SOURCEWATER data to match inventory
-```{r}
-
-source("reorg_sourcewater_file.R")
-
-sw_inventory_files <- lapply(parse_sw_files, process_sw_inventory)
-
-sw_inventory_all <- bind_rows(sw_inventory_files)
-
-
-```
-
-Runoff
-## Read in the RUNOFF datasheets and parse 
-```{r}
-
-#to look within multipel folders 
-ro_files <- googledrive::drive_ls(
-  path = ro_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
-
-source("parse_runoff_file.R")
-
-parse_ro_files <- list()
-
-for(i in seq_len(nrow(ro_files))) {
-
-  cat("Processing:", ro_files$name[i], "\n")
-
-  drive_download(
-    ro_files$id[i],
-    path = "ro_temp.xlsx",
-    overwrite = TRUE
-  )
-
-  parse_ro_files[[i]] <- tryCatch(
-    parse_runoff_file("ro_temp.xlsx"),
-    error = function(e) {
-      message("Failed on: ", ro_files$name[i])
-      message(e$message)
-      NULL
-    }
-  )
-
-  unlink("ro_temp.xlsx")
-}
-
-
-```
-# Reorganize RUNOFF data to match inventory
-```{r}
-
-source("reorg_runoff_file.R")
-
-ro_inventory_files <- lapply(parse_ro_files, process_ro_inventory)
-
-ro_inventory_all <- bind_rows(ro_inventory_files)
-
-
-```
-
-
 
 NOW COMBINE THE NEW INVENTORY WITH THE OLD, MONTHLY SAMPLING ONLY RUN POREWATER CHUNKS
 
@@ -282,78 +178,6 @@ writeData(
 # Save changes back to the same file
 
 ```
-
-Source Water 
-# Prep SOURCEWATER to be appended to the inventory file  
-```{r, process data file to match inventory}
-
-#Read in the master inventory 
-sw_master <- read_excel(
-  "TEMPEST_PorewaterInventory_May2022_Present.xlsx",
-  sheet = "Source Water",
-  skip = 4
-)
-
-#clean out any empty sample_ID rows
-sw_master <- sw_master %>%
-  filter(!is.na(Sample_ID))
-
-# Align the columns
-sw_inventory_new <- sw_inventory_all %>%
-  select(any_of(names(sw_master)))
-
-missing_cols <- setdiff(names(sw_master), names(sw_inventory_new))
-missing_cols
-
-for (col in missing_cols) {
-  sw_inventory_new[[col]] <- NA
-}
-
-# Append to the inventory
-sw_inventory_new <- sw_inventory_new %>%
-  select(names(master))
-
-sw_inventory <- bind_rows(sw_inventory_new, master)
-
-#Set the header rows 
-header_rows <- data.frame(
-  col1 = c(
-    "Project: COMPASS: TEMPEST",
-    "Site: SERC",
-    "Event: Source Water",
-    "" ))
-
-```
-# Replace the SOURCEWATER sheet in the inventory file 
-```{r, add the new inventory file}
-
-# Load existing workbook
-wb <- loadWorkbook(inventory_path)
-
-# Remove existing sheet if it exists
-if ("SW-Inventory" %in% names(wb)) {
-  removeWorksheet(wb, "SW-Inventory")
-}
-
-# Add replacement sheet
-addWorksheet(wb, "SW-Inventory")
-
-# Write header block
-writeData(wb, "SW-Inventory", header_rows, startRow = 1, colNames = FALSE)
-
-# Write inventory data below it
-writeData(
-  wb,
-  "SW-Inventory",
-  sw_inventory,
-  startRow = nrow(header_rows) + 1
-)
-
-# Save changes back to the same file
-
-```
-
-Runoff - doesn't have a page in the inventory yet... 
 
 
 
