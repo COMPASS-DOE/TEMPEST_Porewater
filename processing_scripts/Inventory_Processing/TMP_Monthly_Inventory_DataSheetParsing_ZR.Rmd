@@ -16,7 +16,7 @@ library(googledrive)
 library(googlesheets4)
 
 #Monthly path - CHANGE FOR THE MONTH AS NEEDED: 
-drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKaqXCF8zlKeS1"
+drive_path <- "https://drive.google.com/drive/folders/1mCUes-7sBt0PAWxQ5mPz5wn2E1w558aw"
 
 
 #TEMPEST Event Path for just entered data sheets:
@@ -28,7 +28,7 @@ drive_path <- "https://drive.google.com/drive/u/2/folders/10z4cDFXpOMRGJQdCWXEKa
 
 
 #Full Inventory Path 
-inventory_path <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=260638594#gid=260638594"
+inventory_path <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=834818575#gid=834818575"
 
 #pH file path 
 pH_path <- "https://docs.google.com/spreadsheets/d/1-KTABMU-2e6ZxQXeY1yMahHB5lX9HuvN-NF-kWinLTA/edit?gid=1955793989#gid=1955793989"
@@ -47,6 +47,8 @@ Porewater
 
 #for just one folder 
 googledrive::drive_ls(path = drive_path, pattern = "Field") -> files
+
+drive_auth()
 
 #to look within multipel folders 
 # files <- googledrive::drive_ls(
@@ -123,109 +125,6 @@ pooled_inventory_all <- bind_rows(pooled_inventory_files)
 
 ```
 
-Surface Water
-## Read in the SOURCEWATER datasheets and parse 
-```{r}
-
-#to look within multiple folders 
-sce_files <- googledrive::drive_ls(
-  path = sce_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
-
-source("parse_sourcewater_file.R")
-
-parse_sce_files <- list()
-
-for(i in seq_len(nrow(sce_files))) {
-
-  cat("Processing:", sce_files$name[i], "\n")
-
-  drive_download(
-    sce_files$id[i],
-    path = "sce_temp.xlsx",
-    overwrite = TRUE
-  )
-
-  parse_sce_files[[i]] <- tryCatch(
-    parse_sourcewater_file("sce_temp.xlsx"),
-    error = function(e) {
-      message("Failed on: ", sce_files$name[i])
-      message(e$message)
-      NULL
-    }
-  )
-
-  unlink("sce_temp.xlsx")
-}
-
-
-```
-
-# Reorganize SOURCEWATER data to match inventory
-```{r}
-
-source("reorg_sourcewater_file.R")
-
-sce_inventory_files <- lapply(parse_sce_files, process_sce_inventory)
-
-sce_inventory_all <- bind_rows(sce_inventory_files)
-
-
-```
-
-Runoff
-## Read in the RUNOFF datasheets and parse 
-```{r}
-
-#to look within multiple folders 
-ro_files <- googledrive::drive_ls(
-  path = ro_drive_path,
-  recursive = TRUE,
-  pattern = "Field"
-)
-
-source("parse_runoff_file.R")
-
-parse_ro_files <- list()
-
-for(i in seq_len(nrow(ro_files))) {
-
-  cat("Processing:", ro_files$name[i], "\n")
-
-  drive_download(
-    ro_files$id[i],
-    path = "ro_temp.xlsx",
-    overwrite = TRUE
-  )
-
-  parse_ro_files[[i]] <- tryCatch(
-    parse_runoff_file("ro_temp.xlsx"),
-    error = function(e) {
-      message("Failed on: ", ro_files$name[i])
-      message(e$message)
-      NULL
-    }
-  )
-
-  unlink("ro_temp.xlsx")
-}
-
-
-```
-
-# Reorganize RUNOFF data to match inventory
-```{r}
-
-source("reorg_runoff_file.R")
-
-ro_inventory_files <- lapply(parse_ro_files, process_ro_inventory)
-
-ro_inventory_all <- bind_rows(ro_inventory_files)
-
-
-```
 
 
 # Reorganize pH data from POREWATER and SOURCEWATER 
@@ -237,15 +136,8 @@ source("reorg_pH_file.R")
 pw_pH_files <- lapply(parse_files, process_event_pw_pH)
 pw_pH_all <- bind_rows(pw_pH_files)
 
-#Sourcewater
-source("reorg_pH_file.R")
-sce_pH_files <- lapply(parse_sce_files, process_sce_pH)
-sce_pH_all <- bind_rows(sce_pH_files)
-
-pH_all <- bind_rows(pw_pH_all, sce_pH_all)
-
-pH_all <- pH_all %>%
-  mutate(Plot = factor(Plot, levels = c("Control", "Saltwater", "Freshwater", "Estuary"))) %>%
+pH_all <- pw_pH_all %>%
+  mutate(Plot = factor(Plot, levels = c("Control", "Saltwater", "Freshwater"))) %>%
   arrange(Date_YYYYMMDD, Timepoint, Plot, Location, Depth_cm)
 
 ```
@@ -290,8 +182,8 @@ pH_final <- bind_rows(pH_master, pH_new)
 
 ```
 
-# Replace the pH sheet in the inventory file
-```{r, add the new inventory file}
+# Replace the pH sheet in the pH file
+```{r, add the new pH file}
 
 # Load existing workbook
 wb <- loadWorkbook("TEMPEST_Porewater_pH.xlsx")
