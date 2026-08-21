@@ -37,7 +37,7 @@ common_tz = "Etc/GMT+5"
 Sys.setenv(TZ = "America/New_York")
 
 # Authenticate with your Google account
-drive_auth()
+# drive_auth()
 
 ```
 
@@ -46,30 +46,32 @@ drive_auth()
 
 ##Read in and combine Alan's sample logs
 #create folder
-log_folder_path <- "Sample_Logs"
-dir.create(log_folder_path)
+# log_folder_path <- "Sample_Logs"
+# dir.create(log_folder_path)
+# 
+# #folder link to id
+# log_folder = "https://drive.google.com/drive/folders/1yEDeKKGTEToyfHYTbs7ZF7363afSu2cQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+# folder_id = drive_get(as_id(log_folder))
+# 
+# #find files in folder
+# files = drive_ls(folder_id)
+# files <- files %>% 
+#   filter(name != "20230825_Mapping_COMPASS_TEMPEST_CDOM.xlsx")
+# 
+# #download files
+# for (i in seq_along(files$name)) {
+#     #fails if already exists
+#       drive_download(
+#         as_id(files$id[i]),
+#         path = paste0("Sample_Logs/", files$name[i]), 
+#         overwrite = TRUE
+#       )
+# }
 
-#folder link to id
-log_folder = "https://drive.google.com/drive/folders/1yEDeKKGTEToyfHYTbs7ZF7363afSu2cQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
-folder_id = drive_get(as_id(log_folder))
-
-#find files in folder
-files = drive_ls(folder_id)
-files <- files %>% 
-  filter(name != "20230825_Mapping_COMPASS_TEMPEST_CDOM.xlsx")
-
-#download files
-for (i in seq_along(files$name)) {
-    #fails if already exists
-      drive_download(
-        as_id(files$id[i]),
-        path = paste0("Sample_Logs/", files$name[i]), 
-        overwrite = TRUE
-      )
-}
+##Edited Sample Logs from AMP
 
 #list all sample logs
-log_files <- list.files(path = "Sample_Logs", 
+log_files <- list.files(path = "Edited Sample Logs/logs", 
                     pattern = "*.xlsx", 
                     full.names = TRUE)
 
@@ -286,44 +288,49 @@ files <- merge(files_abs, files_eem, by = "Sample_ID", all = TRUE)
 ##Make new file ID
 ```{r}
 ##Combine with sample log
-sample_log <- files %>% 
+sample_log1 <- files %>% 
   left_join(sample_log, by = "Sample_ID")
 
-unique(sample_log$Sample_Description)
-subset <- subset(sample_log, str_detect(sample_log$Sample_Description, "TEMPEST"))
-pool <- subset(sample_log, str_detect(sample_log$Sample_Description, "POOL"))
+unique(sample_log1$Sample_Description)
+subset <- subset(sample_log1, str_detect(sample_log$Sample_Description, "TEMPEST"))
+pool <- subset(sample_log1, str_detect(sample_log$Sample_Description, "POOL"))
 
 ##Fix sample description
-sample_log1 <- sample_log %>%
+sample_log2 <- sample_log1 %>%
   ##TEMPEST pooled samples for 2022
   filter(Sample_Description != "TEMPEST") %>% 
   mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% 
   ##Remove part of ID that don't need 
-  mutate(Sample_Description = gsub("_SW11", "", Sample_Description)) %>% 
-  mutate(Sample_Description = gsub("_FW11", "", Sample_Description)) %>% 
+  # mutate(Sample_Description = gsub("_SW11", "", Sample_Description)) %>% 
+  # mutate(Sample_Description = gsub("_FW11", "", Sample_Description)) %>% 
   ##Date for 2022 Source water samples 
   mutate(Sample_Description = ifelse(str_detect(Sample_Description, "SOURCE_HR"), paste0(Sample_Description, "_20220622"), Sample_Description)) %>% 
+  ##Fix PreW based on AMP's code
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "PREW", "T0")) %>% 
   ##Dates for 2022 Porewater samples
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T0", "T0_20220620", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T1", "T1_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T2", "T2_20220622", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
-  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T4", "T4_20220624", Sample_Description), Sample_Description))
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T4", "T4_20220624", Sample_Description), Sample_Description)) %>% 
+  ##Fix Estuary time
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "TMP_ESTUARY_SOURCE_HR8_20220622", "TMP_ESTUARY_SOURCE_HR7_20220622"))
+
 
 
 ##Separate into columns to make into correct sample IDs
 # TMP_FW_C3_20220622_T1_15CM
-sample_log2 <- sample_log1 %>%
+sample_log3 <- sample_log2 %>%
   mutate(Plot = stringr::str_extract(Sample_Description, "TMP_C|TMP_FW|TMP_SW|TMP_ESTUARY") ,
          Grid = stringr::str_extract(Sample_Description, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|SOURCE|POOL") ,
          Date = stringr::str_extract(Sample_Description, "[0-9]{8}"), 
-         T_num = stringr::str_extract(Sample_Description, "T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
+         T_num = stringr::str_extract(Sample_Description, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
          Time = stringr::str_extract(Sample_Description, "(?<=_)[0-9]{4}$"), 
          Plot = gsub("TMP_", "", Plot))
 
 
 ##T1-3 for sourcewater
-sce_2023 <- sample_log2 %>% 
+sce_2023 <- sample_log3 %>% 
   filter(!is.na(Time)) %>% 
   filter(str_detect(Sample_Description, "SOURCE")) %>% 
   group_by(Plot, Date) %>% 
@@ -332,7 +339,7 @@ sce_2023 <- sample_log2 %>%
   ungroup()
 
 ##AM/PM for 2023 porewater/pooled samples
-pw_2023 <- sample_log2 %>% 
+pw_2023 <- sample_log3 %>% 
   filter(str_detect(Sample_Description, "20230607")) %>% 
   filter(!str_detect(Sample_Description, "SOURCE")) %>% 
   mutate(TOD = case_when(
@@ -342,10 +349,10 @@ pw_2023 <- sample_log2 %>%
 
 
 ##Recombine data
-sample_log3 <- sample_log2 %>%
+sample_log4 <- sample_log3 %>%
   filter(is.na(Time))
 
-sample_log4 <- bind_rows(sample_log3, sce_2023, pw_2023)
+sample_log5 <- bind_rows(sample_log4, sce_2023, pw_2023)
 
 
 ##Make new Sample IDs
@@ -353,30 +360,70 @@ sample_log4 <- bind_rows(sample_log3, sce_2023, pw_2023)
 #TMP_FW_PW_H6_15cm_CDOM_20250509
 #TMP_Source_Estuary_CDOM_20240611_PM
 
-sample_log5 <- sample_log4 %>% 
+sample_log6 <- sample_log5 %>% 
   mutate(Sample_ID = 
            case_when(
-             str_detect(Sample_Description, "SOURCE") & !str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, "CDOM", Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "SOURCE") & !str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, "POOLED", Date, TOD, sep = "_"), 
              str_detect(Sample_Description, "SOURCE") & str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, Date, TOD, sep = "_"), 
-             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "CDOM", "POOLED", Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "POOLED", T_num, Date, TOD, sep = "_"), 
              TRUE ~ paste("TMP", Plot, "PW", Grid, "15cm", "CDOM", T_num, Date, TOD, sep = "_"))) %>% ##Make sample ID to match others
-  mutate(Sample_ID = gsub("_NA", "", Sample_ID))
+  mutate(Sample_ID = gsub("_NA", "", Sample_ID)) %>% 
+  
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  
+  ####Sample ID Fixes####
+  
+  mutate(Sample_ID = gsub("TMP_C_PW_D5_15CM_CDOM_20230627", "TMP_C_PW_D5_15CM_20230628", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_C_PW_15CM_POOLED_20221019", "TMP_C_PW_15CM_POOLED_20221019-24", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_POOLED_20221019", "TMP_FW_PW_15CM_POOLED_20221019-24", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("POOLED_20221128", "POOLED_202211-12", Sample_ID)) %>%  
+  mutate(Sample_ID = gsub("POOLED_20230202", "POOLED_202302", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("POOLED_20230707", "POOLED_202307", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_PW_H6_15CM_CDOM_20230612", "TMP_SW_PW_B4_15CM_20230612", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_POOLED_20230607", "TMP_FW_PW_POOLED_20230607_FW11", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_POOLED_20230607", "TMP_SW_PW_POOLED_20230607_SW11", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_CDOM_T3_20220623", "TMP_SW_PW_T3_20220623_Well", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T2_20220622", "TMP_FW_PW_T2_20220622_Well", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T1_20220622", "TMP_FW_PW_T1_20220622_Well", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_CDOM_T2_20220622", "TMP_SW_PW_T2_20220622_Well", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T3_20220623", "TMP_FW_PW_T3_20220623_Well", Sample_ID)) %>% 
+
+mutate(
+  Sample_ID = case_when(
+    Sample_Description == "TEMPEST CONTROL PLOT - 09/09/22" ~ "TMP_C_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST CONTROL PLOT - 08/08/22" ~ "TMP_C_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST CONTROL PLOT - 07/18/22" ~ "TMP_C_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST CONTROL PLOT - 07/21/22" ~ "TMP_C_PW_15cm_POOLED_20220721",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 09/09/22" ~ "TMP_FW_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST FRESHWATER PLOT -  08/08/22" ~ "TMP_FW_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 07/18/22" ~ "TMP_FW_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 07/21/22" ~ "TMP_FW_PW_15cm_POOLED_20220721",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 09/09/22" ~ "TMP_SW_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 08/08/22" ~ "TMP_SW_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 07/18/22" ~ "TMP_SW_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 07/21/22" ~ "TMP_SW_PW_15cm_POOLED_20220721", 
+    TRUE ~ Sample_ID
+  )
+) %>% 
+  
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_CDOM", "", Sample_ID), Sample_ID) )%>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_DOC", "", Sample_ID), Sample_ID))
 
 
 #Create desired file ID
-sample_log5 <- sample_log5 %>%
+sample_log7 <- sample_log6 %>%
   mutate(new_abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.dat")) %>%
   mutate(new_eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.dat"))
 
 
-unique(sample_log5$Sample_ID)
+unique(sample_log7$Sample_ID)
 
 ```
 
 ##Create the sample metadata
 ```{r output metadata}
 
-sample_log6 <- sample_log5 %>% 
+sample_log8 <- sample_log7 %>% 
   rename(abs_file_id = new_abs_file_id, 
          eem_file_id = new_eem_file_id, 
          integration_time_s = `Integration Time`, 
@@ -384,40 +431,41 @@ sample_log6 <- sample_log5 %>%
          RSU_area_1s = `Raman 1s Area`) %>% 
   select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
 
-head(sample_log6)
+head(sample_log8)
 
 ##Get sample metadata from Sample ID
-sample_log6 <- sample_log6 %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
+sample_log9 <- sample_log8 %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|ESTUARY'),
          Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
          Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
          Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
-         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6"), 
          TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
   unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
 
 ```
+
 ## Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=260638594#gid=260638594"
 
 drive_download(inventory_directory, overwrite = TRUE)
 
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
 sheet_names
 
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
 
-raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
 
-raw_metadata_pool <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Pooled", skip = 4)
+raw_metadata_pool <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Pooled", skip = 4)
 
 raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sce, raw_metadata_pool)
 
 #Select CDOM Data
-raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM|of|POOLED|HR"))
+raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM|of|POOLED|HR|DOC"))
 
 #Select 2022/2023 Data
 raw_metadata_DOC_22_23 <- subset(raw_metadata_DOC, str_detect(Sample_ID, "2022|2023"))
@@ -425,11 +473,30 @@ raw_metadata_DOC_22_23 <- subset(raw_metadata_DOC, str_detect(Sample_ID, "2022|2
 ##Select certain columns 
 raw_metadata_final <- raw_metadata_DOC_22_23 %>% 
   mutate(Sample_ID = gsub("DOC/CDOM", "CDOM", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("POOLED", "CDOM_POOLED", Sample_ID)) %>% 
-  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "Source"), gsub("_POOLED", "", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = case_when(str_detect(Sample_ID, "Source") & str_detect(Sample_ID, "HR") ~ gsub("_POOLED", "", Sample_ID), TRUE ~ Sample_ID)) %>% 
   mutate(Sample_ID = ifelse(str_detect(Sample_ID, "of"), gsub("cm_", "cm_CDOM_", Sample_ID), Sample_ID)) %>% 
   mutate(Sample_ID = sub("_[0-9]{4}$", "", Sample_ID)) %>% 
-  select(-c(Plot, sample_location, Analyte))
+  select(-c(Plot, Sample_location, Analyte)) %>% 
+  
+  mutate(Sample_ID = gsub("_1of1", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_1of2", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_2of2", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_1of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_2of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_3of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_3of3", "", Sample_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of1", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of2", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2of2", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_3of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2", "", Vial_ID)) %>% 
+  
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_CDOM", "", Sample_ID), Sample_ID))%>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_DOC", "", Sample_ID), Sample_ID)) %>% 
+  
+  distinct()
 
 ```
 
@@ -437,10 +504,10 @@ raw_metadata_final <- raw_metadata_DOC_22_23 %>%
 ## Check to see if samples run match metadata & merge info
 ```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
 
-sample_log6$Sample_ID <- toupper(sample_log6$Sample_ID) 
+sample_log9$Sample_ID <- toupper(sample_log9$Sample_ID) 
 raw_metadata_final$Sample_ID <- toupper(raw_metadata_final$Sample_ID)
 
-all_present <- all(sample_log6$Sample_ID %in% raw_metadata_final$Sample_ID)
+all_present <- all(sample_log9$Sample_ID %in% raw_metadata_final$Sample_ID)
 
 if (all_present) {
   message("All sample IDs are present in metadata.")
@@ -448,13 +515,116 @@ if (all_present) {
   message("Some sample IDs are missing from metadata.")
   
   # Optional: Which ones are missing?
-  missing_ids <- setdiff(sample_log6$Sample_ID, raw_metadata_final$Sample_ID)
+  missing_ids <- setdiff(sample_log9$Sample_ID, raw_metadata_final$Sample_ID)
   print(missing_ids)
 }
 
 missing_ids <- data.frame("Missing.IDs" = missing_ids)
 
 write.csv(missing_ids, "Samples_missing_from_metadata.csv", row.names = FALSE)
+
+
+missing <- sample_log9 %>% 
+  filter(Sample_ID == "TMP_FW_PW_I5_15CM_20230614")
+
+####No metadata####
+# "TMP_SOURCE_ESTUARY_HR4_20220622" - no metadata, time should be 110000    
+# "TMP_SOURCE_ESTUARY_HR7_20220622" - no metadata, time should be 150000 
+# "TMP_C_PW_C3_15CM_20230628" - no metadata, already checked with AMP, no time available  
+
+# "TMP_FW_PW_I5_15CM_20230662" - unsure which date this should be?    
+
+# "TMP_SW_PW_15CM_T3_20220623" - well sample          
+# "TMP_FW_PW_15CM_T2_20220622" - well sample               
+# "TMP_FW_PW_15CM_T1_20220622" - well sample              
+# "TMP_SW_PW_15CM_T2_20220622" - well sample               
+# "TMP_FW_PW_15CM_T3_20220623" - well sample               
+# "TMP_FW_PW_15CM_POOLED_20230607" - from FW11 well
+# "TMP_SW_PW_15CM_POOLED_20230607" - from SW11 well    
+
+
+####Fixed####
+# "TMP_C_PW_D5_15CM_20230627" - should be TMP_C_PW_D5_15CM_20230627       
+# "TMP_C_PW_15CM_POOLED_20221019" - should be TMP_C_PW_15CM_POOLED_20221019-24       
+# "TMP_C_PW_15CM_POOLED_20230202" - should be TMP_C_PW_15CM_POOLED_202302       
+# "TMP_FW_PW_15CM_POOLED_20221019" - should be TMP_FW_PW_15CM_POOLED_20221019-24     
+# "TMP_FW_PW_15CM_POOLED_20230202" - should be TMP_FW_PW_15CM_POOLED_202302   
+# "TMP_FW_PW_15CM_POOLED_20230707"- should be TMP_FW_PW_15CM_POOLED_202307   
+# "TMP_SW_PW_H6_15CM_20230612" - could be TMP_SW_PW_B4_15CM_20230612 since missing that one          
+# "TMP_SW_PW_15CM_POOLED_20230202" - should be TMP_SW_PW_15CM_POOLED_202302    
+# "TMP_SW_PW_15CM_POOLED_20230707" - should be TMP_SW_PW_15CM_POOLED_202307  
+
+# "TMP_PW_15CM": 
+# TEMPEST CONTROL PLOT - 09/09/22 - should be TMP_C_PW_15cm_POOLED_20220912
+# TEMPEST CONTROL PLOT - 08/08/22 - should be TMP_C_PW_15cm_POOLED_20220808
+# TEMPEST CONTROL PLOT - 07/18/22 - should be TMP_C_PW_15cm_POOLED_20220718
+# TEMPEST CONTROL PLOT - 07/21/22 - should be TMP_C_PW_15cm_POOLED_20220721    
+# TEMPEST FRESHWATER PLOT - 09/09/22 - should be TMP_FW_PW_15cm_POOLED_20220912
+# TEMPEST FRESHWATER PLOT -  08/08/22"  - should be TMP_FW_PW_15cm_POOLED_20220808
+# TEMPEST FRESHWATER PLOT - 07/18/22"   - should be TMP_FW_PW_15cm_POOLED_20220718
+# TEMPEST FRESHWATER PLOT - 07/21/22"  - should be TMP_FW_PW_15cm_POOLED_20220721    
+# TEMPEST SEAWATER PLOT - 09/09/22 - should be TMP_SW_PW_15cm_POOLED_20220912
+# TEMPEST SEAWATER PLOT -  08/08/22"  - should be TMP_SW_PW_15cm_POOLED_20220808
+# TEMPEST SEAWATER PLOT - 07/18/22"   - should be TMP_SW_PW_15cm_POOLED_20220718
+# TEMPEST SEAWATER PLOT - 07/21/22"  - should be TMP_SW_PW_15cm_POOLED_20220721   
+
+##Replace CDOM with "POOLED"
+# "TMP_SOURCE_ESTUARY_T1_CDOM_20230606"
+# "TMP_SOURCE_ESTUARY_T2_CDOM_20230606" 
+# "TMP_SOURCE_ESTUARY_T3_CDOM_20230606" 
+# "TMP_SOURCE_ESTUARY_T1_CDOM_20230607"  
+# "TMP_SOURCE_ESTUARY_T2_CDOM_20230607" 
+# "TMP_SOURCE_ESTUARY_T3_CDOM_20230607" 
+# "TMP_SOURCE_FW_T1_CDOM_20230606"     
+# "TMP_SOURCE_FW_T2_CDOM_20230606"      
+# "TMP_SOURCE_FW_T3_CDOM_20230606"      
+# "TMP_SOURCE_FW_T1_CDOM_20230607"      
+# "TMP_SOURCE_FW_T2_CDOM_20230607"     
+# "TMP_SOURCE_FW_T3_CDOM_20230607"      
+# "TMP_SOURCE_SW_T1_CDOM_20230606"      
+# "TMP_SOURCE_SW_T2_CDOM_20230606"      
+# "TMP_SOURCE_SW_T3_CDOM_20230606"     
+# "TMP_SOURCE_SW_T1_CDOM_20230607"      
+# "TMP_SOURCE_SW_T2_CDOM_20230607"      
+# "TMP_SOURCE_SW_T3_CDOM_20230607"     
+```
+
+##Merge the metadata and export
+```{r}
+
+#merge metadata with sample run data 
+merged_data <- sample_log9 %>%
+  left_join(raw_metadata_final, by = "Sample_ID")
+
+
+# "TMP_SOURCE_ESTUARY_HR4_20220622" - no metadata, time should be 110000    
+# "TMP_SOURCE_ESTUARY_HR7_20220622" - no metadata, time should be 150000 
+
+merged_data1 <- merged_data %>%
+  mutate(Collection_Time_24hrs = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_HR4_20220622" ~ 1100, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_HR7_20220622" ~ 1500, 
+    TRUE ~ Collection_Time_24hrs
+  )) %>%
+  mutate(Collection_Date_YYYYMMDD = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_HR4_20220622" ~ 20220622, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_HR7_20220622" ~ 20220622, 
+    TRUE ~ Collection_Date_YYYYMMDD
+  )) %>%
+  mutate(Notes = case_when(
+    Sample_ID == "TMP_C_PW_C3_15CM_20230628" ~ "No metadata", 
+    TRUE ~ Notes
+  )) 
+
+colnames(merged_data1)
+
+merged_data2 <- merged_data1 %>% 
+  select("Sample_ID", "integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id", 
+         "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Notes", "Deployment_Date_YYYYMMDD", 
+         "Deployment_Time_24hrs", "Collection_Time_24hrs", "Total_Volume_mL", "EST_EDT")
+
+
+write.csv(merged_data2, "CDOM_metadata_2022-2023.csv")
 
 ```
 
