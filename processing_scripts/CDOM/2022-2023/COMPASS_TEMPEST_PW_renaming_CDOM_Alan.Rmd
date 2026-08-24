@@ -185,16 +185,27 @@ abs_folder_path <- "Abs_Data"
 #   }
 # }
 # 
-# ##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
-# files_to_delete <- list.files(
-#   path = abs_folder_path, 
-#   pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
-#   full.names = TRUE
-# )
-# 
-# files_to_delete
-# 
-# file.remove(files_to_delete)
+##Remove "EXP" files and May 23 test files and well data files as these are not part of the TEMPEST project data
+files_to_delete <- list.files(
+  path = abs_folder_path,
+  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May",
+  full.names = TRUE
+)
+
+files_to_delete
+
+file.remove(files_to_delete)
+
+
+##Remove well samples
+samples_to_delete <- sample_log5 %>% 
+  filter(str_detect(Sample_Description, "WELL|SW11|FW11"))
+    
+samples_to_delete_path_abs = paste0("Abs_Data/",samples_to_delete$original_file_name_abs)
+
+samples_to_delete_path_abs
+
+file.remove(samples_to_delete_path_abs)
 
 
 ##List all files
@@ -219,9 +230,9 @@ files_abs <- files_abs %>%
 ```{r read in and rename processed eem data}
 ##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
 
-# #Remove the old EEM folder
+#Remove the old EEM folder
 # unlink("EEM_Data", recursive = TRUE)
-# 
+
 ##Files in EEM folder
 eem_folder_path <- "EEM_Data"
 # dir.create(eem_folder_path)
@@ -238,13 +249,13 @@ eem_folder_path <- "EEM_Data"
 # for (i in seq_along(files$name)) {
 #   #list files
 #   i_dir = drive_ls(files[i, ])
-#   
+# 
 #   #download files
 #   for (file_i in seq_along(i_dir$name)) {
 #     #fails if already exists
 #       drive_download(
 #         as_id(i_dir$id[file_i]),
-#         path = paste0("EEM_Data/", i_dir$name[file_i]), 
+#         path = paste0("EEM_Data/", i_dir$name[file_i]),
 #         overwrite = TRUE
 #       )
 #   }
@@ -252,14 +263,24 @@ eem_folder_path <- "EEM_Data"
 # 
 # ##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
 # files_to_delete <- list.files(
-#   path = eem_folder_path, 
-#   pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May", 
+#   path = eem_folder_path,
+#   pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May",
 #   full.names = TRUE
 # )
 # 
 # files_to_delete
 # 
 # file.remove(files_to_delete)
+# 
+# ##Remove well samples
+# samples_to_delete <- sample_log5 %>% 
+#   filter(str_detect(Sample_Description, "WELL|SW11|FW11"))
+#     
+# samples_to_delete_path_abs = paste0("EEM_Data/",samples_to_delete$original_file_name_abs)
+# 
+# samples_to_delete_path_abs
+# 
+# file.remove(samples_to_delete_path_abs)
 
 
 ##List all files
@@ -314,7 +335,9 @@ sample_log2 <- sample_log1 %>%
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
   mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T4", "T4_20220624", Sample_Description), Sample_Description)) %>% 
   ##Fix Estuary time
-  mutate(Sample_Description = stringr::str_replace(Sample_Description, "TMP_ESTUARY_SOURCE_HR8_20220622", "TMP_ESTUARY_SOURCE_HR7_20220622"))
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "TMP_ESTUARY_SOURCE_HR8_20220622", "TMP_ESTUARY_SOURCE_HR7_20220622")) %>% 
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "202306627", "20230627"))
+
 
 
 
@@ -380,15 +403,11 @@ sample_log6 <- sample_log5 %>%
   mutate(Sample_ID = gsub("POOLED_20230202", "POOLED_202302", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("POOLED_20230707", "POOLED_202307", Sample_ID)) %>% 
   mutate(Sample_ID = gsub("TMP_SW_PW_H6_15CM_CDOM_20230612", "TMP_SW_PW_B4_15CM_20230612", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_POOLED_20230607", "TMP_FW_PW_POOLED_20230607_FW11", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_POOLED_20230607", "TMP_SW_PW_POOLED_20230607_SW11", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_CDOM_T3_20220623", "TMP_SW_PW_T3_20220623_Well", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T2_20220622", "TMP_FW_PW_T2_20220622_Well", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T1_20220622", "TMP_FW_PW_T1_20220622_Well", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_SW_PW_15CM_CDOM_T2_20220622", "TMP_SW_PW_T2_20220622_Well", Sample_ID)) %>% 
-  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_CDOM_T3_20220623", "TMP_FW_PW_T3_20220623_Well", Sample_ID)) %>% 
+  
+  ##Remove well samples
+  filter (!str_detect(Sample_Description, "WELL|SW11|FW11")) %>% 
 
-mutate(
+  mutate(
   Sample_ID = case_when(
     Sample_Description == "TEMPEST CONTROL PLOT - 09/09/22" ~ "TMP_C_PW_15cm_POOLED_20220912",
     Sample_Description == "TEMPEST CONTROL PLOT - 08/08/22" ~ "TMP_C_PW_15cm_POOLED_20220808",
@@ -414,9 +433,6 @@ mutate(
 sample_log7 <- sample_log6 %>%
   mutate(new_abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.dat")) %>%
   mutate(new_eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.dat"))
-
-
-unique(sample_log7$Sample_ID)
 
 ```
 
@@ -532,8 +548,6 @@ missing <- sample_log9 %>%
 # "TMP_SOURCE_ESTUARY_HR7_20220622" - no metadata, time should be 150000 
 # "TMP_C_PW_C3_15CM_20230628" - no metadata, already checked with AMP, no time available  
 
-# "TMP_FW_PW_I5_15CM_20230662" - unsure which date this should be?    
-
 # "TMP_SW_PW_15CM_T3_20220623" - well sample          
 # "TMP_FW_PW_15CM_T2_20220622" - well sample               
 # "TMP_FW_PW_15CM_T1_20220622" - well sample              
@@ -544,6 +558,7 @@ missing <- sample_log9 %>%
 
 
 ####Fixed####
+# "TMP_FW_PW_I5_15CM_20230662" - 20230627
 # "TMP_C_PW_D5_15CM_20230627" - should be TMP_C_PW_D5_15CM_20230627       
 # "TMP_C_PW_15CM_POOLED_20221019" - should be TMP_C_PW_15CM_POOLED_20221019-24       
 # "TMP_C_PW_15CM_POOLED_20230202" - should be TMP_C_PW_15CM_POOLED_202302       
@@ -604,17 +619,51 @@ merged_data1 <- merged_data %>%
   mutate(Collection_Time_24hrs = case_when(
     Sample_ID == "TMP_SOURCE_ESTUARY_HR4_20220622" ~ 1100, 
     Sample_ID == "TMP_SOURCE_ESTUARY_HR7_20220622" ~ 1500, 
+    Sample_ID == "TMP_SOURCE_SW_HR0_20220622" ~ 0645, 
+    Sample_ID == "TMP_SOURCE_FW_HR0_20220622" ~ 0654, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR1_20220622" ~ 0800, 
+    Sample_ID == "TMP_SOURCE_FW_HR1_20220622" ~ 0800, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR2_20220622" ~ 0930, 
+    Sample_ID == "TMP_SOURCE_FW_HR2_20220622" ~ 0930, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR3_20220622" ~ 1000, 
+    Sample_ID == "TMP_SOURCE_FW_HR3_20220622" ~ 1000, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR4_20220622" ~ 1100, 
+    Sample_ID == "TMP_SOURCE_FW_HR4_20220622" ~ 1100, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR5_20220622" ~ 1200, 
+    Sample_ID == "TMP_SOURCE_FW_HR5_20220622" ~ 1200, 
+    
+    Sample_ID == "TMP_SOURCE_SW_HR7_20220622" ~ 1448, 
+    Sample_ID == "TMP_SOURCE_FW_HR7_20220622" ~ 1448, 
     TRUE ~ Collection_Time_24hrs
   )) %>%
   mutate(Collection_Date_YYYYMMDD = case_when(
-    Sample_ID == "TMP_SOURCE_ESTUARY_HR4_20220622" ~ 20220622, 
-    Sample_ID == "TMP_SOURCE_ESTUARY_HR7_20220622" ~ 20220622, 
+    str_detect(Sample_ID, "20220622") ~ 20220622, 
     TRUE ~ Collection_Date_YYYYMMDD
   )) %>%
   mutate(Notes = case_when(
     Sample_ID == "TMP_C_PW_C3_15CM_20230628" ~ "No metadata", 
     TRUE ~ Notes
-  )) 
+  )) %>% 
+  #manual entry of missing evacuation information from the notes/inventory sheet: 
+  mutate(Evacuation_date_YYYYMMDD = case_when(
+    Collection_Date_YYYYMMDD == 20220620 ~ 20220618,
+    Collection_Date_YYYYMMDD == 20220622 ~ 20220622,
+    Collection_Date_YYYYMMDD == 20220623 ~ 20220622,
+    Collection_Date_YYYYMMDD == 20220624 ~ 20220623,
+    Collection_Date_YYYYMMDD == 20220909 ~ 20220909,
+    Collection_Date_YYYYMMDD == 20230606 ~ 20230605,
+    Collection_Date_YYYYMMDD == 20230607 & str_detect(Sample_ID, "AM") ~ 20230606,
+    Collection_Date_YYYYMMDD == 20230607 & str_detect(Sample_ID, "PM") ~ 20230607,
+    Collection_Date_YYYYMMDD == 20230612 ~ 20230608,
+    Collection_Date_YYYYMMDD == 20230627 ~ 20230623,
+    Collection_Date_YYYYMMDD == 20230628 ~ 20230623,
+    Collection_Date_YYYYMMDD == 20230707 ~ 20230705,
+    TRUE ~ Evacuation_date_YYYYMMDD))
 
 colnames(merged_data1)
 
@@ -629,14 +678,14 @@ write.csv(merged_data2, "CDOM_metadata_2022-2023.csv")
 ```
 
 ##Rename all absorbance files
-```{#r}
+```{r}
 
 ##Rename files
-for(i in 1:nrow(sample_log5)){
+for(i in 1:nrow(sample_log7)){
     
     # Create file paths with folder and file name
-    old_file <- file.path(abs_folder_path, sample_log5$original_file_name_abs[i])
-    new_file <- file.path(abs_folder_path, sample_log5$new_abs_file_id[i])
+    old_file <- file.path(abs_folder_path, sample_log7$original_file_name_abs[i])
+    new_file <- file.path(abs_folder_path, sample_log7$new_abs_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(old_file)) {
@@ -644,9 +693,9 @@ for(i in 1:nrow(sample_log5)){
     # Rename the file
     file.rename(from = old_file, to = new_file)
     
-    cat("Success: Renamed", sample_log5$original_file_name_abs[i], "to", sample_log5$new_abs_file_id[i], "\n")
+    cat("Success: Renamed", sample_log7$original_file_name_abs[i], "to", sample_log7$new_abs_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log5$original_file_name_abs[i], "not found.\n")
+    cat("Warning: File", sample_log7$original_file_name_abs[i], "not found.\n")
   }
 }
 
@@ -678,14 +727,14 @@ print("Conversion complete!")
 
 
 ##Rename all EEM files
-```{#r}
+```{r}
 
 ##Rename files
-for(i in 1:nrow(sample_log5)){
+for(i in 1:nrow(sample_log7)){
     
     # Create file paths with folder and file name
-    old_file <- file.path(eem_folder_path, sample_log5$original_file_name_eem[i])
-    new_file <- file.path(eem_folder_path, sample_log5$new_eem_file_id[i])
+    old_file <- file.path(eem_folder_path, sample_log7$original_file_name_eem[i])
+    new_file <- file.path(eem_folder_path, sample_log7$new_eem_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(old_file)) {
@@ -693,9 +742,9 @@ for(i in 1:nrow(sample_log5)){
     # Rename the file
     file.rename(from = old_file, to = new_file)
     
-    cat("Success: Renamed", sample_log5$original_file_name_eem[i], "to", sample_log5$new_eem_file_id[i], "\n")
+    cat("Success: Renamed", sample_log7$original_file_name_eem[i], "to", sample_log7$new_eem_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log5$original_file_name_eem[i], "not found.\n")
+    cat("Warning: File", sample_log7$original_file_name_eem[i], "not found.\n")
   }
 }
 
@@ -723,18 +772,4 @@ for (file in eem_files) {
 }
 
 print("Conversion complete!")
-```
-
-
-
-
-##Merge the metadata and export
-```{r}
-
-#merge metadata with sample run data 
-merged_data <- metadata %>%
-  left_join(raw_metadata_DOC, by = "Sample_ID")
-
-write.csv(merged_data, "CDOM_metadata_2022-2023.csv")
-
 ```
