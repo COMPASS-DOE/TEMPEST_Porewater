@@ -662,7 +662,7 @@ final_data2 <- final_data1 %>%
     TRUE ~ "Monitoring"
   ))  %>% 
   ##Code in collection start time column for non-porewater samples
-  mutate(Collection_Start_Time_24hrs = case_when(
+  mutate(Collection_End_Time_24hrs = case_when(
     Sample_Type == "RAINWATER" ~ Collection_Time_24hrs, 
     Sample_Type == "SOURCE" ~ Collection_Time_24hrs, 
     TRUE ~ Collection_Start_Time_24hrs
