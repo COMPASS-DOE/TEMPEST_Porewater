@@ -72,10 +72,30 @@ sample_log1 <- sample_log_raw %>%
   # Missing TMP_FW_PW_H6_15cm_CDOM_20250509, should be 20250512
   mutate(Sample_ID = gsub("TMP_FW_PW_H6_15cm_CDOM_20250509", "TMP_FW_PW_H6_15cm_CDOM_20250512", Sample_ID))
 
-#Create desired file ID
+
+##Get sample metadata from Sample ID
 sample_log2 <- sample_log1 %>%
-  mutate(abs_file_id = paste0(Sample_ID, "_ABS_DilCorr.csv")) %>% 
-  mutate(eem_file_id = paste0(Sample_ID, "_EEM_DilCorr_IFE_RamNorm.csv"))
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|POOLED") ,
+         Date = stringr::str_extract(Sample_ID, "\\d{6}(?:\\d{2}(?:-\\d{2})?)?"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Grid = ifelse(Sample_Type == "SOURCE", NA, Grid), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  # select(-Sample_ID) %>% 
+  distinct()
+
+#Create desired file ID
+sample_log3 <- sample_log2 %>%
+  mutate(abs_file_id = paste0(Sample_ID_formatted, "_ABS_DilCorr.csv")) %>% 
+  mutate(eem_file_id = paste0(Sample_ID_formatted, "_EEM_DilCorr_IFE_RamNorm.csv"))
 
 ```
 
@@ -115,11 +135,11 @@ for (i in seq_along(files$name)) {
 }
 
 ##Rename files
-for(i in 1:nrow(sample_log2)){
+for(i in 1:nrow(sample_log3)){
     
     # Create file paths with folder and file name
-    old_file <- file.path(abs_folder_path, sample_log2$abs_processed_file_name_in_gdrive[i])
-    new_file <- file.path(abs_folder_path, sample_log2$abs_file_id[i])
+    old_file <- file.path(abs_folder_path, sample_log3$abs_processed_file_name_in_gdrive[i])
+    new_file <- file.path(abs_folder_path, sample_log3$abs_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(old_file)) {
@@ -127,9 +147,9 @@ for(i in 1:nrow(sample_log2)){
     # Rename the file
     file.rename(from = old_file, to = new_file)
     
-    cat("Success: Renamed", sample_log2$abs_processed_file_name_in_gdrive[i], "to", sample_log2$abs_file_id[i], "\n")
+    cat("Success: Renamed", sample_log3$abs_processed_file_name_in_gdrive[i], "to", sample_log3$abs_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log2$abs_processed_file_name_in_gdrive[i], "not found.\n")
+    cat("Warning: File", sample_log3$abs_processed_file_name_in_gdrive[i], "not found.\n")
   }
 }
 ```
@@ -169,11 +189,11 @@ for (i in seq_along(eem_files$name)) {
   }
 }
 
-for(i in 1:nrow(sample_log2)){
+for(i in 1:nrow(sample_log3)){
     
     # Create file paths with folder and file name
-    eem_old_file <- file.path(eem_folder_path, sample_log2$EEM_processed_file_in_gdrive[i])
-    eem_new_file <- file.path(eem_folder_path, sample_log2$eem_file_id[i])
+    eem_old_file <- file.path(eem_folder_path, sample_log3$EEM_processed_file_in_gdrive[i])
+    eem_new_file <- file.path(eem_folder_path, sample_log3$eem_file_id[i])
     
     # Check if the original file actually exists
   if (file.exists(eem_old_file)) {
@@ -181,10 +201,10 @@ for(i in 1:nrow(sample_log2)){
     # Rename the file
     file.rename(from = eem_old_file, to = eem_new_file)
     
-    cat("Success: Renamed", sample_log2$EEM_processed_file_in_gdrive[i], "to", 
-        sample_log2$eem_file_id[i], "\n")
+    cat("Success: Renamed", sample_log3$EEM_processed_file_in_gdrive[i], "to", 
+        sample_log3$eem_file_id[i], "\n")
   } else {
-    cat("Warning: File", sample_log2$EEM_processed_file_in_gdrive[i], "not found.\n")
+    cat("Warning: File", sample_log3$EEM_processed_file_in_gdrive[i], "not found.\n")
   }
 }
 ```
@@ -194,7 +214,7 @@ for(i in 1:nrow(sample_log2)){
 ```{r rest of metadata, include=FALSE}
 
 #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=2043653837#gid=2043653837"
 
 drive_download(inventory_directory, overwrite = TRUE)
 
@@ -214,33 +234,41 @@ raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM"))
 raw_metadata_DOC <- raw_metadata_DOC %>% 
   select(-c(Plot, sample_location, Analyte))
 
+##Get sample metadata from Sample ID
+raw_metadata_DOC1 <- raw_metadata_DOC %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|POOLED") ,
+         Date = stringr::str_extract(Sample_ID, "\\d{6}(?:\\d{2}(?:-\\d{2})?)?"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Grid = ifelse(Sample_Type == "SOURCE", NA, Grid), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  # select(-Sample_ID) %>% 
+  distinct()
+
+
 ```
 
 ##Create the metadata
 ```{r output metadata}
 
-metadata <- sample_log2 %>% 
+metadata <- sample_log3 %>% 
   rename(dilution_factor = dilution) %>% 
-  select(c(Sample_ID, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
-
-head(metadata)
-
-##Get sample metadata from Sample ID
-metadata <- metadata %>%
-  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|C|Estuary'),
-         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|Source") ,
-         Depth = stringr::str_extract(Sample_ID, "15cm|30cm|50cm"), 
-         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"), 
-         T_num = stringr::str_extract(Sample_ID, "T1|T2|T3|T4|T5|T6"), 
-         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
-  unite("Timepoint", T_num:TOD, sep = "_", remove = TRUE, na.rm = TRUE)
+  select(c(Sample_ID_formatted, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id))
 
 ```
 
 ## Check to see if samples run match metadata & merge info
 ```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
 
-all_present <- all(metadata$Sample_ID %in% raw_metadata_DOC$Sample_ID)
+all_present <- all(metadata$Sample_ID_formatted %in% raw_metadata_DOC1$Sample_ID_formatted)
 
 if (all_present) {
   message("All sample IDs are present in metadata.")
@@ -248,7 +276,7 @@ if (all_present) {
   message("Some sample IDs are missing from metadata.")
   
   # Optional: Which ones are missing?
-  missing_ids <- setdiff(metadata$Sample_ID, raw_metadata_DOC$Sample_ID)
+  missing_ids <- setdiff(metadata$Sample_ID_formatted, raw_metadata_DOC1$Sample_ID_formatted)
   print(missing_ids)
 }
 
@@ -259,9 +287,17 @@ if (all_present) {
 
 #merge metadata with sample run data 
 merged_data <- metadata %>%
-  left_join(raw_metadata_DOC, by = "Sample_ID")
+  left_join(raw_metadata_DOC1, by = "Sample_ID_formatted")
 
-write.csv(merged_data, "CDOM_metadata_2024-2025.csv")
+merged_data1 <- merged_data %>%
+  select(-Sample_ID) %>% 
+  rename(Sample_ID = Sample_ID_formatted) %>% 
+  mutate(Collection_End_Time_24hrs = ifelse(is.na(Collection_End_Time_24hrs), Collection_Time_24hrs, Collection_End_Time_24hrs)) %>% 
+  select("Sample_ID", "integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id", 
+         "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Notes", "Deployment_Date_YYYYMMDD", 
+         "Deployment_Time_24hrs", "EST_EDT")
+
+write.csv(merged_data1, "CDOM_metadata_2024-2025.csv", row.names = FALSE)
 
 ```
 
