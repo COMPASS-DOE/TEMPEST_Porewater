@@ -18,7 +18,7 @@ process_monthly_pooled_inventory <- function(dat){
       SPE = as.numeric(SPE)
     ) %>%
     pivot_wider(
-      id_cols = c(Plot, Depth_cm, Collection_Date, Timepoint), 
+      id_cols = c(Plot, Depth_cm, Collection_Date), 
       names_from = Grid_Square, 
       values_from = SPE, 
       names_prefix = "Grid_", 
@@ -38,10 +38,9 @@ process_monthly_pooled_inventory <- function(dat){
       Project = "COMPASS: TEMPEST", 
       Collection_Date = as.Date(Collection_Date, format = "%d-%b-%Y"),
       Collection_Date_YYYYMMDD = format(Collection_Date, "%Y%m%d"),
-      Evacuation_date_YYYMMDD = NA, ##Need to fix and pull this from evacuation checklist
+      Evacuation_date_YYYYMMDD = NA, ##Need to fix and pull this from evacuation checklist
       Sample_location = "SEQUIM",
       depth_code = paste0(Depth_cm, "cm"),
-      Timepoint = gsub("-", "_", Timepoint)
     ) %>%
     mutate(
       Sample_ID = paste(
@@ -56,7 +55,6 @@ process_monthly_pooled_inventory <- function(dat){
         depth_code,
         "SPE",
         Collection_Date_YYYYMMDD,
-        Timepoint,
         sep = "_"
       ),
       Vial_ID = paste(
@@ -68,7 +66,6 @@ process_monthly_pooled_inventory <- function(dat){
         ),
         Depth_cm,
         Collection_Date_YYYYMMDD,
-        Timepoint,
         sep = "_"
       )
     ) %>%
@@ -93,14 +90,13 @@ process_monthly_pooled_inventory <- function(dat){
       Grid_H6, 
       Grid_I5, 
       # Analyte,
-      Evacuation_date_YYYMMDD, 
+      Evacuation_date_YYYYMMDD, 
       Collection_Date_YYYYMMDD,
-      Timepoint,
       Depth_cm, 
       everything()
     ) %>%
     mutate(
-      Evacuation_date_YYYMMDD = as.numeric(Evacuation_date_YYYMMDD),
+      Evacuation_date_YYYYMMDD = as.numeric(Evacuation_date_YYYYMMDD),
       Collection_Date_YYYYMMDD = as.numeric(Collection_Date_YYYYMMDD)
       # Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs),
       # Collection_End_Time_24hrs = as.numeric(Collection_End_Time_24hrs)

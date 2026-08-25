@@ -17,14 +17,34 @@ library(googlesheets4)
 
 ####CHANGE FOR THE MONTH AS NEEDED: ####
 
-#Monthly path 
-drive_path <- "https://drive.google.com/drive/folders/1mCUes-7sBt0PAWxQ5mPz5wn2E1w558aw"
+#Monthly file path 
+drive_path <- "https://drive.google.com/drive/folders/1-KcW-XeOPXNpGJwMcbXmeZ3Nmur8uLzX"
 
-#Full Inventory Path 
-inventory_path <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=834818575#gid=834818575"
+##Type in the evacuation dates
+#First sampling 
+Evacuation_date_YYYYMMDD_1 = 20260807
+Collection_Date_YYYYMMDD_1 = 20260810
 
-#pH file path 
-pH_path <- "https://docs.google.com/spreadsheets/d/1-KTABMU-2e6ZxQXeY1yMahHB5lX9HuvN-NF-kWinLTA/edit?gid=1955793989#gid=1955793989"
+#Second sampling 
+Evacuation_date_YYYYMMDD_2 = 20260810
+Collection_Date_YYYYMMDD_2 = 20260813
+
+##Note: Conductivity units are currently pulled from either the Conductivity column or the notes (uS/cm, mS/cm, "micro"). If there are no notes, it is assumed that       Control/Freshwater is uS/cm and Saltwater is mS/cm. 
+
+
+####Don't need to change anything here: ####
+
+##Download updated files from the drive to add to
+#link to google drive folder
+directory <- "https://drive.google.com/drive/folders/1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e"
+#check list of files found at the link
+drive_ls(directory)
+#filter to necessary files
+files_pulse <- drive_ls(directory) %>%
+  filter(grepl("_updated", name))
+#download files to local drive
+lapply(c(files_pulse$name), drive_download,
+overwrite = TRUE)
 
 #Folder to upload the new files to
 folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
@@ -33,6 +53,49 @@ folder_path = as_id("1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e")
 
 
 PARSE ENTERED DATA FILES: RUN POREWATER CHUNKS
+Evacuation
+## Read in the EVACUATION datasheets and parse
+```{r, pull in entered datasheets}
+
+#for just one folder 
+googledrive::drive_ls(path = drive_path, pattern = "Evac") -> files
+
+source("parse_monthly_evacuation_file.R")
+
+parse_files <- list()
+
+for(i in seq_len(nrow(files))) {
+
+    cat("Processing:", files$name[i], "\n")
+
+    drive_download(files$id[i],
+                   path = "temp.xlsx",
+                   overwrite = TRUE)
+
+    pw_raw <- read_excel("temp.xlsx",
+                         col_names = FALSE, 
+                         col_types = "text")
+
+    parse_files[[i]] <- tryCatch(
+        parse_monthly_evacuation_file(pw_raw),
+        error = function(e) {
+            message("Failed on: ", files$name[i])
+            message(e$message)
+            return(NULL)
+        }
+    )
+
+    unlink("temp.xlsx")
+}
+
+```
+
+# Reorganize EVACUATION data to match inventory
+```{r}
+
+pw_evac_all <- bind_rows(parse_files)
+
+```
 
 Porewater
 ## Read in the POREWATER datasheets and parse
@@ -82,6 +145,7 @@ pw_inventory_all <- bind_rows(pw_inventory_files)
 
 ```
 
+
 # Reorganize POOLED POREWATER data to match inventory
 ```{r}
 
@@ -95,8 +159,132 @@ pooled_inventory_all <- bind_rows(pooled_inventory_files)
 
 
 
+##Combine evacuation with porewater data to get dates and times 
+```{r}
+
+##Evacuation times
+pw_evac_day1 <- pw_evac_all %>% 
+  mutate(Evacuation_date_YYYYMMDD = as.numeric(Collection_Date), 
+         Collection_Start_Time_24hrs = as.numeric(Collection_Start_Time_24hrs)) %>% 
+  select(Plot, Grid_Square, Depth_cm, Evacuation_date_YYYYMMDD, Collection_Start_Time_24hrs) %>% 
+  mutate(Plot = str_to_sentence(Plot))
+
+pw_evac_day2 <- pw_inventory_all %>% 
+  filter(Collection_Date_YYYYMMDD == Collection_Date_YYYYMMDD_1) %>% 
+  mutate(Evacuation_date_YYYYMMDD = Collection_Date_YYYYMMDD, 
+         Collection_Start_Time_24hrs = Collection_End_Time_24hrs) %>% 
+  select(Plot, Grid_Square, Depth_cm, Evacuation_date_YYYYMMDD, Collection_Start_Time_24hrs) %>% 
+  distinct()
+
+pw_evac_times <- bind_rows(pw_evac_day1, pw_evac_day2)
+
+
+##PW Inventory##
+##Add evacuation dates
+pw_inventory_dates <- pw_inventory_all %>% 
+  mutate(Evacuation_date_YYYYMMDD = case_when(
+    Collection_Date_YYYYMMDD == Collection_Date_YYYYMMDD_1 ~ Evacuation_date_YYYYMMDD_1, 
+    Collection_Date_YYYYMMDD == Collection_Date_YYYYMMDD_2 ~ Evacuation_date_YYYYMMDD_2, 
+    TRUE ~ NA
+  )) %>% 
+  select(-Collection_Start_Time_24hrs)
+
+##Add evacuation times
+pw_inventory_times <- pw_inventory_dates %>% 
+  left_join(pw_evac_times, by = c("Plot", "Grid_Square", "Depth_cm", "Evacuation_date_YYYYMMDD")) %>% 
+  filter(!is.na(Volume_mL)) %>% 
+  filter(Volume_mL != 0)
+
+
+
+##Pooled Inventory##
+##Find the earliest evacuation date and time for pooled samples
+pooled_evac_times <- pw_evac_times %>% 
+  group_by(Plot, Depth_cm) %>% 
+  filter(Evacuation_date_YYYYMMDD == min(Evacuation_date_YYYYMMDD, na.rm = TRUE)) %>% 
+  filter(Collection_Start_Time_24hrs == min(Collection_Start_Time_24hrs, na.rm = TRUE)) %>% 
+  select(-Grid_Square)
+
+##Find the latest sampling time for pooled samples from pw inventory - if there are pooled samples, there should be other samples
+pooled_sampling_times <- pw_inventory_all %>% 
+  group_by(Plot, Depth_cm) %>% 
+  summarize(Collection_End_Time_24hrs = max(Collection_End_Time_24hrs, na.rm = TRUE))
+
+pooled_times <- pooled_evac_times %>% 
+  left_join(pooled_sampling_times, by = c("Plot", "Depth_cm"))
+
+
+##Add evacuation date and times
+pooled_inventory_times <- pooled_inventory_all %>% 
+  select(-Evacuation_date_YYYYMMDD) %>% 
+  left_join(pooled_times, by = c("Plot", "Depth_cm"))
+
+
+```
+
+
+##Fix pooled inventory - samples across several dates in the same sampling week should be combined into one
+```{r}
+##Merge pooled rows as needed 
+##This only works if it is done one sampling event at a time!!
+pooled_inventory_compressed <- pooled_inventory_times %>%
+  group_by(Plot, Depth_cm) %>%
+  summarise(
+    Grid_B4 = sum(Grid_B4, na.rm = TRUE),
+    Grid_C3 = sum(Grid_C3, na.rm = TRUE),
+    Grid_C6 = sum(Grid_C6, na.rm = TRUE),
+    Grid_D5 = sum(Grid_D5, na.rm = TRUE),
+    Grid_E3 = sum(Grid_E3, na.rm = TRUE),
+    Grid_F4 = sum(Grid_F4, na.rm = TRUE),
+    Grid_F6 = sum(Grid_F6, na.rm = TRUE),
+    Grid_H3 = sum(Grid_H3, na.rm = TRUE),
+    Grid_H6 = sum(Grid_H6, na.rm = TRUE),
+    Grid_I5 = sum(Grid_I5, na.rm = TRUE),
+    Total_Volume_mL = sum(Total_Volume_mL, na.rm = TRUE),
+
+    # Earliest evacuation date + start time from that same row
+    Collection_Start_Time_24hrs = Collection_Start_Time_24hrs[which.min(Evacuation_date_YYYYMMDD)],
+    Evacuation_date_YYYYMMDD = min(Evacuation_date_YYYYMMDD, na.rm = TRUE),
+
+    # Latest collection date + end time from that same row
+    Collection_End_Time_24hrs = Collection_End_Time_24hrs[which.max(Collection_Date_YYYYMMDD)],
+    Sample_ID = Sample_ID[which.max(Collection_Date_YYYYMMDD)],
+    Vial_ID = Vial_ID[which.max(Collection_Date_YYYYMMDD)],
+    Collection_Date = Collection_Date[which.max(Collection_Date_YYYYMMDD)],
+    Collection_Date_YYYYMMDD = max(Collection_Date_YYYYMMDD, na.rm = TRUE),
+
+    # First value for every other column
+    across(
+      -c(
+    Grid_B4,
+    Grid_C3,
+    Grid_C6,
+    Grid_D5,
+    Grid_E3,
+    Grid_F4,
+    Grid_F6,
+    Grid_H3,
+    Grid_H6,
+    Grid_I5,
+    Evacuation_date_YYYYMMDD, 
+    Collection_Start_Time_24hrs,
+    Collection_Date_YYYYMMDD,
+    Collection_End_Time_24hrs, 
+    Sample_ID, 
+    Vial_ID
+      
+    ),
+      first
+    ),
+
+    .groups = "drop"
+  ) 
+
+```
+
+
+
 # Reorganize pH data from POREWATER and SOURCEWATER 
-Runoff pH was measured by the Aquatroll. 
 ```{r}
 
 #Porewater
@@ -106,16 +294,17 @@ pw_pH_all <- bind_rows(pw_pH_files)
 
 pH_all <- pw_pH_all %>%
   mutate(Plot = factor(Plot, levels = c("Control", "Saltwater", "Freshwater"))) %>%
-  arrange(Date_YYYYMMDD, Timepoint, Plot, Location, Depth_cm)
+  arrange(Date_YYYYMMDD, Plot, Location, Depth_cm)
 
 ```
+
 
 NOW COMBINE THE NEW pH DATA WITH THE OLD
 # Prep pH to be appended to the pH file 
 ```{r, process data file to match inventory}
 
 # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(pH_path, overwrite = TRUE)
+#drive_download(pH_path, overwrite = TRUE)
 
 #Read in the master inventory
 pH_master <- read_excel(
@@ -189,7 +378,7 @@ Porewater
 ```{r, process data file to match inventory}
 
 # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(inventory_path, overwrite = TRUE)
+# drive_download(inventory_path, overwrite = TRUE)
 
 #Read in the master inventory
 master <- read_excel(
@@ -203,7 +392,7 @@ master <- master %>%
   filter(!is.na(Sample_ID))
 
 # Align the columns
-inventory_new <- pw_inventory_all %>%
+inventory_new <- pw_inventory_times %>%
   select(any_of(names(master)))
 
 missing_cols <- setdiff(names(master), names(inventory_new))
@@ -233,7 +422,7 @@ header_rows <- data.frame(
 ```{r, add the new inventory file}
 
 # Run this to pull the TEMPEST porewater metadata into GitHub if not already there
-drive_download(inventory_path, overwrite = TRUE)
+# drive_download(inventory_path, overwrite = TRUE)
 
 # Load existing workbook
 wb <- loadWorkbook("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
@@ -295,7 +484,7 @@ pooled_master <- pooled_master %>%
   filter(!is.na(Sample_ID))
 
 # Align the columns
-inventory_new <- pooled_inventory_all %>%
+inventory_new <- pooled_inventory_compressed %>%
   select(any_of(names(pooled_master)))
 
 missing_cols <- setdiff(names(pooled_master), names(inventory_new))
@@ -386,7 +575,9 @@ saveWorkbook(wb, "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", over
 
 
 # Upload the new pH and inventory files to Google Drive
-```{#r}
+```{r}
+
+####Once you upload the new file, delete the old one with the same name in Google Drive!####
 
 ##pH
 drive_upload(
@@ -446,14 +637,14 @@ build_sample_list <- function(dat, target_analyte, start_date, end_date) {
 
 #apply the function to each inventory we made 
 pw_sample_list <- build_sample_list(
-  pw_inventory_all,
+  pw_inventory_times,
   target_analyte,
   start_date,
   end_date
 )
 
 pooled_sample_list <- build_sample_list(
-  pooled_inventory_all,
+  pooled_inventory_compressed,
   target_analyte,
   start_date,
   end_date

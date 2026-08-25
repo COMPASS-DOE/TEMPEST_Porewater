@@ -30,7 +30,7 @@ process_monthly_inventory <- function(dat){
       ),
       Volume_mL = as.numeric(Volume_mL)
     ) %>%
-    filter(!is.na(Volume_mL)) %>%
+    # filter(!is.na(Volume_mL)) %>%
     mutate(
       Analyte = recode(
         Analyte,
