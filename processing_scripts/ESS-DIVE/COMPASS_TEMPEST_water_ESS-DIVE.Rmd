@@ -150,12 +150,17 @@ write.csv(CDOM_meta_2025, "Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_met
 
 colnames(final_data)
 
-abs <- read_csv(CDOM_2025_Abs[1])
+abs <- read.csv(CDOM_2025_Abs[1])
 colnames(abs)
 
+meta <- read.csv("Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv")
+meta <- meta %>% 
+  select("integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id")
+colnames(meta)
+
 #pull the column names from the all_dat1 dataframe and create a new dataframe with them
-dd <- data.frame(Column_Names = c(colnames(final_data), colnames(abs)))
-colnames(final_data)
+dd <- data.frame(Column_Names = c(colnames(final_data), colnames(abs), colnames(meta)))
+dd
 
 dd$Unit <- ""
 dd$Definition <- ""
@@ -218,7 +223,12 @@ dd$Definition <-       c("Project name: Project component",
                          "Temperature flag (temperature not recorded)", 
                          "Notes for analytes not measured", 
                          "Wavelength in nm", 
-                         "Dilution Corrected Absorbance")
+                         "Dilution Corrected Absorbance", 
+                         "integration_time_s", 
+                         "dilution_factor", 
+                         "RSU_area_1s", 
+                         "abs_file_id", 
+                         "eem_file_id")
 
 dd$Unit <-             c("NA", 
                          "NA",
@@ -272,6 +282,11 @@ dd$Unit <-             c("NA",
                          "NA", 
                          "NA", 
                          "nm", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 dd$data_type <-        c("text", 
@@ -326,7 +341,12 @@ dd$data_type <-        c("text",
                          "text",
                          "text", 
                          "numeric", 
-                         "numeric")
+                         "numeric", 
+                         "numeric",
+                         "numeric",
+                         "numeric",
+                         "text",
+                         "text")
 
 dd$Instrument_ifapplicable <-   c("NA", 
                          "NA",
@@ -380,6 +400,11 @@ dd$Instrument_ifapplicable <-   c("NA",
                          "NA", 
                          "NA", 
                          "NA", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 
@@ -435,6 +460,11 @@ dd$Method_ifapplicable <- c("NA",
                          "NA", 
                          "NA", 
                          "NA", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 

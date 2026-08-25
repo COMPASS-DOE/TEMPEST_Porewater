@@ -52,3 +52,8 @@
 "Analyte_Notes","NA","Notes for analytes not measured","Analyte_Notes","text","NA","NA"
 "Wavelength_nm","nm","Wavelength in nm","Wavelength_nm","numeric","NA","NA"
 "Dilution_Corrected_Absorbance","NA","Dilution Corrected Absorbance","Dilution_Corrected_Absorbance","numeric","NA","NA"
+"integration_time_s","NA","integration_time_s","integration_time_s","numeric","NA","NA"
+"dilution_factor","NA","dilution_factor","dilution_factor","numeric","NA","NA"
+"RSU_area_1s","NA","RSU_area_1s","RSU_area_1s","numeric","NA","NA"
+"abs_file_id","NA","abs_file_id","abs_file_id","text","NA","NA"
+"eem_file_id","NA","eem_file_id","eem_file_id","text","NA","NA"
