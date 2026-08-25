@@ -918,7 +918,7 @@ walk(eem_files, function(file) {
   
   ##Remove X from Column names
   names(dat) <- gsub("X", "", names(dat))
-  names(dat)[1] <- c("Wavelength_nm")
+  names(dat) <- gsub("Wavelength_nm", "", names(dat))
 
   # Overwrite original file
   write_csv(dat, file)
