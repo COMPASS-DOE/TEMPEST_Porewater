@@ -162,6 +162,7 @@ colnames(meta)
 dd <- data.frame(Column_Names = c(colnames(final_data), colnames(abs), colnames(meta)))
 dd
 
+dd$Corresponding_files <-  ""    
 dd$Unit <- ""
 dd$Definition <- ""
 dd$Column_Long_Name <- dd$Column_Names
@@ -170,6 +171,65 @@ dd$Instrument_ifapplicable <- ""
 dd$Method_ifapplicable <- ""
 
 #add information about each line:
+
+dd$Corresponding_files <-       c("YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/Abs_YYYY/SampleID_ABS_DilCorr.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/Abs_YYYY/SampleID_ABS_DilCorr.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv") 
 
 dd$Definition <-       c("Project name: Project component", 
                          "Region samples originated from: CB = Chesapeake Bay",
@@ -222,13 +282,13 @@ dd$Definition <-       c("Project name: Project component",
                          "Temperature of sample when collected (degrees Celsius)", 
                          "Temperature flag (temperature not recorded)", 
                          "Notes for analytes not measured", 
-                         "Wavelength in nm", 
-                         "Dilution Corrected Absorbance", 
-                         "integration_time_s", 
-                         "dilution_factor", 
-                         "RSU_area_1s", 
-                         "abs_file_id", 
-                         "eem_file_id")
+                         "Wavelength in nm at which absorbance was measured (column in sample absorbance data files)", 
+                         "Absorbance corrected for sample dilution (column in sample absorbance data files)", 
+                         "Integration time used for sample measurement (in second)", 
+                         "Dilution factor of sample (e.g., a 2-fold dilution with 1 part sample and 1 part water will have a dilution factor of 0.5)", 
+                         "Raman Scatter Unit-adjusted area from daily water Raman scan with a 1s integration time", 
+                         "Processed UV absorbance scan (Abs) file IDs - (Processing step: dilution corrected)", 
+                         "Processed excitation-emission matrices (EEM) file IDs (Processing steps include blank subtraction, Raman scattering removal, Rayleigh scattering removal, inner filter effect correction, Raman area normalization, dilution correction)")
 
 dd$Unit <-             c("NA", 
                          "NA",
@@ -283,7 +343,7 @@ dd$Unit <-             c("NA",
                          "NA", 
                          "nm", 
                          "NA", 
-                         "NA",
+                         "seconds",
                          "NA",
                          "NA",
                          "NA",
@@ -392,20 +452,20 @@ dd$Instrument_ifapplicable <-   c("NA",
                          "Modified Cline (1969) method measured with Agilent BioTek PowerWave Microplate Reader", 
                          "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
                          "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
-                         "Oakton", 
+                         "Oakton Instruments PCTSTestr", 
                          "NA", 
-                         "Oakton", 
+                         "Oakton Instruments PCTSTestr", 
                          "NA", 
-                         "Oakton", 
-                         "NA", 
-                         "NA", 
+                         "Oakton Instruments PCTSTestr", 
                          "NA", 
                          "NA", 
-                         "NA",
-                         "NA",
-                         "NA",
-                         "NA",
-                         "NA")
+                         "Aqualog (Horiba Scientific)", 
+                         "Aqualog (Horiba Scientific)", 
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)")
 
 
 dd$Method_ifapplicable <- c("NA", 
@@ -459,14 +519,13 @@ dd$Method_ifapplicable <- c("NA",
                          "NA", 
                          "NA", 
                          "NA", 
-                         "NA", 
-                         "NA", 
-                         "NA",
-                         "NA",
-                         "NA",
-                         "NA",
-                         "NA")
-
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).")
 
 #write out the data dictionary associated with the data:
 write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
@@ -480,45 +539,33 @@ write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
 files  = list.files("Data package", recursive = TRUE)
 files
 
-files = c("COMPASS_TEMPEST_water_analysis_2022.csv", "COMPASS_TEMPEST_water_analysis_2023.csv", "COMPASS_TEMPEST_water_analysis_2024.csv","COMPASS_TEMPEST_water_analysis_2025.csv", "dd.csv")
+# Strings you want to completely remove
+to_remove <- c("COMPASS_TEMPEST_water_analysis_DataDescription.txt", "flmd.csv", "site_list.csv")
 
-flmd <- data.frame(file_name = files)
-flmd
+# Filter the list
+files <- files[!files %in% to_remove]
+files
 
-flmd$file_description <- ""
-flmd$standard <- ""
-flmd$file_version <- ""
-flmd$data_orientation <- ""
-flmd$header_rows <- ""
-flmd$column_or_row_name_position <- ""
-flmd$notes <- ""
+# files = c("COMPASS_TEMPEST_water_analysis_2022.csv", "COMPASS_TEMPEST_water_analysis_2023.csv", "COMPASS_TEMPEST_water_analysis_2024.csv","COMPASS_TEMPEST_water_analysis_2025.csv", "dd.csv")
 
-#add information about each line:
+flmd <- data.frame(file_name = basename(files), file_path = files)
 
-flmd$file_description <-  c("Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2022",
-                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2023",
-                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2024",
-                            "Porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2025",
-                            "Data dictionary file for annual TEMPEST water sample analysis data files describing each column in the dataset")
-
-flmd$data_orientation <-  c("horizontal",
-                            "horizontal",
-                            "horizontal",
-                            "horizontal",
-                            "horizontal")
-
-flmd$header_rows <-   c("1",
-                        "1",
-                        "1",
-                        "1",
-                        "1")
-
-flmd$column_or_row_name_position <- c("1",
-                                      "1",
-                                      "1",
-                                      "1",
-                                      "1")
-
+flmd <- flmd %>% 
+  mutate(file_description = case_when(
+    str_detect(file_name, "ABS_DilCorr") ~ paste0("Processed Absorbance for ", gsub("_ABS_DilCorr.csv", "", file_name), " sample"), 
+    str_detect(file_name, "EEM_DilCorr_IFE_RamNorm") ~ paste0("Processed EEM spectra for ", gsub("_EEM_DilCorr_IFE_RamNorm.csv", "", file_name), " sample"), 
+    str_detect(file_name, "metadata") ~ paste0("CDOM metadata for Abs and EEM files for porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in ", str_extract(file_name, "\\d{4}")), 
+    str_detect(file_name, "DOC_Nutr_SO4_Cl_H2S_pH") ~ paste0("DOC, Nutrient, Sulfate/Chloride, Sulfide, pH, and Conductivity data for porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in ", str_extract(file_name, "\\d{4}")), 
+    str_detect(file_name, "dd.csv") ~ "Data dictionary of each column name present in the data package", 
+    TRUE ~ NA)
+  ) %>% 
+  
+  mutate(data_orientation = case_when(
+    str_detect(file_name, "EEM_DilCorr_IFE_RamNorm") ~ "matrix", 
+    TRUE ~ "horizontal" )) %>% 
+  
+  mutate(header_rows = "1") %>% 
+  mutate(column_or_row_name_position = "1")
 
 #write out the flmd associated with the data:
 write.csv(flmd, "Data package/flmd.csv", row.names = FALSE)
@@ -527,19 +574,30 @@ write.csv(flmd, "Data package/flmd.csv", row.names = FALSE)
 
 
 ## Create site list - can we use the site list from the sensor data publications? 
-```{#r create site list}
+```{r create site list}
 
 ##Description, Latitude, Longitude
 
-TMP <- data.frame(
-Description = "Terrestrial Ecosystem Manipulation to Probe the Effects of Storm Treatments (TEMPEST) experimental site; This manipulative, ecosystem-scale TEMPEST experiment addresses the potential for freshwater and estuarine-water disturbance events to alter tree function, species composition, and ecosystem processes in a deciduous coastal forest in MD, USA. The experiment uses a large-unit (2000 m2), un-replicated experimental design, with three 50 m × 40 m plots serving as control, freshwater, and estuarine-water treatments. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.
-Latitude: 
-Longitude: )
+Control <- data.frame(
+  Description = "Control Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.", 
+  Latitude = "38.8747 degrees", 
+  Longitude = "-76.5519 degrees")
 
-site_list = TMP
+Freshwater <- data.frame(
+  Description = "Freshwater Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.", 
+  Latitude = "38.87403 degrees", 
+  Longitude = "-76.5516 degrees")
+
+Saltwater <- data.frame(
+  Description = "Saltwater Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.",
+  Latitude = "38.8744 degrees", 
+  Longitude = "-76.5525 degrees")
+
+site_list = bind_rows(Control, Freshwater, Saltwater)
 
 #write out the site list associated with the data:
 write.csv(site_list, "Data package/site_list.csv", row.names = FALSE)
+
 
 ```
 
@@ -549,7 +607,7 @@ write.csv(site_list, "Data package/site_list.csv", row.names = FALSE)
 
 #Create a text file that has the description of the data - This ideally should match the text that is in the data READ.ME 
 
-datadescription <- "These data are measurements of porewater and source water samples collected in 2022-2025 from the COMPASS TEMPEST site in the Chesapeake Bay region in three experimental plots: Saltwater Treatment (S), Freshwater Treatment (F), and Control (C). Porewater was collected from lysimeters at 15, 30, and 50 cm depths semi-monthly from 2022-2025, and 1-2 times per day during flooding events. Porewater samples were pulled from lysimeters using an extraction kit consisting of a syringe and tubing, and source water samples were collected from a barge on the nearby estuary (estuary source water samples) or from the emitter lines (F and S source water samples). These samples were then aliquoted into bottles for analysis of sulfate, chloride, sulfide, nutrient, and dissolved organic carbon concentrations. Samples were analyzed for pH, conductivity, and temperature at the time of sample collection. Analysis of each constituent is described in the data dictionary and further details, including quality assurance and quality control for all analyses can be found on the COMPASS TEMPEST Porewater page (https://github.com/COMPASS-DOE/TEMPEST_Porewater)"
+datadescription <- "These data are measurements of porewater and source water samples collected in 2022-2025 from the COMPASS Terrestrial Ecosystem Manipulation to Probe the Effects of Storm Treatments (TEMPEST) site in the Chesapeake Bay region. This manipulative, ecosystem-scale TEMPEST experiment addresses the potential for freshwater and estuarine-water disturbance events to alter tree function, species composition, and ecosystem processes in a deciduous coastal forest in MD, USA. The experiment uses a large-unit (2000 m2), un-replicated experimental design, with three 50 m × 40 m plots serving as control, freshwater, and saltwater treatments. Porewater was collected from lysimeters at 15, 30, and 50 cm depths semi-monthly from 2022-2025, and 1-2 times per day during flooding events. Porewater samples were pulled from lysimeters using an extraction kit consisting of a syringe and tubing, and source water samples were collected from a barge on the nearby estuary (estuary source water samples) or from the emitter lines (F and S source water samples). These samples were then aliquoted into bottles for analysis of sulfate, chloride, sulfide, nutrient, dissolved organic carbon, and colored dissolved organic matter concentrations. Samples were analyzed for pH, conductivity, and temperature at the time of sample collection. Analysis of each constituent is described in the data dictionary and further details, including quality assurance and quality control for all analyses can be found on the COMPASS TEMPEST Porewater page (https://github.com/COMPASS-DOE/TEMPEST_Porewater)"
 
 ##Add something about how rainwater was collected? 
 
