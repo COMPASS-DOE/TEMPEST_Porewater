@@ -1,5 +1,5 @@
 ---
-title: "ESS-DIVE TEMPEST: Water analysis Data - 2026-08-11 Submission Prep"
+title: "ESS-DIVE TEMPEST: Water Data - 2026-08-11 Submission Prep"
 author: "2022-2025 Samples"
 date: "`r Sys.Date()`"
 output: 
@@ -26,11 +26,23 @@ library(here)
 ```
 
 
-## Pull in compiled data and export annual files
+## Pull in compiled DOC_Nutr_SO4_Cl_H2S_pH data and export annual files
 ```{r Pull in compiled data files, message=FALSE, include=FALSE}
 
 #write out a csv of all the data to the main folder: 
 final_data <- read.csv("../COMPASS_TEMPEST_AllData_AllYears.csv")
+
+##Remove the old annual folders
+unlink("Data package/2022", recursive = TRUE)
+unlink("Data package/2023", recursive = TRUE)
+unlink("Data package/2024", recursive = TRUE)
+unlink("Data package/2025", recursive = TRUE)
+
+##Files in annual folders
+dir.create("Data package/2022")
+dir.create("Data package/2023")
+dir.create("Data package/2024")
+dir.create("Data package/2025")
 
 ##Separate by year for ESS-DIVE 
 final_data_2022 <- subset(final_data, Sample_Year == "2022")
@@ -39,13 +51,91 @@ final_data_2024 <- subset(final_data, Sample_Year == "2024")
 final_data_2025 <- subset(final_data, Sample_Year == "2025")
 
 ##Write out annual data files
-write.csv(final_data_2022, "Data package/COMPASS_TEMPEST_water_analysis_2022.csv", row.names = FALSE)
-write.csv(final_data_2023, "Data package/COMPASS_TEMPEST_water_analysis_2023.csv", row.names = FALSE)
-write.csv(final_data_2024, "Data package/COMPASS_TEMPEST_water_analysis_2024.csv", row.names = FALSE)
-write.csv(final_data_2025, "Data package/COMPASS_TEMPEST_water_analysis_2025.csv", row.names = FALSE)
+write.csv(final_data_2022, "Data package/2022/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2022.csv", row.names = FALSE)
+write.csv(final_data_2023, "Data package/2023/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2023.csv", row.names = FALSE)
+write.csv(final_data_2024, "Data package/2024/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2024.csv", row.names = FALSE)
+write.csv(final_data_2025, "Data package/2025/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2025.csv", row.names = FALSE)
 
 ```
 
+## Pull in compiled CDOM data and export annual files
+```{r Pull in compiled data files, message=FALSE, include=FALSE}
+
+
+library(dplyr)
+library(purrr)
+library(readr)
+
+# 1. Define your original and destination file paths
+CDOM_2022_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2022", full.names = TRUE)
+CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_Abs_2022"
+dir.create(CDOM_2022_Abs_to)
+
+# 2. Define a function that reads, renames, and copies (writes) the data
+copy_and_rename_cols <- function(from_path, to_path) {
+  read_csv(from_path, show_col_types = FALSE) %>% 
+    rename(Wavelength_nm = Wavelength..nm., 
+           Dilution_Corrected_Absorbance = Dilution.Corrected.Absorbance) %>%  # new_name = old_name
+    write_csv(paste0(to_path, "/")
+}
+
+# 3. Execute the operation for all files at once
+walk2(CDOM_2022_Abs, CDOM_2022_Abs_to, copy_and_rename_cols)
+
+
+
+
+##2022 
+#Abs
+CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_Abs_2022"
+dir.create(CDOM_2022_Abs_to)
+CDOM_2022_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2022", full.names = TRUE)
+file.copy(from = CDOM_2022_Abs, to = CDOM_2022_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2022_EEM_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_EEM_2022"
+dir.create(CDOM_2022_EEM_to)
+CDOM_2022_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2022", full.names = TRUE)
+file.copy(from = CDOM_2022_EEM, to = CDOM_2022_EEM_to, overwrite = TRUE)
+
+
+##2023
+#Abs
+CDOM_2023_Abs_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM_Abs_2023"
+dir.create(CDOM_2023_Abs_to)
+CDOM_2023_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2023", full.names = TRUE)
+file.copy(from = CDOM_2023_Abs, to = CDOM_2023_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2023_EEM_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM_EEM_2023"
+dir.create(CDOM_2023_EEM_to)
+CDOM_2023_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2023", full.names = TRUE)
+file.copy(from = CDOM_2023_EEM, to = CDOM_2023_EEM_to, overwrite = TRUE)
+
+
+##2024
+#Abs
+CDOM_2024_Abs_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM_Abs_2024"
+dir.create(CDOM_2024_Abs_to)
+CDOM_2024_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2024", full.names = TRUE)
+file.copy(from = CDOM_2024_Abs, to = CDOM_2024_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2024_EEM_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM_EEM_2024"
+dir.create(CDOM_2024_EEM_to)
+CDOM_2024_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2024", full.names = TRUE)
+file.copy(from = CDOM_2024_EEM, to = CDOM_2024_EEM_to, overwrite = TRUE)
+
+
+##2025
+#Abs
+CDOM_2025_Abs_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM_Abs_2025"
+dir.create(CDOM_2025_Abs_to)
+CDOM_2025_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2025", full.names = TRUE)
+file.copy(from = CDOM_2025_Abs, to = CDOM_2025_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2025_EEM_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM_EEM_2025"
+dir.create(CDOM_2025_EEM_to)
+CDOM_2025_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2025", full.names = TRUE)
+file.copy(from = CDOM_2025_EEM, to = CDOM_2025_EEM_to, overwrite = TRUE)
+```
 
 ## Create dd file
 ```{r make metadata, include = FALSE}

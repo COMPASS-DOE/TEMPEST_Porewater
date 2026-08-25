@@ -29,6 +29,7 @@ pacman::p_load(tidyverse, # keep things tidy
                here, 
                readxl, 
                readr, 
+               dplyr, 
                purrr)
 
 #Try to deal with the timezone demons 
@@ -298,6 +299,56 @@ merged_data1 <- merged_data %>%
          "Deployment_Time_24hrs", "EST_EDT")
 
 write.csv(merged_data1, "CDOM_metadata_2024-2025.csv", row.names = FALSE)
+
+```
+
+##Rename the abs file columns 
+```{r}
+
+####Abs files
+abs_files <- list.files(path = abs_folder_path, pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)
+
+walk(abs_files, function(file) {
+
+  # Read assuming there IS a header first
+  dat <- read_csv(file, show_col_types = FALSE)
+
+  # If first column name looks like wavelength, file had a header
+  if (grepl("Wavelength", names(dat)[1], ignore.case = TRUE)) {
+
+    names(dat)[1:2] <- c("Wavelength_nm", "Dilution_Corrected_Absorbance")
+
+  } else {
+
+    # No header: re-read so first data row isn't lost
+    dat <- read_csv(
+      file,
+      col_names = c("Wavelength_nm", "Dilution_Corrected_Absorbance"),
+      show_col_types = FALSE
+    )
+  }
+
+  # Overwrite original file
+  write_csv(dat, file)
+})
+
+
+####EEM files
+eem_files <- list.files(path = eem_folder_path, pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)
+
+walk(eem_files, function(file) {
+
+  # Read assuming there IS a header first
+  dat <- read_csv(file, show_col_types = FALSE)
+  
+  ##Remove X from Column names
+  names(dat) <- paste0("X", names(dat))
+  names(dat)[1] <- c("Wavelength_nm")
+
+  # Overwrite original file
+  write_csv(dat, file)
+})
+
 
 ```
 
