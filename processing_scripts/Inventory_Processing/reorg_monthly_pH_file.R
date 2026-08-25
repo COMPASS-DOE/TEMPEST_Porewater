@@ -27,12 +27,12 @@ process_monthly_pw_pH <- function(dat){
       Temperature_C = as.numeric(Temperature_C)
     ) %>% 
     mutate(Cond_units = case_when(
+      Plot == "Control|Freshwater" ~ "uS/cm", 
       str_detect(Conductivity, "uS/cm") ~ "uS/cm",
       str_detect(Conductivity, "mS/cm") ~ "mS/cm",
       str_detect(Notes, "uS/cm") ~ "uS/cm",
       str_detect(Notes, "mS/cm") ~ "mS/cm",
       str_detect(Notes, "micro") ~ "uS/cm",
-      Plot == "Control|Freshwater" ~ "uS/cm", 
       TRUE ~ "mS/cm")) %>% 
     mutate(
       Conductivity = as.character(Conductivity),

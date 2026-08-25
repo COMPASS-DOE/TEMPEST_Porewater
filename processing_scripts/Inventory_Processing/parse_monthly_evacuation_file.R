@@ -1,23 +1,25 @@
 # Function to parse digitized field porewater data sheet
 # Created by Stephanie Wilson
-
-parse_monthly_porewater_file <- function(file) {
+file = pw_raw
+parse_monthly_evacuation_file <- function(file) {
 
     project <- sub("^.*?:\\s*", "", file[1,1])
-    event <- sub("^.*?:\\s*", "", file[2,1])
-    measurement <- sub("^.*?:\\s*", "", file[3,1])
-    collection_date <- file[4, 3] |> pull()
+    # event <- sub("^.*?:\\s*", "", file[2,1])
+    measurement <- sub("^.*?:\\s*", "", file[2,1])
+    collection_date <- file[4, 2] |> pull()
     
-    collection_date <- ifelse(
+    collection_date <- dplyr::if_else(
       is.na(collection_date),
-      NA_character_,
+      NA,
       as.Date(
         as.numeric(collection_date),
         origin = "1899-12-30"
       )
     )
+    
+    collection_date <- gsub("-", "", collection_date)
 
-    personnel_header <- file[5, 2] |> pull()
+    personnel_header <- file[3, 2] |> pull()
 
     
     #look for EST/EDT and report it out
@@ -31,12 +33,12 @@ parse_monthly_porewater_file <- function(file) {
     #If there is no EST/EDT it will be filled with EST_EDT 
     EST_EDT <- if(length(EST_EDT) == 0) NA_character_ else EST_EDT[1]
 
-    Collection_Start_Time_24hrs <- NA_character_
+    Collection_End_Time_24hrs <- NA_character_
 
 
     # Find data start
     #-----------------------------
-    data_start <- which(file[[1]] %in% c("Control", "Saltwater", "Freshwater"))[1]
+    data_start <- which(file[[1]] %in% c("CONTROL", "SALTWATER", "FRESHWATER"))[1]
     
     #this is here as a safe guard in case there isn't one of the start words in the file
     if(is.na(data_start)) {
@@ -65,21 +67,12 @@ parse_monthly_porewater_file <- function(file) {
     #create a look up table
     rename_map <- c(
         "Plot" = "Plot",
-        "Grid" = "Grid_Square",
+        "Grid Square" = "Grid_Square",
         "Depth" = "Depth_cm",
-        "SO4" = "SO4_Cl_H2S", #needs to be changed later to make it SO4/Cl/H2S
-        "Cation" = "Fe",
-        "DOC" = "DOC",
-        "Nutr" = "NUTR",
-        "CDOM" = "CDOM",
-        "pH" = "pH",
-        "Cond" = "Conductivity",
-        "Cond_units" = "Conductivity_units",
-        "Temp" = "Temperature_C",
-        "ISO" = "Isotopes",
-        "SPE" = "SPE",
-        "Colored" = "Colored",
-        "Time of Sample" = "Collection_End_Time_24hrs",
+        "Primed" = "Primed_Time_24hrs", 
+        "Evacuated" = "Collection_Start_Time_24hrs",
+        "Discarded Volume" = "Discarded_Volume_mL", 
+        "Coloration" = "Colored",
         "Notes" = "Notes",
         "Personnel" = "Personnel"
     )
@@ -96,8 +89,8 @@ parse_monthly_porewater_file <- function(file) {
     names(dat) <- headers
 
     # Remove completely empty rows
-    # dat <- dat %>%
-    #     filter(!if_all(everything(), is.na))
+    dat <- dat %>%
+        filter(!if_all(everything(), is.na))
 
     # Fill missing Plot/Grid values
     # (your sheet leaves them blank
@@ -116,19 +109,18 @@ parse_monthly_porewater_file <- function(file) {
     dat <- dat %>%
         mutate(
             Project = project,
-            Event = event,
             Measurement = measurement,
             Collection_Date = collection_date,
             Collection_Personnel = personnel_header,
-            Collection_Start_Time_24hrs = Collection_Start_Time_24hrs,
-            EST_EDT = EST_EDT
+            Collection_End_Time_24hrs = Collection_End_Time_24hrs,
+            EST_EDT = EST_EDT, 
+            Depth_cm = as.integer(Depth_cm)
         )
 
 
     #set a column order
     desired_order <- c(
         "Project",
-        "Event",
         "Measurement",
         "Collection_Date",
         "Collection_Start_Time_24hrs",
@@ -138,20 +130,8 @@ parse_monthly_porewater_file <- function(file) {
         "Plot",
         "Grid_Square",
         "Depth_cm",
-        "SO4_Cl_H2S",
-        "Fe",
-        "DOC",
-        "NUTR",
-        "CDOM",
-        "pH",
-        "Conductivity",
-        "Conductivity_units",
-        "Temperature_C",
-        "Isotopes",
-        "SPE",
-        "Extra Metadata_Time of Sample Collection (24 hrs)",
-        "Additional Unneeded Extracted Volume (mL)",
-        "Total Volume Extracted (mL)",
+        "Primed_Time_24hrs", 
+        "Discarded_Volume_mL", 
         "Colored",
         "Notes",
         "Personnel"
@@ -160,3 +140,5 @@ parse_monthly_porewater_file <- function(file) {
     dat %>% select(any_of(desired_order))
 
 }
+
+colnames(dat)
