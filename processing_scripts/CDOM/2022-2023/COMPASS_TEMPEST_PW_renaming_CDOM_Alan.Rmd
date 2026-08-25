@@ -907,5 +907,24 @@ walk(abs_files, function(file) {
   # Overwrite original file
   write_csv(dat, file)
 })
+
+####EEM files
+eem_files <- list.files(path = eem_folder_path, pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)
+
+walk(eem_files, function(file) {
+
+  # Read assuming there IS a header first
+  dat <- read_csv(file, show_col_types = FALSE)
+  
+  ##Remove X from Column names
+  names(dat) <- gsub("X", "", names(dat))
+  names(dat)[1] <- c("Wavelength_nm")
+
+  # Overwrite original file
+  write_csv(dat, file)
+})
+
+# dat <- read_csv(eem_files[1], show_col_types = FALSE)
+# names(dat)
 ```
 

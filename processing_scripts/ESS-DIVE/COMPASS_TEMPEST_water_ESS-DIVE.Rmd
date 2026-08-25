@@ -62,87 +62,105 @@ write.csv(final_data_2025, "Data package/2025/COMPASS_TEMPEST_water_DOC_Nutr_SO4
 ```{r Pull in compiled data files, message=FALSE, include=FALSE}
 
 
-library(dplyr)
-library(purrr)
-library(readr)
-
-# 1. Define your original and destination file paths
-CDOM_2022_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2022", full.names = TRUE)
-CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_Abs_2022"
-dir.create(CDOM_2022_Abs_to)
-
-# 2. Define a function that reads, renames, and copies (writes) the data
-copy_and_rename_cols <- function(from_path, to_path) {
-  read_csv(from_path, show_col_types = FALSE) %>% 
-    rename(Wavelength_nm = Wavelength..nm., 
-           Dilution_Corrected_Absorbance = Dilution.Corrected.Absorbance) %>%  # new_name = old_name
-    write_csv(paste0(to_path, "/")
-}
-
-# 3. Execute the operation for all files at once
-walk2(CDOM_2022_Abs, CDOM_2022_Abs_to, copy_and_rename_cols)
-
-
-
-
 ##2022 
 #Abs
-CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_Abs_2022"
+CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM/Abs_2022"
+unlink(CDOM_2022_Abs_to, recursive = TRUE)
+dir.create("Data package/2022/COMPASS_TEMPEST_water_CDOM")
 dir.create(CDOM_2022_Abs_to)
 CDOM_2022_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2022", full.names = TRUE)
 file.copy(from = CDOM_2022_Abs, to = CDOM_2022_Abs_to, overwrite = TRUE)
 #EEM
-CDOM_2022_EEM_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM_EEM_2022"
+CDOM_2022_EEM_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM/EEM_2022"
+unlink(CDOM_2022_EEM_to, recursive = TRUE)
 dir.create(CDOM_2022_EEM_to)
 CDOM_2022_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2022", full.names = TRUE)
 file.copy(from = CDOM_2022_EEM, to = CDOM_2022_EEM_to, overwrite = TRUE)
-
+##Metadata
+CDOM_meta_2022 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
+CDOM_meta_2022 <- CDOM_meta_2022 %>% 
+  filter(str_detect(Sample_ID, "2022"))
+write.csv(CDOM_meta_2022, "Data package/2022/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2022.csv", row.names = FALSE)
 
 ##2023
 #Abs
-CDOM_2023_Abs_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM_Abs_2023"
+CDOM_2023_Abs_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM/Abs_2023"
+unlink(CDOM_2023_Abs_to, recursive = TRUE)
+dir.create("Data package/2023/COMPASS_TEMPEST_water_CDOM")
 dir.create(CDOM_2023_Abs_to)
 CDOM_2023_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2023", full.names = TRUE)
 file.copy(from = CDOM_2023_Abs, to = CDOM_2023_Abs_to, overwrite = TRUE)
 #EEM
-CDOM_2023_EEM_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM_EEM_2023"
+CDOM_2023_EEM_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM/EEM_2023"
+unlink(CDOM_2023_EEM_to, recursive = TRUE)
 dir.create(CDOM_2023_EEM_to)
 CDOM_2023_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2023", full.names = TRUE)
 file.copy(from = CDOM_2023_EEM, to = CDOM_2023_EEM_to, overwrite = TRUE)
+##Metadata
+CDOM_meta_2023 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
+CDOM_meta_2023 <- CDOM_meta_2023 %>% 
+  filter(str_detect(Sample_ID, "2023"))
+write.csv(CDOM_meta_2023, "Data package/2023/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2023.csv", row.names = FALSE)
 
 
 ##2024
 #Abs
-CDOM_2024_Abs_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM_Abs_2024"
+CDOM_2024_Abs_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM/Abs_2024"
+unlink(CDOM_2024_Abs_to, recursive = TRUE)
+dir.create("Data package/2024/COMPASS_TEMPEST_water_CDOM")
 dir.create(CDOM_2024_Abs_to)
 CDOM_2024_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2024", full.names = TRUE)
 file.copy(from = CDOM_2024_Abs, to = CDOM_2024_Abs_to, overwrite = TRUE)
 #EEM
-CDOM_2024_EEM_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM_EEM_2024"
+CDOM_2024_EEM_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM/EEM_2024"
+unlink(CDOM_2024_EEM_to, recursive = TRUE)
 dir.create(CDOM_2024_EEM_to)
 CDOM_2024_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2024", full.names = TRUE)
 file.copy(from = CDOM_2024_EEM, to = CDOM_2024_EEM_to, overwrite = TRUE)
-
+##Metadata
+CDOM_meta_2024 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
+CDOM_meta_2024 <- CDOM_meta_2024 %>% 
+  filter(str_detect(Sample_ID, "2024"))
+write.csv(CDOM_meta_2024, "Data package/2024/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2024.csv", row.names = FALSE)
 
 ##2025
 #Abs
-CDOM_2025_Abs_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM_Abs_2025"
+CDOM_2025_Abs_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM/Abs_2025"
+unlink(CDOM_2025_Abs_to, recursive = TRUE)
+dir.create("Data package/2025/COMPASS_TEMPEST_water_CDOM")
 dir.create(CDOM_2025_Abs_to)
 CDOM_2025_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2025", full.names = TRUE)
 file.copy(from = CDOM_2025_Abs, to = CDOM_2025_Abs_to, overwrite = TRUE)
 #EEM
-CDOM_2025_EEM_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM_EEM_2025"
+CDOM_2025_EEM_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM/EEM_2025"
+unlink(CDOM_2025_EEM_to, recursive = TRUE)
 dir.create(CDOM_2025_EEM_to)
 CDOM_2025_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2025", full.names = TRUE)
 file.copy(from = CDOM_2025_EEM, to = CDOM_2025_EEM_to, overwrite = TRUE)
+##Metadata
+CDOM_meta_2025 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
+CDOM_meta_2025 <- CDOM_meta_2025 %>% 
+  filter(str_detect(Sample_ID, "2025"))
+write.csv(CDOM_meta_2025, "Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv", row.names = FALSE)
+
 ```
 
 ## Create dd file
 ```{r make metadata, include = FALSE}
 
-#pull the column names from the all_dat1 dataframe and create a new dataframe with them
-dd <- data.frame(Column_Names = colnames(final_data))
 colnames(final_data)
+
+abs <- read.csv(CDOM_2025_Abs[1])
+colnames(abs)
+
+meta <- read.csv("Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv")
+meta <- meta %>% 
+  select("integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id")
+colnames(meta)
+
+#pull the column names from the all_dat1 dataframe and create a new dataframe with them
+dd <- data.frame(Column_Names = c(colnames(final_data), colnames(abs), colnames(meta)))
+dd
 
 dd$Unit <- ""
 dd$Definition <- ""
@@ -203,7 +221,14 @@ dd$Definition <-       c("Project name: Project component",
                          "Conductivity units", 
                          "Temperature of sample when collected (degrees Celsius)", 
                          "Temperature flag (temperature not recorded)", 
-                         "Notes for analytes not measured")
+                         "Notes for analytes not measured", 
+                         "Wavelength in nm", 
+                         "Dilution Corrected Absorbance", 
+                         "integration_time_s", 
+                         "dilution_factor", 
+                         "RSU_area_1s", 
+                         "abs_file_id", 
+                         "eem_file_id")
 
 dd$Unit <-             c("NA", 
                          "NA",
@@ -255,6 +280,13 @@ dd$Unit <-             c("NA",
                          "mS/cm or uS/cm", 
                          "degrees Celsius", 
                          "NA", 
+                         "NA", 
+                         "nm", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 dd$data_type <-        c("text", 
@@ -306,6 +338,13 @@ dd$data_type <-        c("text",
                          "numeric", 
                          "text",
                          "numeric", 
+                         "text",
+                         "text", 
+                         "numeric", 
+                         "numeric", 
+                         "numeric",
+                         "numeric",
+                         "numeric",
                          "text",
                          "text")
 
@@ -359,6 +398,13 @@ dd$Instrument_ifapplicable <-   c("NA",
                          "NA", 
                          "Oakton", 
                          "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 
@@ -412,14 +458,18 @@ dd$Method_ifapplicable <- c("NA",
                          "NA", 
                          "NA", 
                          "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
                          "NA")
 
 
 #write out the data dictionary associated with the data:
 write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
-
-# #write out data dictionary associated with the data to the main folder: 
-# write.csv(dd, here("Porewater/Peeper Data/","COMPASS_SynopticCB_Peeper_DataDictionary.csv"), row.names = FALSE)
 
 ```
 
@@ -427,7 +477,7 @@ write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
 ## Create flmd file
 ```{r create flmd}
 
-files  = list.files("Data package")
+files  = list.files("Data package", recursive = TRUE)
 files
 
 files = c("COMPASS_TEMPEST_water_analysis_2022.csv", "COMPASS_TEMPEST_water_analysis_2023.csv", "COMPASS_TEMPEST_water_analysis_2024.csv","COMPASS_TEMPEST_water_analysis_2025.csv", "dd.csv")
