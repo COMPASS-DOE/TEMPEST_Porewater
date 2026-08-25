@@ -342,7 +342,7 @@ walk(eem_files, function(file) {
   dat <- read_csv(file, show_col_types = FALSE)
   
   ##Remove X from Column names
-  names(dat) <- paste0("X", names(dat))
+  # names(dat) <- gsub("X", "", names(dat))
   names(dat)[1] <- c("Wavelength_nm")
 
   # Overwrite original file
