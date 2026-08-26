@@ -93,7 +93,8 @@ CDOM_meta_all1 <- CDOM_meta_all %>%
          Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
          Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
          T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
-         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"))
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
+  mutate(Evacuation_date_YYYYMMDD = ifelse(str_detect(Sample_ID, "SOURCE"), NA, Evacuation_date_YYYYMMDD))
          
 CDOM_meta_all2 <- CDOM_meta_all1 %>% 
   mutate(
