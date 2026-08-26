@@ -46,6 +46,23 @@ dir.create("Data package/2025")
 
 ##Separate by year for ESS-DIVE 
 final_data_2022 <- subset(final_data, Sample_Year == "2022")
+final_data_2022 <- final_data_2022 %>% 
+  mutate(Sample_ID = gsub("TMP_SOURCE_ESTUARY_20220622_HR0", "TMP_SOURCE_ESTUARY_20220622_HR4", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SOURCE_ESTUARY_20220622_HR1", "TMP_SOURCE_ESTUARY_20220622_HR7", Sample_ID)) %>% 
+  mutate(Collection_Date_YYYYMMDD = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ 20220622, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ 20220622, 
+    TRUE ~ Collection_Date_YYYYMMDD)) %>%  
+  mutate(Collection_End_Time_24hrs = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ 1100, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ 1500, 
+    TRUE ~ Collection_End_Time_24hrs)) %>% 
+  mutate(Timepoint = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ "HR4", 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ "HR7", 
+    TRUE ~ Timepoint))
+
+
 final_data_2023 <- subset(final_data, Sample_Year == "2023")
 final_data_2024 <- subset(final_data, Sample_Year == "2024")
 final_data_2025 <- subset(final_data, Sample_Year == "2025")
