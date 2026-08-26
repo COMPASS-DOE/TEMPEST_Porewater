@@ -121,12 +121,12 @@ PO4_pe <- 0.824
 ```{r rest of metadata, include=FALSE}
 
 # #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-  inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
-  
-  drive_download(inventory_directory, overwrite = TRUE)
- # 
- sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
- sheet_names
+ #  inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
+ #  
+ #  drive_download(inventory_directory, overwrite = TRUE)
+ # # 
+ # sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
+ # sheet_names
 
 raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
 
@@ -173,7 +173,7 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
 raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 
 #create IDs from what was collected for comparison later
@@ -222,7 +222,6 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
 #combine rw and sw samples 
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
-  rename("Notes" = "Notes:") %>%
   dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
 
 #change "Source" to "Sourcewater" 
