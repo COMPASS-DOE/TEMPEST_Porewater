@@ -61,6 +61,71 @@ write.csv(final_data_2025, "Data package/2025/COMPASS_TEMPEST_water_DOC_Nutr_SO4
 ## Pull in compiled CDOM data and export annual files
 ```{r Pull in compiled data files, message=FALSE, include=FALSE}
 
+##Metadata
+CDOM_meta_2022_2023 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
+CDOM_meta_2024_2025 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
+
+CDOM_meta_all <- bind_rows(CDOM_meta_2022_2023, CDOM_meta_2024_2025) 
+
+
+CDOM_meta_all1 <- CDOM_meta_all %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Location = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE|RAINWATER|PW"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"))
+         
+CDOM_meta_all2 <- CDOM_meta_all1 %>% 
+  mutate(
+    Sample_Year = as.numeric(substr(Collection_Date_YYYYMMDD, 1, 4)), 
+    Sample_Month = as.numeric(substr(Collection_Date_YYYYMMDD, 5, 6)), 
+    Sample_Day = as.numeric(substr(Collection_Date_YYYYMMDD, 7, 8)), 
+    date = as.numeric(Collection_Date_YYYYMMDD), 
+    Project = "COMPASS", 
+    Region = "CB", 
+    Site = "TMP", 
+    Depth_cm = gsub("CM", "", Depth), 
+    Timepoint = paste(T_num, TOD, sep = "_"), 
+    Timepoint = gsub("_NA", "", Timepoint), 
+    Timepoint = gsub("NA_", "", Timepoint), 
+    ) %>% 
+  ##Code in event column
+  mutate(Event = case_when(
+    date == 20220622 ~ "TMP-I", 
+    date >= 20230606 & date <=  20230607 ~ "TMP-II", 
+    date >= 20240611 & date <=  20240613 ~ "TMP-III", 
+    TRUE ~ "Monitoring"
+  ))  %>% 
+  ##Code in EDT/EST
+  mutate(EST_EDT = case_when(
+    date >= 20220313 & date <  20221106 ~ "EDT", 
+    date >= 20221106 & date <  20230312 ~ "EST", 
+    date >= 20230312 & date <  20231105 ~ "EDT", 
+    date >= 20231105 & date <  20240310 ~ "EST", 
+    date >= 20240310 & date <  20241103 ~ "EDT", 
+    date >= 20241103 & date <  20250309 ~ "EST", 
+    date >= 20250309 & date <  20251102 ~ "EDT", 
+    date >= 20251102 & date <  20260308 ~ "EST",    
+    date >= 20260308 & date <  20261101 ~ "EDT", 
+    TRUE ~ EST_EDT
+  ))  %>% 
+  ##Code in FW --> F, SW --> S
+  mutate(Plot = case_when(
+    Plot == "FW" ~ "F", 
+    Plot == "SW" ~ "S", 
+    TRUE ~ Plot
+  )) %>% 
+  ##Remove unneccesary notes
+  mutate(Notes = ifelse(str_detect(Notes, "Definitely looked like"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "AES"), NA, Notes)) %>% 
+  select(c("Project", "Region", "Sample_ID", "Sample_Year", "Sample_Month", "Sample_Day", 
+           "Site", "Event", "Plot", "Location", "Depth_cm", "Timepoint", "Sample_Type", 
+           "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Notes", 
+           "integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id"))
+
 
 ##2022 
 #Abs
@@ -76,9 +141,8 @@ unlink(CDOM_2022_EEM_to, recursive = TRUE)
 dir.create(CDOM_2022_EEM_to)
 CDOM_2022_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2022", full.names = TRUE)
 file.copy(from = CDOM_2022_EEM, to = CDOM_2022_EEM_to, overwrite = TRUE)
-##Metadata
-CDOM_meta_2022 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
-CDOM_meta_2022 <- CDOM_meta_2022 %>% 
+#Metadata
+CDOM_meta_2022 <- CDOM_meta_all2 %>% 
   filter(str_detect(Sample_ID, "2022"))
 write.csv(CDOM_meta_2022, "Data package/2022/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2022.csv", row.names = FALSE)
 
@@ -97,8 +161,7 @@ dir.create(CDOM_2023_EEM_to)
 CDOM_2023_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2023", full.names = TRUE)
 file.copy(from = CDOM_2023_EEM, to = CDOM_2023_EEM_to, overwrite = TRUE)
 ##Metadata
-CDOM_meta_2023 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
-CDOM_meta_2023 <- CDOM_meta_2023 %>% 
+CDOM_meta_2023 <- CDOM_meta_all2 %>% 
   filter(str_detect(Sample_ID, "2023"))
 write.csv(CDOM_meta_2023, "Data package/2023/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2023.csv", row.names = FALSE)
 
@@ -118,8 +181,7 @@ dir.create(CDOM_2024_EEM_to)
 CDOM_2024_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2024", full.names = TRUE)
 file.copy(from = CDOM_2024_EEM, to = CDOM_2024_EEM_to, overwrite = TRUE)
 ##Metadata
-CDOM_meta_2024 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
-CDOM_meta_2024 <- CDOM_meta_2024 %>% 
+CDOM_meta_2024 <- CDOM_meta_all2 %>% 
   filter(str_detect(Sample_ID, "2024"))
 write.csv(CDOM_meta_2024, "Data package/2024/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2024.csv", row.names = FALSE)
 
@@ -138,8 +200,7 @@ dir.create(CDOM_2025_EEM_to)
 CDOM_2025_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2025", full.names = TRUE)
 file.copy(from = CDOM_2025_EEM, to = CDOM_2025_EEM_to, overwrite = TRUE)
 ##Metadata
-CDOM_meta_2025 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
-CDOM_meta_2025 <- CDOM_meta_2025 %>% 
+CDOM_meta_2025 <- CDOM_meta_all2 %>% 
   filter(str_detect(Sample_ID, "2025"))
 write.csv(CDOM_meta_2025, "Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv", row.names = FALSE)
 
@@ -172,25 +233,25 @@ dd$Method_ifapplicable <- ""
 
 #add information about each line:
 
-dd$Corresponding_files <-       c("YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
-                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+dd$Corresponding_files <-       c("YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
                          "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
                          "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
                          "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
