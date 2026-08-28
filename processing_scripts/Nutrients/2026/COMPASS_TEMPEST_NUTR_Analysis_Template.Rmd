@@ -17,7 +17,7 @@ output_dir: "To Be Reviewed/PDF"
 ```{r run information, include=TRUE}
 cat("Run Information: NAME ") #lets you know what section you're in 
 #set the run date & user name 
-  sample_year <- "2024"
+  sample_year <- "2026"
   user <- "NAME"
 
 #identify the files you want to read in 
@@ -120,17 +120,25 @@ PO4_pe <- 0.824
 ##Pull in active porewater tracking inventory sheet from Google Drive: 
 ```{r rest of metadata, include=FALSE}
 
-# #Run these to pull the TEMPEST porewater metadata into GitHub if not already there
- # inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
- # 
- # drive_download(inventory_directory, overwrite = TRUE)
- # 
- # sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present.xlsx")
- # sheet_names
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
 
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Porewater - Individual", skip = 3)
+##link directory to google drive folder
+directory <- "https://drive.google.com/drive/folders/1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e"
 
-raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present.xlsx", sheet = "Source Water", skip = 3)
+#filter to necessary files
+files_pulse <- drive_ls(directory) %>%
+filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated", name))
+
+#download files to local drive
+lapply(c(files_pulse$name), drive_download,
+overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
+
+raw_metadata_sw <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
 
 
 ```
@@ -148,14 +156,14 @@ raw_metadata_lys_year <- raw_metadata_lys %>%
 
 #select event samples 
 raw_metadata_lys_event <- raw_metadata_lys_year %>%  
-  filter(str_detect(Sample_ID, "_T"))
+  filter(str_detect(Sample_ID, "AM|PM"))
 
 #separate event samples into columns
 raw_metadata_lys_event <- raw_metadata_lys_event %>%
   separate(
     col = Sample_ID,
     sep = "_",
-    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Event_Time", "Collection_Date", "Time_of_day"),
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Timepoint"),
     remove = FALSE)
 
 #select non-event samples 
@@ -167,13 +175,13 @@ raw_metadata_lys_monmon <- raw_metadata_lys_monmon1 %>%
   separate(
     col = Sample_ID,
     sep = "_",
-    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day"), #Warning is okay
+    into = c("Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Timepoint"), #Warning is okay
     remove = FALSE)
 
 #combine event and non-event samples 
 raw_metadata_lys_combined <- rbind(raw_metadata_lys_event, raw_metadata_lys_monmon)
 raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYMMDD", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Evacuation_date_YYYYMMDD", "Timepoint", "Volume_mL", "Notes")
 
 
 #create IDs from what was collected for comparison later
@@ -181,7 +189,7 @@ raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
   mutate(NUTR_ID = paste(Project,
                           Zone,
                           Grid,
-                          Event_Time, 
+                          Timepoint, 
                           Collection_Date, 
                           sep = "_"))
 
@@ -190,22 +198,6 @@ raw_metadata_lys_combined <- raw_metadata_lys_combined %>%
 #select SO4/Cl samples 
 raw_metadata_sw <- raw_metadata_sw %>%  
   filter(str_detect(Sample_ID, "NUTR"))
-
-#select 2024 samples
-raw_metadata_sw_year <- raw_metadata_sw %>%  
-  filter(str_detect(Sample_ID, sample_year))
-
-#select rainwater samples 
-raw_metadata_sw_rw <- raw_metadata_sw_year %>%  
-  filter(str_detect(Sample_ID, "_Rainwater"))
-
-#separate event samples into columns
-raw_metadata_sw_rw <- raw_metadata_sw_rw %>%
-  separate(
-    col = Sample_ID,
-    sep = "_",
-    into = c("Project", NA, "Source", "Zone", "Analyte", "Collection_Date", "Grid", "Depth", "Event_Time", "Time_of_day"),
-    remove = FALSE)
 
 #select sourcewater samples 
 raw_metadata_sw_sw <- raw_metadata_sw_year %>%  
@@ -216,14 +208,13 @@ raw_metadata_sw_sw <- raw_metadata_sw_sw %>%
   separate(
     col = Sample_ID,
     sep = "_",
-    into = c("Project", "Source", "Zone", "Analyte", "Collection_Date", "Time_of_day", "Grid", "Depth", "Event_Time"),
+    into = c("Project", "Zone", "Source", "Analyte", "Collection_Date", "Timepoint"),
     remove = FALSE)
 
 #combine rw and sw samples 
 raw_metadata_sw_combined <- rbind(raw_metadata_sw_rw, raw_metadata_sw_sw)
 raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
-  rename("Notes" = "Notes:") %>%
-  dplyr::select("Sample_ID", "Project", "Zone", "Source" ,"Grid", "Depth", "Analyte", "Collection_Date", "Event_Time", "Time_of_day", "Volume_mL", "Notes")
+  dplyr::select("Sample_ID", "Project", "Zone", "Source" , "Analyte", "Collection_Date", "Timepoint", "Volume_mL", "Notes")
 
 #change "Source" to "Sourcewater" 
 raw_metadata_sw_combined$Source <- replace(raw_metadata_sw_combined$Source, raw_metadata_sw_combined$Source == "Source", "SourceWater")
@@ -233,6 +224,7 @@ raw_metadata_sw_combined <- raw_metadata_sw_combined %>%
   mutate(NUTR_ID = paste(Project,
                           Zone,
                           Source, 
+                          Timepoint, 
                           Collection_Date, 
                           sep = "_"))
 
