@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater SO4/Cl"
-author: "202606 81-151 Samples"
+author: "202606 82-141 Samples"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -56,14 +56,14 @@ New_ID_1 = NA
 
 ###### File Names - PLEASE CHANGE 
 #file path and name for raw summary data file 
-  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202606_82-151_Cl.txt"
-  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_202606_82-151_SO4.txt"
+  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202606_82-141_Cl.txt"
+  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_202606_82-141_SO4.txt"
   
 #Sample ID Path
   SampleID_path = "Raw Data/TEMPEST_SO4_20260501-20260612_corrected.csv"
 
 #file path and name of processed data file 
-  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_202606_82-151.csv" 
+  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_202606_82-141.csv" 
 
 ###### Log Files - PLEASE CHECK 
 
