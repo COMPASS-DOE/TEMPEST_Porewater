@@ -1,0 +1,71 @@
+Inj.	Injection Name	Type 	Ret.Time	Amount	Rel.Area 	Area	Height	Type
+No.	Selected Peak:		min	µg/mL	%	µS*min	µS	
+			CD	CD	CD	CD	CD	CD
+			IC-SO4	IC-SO4	IC-SO4	IC-SO4	IC-SO4	IC-SO4
+1	Lab Blank	Unknown	4.15	0.025	15.88	0.0227	0.04	 M 
+2	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+3	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+4	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+5	Standard 1	Calibration Standard	4.217	0.5032	6.81	0.4567	2.12	 M *^
+6	Standard 2	Calibration Standard	4.213	1.007	6.85	0.9141	4.28	 M *^
+7	Standard 3	Calibration Standard	4.203	1.9602	6.68	1.7794	8.56	BM *^
+8	Standard 4	Calibration Standard	4.177	9.9722	6.86	9.0524	39.48	BM *^
+9	Standard 5	Calibration Standard	4.14	20.0175	6.9	18.1712	71.52	BM *^
+10	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+11	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+12	272	Unknown	4.203	157.408	5.21	2.8578	13.62	BM *^
+13	273	Unknown	4.16	672.3757	8.52	12.2072	51.52	BM *
+14	274	Unknown	4.21	4.3124	0.75	0.0783	0.42	bMb*
+15	275	Unknown	4.17	6.8934	1.21	0.1252	0.66	bMb*
+16	276	Unknown	4.21	2.288	0.4	0.0415	0.23	bMb*
+17	277	Unknown	4.213	4.8702	0.87	0.0884	0.47	bMb*
+18	278	Unknown	4.21	6.0602	1.07	0.11	0.58	bMb*
+19	279	Unknown	4.28	3.5912	0.61	0.0652	0.36	bMb*^
+20	280	Unknown	4.227	4.6553	0.83	0.0845	0.45	bMb*
+21	280_DUP	Unknown	4.22	4.6809	0.84	0.085	0.45	bMb*
+22	281	Unknown	4.21	6.1609	1.1	0.1119	0.59	bMb*
+23	281_SPK	Spiked	4.207	90.9225	14.12	1.6507	7.93	bM *
+24	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+25	Standard 5	Check Standard	4.14	19.9901	6.89	18.1464	71.32	BM *
+26	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+27	282	Unknown	5	6.6478	0.94	0.1207	0.41	bMB*
+28	283	Unknown	4.1	6.468	1.18	0.1174	0.62	bMb*
+29	284	Unknown	4.24	6.2692	1.11	0.1138	0.58	bMb*
+30	285	Unknown	4.213	3.5741	0.64	0.0649	0.34	bMb*
+31	286	Unknown	4.21	5.2862	0.89	0.096	0.51	bMb*
+32	287	Unknown	4.213	6.5619	1.16	0.1191	0.61	bMb*
+33	288	Unknown	4.21	5.3396	0.94	0.0969	0.52	bMb*
+34	289	Unknown	4.213	3.9615	0.72	0.0719	0.38	bMb*
+35	290	Unknown	4.213	5.982	1.05	0.1086	0.57	bMb*
+36	290_DUP	Unknown	4.213	6.0261	1.06	0.1094	0.57	bMb*
+37	291	Unknown	4.217	2.2798	0.41	0.0414	0.22	bMb*
+38	291_SPK	Spiked	4.207	85.9494	13.41	1.5604	7.41	bMb*
+39	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+40	Standard 2	Check Standard	4.21	0.9736	6.67	0.8838	4.14	BM *^
+41	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+42	292	Unknown	4.23	5.3193	0.95	0.0966	0.49	bMb*
+43	293	Unknown	4.21	6.7198	1.11	0.122	0.61	bMb*
+44	294	Unknown	4.18	704.2795	8.57	6.3932	28.56	BM *
+45	295	Unknown	4.213	9.1228	1.75	0.1656	0.81	bMb*
+46	296	Unknown	4.18	709.2102	8.6	6.438	28.76	BM *
+47	297	Unknown	4.18	707.3979	8.56	6.4215	28.74	BM *
+48	298	Unknown	4.21	12.7437	2.66	0.2314	1.13	bMb*^
+49	299	Unknown	4.16	793.5362	9.64	14.407	58.57	BM *
+50	300	Unknown	4.193	652.5526	8.38	11.8473	49.63	BM *
+51	300_DUP	Unknown	4.023	642.1868	8.39	11.6592	49.51	BM *
+52	301	Unknown	4.14	506.9394	7.53	9.2037	39.86	BM *
+53	301_SPK	Spiked	4.173	605.2224	8.67	10.988	46.29	BM *
+54	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+55	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+56	Standard 1	Check Standard	4.21	0.4867	6.6	0.4418	2.06	bMb*^
+57	Standard 2	Check Standard	4.227	0.9825	6.7	0.8918	4.17	BM *^
+58	Standard 3	Check Standard	4.207	1.9846	6.76	1.8015	8.38	BM *^
+59	Standard 4	Check Standard	4.18	9.9819	6.88	9.0612	38.81	BM *
+60	Standard 5	Check Standard	4.143	19.9973	6.89	18.1529	70.45	BM *
+61	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+62	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+Maximum			5	793.5362	15.88	18.1712	71.52	
+Average			4.21	133.7077	4.72	3.6301	15.27	
+Minimum			4.023	0.025	0.4	0.0227	0.04	
+Standard Deviation			0.122	258.5782	4.11	5.5754	22.6	
+Relative Standard Deviation			2.90%	193.39%	86.99%	153.59%	147.99%	

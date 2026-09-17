@@ -1,6 +1,6 @@
 ---
 title: "TEMPEST: Porewater SO4/Cl"
-author: "202606 222-271 Samples"
+author: "202606 272-301 Samples"
 date: "`r Sys.Date()`"
 output: 
   pdf_document:
@@ -43,10 +43,10 @@ Sys.setenv(TZ = "America/New_York")
 
 ###### Run information - PLEASE CHANGE
   Sample_Year = "2026"  
-  Date_Run = "2026-09-16"  #Date that instrument was run
+  Date_Run = "2026-09-17"  #Date that instrument was run
   Run_by = "Zoe Read"  #Instrument user 
   Script_run_by = "Zoe Read" #Code user 
-  run_notes = "1/5 SO4 dup was bad, but otherwise the run looked good. TMP_FW_RO_SO4_20260611_D5_T1 was high." #any notes from the run
+  run_notes = "TMP_FW_RO_SO4_20260611_D5_T2 had very high chloride, rerun" #any notes from the run
   
 ##Sample data that was entered incorrectly
 # The Old ID is the original, incorrectly-entered ID and the New ID is the correct ID to change it to. 
@@ -55,14 +55,14 @@ Sys.setenv(TZ = "America/New_York")
 
 ###### File Names - PLEASE CHANGE 
 #file path and name for raw summary data file 
-  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202606_222-271_Cl.txt"
-  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_202606_222-271_SO4.txt"
+  raw_file_name_cl = "Raw Data/COMPASS_TEMPEST_202606_272-301_Cl.txt"
+  raw_file_name_so4 = "Raw Data/COMPASS_TEMPEST_202606_272-301_SO4.txt"
   
 #Sample ID Path
   SampleID_path = "Raw Data/TEMPEST_SO4_20260501-20260612_corrected.csv"
 
 #file path and name of processed data file 
-  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_202606_222-271.csv" 
+  processed_file_name = "Processed Data/COMPASS_TEMPEST_Processed_Cl_SO4_202606_272-301.csv" 
 
 ###### Log Files - PLEASE CHECK 
 
@@ -829,9 +829,9 @@ all_dat$Dilution <-  ifelse(all_dat$sample_ID == "205", 100, all_dat$Dilution)
 all_dat$Dilution <-  ifelse(all_dat$sample_ID == "207", 100, all_dat$Dilution)
 all_dat$Dilution <-  ifelse(all_dat$sample_ID == "208", 100, all_dat$Dilution)
 
-all_dat$Dilution <-  ifelse(all_dat$sample_ID == "249", 100, all_dat$Dilution)
-all_dat$Dilution <-  ifelse(all_dat$sample_ID == "251", 100, all_dat$Dilution)
-all_dat$Dilution <-  ifelse(all_dat$sample_ID == "252", 100, all_dat$Dilution)
+all_dat$Dilution <-  ifelse(all_dat$sample_ID == "294", 100, all_dat$Dilution)
+all_dat$Dilution <-  ifelse(all_dat$sample_ID == "296", 100, all_dat$Dilution)
+all_dat$Dilution <-  ifelse(all_dat$sample_ID == "297", 100, all_dat$Dilution)
 
 # head(all_dat)
 ```
