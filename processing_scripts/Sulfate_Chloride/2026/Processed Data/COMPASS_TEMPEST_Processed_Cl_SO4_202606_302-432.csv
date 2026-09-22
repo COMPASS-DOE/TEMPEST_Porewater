@@ -1,0 +1,263 @@
+"","Project","Sample_ID","Number_on_vial","Volume_mL","Collection_Date_YYYYMMDD","Evacuation_date_YYYYMMDD","Collection_Start_Time_24hrs","Collection_End_Time_24hrs","EST_EDT","SO4_ppm","SO4_Conc_mM","SO4_Conc_flag","SO4_QAQC_flag","Cl_ppm","Cl_Conc_mM","Cl_Conc_flag","Cl_QAQC_flag","salinity","Analysis_rundate","Run_notes","Field_notes"
+"1","TEMPEST","TMP_SW_PW_C6_15cm_SO4_20260612_D6_PM","302",5,20260612,20260612,1531,NA,"EDT",499.5986,15.5832376793512,"Within_Range","",4121.4729,116.261576868829,"Within_Range","",7.4475275303,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"2","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260612_D6_PM","303",5,20260612,20260612,1538,NA,"EDT",143.3299,4.4706768558952,"Within_Range","",2511.905,70.8576868829337,"Within_Range","",4.539038335,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"3","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260612_D6_PM","304",5,20260612,20260612,1544,NA,"EDT",230.4671,7.18861821584529,"Within_Range","",2541.4278,71.6904880112835,"Within_Range","",4.5923860346,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"4","TEMPEST","TMP_SW_PW_D5_15cm_SO4_20260612_D6_PM","305",5,20260612,20260612,1550,NA,"EDT",408.554,12.7434185901435,"Within_Range","",3540.2218,99.8652129760225,"Within_Range","",6.3972067926,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"5","TEMPEST","TMP_SW_PW_E3_15cm_SO4_20260612_D6_PM","306",5,20260612,20260612,1457,NA,"EDT",445.5696,13.8979912663755,"Within_Range","",4019.3851,113.381808180536,"Within_Range","",7.2630548757,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"6","TEMPEST","TMP_SW_PW_F4_15cm_SO4_20260612_D6_PM","307",5,20260612,20260612,1424,NA,"EDT",633.6591,19.7647878976918,"Within_Range","",4722.5028,133.215875881523,"Within_Range","",8.5335885596,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"7","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260612_D6_PM","308",5,20260612,20260612,1429,NA,"EDT",153.9865,4.80307236431691,"Within_Range","",3343.1589,94.3063159379408,"Within_Range","",6.0411141323,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"8","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260612_D6_PM","309",5,20260612,20260612,1440,NA,"EDT",253.0914,7.89430442919526,"Within_Range","",3029.8208,85.4674414668547,"Within_Range","",5.4749121856,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"9","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260612_D6_PM","310",5,20260612,20260612,1416,NA,"EDT",635.6561,19.8270773549594,"Within_Range","",4835.9452,136.415943582511,"Within_Range","",8.7385789764,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"10","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260612_D6_PM","311",5,20260612,20260612,1326,NA,"EDT",632.9694,19.7432751091703,"Within_Range","",4843.5833,136.631404795487,"Within_Range","",8.7523810231,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"11","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260612_D6_PM","312",5,20260612,20260612,1336,NA,"EDT",234.6391,7.3187492202121,"Within_Range","",2923.5656,82.4701156558533,"Within_Range","",5.2829090392,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"12","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260612_D6_PM","313",5,20260612,20260612,1343,NA,"EDT",142.4107,4.44200561447286,"Within_Range","",2693.2062,75.9719661495063,"Within_Range","",4.8666496034,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"13","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260612_D6_PM","314",5,20260612,20260612,1355,NA,"EDT",393.9291,12.2872457891454,"Within_Range","",3175.5257,89.5775937940762,"Within_Range","",5.7382009399,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"14","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260612_D6_PM","315",5,20260612,20260612,1359,NA,"EDT",1.2983,0.040495945102932,"Within_Range","",1587.9732,44.794730606488,"Within_Range","",2.8694935724,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"15","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260612_D6_PM","316",5,20260612,20260612,1406,NA,"EDT",149.0292,4.6484466625078,"Within_Range","",1918.5015,54.1185190409027,"Within_Range","",3.4667582105,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"16","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260612_D6_PM","317",5,20260612,20260612,1315,NA,"EDT",666.7511,20.7969775421085,"Within_Range","",5003.7208,141.148682651622,"Within_Range","",9.0417494856,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"17","TEMPEST","TMP_FW_PW_B4_15cm_SO4_20260612_D6_PM","318",5,20260612,20260612,1609,NA,"EDT",4.7698,0.148777292576419,"Within_Range","",2.1133,0.0596135401974612,"Within_Range","",0.0038447331,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"18","TEMPEST","TMP_FW_PW_C3_15cm_SO4_20260612_D6_PM","319",5,20260612,20260612,1311,NA,"EDT",7.6939,0.239984404242046,"Within_Range","",2.0268,0.0571734837799718,"Within_Range","",0.0036884276,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","cloudy with large particles; water came up when pumped; cleared more water before reset"
+"19","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260612_D6_PM","320",5,20260612,20260612,1316,NA,"EDT",2.4205,0.0754990642545228,"Within_Range","",2.3669,0.0667672778561354,"Within_Range","",0.0043029883,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"20","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260612_D6_PM","321",5,20260612,20260612,1324,NA,"EDT",5.491,0.171272613849033,"Within_Range","",1.3828,0.0390070521861777,"Within_Range","",0.0025247196,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"21","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260612_D6_PM","322",5,20260612,20260612,1400,NA,"EDT",7.1555,0.223190892077355,"Within_Range","",1.6283,0.0459322990126939,"Within_Range","",0.0029683381,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"22","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260612_D6_PM","323",5,20260612,20260612,1409,NA,"EDT",3.6894,0.115077978789769,"Within_Range","",1.7415,0.0491255289139633,"Within_Range","",0.0031728905,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"23","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260612_D6_PM","324",5,20260612,20260612,1417,NA,"EDT",5.0219,0.156640673736744,"Within_Range","",1.7146,0.0483667136812412,"Within_Range","",0.0031242822,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"24","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260612_D6_PM","325",5,20260612,20260612,1623,NA,"EDT",6.7609,0.210882719900187,"Within_Range","",1.679,0.0473624823695346,"Within_Range","",0.003059953,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"25","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260612_D6_PM","326",5,20260612,20260612,1615,NA,"EDT",5.5683,0.173683718028696,"Within_Range","",1.66,0.0468265162200282,"Within_Range","",0.00302562,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"26","TEMPEST","TMP_FW_PW_F4_15cm_SO4_20260612_D6_PM","327",5,20260612,20260612,1438,NA,"EDT",7.579,0.236400499064255,"Within_Range","",2.9014,0.0818448519040903,"Within_Range","",0.0052688298,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"27","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260612_D6_PM","328",5,20260612,20260612,1448,NA,"EDT",6.2209,0.194039301310044,"Within_Range","",2.0153,0.0568490832157969,"Within_Range","",0.0036676471,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","likely more water; did not get everything before pumping"
+"28","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260612_D6_PM","329",5,20260612,20260612,1455,NA,"EDT",3.7833,0.1180068621335,"Within_Range","",1.6698,0.0471029619181946,"Within_Range","",0.0030433286,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"29","TEMPEST","TMP_FW_PW_F6_15cm_SO4_20260612_D6_PM","330",5,20260612,20260612,1611,NA,"EDT",5.7009,0.177819713038054,"Within_Range","",2.0162,0.0568744710860367,"Within_Range","",0.0036692734,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"30","TEMPEST","TMP_FW_PW_H3_15cm_SO4_20260612_D6_PM","331",5,20260612,20260612,1516,NA,"EDT",7.1289,0.222361197754211,"Within_Range","",2.0581,0.0580564174894217,"Within_Range","",0.0037449867,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"31","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260612_D6_PM","332",5,20260612,20260612,1520,NA,"EDT",5.8303,0.181855895196507,"Within_Range","",2.1019,0.0592919605077574,"Within_Range","",0.0038241333,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"32","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260612_D6_PM","333",5,20260612,20260612,1528,NA,"EDT",4.1505,0.129460386774797,"Within_Range","",1.8538,0.0522933709449929,"Within_Range","",0.0033758166,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"33","TEMPEST","TMP_FW_PW_H6_15cm_SO4_20260612_D6_PM","334",5,20260612,20260612,1540,NA,"EDT",6.0969,0.190171553337492,"Within_Range","",1.642,0.0463187588152327,"Within_Range","",0.002993094,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"34","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260612_D6_PM","335",5,20260612,20260612,1545,NA,"EDT",2.4481,0.0763599500935745,"Within_Range","",1.6055,0.0452891396332863,"Within_Range","",0.0029271385,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"35","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260612_D6_PM","336",5,20260612,20260612,1552,NA,"EDT",5.697,0.177698066126014,"Within_Range","",1.5035,0.0424118476727786,"Within_Range","",0.0027428245,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"36","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260612_D6_PM","337",5,20260612,20260612,1600,NA,"EDT",7.0122,0.218721147847785,"Within_Range","",1.8446,0.052033850493653,"Within_Range","",0.0033591922,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"37","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260615_Post","338",5,20260615,20260615,1519,NA,"EDT",4.4454,0.13865876481597,"Within_Range","",1.0632,0.0299915373765867,"Within_Range","",0.0019472024,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"38","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260615_Post","339",5,20260615,20260615,1420,NA,"EDT",637.0227,19.8697036805989,"Within_Range","",4958.283,139.866939351199,"Within_Range","",8.959643381,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"39","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260615_Post","340",5,20260615,20260615,1433,NA,"EDT",174.3827,5.43926076107299,"Within_Range","",3327.2698,93.8581043723554,"Within_Range","",6.0124025286,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"40","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260615_Post","341",5,20260615,20260615,1449,NA,"EDT",550.9834,17.1860074859638,"Within_Range","",4589.8927,129.475111424542,"Within_Range","",8.2939621089,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"41","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260615_Post","342",5,20260615,20260615,1405,NA,"EDT",192.9143,6.01728945726762,"Within_Range","",2792.6411,78.7768998589563,"Within_Range","",5.0463284677,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"42","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260615_Post","343",5,20260615,20260615,1413,NA,"EDT",211.405,6.59404242046163,"Within_Range","",2431.1554,68.5798420310296,"Within_Range","",4.3931238078,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"43","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260615_Post","344",5,20260615,20260615,1334,NA,"EDT",228.9259,7.14054585152838,"Within_Range","",3718.3746,104.890679830748,"Within_Range","",6.7191289022,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"44","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260615_Post","345",5,20260615,20260615,1345,NA,"EDT",262.062,8.17411104179663,"Within_Range","",3172.6086,89.4953060648801,"Within_Range","",5.7329297402,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"45","TEMPEST","TMP_SW_PW_H3_15cm_SO4_20260615_Post","346",5,20260615,20260615,1306,NA,"EDT",560.3754,17.4789582033687,"Within_Range","",4442.5666,125.319227080395,"Within_Range","",8.0277438462,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"46","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260615_Post","347",5,20260615,20260615,1310,NA,"EDT",220.4059,6.87479413599501,"Within_Range","",2948.7382,83.1802031029619,"Within_Range","",5.3283959274,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"47","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260615_Post","348",5,20260615,20260615,1322,NA,"EDT",105.8371,3.30121958827199,"Within_Range","",2797.2991,78.9082961918195,"Within_Range","",5.0547454737,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"48","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260615_Post","349",5,20260615,20260615,1244,NA,"EDT",22.1249,0.690109170305677,"Within_Range","",2235.9824,63.0742566995769,"Within_Range","",4.0404461968,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"49","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260615_Post","350",5,20260615,20260615,1252,NA,"EDT",140.1933,4.37284154709919,"Within_Range","",1928.7021,54.4062651622003,"Within_Range","",3.4851906947,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"50","TEMPEST","TMP_SW_PW_I5_15cm_SO4_20260615_Post","351",5,20260615,20260615,1302,NA,"EDT",581.6451,18.1423923892701,"Within_Range","",4571.784,128.964287729196,"Within_Range","",8.261239688,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"51","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260615_Post","352",5,20260615,20260615,1121,NA,"EDT",1.8123,0.056528384279476,"Within_Range","",2.2289,0.0628744710860367,"Within_Range","",0.0040536223,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"52","TEMPEST","TMP_FW_PW_C3_50cm_SO4_20260615_Post","353",5,20260615,20260615,1131,NA,"EDT",5.3311,0.166285090455396,"Within_Range","",1.893,0.0533991537376587,"Within_Range","",0.003446651,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"53","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260615_Post","354",5,20260615,20260615,943,NA,"EDT",6.4014,0.199669369931379,"Within_Range","",17.1764,0.484524682651622,"Within_Range","",0.0310637548,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"54","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260615_Post","355",5,20260615,20260615,955,NA,"EDT",3.2458,0.101241422333125,"Within_Range","",2.0771,0.0585923836389281,"Within_Range","",0.0037793197,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"55","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260615_Post","356",5,20260615,20260615,1009,NA,"EDT",4.5418,0.14166562694947,"Within_Range","",2.0279,0.0572045133991537,"Within_Range","",0.0036904153,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"56","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260615_Post","357",5,20260615,20260615,1101,NA,"EDT",5.9226,0.184734872114785,"Within_Range","",1.7451,0.0492270803949224,"Within_Range","",0.0031793957,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"57","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260615_Post","358",5,20260615,20260615,1112,NA,"EDT",5.582,0.174111041796631,"Within_Range","",2.215,0.0624823695345557,"Within_Range","",0.004028505,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"58","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260615_Post","359",5,20260615,20260615,859,NA,"EDT",4.0725,0.127027448533999,"Within_Range","",2.2119,0.062394922425952,"Within_Range","",0.0040229033,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"59","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260615_Post","360",5,20260615,20260615,913,NA,"EDT",3.4207,0.106696818465377,"Within_Range","",1.7175,0.0484485190409027,"Within_Range","",0.0031295225,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"60","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260615_Post","361",5,20260615,20260615,843,NA,"EDT",5.3887,0.168081721771678,"Within_Range","",2.1298,0.0600789844851904,"Within_Range","",0.0038745486,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"61","TEMPEST","TMP_FW_PW_H3_50cm_SO4_20260615_Post","362",5,20260615,20260615,849,NA,"EDT",4.4944,0.140187149095446,"Within_Range","",1.999,0.0563892806770099,"Within_Range","",0.003638193,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"62","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260615_Post","363",5,20260615,20260615,926,NA,"EDT",2.2238,0.0693636930754835,"Within_Range","",1.6214,0.045737658674189,"Within_Range","",0.0029558698,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"63","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260615_Post","364",5,20260615,20260615,930,NA,"EDT",4.6895,0.146272613849033,"Within_Range","",1.4403,0.0406290550070522,"Within_Range","",0.0026286221,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"64","TEMPEST","TMP_FW_PW_I5_15cm_SO4_20260615_Post","365",5,20260615,20260615,8031,NA,"EDT",5.402,0.16849656893325,"Within_Range","",2.1333,0.0601777150916784,"Within_Range","",0.0038808731,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"65","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260618_Post","366",5,20260618,20260618,1313,NA,"EDT",4.9415,0.154132875857767,"Within_Range","",1.4478,0.0408406205923836,"Within_Range","",0.0026421746,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"66","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260618_Post","367",5,20260618,20260618,929,NA,"EDT",3.4676,0.108159700561447,"Within_Range","",2.5157,0.0709647390691114,"Within_Range","",0.0045718699,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","Smells like decay, cloudy"
+"67","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260618_Post","368",5,20260618,20260618,944,NA,"EDT",5.1597,0.160938864628821,"Within_Range","",2.5659,0.0723808180535966,"Within_Range","",0.0046625813,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"68","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260618_Post","369",5,20260618,20260618,947,NA,"EDT",3.3306,0.103886462882096,"Within_Range","",6.4433,0.181757404795487,"Within_Range","",0.0116690431,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"69","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260618_Post","370",5,20260618,20260618,959,NA,"EDT",3.938,0.122832189644417,"Within_Range","",1.7898,0.0504880112834979,"Within_Range","",0.0032601686,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"70","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260618_Post","371",5,20260618,20260618,1009,NA,"EDT",4.9605,0.154725514660012,"Within_Range","",1.7392,0.0490606488011283,"Within_Range","",0.0031687344,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"71","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260618_Post","372",5,20260618,20260618,922,NA,"EDT",4.7036,0.146712414223331,"Within_Range","",2.0175,0.0569111424541608,"Within_Range","",0.0036716225,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"72","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260618_Post","373",5,20260618,20260618,905,NA,"EDT",3.2508,0.101397379912664,"Within_Range","",1.8507,0.0522059238363893,"Within_Range","",0.0033702149,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"73","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260618_Post","374",5,20260618,20260618,907,NA,"EDT",3.9289,0.122548346849657,"Within_Range","",1.933,0.0545275035260931,"Within_Range","",0.003518931,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"74","TEMPEST","TMP_FW_PW_H3_30cm_SO4_20260618_Post","375",5,20260618,20260618,858,NA,"EDT",4.6324,0.144491578290705,"Within_Range","",2.0838,0.0587813822284908,"Within_Range","",0.0037914266,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"75","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260618_Post","376",5,20260618,20260618,839,NA,"EDT",2.0856,0.065053025577043,"Within_Range","",2.578,0.072722143864598,"Within_Range","",0.004684446,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"76","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260618_Post","377",5,20260618,20260618,845,NA,"EDT",3.9105,0.121974422956956,"Within_Range","",1.3653,0.0385133991537377,"Within_Range","",0.0024930971,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"77","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260618_Post","378",5,20260618,20260618,1136,NA,"EDT",584.2345,18.2231597005614,"Within_Range","",4925.2556,138.935277856135,"Within_Range","",8.8999628692,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"78","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260618_Post","379",5,20260618,20260618,1120,NA,"EDT",206.6929,6.44706487835309,"Within_Range","",3287.8875,92.7471791255289,"Within_Range","",5.9412387125,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"79","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260618_Post","380",5,20260618,20260618,1129,NA,"EDT",384.9267,12.0064472863381,"Within_Range","",3841.6865,108.369153737659,"Within_Range","",6.9419535055,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"80","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260618_Post","381",5,20260618,20260618,1144,NA,"EDT",199.8995,6.2351684341859,"Within_Range","",2716.8092,76.6377771509168,"Within_Range","",4.9093002244,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"81","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260618_Post","382",5,20260618,20260618,1059,NA,"EDT",258.4757,8.06224890829694,"Within_Range","",3328.8521,93.9027390691114,"Within_Range","",6.0152617447,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"82","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260618_Post","383",5,20260618,20260618,1107,NA,"EDT",203.5091,6.34775733000624,"Within_Range","",2840.1837,80.1180169252468,"Within_Range","",5.1322379459,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"83","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260618_Post","384",5,20260618,20260618,1039,NA,"EDT",193.2906,6.02902682470368,"Within_Range","",2833.807,79.9381382228491,"Within_Range","",5.120715249,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"84","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260618_Post","385",5,20260618,20260618,1045,NA,"EDT",79.5841,2.48234872114785,"Within_Range","",2851.1666,80.4278307475317,"Within_Range","",5.1520840462,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"85","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260618_Post","386",5,20260618,20260618,1019,NA,"EDT",74.245,2.31581409856519,"Within_Range","",2337.194,65.9293088857546,"Within_Range","",4.223335558,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"86","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260618_Post","387",5,20260618,20260618,1026,NA,"EDT",110.4206,3.44418590143481,"Within_Range","",1679.2639,47.3699266572637,"Within_Range","",3.0344558673,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"87","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260622_Post","388",5,20260622,20260622,936,NA,"EDT",4.5761,0.142735495945103,"Within_Range","",3.8566,0.108789844851904,"Within_Range","",0.0069948762,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"88","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260622_Post","389",5,20260622,20260622,939,NA,"EDT",3.4771,0.10845601996257,"Within_Range","",2.2408,0.0632101551480959,"Within_Range","",0.0040751256,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"89","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260622_Post","390",5,20260622,20260622,948,NA,"EDT",3.6422,0.113605739238927,"Within_Range","",1.5663,0.0441833568406206,"Within_Range","",0.0028563041,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"90","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260622_Post","391",5,20260622,20260622,933,NA,"EDT",4.3966,0.137136618839676,"Within_Range","",1.5491,0.0436981664315938,"Within_Range","",0.0028252237,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"91","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260622_Post","392",5,20260622,20260622,922,NA,"EDT",3.3178,0.103487211478478,"Within_Range","",2.0459,0.0577122708039492,"Within_Range","",0.0037229413,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"92","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260622_Post","393",5,20260622,20260622,926,NA,"EDT",4.0155,0.125249532127261,"Within_Range","",1.8975,0.0535260930888575,"Within_Range","",0.0034547825,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"93","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260622_Post","394",5,20260622,20260622,904,NA,"EDT",2.147,0.0669681846537742,"Within_Range","",2.8467,0.0803018335684062,"Within_Range","",0.0051699869,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"94","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260622_Post","395",5,20260622,20260622,908,NA,"EDT",3.9329,0.122673112913288,"Within_Range","",1.4404,0.0406318758815233,"Within_Range","",0.0026288028,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"95","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260622_Post","396",5,20260622,20260622,1114,NA,"EDT",556.6957,17.3641827822832,"Within_Range","",4841.0074,136.558741889986,"Within_Range","",8.7477263718,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"96","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260622_Post","397",5,20260622,20260622,1102,NA,"EDT",212.6728,6.63358702432938,"Within_Range","",3165.6924,89.3002087447108,"Within_Range","",5.7204321668,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"97","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260622_Post","398",5,20260622,20260622,1122,NA,"EDT",167.9777,5.23947910168434,"Within_Range","",2431.1392,68.5793850493653,"Within_Range","",4.3930945344,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","Put SPE in 50 cm bottle"
+"98","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260622_Post","399",5,20260622,20260622,1044,NA,"EDT",249.5618,7.78421085464754,"Within_Range","",2848.4382,80.3508660084626,"Within_Range","",5.1471538274,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"99","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260622_Post","400",5,20260622,20260622,1053,NA,"EDT",201.6223,6.28890517779164,"Within_Range","",2688.1256,75.8286488011283,"Within_Range","",4.8574689592,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"100","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260622_Post","401",5,20260622,20260622,1026,NA,"EDT",170.5164,5.31866500311915,"Within_Range","",2791.6998,78.7503469675599,"Within_Range","",5.0446275386,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"101","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260622_Post","402",5,20260622,20260622,1036,NA,"EDT",85.7768,2.67550842170929,"Within_Range","",2763.1036,77.9436840620592,"Within_Range","",4.9929542052,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"102","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260622_Post","403",5,20260622,20260622,1010,NA,"EDT",100.731,3.14195258889582,"Within_Range","",2138.5728,60.3264541607898,"Within_Range","",3.8644270496,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"103","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260622_Post","404",5,20260622,20260622,1018,NA,"EDT",89.814,2.80143480973175,"Within_Range","",1614.042,45.5300987306065,"Within_Range","",2.916599894,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"104","TEMPEST","TMP_C_PW_F4_30cm_SO4_20260810","405",5,20260810,20260807,817,TRUE,"EDT",1.109,0.0345913911416095,"Within_Range","",0.4782,0.0134894217207334,"Within_Range","",0.0008901074,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"105","TEMPEST","TMP_C_PW_H3_15cm_SO4_20260810","406",5,20260810,20260807,1228,TRUE,"EDT",1.2078,0.0376731129132876,"Within_Range","",0.0932,0.00262905500705219,"Within_Range","",0.0001944124,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"106","TEMPEST","TMP_C_PW_H3_30cm_SO4_20260810","407",5,20260810,20260807,800,TRUE,"EDT",1.1327,0.0353306300686213,"Within_Range","",0.4602,0.0129816643159379,"Within_Range","",0.0008575814,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"107","TEMPEST","TMP_C_PW_H6_30cm_SO4_20260810","408",5,20260810,20260807,809,TRUE,"EDT",2.8364,0.088471615720524,"Within_Range","",1.0345,0.029181946403385,"Within_Range","",0.0018953415,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"108","TEMPEST","TMP_FW_PW_C3_30cm_SO4_20260810","409",5,20260810,20260807,1115,TRUE,"EDT",3.4558,0.107791640673737,"Within_Range","",0.7213,0.0203469675599436,"Within_Range","",0.0013293891,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"109","TEMPEST","TMP_FW_PW_C6_15cm_SO4_20260810","410",5,20260810,20260807,1118,TRUE,"EDT",3.9133,0.122061759201497,"Within_Range","",0.6241,0.017605077574048,"Within_Range","",0.0011537487,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"110","TEMPEST","TMP_FW_PW_C6_30cm_SO4_20260810","411",5,20260810,20260807,1120,TRUE,"EDT",2.8264,0.0881597005614473,"Within_Range","",2.1065,0.0594217207334274,"Within_Range","",0.0038324455,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"111","TEMPEST","TMP_FW_PW_C6_50cm_SO4_20260810","412",5,20260810,20260807,1122,TRUE,"EDT",3.25,0.101372426699938,"Within_Range","",2.2228,0.0627023977433004,"Within_Range","",0.0040425996,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"112","TEMPEST","TMP_FW_PW_D5_15cm_SO4_20260810","413",5,20260810,20260807,1124,TRUE,"EDT",0.5493,0.0171334996880848,"Within_Range","",0.0135,0.000380818053596615,"Within_Range","",5.03945e-05,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"113","TEMPEST","TMP_FW_PW_E3_15cm_SO4_20260810","414",5,20260810,20260807,1133,TRUE,"EDT",0.5803,0.0181004366812227,"Within_Range","",0.0284,0.000801128349788434,"Within_Range","",7.73188e-05,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"114","TEMPEST","TMP_FW_PW_F4_30cm_SO4_20260810","415",5,20260810,20260807,1142,TRUE,"EDT",1.59,0.0495945102932003,"Within_Range","",0.7976,0.0224992947813822,"Within_Range","",0.0014672632,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"115","TEMPEST","TMP_FW_PW_F4_50cm_SO4_20260810","416",5,20260810,20260807,1144,TRUE,"EDT",3.1967,0.0997099189020586,"Within_Range","",0.7705,0.0217348377997179,"Within_Range","",0.0014182935,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"116","TEMPEST","TMP_FW_PW_H6_30cm_SO4_20260810","417",5,20260810,20260807,1201,TRUE,"EDT",3.066,0.0956331877729257,"Within_Range","",2.3691,0.0668293370944993,"Within_Range","",0.0043069637,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"117","TEMPEST","TMP_FW_PW_H6_50cm_SO4_20260810","418",5,20260810,20260807,1206,TRUE,"EDT",3.3194,0.10353711790393,"Within_Range","",0.9133,0.0257630465444288,"Within_Range","",0.0016763331,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"118","TEMPEST","TMP_SW_PW_B4_15cm_SO4_20260810","419",5,20260810,20260807,903,TRUE,"EDT",106.1973,3.31245477230193,"Within_Range","",512.0287,14.4436868829337,"Within_Range","",0.9252618609,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","very light coloration"
+"119","TEMPEST","TMP_SW_PW_C3_30cm_SO4_20260810","420",5,20260810,20260807,857,TRUE,"EDT",170.5772,5.32056144728634,"Within_Range","",1854.4807,52.3125726375176,"Within_Range","",3.3510726249,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"120","TEMPEST","TMP_SW_PW_C3_50cm_SO4_20260810","421",5,20260810,20260807,859,TRUE,"EDT",193.2081,6.0264535246413,"Within_Range","",2222.1106,62.6829506346968,"Within_Range","",4.0153798542,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"121","TEMPEST","TMP_SW_PW_C6_30cm_SO4_20260810","422",5,20260810,20260807,910,TRUE,"EDT",90.8069,2.83240486587648,"Within_Range","",1531.9044,43.2131001410437,"Within_Range","",2.7681772508,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"122","TEMPEST","TMP_SW_PW_C6_50cm_SO4_20260810","423",5,20260810,20260807,911,TRUE,"EDT",118.3556,3.6916905801622,"Within_Range","",1142.3552,32.2244062059238,"Within_Range","",2.0642618464,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"123","TEMPEST","TMP_SW_PW_F4_30cm_SO4_20260810","424",5,20260810,20260807,929,TRUE,"EDT",93.602,2.91958827199002,"Within_Range","",1472.5965,41.5400987306065,"Within_Range","",2.6610078755,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"124","TEMPEST","TMP_SW_PW_F4_50cm_SO4_20260810","425",5,20260810,20260807,932,TRUE,"EDT",173.4992,5.41170305676856,"Within_Range","",1601.7988,45.1847334273625,"Within_Range","",2.8944764316,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"125","TEMPEST","TMP_SW_PW_F6_15cm_SO4_20260810","426",5,20260810,20260807,921,TRUE,"EDT",160.8748,5.01792888334373,"Within_Range","",920.3578,25.9621382228491,"Within_Range","",1.6631125446,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"126","TEMPEST","TMP_SW_PW_H3_30cm_SO4_20260810","427",5,20260810,20260807,938,TRUE,"EDT",157.5251,4.9134466625078,"Within_Range","",1286.3375,36.2859661495063,"Within_Range","",2.3244378625,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","cloudy; colloids??"
+"127","TEMPEST","TMP_SW_PW_H3_50cm_SO4_20260810","428",5,20260810,20260807,945,TRUE,"EDT",95.3375,2.97372114784779,"Within_Range","",2905.9934,81.9744259520451,"Within_Range","",5.2511560738,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","cloudy; colloids??"
+"128","TEMPEST","TMP_SW_PW_H6_15cm_SO4_20260810","429",5,20260810,20260807,1000,TRUE,"EDT",40.1046,1.25092326887087,"Within_Range","",125.868,3.55057827926657,"Within_Range","",0.227469476,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"129","TEMPEST","TMP_SW_PW_H6_30cm_SO4_20260810","430",5,20260810,20260807,957,TRUE,"EDT",56.9662,1.77686213349969,"Within_Range","",1594.9582,44.9917686882934,"Within_Range","",2.8821154674,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"130","TEMPEST","TMP_SW_PW_H6_50cm_SO4_20260810","431",5,20260810,20260807,959,TRUE,"EDT",54.1795,1.68994073611978,"Within_Range","",1345.1054,37.9437348377997,"Within_Range","",2.4306314578,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater",NA
+"131","TEMPEST","TMP_C_PW_C6_50cm_SO4_20260813","432",5,20260813,20260810,1403,TRUE,"EDT",4.1517,0.129497816593886,"Within_Range","",0.2716,0.00766149506346968,"Within_Range","",0.0005167812,"2026-09-25","Run looks good other than one bad cloride dup, likely due to a small chloride value. 
+  TMP_FW_PW_C6_15cm_SO4_20260615_Post had an unusually high chloride value for freshwater","cloudy; colloids??"
