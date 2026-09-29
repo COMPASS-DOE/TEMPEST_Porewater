@@ -701,7 +701,7 @@ drive_ls(inventory_path)
 # filter to necessary files
 # June 2022 event
 files_meta <- drive_ls(inventory_path) %>%
-  filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", name))
+  filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated", name))
 
 # download files to local drive
 lapply(c(files_meta$name), drive_download, 
