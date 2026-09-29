@@ -26,24 +26,29 @@ library(knitr)
 ```{r Pull in 2022-2024 data files, message=FALSE, include=FALSE}
 
 #read in 2023 Dionex Data:
-dat23 <- read.csv("2023/COMPASS_TEMPEST_SO4_Cl_2023.csv")
+dat23 <- read.csv("2023/COMPASS_TEMPEST_SO4_Cl_2023.csv", colClasses = "character")
 # head(dat24)
 colnames(dat23)
 
 #read in 2024 Dionex Data:
-dat24 <- read.csv("2024/COMPASS_TEMPEST_SO4_Cl_2024.csv")
+dat24 <- read.csv("2024/COMPASS_TEMPEST_SO4_Cl_2024.csv", colClasses = "character")
 # head(dat24)
 colnames(dat24)
 
 #read in 2025 Dionex Data:
-dat25 <- read.csv("2025/COMPASS_TEMPEST_SO4_Cl_2025.csv")
+dat25 <- read.csv("2025/COMPASS_TEMPEST_SO4_Cl_2025.csv", colClasses = "character")
 # head(dat25)
 colnames(dat25)
 
-raw_dat <- bind_rows(dat23, dat24, dat25)
+#read in 2026 Dionex Data:
+dat26 <- read.csv("2026/COMPASS_TEMPEST_SO4_Cl_2026.csv", colClasses = "character")
+# head(dat25)
+colnames(dat26)
+
+raw_dat <- bind_rows(dat23, dat24, dat25, dat26)
 
 ##Convert Collection Date into Date format
-raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date)
+raw_dat$Collection_Date <- as.character(raw_dat$Collection_Date_YYYYMMDD)
 raw_dat$Collection_Date_formatted <- as.Date(raw_dat$Collection_Date, format = "%Y%m%d")
 
 ##Extract Year and month from Collection Date
@@ -51,9 +56,16 @@ raw_dat$Year <- format(raw_dat$Collection_Date_formatted, format = "%Y")
 raw_dat$Month <- format(raw_dat$Collection_Date_formatted, format = "%m")
 raw_dat$Day <- format(raw_dat$Collection_Date_formatted, format = "%d")
 
+raw_dat <- raw_dat %>% 
+  mutate(Grid = ifelse(is.na(Grid), Source, Grid))
 raw_dat$Grid <- gsub("Source", "Sourcewater", raw_dat$Grid)
 raw_dat$Grid <- gsub("SOURCEWATER", "Sourcewater", raw_dat$Grid)
+raw_dat$Grid <- gsub("SCE", "Sourcewater", raw_dat$Grid)
 raw_dat$Grid <- gsub("RAINWATER", "Rainwater", raw_dat$Grid)
+raw_dat$Grid <- gsub("RO", "Runoff", raw_dat$Grid)
+
+raw_dat <- raw_dat %>% 
+  mutate(Evacuation_Date_YYYYMMDD =  ifelse(is.na(Evacuation_Date_YYYYMMDD), Evacuation_date_YYYMMDD, Evacuation_Date_YYYYMMDD))
 
 all_dat <- raw_dat %>%
   mutate(
@@ -66,7 +78,7 @@ all_dat <- raw_dat %>%
   )%>%
   dplyr::select(
          Project, Site, Plot, Grid, Depth_cm, Event_Time, Time_of_day, Sample_ID, 
-         Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+         Volume_mL, Evacuation_Date_YYYYMMDD, Collection_Date_YYYYMMDD, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
          SO4_ppm, SO4_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_mM, Cl_Conc_flag, Cl_QAQC_flag, 
          salinity, Analysis_rundate,  Run_notes, Field_notes
@@ -76,6 +88,13 @@ all_dat <- raw_dat %>%
 
 ##Set 4 decimal points max
 all_dat <- all_dat %>%
+  mutate(
+    SO4_ppm = as.numeric(SO4_ppm), 
+    SO4_mM = as.numeric(SO4_mM), 
+    Cl_ppm = as.numeric(Cl_ppm), 
+    Cl_mM = as.numeric(Cl_mM), 
+    salinity = as.numeric(salinity), 
+    ) %>% 
   mutate(across(where(is.numeric), round, digits = 4)) ##This does make all salinities 0 when Cl_ppm is 0 instead of 0.000026
 
 ```

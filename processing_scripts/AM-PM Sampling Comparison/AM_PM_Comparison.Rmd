@@ -1,5 +1,5 @@
 ---
-title: "AM vs PM Sample Comparison"
+title: "AM vs PM Porewater Comparison"
 author: "Zoe Read"
 date: "`r Sys.Date()`"
 output: 
@@ -21,61 +21,132 @@ library(tibble)
 library(lubridate)
 ```
 
-##Pull in 2022 Data
-```{r}
+## Pull in 2022 Data
+```{r, echo = FALSE}
 
 ##Lysimeter Data
 lys <- read.csv("../COMPASS_TEMPEST_AllData_AllYears.csv")
 
-# Filter the dataframe to keep dates with more than 1 row
-lys_timepoints <- lys %>% 
-  group_by(Plot, Location, Collection_Date_YYYYMMDD) %>%
-  filter(n() > 1) %>%
-  ungroup()
+# # Filter the dataframe to keep dates with more than 1 row
+# lys_timepoints <- lys %>% 
+#   group_by(Plot, Location, Collection_Date_YYYYMMDD) %>%
+#   filter(n() > 1) %>%
+#   ungroup()
+# 
+# lys_arranged <- lys_timepoints %>% group_by(Plot, Location) %>% arrange(Collection_Date_YYYYMMDD, Collection_Start_Time_24hrs, .by_group = TRUE)
+# 
+# lys_numbered <- lys_arranged %>% group_by(Plot, Location, Collection_Date_YYYYMMDD) %>% mutate(Number = row_number()) %>% ungroup()
+# 
+# lys_IDs <- lys_numbered %>% 
+#   mutate(graphing_ID = paste(Sample_Type, Plot, Location, Collection_Date_YYYYMMDD, sep = "_")) %>% 
+#   mutate(graphing_ID = gsub("_NA", "", graphing_ID))
 
-lys_arranged <- lys_timepoints %>% group_by(Plot, Location) %>% arrange(Collection_Date_YYYYMMDD, Collection_Start_Time_24hrs, .by_group = TRUE)
-
-lys_numbered <- lys_arranged %>% group_by(Plot, Location, Collection_Date_YYYYMMDD) %>% mutate(Number = row_number()) %>% ungroup()
-
-lys_IDs <- lys_numbered %>% 
-  mutate(graphing_ID = paste(Sample_Type, Plot, Location, Collection_Date_YYYYMMDD, sep = "_")) %>% 
-  mutate(graphing_ID = gsub("_NA", "", graphing_ID))
+lys_AM_PM <- lys %>% 
+  filter(str_detect(Event, "TMP")) %>% 
+  mutate(TOD = case_when(
+    Collection_End_Time_24hrs < 1200 ~ "AM", 
+    Collection_End_Time_24hrs >= 1200 ~ "PM", 
+    TRUE ~ NA_character_
+  )) %>% 
+  filter(!is.na(TOD)) %>% 
+  filter(Sample_Type != "SOURCE") %>% 
+  filter(Plot != "C") %>% 
+  filter(Collection_Date_YYYYMMDD != 20220622) %>%
+  filter(Collection_Date_YYYYMMDD != 20240611) %>%
+  filter(Collection_Date_YYYYMMDD != 20230606)
 
 
 ```
 
 
+## Boxplots SO4/Cl/H2S
+```{r, echo = FALSE}
 
-##Boxplots SO4/Cl
-```{r}
-
-boxplot_SO4_all <- ggplot(lys_IDs, aes(x = as.factor(Collection_Date_YYYYMMDD), y = SO4_ppm, fill = as.character(Number))) +
+boxplot_SO4_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = SO4_ppm, fill = TOD, na.rm = TRUE)) +
   geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
   facet_wrap(~ Plot, scales = "free") +
-  labs(y = "SO4 (ppm)", fill = "Number", title = "Sulfate from all data")
-
+  labs(y = "SO4 (ppm)", x = "Collection Date", fill = "Time of Day", title = "Sulfate from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  
 boxplot_SO4_all
 
 
-boxplot_Cl_all <- ggplot(lys_IDs, aes(x = as.factor(Collection_Date_YYYYMMDD), y = Cl_ppm, fill = as.character(Number))) +
+boxplot_Cl_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = Cl_ppm, fill = TOD)) +
   geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
   facet_wrap(~ Plot, scales = "free") +
-  labs(y = "Cl (ppm)", fill = "Number", title = "Chloride from all data")
+  labs(y = "Cl (ppm)", x = "Collection Date", fill = "Time of Day", title = "Chloride from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 boxplot_Cl_all
 
+
+# boxplot_H2S_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD),y = H2S_mean_uM, fill = TOD, na.rm = TRUE)) +
+#   geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+#   facet_wrap(~ Plot, scales = "free") +
+#   labs(y = "H2S (uM)", fill = "Time of Day", title = "Sulfide from all data")
+# 
+# boxplot_H2S_all
+
 ```
 
 
+## Boxplots Nutrients
+```{r, echo = FALSE}
 
-##Boxplots Nutrients
-```{r}
-
-boxplot_NOx_all <- ggplot(lys_IDs, aes(x = as.factor(Collection_Date_YYYYMMDD), y = NOx_mgL, fill = as.character(Number))) +
+boxplot_NOx_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = NOx_mgL, fill = TOD)) +
   geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
   facet_wrap(~ Plot, scales = "free") +
-  labs(y = "NOx (ppm)", fill = "Number", title = "NOx from all data")
+  labs(y = "NOx (mg/L)", x = "Collection Date", fill = "Time of Day", title = "NOx from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 boxplot_NOx_all
 
+
+boxplot_NH3_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = NH3_mgL, fill = TOD)) +
+  geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
+  facet_wrap(~ Plot, scales = "free") +
+  labs(y = "NH3 (mg/L)", x = "Collection Date", fill = "Time of Day", title = "NH3 from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+boxplot_NH3_all
+
+
+boxplot_PO4_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = PO4_mgL, fill = TOD)) +
+  geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
+  facet_wrap(~ Plot, scales = "free") +
+  labs(y = "PO4 (mg/L)", x = "Collection Date", fill = "Time of Day", title = "PO4 from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+boxplot_PO4_all
+
 ```
+
+
+## Boxplots NPOC/TDN
+```{r, echo = FALSE}
+
+boxplot_npoc_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = npoc_mgL, fill = TOD)) +
+  geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
+  facet_wrap(~ Plot, scales = "free") +
+  labs(y = "NPOC (mg/L)", x = "Collection Date", fill = "Time of Day", title = "NPOC from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+boxplot_npoc_all
+
+boxplot_tdn_all <- ggplot(lys_AM_PM, aes(x = as.factor(Collection_Date_YYYYMMDD), y = tdn_mgL, fill = TOD)) +
+  geom_boxplot(position = position_dodge(width = 0.8), na.rm = TRUE) +
+  stat_compare_means(aes(group = TOD), method = "t.test", label = "p.format", size = 3) +
+  facet_wrap(~ Plot, scales = "free") +
+  labs(y = "TDN (mg/L)", x = "Collection Date", fill = "Time of Day", title = "TDN from all data") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+boxplot_tdn_all
+
+```
+
