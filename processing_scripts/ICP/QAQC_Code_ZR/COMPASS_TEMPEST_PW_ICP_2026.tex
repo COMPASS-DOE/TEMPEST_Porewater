@@ -1,0 +1,276 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={TEMPEST: Porewater ICP},
+  pdfauthor={2023-2025 Samples},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TEMPEST: Porewater ICP}
+\author{2023-2025 Samples}
+\date{2026-04-30}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+
+\#\#Add Required Packages
+
+\subsection{Import and QAQC Metal
+Standards}\label{import-and-qaqc-metal-standards}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-4.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-5.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-6.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-7.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-8.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-9.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-10.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-11.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-12.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC Metal Standards-13.pdf}}
+
+\begin{verbatim}
+##           Variable        R2        Slope     Intercept
+## 1  Zn.radial.(cps) 0.9996910 4.434816e+03  9.168948e+02
+## 2  Ba.radial.(cps) 0.9997865 5.863004e+03  2.195985e+02
+## 3  Fe.radial.(cps) 0.9992605 6.108641e+03 -2.687996e+03
+## 4   Fe.axial.(cps) 0.9990945 4.095201e+04 -1.679934e+04
+## 5    B.axial.(cps) 0.9999968 3.527538e+04 -2.918539e+02
+## 6   B.radial.(cps) 0.9999775 8.144866e+03  2.006840e+01
+## 7   Mn.axial.(cps) 0.9998091 4.471049e+05  9.496773e+03
+## 8   Al.axial.(cps) 0.9997703 3.992801e+04 -1.130328e+04
+## 9  Sr.radial.(cps) 0.9121837 9.649745e+09 -4.384256e+10
+## 10 Mg.radial.(cps) 0.9998535 2.313379e+04 -4.892766e+03
+## 11  K.radial.(cps) 0.8576786 2.238686e+01 -4.498415e+01
+## 12 Ca.radial.(cps) 0.9999550 1.092481e+04  2.067301e+03
+## 13 Na.radial.(cps) 0.9998274 1.276529e+04 -4.437924e+03
+\end{verbatim}
+
+\subsection{Import and QAQC S/P/Si
+Standards}\label{import-and-qaqc-spsi-standards}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC S/P/Si Standards-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC S/P/Si Standards-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC S/P/Si Standards-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC S/P/Si Standards-4.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Import and QAQC S/P/Si Standards-5.pdf}}
+
+\begin{verbatim}
+##          Variable        R2       Slope    Intercept
+## 1 P.178.221.(cps) 0.9998313    38.73282   12.3597996
+## 2   S.axial.(cps) 0.9998991   215.03204    6.6526079
+## 3  S.radial.(cps) 0.9998528    16.23644    0.7511049
+## 4 P.213.617.(cps) 0.9998890  1928.54387  237.5838996
+## 5  Si.axial.(cps) 0.9998743 12196.23912 3651.0837126
+\end{verbatim}
+
+\#\#Import Sample Data
+
+\subsection{Assess Metal Check
+Standards}\label{assess-metal-check-standards}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-1.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Zn.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Zn.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-2.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Ba.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Ba.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-3.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of Fe.radial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "Fe.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-4.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Fe.axial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Fe.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-5.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of B.axial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "B.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-6.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of B.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "B.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-7.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Mn.axial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Mn.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-8.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Mg.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Mg.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-9.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Ca.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Ca.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-10.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of Al.axial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "Al.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-11.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of Sr.radial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "Sr.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-12.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of Na.radial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "Na.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check Metal Standards-13.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of K.radial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "K.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\subsection{Assess S/P/Si Check
+Standards}\label{assess-spsi-check-standards}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-1.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of P.178.221.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "P.178.221.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-2.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of S.axial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "S.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-3.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of S.radial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "S.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-4.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of P.213.617.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "P.213.617.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-5.pdf}}
+
+\begin{verbatim}
+## [1] ">80% of Si.axial.(mg/L) Check Standards are within range of expected concentration - PROCEED"
+## [1] "Si.axial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{COMPASS_TEMPEST_PW_ICP_2026_files/figure-latex/Check S/P/Si Standards-6.pdf}}
+
+\begin{verbatim}
+## [1] "<80% of Sr.radial.(mg/L) Check Standards are within range of expected concentration - REASSESS"
+## [1] "Sr.radial.(mg/L) RSV WITHIN RANGE - PROCEED"
+\end{verbatim}
+
+\end{document}
