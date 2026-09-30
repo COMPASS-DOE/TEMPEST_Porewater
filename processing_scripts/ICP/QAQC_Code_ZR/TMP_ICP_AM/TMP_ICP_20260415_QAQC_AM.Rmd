@@ -1,0 +1,1215 @@
+---
+title: "TEMPEST: Porewater ICP"
+author: "2023-2025 Samples"
+subtitle: "Run 1 - 2026/04/15"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+#SET UP
+
+```{r setup, include=FALSE}
+#Set working directory
+knitr::opts_knit$set(root.dir = "C:/Users/amontg35/OneDrive - Arizona State University/Data/TEMPEST/Porewater/01_RawMicroplateData/ICP")
+
+
+library(tidyverse)
+library(openxlsx)
+library(lubridate)
+library(patchwork)
+library(kableExtra)
+library(tinytex)
+```
+
+
+#USEFUL FUNCTIONS
+
+```{r,include=FALSE}
+cal_curve<-function(Conc_uM,ABS){
+    model<-lm(ABS~Conc_uM)
+    slope<-summary(model)$coefficients[2, 1]
+    intercept<-summary(model)$coefficients[1, 1]
+     R2<-summary(model)$r.squared
+  return(data.frame(slope=slope,intercept=intercept,R2=R2))
+}
+
+
+#function to calculate percent difference
+calc_percent_diff<-function(dup,original){
+  avg<-(dup+original)/2
+  percent_diff<-((abs(original-dup))/avg)*100
+  return(percent_diff=percent_diff)
+}
+
+
+#Percent error
+calc_percent_error<-function(chk,expected){
+  percent_error<-(abs((chk-expected))/expected)*100
+  return(percent_error=percent_error)
+}
+```
+
+
+# April 15, 2026 - Run 1
+
+## Metal Standard Curve Checks
+
+```{r Metal Standard Curve Checks, echo = FALSE, message = FALSE, warning = FALSE,results='asis'}
+run_date<-"04/15/2026"
+
+
+##Read in blank standard
+std_blank <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(1:2))
+
+##Read in metals standards - there has to be a better way to do this
+M_0.03 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(3:4))
+M_0.1 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(5:6))
+M_0.3_10 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(7:11))
+M_30 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(12:13))
+M_100 <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(14:15))
+ 
+#COMBINE STANDARDS
+M_stds <- bind_rows(M_0.03,M_0.1,M_0.3_10,M_30,M_100)
+
+
+M_stds <- M_stds %>%
+  #COMBINE WITH STANDARD BLANK
+  #SELECT ONLY COLUMNS MEASURED IN M_STDS
+  bind_rows(std_blank %>% select(any_of(colnames(M_stds))))%>% 
+  #ADD EXPECTED CONCENTRATIONS OF STANDARDS
+    separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  #REMOVE INTERNAL STANDARDS
+  select(-contains("(IS)"))%>%
+  select(Curve, Expected_Conc_ppm,contains("(cps)"))%>%
+  pivot_longer(cols = contains("(cps)"),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)%>%
+  mutate(Element = str_remove(Element,fixed(".(cps)")))
+
+#CALCULATE R2
+M_stds_curve<-M_stds%>%
+  group_by(Element)%>%
+  summarise(cal_curve(Expected_Conc_ppm,cps))%>%
+  mutate(across(where(is.numeric),round, digits=5))%>%
+  mutate(Run_Date = run_date)
+
+
+#labels for plots 
+data_text<-data.frame(
+  Element = M_stds_curve$Element,
+  label = round(M_stds_curve$R2,4)
+)
+
+
+p<-ggplot(M_stds,aes(x=Expected_Conc_ppm,y=cps))+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)+
+  facet_wrap(~Element,scales="free_y")+
+  geom_text(
+    data    = data_text,
+    mapping = aes(x = Inf, y = Inf, label = label),
+    hjust   = 1.1,
+    vjust   = 5)+
+  ggtitle(run_date)
+  
+
+print(p)
+
+cat("\n\n **TABLE OF CALIBRATION CURVE VALUES** \n")
+
+
+M_stds_curve%>%
+  mutate(R2=cell_spec(R2,color = ifelse(R2<0.999,"red","black")))%>%
+  kbl(caption = "Red values are <0.999",
+    escape = FALSE)%>%
+  kable_styling()
+ 
+```
+
+## P, S, and Si Standard Curve Checks
+```{r P Standard Curve Checks, echo = FALSE, message = FALSE, warning = FALSE,results='asis'}
+
+#READ IN P STANDARDS
+P_stds <- read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet = "Corrected Intensities", rows = c(16:23))
+
+
+#COMBINE WITH BLANK
+P_stds <- P_stds %>%
+  bind_rows(std_blank)%>%
+  select(Sample.Id:`Ga.radial.(IS).(cps)`)%>%
+  #REMOVE INTERNATL STANDARDS
+  select(-contains("(IS)"))%>%
+  #ADD EXPECTED CONCENTRATIONS OF STANDARDS
+    separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  select(Curve, Expected_Conc_ppm,contains("(cps)"))%>%
+  pivot_longer(cols = contains("(cps)"),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)%>%
+  mutate(Element = str_remove(Element,fixed(".(cps)")))
+
+
+#CALCULATE R2
+P_stds_curve<-P_stds%>%
+  group_by(Element)%>%
+  summarise(cal_curve(Expected_Conc_ppm,cps))%>%
+  mutate(across(where(is.numeric),round, digits=5))%>%
+  mutate(Run_Date = run_date)
+
+
+
+#LABELS FOR PLOTS
+data_text<-data.frame(
+  Element = P_stds_curve$Element,
+  label = round(P_stds_curve$R2,4)
+)
+
+#PLOT
+p<-ggplot(P_stds,aes(x=Expected_Conc_ppm,y=cps))+
+  geom_point()+
+  geom_smooth(method="lm",se=FALSE)+
+  facet_wrap(~Element,scales="free_y")+
+  geom_text(
+    data    = data_text,
+    mapping = aes(x = Inf, y = Inf, label = label),
+    hjust   = 1.1,
+    vjust   = 5)+
+  ggtitle(run_date)
+  
+
+print(p)
+
+cat("\n\n **TABLE OF CALIBRATION CURVE VALUES** \n")
+
+P_stds_curve%>%
+  mutate(R2=cell_spec(R2,color = ifelse(R2<0.999,"red","black")))%>%
+  kbl(caption = "Red values are <0.999",
+      escape = FALSE)%>%
+  kable_styling()
+
+
+```
+
+
+
+```{r,include=FALSE}
+#Combine standard curves into one data frame
+stds_curve<-rbind(M_stds_curve,P_stds_curve)
+
+
+
+```
+
+
+
+
+
+#Import sample data
+
+## Counts
+
+```{r, echo=FALSE, warning = FALSE,results='asis',fig.height = 8,width = 8}
+dat.cps<-read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet =  "Corrected Intensities", startRow = 24)
+
+
+dat.cps <- dat.cps%>%
+  select(-1)
+
+
+
+#range of counts for standards for each element
+
+#M Standards
+M_std_range <- M_stds%>%
+  group_by(Element)%>%
+  summarise(min.cps = min(cps),
+            min_conc = Expected_Conc_ppm[which.min(cps)],
+            max.cps = max(cps),
+            max_conc = Expected_Conc_ppm[which.max(cps)])
+
+
+# P Standards 
+P_std_range <-P_stds%>%
+  group_by(Element)%>%
+  summarise(min.cps = min(cps),
+            min_conc = Expected_Conc_ppm[which.min(cps)],
+            max.cps = max(cps),
+            max_conc = Expected_Conc_ppm[which.max(cps)])
+
+
+
+#check that samples are all within range of standards
+
+## M 
+
+M.dat.cps <- dat.cps %>%
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))%>%
+  filter(str_detect(Sample.Id,"TMP_"))%>%
+  filter(!str_detect(Sample.Id, "_spk"))%>%
+    mutate(rep = row_number())%>%
+  pivot_longer(cols = contains("(cps)"),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)%>%
+  mutate(Element = str_remove(Element,fixed(".(cps)")))%>%
+  left_join(M_std_range, by = "Element")%>%
+  mutate(cps_flag = case_when(
+    cps < min.cps ~ "BELOW RANGE",
+    cps > max.cps ~ "ABOVE RANGE",
+    cps > min.cps & cps < max.cps ~ "IN RANGE"))%>%
+  select(-R,-Acquisition.Time,-QC.Status,-Dataset.File)
+
+p<-ggplot(M.dat.cps,aes(x=rep,y=cps))+
+  facet_wrap(~Element,scales="free")+
+  geom_bar(stat = "identity", position = "dodge",aes(fill = cps_flag))+
+  scale_fill_manual(values = c("BELOW RANGE" = "darkred",
+                               "ABOVE RANGE" = "firebrick2",
+                               "IN RANGE" = "darkgreen"))+
+  geom_hline(data=M_std_range, aes(yintercept = min.cps), linetype="dashed", color = "black", linewidth=1)+
+    geom_hline(data=M_std_range %>% 
+                 filter(str_detect(Element, "Ca|K|Mg|Na" )), 
+               aes(yintercept = max.cps), 
+               linetype="dashed", 
+               color = "black", 
+               linewidth=1)+
+  labs(caption = "Dashed lines = Minimum and maximum counts of standard curve \n\nIf no upper limit, values were much lower than highest standard",
+       title = "Metals")
+
+
+print(p)
+  
+
+#P
+
+P.dat.cps <- dat.cps %>%
+  select(-contains("(IS)"))%>%
+  select(Sample.Id, Method.File,     `P.178.221.(cps)`,`P.213.617.(cps)`,`S.axial.(cps)`,`S.radial.(cps)`,`Si.axial.(cps)`)%>%
+  #only include samples
+  filter(str_detect(Sample.Id,"TMP_"))%>%
+  #remove spike
+  filter(!str_detect(Sample.Id, "_spk"))%>%
+    mutate(rep = row_number())%>%
+  pivot_longer(cols = contains("(cps)"),
+    names_to = "Element",
+    values_to = "cps",
+    values_drop_na = TRUE)%>%
+  mutate(Element = str_remove(Element,fixed(".(cps)")))%>%
+  left_join(P_std_range, by = "Element")%>%
+  mutate(cps_flag = case_when(
+    cps < min.cps ~ "BELOW RANGE",
+    cps > max.cps ~ "ABOVE RANGE",
+    cps > min.cps & cps < max.cps ~ "IN RANGE"))
+
+p<-ggplot(P.dat.cps,aes(x=rep,y=cps))+
+  facet_wrap(~Element,scales="free")+
+  geom_bar(stat = "identity", position = "dodge",aes(fill = cps_flag))+
+  scale_fill_manual(values = c("BELOW RANGE" = "darkred",
+                               "ABOVE RANGE" = "firebrick2",
+                               "IN RANGE" = "darkgreen"))+
+  geom_hline(data=P_std_range, aes(yintercept = min.cps), linetype="dashed", color = "black", linewidth=1)+
+    geom_hline(data=P_std_range %>%
+                 filter(!Element == "P.213.617",!Element =="Si.axial"), 
+               aes(yintercept = max.cps), 
+               linetype="dashed", 
+               color = "black", 
+               linewidth=1)+
+  labs(caption = "Dashed lines = Minimum and maximum counts of standard curve \n\nIf no upper limit, values were much lower than highest standard",
+       title = "P, S, and Si")
+
+
+print(p)
+
+
+
+
+
+
+
+
+
+
+
+cps_percent <- rbind(M.dat.cps,P.dat.cps)%>%
+  group_by(Element)%>%
+  summarise(Pass_percent = round(mean(cps_flag == "IN RANGE")*100,1))%>%
+  mutate(range_flag = ifelse(Pass_percent>80,"PASS","FAIL"))%>%
+  select(Element,Pass_percent,range_flag)
+
+
+
+
+cps_percent%>%
+  mutate(Element=cell_spec(Element,color =ifelse(Pass_percent< 80,"red","black")))%>%
+  kbl(caption = "Red elements had <80% of samples within range of standard curve",
+      escape= FALSE)%>%
+  kable_styling()
+
+
+
+
+```
+
+```{r, include = FALSE}
+#just Fe 
+
+Fe.dat.cps <- M.dat.cps %>%
+  filter(Element == "Fe.axial")%>%
+  filter(str_detect(Sample.Id,"TMP_"))%>%
+  filter(!str_detect(Sample.Id,"Spike|_spk"))%>%
+  mutate(rep = row_number())%>%
+  mutate(Element = str_remove(Element,fixed(".(cps)")))%>%
+  mutate(Fe_flag = case_when(
+    cps < min.cps ~ "BELOW RANGE",
+    cps > max.cps ~ "ABOVE RANGE",
+    ## cps of 0.01 ppm Fe standard
+    cps > min.cps & cps < 361.1 ~ "QUESTIONABLE",
+    cps > 361.1 & cps < max.cps ~ "IN RANGE"))
+
+
+p <- Fe.dat.cps%>%
+  ggplot(aes(x=rep,y=cps))+
+  facet_wrap(~Element,scales="free")+
+  geom_bar(stat = "identity", position = "dodge",aes(fill = Fe_flag))+
+  scale_fill_manual(values = c("BELOW RANGE" = "darkred",
+                               "ABOVE RANGE" = "firebrick2",
+                               "IN RANGE" = "darkgreen",
+                               "QUESTIONABLE" = "goldenrod2"))+
+  geom_hline(yintercept=361.1, linetype = "dashed",color ='black',linewidth = 1)
+
+print(p)
+  
+```
+
+
+
+## Concentrations
+```{r,include=FALSE}
+dat<-read.xlsx("20260415_AM_TMP_PW_Results.xlsx", sheet =  "Conc. in Calib Units", startRow = 24)
+
+dat <- dat %>% 
+  select(-1)
+```
+
+
+## Asses Metal Check Standards 
+```{r,echo=FALSE, warning = FALSE,results='asis'}
+
+# Pull out M check standards
+M_chks_raw <- dat %>%
+  filter(str_detect(Sample.Id,"M "))
+
+# Remove percentage values and any S/P/Si stds
+M_chks_raw <- M_chks_raw %>% 
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))%>%
+  
+  # ADD EXPECTED CONCENTRAITON
+  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  mutate(rep = row_number())
+
+
+# CALCULATE PERCENT ERROR 
+ 
+M_chks_pe<- M_chks_raw %>%
+  select(rep, Curve, Expected_Conc_ppm,contains("mg/L)"))%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #CONCENTRATION OF SR IS LOWER THAN OTHER ELEMENTS
+  mutate(Expected_Conc_ppm = if_else(str_detect(Element,"Sr"),Expected_Conc_ppm/10,Expected_Conc_ppm))%>%
+  mutate(percent_error = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(M_chks_flag = case_when(
+    abs(percent_error) <=10 ~ "PASS",
+    abs(percent_error)>10 & abs(percent_error)<=15 ~ "OKAY",
+    abs(percent_error)>15 ~ "FAIL"
+  ))
+
+#data frame of expected concentrations for hline on graph
+#necessary because Sr has a different expected concentrations from other elements
+hline_dat<-data.frame(
+  Element = M_chks_pe$Element,
+  intercept_value = M_chks_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(M_chks_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=M_chks_flag))+
+  scale_fill_manual(values = c("FAIL" = "darkred", 
+                               "OKAY" = "goldenrod2",
+                               "PASS" = "chartreuse4"),
+                    labels = c(">15 %",
+                               "<15 %",
+                               "<10 %"),
+                    name = "% error")+
+  labs(x="",y="Concentration (mg/L)")+
+  ggtitle("Metal Check Standards")
+
+print(p)
+
+
+chks_percent <- M_chks_pe%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(Fail_percent =mean(abs(percent_error)>15)*100,
+            Pass_percent = 100 - Fail_percent,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))
+ 
+
+
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF CHECK STANDARDS WITHIN 15% OF EXPECTED CONCENTRATION - REASSESS** \n\n")
+
+
+chks_percent %>%
+  filter(PE_flag == "FAIL")%>%
+  select(Element)%>%
+  kbl()%>%
+  kable_styling()
+
+
+```
+
+## Assess P, S, and Si Check Standards
+```{r,echo=FALSE, warning = FALSE,results='asis'}
+# Pull out M check standards
+P_chks_raw <- dat %>%
+  filter(str_detect(Sample.Id,"P "))
+
+# Remove percentage values and any M stds
+P_chks_raw <- P_chks_raw %>% 
+  select(1:6, `P.178.221.(mg/L)`,`P.213.617.(mg/L)`,`S.radial.(mg/L)`,`S.axial.(mg/L)`,`Si.axial.(mg/L)` )%>%
+  
+  # ADD EXPECTED CONCENTRAITON
+  separate_wider_delim(Sample.Id,names = c("Curve","Expected_Conc_ppm"),delim = " ",
+                       too_many = "merge")%>%
+  mutate(Expected_Conc_ppm = if_else(str_detect(Expected_Conc_ppm,"Blank"),0,as.numeric(Expected_Conc_ppm)))%>%
+  mutate(rep = row_number())
+
+
+# CALCULATE PERCENT ERROR 
+ 
+P_chks_pe<- P_chks_raw %>%
+  select(rep, Curve, Expected_Conc_ppm,contains("mg/L)"))%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #PERCENT ERROR CALCULATIONS
+  mutate(percent_error = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(P_chks_flag = case_when(
+    abs(percent_error) <=10 ~ "PASS",
+    abs(percent_error)>10 & abs(percent_error)<=15 ~ "OKAY",
+    abs(percent_error)>15 ~ "FAIL"
+  ))
+
+#data frame of expected concentrations for hline on graph
+#necessary because Sr has a different expected concentrations from other elements
+hline_dat<-data.frame(
+  Element = P_chks_pe$Element,
+  intercept_value = P_chks_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(P_chks_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=P_chks_flag))+
+  scale_fill_manual(values = c("FAIL" = "darkred", 
+                               "OKAY" = "goldenrod2",
+                               "PASS" = "chartreuse4"),
+                    labels = c(">15 %",
+                               "<15 %",
+                               "<10 %"),
+                    name = "% error")+
+  labs(x="",y="Concentration (mg/L)")+
+  ggtitle("P, S, Si Check Standards")
+
+print(p)
+
+
+P_chks_percent <- P_chks_pe%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(Fail_percent =mean(abs(percent_error)>15)*100,
+            Pass_percent = 100 - Fail_percent,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(PE_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))
+ 
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF CHECK STANDARDS WITHIN 15% OF EXPECTED CONCENTRATION - REASSESS** \n\n")
+
+P_chks_percent %>%
+  filter(PE_flag == "FAIL")%>%
+  select(Element)%>%
+  kbl()%>%
+  kable_styling()
+
+
+
+```
+
+## Check Internal Standards
+```{r,echo=FALSE, warning = FALSE,results='asis'}
+IS_stds<- dat %>%
+  select(1:6, contains("(IS"))%>%
+   mutate(rep = row_number())%>%
+  pivot_longer(cols = contains("(IS)"),
+    names_to = "Element",
+    values_to = "Percent",
+    values_drop_na = TRUE)%>%
+  mutate(IS_flag = case_when(
+    Percent > 110 | Percent < 90 ~ "FAIL",
+    Percent < 110 & Percent > 90 ~ "PASS"
+  ))
+
+
+p_IS<-ggplot(IS_stds, aes(x=rep,y=Percent))+
+  geom_hline(yintercept = 100, color = 'black',linetype='dashed')+
+  geom_line()+
+  geom_point(aes(color=IS_flag))+
+  facet_wrap(~Element)+
+  scale_color_manual(values = c("PASS" = "chartreuse4", "FAIL" = "darkred"),
+                    name = "% error < 10%")+
+  coord_cartesian(ylim=c(80,120))
+
+print(p_IS)
+
+
+
+
+
+cat("\n\n",paste(IS_stds%>%
+  summarise(Pass_percent = mean(IS_flag=="PASS")*100), "% of Internal Standards measurements are within 10% of 100"))
+
+
+
+```
+
+
+
+## Additional Checks 
+
+### NIST 1643f and Multi-elemental standard (QCS) are used as additional checks with a 10x dilution 
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10,results='asis'}
+DF_chks<-10 # dilution factor 
+
+#Make data frame of expected values for each additional check
+
+##QCS - Multi-elemental standard
+QCS<- data.frame(
+  Element = c("Al", "B","Ca","Fe","K","Mg","Mn","Na","P","S","Si","Sr","Zn"),
+  Expected_Conc_ppm = c(99.8, 49, 98.9,99.9,49.78,99.0,10.03,101.1,49.50,99.1,99.1,9.92,50.3)
+)
+
+QCS<-QCS%>%
+  #Account for dilution factor (10)
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF_chks )
+
+
+#Pull out check samples 
+QCS_dat<-dat%>%
+  filter(str_detect(Sample.Id,"QCS"))%>%
+  #remove internal standards
+  select(-contains("(IS)"))%>%
+  mutate(rep=row_number())%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #MERGE WITH DATA FRAME OF EXPECTED VALUES
+  separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
+  left_join(QCS, by= "Element")%>%
+  unite("Element",Element,Measurement.type,Units,sep=".")
+
+QCS_pe<-QCS_dat%>%
+  mutate(QCS_pe = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(QCS_flag = case_when(
+    abs(QCS_pe)>15 ~ "FAIL",
+    abs(QCS_pe)<=10 ~ "PASS",
+    abs(QCS_pe)>10 & abs(QCS_pe)<=15 ~ "OKAY"
+  ))
+
+
+hline_dat<-data.frame(
+  Element = QCS_pe$Element,
+  intercept_value = QCS_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(QCS_pe, aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat, aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity", position = position_dodge(),aes(fill=QCS_flag))+
+  scale_fill_manual(values = c("FAIL" = "darkred", 
+                               "OKAY" = "goldenrod2",
+                               "PASS" = "chartreuse4"),
+                    labels = c(">15 %",
+                               "<15 %",
+                               "<10 %"),
+                    name = "% error")+
+  labs(x="",y="Concentration (mg/L)")+
+  ggtitle("QCS Multi-elemental Standard (1:10) check")
+
+print(p)
+
+
+QCS_percent <- QCS_pe%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(percenterror_mean = mean(abs(QCS_pe)),
+            Fail_percent = mean(abs(QCS_pe)>15)*100,
+            Pass_percent = 100 - Fail_percent,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(QCS_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))
+ 
+
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF CHECK STANDARDS WITHIN 15% OF EXPECTED CONCENTRATION - REASSESS**")
+
+
+QCS_percent %>%
+  filter(QCS_flag == "FAIL")%>%
+  select(Element,percenterror_mean)%>%
+  mutate(percenterror_mean =round(percenterror_mean,digits = 2))%>%
+  rename("Avg % Error"=percenterror_mean)%>%
+  kbl()%>%
+  kable_styling()
+  
+
+```
+
+
+
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10,results='asis'}
+##NIST 1643f 
+NIST<-data.frame(
+  Element = c("Al", "B","Ca","Fe","K","Mg","Mn","Na","Sr","Zn"),
+  Expected_Conc_ug.L = c(133.8,152.3,29430,93.44,1932.6,7454,37.14,18830,314,74.4)
+)
+
+NIST<-NIST %>%
+  #convert to ppm (mg/L)
+  group_by(Element)%>%
+  summarise(Expected_Conc_ppm = Expected_Conc_ug.L/1000)%>%
+  #account for dilution factor (10)
+  mutate(Expected_Conc_ppm = Expected_Conc_ppm/DF_chks)
+  
+
+NIST_dat<-dat%>%
+  filter(str_detect(Sample.Id,"NIST"))%>%
+  #remove internal standards
+  select(-contains("(IS)"))%>%
+  mutate(rep=row_number())%>%
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #MERGE WITH DATA FRAME OF EXPECTED VALUES
+  separate_wider_delim(Element,delim =".",names = c("Element","Measurement.type","Units"),too_many = "merge")%>%
+  left_join(NIST, by= "Element")%>%
+  unite("Element",Element,Measurement.type,Units,sep=".")
+
+NIST_pe<-NIST_dat%>%
+  filter(!is.na(Expected_Conc_ppm))%>%
+  mutate(NIST_pe = calc_percent_error(ppm,Expected_Conc_ppm))%>%
+  mutate(NIST_flag = case_when(
+    abs(NIST_pe)>15 ~ "FAIL",
+    abs(NIST_pe)<=10 ~ "PASS",
+    abs(NIST_pe)>10 & abs(NIST_pe)<=15 ~ "OKAY"
+  ))
+
+
+hline_dat<-data.frame(
+  Element = NIST_pe$Element,
+  intercept_value = NIST_pe$Expected_Conc_ppm
+)
+
+  
+p<-ggplot(NIST_pe,aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y",drop=TRUE)+
+  #dashed line for expected concentration
+  geom_hline(data=hline_dat,aes(yintercept = intercept_value), linetype="dashed", color = "black", linewidth=1) + 
+  geom_bar(stat = "identity",aes(fill=NIST_flag))+
+  scale_fill_manual(values = c("FAIL" = "darkred", 
+                               "OKAY" = "goldenrod2",
+                               "PASS" = "chartreuse4"),
+                    labels = c(">15 %",
+                               "<15 %",
+                               "<10 %"),
+                    name = "% error")+
+  labs(x="",y="Concentration (mg/L)",title = "NIST 1643f Checks")
+
+
+print(p)
+
+
+NIST_percent <- NIST_pe%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(percenterror_mean = mean(abs(NIST_pe)),
+    Fail_percent = mean(abs(NIST_pe)>15)*100,
+    Pass_percent = 100 - Fail_percent,
+            RSD = (abs(sd(ppm))/mean(ppm))*100)%>%
+  mutate(NIST_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))
+ 
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF NIST CHECKS WITHIN 15% OF EXPECTED CONCENTRATION - REASSESS**")
+
+
+NIST_percent %>%
+  filter(NIST_flag == "FAIL")%>%
+  select(Element,percenterror_mean)%>%
+  mutate(percenterror_mean =round(percenterror_mean,digits = 2))%>%
+  rename("Avg % Error"=percenterror_mean)%>%
+  kbl()%>%
+  kable_styling()
+  
+
+```
+
+### Duplicate samples 
+
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10,results='asis'}
+setwd("C:/Users/amontg35/OneDrive - Arizona State University/Data/TEMPEST/Porewater/00_Metadata")
+
+
+#import DF of samples and other info 
+sample_list<-read.xlsx("TEMPEST_ICP_List2.xlsx",sheet="20260415")%>%
+  rename(Sample.Id = Sample.ID)
+  
+
+#combine with sample concentrations 
+dat2<-left_join(dat,sample_list,by="Sample.Id")%>%
+  #FIX SAMPLE IDs ON DUPES AND MISSING SAMPLES 
+  #CORRECT IDs are in Notes column
+  mutate(Sample.Id = if_else(is.na(Notes),Sample.Id,Notes))
+
+
+#pull out dupes
+dups<-dat2%>%
+  filter(str_detect(Sample.Id,"_dup"))%>%
+  select(!contains("(IS)"))%>%
+  #REMOVE _DUP FROM SAMPLE IDS
+  mutate(Sample.Id = gsub("_dup","",Sample.Id),
+         rep = row_number())%>%
+  #CALCULATE CONCENTRATIONS WITH DILUTION FACTOR
+  mutate(across(contains("(mg/L"), ~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm_dup",
+    values_drop_na = TRUE)
+
+
+#remove dupes from dat2
+dups_conc<-dat2%>%
+  filter(!str_detect(Sample.Id,"_dup|_spk"))%>%
+  select(!contains("(IS)"))%>%
+  #ACCOUNT FOR DILUTION FACTOR IN CONCENTRATION
+  mutate(across(contains("(mg/L)"),~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  #Combine with duplicate samples 
+  right_join(dups,by=c("Sample.Id","Element"))%>%
+  #calculate percent difference
+  mutate(dup_percentdiff = calc_percent_diff(ppm_dup,ppm))
+
+
+
+p<-dups_conc%>%
+  pivot_longer(cols = contains("ppm"),
+    names_to = "Type",
+    values_to = "ppm",
+    values_drop_na = TRUE)%>%
+  ggplot(aes(x=rep,y=ppm))+
+  facet_wrap(~Element,scales = "free_y")+
+  geom_bar(stat="identity",position = "dodge",aes(fill=Type))+
+  scale_fill_manual(values = c("ppm" = "#6c91c2", "ppm_dup" = "#ff934f"),
+                    name = " ",
+                    labels = c("Original","Duplicate"))+
+  labs(x="",y="Concentration (mg/L)",title = "Duplicate Samples")
+
+
+
+print(p)
+
+
+dup_percent <- dups_conc%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(percentdiff_mean = mean(abs(dup_percentdiff)),
+            Fail_percent = mean(abs(dup_percentdiff)>15)*100,
+            Pass_percent = 100 - Fail_percent)%>%
+  mutate(dup_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"))%>%
+  arrange(dup_flag)
+ 
+
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF DUPLICATE SAMPLES WITHIN 15% OF SAMPLE CONCENTRATION - REASSESS**")
+
+
+dup_percent %>%
+  filter(dup_flag == "FAIL")%>%
+  select(Element,percentdiff_mean)%>%
+  mutate(percentdiff_mean =round(percentdiff_mean,digits = 2))%>%
+  rename("Avg % Difference"=percentdiff_mean)%>%
+  kbl()%>%
+  kable_styling()
+  
+  
+
+
+```
+
+### Sample Spikes
+
+*Samples spiked with 0.2 mL of LFB (M10)*
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10,results='asis'}
+#pull out LFB used for sample spike
+# only metals
+
+spk.mL <-0.2
+total.mL <-7
+spk.ppm <-10
+
+
+LFB<-dat2 %>%
+  filter(Sample.Id == "LFB")%>%
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))%>%
+  #CALCULATE LFB CONCENTRATION *NO DF* 
+  summarise(across(contains("(mg/L)"),mean))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm_LFB",
+    values_drop_na = TRUE)%>%
+  #EXPECTED CONCENTRAITONS BASED ON LFB CONCENTRATION 
+  mutate(expected_conc_LFB = (spk.mL * ppm_LFB)/total.mL)
+
+
+
+#pull out spikes
+spks<-dat2%>%
+  filter(str_detect(Sample.Id,"_spk"))%>%
+  select(-contains("(IS)"), -contains("S."), -contains("P."), -contains("Si."))%>%
+  #REMOVE _spk FROM SAMPLE IDS
+  mutate(Sample.Id = gsub("_spk","",Sample.Id),
+         rep = row_number())%>%
+  #CALCULATE CONCENTRATIONS WITH DILUTION FACTOR
+  mutate(across(contains("(mg/L"), ~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm_spk",
+    values_drop_na = TRUE)
+
+
+#remove dupes from dat2
+spk_conc<-dat2%>%
+  filter(!str_detect(Sample.Id,"_dup|_spk"))%>%
+  select(!contains("(IS)"))%>%
+  #ACCOUNT FOR DILUTION FACTOR IN CONCENTRATION
+  mutate(across(contains("(mg/L)"),~ .x * DF))%>%
+  #pivot longer to make calculations and plotting easier
+  pivot_longer(cols = contains("(mg/L)"),
+    names_to = "Element",
+    values_to = "ppm", #SAMPLE CONCENTRATION
+    values_drop_na = TRUE)%>%
+  #Combine with duplicate samples 
+  right_join(spks,by=c("Sample.Id","Element"))%>%
+  #Combine with mean LFB values
+  left_join(LFB,by=c("Element"))%>%
+  #PERCENT RECOVERY OF SPIKE
+  mutate(spk_recovery = ((ppm_spk-ppm)/ppm_LFB)*100)%>%
+  #ADD FLAGS 
+  mutate(flag = case_when(
+    spk_recovery < 80 | spk_recovery > 120 ~ "FAIL",
+    spk_recovery > 80 & spk_recovery < 90 ~ "OKAY",
+    spk_recovery <= 120 & spk_recovery > 110 ~ "OKAY",
+    spk_recovery >= 90 & spk_recovery <= 110 ~ "PASS"
+  ))
+
+
+
+
+
+p<-spk_conc%>%
+  ggplot(aes(x=rep,y=spk_recovery))+
+  geom_hline(yintercept = c(80,120),color='black',linetype='dashed',linewidth=1)+
+  facet_wrap(~Element,scales = "free_y")+
+  geom_bar(stat="identity",position = "dodge",aes(fill=flag))+
+  scale_fill_manual(values = c("FAIL" = "darkred", 
+                               "OKAY" = "goldenrod2",
+                               "PASS" = "chartreuse4"),
+                    name = "% recovery")+
+  labs(x="",y="Recovery (%)",title = "Spiked Samples")
+
+
+
+print(p)
+
+
+
+spk_percent <- spk_conc%>%
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  group_by(Element)%>%
+  summarise(percentrecovery_mean = mean(abs(spk_recovery)),
+            Fail_percent = mean(flag == "FAIL")*100,
+            Pass_percent = 100 - Fail_percent,
+            RSD = (abs(sd(ppm_spk))/mean(ppm_spk))*100)%>%
+  mutate(spk_flag = ifelse(Pass_percent >= 80,"PASS","FAIL"),
+         RSD_flag = ifelse(RSD<=15,"PASS","FAIL"))
+ 
+
+
+
+
+
+cat("\n\n**LIST OF ELEMENTS WITH <80% OF SPIKED SAMPLES WITH 100 (+/- 20%) PERCENT RECOVERY - REASSESS**")
+
+
+spk_percent %>%
+  filter(spk_flag == "FAIL")%>%
+  select(Element,percentrecovery_mean)%>%
+  mutate(percentrecovery_mean =round(percentrecovery_mean,digits = 2))%>%
+  rename("Avg % Recovery"=percentrecovery_mean)%>%
+  kbl()%>%
+  kable_styling()
+  
+
+
+
+```
+
+# **Summary of QA/QC Results**
+
+ *Red elements did not pass QA/QC Checks*
+
+```{r,echo=FALSE, warning = FALSE,fig.width=10,results='asis'}
+
+#check standards
+chk<-rbind(chks_percent,P_chks_percent)%>%
+  dplyr::select(Element,PE_flag)%>%
+  rename(chk_flag = PE_flag)%>%
+  #JOIN COUNT RANGE
+  left_join(cps_percent,by = "Element")%>%
+  #Join NIST
+  left_join(NIST_percent,by="Element")%>%
+  #JOIN QCS
+  left_join(QCS_percent,by="Element")%>%
+  #DUPLICATES
+  left_join(dup_percent,by="Element")%>%
+  #SPIKES
+  left_join(spk_percent,by="Element")%>%
+  dplyr::select(Element,range_flag,chk_flag,NIST_flag,QCS_flag,dup_flag,spk_flag)%>%
+  pivot_longer(cols = contains("flag"),
+    names_to = "Flag_Type",
+    values_to = "Flag",
+    values_drop_na = TRUE)%>%
+  mutate(Flag_Type = gsub("_flag","",Flag_Type))%>%
+  group_by(Element)%>%
+  #percent of checks for each element that PASS 
+  summarise(num_checks = n_distinct(Flag_Type),
+            Fail_percent = round(mean(Flag == "FAIL")*100),
+            Passed_checks = list(Flag_Type[Flag == "PASS"]),
+            Failed_checks = list(Flag_Type[Flag =="FAIL"]),
+            
+            #MUST PASS EITHER NIST OR QCS CHECK
+            QAQC = ifelse(str_detect(Passed_checks, "NIST|QCS") & str_detect(Passed_checks, "chk"),"PASS","FAIL"))
+  
+
+
+chk%>%
+  mutate(Element = cell_spec(Element,
+                  color=ifelse(QAQC == "FAIL","red","black"),
+                  bold =ifelse(QAQC == "FAIL",TRUE,FALSE)))%>%
+  rename("Fail (%)" = Fail_percent,
+         "Number of Checks" = num_checks)%>%
+  kbl(caption = "Element must pass either NIST or QCS checks AND check standards",
+      escape= FALSE)%>%
+  kable_styling()
+
+
+
+```
+
+# Sample Processing Steps
+
+1. Sample concentrations were compared to blank concentrations. If sample concentration < blank concentration, then the sample concentration was set to zero. 
+2. Dilution factor was applied to each sample. In most cases, DF=5
+3. Flags added to elments that had a poor standard curve. 
+4. Elements that did not pass QAQC were removed from the dataset 
+5. Removed samples that had low internal standards (<90%)
+6. Column added to data listing elements that did not pass QAQC
+7. Data exported to .csv
+
+
+
+```{r,include = FALSE}
+# Establish Detection Limits
+
+blank.dat <- dat2%>%
+  filter(str_detect(Sample.Id, "MB"))%>%
+  #average of blanks for all elements
+  summarise(across(contains("(mg/L)"), ~mean(.x)))%>%
+  #set any negative values to zero
+  mutate(across(contains("(mg/L)"), ~ ifelse(.x > 0, .x, 0)))%>%
+  pivot_longer(cols = contains(c("(mg/L)","(IS)")),
+    names_to = "Element",
+    values_to = "ppm_blank", #SAMPLE CONCENTRATION
+    values_drop_na = TRUE)
+  
+
+
+
+```
+
+
+
+
+```{r,include=FALSE}
+
+sample.dat <- dat2 %>%
+  #filter out samples
+  filter(str_detect(Sample.Id,"TMP"))%>%
+  
+    #remove spikes and duplicate samples
+  filter(!str_detect(Sample.Id,"spk|dup"))%>%
+  
+   #data manipulation
+  pivot_longer(cols = contains(c("(mg/L)","(IS)")),
+    names_to = "Element",
+    values_to = "ppm", #SAMPLE CONCENTRATION
+    values_drop_na = TRUE)%>%
+  #join with blanks
+  left_join(blank.dat,by = "Element",multiple = "all")%>%
+
+  #Flag samples/elements that were lower than blank averages
+  mutate(bdl_Flag = ifelse(ppm < ppm_blank,"bdl",NA), 
+         #all samples bdl = 0 
+         ppm = ifelse(str_detect(Element,"(mg/L)")&ppm < ppm_blank, 0 , ppm),
+         #apply dilution factor
+         
+         ppm = ifelse(str_detect(Element,"(mg/L)"),ppm*DF,ppm))%>%
+  
+    # remove mg.L part of Element names
+  mutate(Element = str_remove(Element,fixed(".(mg/L)")))%>%
+  #remove unnecessary columns 
+  select(-c(R:Method.File,X1:`Total.Volume.(mL)`,spk.vol))%>%
+  
+ 
+  mutate(Element = str_replace(Element,fixed(".(IS).(%)"),".percent"))%>%
+  left_join(stds_curve,by = "Element")%>%
+  left_join(chk,by= "Element")%>%
+  
+  
+  #ADD FLAGS TO DATA
+  mutate(R2_Flag =if_else(R2 < 0.999, "Data not reliable",NA))%>%
+  
+    #FILTER OUT ELEMENTS THAT DID NOT PASS QAQC
+  filter((str_detect(Element,".percent")) | is.na(R2_Flag) & QAQC=="PASS")%>%
+  
+  #more data manipulation
+  select(-c(Notes,slope:Failed_checks))%>%
+  pivot_wider(names_from = Element,values_from = c(ppm,R2_Flag,QAQC,ppm_blank,bdl_Flag),names_vary = "slowest")%>%
+
+  
+  #INTERNAL STANDARDS FLAG
+  mutate(Flag_Sc.axial.percent = if_else(ppm_Sc.axial.percent < 90, "Internal Standard Low", NA),
+         Flag_Y.radial.percent = if_else(ppm_Y.radial.percent < 90, "Internal Standard Low",NA),
+         Flag_Ga.radial.percent = if_else(ppm_Ga.radial.percent < 90, "Internal Standard Low", NA))%>%
+  rename(Sc.axial.percent = ppm_Sc.axial.percent,
+         Y.radial.percent = ppm_Y.radial.percent,
+         Ga.radial.percent = ppm_Ga.radial.percent)%>%
+  
+  #FILTER OUT SAMPLES WHEN INTERNAL STANDARDS IS BAD
+  filter(is.na(Flag_Sc.axial.percent),
+         is.na(Flag_Y.radial.percent),
+         is.na(Flag_Ga.radial.percent))
+
+
+#Make column of elements that did not pass QAQC
+sample.dat$bad_elements <- list(chk$Element[chk$QAQC=="FAIL"])
+
+
+
+# only important columns
+dat.clean <- sample.dat%>%
+  select(Sample.Id,starts_with("ppm_"),DF,bad_elements)%>%
+  #remove blank columns
+  select(-contains("_blank_"))%>%
+  separate_wider_delim(Sample.Id,cols_remove = FALSE,names = c("Project","Treatment","Grid","Collection_Date","Collection_Time"),delim = "_",too_few = "align_start")%>%
+  mutate(bad_elements = map_chr(bad_elements, paste, collapse = ", "),
+         Collection_Date = as.Date(Collection_Date, format = "%Y%m%d" ))%>%
+  #ADD RUN DATE AS COLUMN
+  mutate(Run.Date = run_date)
+
+
+#Export
+
+write.csv(dat.clean,file = "C:/Users/amontg35/OneDrive - Arizona State University/Data/TEMPEST/Porewater/02_CleanMicroplateData/TMP_20260415_ICP_Clean.csv")
+
+
+```
+
+
+# Preliminary Plot of Data
+
+
+```{r,echo = FALSE, message = FALSE, warning = FALSE,results='asis'}
+
+
+p<-dat.clean%>%
+  pivot_longer(cols = contains(c("ppm")),
+    names_to = "Element",
+    values_to = "ppm", #SAMPLE CONCENTRATION
+    values_drop_na = TRUE)%>%
+    ggplot(aes(x=Collection_Date,y=ppm))+
+  geom_point(position = position_dodge(1),aes(color = Treatment))+
+  facet_wrap(~Element,scales = "free_y")+
+  theme(axis.text.x = element_text(angle = 45,hjust =1))+
+    scale_color_manual(values = c("#00AC52",
+                               '#00EEEE',
+                               "#BC105E"),
+                      labels=c("Control",
+                               "Freshwater",
+                               "Saltwater"))
+
+
+print(p)
+
+
+```
+
+
+

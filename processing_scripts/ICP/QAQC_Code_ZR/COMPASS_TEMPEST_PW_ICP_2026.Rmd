@@ -13,6 +13,7 @@ output_dir: "To Be Reviewed/PDF"
 \newpage
 
 ##Add Required Packages
+
 ```{r packages, include=FALSE}
 
 library(openxlsx)
@@ -23,7 +24,8 @@ library(stringr)
 
 ```
 
-## Import and QAQC Metal Standards 
+## Import and QAQC Metal Standards
+
 ```{r Import and QAQC Metal Standards, echo = FALSE, message = FALSE, warning = FALSE}
 
 ## Read in raw data file from ICP - copied and saved as an excel
@@ -121,7 +123,8 @@ print(M_stds_coeff)
 
 ```
 
-## Import and QAQC S/P/Si Standards 
+## Import and QAQC S/P/Si Standards
+
 ```{r Import and QAQC S/P/Si Standards, echo = FALSE, message = FALSE, warning = FALSE}
 
 ## Read in raw data file from ICP - copied and saved as an excel
@@ -206,8 +209,8 @@ print(P_stds_coeff)
 
 ```
 
+##Import Sample Data
 
-##Import Sample Data 
 ```{r Import Sample Data, include=FALSE}
 
 dat <- read.xlsx("Raw Data/20260422_AM_TMP_PW_Results.xlsx", sheet = "Conc. in Calib Units", startRow = 26)
@@ -217,7 +220,8 @@ dat <- dat %>%
 
 ```
 
-## Assess Metal Check Standards 
+## Assess Metal Check Standards
+
 ```{r Check Metal Standards, echo=FALSE, warning = FALSE}
 
 #one point on each of our P and M calibration curve
@@ -292,8 +296,8 @@ for(i in 7:19) {
 
 ```
 
+## Assess S/P/Si Check Standards
 
-## Assess S/P/Si Check Standards 
 ```{r Check S/P/Si Standards, echo=FALSE, warning = FALSE}
 
 #one point on each of our P and M calibration curve
@@ -368,6 +372,3 @@ for(i in 2:7) {
 #write out a flag to the sample dataframe if less than 80% of the checks are within range of expected concentration? 
 
 ```
-
-
-
