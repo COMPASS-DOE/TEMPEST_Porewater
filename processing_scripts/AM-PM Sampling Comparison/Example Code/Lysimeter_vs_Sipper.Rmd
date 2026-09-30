@@ -1,0 +1,618 @@
+---
+title: "2022_Lysimeter_vs_Sipper"
+author: "Zoe Read"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+library(lubridate)
+```
+
+##Pull in 2022 Data
+```{r}
+
+##Lysimeter Data
+lys <- read.csv("../COMPASS_SynopticCB_AllData_AllYears.csv")
+lys_2022 <- lys %>% 
+  filter(str_detect(Sample_ID, "2022")) %>% 
+  mutate(Replicate = paste0("LYS", Lysimeter)) %>% 
+  select(-Lysimeter) %>% 
+  filter(Zone != "SW")
+colnames(lys_2022)
+
+##Sipper Data
+sip_2022 <- read.csv("COMPASS_SynopticCB_Sipper_Data.csv")
+colnames(sip_2022)
+
+all_2022 <- bind_rows(lys_2022, sip_2022)
+
+##Add labels for sampler types
+all_data_long <- all_2022 %>%  
+  mutate(Sampler = substring(Replicate, 1, 3),
+         Replicate = substring(Replicate, 4, nchar(Replicate))) %>%  
+  mutate(Depth_cm = as.character(Depth_cm), 
+         Month = as.character(Month))
+
+```
+
+
+
+##Boxplots SO4/Cl
+```{r}
+
+boxplot_SO4_all <- ggplot(all_data_long, aes(x = Depth_cm, y = SO4_ppm, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_grid(Zone ~ Site) +
+  labs(y = "SO4 (ppm)", fill = "Sampler", title = "Sulfate from all data") +
+  theme_bw()
+
+boxplot_SO4_all
+
+##Subset for only site and zone that overlap
+df_sub <- subset(all_data_long, Site == "GCW" & Zone == "WC")
+
+boxplot_SO4_GCW_WC <- ggplot(df_sub, aes(x = Depth_cm, y = SO4_ppm, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_grid(Zone ~ Site) +
+  labs(y = "SO4 (ppm)", fill = "Sampler", title = "Sulfate from GCW WC") +
+  theme_bw()
+
+boxplot_SO4_GCW_WC
+
+##Subset for only dates that overlap
+dates <- c("202206","202207", "202208") 
+df_sub <- all_data_long %>% 
+  filter(Site == "GCW" & Zone == "WC" & Month == "6" | Site == "GCW" & Zone == "WC" & Month == "7"| Site == "GCW" & Zone == "WC" & Month == "8")
+
+boxplot_Cl <- ggplot(df_sub, aes(x = Depth_cm, y = Cl_ppm, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_wrap(~ Month) +
+  labs(y = "Cl (ppm)", fill = "Sampler", title = "Chloride from GCW WC 2022 by Month") +
+  theme_bw()
+
+boxplot_Cl
+
+boxplot_SO4 <- ggplot(df_sub, aes(x = Depth_cm, y = SO4_ppm, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_wrap(~ Month) +
+  labs(y = "SO4 (ppm)", fill = "Sampler", title = "Sulfate from GCW WC 2022 by Month") +
+  theme_bw()
+
+boxplot_SO4
+
+##Average by sampler type at each depth
+df_avg <- df_sub %>% 
+  group_by(Sampler, Month, Depth_cm) %>% 
+  summarize(SO4_ppm_avg = mean(SO4_ppm, na.rm = TRUE), 
+            Cl_ppm_avg = mean(Cl_ppm, na.rm = TRUE))
+
+df_avg_lys <- df_avg %>% 
+  filter(Sampler == "LYS") %>%
+  rename_with(
+    .cols = c(4:(ncol(.))),
+    .fn = ~paste0("LYS_", .))  %>%
+  ungroup(Sampler)%>%
+  select(-Sampler)
+
+df_avg_sip <- df_avg %>% 
+  filter(Sampler == "SIP") %>%
+  rename_with(
+    .cols = c(4:(ncol(.))),
+    .fn = ~paste0("SIP_", .)) %>%
+  ungroup(Sampler) %>% 
+  select(-Sampler)
+
+df_avg1 <- df_avg_lys %>% 
+  left_join(df_avg_sip)
+
+##1:1 Plot
+so4_scatter_plot <- ggplot(df_avg1, aes(x = LYS_SO4_ppm_avg, y = SIP_SO4_ppm_avg, color = as.character(Month))) +
+  geom_point(size = 3) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  # coord_cartesian(xlim = combined_limits, ylim = combined_limits) +
+  coord_fixed(ratio = 1) + 
+  labs(
+    x = "Lysimeter SO4 (ppm)",
+    y = "Sipper SO4 (ppm)",
+    title = ""
+  ) + 
+  theme_classic()
+
+so4_scatter_plot
+
+cl_scatter_plot <- ggplot(df_avg1, aes(x = LYS_Cl_ppm_avg, y = SIP_Cl_ppm_avg, color = as.character(Month))) +
+  geom_point(size = 3) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  # coord_cartesian(xlim = combined_limits, ylim = combined_limits) +
+  coord_fixed(ratio = 1) + 
+  labs(
+    x = "Lysimeter Cl (ppm)",
+    y = "Sipper Cl (ppm)",
+    title = ""
+  ) + 
+  theme_classic()
+
+cl_scatter_plot
+```
+#Read in and collate all the files in the Processed Data folder 
+```{r}
+files <- list.files(path = "../Nutrients/Synoptic-CB/2022/Processed Data", pattern = "\\.csv$", full.names = TRUE)
+
+# 3. Read and combine all CSVs
+all_data <- files %>%
+  lapply(read.csv, colClasses = "character") %>%    # or read.csv if you prefer base R
+  bind_rows()             # combine into one data frame
+
+all_data <- all_data %>%
+  select("Date" ,"Site", "Zone" , "Replicate", "Depth", "Sample_Name",  "NH3_uM", "PO4_uM", "NOx_uM")
+
+colnames(all_data)
+
+all_data$NH3_uM <- as.numeric(all_data$NH3_uM)
+all_data$PO4_uM <- as.numeric(all_data$PO4_uM)
+all_data$NOx_uM <- as.numeric(all_data$NOx_uM)
+
+##Fix sample IDs
+all_data$Site <- gsub("GCerw", "GCW", all_data$Site)
+all_data$Site <- gsub("Gcrew", "GCW", all_data$Site)
+all_data$Site <- gsub("GCrew", "GCW", all_data$Site)
+
+##Add labels for sampler types
+all_data_long <- all_data %>%  
+  mutate(Sampler = substring(Replicate, 1, 3),
+         Replicate = substring(Replicate, 4, nchar(Replicate)))%>%  
+  filter(Sampler %in% c("Lys", "Sip"))
+
+```
+
+##Boxplots Nutrients
+```{r}
+
+boxplot_NH3_all <- ggplot(all_data_long, aes(x = Depth, y = NH3_uM, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_grid(Zone ~ Site) +
+  labs(y = "NH3_uM (uM)", fill = "Sampler", title = "NH3_uM from all data") +
+  theme_bw()
+
+boxplot_NH3_all
+
+##Subset for only site and zone that overlap
+df_sub <- subset(all_data_long, Site == "GCW" & Zone == "WC")
+
+boxplot_NH3_GCW_WC <- ggplot(df_sub, aes(x = Depth, y = NH3_uM, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_grid(Zone ~ Site + Date) +
+  labs(y = "NH3 (uM)", fill = "Sampler", title = "NH3_uM from GCW WC") +
+  theme_bw()
+
+boxplot_NH3_GCW_WC
+
+##Subset for only dates that overlap
+dates <- c("202206","202207", "202208") 
+df_sub <- subset(all_data_long, Site == "GCW" & Zone == "WC" & Date %in% dates)
+# str(df_sub)
+
+boxplot_NH3 <- ggplot(df_sub, aes(x = Depth, y = NH3_uM, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_wrap(~ Date) +
+  labs(y = "NH3 (uM)", fill = "Sampler", title = "NH3 from GCW WC 2022") +
+  theme_bw()
+
+boxplot_NH3
+
+boxplot_SO4 <- ggplot(df_sub, aes(x = Depth, y = SO4_ppm, fill = Sampler)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  facet_wrap(~ Date) +
+  labs(y = "SO4 (ppm)", fill = "Sampler", title = "Sulfate from GCW WC 2022") +
+  theme_bw()
+
+boxplot_SO4
+
+# Save as a PNG
+png("Lysimeter_vs_Sipper_Cl.png", width = 2000, height = 1200, res = 200) 
+print(boxplot_Cl)  # For ggplot objects, use print()
+dev.off() 
+
+# Save as a PNG
+png("Lysimeter_vs_Sipper_SO4.png", width = 2000, height = 1200, res = 200) 
+print(boxplot_SO4)  # For ggplot objects, use print()
+dev.off() 
+
+```
+
+
+
+## Plotting values against each other
+```{r Plotting values against each other, echo=FALSE, warning=FALSE}
+
+data_abbrev <- data_plotting %>% 
+  dplyr::select(Acid_state_1, FE_2_mean, FE_3_mean, FE_tot_mean, new_ID) %>% 
+  filter(Acid_state_1 != "No Acid")
+
+# head(data_abbrev)
+
+
+##Reshape Data
+df_long <- data_abbrev %>%
+  dplyr::select(new_ID, Acid_state_1, FE_2_mean, FE_3_mean, FE_tot_mean) %>%
+  pivot_longer(
+    cols = c(FE_2_mean, FE_3_mean, FE_tot_mean),
+    names_to = "Fe_type",
+    values_to = "value"
+  )
+
+df_wide <- df_long %>%
+  pivot_wider(
+    names_from = Acid_state_1,
+    values_from = value
+  )
+
+##Select only Total FE Data
+df_Fe_tot <- df_wide %>% 
+    filter(Fe_type == "FE_tot_mean")
+
+##Plot Total FE Data
+scatter_Fetot_plot <- ggplot(df_Fe_tot, aes(x = `Acidified in Field`, y = `Acidified Later in Lab`)) +
+  geom_point(size = 3) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  # coord_cartesian(xlim = combined_limits, ylim = combined_limits) +
+  coord_fixed(ratio = 1) + 
+  labs(
+    x = "Acidified in Field",
+    y = "Acidified Later in Lab",
+    title = "Total Fe Measurements"
+  ) + 
+  theme_classic()
+
+scatter_Fetot_plot
+
+
+##Select only TEMPEST Data
+df_TMP <- df_Fe_tot %>% 
+    filter(str_detect(new_ID, "TMP"))
+
+#Plot TEMPEST Fe Data: 
+scatter_Fe_plot_TMP <- ggplot(df_TMP, aes(x = `Acidified in Field`, y = `Acidified Later in Lab`)) +
+  geom_point(size = 3) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  # coord_cartesian(xlim = combined_limits, ylim = combined_limits) +
+  coord_fixed(ratio = 1) + 
+  labs(
+    x = "Acidified in Field",
+    y = "Acidified Later in Lab",
+    title = "TMP Total Fe Measurements"
+  ) + 
+  theme_classic()
+
+scatter_Fe_plot_TMP
+
+
+```
+
+
+####Still figuring these out####
+```{r}
+##Only Sip Samples
+all_data_sip <- all_data %>%  
+  filter(str_detect(Replicate, "Sip"))%>%  
+  rename(
+    Replicate_sip = Replicate, 
+    Sample_ID_sip = Sample_ID, 
+    SO4_ppm_sip = SO4_ppm, 
+    Cl_ppm_sip = Cl_ppm, 
+    SO4_mM_sip = SO4_mM, 
+    Cl_mM_sip = Cl_mM, 
+    salinity_sip = salinity
+  )%>%  
+  mutate(Replicate_sip = gsub("Sip", "", Replicate_sip))
+
+##Only Lys Samples
+all_data_lys <- all_data %>%  
+  filter(str_detect(Replicate, "Lys"))%>%  
+  rename(
+    Replicate_lys = Replicate, 
+    Sample_ID_lys = Sample_ID, 
+    SO4_ppm_lys = SO4_ppm, 
+    Cl_ppm_lys = Cl_ppm, 
+    SO4_mM_lys = SO4_mM, 
+    Cl_mM_lys = Cl_mM, 
+    salinity_lys = salinity
+  )%>%  
+  mutate(Replicate_lys = gsub("Lys", "", Replicate_lys))
+
+##Merge Datasets by Date, Site, Depth, and Zone
+all_data_combined <- merge(all_data_lys, all_data_sip, by = c("Date", "Site", "Depth", "Zone"))
+```
+
+
+```{r}
+##Metrics for each site, zone, depth for each year
+summary_by_year_sip <- all_data_sip %>%
+  group_by(Date, Site, Zone, Depth) %>%
+   reframe(
+     min_Cl_mM  = min(Cl_mM_sip , na.rm=TRUE),
+     max_Cl_mM  = max(Cl_mM_sip , na.rm=TRUE), 
+     mean_Cl_mM  = mean(Cl_mM_sip , na.rm=TRUE), 
+     sd_Cl_mM  = sd(Cl_mM_sip , na.rm=TRUE), 
+
+     min_SO4_mM  = min(SO4_mM_sip , na.rm=TRUE),
+     max_SO4_mM  = max(SO4_mM_sip , na.rm=TRUE), 
+     mean_SO4_mM  = mean(SO4_mM_sip , na.rm=TRUE), 
+     sd_SO4_mM  = sd(SO4_mM_sip , na.rm=TRUE)) %>%
+  mutate(across(where(is.numeric), round, digits = 4))  %>%
+  mutate(Type = "Sip") 
+
+summary_by_year_lys <- all_data_lys %>%
+  group_by(Date, Site, Zone, Depth) %>%
+   reframe(
+     min_Cl_mM  = min(Cl_mM_lys , na.rm=TRUE),
+     max_Cl_mM  = max(Cl_mM_lys , na.rm=TRUE), 
+     mean_Cl_mM  = mean(Cl_mM_lys , na.rm=TRUE), 
+     sd_Cl_mM  = sd(Cl_mM_lys , na.rm=TRUE), 
+
+     min_SO4_mM  = min(SO4_mM_lys , na.rm=TRUE),
+     max_SO4_mM  = max(SO4_mM_lys , na.rm=TRUE), 
+     mean_SO4_mM  = mean(SO4_mM_lys , na.rm=TRUE), 
+     sd_SO4_mM  = sd(SO4_mM_lys , na.rm=TRUE)) %>%
+  mutate(across(where(is.numeric), round, digits = 4)) %>%
+  mutate(Type = "Lys") 
+
+##Merge Datasets by Date, Site, Depth, and Zone
+summary_by_year_combined <- bind_rows(summary_by_year_sip, summary_by_year_lys)
+
+##Convert Collection Date into Date format
+summary_by_year_combined$Date <- as.character(summary_by_year_combined$Date)
+# Append '01' for the first day of the month and convert
+summary_by_year_combined$Date_formatted <- as.Date(paste0(summary_by_year_combined$Date, "01"), format = "%Y%m%d")
+
+# ##Extract Year and month from Collection Date
+# raw_dat$Year <- format(raw_dat$Collection_Date_formatted, format = "%Y")
+# raw_dat$Month <- format(raw_dat$Collection_Date_formatted, format = "%m")
+# raw_dat$Day <- format(raw_dat$Collection_Date_formatted, format = "%d")
+
+
+```
+
+## Summarized data for Site and Zone 
+```{r Summarize and Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
+
+##Summarize SO4 and Cl by Date and Zone
+# Dionex_avg <- data_plotting %>%
+#   group_by(Collection_Date_formatted, Zone_1) %>%
+#    dplyr::summarize(mean_SO4 = mean(SO4_ppm, na.rm=TRUE),
+#             sd_SO4 = sd(SO4_ppm, na.rm=TRUE),
+#             mean_Cl = mean(Cl_ppm, na.rm=TRUE),
+#             sd_Cl = sd(Cl_ppm, na.rm=TRUE))
+
+# Define the specific date breaks you want to display
+specific_breaks <- as.Date(c("2024-01-01", "2025-01-01"))
+
+viz_cl_plot_avgs <- ggplot(summary_by_year_combined, aes(x = Date_formatted, y = mean_Cl_mM, color = Type)) +
+  geom_point(size = 3) + 
+  geom_errorbar(aes(ymin = mean_Cl_mM - sd_Cl_mM, ymax = mean_Cl_mM + sd_Cl_mM), width = 0.2) + 
+  geom_line() + 
+  facet_wrap( Site ~ Zone, scales="free_y") +
+  # scale_color_manual(values = c(
+  #   "Control" = "springgreen2",
+  #   "Freshwater" = "cyan2",
+  #   "Saltwater" = "violetred2"
+  # )) +
+  theme_classic() +
+  labs(x = "Date", y = "Chloride (ppm)", title = "Samples: Chloride") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  # theme(axis.text.x = element_text(angle = 90, hjust = 0.5))+ 
+  theme(text = element_text(size = 30))+
+  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(legend.position = "none")+ 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+viz_cl_plot_avgs
+
+
+viz_so4_plot_avgs <- ggplot(Dionex_avg, aes(x = Collection_Date_formatted, y = mean_SO4, color = Zone_1)) +
+  geom_point(size = 3) + 
+  geom_errorbar(aes(ymin = mean_SO4 - sd_SO4, ymax = mean_SO4 + sd_SO4), width = 0.2) + 
+  geom_line() + 
+  facet_wrap( ~ Zone_1, scales="free_y", ncol = 1) +
+  scale_color_manual(values = c(
+    "Control" = "springgreen2",
+    "Freshwater" = "cyan2",
+    "Saltwater" = "violetred2"
+  )) +
+  theme_classic() +
+  labs(x = "Date", y = "Sulfate (ppm)", title = "Samples: Sulfate") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  # theme(axis.text.x = element_text(angle = 90, hjust = 0.5))+ 
+  theme(text = element_text(size = 30))+
+  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") + # Format x-axis labels
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  theme(legend.position = "none")+ 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+viz_so4_plot_avgs
+
+# ggarrange(viz_cl_plot_avgs, viz_so4_plot_avgs, nrow=1, ncol=2)
+
+```
+
+## Boxplot summary
+```{r Overall Boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
+##Want boxplot of Sip vs Lys data for same Date, Site, Depth, and Zone
+##Looks like only comparisons possible for GCW WC for different dates and depths
+##Need to make date actual date value and maybe facet by depth? 
+
+summary_by_year_combined_GCW <- subset(summary_by_year_combined, Site == "GCW")
+summary_by_year_combined_GCW_WC <- subset(summary_by_year_combined_GCW, Zone == "WC")
+
+
+##Summarize SO4 and Cl by Date, Site, and Zone
+viz_cl_boxplot <- ggplot(summary_by_year_combined_GCW_WC, aes(x = Depth, y = mean_Cl_mM, fill = Type)) +
+  geom_boxplot() + 
+  facet_grid( Site ~ Date ) +
+  scale_x_discrete(drop = TRUE) +
+  theme_classic() +
+  labs(x = " ", y = "Chloride (mM)", title = "Synoptic CB Porewater: Chloride") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))
+
+viz_cl_boxplot
+
+
+viz_so4_boxplot <- ggplot(all_dat_dates, aes(x = Zone_1, y = SO4_mM, fill = Zone_1, group = Zone_1)) +
+  geom_boxplot() +
+  facet_grid( ~ Site, scales = "free_x") +
+  scale_x_discrete(drop = TRUE) +
+  scale_fill_manual(values = c(
+    "Upland" = "#20063B",
+    "Transition" = "#FFBC42",
+    "Swamp" = "darkgrey",
+    "Wetland" = "#419973",
+    "Surface Water" = "#25ABE6"
+  ), labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water")) +
+  theme_classic() +
+  labs(x = " ", y = "Sulfate (mM)", title = "Samples: Sulfate") +
+  theme(
+    panel.spacing = unit(0.5, "lines"), 
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))+ 
+  theme(text = element_text(size = 30))+
+  theme(axis.ticks.x = element_line(linewidth = 1))+
+  theme(axis.ticks.length.x = unit(0.25, "cm"))+ 
+  #scale_x_discrete(labels = c("Upland", "Swamp", "Transition", "Wetland", "Surface Water"))+ 
+  theme(legend.position = "none")
+
+viz_so4_boxplot
+
+# ggarrange(viz_cl_boxplot, viz_so4_boxplot, nrow=2, ncol=1)
+
+# Save as a PNG
+png("COMPASS_SynopticCB_Cl_alldata.png", width = 2000, height = 1200, res = 100) 
+print(viz_cl_boxplot)  # For ggplot objects, use print()
+dev.off() 
+
+# Save as a PNG
+png("COMPASS_SynopticCB_SO4_alldata.png", width = 2000, height = 1200, res = 100) 
+print(viz_so4_boxplot)  # For ggplot objects, use print()
+dev.off() 
+
+```
+
+```{r}
+# Summary stats for Sip only
+sip_sum <- df_sub %>%
+  filter(Sampler == "Sip") %>%
+  group_by(Depth, Date) %>%
+  summarise(
+    mean = mean(SO4_ppm, na.rm = TRUE),
+    sd = sd(SO4_ppm, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
+##Plot: raw data + Sip mean ± SD + Lys points
+ggplot() +
+  geom_jitter(
+    data = subset(df_sub, Sampler == "Sip"),
+    aes(x = Depth, y = SO4_ppm, color = Sampler),
+    width = 0.15,
+    size = 3
+  ) +
+
+  #Sip mean ± SD
+  geom_errorbar(
+    data = sip_sum,
+    aes(x = Depth, ymin = mean - sd, ymax = mean + sd),
+    width = 0.2
+  ) + 
+
+  geom_point(
+    data = sip_sum,
+    aes(x = Depth, y = mean),
+    size = 4,
+    shape = 21,
+    fill = "steelblue"
+  ) +
+
+  # Lys single points
+  geom_point(
+    data = subset(df_sub, Sampler == "Lys"),
+    aes(x = Depth, y = SO4_ppm, shape = Sampler),
+    shape = 24,
+    size = 3,
+    fill = "white",
+    color = "black"
+  ) +
+
+  labs(
+    x = "Depth",
+    y = "Sulfate (ppm)",
+    title = "Sulfate concentration by sampler and depth",
+    subtitle = "Sip shown as replicates and mean ± SD; Lys shown as single samples"
+  ) +
+
+  theme_bw() + 
+  
+  facet_wrap(~Date) + 
+  
+  labs(
+  color = "Sampler type",
+  shape = "Sampler type")
+
+
+```
+
+
+```
+
+## Write the 2022 file out to the folder 
+```{r, echo=FALSE}
+
+head(merged_data)
+
+final_data <- merged_data %>%
+  rename(
+    Time = Time..24hr.,
+    Time_Zone = Time.Zone_EDT.EST,
+    Field_notes = Field.Notes, 
+    SO4_mM = SO4_Conc_mM, 
+    Cl_mM = Cl_Conc_mM
+    # add more rename pairs as needed
+  ) %>%
+  select(
+    Project, Region, Site, Zone, Replicate, Depth_cm, 
+         Sample_ID, Year, Month, Day, Time, Time_Zone,
+         SO4_ppm, SO4_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_mM, Cl_Conc_flag, Cl_QAQC_flag, salinity,
+         Analysis_rundate,  Run_notes, Field_notes
+        # list columns in the order you want them
+  )
+
+head(final_data)
+
+write.csv(final_data, "COMPASS_SynopticCB_SO4_Cl_2022.csv")
+
+```
+
+##END

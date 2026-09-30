@@ -851,7 +851,8 @@ final_data <- final_data %>%
     Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
-  )
+  ) %>% 
+ mutate(Vial_ID = gsub("_DOC", "_15_DOC", Vial_ID))
 
 head(final_data)
 

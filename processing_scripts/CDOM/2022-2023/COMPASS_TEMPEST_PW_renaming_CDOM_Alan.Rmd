@@ -1,0 +1,930 @@
+---
+title: "TEMPEST: Porewater CDOM"
+author: "2022-2023 Samples"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+
+---
+
+##This code pulls in CDOM Abs and EEM processed data files from Alan's folders on the Google Drive and renames them based on Alan's Sample Log also from the Google Drive so that the names correspond to sample IDs. 
+##In addition, this outputs metadata for each sample ID, including the integration time, dilution, RSU_area_1s columns from the sample log. 
+
+# Need to double check that these sample ID's match all the ones in the collated data for all other analytes and check against metadata/flag data that Jieun said is missing 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, 
+                      message = F,
+                      warning = F)
+
+# load packages
+require(pacman)
+pacman::p_load(tidyverse, # keep things tidy
+               janitor, # useful for simplifying column names
+               googlesheets4, # read_sheet 
+               googledrive, # drive_ functions
+               plotrix,
+               here, 
+               readxl, 
+               readr, 
+               purrr) 
+
+#Try to deal with the timezone demons 
+common_tz = "Etc/GMT+5"
+
+Sys.setenv(TZ = "America/New_York")
+
+# Authenticate with your Google account
+# drive_auth()
+
+```
+
+# Bring in the sample log:
+```{r read in sample log, include=FALSE}
+
+##Read in and combine Alan's sample logs
+#create folder
+# log_folder_path <- "Sample_Logs"
+# dir.create(log_folder_path)
+# 
+# #folder link to id
+# log_folder = "https://drive.google.com/drive/folders/1yEDeKKGTEToyfHYTbs7ZF7363afSu2cQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+# folder_id = drive_get(as_id(log_folder))
+# 
+# #find files in folder
+# files = drive_ls(folder_id)
+# files <- files %>% 
+#   filter(name != "20230825_Mapping_COMPASS_TEMPEST_CDOM.xlsx")
+# 
+# #download files
+# for (i in seq_along(files$name)) {
+#     #fails if already exists
+#       drive_download(
+#         as_id(files$id[i]),
+#         path = paste0("Sample_Logs/", files$name[i]), 
+#         overwrite = TRUE
+#       )
+# }
+
+##Edited Sample Logs from AMP
+
+#list all sample logs
+log_files <- list.files(path = "Edited Sample Logs/logs", 
+                    pattern = "*.xlsx", 
+                    full.names = TRUE)
+
+#read, convert all columns to character, and combine
+sample_log <- log_files %>%
+  map(~ {
+    
+    df <- read_excel(.x) %>%
+      mutate(across(everything(), as.character))
+    
+    # Rename columns only if they exist
+    names(df)[names(df) == 
+      "Sample Description \r\n(60 Character Max) - Will display on final EEM figure"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
+      "Sample Description \n(60 Character Max) - Will display on final EEM figure"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
+      "Project Sample ID"] <-
+      "Sample Description (60 Character Max) - Will display on final EEM figure"
+    
+    names(df)[names(df) == 
+      "Dilution Factor\r\n*Decimal Format…e.g. 1 part sample and 1 part water = 0.50"] <-
+      "Dilution Factor (Decimal Format; e.g. 0.5)"
+
+    names(df)[names(df) == 
+      "Absorbance \r\nPathlength"] <-
+      "Absorbance Pathlength"
+    
+    names(df)[names(df) == 
+      "Absorbance \nPathlength"] <-
+      "Absorbance Pathlength"
+    
+    df
+  }) %>%
+  bind_rows()
+
+colnames(sample_log)
+
+sample_log <- sample_log %>% 
+  rename(Sample_Description = "Sample Description (60 Character Max) - Will display on final EEM figure", 
+         Dilution_Factor = "Dilution Factor (Decimal Format; e.g. 0.5)")
+
+##Remove "EXP" and "Tea" files
+sample_log <- sample_log %>% 
+  filter(!str_detect(Sample_Description, "EXP")) %>% 
+  filter(!str_detect(Sample_Description, "Tea"))
+
+##Add Sample ID for ones that were NA 
+sample_log <- sample_log %>% 
+  rename(Sample_ID = 'Sample ID') %>% 
+  mutate(Sample_ID = ifelse(is.na(Sample_ID), Sample_Description, Sample_ID))
+
+##Fix sample ID for ones that are actually renamed in file ID 
+sample_log <- sample_log %>% 
+  mutate(Sample_ID = case_when(
+      Sample_ID == "TSD51002 2s" ~ Sample_Description,
+      Sample_ID == "TSF61002 1s" ~ Sample_Description,
+      Sample_ID == "TSC31002 2s" ~ Sample_Description,
+      Sample_ID == "TSH31002 2s" ~ Sample_Description,
+      Sample_ID == "TFH31002 2s" ~ Sample_Description,
+      Sample_ID == "TFI51005 1s" ~ Sample_Description,
+      Sample_ID == "TCI51002 2s" ~ Sample_Description,
+      TRUE ~ Sample_ID)) # fallback for other values
+
+##Fix some Sample Descriptions
+sample_log <- sample_log %>% 
+  mutate(Sample_Description = toupper(Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("POOLED", "POOL", Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("BARGE", "SOURCE", Sample_Description)) %>% 
+  mutate(Sample_Description = gsub("SW_ESTUARY", "ESTUARY_SOURCE", Sample_Description)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID)) 
+
+```
+
+
+##Pull processed absorbance data from google drive and rename files to save into github 
+```{r read in and rename processed absorbance data}
+##Processed absorbance data: https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+# #Remove the old Abs folder
+unlink("Abs_Data", recursive = TRUE)
+
+##Files in Abs folder
+abs_folder_path <- "Abs_Data"
+dir.create(abs_folder_path)
+
+#folder link to id
+abs_folder = "https://drive.google.com/drive/folders/1_wsS1tiujYuFDlmEOjQZPSEOJKfitWh3?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+abs_folder_id = drive_get(as_id(abs_folder))
+
+#find files in folder
+files = drive_ls(abs_folder_id)
+files
+
+#loop dirs and download files inside them
+for (i in seq_along(files$name)) {
+  #list files
+  i_dir = drive_ls(files[i, ])
+
+  #download files
+  for (file_i in seq_along(i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(i_dir$id[file_i]),
+        path = paste0("Abs_Data/", i_dir$name[file_i]),
+        overwrite = TRUE
+      )
+  }
+}
+
+##Remove "EXP" files and May 23 test files and well data files as these are not part of the TEMPEST project data
+files_to_delete <- list.files(
+  path = abs_folder_path,
+  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May",
+  full.names = TRUE
+)
+
+files_to_delete
+
+file.remove(files_to_delete)
+
+
+##Remove well samples
+samples_to_delete <- sample_log5 %>% 
+  filter(str_detect(Sample_Description, "WELL|SW11|FW11"))
+    
+samples_to_delete_path_abs = paste0("Abs_Data/",samples_to_delete$original_file_name_abs)
+
+samples_to_delete_path_abs
+
+file.remove(samples_to_delete_path_abs)
+
+
+##List all files
+files_abs <- list.files(path = abs_folder_path)
+files_abs <- data.frame(files_abs)  
+files_abs <- files_abs %>% 
+  rename(original_file_name_abs = files_abs)
+
+##Remove extra words so it's just the sample ID 
+files_abs <- files_abs %>% 
+  mutate(Sample_ID = gsub("_DilCorr_Abs", "", original_file_name_abs)) %>% 
+  mutate(Sample_ID = gsub("_ABS", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(".dat", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID))
+
+
+
+```
+
+
+##Pull processed eem data from google drive and rename files to save into github 
+```{r read in and rename processed eem data}
+##Processed EEM data: https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+#Remove the old EEM folder
+unlink("EEM_Data", recursive = TRUE)
+
+##Files in EEM folder
+eem_folder_path <- "EEM_Data"
+dir.create(eem_folder_path)
+
+#folder link to id
+eem_folder = "https://drive.google.com/drive/folders/1g_NoLv1qc-VsQZ_1L4Lmy5cgSjNte1sC?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto"
+eem_folder_id = drive_get(as_id(eem_folder))
+
+#find files in folder
+files = drive_ls(eem_folder_id)
+files
+
+#loop dirs and download files inside them
+for (i in seq_along(files$name)) {
+  #list files
+  i_dir = drive_ls(files[i, ])
+
+  #download files
+  for (file_i in seq_along(i_dir$name)) {
+    #fails if already exists
+      drive_download(
+        as_id(i_dir$id[file_i]),
+        path = paste0("EEM_Data/", i_dir$name[file_i]),
+        overwrite = TRUE
+      )
+  }
+}
+
+##Remove "EXP" files and May 23 test files as these are not part of the TEMPEST project data
+files_to_delete <- list.files(
+  path = eem_folder_path,
+  pattern = "EXP|TMPC23May|TMPFW23May|TMPSW23May",
+  full.names = TRUE
+)
+
+files_to_delete
+
+file.remove(files_to_delete)
+
+##Remove well samples
+samples_to_delete <- sample_log5 %>%
+  filter(str_detect(Sample_Description, "WELL|SW11|FW11"))
+
+samples_to_delete_path_eem = paste0("EEM_Data/",samples_to_delete$original_file_name_eem)
+
+samples_to_delete_path_eem
+
+file.remove(samples_to_delete_path_eem)
+
+
+##List all files
+files_eem <- list.files(path = eem_folder_path)
+files_eem <- data.frame(files_eem)  
+files_eem <- files_eem %>% 
+  rename(original_file_name_eem = files_eem)
+
+##Remove extra words so it's just the sample ID 
+files_eem <- files_eem %>% 
+  mutate(Sample_ID = gsub("_DilCorr_IFE_RamNorm", "", original_file_name_eem)) %>% 
+  mutate(Sample_ID = gsub("_EEM", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(".dat", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub(" ", "", Sample_ID))
+
+
+
+```
+
+##Combine Abs and EEM file dataframes
+```{r}
+files <- merge(files_abs, files_eem, by = "Sample_ID", all = TRUE)
+```
+
+
+##Make new file ID
+```{r}
+##Combine with sample log
+sample_log1 <- files %>% 
+  left_join(sample_log, by = "Sample_ID")
+
+unique(sample_log1$Sample_Description)
+subset <- subset(sample_log1, str_detect(sample_log$Sample_Description, "TEMPEST"))
+pool <- subset(sample_log1, str_detect(sample_log$Sample_Description, "POOL"))
+
+##Fix sample description
+sample_log2 <- sample_log1 %>%
+  ##TEMPEST pooled samples for 2022
+  filter(Sample_Description != "TEMPEST") %>% 
+  mutate(Sample_Description = gsub("_CDOM", "", Sample_Description)) %>% 
+  ##Remove part of ID that don't need 
+  # mutate(Sample_Description = gsub("_SW11", "", Sample_Description)) %>% 
+  # mutate(Sample_Description = gsub("_FW11", "", Sample_Description)) %>% 
+  ##Date for 2022 Source water samples 
+  mutate(Sample_Description = ifelse(str_detect(Sample_Description, "SOURCE_HR"), paste0(Sample_Description, "_20220622"), Sample_Description)) %>% 
+  ##Fix PreW based on AMP's code
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "PREW", "T0")) %>% 
+  ##Dates for 2022 Porewater samples
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T0", "T0_20220620", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T1", "T1_20220622", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T2", "T2_20220622", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T3", "T3_20220623", Sample_Description), Sample_Description)) %>% 
+  mutate(Sample_Description = ifelse(str_detect(Sample_ID, "2022_CDOM"), gsub("T4", "T4_20220624", Sample_Description), Sample_Description)) %>% 
+  ##Fix Estuary time
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "TMP_ESTUARY_SOURCE_HR8_20220622", "TMP_ESTUARY_SOURCE_HR7_20220622")) %>% 
+  mutate(Sample_Description = stringr::str_replace(Sample_Description, "202306627", "20230627"))
+
+
+
+
+##Separate into columns to make into correct sample IDs
+# TMP_FW_C3_20220622_T1_15CM
+sample_log3 <- sample_log2 %>%
+  mutate(Plot = stringr::str_extract(Sample_Description, "TMP_C|TMP_FW|TMP_SW|TMP_ESTUARY") ,
+         Grid = stringr::str_extract(Sample_Description, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|SOURCE|POOL") ,
+         Date = stringr::str_extract(Sample_Description, "[0-9]{8}"), 
+         T_num = stringr::str_extract(Sample_Description, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7|HR8"), 
+         Time = stringr::str_extract(Sample_Description, "(?<=_)[0-9]{4}$"), 
+         Plot = gsub("TMP_", "", Plot))
+
+
+##T1-3 for sourcewater
+sce_2023 <- sample_log3 %>% 
+  filter(!is.na(Time)) %>% 
+  filter(str_detect(Sample_Description, "SOURCE")) %>% 
+  group_by(Plot, Date) %>% 
+  arrange(Time, .by_group = TRUE) %>% # Sort by Time ascending
+  mutate(T_num = paste0("T", row_number())) %>% 
+  ungroup()
+
+##AM/PM for 2023 porewater/pooled samples
+pw_2023 <- sample_log3 %>% 
+  filter(str_detect(Sample_Description, "20230607")) %>% 
+  filter(!str_detect(Sample_Description, "SOURCE")) %>% 
+  mutate(TOD = case_when(
+    Time < 1200  ~ "AM",
+    Time > 1200  ~ "PM",
+    TRUE    ~ NA))
+
+
+##Recombine data
+sample_log4 <- sample_log3 %>%
+  filter(is.na(Time))
+
+sample_log5 <- bind_rows(sample_log4, sce_2023, pw_2023)
+
+
+##Make new Sample IDs
+##Desired Sample IDs 
+#TMP_FW_PW_H6_15cm_CDOM_20250509
+#TMP_Source_Estuary_CDOM_20240611_PM
+
+sample_log6 <- sample_log5 %>% 
+  mutate(Sample_ID = 
+           case_when(
+             str_detect(Sample_Description, "SOURCE") & !str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, "POOLED", Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "SOURCE") & str_detect(Sample_Description, "HR") ~  paste("TMP", "Source", Plot, T_num, Date, TOD, sep = "_"), 
+             str_detect(Sample_Description, "POOL") ~  paste("TMP", Plot, "PW", "15cm", "POOLED", T_num, Date, TOD, sep = "_"), 
+             TRUE ~ paste("TMP", Plot, "PW", Grid, "15cm", "CDOM", T_num, Date, TOD, sep = "_"))) %>% ##Make sample ID to match others
+  mutate(Sample_ID = gsub("_NA", "", Sample_ID)) %>% 
+  
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  
+  ####Sample ID Fixes####
+  
+  mutate(Sample_ID = gsub("TMP_C_PW_D5_15CM_CDOM_20230627", "TMP_C_PW_D5_15CM_20230628", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_C_PW_15CM_POOLED_20221019", "TMP_C_PW_15CM_POOLED_20221019-24", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_FW_PW_15CM_POOLED_20221019", "TMP_FW_PW_15CM_POOLED_20221019-24", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("POOLED_20221128", "POOLED_202211-12", Sample_ID)) %>%  
+  mutate(Sample_ID = gsub("POOLED_20230202", "POOLED_202302", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("POOLED_20230707", "POOLED_202307", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SW_PW_H6_15CM_CDOM_20230612", "TMP_SW_PW_B4_15CM_20230612", Sample_ID)) %>% 
+  
+  ##Remove well samples
+  filter (!str_detect(Sample_Description, "WELL|SW11|FW11")) %>% 
+
+  mutate(
+  Sample_ID = case_when(
+    Sample_Description == "TEMPEST CONTROL PLOT - 09/09/22" ~ "TMP_C_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST CONTROL PLOT - 08/08/22" ~ "TMP_C_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST CONTROL PLOT - 07/18/22" ~ "TMP_C_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST CONTROL PLOT - 07/21/22" ~ "TMP_C_PW_15cm_POOLED_20220721",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 09/09/22" ~ "TMP_FW_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST FRESHWATER PLOT -  08/08/22" ~ "TMP_FW_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 07/18/22" ~ "TMP_FW_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST FRESHWATER PLOT - 07/21/22" ~ "TMP_FW_PW_15cm_POOLED_20220721",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 09/09/22" ~ "TMP_SW_PW_15cm_POOLED_20220912",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 08/08/22" ~ "TMP_SW_PW_15cm_POOLED_20220808",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 07/18/22" ~ "TMP_SW_PW_15cm_POOLED_20220718",
+    Sample_Description == "TEMPEST SEAWATER PLOT - 07/21/22" ~ "TMP_SW_PW_15cm_POOLED_20220721", 
+    TRUE ~ Sample_ID
+  )
+) %>% 
+  
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_CDOM", "", Sample_ID), Sample_ID) )%>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_DOC", "", Sample_ID), Sample_ID))
+
+
+```
+
+##Create the sample metadata
+```{r output metadata}
+
+
+##Get sample metadata from Sample ID
+sample_log7 <- sample_log6 %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|POOLED") ,
+         Date = stringr::str_extract(Sample_ID, "\\d{6}(?:\\d{2}(?:-\\d{2})?)?"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Grid = ifelse(Sample_Type == "SOURCE", NA, Grid), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  # select(-Sample_ID) %>% 
+  distinct()
+
+
+#Create desired file ID
+sample_log8 <- sample_log7 %>%
+  mutate(new_abs_file_id = paste0(Sample_ID_formatted, "_ABS_DilCorr.dat")) %>%
+  mutate(new_eem_file_id = paste0(Sample_ID_formatted, "_EEM_DilCorr_IFE_RamNorm.dat"))
+
+sample_log9 <- sample_log8 %>% 
+  rename(abs_file_id = new_abs_file_id, 
+         eem_file_id = new_eem_file_id, 
+         integration_time_s = `Integration Time`, 
+         dilution_factor = Dilution_Factor, 
+         RSU_area_1s = `Raman 1s Area`) %>% 
+  select(c(Sample_ID, Sample_ID_formatted, integration_time_s, dilution_factor, RSU_area_1s, abs_file_id, eem_file_id)) %>% 
+  select(-Sample_ID)
+
+```
+
+## Pull in active porewater tracking inventory sheet from Google Drive: 
+```{r rest of metadata, include=FALSE}
+
+#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
+inventory_directory <- "https://docs.google.com/spreadsheets/d/1WuuUiIieTfmYlZUuQkEBkTkx4bumNjNEGKBcxTJ2viw/edit?gid=260638594#gid=260638594"
+
+drive_download(inventory_directory, overwrite = TRUE)
+
+sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
+sheet_names
+
+raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
+
+raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
+
+raw_metadata_pool <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Pooled", skip = 4)
+
+raw_metadata <- bind_rows(raw_metadata_lys, raw_metadata_sce, raw_metadata_pool)
+
+#Select CDOM Data
+raw_metadata_DOC <- subset(raw_metadata, str_detect(Sample_ID, "CDOM|DOC/CDOM|of|POOLED|HR|DOC"))
+
+#Select 2022/2023 Data
+raw_metadata_DOC_22_23 <- subset(raw_metadata_DOC, str_detect(Sample_ID, "2022|2023"))
+
+#Create IDs from what was collected for comparison later
+raw_metadata_DOC_formatted <- raw_metadata_DOC_22_23 %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("DOC/CDOM", "CDOM", Sample_ID)) %>% 
+  mutate(Sample_ID = case_when(str_detect(Sample_ID, "Source") & str_detect(Sample_ID, "HR") ~ gsub("_POOLED", "", Sample_ID), TRUE ~ Sample_ID)) %>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "of"), gsub("cm_", "cm_CDOM_", Sample_ID), Sample_ID)) %>% 
+  mutate(Sample_ID = sub("_[0-9]{4}$", "", Sample_ID)) %>% 
+  select(-c(Plot, Sample_location, Analyte)) %>% 
+  
+  mutate(Sample_ID = gsub("_1of1", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_1of2", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_2of2", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_1of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_2of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_3of3", "", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("_3of3", "", Sample_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of1", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of2", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2of2", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_1of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_3of3", "", Vial_ID)) %>% 
+  mutate(Vial_ID = gsub("_2", "", Vial_ID)) %>% 
+  
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_CDOM", "", Sample_ID), Sample_ID))%>% 
+  mutate(Sample_ID = ifelse(str_detect(Sample_ID, "PW"), gsub("_DOC", "", Sample_ID), Sample_ID))
+
+
+raw_metadata_DOC_formatted1 <- raw_metadata_DOC_formatted %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|POOLED") ,
+         Date = stringr::str_extract(Sample_ID, "\\d{6}(?:\\d{2}(?:-\\d{2})?)?"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM"), 
+         # TOD = case_when(
+         #   Date == "20240612" & T_num == "T2" ~ "AM", 
+         #   Date == "20240612" & T_num == "T3" ~ "PM", 
+         #   Date == "20240613" & T_num == "T4" ~ "AM", 
+         #   Date == "20240613" & T_num == "T5" ~ "PM", 
+         #   TRUE ~ TOD), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE"), 
+         # Sample_Type = gsub("SOURCE_RAINWATER", "RAINWATER", Sample_Type), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Grid = ifelse(Sample_Type == "SOURCE", NA, Grid), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted)) %>% 
+  # select(-Sample_ID) %>% 
+  distinct()
+
+
+##Merge pooled rows as needed 
+colnames(raw_metadata_DOC_formatted1)
+
+raw_metadata_DOC_formatted2 <- raw_metadata_DOC_formatted1 %>%
+  filter(!str_detect(Sample_ID_formatted, "SOURCE")) %>%
+  group_by(Sample_ID_formatted) %>%
+  summarise(
+    Grid_B4 = sum(Grid_B4, na.rm = TRUE),
+    Grid_C3 = sum(Grid_C3, na.rm = TRUE),
+    Grid_C6 = sum(Grid_C6, na.rm = TRUE),
+    Grid_D5 = sum(Grid_D5, na.rm = TRUE),
+    Grid_E3 = sum(Grid_E3, na.rm = TRUE),
+    Grid_F4 = sum(Grid_F4, na.rm = TRUE),
+    Grid_F6 = sum(Grid_F6, na.rm = TRUE),
+    Grid_H3 = sum(Grid_H3, na.rm = TRUE),
+    Grid_H6 = sum(Grid_H6, na.rm = TRUE),
+    Grid_I5 = sum(Grid_I5, na.rm = TRUE),
+    Total_Volume_mL = sum(Total_Volume_mL, na.rm = TRUE),
+
+    # Earliest evacuation date + start time from that same row
+    Evacuation_date_YYYYMMDD = min(Evacuation_date_YYYYMMDD, na.rm = TRUE),
+    Collection_Start_Time_24hrs = Collection_Start_Time_24hrs[which.min(Evacuation_date_YYYYMMDD)],
+
+    # Latest collection date + end time from that same row
+    Collection_Date_YYYYMMDD = max(Collection_Date_YYYYMMDD, na.rm = TRUE),
+    Collection_End_Time_24hrs = Collection_End_Time_24hrs[which.max(Collection_Date_YYYYMMDD)],
+
+    # First value for every other column
+    across(
+      -c(
+    Grid_B4,
+    Grid_C3,
+    Grid_C6,
+    Grid_D5,
+    Grid_E3,
+    Grid_F4,
+    Grid_F6,
+    Grid_H3,
+    Grid_H6,
+    Grid_I5,
+    Evacuation_date_YYYYMMDD, 
+    Collection_Start_Time_24hrs,
+    Collection_Date_YYYYMMDD,
+    Collection_End_Time_24hrs
+      
+    ),
+      first
+    ),
+
+    .groups = "drop"
+  ) %>%
+  bind_rows(
+    raw_metadata_DOC_formatted1 %>% filter(str_detect(Sample_ID_formatted, "SOURCE"))
+  )
+
+
+##Remove duplicate sample IDs
+raw_metadata_DOC_formatted3 <- raw_metadata_DOC_formatted2 %>% 
+  distinct(Sample_ID_formatted, .keep_all = TRUE) %>% 
+  select(-Sample_ID)
+
+```
+
+
+## Check to see if samples run match metadata & merge info
+```{r check sample ids with metadata, echo=FALSE, warning = FALSE}
+
+sample_log9$Sample_ID_formatted <- toupper(sample_log9$Sample_ID_formatted) 
+raw_metadata_DOC_formatted3$Sample_ID_formatted <- toupper(raw_metadata_DOC_formatted3$Sample_ID_formatted)
+
+all_present <- all(sample_log9$Sample_ID_formatted %in% raw_metadata_DOC_formatted3$Sample_ID_formatted)
+
+if (all_present) {
+  message("All sample IDs are present in metadata.")
+} else {
+  message("Some sample IDs are missing from metadata.")
+  
+  # Optional: Which ones are missing?
+  missing_ids <- setdiff(sample_log9$Sample_ID_formatted, raw_metadata_DOC_formatted3$Sample_ID_formatted)
+  print(missing_ids)
+}
+
+missing_ids <- data.frame("Missing.IDs" = missing_ids)
+
+write.csv(missing_ids, "Samples_missing_from_metadata.csv", row.names = FALSE)
+
+
+missing <- sample_log9 %>% 
+  filter(Sample_ID_formatted == "TMP_FW_PW_I5_15CM_20230614")
+
+####No metadata####
+# "TMP_SOURCE_ESTUARY_HR4_20220622" - no metadata, time should be 110000    
+# "TMP_SOURCE_ESTUARY_HR7_20220622" - no metadata, time should be 150000 
+# "TMP_C_PW_C3_15CM_20230628" - no metadata, already checked with AMP, no time available  
+
+# "TMP_SW_PW_15CM_T3_20220623" - well sample          
+# "TMP_FW_PW_15CM_T2_20220622" - well sample               
+# "TMP_FW_PW_15CM_T1_20220622" - well sample              
+# "TMP_SW_PW_15CM_T2_20220622" - well sample               
+# "TMP_FW_PW_15CM_T3_20220623" - well sample               
+# "TMP_FW_PW_15CM_POOLED_20230607" - from FW11 well
+# "TMP_SW_PW_15CM_POOLED_20230607" - from SW11 well    
+
+
+####Fixed####
+# "TMP_FW_PW_I5_15CM_20230662" - 20230627
+# "TMP_C_PW_D5_15CM_20230627" - should be TMP_C_PW_D5_15CM_20230627       
+# "TMP_C_PW_15CM_POOLED_20221019" - should be TMP_C_PW_15CM_POOLED_20221019-24       
+# "TMP_C_PW_15CM_POOLED_20230202" - should be TMP_C_PW_15CM_POOLED_202302       
+# "TMP_FW_PW_15CM_POOLED_20221019" - should be TMP_FW_PW_15CM_POOLED_20221019-24     
+# "TMP_FW_PW_15CM_POOLED_20230202" - should be TMP_FW_PW_15CM_POOLED_202302   
+# "TMP_FW_PW_15CM_POOLED_20230707"- should be TMP_FW_PW_15CM_POOLED_202307   
+# "TMP_SW_PW_H6_15CM_20230612" - could be TMP_SW_PW_B4_15CM_20230612 since missing that one          
+# "TMP_SW_PW_15CM_POOLED_20230202" - should be TMP_SW_PW_15CM_POOLED_202302    
+# "TMP_SW_PW_15CM_POOLED_20230707" - should be TMP_SW_PW_15CM_POOLED_202307  
+
+# "TMP_PW_15CM": 
+# TEMPEST CONTROL PLOT - 09/09/22 - should be TMP_C_PW_15cm_POOLED_20220912
+# TEMPEST CONTROL PLOT - 08/08/22 - should be TMP_C_PW_15cm_POOLED_20220808
+# TEMPEST CONTROL PLOT - 07/18/22 - should be TMP_C_PW_15cm_POOLED_20220718
+# TEMPEST CONTROL PLOT - 07/21/22 - should be TMP_C_PW_15cm_POOLED_20220721    
+# TEMPEST FRESHWATER PLOT - 09/09/22 - should be TMP_FW_PW_15cm_POOLED_20220912
+# TEMPEST FRESHWATER PLOT -  08/08/22"  - should be TMP_FW_PW_15cm_POOLED_20220808
+# TEMPEST FRESHWATER PLOT - 07/18/22"   - should be TMP_FW_PW_15cm_POOLED_20220718
+# TEMPEST FRESHWATER PLOT - 07/21/22"  - should be TMP_FW_PW_15cm_POOLED_20220721    
+# TEMPEST SEAWATER PLOT - 09/09/22 - should be TMP_SW_PW_15cm_POOLED_20220912
+# TEMPEST SEAWATER PLOT -  08/08/22"  - should be TMP_SW_PW_15cm_POOLED_20220808
+# TEMPEST SEAWATER PLOT - 07/18/22"   - should be TMP_SW_PW_15cm_POOLED_20220718
+# TEMPEST SEAWATER PLOT - 07/21/22"  - should be TMP_SW_PW_15cm_POOLED_20220721   
+
+##Replace CDOM with "POOLED"
+# "TMP_SOURCE_ESTUARY_T1_CDOM_20230606"
+# "TMP_SOURCE_ESTUARY_T2_CDOM_20230606" 
+# "TMP_SOURCE_ESTUARY_T3_CDOM_20230606" 
+# "TMP_SOURCE_ESTUARY_T1_CDOM_20230607"  
+# "TMP_SOURCE_ESTUARY_T2_CDOM_20230607" 
+# "TMP_SOURCE_ESTUARY_T3_CDOM_20230607" 
+# "TMP_SOURCE_FW_T1_CDOM_20230606"     
+# "TMP_SOURCE_FW_T2_CDOM_20230606"      
+# "TMP_SOURCE_FW_T3_CDOM_20230606"      
+# "TMP_SOURCE_FW_T1_CDOM_20230607"      
+# "TMP_SOURCE_FW_T2_CDOM_20230607"     
+# "TMP_SOURCE_FW_T3_CDOM_20230607"      
+# "TMP_SOURCE_SW_T1_CDOM_20230606"      
+# "TMP_SOURCE_SW_T2_CDOM_20230606"      
+# "TMP_SOURCE_SW_T3_CDOM_20230606"     
+# "TMP_SOURCE_SW_T1_CDOM_20230607"      
+# "TMP_SOURCE_SW_T2_CDOM_20230607"      
+# "TMP_SOURCE_SW_T3_CDOM_20230607"     
+```
+
+##Merge the metadata and export
+```{r}
+
+#merge metadata with sample run data 
+merged_data <- sample_log9 %>%
+  left_join(raw_metadata_DOC_formatted3, by = "Sample_ID_formatted")
+
+
+# "TMP_SOURCE_ESTUARY_HR4_20220622" - no metadata, time should be 110000    
+# "TMP_SOURCE_ESTUARY_HR7_20220622" - no metadata, time should be 150000 
+# TMP_PW_C_C3_15CM_20230628 - no metadata, no time
+
+merged_data1 <- merged_data %>%
+  mutate(Plot = stringr::str_extract(Sample_ID_formatted, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID_formatted, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5|POOLED") ,
+         Depth = stringr::str_extract(Sample_ID_formatted, "15CM|30CM|50CM"),
+         T_num = stringr::str_extract(Sample_ID_formatted, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID_formatted, "AM|MID|PM"), 
+         Sample_Type = stringr::str_extract(Sample_ID_formatted, "SOURCE"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Grid = ifelse(Sample_Type == "SOURCE", NA, Grid)) %>% 
+  mutate(Collection_Time_24hrs = case_when(
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ 1100, 
+    Sample_ID_formatted == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ 1500, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR0" ~ 0645, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR0" ~ 0654, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR1" ~ 0800, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR1" ~ 0800, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR2" ~ 0930, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR2" ~ 0930, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR3" ~ 1000, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR3" ~ 1000, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR4" ~ 1100, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR4" ~ 1100, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR5" ~ 1200, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR5" ~ 1200, 
+    Sample_ID_formatted == "TMP_SOURCE_SW_20220622_HR7" ~ 1448, 
+    Sample_ID_formatted == "TMP_SOURCE_FW_20220622_HR7" ~ 1448, 
+    TRUE ~ Collection_Time_24hrs
+  )) %>%
+  mutate(Collection_Date_YYYYMMDD = case_when(
+    str_detect(Sample_ID_formatted, "20220622") ~ 20220622, 
+    Sample_ID_formatted == "TMP_PW_C_C3_15CM_20230628" ~ 20230628, 
+    TRUE ~ Collection_Date_YYYYMMDD
+  )) %>% 
+  mutate(Notes = case_when(
+    Sample_ID_formatted == "TMP_C_PW_C3_15CM_20230628" ~ "No metadata", 
+    TRUE ~ Notes
+  )) %>% 
+  #manual entry of missing evacuation information from the notes/inventory sheet: 
+  mutate(Evacuation_date_YYYYMMDD = case_when(
+    Collection_Date_YYYYMMDD == 20220620 ~ 20220618,
+    Collection_Date_YYYYMMDD == 20220622 ~ 20220622,
+    Collection_Date_YYYYMMDD == 20220623 ~ 20220622,
+    Collection_Date_YYYYMMDD == 20220624 ~ 20220623,
+    Collection_Date_YYYYMMDD == 20220909 ~ 20220909,
+    Collection_Date_YYYYMMDD == 20230606 ~ 20230605,
+    Collection_Date_YYYYMMDD == 20230607 & str_detect(Sample_ID_formatted, "AM") ~ 20230606,
+    Collection_Date_YYYYMMDD == 20230607 & str_detect(Sample_ID_formatted, "PM") ~ 20230607,
+    Collection_Date_YYYYMMDD == 20230612 ~ 20230608,
+    Collection_Date_YYYYMMDD == 20230627 ~ 20230623,
+    Collection_Date_YYYYMMDD == 20230628 ~ 20230623,
+    Collection_Date_YYYYMMDD == 20230707 ~ 20230705,
+    TRUE ~ Evacuation_date_YYYYMMDD))
+
+merged_data2 <- merged_data1 %>% 
+  rename(Sample_ID = Sample_ID_formatted) %>% 
+  mutate(Collection_End_Time_24hrs = ifelse(is.na(Collection_End_Time_24hrs), Collection_Time_24hrs, Collection_End_Time_24hrs)) %>% 
+  select("Sample_ID", "integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id", 
+         "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "Notes", "Deployment_Date_YYYYMMDD", 
+         "Deployment_Time_24hrs", "EST_EDT")
+
+
+write.csv(merged_data2, "CDOM_metadata_2022-2023.csv", row.names = FALSE)
+
+```
+
+##Rename all absorbance files
+```{r}
+
+##Rename files
+for(i in 1:nrow(sample_log8)){
+    
+    # Create file paths with folder and file name
+    old_file <- file.path(abs_folder_path, sample_log8$original_file_name_abs[i])
+    new_file <- file.path(abs_folder_path, sample_log8$new_abs_file_id[i])
+    
+    # Check if the original file actually exists
+  if (file.exists(old_file)) {
+    
+    # Rename the file
+    file.rename(from = old_file, to = new_file)
+    
+    cat("Success: Renamed", sample_log8$original_file_name_abs[i], "to", sample_log8$new_abs_file_id[i], "\n")
+  } else {
+    cat("Warning: File", sample_log8$original_file_name_abs[i], "not found.\n")
+  }
+}
+
+##Convert files from .dat to .csv
+
+# Get a list of all .dat files in that folder
+abs_files <- list.files(path = abs_folder_path, pattern = "\\.dat$", full.names = TRUE, ignore.case = TRUE)
+
+# Loop through each file and convert it
+for (file in abs_files) {
+  
+  # 1. Read the file (Change 'sep' depending on your delimiter)
+  # Use sep = "" for spaces, sep = "\t" for tabs, or sep = "," for commas
+  temp_data <- read.table(file, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+  
+  # 2. Create the new file path by changing the extension to .csv
+  csv_file <- sub("\\.dat$", ".csv", file, ignore.case = TRUE)
+  
+  # 3. Write out the data frame as a CSV
+  write.csv(temp_data, file = csv_file, row.names = FALSE)
+  
+  # 4. Remove old .dat file
+  file.remove(file)
+
+}
+
+print("Conversion complete!")
+```
+
+
+##Rename all EEM files
+```{r}
+
+##Rename files
+for(i in 1:nrow(sample_log8)){
+    
+    # Create file paths with folder and file name
+    old_file <- file.path(eem_folder_path, sample_log8$original_file_name_eem[i])
+    new_file <- file.path(eem_folder_path, sample_log8$new_eem_file_id[i])
+    
+    # Check if the original file actually exists
+  if (file.exists(old_file)) {
+    
+    # Rename the file
+    file.rename(from = old_file, to = new_file)
+    
+    cat("Success: Renamed", sample_log8$original_file_name_eem[i], "to", sample_log8$new_eem_file_id[i], "\n")
+  } else {
+    cat("Warning: File", sample_log8$original_file_name_eem[i], "not found.\n")
+  }
+}
+
+
+##Convert files from .dat to .csv
+# Get a list of all .dat files in that folder
+eem_files <- list.files(path = eem_folder_path, pattern = "\\.dat$", full.names = TRUE, ignore.case = TRUE)
+
+# Loop through each file and convert it
+for (file in eem_files) {
+  
+  # 1. Read the file (Change 'sep' depending on your delimiter)
+  # Use sep = "" for spaces, sep = "\t" for tabs, or sep = "," for commas
+  temp_data <- read.table(file, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+  
+  # 2. Create the new file path by changing the extension to .csv
+  csv_file <- sub("\\.dat$", ".csv", file, ignore.case = TRUE)
+  
+  # 3. Write out the data frame as a CSV
+  write.csv(temp_data, file = csv_file, row.names = FALSE)
+  
+  # 4. Remove old .dat file
+  file.remove(file)
+
+}
+
+print("Conversion complete!")
+```
+
+
+##Rename the abs file columns 
+```{r}
+library(readr)
+library(dplyr)
+library(purrr)
+
+abs_files <- list.files(path = abs_folder_path, pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)
+
+walk(abs_files, function(file) {
+
+  # Read assuming there IS a header first
+  dat <- read_csv(file, show_col_types = FALSE)
+
+  # If first column name looks like wavelength, file had a header
+  if (grepl("Wavelength", names(dat)[1], ignore.case = TRUE)) {
+
+    names(dat)[1:2] <- c("Wavelength_nm", "Dilution_Corrected_Absorbance")
+
+  } else {
+
+    # No header: re-read so first data row isn't lost
+    dat <- read_csv(
+      file,
+      col_names = c("Wavelength_nm", "Dilution_Corrected_Absorbance"),
+      show_col_types = FALSE
+    )
+  }
+
+  # Overwrite original file
+  write_csv(dat, file)
+})
+
+####EEM files
+eem_files <- list.files(path = eem_folder_path, pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)
+
+walk(eem_files, function(file) {
+
+  # Read assuming there IS a header first
+  dat <- read_csv(file, show_col_types = FALSE)
+  
+  ##Remove X from Column names
+  names(dat) <- gsub("X", "", names(dat))
+  names(dat) <- gsub("Wavelength_nm", "", names(dat))
+
+  # Overwrite original file
+  write_csv(dat, file)
+})
+
+# dat <- read_csv(eem_files[1], show_col_types = FALSE)
+# names(dat)
+```
+

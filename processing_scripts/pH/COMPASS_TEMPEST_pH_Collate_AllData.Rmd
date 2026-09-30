@@ -20,6 +20,7 @@ library(tidyr)
 library(tibble)
 library(openxlsx)
 library(knitr)
+library(lubridate)
 ```
 
 ##Grab 2023 and 2024 and 2025 All Data Files
@@ -45,7 +46,11 @@ colnames(dat25)
 raw_dat <- bind_rows(dat23, dat24, dat25)
 
 ##Convert Collection Date into Date format
-raw_dat$Collection_Date_Time <- as.POSIXct(raw_dat$datetime, format = "%Y-%m-%dT%H:%M:%SZ", tz = "US/Eastern")
+raw_dat$Time_formatted <- format(strptime(sprintf("%04d", raw_dat$Time_24hr), format="%H%M"), format="%H:%M")
+raw_dat$Date_formatted <- format(strptime(raw_dat$Date_YYYYMMDD, format="%Y%m%d"), format = "%Y-%m-%d")
+raw_dat$Collection_Date_Time <- paste(raw_dat$Date_formatted, raw_dat$Time_formatted, sep = " ")
+                                 
+raw_dat$Collection_Date_Time <- as.POSIXct(raw_dat$Collection_Date_Time, format = "%Y-%m-%d %H:%M", tz = "US/Eastern")
 
 ##Extract Year and month from Collection Date
 raw_dat$Year <- format(raw_dat$Collection_Date_Time, format = "%Y")
@@ -77,7 +82,7 @@ all_dat <- raw_dat %>%
     Evacuation_Date = evacuation_date, 
     temperature_flag = flag
   ) %>% 
-  select(Project, Sample_ID, Year, Month, Day, Zone, Grid, pH, collection_temp_C, tz, Date_YYYYMMDD, Time_24hr, Evacuation_Date, temperature_flag, temperature_flag, pH_flag) 
+  select(Project, Sample_ID, Year, Month, Day, Zone, Grid, pH, Cond, Cond_units, Instrument, collection_temp_C, tz, Date_YYYYMMDD, Time_24hr, Evacuation_Date, temperature_flag, temperature_flag, pH_flag) 
 
 ```
 
@@ -103,13 +108,16 @@ metadat$Description <- c("Project name",
                          "Plot where sample collected (Control, Freshwater, Saltwater)", 
                          "Grid where sample collected (Letter + Number)", 
                          "pH of sample", 
+                         "Conductivity of sample", 
+                         "Conductivity units", 
                          "Temperature at time of collection in Celsius", 
+                         "Instrument used", 
                          "Time zone of sample collection", 
                          "Date of sample collection", 
                          "Time of sample collection (HHMM)", 
                          "Date of sample evacuation",
                          "Flag to indicate if temperature was not recorded", 
-                         "Flag to indicate if the pH is outside of the typicaly range")
+                         "Flag to indicate if the pH is outside of the typical range")
 
 metadat$Units <-       c("NA", 
                          "NA",
@@ -119,7 +127,10 @@ metadat$Units <-       c("NA",
                          "NA",
                          "NA", 
                          "NA",
+                         "NA",
+                         "mS/cm or uS/cm",
                          "degrees Celsius",
+                         "NA", 
                          "NA", 
                          "NA", 
                          "NA", 
@@ -135,6 +146,9 @@ metadat$Instrument_ifapplicable <-
                          "NA", 
                          "NA",
                          "NA",
+                         "NA", 
+                         "NA", 
+                         "NA", 
                          "NA", 
                          "NA", 
                          "NA", 
@@ -163,9 +177,9 @@ write.csv(metadat, "COMPASS_TEMPEST_pH_Metadata.csv")
 ```{r Visualize Data, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Define Zones for plotting
-data_plotting <- all_dat %>% 
+data_plotting <- raw_dat %>% 
   filter(grid != "SOURCE") %>% 
-  mutate(Zone_1 = factor(Zone, levels = c("Control", "Freshwater", "Saltwater")))
+  mutate(Zone_1 = factor(plot, levels = c("Control", "Freshwater", "Saltwater")))
 
 #Plot data by year and change colors based on Zone:
 viz_pH_plot <- ggplot(data_plotting, aes(x = as.character(Year), y = pH, fill = Zone_1)) +
@@ -267,7 +281,7 @@ viz_pH_boxplot
 ```{r Porewater grid boxplot, echo=FALSE, warning=FALSE, message = FALSE, fig.width=16, fig.height=10, dpi = 300}
 
 ##Boxplot Summarize pH by Date, Site, and Zone
-viz_pH_boxplot <- ggplot(data_plotting, aes(x = Grid,  y = pH, fill = Zone_1)) +
+viz_pH_boxplot <- ggplot(data_plotting, aes(x = grid,  y = pH, fill = Zone_1)) +
   geom_boxplot() + 
   facet_wrap( ~ Zone_1, scales="free_y", ncol = 1) +
   scale_x_discrete(drop = TRUE) +
@@ -353,7 +367,7 @@ kable(
 ```
 
 ##Write out summarized data
-```{r write out summarized data, include=FALSE}
+```{#r write out summarized data, include=FALSE}
 
 #write out a csv of all the data to the main folder: 
 write.csv(summary_by_year, "COMPASS_TEMPEST_PW_pH_Summarized_By_Year.csv")

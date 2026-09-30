@@ -418,6 +418,7 @@ head(all_data)
 ##Fix sample IDs
 all_data$Sample_Name <- gsub("TEMPEST_FW_D5_202300606", "TEMPEST_FW_D5_20230606", all_data$Sample_Name)
 
+
 ```
 
 ## Take an initial look at concentrations 
@@ -485,6 +486,10 @@ alldat$Time <- gsub("TEMEPST", NA, alldat$Time)
 
 
 alldat_final <- rbind(alldat, alldat_weird)
+
+##Remove duplicate sample
+alldat_final <- alldat_final %>% 
+  filter(Sample_Name != "TEMPEST_20230515_CON_C6")
 
 ```
 

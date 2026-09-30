@@ -30,7 +30,7 @@ getwd()
 ### 2024 
 ```{r read in 2024}
 
-folder_2024 <- "../tmp_doc_2024/tmp_doc_processed_data_2024/"
+folder_2024 <- "~/GitHub/TEMPEST_Porewater/processing_scripts/DOC/tmp_doc_2024/tmp_doc_processed_data_2024/"
 
 files_2024 <- list.files(path = folder_2024, pattern = "*.csv", full.names = TRUE)
 
@@ -79,6 +79,6 @@ clean_2024 <- all_2024 %>%
   ## Note, talk to steph if we want to include the mM or not of DOC -- keep for ESS-DIVE 
   # Also discuss if we want to code in the "lysimeter empty" flag for samples without DOC concentrations  -
   
-write_csv(clean_2024, paste0(folder_2024, "01_TMP_PW_NPOCTDN_2024_L1.csv") )#note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
+write_csv(clean_2024, paste0(folder_2024, "01_TMP_PW_NPOCTDN_2024_L1_updated.csv") )#note this is currently set up so that it writes into the folder youre pulling data from so if you run script more than once it will pull in the old file.
 
 ```

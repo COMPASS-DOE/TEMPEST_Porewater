@@ -52,7 +52,7 @@ Sys.setenv(TZ = "America/New_York")
   " #any notes from the run
 
 ##Sample data that was entered incorrectly
-# The Old ID is the original, incorrecly-entered ID and the New ID is the correct ID to change it to. 
+# The Old ID is the original, incorrectly-entered ID and the New ID is the correct ID to change it to. 
 Old_ID_1 = "TMP_SW_F6_20241111_15cm"
 New_ID_1 = "TMP_SW_F6_20241104_15cm"
   
@@ -322,7 +322,10 @@ all_dat <- all_dat %>%
 ##Data entered incorrectly
 all_dat$sample_ID <- gsub(Old_ID_1, New_ID_1, all_dat$sample_ID)
 
-
+##Sample ran twice, unclear whether it was the correct one, so removed
+all_dat <- all_dat %>% 
+  filter(sample_ID != "72_TMP_SW_F4_20241213_15cm") %>% 
+  filter(sample_ID != "73_TMP_SW_F4_20241213_15cm")
 ```
 
 ## Assess Standard Curves

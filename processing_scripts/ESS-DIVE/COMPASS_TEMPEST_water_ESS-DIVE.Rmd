@@ -1,0 +1,729 @@
+---
+title: "ESS-DIVE TEMPEST: Water Data - 2026-08-11 Submission Prep"
+author: "2022-2025 Samples"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+
+output_dir: "To Be Reviewed/PDF"
+header-includes:
+  - \pagenumbering{gobble}
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+library(openxlsx)
+library(knitr)
+library(here)
+```
+
+
+## Pull in compiled DOC_Nutr_SO4_Cl_H2S_pH data and export annual files
+```{r Pull in compiled data files, message=FALSE, include=FALSE}
+
+#write out a csv of all the data to the main folder: 
+final_data <- read.csv("../COMPASS_TEMPEST_AllData_AllYears.csv")
+
+##Remove the old annual folders
+unlink("Data package/2022", recursive = TRUE)
+unlink("Data package/2023", recursive = TRUE)
+unlink("Data package/2024", recursive = TRUE)
+unlink("Data package/2025", recursive = TRUE)
+
+##Files in annual folders
+dir.create("Data package/2022")
+dir.create("Data package/2023")
+dir.create("Data package/2024")
+dir.create("Data package/2025")
+
+##Separate by year for ESS-DIVE 
+final_data_2022 <- subset(final_data, Sample_Year == "2022")
+final_data_2022 <- final_data_2022 %>% 
+  mutate(Sample_ID = gsub("TMP_SOURCE_ESTUARY_20220622_HR0", "TMP_SOURCE_ESTUARY_20220622_HR4", Sample_ID)) %>% 
+  mutate(Sample_ID = gsub("TMP_SOURCE_ESTUARY_20220622_HR1", "TMP_SOURCE_ESTUARY_20220622_HR7", Sample_ID)) %>% 
+  mutate(Collection_Date_YYYYMMDD = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ 20220622, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ 20220622, 
+    TRUE ~ Collection_Date_YYYYMMDD)) %>%  
+  mutate(Collection_End_Time_24hrs = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ 1100, 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ 1500, 
+    TRUE ~ Collection_End_Time_24hrs)) %>% 
+  mutate(Timepoint = case_when(
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR4" ~ "HR4", 
+    Sample_ID == "TMP_SOURCE_ESTUARY_20220622_HR7" ~ "HR7", 
+    TRUE ~ Timepoint))
+
+
+final_data_2023 <- subset(final_data, Sample_Year == "2023")
+final_data_2024 <- subset(final_data, Sample_Year == "2024")
+final_data_2025 <- subset(final_data, Sample_Year == "2025")
+
+##Write out annual data files
+write.csv(final_data_2022, "Data package/2022/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2022.csv", row.names = FALSE)
+write.csv(final_data_2023, "Data package/2023/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2023.csv", row.names = FALSE)
+write.csv(final_data_2024, "Data package/2024/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2024.csv", row.names = FALSE)
+write.csv(final_data_2025, "Data package/2025/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2025.csv", row.names = FALSE)
+
+```
+
+## Pull in compiled CDOM data and export annual files
+```{r Pull in compiled data files, message=FALSE, include=FALSE}
+
+##Metadata
+CDOM_meta_2022_2023 <- read.csv("../CDOM/2022-2023/CDOM_metadata_2022-2023.csv")
+CDOM_meta_2024_2025 <- read.csv("../CDOM/2024-2025/CDOM_metadata_2024-2025.csv")
+
+CDOM_meta_all <- bind_rows(CDOM_meta_2022_2023, CDOM_meta_2024_2025) 
+
+
+CDOM_meta_all1 <- CDOM_meta_all %>%
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY'),
+         Plot = gsub("_", "", Plot), 
+         Location = stringr::str_extract(Sample_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         Sample_Type = stringr::str_extract(Sample_ID, "SOURCE|RAINWATER|PW"), 
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
+         T_num = stringr::str_extract(Sample_ID, "T0|T1|T2|T3|T4|T5|T6|HR0|HR1|HR2|HR3|HR4|HR5|HR6|HR7"),
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM")) %>% 
+  mutate(Evacuation_date_YYYYMMDD = ifelse(str_detect(Sample_ID, "SOURCE"), NA, Evacuation_date_YYYYMMDD))
+         
+CDOM_meta_all2 <- CDOM_meta_all1 %>% 
+  mutate(
+    Sample_Year = as.numeric(substr(Collection_Date_YYYYMMDD, 1, 4)), 
+    Sample_Month = as.numeric(substr(Collection_Date_YYYYMMDD, 5, 6)), 
+    Sample_Day = as.numeric(substr(Collection_Date_YYYYMMDD, 7, 8)), 
+    date = as.numeric(Collection_Date_YYYYMMDD), 
+    Project = "COMPASS", 
+    Region = "CB", 
+    Site = "TMP", 
+    Depth_cm = gsub("CM", "", Depth), 
+    Timepoint = paste(T_num, TOD, sep = "_"), 
+    Timepoint = gsub("_NA", "", Timepoint), 
+    Timepoint = gsub("NA_", "", Timepoint), 
+    ) %>% 
+  ##Code in event column
+  mutate(Event = case_when(
+    date == 20220622 ~ "TMP-I", 
+    date >= 20230606 & date <=  20230607 ~ "TMP-II", 
+    date >= 20240611 & date <=  20240613 ~ "TMP-III", 
+    TRUE ~ "Monitoring"
+  ))  %>% 
+  ##Code in EDT/EST
+  mutate(EST_EDT = case_when(
+    date >= 20220313 & date <  20221106 ~ "EDT", 
+    date >= 20221106 & date <  20230312 ~ "EST", 
+    date >= 20230312 & date <  20231105 ~ "EDT", 
+    date >= 20231105 & date <  20240310 ~ "EST", 
+    date >= 20240310 & date <  20241103 ~ "EDT", 
+    date >= 20241103 & date <  20250309 ~ "EST", 
+    date >= 20250309 & date <  20251102 ~ "EDT", 
+    date >= 20251102 & date <  20260308 ~ "EST",    
+    date >= 20260308 & date <  20261101 ~ "EDT", 
+    TRUE ~ EST_EDT
+  ))  %>% 
+  ##Code in FW --> F, SW --> S
+  mutate(Plot = case_when(
+    Plot == "FW" ~ "F", 
+    Plot == "SW" ~ "S", 
+    TRUE ~ Plot
+  )) %>% 
+  ##Remove unneccesary notes
+  mutate(Notes = ifelse(str_detect(Notes, "Definitely looked like"), NA, Notes)) %>% 
+  mutate(Notes = ifelse(str_detect(Notes, "AES"), NA, Notes)) %>% 
+  select(c("Project", "Region", "Sample_ID", "Sample_Year", "Sample_Month", "Sample_Day", 
+           "Site", "Event", "Plot", "Location", "Depth_cm", "Timepoint", "Sample_Type", 
+           "Evacuation_date_YYYYMMDD", "Collection_Date_YYYYMMDD", "Collection_Start_Time_24hrs", "Collection_End_Time_24hrs", "EST_EDT", "Notes", 
+           "integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id"))
+
+
+##2022 
+#Abs
+CDOM_2022_Abs_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM/Abs_2022"
+unlink(CDOM_2022_Abs_to, recursive = TRUE)
+dir.create("Data package/2022/COMPASS_TEMPEST_water_CDOM")
+dir.create(CDOM_2022_Abs_to)
+CDOM_2022_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2022", full.names = TRUE)
+file.copy(from = CDOM_2022_Abs, to = CDOM_2022_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2022_EEM_to <- "Data package/2022/COMPASS_TEMPEST_water_CDOM/EEM_2022"
+unlink(CDOM_2022_EEM_to, recursive = TRUE)
+dir.create(CDOM_2022_EEM_to)
+CDOM_2022_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2022", full.names = TRUE)
+file.copy(from = CDOM_2022_EEM, to = CDOM_2022_EEM_to, overwrite = TRUE)
+#Metadata
+CDOM_meta_2022 <- CDOM_meta_all2 %>% 
+  filter(str_detect(Sample_ID, "2022"))
+write.csv(CDOM_meta_2022, "Data package/2022/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2022.csv", row.names = FALSE)
+
+##2023
+#Abs
+CDOM_2023_Abs_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM/Abs_2023"
+unlink(CDOM_2023_Abs_to, recursive = TRUE)
+dir.create("Data package/2023/COMPASS_TEMPEST_water_CDOM")
+dir.create(CDOM_2023_Abs_to)
+CDOM_2023_Abs <- list.files("../CDOM/2022-2023/Abs_Data", "2023", full.names = TRUE)
+file.copy(from = CDOM_2023_Abs, to = CDOM_2023_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2023_EEM_to <- "Data package/2023/COMPASS_TEMPEST_water_CDOM/EEM_2023"
+unlink(CDOM_2023_EEM_to, recursive = TRUE)
+dir.create(CDOM_2023_EEM_to)
+CDOM_2023_EEM <- list.files("../CDOM/2022-2023/EEM_Data", "2023", full.names = TRUE)
+file.copy(from = CDOM_2023_EEM, to = CDOM_2023_EEM_to, overwrite = TRUE)
+##Metadata
+CDOM_meta_2023 <- CDOM_meta_all2 %>% 
+  filter(str_detect(Sample_ID, "2023"))
+write.csv(CDOM_meta_2023, "Data package/2023/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2023.csv", row.names = FALSE)
+
+
+##2024
+#Abs
+CDOM_2024_Abs_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM/Abs_2024"
+unlink(CDOM_2024_Abs_to, recursive = TRUE)
+dir.create("Data package/2024/COMPASS_TEMPEST_water_CDOM")
+dir.create(CDOM_2024_Abs_to)
+CDOM_2024_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2024", full.names = TRUE)
+file.copy(from = CDOM_2024_Abs, to = CDOM_2024_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2024_EEM_to <- "Data package/2024/COMPASS_TEMPEST_water_CDOM/EEM_2024"
+unlink(CDOM_2024_EEM_to, recursive = TRUE)
+dir.create(CDOM_2024_EEM_to)
+CDOM_2024_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2024", full.names = TRUE)
+file.copy(from = CDOM_2024_EEM, to = CDOM_2024_EEM_to, overwrite = TRUE)
+##Metadata
+CDOM_meta_2024 <- CDOM_meta_all2 %>% 
+  filter(str_detect(Sample_ID, "2024"))
+write.csv(CDOM_meta_2024, "Data package/2024/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2024.csv", row.names = FALSE)
+
+##2025
+#Abs
+CDOM_2025_Abs_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM/Abs_2025"
+unlink(CDOM_2025_Abs_to, recursive = TRUE)
+dir.create("Data package/2025/COMPASS_TEMPEST_water_CDOM")
+dir.create(CDOM_2025_Abs_to)
+CDOM_2025_Abs <- list.files("../CDOM/2024-2025/Abs_Data", "2025", full.names = TRUE)
+file.copy(from = CDOM_2025_Abs, to = CDOM_2025_Abs_to, overwrite = TRUE)
+#EEM
+CDOM_2025_EEM_to <- "Data package/2025/COMPASS_TEMPEST_water_CDOM/EEM_2025"
+unlink(CDOM_2025_EEM_to, recursive = TRUE)
+dir.create(CDOM_2025_EEM_to)
+CDOM_2025_EEM <- list.files("../CDOM/2024-2025/EEM_Data", "2025", full.names = TRUE)
+file.copy(from = CDOM_2025_EEM, to = CDOM_2025_EEM_to, overwrite = TRUE)
+##Metadata
+CDOM_meta_2025 <- CDOM_meta_all2 %>% 
+  filter(str_detect(Sample_ID, "2025"))
+write.csv(CDOM_meta_2025, "Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv", row.names = FALSE)
+
+```
+
+## Create dd file
+```{r make metadata, include = FALSE}
+
+colnames(final_data)
+
+abs <- read.csv(CDOM_2025_Abs[1])
+colnames(abs)
+
+meta <- read.csv("Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_2025.csv")
+meta <- meta %>% 
+  select("integration_time_s", "dilution_factor", "RSU_area_1s", "abs_file_id", "eem_file_id")
+colnames(meta)
+
+#pull the column names from the all_dat1 dataframe and create a new dataframe with them
+dd <- data.frame(Column_Names = c(colnames(final_data), colnames(abs), colnames(meta)))
+dd
+
+dd$Corresponding_files <-  ""    
+dd$Unit <- ""
+dd$Definition <- ""
+dd$Column_Long_Name <- dd$Column_Names
+dd$data_type <- ""
+dd$Instrument_ifapplicable <- ""
+dd$Method_ifapplicable <- ""
+
+#add information about each line:
+
+dd$Corresponding_files <-       c("YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv; YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_YYYY.csv",
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/Abs_YYYY/SampleID_ABS_DilCorr.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/Abs_YYYY/SampleID_ABS_DilCorr.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv", 
+                         "YYYY/COMPASS_TEMPEST_water_CDOM/CDOM_metadata_YYYY.csv") 
+
+dd$Definition <-       c("Project name: Project component", 
+                         "Region samples originated from: CB = Chesapeake Bay",
+                         "Water sample ID", 
+                         "Year (YYYY) of sample collection", 
+                         "Month (MM) of sample collection",
+                         "Day (DD) of sample collection",
+                         "Site Code identifier for sampling transect location (TMP), see dataset location for coordinates", 
+                         "Sampling Event (TMP-I, TMP-II, TMP-III, Monitoring)", 
+                         "Sampling plot (F = Freshwater, S = Saltwater, C = Control)",
+                         "Sampling grid location in plot (Letter + Number)", 
+                         "Depth interval below the soil surface from which the sample was collected in cm",
+                         "Sampling timepoint during an event (T#, HR#, AM/MID/PM)", 
+                         "Type of sample collected (SOURCE = Source water, PW = Porewater, RAINWATER = Rain water)", 
+                         "Date lysimeter was evacuated before sample collection (YYYYMMDD)", 
+                         "Date sample was collected (YYYYMMDD)", 
+                         "Time sample collection was started (HHMM)", 
+                         "Time sample collection ended (HHMM)", 
+                         "Daylight savings time zone during sample collection (EST/EDT)", 
+                         "Notes from sample collection in the field", 
+                         "Non-Purgeable Organic Carbon concentration", 
+                         "Non-Purgeable Organic Carbon concentration", 
+                         "Non-Purgeable Organic Carbon flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
+                         "TDN concentration", 
+                         "TDN concentration", 
+                         "TDN flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration", 
+                         "Nitrate-N + Nitrite-N (NOx) concentration flag (adl = above detection limit (1 mg/L), bdl = below detection limit (0.025 mg/L))",
+                         "Ammonia (NH3) concentration", 
+                         "Ammonia (NH3) concentration", 
+                         "Ammonia (NH3) concentration flag (adl = above detection limit (2 mg/L), bdl = below detection limit (0.02 mg/L))", 
+                         "Phosphate (PO4) concentration", 
+                         "Phosphate (PO4) concentration", 
+                         "Phosphate (PO4) concentration flag (adl = above detection limit (0.3 mg/L), bdl = below detection limit (0.003 mg/L))", 
+                         "Sulfate concentration", 
+                         "Sulfate concentration", 
+                         "Sulfate concentration flag (adl = above detection limit (20 ug/mL), bdl = below detection limit (0 ug/mL))", 
+                         "Chloride concentration", 
+                         "Chloride concentration", 
+                         "Chloride concentration flag (adl = above detection limit (200 ug/mL), bdl = below detection limit (0 ug/mL))", 
+                         "Salinity", 
+                         "Sulfide concentration in uM, mean of analytical replicates during sample analysis", 
+                         "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
+                         "pH of sample", 
+                         "pH flag (pH value is outside the typical range = pH is less than 3.5 or greater than 8)", 
+                         "Conductivity of sample", 
+                         "Conductivity units", 
+                         "Temperature of sample when collected (degrees Celsius)", 
+                         "Temperature flag (temperature not recorded)", 
+                         "Notes for analytes not measured", 
+                         "Wavelength in nm at which absorbance was measured (column in sample absorbance data files)", 
+                         "Absorbance corrected for sample dilution (column in sample absorbance data files)", 
+                         "Integration time used for sample measurement (in second)", 
+                         "Dilution factor of sample (e.g., a 2-fold dilution with 1 part sample and 1 part water will have a dilution factor of 0.5)", 
+                         "Raman Scatter Unit-adjusted area from daily water Raman scan with a 1s integration time", 
+                         "Processed UV absorbance scan (Abs) file IDs - (Processing step: dilution corrected)", 
+                         "Processed excitation-emission matrices (EEM) file IDs (Processing steps include blank subtraction, Raman scattering removal, Rayleigh scattering removal, inner filter effect correction, Raman area normalization, dilution correction)")
+
+dd$Unit <-             c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "cm",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "mg/L", 
+                         "umoles/L", 
+                         "NA",
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",   
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "mg/L", 
+                         "umoles/L",  
+                         "NA", 
+                         "ppm", 
+                         "mmol/L", 
+                         "NA", 
+                         "ppm", 
+                         "mmol/L", 
+                         "NA", 
+                         "ppt", 
+                         "umoles/L",  
+                         "umoles/L",  
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "mS/cm or uS/cm", 
+                         "mS/cm or uS/cm", 
+                         "degrees Celsius", 
+                         "NA", 
+                         "NA", 
+                         "nm", 
+                         "NA", 
+                         "seconds",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA")
+
+dd$data_type <-        c("text", 
+                         "text",
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "text",
+                         "text",
+                         "text",
+                         "numeric", 
+                         "text",
+                         "text",
+                         "date", 
+                         "date", 
+                         "time", 
+                         "time", 
+                         "text",
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "numeric", 
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "text",
+                         "numeric", 
+                         "text",
+                         "text", 
+                         "numeric", 
+                         "numeric", 
+                         "numeric",
+                         "numeric",
+                         "numeric",
+                         "text",
+                         "text")
+
+dd$Instrument_ifapplicable <-   c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "Shimadzu TOC", 
+                         "Shimadzu TOC", 
+                         "NA", 
+                         "Shimadzu TOC", 
+                         "Shimadzu TOC", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "SEAL Instrument: SEAL AQ300 Discrete Analyzer (https://seal-analytical.com/en/products/discrete-analyzers/aq300-discrete-analyzer/)", 
+                         "NA", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "NA", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "Dionex Integrion RFIC (Thermo Scientific)", 
+                         "NA", 
+                         "Calculated with Knudsen equation (Strickland and Parsons, 1972)", 
+                         "Modified Cline (1969) method measured with Agilent BioTek PowerWave Microplate Reader", 
+                         "Sulfide concentration standard deviation in uM of analytical replicates during sample analysis", 
+                         "Sulfide concentration flag (adl = above detection limit (100 umoles/L), bdl = below detection limit (0 umoles/L))", 
+                         "Oakton Instruments PCTSTestr", 
+                         "NA", 
+                         "Oakton Instruments PCTSTestr", 
+                         "NA", 
+                         "Oakton Instruments PCTSTestr", 
+                         "NA", 
+                         "NA", 
+                         "Aqualog (Horiba Scientific)", 
+                         "Aqualog (Horiba Scientific)", 
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)",
+                         "Aqualog (Horiba Scientific)")
+
+
+dd$Method_ifapplicable <- c("NA", 
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-160-A Rev. 0", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-103-A Rev. 10", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "EPA-155-D Rev. 0", 
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "NA",
+                         "NA",
+                         "NA", 
+                         "Calculated with Knudsen equation (Strickland and Parsons, 1972)", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "Adapted from Cline, 1969, Ehrhardt et al., 1999", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "NA", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).", 
+                         "UV absorbance scans and excitation-emission matrices (EEMs) were collected simultaneously on filtered samples using an Aqualog (Horiba Scientific). Absorbance was measured from 230-800 nm in 3 nm intervals. EEMs were collected within the same wavelength constraints. Daily fresh Milli-Q water was used to obtain blank spectra. Absorbance data were blank-corrected prior to exporting data in the Aqualog software. Data were processed with the drEEM toolbox v. 6.0 for Matlab or using the fewsdom package (v1.1.5) in R (v4.3.2). Processing of the EEMs include blank correction, scatter line removal, inner filter effect and dilution correction, and normalization to Raman Scatter units based on daily water Raman scans collected at an excitation of 350 nm. Samples with absorbance at 254 nm above 0.3 were diluted and reanalyzed to maintain linearity between concentration and fluorescence intensity (Miller et al., 2010).")
+
+#write out the data dictionary associated with the data:
+write.csv(dd, "Data package/dd.csv", row.names = FALSE,  fileEncoding = "UTF-8")
+
+```
+
+
+## Create flmd file
+```{r create flmd}
+
+files  = list.files("Data package", recursive = TRUE)
+files
+
+# Strings you want to completely remove
+to_remove <- c("COMPASS_TEMPEST_water_analysis_DataDescription.txt", "flmd.csv", "site_list.csv")
+
+# Filter the list
+files <- files[!files %in% to_remove]
+files
+
+# files = c("COMPASS_TEMPEST_water_analysis_2022.csv", "COMPASS_TEMPEST_water_analysis_2023.csv", "COMPASS_TEMPEST_water_analysis_2024.csv","COMPASS_TEMPEST_water_analysis_2025.csv", "dd.csv")
+
+flmd <- data.frame(file_name = basename(files), file_path = files)
+
+flmd <- flmd %>% 
+  mutate(file_description = case_when(
+    str_detect(file_name, "ABS_DilCorr") ~ paste0("Processed Absorbance for ", gsub("_ABS_DilCorr.csv", "", file_name), " sample"), 
+    str_detect(file_name, "EEM_DilCorr_IFE_RamNorm") ~ paste0("Processed EEM spectra for ", gsub("_EEM_DilCorr_IFE_RamNorm.csv", "", file_name), " sample"), 
+    str_detect(file_name, "metadata") ~ paste0("CDOM metadata for Abs and EEM files for porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in ", str_extract(file_name, "\\d{4}")), 
+    str_detect(file_name, "DOC_Nutr_SO4_Cl_H2S_pH") ~ paste0("DOC, Nutrient, Sulfate/Chloride, Sulfide, pH, and Conductivity data for porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in ", str_extract(file_name, "\\d{4}")), 
+    str_detect(file_name, "dd.csv") ~ "Data dictionary of each column name present in the data package", 
+    TRUE ~ NA)
+  ) %>% 
+  
+  mutate(data_orientation = case_when(
+    str_detect(file_name, "EEM_DilCorr_IFE_RamNorm") ~ "matrix", 
+    TRUE ~ "horizontal" )) %>% 
+  
+  mutate(header_rows = "1") %>% 
+  mutate(column_or_row_name_position = "1")
+
+#write out the flmd associated with the data:
+write.csv(flmd, "Data package/flmd.csv", row.names = FALSE)
+
+```
+
+
+## Create site list - can we use the site list from the sensor data publications? 
+```{r create site list}
+
+##Description, Latitude, Longitude
+
+Control <- data.frame(
+  Description = "Control Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.", 
+  Latitude = "38.8747 degrees", 
+  Longitude = "-76.5519 degrees")
+
+Freshwater <- data.frame(
+  Description = "Freshwater Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.", 
+  Latitude = "38.87403 degrees", 
+  Longitude = "-76.5516 degrees")
+
+Saltwater <- data.frame(
+  Description = "Saltwater Plot at the TEMPEST experimental site. The TEMPEST experiment is in a mid- to late-successional (~80 years old) temperate, deciduous coastal forest.",
+  Latitude = "38.8744 degrees", 
+  Longitude = "-76.5525 degrees")
+
+site_list = bind_rows(Control, Freshwater, Saltwater)
+
+#write out the site list associated with the data:
+write.csv(site_list, "Data package/site_list.csv", row.names = FALSE)
+
+
+```
+
+
+## Data Description - NEED TO EDIT THIS
+```{r data description}
+
+#Create a text file that has the description of the data - This ideally should match the text that is in the data READ.ME 
+
+datadescription <- "These data are measurements of porewater and source water samples collected in 2022-2025 from the COMPASS Terrestrial Ecosystem Manipulation to Probe the Effects of Storm Treatments (TEMPEST) site in the Chesapeake Bay region. This manipulative, ecosystem-scale TEMPEST experiment addresses the potential for freshwater and estuarine-water disturbance events to alter tree function, species composition, and ecosystem processes in a deciduous coastal forest in MD, USA. The experiment uses a large-unit (2000 m2), un-replicated experimental design, with three 50 m × 40 m plots serving as control, freshwater, and saltwater treatments. Porewater was collected from lysimeters at 15, 30, and 50 cm depths semi-monthly from 2022-2025, and 1-2 times per day during flooding events. Porewater samples were pulled from lysimeters using an extraction kit consisting of a syringe and tubing, and source water samples were collected from a barge on the nearby estuary (estuary source water samples) or from the emitter lines (F and S source water samples). These samples were then aliquoted into bottles for analysis of sulfate, chloride, sulfide, nutrient, dissolved organic carbon, and colored dissolved organic matter concentrations. Samples were analyzed for pH, conductivity, and temperature at the time of sample collection. Analysis of each constituent is described in the data dictionary and further details, including quality assurance and quality control for all analyses can be found on the COMPASS TEMPEST Porewater page (https://github.com/COMPASS-DOE/TEMPEST_Porewater)"
+
+##Add something about how rainwater was collected? 
+
+#write to a text file 
+writeLines(datadescription, "Data package/COMPASS_TEMPEST_water_analysis_DataDescription.txt")
+
+
+```
+
+
+## Create Author List - NEED TO EDIT THIS 
+```{#r create author list}
+
+#Pull in the common synoptic authors list: 
+authors_common <- read.csv(here("Metadata/Synoptic CB/", "COMPASS_SynopticCB_common_essdive_author_list.csv"))
+
+
+#create a list of the last names you want to pull 
+names_we_want <- c("Wilson", "Read", "Stearns", "Phillips", "Chin", "Megonigal")
+
+#Subset the common list for the names that we want 
+author_list <- authors_common %>%
+  filter(last_name %in% names_we_want)
+
+#if you need to add any other authors 
+others <- data.frame(
+  first_name = c("first_name1", "first_name2"), 
+  last_name = c("last_name1", "last_name2"), 
+  orcid = c("orcid_id1", "orcid_id2"), 
+  affiliation = c("affiliation1", "affiliation2"), 
+  email = c("email1", "email2")
+)
+
+#add in the other authors 
+#author_list <- bind_rows(author_list, others)
+
+#write out the author list associated with the data:
+write.csv(author_list, "Data package/author_list.csv", row.names = FALSE)
+```
+

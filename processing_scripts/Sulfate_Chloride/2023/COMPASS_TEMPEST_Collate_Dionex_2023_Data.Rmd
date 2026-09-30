@@ -266,7 +266,7 @@ data_plotting <- merged_data %>%
 
 #Order by Zone from Upland to Surface Water
 unique(data_plotting$Plot)
-data_plotting$Plot = factor(data_plotting$Plot, levels = c("C", "FW", "SW"))
+data_plotting$Plot = factor(data_plotting$Plot, levels = c("C", "FW", "SW", "ESTUARY"))
 data_plotting <- data_plotting[order(data_plotting$Plot), ]
 
 data_plotting$SO4_ppm <- as.numeric(data_plotting$SO4_ppm)

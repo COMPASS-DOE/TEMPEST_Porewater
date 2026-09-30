@@ -1,0 +1,142 @@
+Inj.	Injection Name	Type 	Ret.Time	Amount	Rel.Area 	Area	Height	Type
+No.	Selected Peak:		min	µg/mL	%	µS*min	µS	
+			CD	CD	CD	CD	CD	CD
+			IC-Cl	IC-Cl	IC-Cl	IC-Cl	IC-Cl	IC-Cl
+1	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+2	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+3	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+4	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+5	Standard 1	Calibration Standard	3.163	4.9616	92.71	6.0412	46.39	BMB
+6	Standard 2	Calibration Standard	3.153	9.9954	92.55	12.1704	92.36	BMB
+7	Standard 3	Calibration Standard	3.143	19.5935	93.22	23.857	178.07	BMB
+8	Standard 4	Calibration Standard	3.147	99.8362	93.04	121.5604	877.44	BMB
+9	Standard 5	Calibration Standard	3.13	200.1238	93	243.6705	1806.49	BMB
+10	Lab Blank	Unknown	3.147	0.0178	38.93	0.0216	0.1	BM 
+11	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+12	1	Unknown	3.157	1.3603	0.32	0.0331	0.35	Rd
+13	2	Unknown	3.157	3.6372	0.86	0.0886	0.83	Rd
+14	3	Unknown	3.157	2.8974	0.71	0.0706	0.67	Rd
+15	4	Unknown	3.157	2.5507	0.62	0.0621	0.6	Rd
+16	5	Unknown	3.157	2.0443	0.5	0.0498	0.5	Rd
+17	6	Unknown	3.157	1.4977	0.36	0.0365	0.38	Rd
+18	7	Unknown	3.153	20.5422	5.69	0.5002	4.16	bMb*
+19	8	Unknown	3.153	36.0216	9.85	0.8772	7.18	bMb*
+20	9	Unknown	3.15	15.7766	3.83	0.3842	3.2	bMb*
+21	10	Unknown	3.153	107.7621	21.79	2.6242	21.14	bMb*
+22	10_DUP	Unknown	3.153	108.4578	21.83	2.6412	21.34	bMb*
+23	11	Unknown	3.157	12.2731	2.9	0.2989	2.52	Rd
+24	11_SPK	Spiked	3.153	11.9549	2.45	0.2911	2.45	Rd
+25	Standard 1	Check Standard	3.15	4.9619	92.64	6.0416	46.28	BMB
+26	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+27	12	Unknown	3.157	5.5474	1.33	0.1351	1.2	Rd
+28	13	Unknown	3.153	15.4339	3.88	0.3758	3.15	bMb*
+29	14	Unknown	3.153	2.6872	0.66	0.0654	0.63	Rd
+30	15	Unknown	3.153	1.2468	0.31	0.0304	0.33	Rd
+31	16	Unknown	3.153	2.819	0.68	0.0686	0.66	Rd
+32	17	Unknown	3.153	1.2024	0.29	0.0293	0.32	Rd
+33	18	Unknown	3.15	0.0291	0.01	0.0007	0.02	bMb*
+34	19	Unknown	3.153	1.6743	0.41	0.0408	0.42	Rd
+35	20	Unknown	3.157	1.5316	0.37	0.0373	0.4	Rd
+36	20_DUP	Unknown	3.157	1.5635	0.38	0.0381	0.41	Rd
+37	21	Unknown	3.157	5.3657	1.29	0.1307	1.22	Rd
+38	21_SPK	Spiked	3.16	5.6021	1.16	0.1364	1.27	Rd
+39	Standard 2	Check Standard	3.15	9.9829	92.51	12.1552	96.15	BMB
+40	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+41	22	Unknown	3.16	2.6294	0.64	0.064	0.65	Rd
+42	23	Unknown	3.157	28.5691	7.75	0.6957	6.06	bMb*
+43	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+44	24	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+45	24	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+46	25	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+47	26	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+48	27	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+49	28	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+50	29	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+51	30	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+52	30_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+53	31	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+54	31_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+55	Standard 3	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+56	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+57	32	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+58	33	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+59	34	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+60	35	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+61	36	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+62	37	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+63	38	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+64	39	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+65	40	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+66	40_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+67	41	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+68	41_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+69	Standard 4	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+70	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+71	42	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+72	43	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+73	44	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+74	45	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+75	46	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+76	47	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+77	48	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+78	49	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+79	50	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+80	50_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+81	51	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+82	51_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+83	Standard 5	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+84	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+85	52	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+86	53	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+87	54	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+88	55	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+89	56	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+90	57	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+91	58	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+92	59	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+93	60	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+94	60_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+95	61	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+96	61_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+97	Standard 1	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+98	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+99	62	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+100	63	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+101	64	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+102	65	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+103	66	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+104	67	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+105	68	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+106	69	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+107	70	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+108	70_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+109	71	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+110	71_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+111	Standard 2	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+112	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+113	72	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+114	73	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+115	74	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+116	75	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+117	76	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+118	77	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+119	78	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+120	79	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+121	80	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+122	80_DUP	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+123	81	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+124	81_SPK	Spiked	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+125	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+126	Standard 1	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+127	Standard 2	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+128	Standard 3	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+129	Standard 4	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+130	Standard 5	Check Standard	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+131	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+132	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+133	Lab Blank	Unknown	n.a.	n.a.	n.a.	n.a.	n.a.	n.a.
+Maximum			3.163	200.1238	93.22	243.6705	1806.49	
+Average			3.153	21.49	22.27	12.4378	92.15	
+Minimum			3.13	0.0178	0.01	0.0007	0.02	
+Standard Deviation			0.006	42.4742	36.64	45.2742	333.91	
+Relative Standard Deviation			0.18%	197.65%	164.52%	364.00%	362.35%	

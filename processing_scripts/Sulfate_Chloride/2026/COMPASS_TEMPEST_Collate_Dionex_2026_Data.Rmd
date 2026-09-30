@@ -1,0 +1,81 @@
+---
+title: "COMPASS_TEMPEST_Collate_Dionex_2026_Data"
+author: "Stephanie J. Wilson"
+date: "2025-08-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(stringr)
+library(readxl)
+library(tidyr)
+library(tibble)
+```
+
+#Read in and collate all the files in the Processed Data folder 
+```{r}
+
+files <- list.files(path = "Processed Data", pattern = "\\.csv$", full.names = TRUE)
+
+# 3. Read and combine all CSVs
+all_data <- files %>%
+  lapply(read.csv, colClasses = "character") %>%    # or read.csv if you prefer base R
+  bind_rows()             # combine into one data frame
+
+all_data <- all_data[, -which(names(all_data) == "X")]
+
+colnames(all_data)
+
+all_data1 <- all_data %>%
+  mutate(Sample_ID = toupper(Sample_ID)) %>% 
+  mutate(Plot = stringr::str_extract(Sample_ID, 'SW|FW|_C_|ESTUARY|EST'),
+         Plot = gsub("_", "", Plot), 
+         Grid = stringr::str_extract(Sample_ID, "B4|C3|C6|PW_D5|E3|F4|F6|H3|H6|I5") ,
+         Grid = gsub("PW_", "", Grid), 
+         Sample_Type = stringr::str_extract(Sample_ID, "SCE|RAINWATER|RO"), 
+         Sample_Type = replace_na(Sample_Type, "PW"), 
+         Date = stringr::str_extract(Sample_ID, "[0-9]{8}"),
+         Depth = stringr::str_extract(Sample_ID, "15CM|30CM|50CM"),
+         Depth = ifelse(str_detect(Sample_ID, "2022|2023|2024|2025|20260309|20260410") & Sample_Type == "PW", "15CM", Depth), ##Only 15 cm sampling until 2026 for PW
+         Depth = ifelse(Sample_Type == "SOURCE|RAINWATER", NA, Depth), ##Only 15 cm sampling until 2026 for PW
+         T_num = stringr::str_extract(Sample_ID, "D0|D1|D2|D3|D4|D5_AM|D5_PM|D6"),
+         T_num = gsub("_AM", "", T_num), 
+         T_num = gsub("_PM", "", T_num), 
+         TOD = stringr::str_extract(Sample_ID, "AM|MID|PM|T0|T1|T2|T3|T4|T5|T6|HT|LT"), 
+         
+         Sample_ID_formatted = paste("TMP", Sample_Type, Plot, Grid, Depth, Date, T_num, TOD, sep = "_"), 
+         Sample_ID_formatted = gsub("_NA", "", Sample_ID_formatted))
+
+final_data <- all_data1 %>%
+  mutate(Evacuation_Date_YYYYMMDD = ifelse(is.na(Evacuation_date_YYYYMMDD), Evacuation_Date, Evacuation_date_YYYYMMDD)) %>% 
+  mutate(Depth_cm = gsub("CM", "", Depth)) %>% 
+  mutate(
+    Collection_Date_YYYYMMDD = Date, 
+    Sample_ID = Sample_ID_formatted, 
+    Event_Time = T_num, 
+    Time_of_day = TOD, 
+    Source = Sample_Type
+    ) %>%
+  select(
+         Project, Plot, Grid, Depth_cm, Event_Time, Time_of_day, Source, 
+         Volume_mL, Collection_Date_YYYYMMDD, Evacuation_Date_YYYYMMDD, Sample_ID, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, 
+         SO4_ppm, SO4_Conc_mM, SO4_Conc_flag, SO4_QAQC_flag, Cl_ppm, Cl_Conc_mM, Cl_Conc_flag, Cl_QAQC_flag, 
+         salinity,
+         Analysis_rundate,  Run_notes, Field_notes
+        # list columns in the order you want them
+  )
+
+
+```
+
+## Write the 2023 file out to the folder 
+```{r, echo=FALSE}
+
+write.csv(final_data, "COMPASS_TEMPEST_SO4_Cl_2026.csv")
+
+```
+

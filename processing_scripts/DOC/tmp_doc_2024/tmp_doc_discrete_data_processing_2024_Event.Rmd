@@ -101,7 +101,7 @@ anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 #inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
 inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=496164093#gid=496164093"
 
-directory= file.path(here() %>% dirname(), 'tmp_doc_2024/tmp_doc_metadata_2024')
+directory= ('tmp_doc_metadata_2024')
 if(!dir.exists(directory)){
   stop("Directory does not exist, check directory path")
 }
@@ -1098,11 +1098,15 @@ merged_data <- dat_flagged %>%
 
 cat("Export Processed Data")
 
+##Remove duplicate samples
+final_data1 <- merged_data %>% 
+  filter(sample_ID != "SW_C3_DOC_20240612_T3")
+
 #Prepare data to be exported - if there is anything else to add 
 #Add any necessary identifiers to the samples  ### VERY IMPORTANT AND STANDARD FOR PROJECT ####
   #example read in sample IDs list and merge 
   #create required ID columns in R, etc. 
-final_data <- merged_data %>% 
+final_data <- final_data1 %>% 
   #select(Project, Plot, grid, sample_name, Vial_ID, date, ) %>%
   mutate(
     Project = "COMPASS: TEMPEST",   # new column with same value on every row
@@ -1129,7 +1133,7 @@ final_data <- final_data %>%
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
     Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
-    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
+    Collection_Start_Time_24hrs, Collection_End_Time_24hrs, Collection_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
 
