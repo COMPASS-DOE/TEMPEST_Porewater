@@ -74,7 +74,7 @@ parse_monthly_porewater_file <- function(file) {
         "CDOM" = "CDOM",
         "pH" = "pH",
         "Cond" = "Conductivity",
-        "Cond_units" = "Conductivity_units",
+        "Units" = "Conductivity_units",
         "Temp" = "Temperature_C",
         "ISO" = "Isotopes",
         "SPE" = "SPE",

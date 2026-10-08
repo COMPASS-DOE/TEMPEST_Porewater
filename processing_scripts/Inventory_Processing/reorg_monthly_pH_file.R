@@ -30,10 +30,12 @@ process_monthly_pw_pH <- function(dat){
       Plot == "Control|Freshwater" ~ "uS/cm", 
       str_detect(Conductivity, "uS/cm") ~ "uS/cm",
       str_detect(Conductivity, "mS/cm") ~ "mS/cm",
+      str_detect(Conductivity_units, "uS/cm") ~ "uS/cm",
+      str_detect(Conductivity_units, "mS/cm") ~ "mS/cm",
       str_detect(Notes, "uS/cm") ~ "uS/cm",
       str_detect(Notes, "mS/cm") ~ "mS/cm",
       str_detect(Notes, "micro") ~ "uS/cm",
-      TRUE ~ "mS/cm")) %>% 
+      TRUE ~ NA)) %>% 
     mutate(
       Conductivity = as.character(Conductivity),
       Conductivity = gsub("uS/cm", "", Conductivity), 

@@ -29,6 +29,8 @@ process_event_pw_pH <- function(dat){
     mutate(Cond_units = case_when(
       str_detect(Conductivity, "uS/cm") ~ "uS/cm",
       str_detect(Conductivity, "mS/cm") ~ "mS/cm",
+      str_detect(Conductivity_units, "uS/cm") ~ "uS/cm",
+      str_detect(Conductivity_units, "mS/cm") ~ "mS/cm",
       str_detect(Notes, "uS/cm") ~ "uS/cm",
       str_detect(Notes, "mS/cm") ~ "mS/cm",
       # Plot == "Control|Freshwater" ~ "uS/cm", 
