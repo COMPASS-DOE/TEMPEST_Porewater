@@ -1,6 +1,6 @@
 # Function to parse digitized field porewater data sheet
 # Created by Stephanie Wilson
-file = pw_raw
+# file = pw_raw
 parse_monthly_evacuation_file <- function(file) {
 
     project <- sub("^.*?:\\s*", "", file[1,1])
@@ -140,5 +140,3 @@ parse_monthly_evacuation_file <- function(file) {
     dat %>% select(any_of(desired_order))
 
 }
-
-colnames(dat)
