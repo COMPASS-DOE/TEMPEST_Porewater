@@ -224,6 +224,7 @@ write.csv(CDOM_meta_2025, "Data package/2025/COMPASS_TEMPEST_water_CDOM/CDOM_met
 
 ```
 
+####Add Detection limits for NPOC and TDN!####
 ## Create dd file
 ```{r make metadata, include = FALSE}
 
@@ -332,9 +333,9 @@ dd$Definition <-       c("Project name: Project component",
                          "Non-Purgeable Organic Carbon concentration", 
                          "Non-Purgeable Organic Carbon concentration", 
                          "Non-Purgeable Organic Carbon flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
-                         "TDN concentration", 
-                         "TDN concentration", 
-                         "TDN flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
+                         "Total Dissolved Nitrogen concentration", 
+                         "Total Dissolved Nitrogen concentration", 
+                         "Total Dissolved Nitrogen flag (adl = above detection limit (), bdl = below detection limit ( ug/mL))", 
                          "Nitrate-N + Nitrite-N (NOx) concentration", 
                          "Nitrate-N + Nitrite-N (NOx) concentration", 
                          "Nitrate-N + Nitrite-N (NOx) concentration flag (adl = above detection limit (1 mg/L), bdl = below detection limit (0.025 mg/L))",
