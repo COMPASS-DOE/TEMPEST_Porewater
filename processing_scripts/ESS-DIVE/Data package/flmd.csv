@@ -837,4 +837,5 @@
 "TMP_PW_SW_H6_15CM_20250602_EEM_DilCorr_IFE_RamNorm.csv","2025/COMPASS_TEMPEST_water_CDOM/EEM_2025/TMP_PW_SW_H6_15CM_20250602_EEM_DilCorr_IFE_RamNorm.csv","Processed EEM spectra for TMP_PW_SW_H6_15CM_20250602 sample","matrix","1","1"
 "TMP_PW_SW_I5_15CM_20250204_EEM_DilCorr_IFE_RamNorm.csv","2025/COMPASS_TEMPEST_water_CDOM/EEM_2025/TMP_PW_SW_I5_15CM_20250204_EEM_DilCorr_IFE_RamNorm.csv","Processed EEM spectra for TMP_PW_SW_I5_15CM_20250204 sample","matrix","1","1"
 "COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2025.csv","2025/COMPASS_TEMPEST_water_DOC_Nutr_SO4_Cl_H2S_pH_2025.csv","DOC, Nutrient, Sulfate/Chloride, Sulfide, pH, and Conductivity data for porewater, sourcewater, and rainwater samples collected from COMPASS TEMPEST site in 2025","horizontal","1","1"
+"author_list.csv","author_list.csv",NA,"horizontal","1","1"
 "dd.csv","dd.csv","Data dictionary of each column name present in the data package","horizontal","1","1"
