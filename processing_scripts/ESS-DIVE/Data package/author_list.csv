@@ -1,19 +1,21 @@
-order_of_authors,last_name,first_name,orcid,affiliation,email,notes
-1,Read,Zoe,0000-0002-5267-7115,Smithsonian Environmental Research Center ,readz@si.edu,
-2,Stearns,Alice,0009-0005-7628-3419,Smithsonian Environmental Research Center ,stearnsa@si.edu,
-3,Wilson,Stephanie,0000-0002-5485-0748,Smithsonian Environmental Research Center ,wilsonsj@si.edu,dataset contact
-4,Myers-Pigg,Allison,0000-0002-6905-6841,Pacific Northwest National Laboratory,allison.myers-pigg@pnnl.gov,dataset contact
-5,Bowe,Madison,,Pacific Northwest National Laboratory,,
-7,Homolka,Khadijah,,,,
-8,Kemner,Ken,,Argonne National Laboratory,kemner@anl.gov,
-9,Kim,Jieun,,Pacific Northwest National Laboratory,jieun.kim@pnnl.gov,
-10,McElhinny,Julia,,,,
-11,Montgomery,Ashleigh,,Arizona State University,amontg35@asu.edu,
-12,O’Loughlin,Edward,,Argonne National Laboratory,OLoughlin@anl.gov,
-13,Otenburg,Opal,,Pacific Northwest National Laboratory,,
-14,Phillips,Evan,0009-0004-5655-7091,Smithsonian Environmental Research Center ,phillipse@si.edu,
-15,Roebuck,Jesse Alan,,Pacific Northwest National Laboratory,,
-16,Stetten,Lucie,,The University of Manchester,lucie.stetten@manchester.ac.uk,
-17,Hopple,Anya ,,Biodiversity Research Institute,,
-18,Bailey,Vanessa,0000-0002-2248-8890,Pacific Northwest National Laboratory,vanessa.bailey@pnnl.gov,
-19,Megonigal,J. Patrick,0000-0002-2018-7883,Smithsonian Environmental Research Center,megonigalp@si.edu,
+order_of_authors,First Name,Last Name,Affiliation,Status,Email Address,orcid
+1,Zoe,Read,SERC,Creator,ReadZ@si.edu,0000-0002-5267-7115
+2,Allison,Myers-Pigg,PNNL,"Creator, dataset contact",allison.myers-pigg@pnnl.gov,0000-0002-6905-6841
+3,Stephanie,Wilson,SERC,Creator,wilsonsj@si.edu,0000-0002-5485-0748
+4,Alice,Stearns,SERC,Creator,StearnsA@si.edu,0009-0005-7628-3419
+5,Nick,Ward,PNNL,Creator,nicholas.ward@pnnl.gov,
+6,Anya,Hopple,SERC,Creator,anyahopple@gmail.com,
+7,Vanessa,Bailey,PNNL,Creator,vanessa.bailey@pnnl.gov,0000-0002-2248-8890
+8,Pat,Megonigal,SERC,Creator,megonigalp@si.edu,0000-0002-2018-7883
+,,,,,,
+1,Madison,Bowe,PNNL,Contributor ,madison.k.bowe@gmail.com,
+2,Khadijah,Homolka,PNNL,Contributor ,khomolka@pgst.nsn.us,
+3,Ken,Kemner,ANL,Contributor ,kemner@anl.gov,
+9,Jieun,Kim,PNNL,Creator,jieunkim1618@gmail.com,
+4,Julia,McElhinny ,PNNL / SERC,Contributor ,julia.mcelhinny@alumni.wfu.edu,
+5,Ashleigh,Montgomery,U Del,Contributor ,amontg35@asu.edu,
+6,Edward,O'Loughlin,ANL,Contributor ,OLoughlin@anl.gov,
+7,Opal,Otenburg,PNNL,Contributor ,otenburg@stanford.edu,
+8,Evan,Phillips,SERC,Contributor ,phillipse@si.edu,0009-0004-5655-7091
+9,Jesse Alan,Roebuck ,PNNL,Contributor ,alanroebuck1988@gmail.com,
+10,Lucie,Stetten,ANL,Contributor ,lucie.stetten@manchester.ac.uk,
