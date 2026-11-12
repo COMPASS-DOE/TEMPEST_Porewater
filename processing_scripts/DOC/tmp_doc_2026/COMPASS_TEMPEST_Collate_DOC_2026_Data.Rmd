@@ -20,12 +20,28 @@ library(tibble)
 
 files <- list.files(path = "tmp_doc_processed_data_2026", pattern = "\\.csv$", full.names = TRUE)
 
+
 # 3. Read and combine all CSVs
 all_data <- files %>%
-  lapply(read.csv) %>%    # or read.csv if you prefer base R
-  bind_rows()             # combine into one data frame
+  lapply(function(f) {
+    dat <- read.csv(f, colClasses = "character", check.names = FALSE)
 
-all_data <- all_data[, -which(names(all_data) == "X")]
+    # Replace empty column names
+    names(dat)[is.na(names(dat)) | names(dat) == ""] <- 
+      paste0("X", which(is.na(names(dat)) | names(dat) == ""))
+
+    # Standardize column names
+    dat %>%
+      rename(
+        plot = any_of("Plot"),
+        grid = any_of("Grid"),
+        Evacuation_date_YYYMMDD = any_of("Evacuation_date_YYYYMMDD")
+      ) 
+  }) %>%
+  bind_rows()
+
+
+all_data <- all_data[, -which(names(all_data) == "X1")]
 
 ##Make Sample IDs match 2022/2023 data #TMP_C_B4_20250131 vs TMP_C_B4_15_20260309
 all_data$Sample_ID <- paste0("TMP_", all_data$Vial_ID)

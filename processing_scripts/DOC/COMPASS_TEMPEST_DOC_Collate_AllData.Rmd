@@ -89,6 +89,10 @@ raw_dat$Day <- format(raw_dat$Collection_Date_formatted, format = "%d")
 ##Uppercase sample IDs
 raw_dat$Sample_ID <- toupper(raw_dat$Sample_ID)
 
+##Format Depth
+raw_dat <- raw_dat %>%
+  mutate(Depth_cm = gsub("cm", "", Depth_cm))
+
 all_dat <- raw_dat %>%
   rename(
     Plot = plot, 
@@ -616,6 +620,21 @@ summary_all_years <- data_plotting %>%
      sd_tdn_mgL = sd(tdn_mgL, na.rm=TRUE)) %>%
   mutate(across(where(is.numeric), round, digits = 4)) 
 
+##Metrics for each depth for all years
+summary_by_depth <- data_plotting %>%
+  group_by(Depth_cm) %>%
+   reframe(
+     min_npoc_mgL = min(npoc_mgL, na.rm=TRUE),
+     max_npoc_mgL = max(npoc_mgL, na.rm=TRUE), 
+     mean_npoc_mgL = mean(npoc_mgL, na.rm=TRUE), 
+     sd_npoc_mgL = sd(npoc_mgL, na.rm=TRUE), 
+
+     min_tdn_mgL = min(tdn_mgL, na.rm=TRUE),
+     max_tdn_mgL = max(tdn_mgL, na.rm=TRUE), 
+     mean_tdn_mgL = mean(tdn_mgL, na.rm=TRUE), 
+     sd_tdn_mgL = sd(tdn_mgL, na.rm=TRUE)) %>%
+  mutate(across(where(is.numeric), round, digits = 4)) 
+
 ```
 
 ##Calculate summary metrics for Sourcewater
@@ -672,6 +691,18 @@ kable(
   row_spec(0, bold = TRUE) %>%   # header
   column_spec(1, bold = TRUE)
 
+kable(
+  summary_by_depth[, c("Depth_cm", "min_npoc_mgL",	"max_npoc_mgL",	"mean_npoc_mgL", "min_tdn_mgL",	"max_tdn_mgL",	"mean_tdn_mgL")],  
+  format = "latex",
+  booktabs = TRUE,
+  caption = "Porewater Summary Statistics by Depth"
+) %>%
+  kable_styling(
+    latex_options = c("hold_position", "striped", "scale_down"),
+    font_size = 12
+  ) %>%
+  row_spec(0, bold = TRUE) %>%   # header
+  column_spec(1, bold = TRUE)
 ```
 
 
@@ -703,6 +734,9 @@ write.csv(summary_by_year, "COMPASS_TEMPEST_PW_DOC_Summarized_By_Year.csv")
 
 #write out a csv of the Porewater Summary Statistics by Grid to the main folder: 
 write.csv(summary_all_years, "COMPASS_TEMPEST_PW_DOC_Summarized_Years_Combined.csv")
+
+#write out a csv of the Porewater Summary Statistics by Grid to the main folder: 
+write.csv(summary_by_depth, "COMPASS_TEMPEST_PW_DOC_Summarized_by_Depth.csv")
 
 #write out a csv of the Sourcewater Summary Statistics by Year to the main folder: 
 write.csv(summary_by_year_source, "COMPASS_TEMPEST_SOURCE_DOC_Summarized_By_Year.csv")
