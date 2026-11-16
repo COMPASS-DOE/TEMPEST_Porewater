@@ -18,12 +18,12 @@ library(googlesheets4)
 ####CHANGE FOR THE MONTH AS NEEDED: ####
 
 #Monthly file path 
-drive_path <- "https://drive.google.com/drive/folders/18WI9DKoYrQKs5k6khgfJeua_Wfz2JRIW"
+drive_path <- "https://drive.google.com/drive/folders/1yj2SuCH6vBac8XExU1OjzsSwr-0XxayL"
 
 ##Type in the evacuation dates
 #First sampling 
-Evacuation_date_YYYYMMDD_1 = 20260922
-Collection_Date_YYYYMMDD_1 = 20260924
+Evacuation_date_YYYYMMDD_1 = 20261110
+Collection_Date_YYYYMMDD_1 = 20261113
 
 #Second sampling 
 # Evacuation_date_YYYYMMDD_2 = 20260810
