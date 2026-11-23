@@ -33,6 +33,11 @@ cat("Run Information")
 #Log path 
     Log_path = "tmp_doc_raw_data_2026/COMPASS_TMP_TOCTN_QAQClog_2026.csv"
 
+#Inventory Path
+    inventory_path <- "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx"
+    #this has changed because now we run a code to create the inventory after sampling to prevent needing to enter data twice. 
+    
+
 ```
 
 ## Setup
@@ -91,44 +96,6 @@ plot_order <- c('Control', 'Freshwater', 'Saltwater')
 anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 
 ```
-
-##Pull in active porewater inventory
-```{r Pull in active porewater tracking inventory sheet from Google Drive, include=FALSE}
-
-#Run these to pull the TEMPEST porewater metadata into GitHub if not already there
-
-##link directory to google drive folder
-directory <- "https://drive.google.com/drive/folders/1oEeiU48OULo0UOu0np3l1JhYYEQcnw7e"
-
-#filter to necessary files
-files_pulse <- drive_ls(directory) %>%
-filter(grepl("TEMPEST_PorewaterInventory_May2022_Present_updated", name))
-
-#download files to local drive
-lapply(c(files_pulse$name), drive_download,
-overwrite = TRUE)
-
-sheet_names <- excel_sheets("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx")
-sheet_names
-
-raw_metadata_lys <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Porewater - Individual", skip = 4)
-raw_metadata_sce <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Source Water", skip = 4)
-raw_metadata_ro <- read_excel("TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx", sheet = "Runoff", skip = 4) 
-
-#merge metadata
-raw_metadata_all <- bind_rows(raw_metadata_lys, raw_metadata_sce, raw_metadata_ro)
-
-#select SO4/Cl samples 
-raw_metadata <- raw_metadata_all %>% 
-  filter(str_detect(Sample_ID, "DOC")) %>% 
-  rename(sample_name = Sample_ID) %>%
-  mutate(sample_name = gsub("-", "_", sample_name)) %>%
-  mutate(sample_name = gsub("_PW_", "_", sample_name)) %>%
-  mutate(sample_name = gsub("_DOC_", "_", sample_name))
-
-```
-
-
 
 \newpage
 
@@ -801,6 +768,20 @@ dat_flagged <- dat_flagged %>%
 
 cat("Check Sample IDs with Metadata")
 
+sample_collected_metadata <- readxl::read_excel(inventory_path, skip=4, sheet="Porewater - Individual") %>%
+  select(Project, Plot, Sample_ID, Vial_ID, Volume_mL, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
+         Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>%
+  mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
+  filter(sample_type == "DOC") #filter to just DOC samples
+
+samples_collected <- sample_collected_metadata %>%
+  #note sample names are not entered in the sheets the same way: DOC data entered time_plot_grid; metadata entered plot_grid_date
+  mutate(plot = stringr::str_extract(Vial_ID, 'SW|FW|C'),
+         grid = stringr::str_extract(Vial_ID, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
+         depth = stringr::str_extract(Sample_ID, "15|30|50"), 
+         date = stringr::str_extract(Vial_ID, "[0-9]{8}"),
+         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date, "_", depth, "cm" )) 
+
 # Clean up the data to make sure it will match the metadata file 
 dat_flagged1 <- dat_flagged %>%
   mutate(sample_name = str_replace(sample_name, "CTRL", "C")) %>%
@@ -810,22 +791,21 @@ dat_flagged1 <- dat_flagged %>%
          grid = stringr::str_extract(sample_name, "B4|C3|C6|D5|E3|F4|F6|H3|H6|I5") ,
          depth = stringr::str_extract(sample_name, "15cm|30cm|50cm"), 
          date = stringr::str_extract(sample_name, "[0-9]{8}"),
-         sample_name = paste0("TMP", "_", plot, "_", grid, "_", depth, "_", date)) %>%
- select(-c(plot))
+         sample_name = paste0("TMP", "_", plot, "_", grid, "_", date, "_", depth)) %>%
+ select(-c(plot, grid, depth, date))
 
 #check if metadata was recorded for each of the samples run 
 dat_flagged1 %>%
-  mutate(raw_metadata = case_when(
-    sample_name %in% raw_metadata$sample_name ~ TRUE,
+  mutate(metadata_recorded = case_when(
+    sample_name %in% samples_collected$sample_name ~ TRUE,
     TRUE ~ FALSE
   )) %>%
-  select(sample_name, raw_metadata) %>%
+  select(sample_name, metadata_recorded) %>%
   print()
 
 #join in the metadata to the data 
 merged_data <- dat_flagged1 %>%
-  left_join(raw_metadata, by = "sample_name")
-
+  left_join(samples_collected, by = "sample_name")
 ```
 
 ## Export Processed Data  
@@ -854,7 +834,6 @@ final_data <- final_data %>%
     Field_notes = Notes, 
     Depth_cm = depth, 
     Grid = grid,
-    sample_type = Analyte,
     # add more rename pairs as needed
   ) %>%
   select(

@@ -1,6 +1,6 @@
 ---
 title: "COMPASS: TEMPEST Discrete DOC Data QAQC"
-author: "June 2026"
+author: "May 2026"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -14,27 +14,29 @@ cat("Run Information")
   #steph will add this soon 
   
 #anything that needs to be changed do this in the first chunk
-  Date_Run = "06/13/26"
+  Date_Run = "05/11/26"
   Run_by = "Stephanie J. Wilson"
   Script_run_by = "Stephanie J. Wilson"
   run_notes = "Run Notes "
   
   #file path and name for summary file 
-    raw_file_name = c("tmp_doc_raw_data_2026/TMP_202606_1.txt",  "tmp_doc_raw_data_2026/TMP_202606_2.txt",
-                      "tmp_doc_raw_data_2026/TMP_202606_3.txt", "tmp_doc_raw_data_2026/TMP_202606_4.txt")
+    raw_file_name = c("tmp_doc_raw_data_2026/TMP_202605.txt")
   #file path and name for the all peaks file 
-    raw_allpeaks_name = c("tmp_doc_raw_data_2026/TMP_202606_1_allpeaks.txt",  "tmp_doc_raw_data_2026/TMP_202606_2_allpeaks.txt",
-                      "tmp_doc_raw_data_2026/TMP_202606_3_allpeaks.txt", "tmp_doc_raw_data_2026/TMP_202606_4_allpeaks.txt")
+    raw_allpeaks_name = c("tmp_doc_raw_data_2026/TMP_202605_allpeaks.txt")
   #file path and name for processed data after QAQC
-    processed_file_name = "tmp_doc_processed_data_2026/TMP_PW_DOC_Processed_202606.csv"
+    processed_file_name = "tmp_doc_processed_data_2026/TMP_PW_DOC_Processed_202605.csv"
 
 #check standard concentrations - Update if running different checks: 
-   chk_std_c = 1
-   chk_std_n = 1
+   chk_std_c = 50
+   chk_std_n = 2
     
 #Log path 
     Log_path = "tmp_doc_raw_data_2026/COMPASS_TMP_TOCTN_QAQClog_2026.csv"
-
+    
+#Inventory Path
+    inventory_path <- "TEMPEST_PorewaterInventory_May2022_Present_updated.xlsx"
+    #this has changed because now we run a code to create the inventory after sampling to prevent needing to enter data twice. 
+    
 ```
 
 ## Setup
@@ -88,31 +90,6 @@ anyas_colors <- c('springgreen2', 'cyan2', 'violetred2')
 
 ```
 
-## Pull in active porewater tracking inventory sheet 
-```{r pull in metadata for later, echo=FALSE}
-
-#inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit#gid=496164093"
-inventory_directory <- "https://docs.google.com/spreadsheets/d/1sFWq-WKhemPzbOFInqhCu_Lx0lsO6a_Z/edit?gid=496164093#gid=496164093"
-
-directory= file.path(here() %>% dirname(), 'TEMPEST_Porewater/processing_scripts/DOC/tmp_doc_2026/tmp_doc_metadata_2026')
-if(!dir.exists(directory)){
-  stop("Directory does not exist, check directory path")
-}
-
-#file path for download of the porewater inventory
-file_path = file.path(directory, paste0("porewaterinventory_", Sys.Date(), ".xlsx"))
-
-#check if the porewater inventory was downloaded today and if not, donwload it 
-if (!file.exists(file_path)) {
-  # File does not exist, so download it
-  drive_download(inventory_directory, path= file_path, overwrite = FALSE)
-} else {
-  # File exists, do nothing or print a message
-  message("File already exists. No download needed.")
-}
-
-#drive_download(inventory_directory, path= file_path, overwrite = FALSE)
-```
 
 \newpage
 
@@ -366,7 +343,7 @@ cat("Assess the Check Standards")
 #call to checkstds orrrr Pull out check standards from raw file 
 chks_raw <- raw_file_name %>% 
   map_df(read_data) %>% 
-  filter(grepl("Chk_Std_1CN", sample_name)) %>% # filter to TMP samples only
+  filter(grepl("Chk_Std_50C_2N", sample_name)) %>% # filter to TMP samples only
   bind_rows() 
 
 chks_raw <- chks_raw %>% 
@@ -688,8 +665,8 @@ dat_flagged <- dat_flagged %>%
 
 cat("Check Sample IDs with Metadata")
 
-sample_collected_metadata <- readxl::read_excel(file_path, skip=3, sheet="Porewater - Individual") %>%
-  select(Project, Plot, Sample_ID, Vial_ID, Volume_mL, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+sample_collected_metadata <- readxl::read_excel(inventory_path, skip=4, sheet="Porewater - Individual") %>%
+  select(Project, Plot, Sample_ID, Vial_ID, Volume_mL, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
          Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Notes) %>%
   mutate(sample_type = stringr::str_extract(Vial_ID, 'SO4|FE|DOC|NUTR|AMINO|ISO|SAC|HR-MS|CDOM')) %>% #get the sample type from the Vial_ID
   filter(sample_type == "DOC") #filter to just DOC samples
@@ -759,7 +736,7 @@ final_data <- final_data %>%
   select(
     Project, plot, grid, Depth_cm, sample_type, Vial_ID, date, 
     npoc_mgL, npoc_uM, npoc_flag, tdn_mgL, tdn_uM, tdn_flag, Analysis_runtime,
-    Run_notes, Field_notes, Evacuation_date_YYYMMDD, Collection_Date_YYYYMMDD, 
+    Run_notes, Field_notes, Evacuation_date_YYYYMMDD, Collection_Date_YYYYMMDD, 
     Collection_Start_Time_24hrs, Collection_End_Time_24hrs, EST_EDT, Volume_mL
     # list columns in the order you want them
   )
